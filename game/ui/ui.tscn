@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://game/ui/ui.gd" type="Script" id=1]
+
+[node name="UI" type="Control"]
+margin_left = 50.0
+margin_top = 50.0
+margin_right = 910.0
+margin_bottom = 490.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

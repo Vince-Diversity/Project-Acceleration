@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://addons/dialogue_manager/dialogue_label.tscn" type="PackedScene" id=1]
+[ext_resource path="res://game/ui/narrative_label.gd" type="Script" id=2]
+
+[node name="NarrativeLabel" instance=ExtResource( 1 )]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 0.0
+margin_bottom = -525.0
+script = ExtResource( 2 )
+skip_action = "ui_accept"
+seconds_per_step = 0.005

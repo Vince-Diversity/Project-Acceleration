@@ -1,0 +1,52 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://game/ui/menu.gd" type="Script" id=1]
+
+[node name="Menu" type="CenterContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuContainer" type="VBoxContainer" parent="."]
+margin_left = 438.0
+margin_top = 226.0
+margin_right = 521.0
+margin_bottom = 313.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="RichTextLabel" parent="MenuContainer"]
+margin_right = 83.0
+margin_bottom = 15.0
+bbcode_enabled = true
+bbcode_text = "[center]Paused[/center]"
+text = "Paused"
+fit_content_height = true
+
+[node name="Resume" type="Button" parent="MenuContainer"]
+margin_top = 19.0
+margin_right = 83.0
+margin_bottom = 39.0
+focus_neighbour_bottom = NodePath("../Save")
+text = "Resume"
+
+[node name="Save" type="Button" parent="MenuContainer"]
+margin_top = 43.0
+margin_right = 83.0
+margin_bottom = 63.0
+focus_neighbour_top = NodePath("../Resume")
+text = "Save"
+
+[node name="Main Menu" type="Button" parent="MenuContainer"]
+margin_top = 67.0
+margin_right = 83.0
+margin_bottom = 87.0
+text = "Main Menu"
+
+[connection signal="pressed" from="MenuContainer/Resume" to="." method="_on_Resume_pressed"]
+[connection signal="pressed" from="MenuContainer/Save" to="." method="_on_Save_pressed"]
+[connection signal="pressed" from="MenuContainer/Main Menu" to="." method="_on_Main_Menu_pressed"]

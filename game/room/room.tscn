@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://game/room/room.gd" type="Script" id=1]
+[ext_resource path="res://assets/background/empty_bg.png" type="Texture" id=2]
+[ext_resource path="res://game/ui/ui.tscn" type="PackedScene" id=3]
+
+[node name="Room" type="Control"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="TextureRect" parent="."]
+margin_right = 960.0
+margin_bottom = 540.0
+texture = ExtResource( 2 )
+expand = true
+
+[node name="UI" parent="." instance=ExtResource( 3 )]
