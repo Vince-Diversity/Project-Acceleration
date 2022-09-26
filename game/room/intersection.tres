@@ -9,30 +9,53 @@ raw_text = "~ first_entrance
 
 Three school house corridors are in front. A gym is to the right.
 {{YELLOW}}: Come on team, the early bird gets the worm!
-- Go to the yellow house corridor => goto_gym
-- Go to the green house corridor => goto_gym
-- Go to the red house corridor => goto_gym
+- Go to the yellow house corridor => redirect_gym
+- Go to the green house corridor => redirect_gym
+- Go to the red house corridor => redirect_gym
 - Go to the blue house corridor [if is_in_blue_space()]  => goto_gym
 - Go to the gym => goto_gym
 
 ~ visit
 
 Three school house corridors are in front. A gym is to the right.
-- Go to the yellow house corridor => goto_gym
-- Go to the green house corridor => goto_gym
-- Go to the red house corridor => goto_gym
+- Go to the yellow house corridor => yellow_class
+- Go to the green house corridor => red_class
+- Go to the red house corridor => green_class
 - Go to the blue house corridor [if is_in_blue_space()]  => goto_gym
 - Go to the gym => goto_gym
+
+~ redirect_gym
+
+{{YELLOW}}: Hey {{GREEN}}, where are you heading? Class is at gym.
+Pulled by an arm, the team hurries towards the gym.
+set next = \"gym\"
 
 ~ goto_gym
 
 The team walks towards the gym.
-set next = \"gym\""
+set next = \"gym\"
+
+~ yellow_class
+The team walks into the green house corridor.
+set next = \"green_class\"
+
+~ green_class
+
+The team walks into the green house corridor.
+set next = \"green_class\"
+
+~ red_class
+The team walks into the green house corridor.
+set next = \"green_class\""
 errors = [  ]
 titles = {
 "first_entrance": "2",
-"goto_gym": "21",
-"visit": "12"
+"goto_gym": "27",
+"green_class": "36",
+"red_class": "40",
+"redirect_gym": "21",
+"visit": "12",
+"yellow_class": "31"
 }
 lines = {
 "0": {
@@ -59,7 +82,7 @@ lines = {
 "type": "dialogue"
 },
 "13": {
-"next_id": "21",
+"next_id": "31",
 "next_id_after": "end",
 "replacements": [  ],
 "responses": PoolStringArray( "13", "14", "15", "16", "17" ),
@@ -68,7 +91,7 @@ lines = {
 "type": "response"
 },
 "14": {
-"next_id": "21",
+"next_id": "40",
 "next_id_after": "end",
 "replacements": [  ],
 "text": "Go to the green house corridor",
@@ -76,7 +99,7 @@ lines = {
 "type": "response"
 },
 "15": {
-"next_id": "21",
+"next_id": "36",
 "next_id_after": "end",
 "replacements": [  ],
 "text": "Go to the red house corridor",
@@ -91,7 +114,7 @@ lines = {
 "value": [  ]
 } ]
 },
-"next_id": "21",
+"next_id": "27",
 "next_id_after": "end",
 "replacements": [  ],
 "text": "Go to the blue house corridor",
@@ -99,7 +122,7 @@ lines = {
 "type": "response"
 },
 "17": {
-"next_id": "21",
+"next_id": "27",
 "next_id_after": "end",
 "replacements": [  ],
 "text": "Go to the gym",
@@ -108,7 +131,7 @@ lines = {
 },
 "19": {
 "next_id": "21",
-"text": "goto_gym",
+"text": "redirect_gym",
 "type": "title"
 },
 "2": {
@@ -125,9 +148,69 @@ lines = {
 "type": "dialogue"
 },
 "21": {
-"character": "",
+"character": "{{YELLOW}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "YELLOW"
+} ],
+"value_in_text": "{{YELLOW}}"
+} ],
 "inline_mutations": [  ],
 "next_id": "22",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "Hey {{GREEN}}, where are you heading? Class is at gym.",
+"time": null,
+"translation_key": "Hey {{GREEN}}, where are you heading? Class is at gym.",
+"type": "dialogue"
+},
+"22": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "23",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "Pulled by an arm, the team hurries towards the gym.",
+"time": null,
+"translation_key": "Pulled by an arm, the team hurries towards the gym.",
+"type": "dialogue"
+},
+"23": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "gym"
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"25": {
+"next_id": "27",
+"text": "goto_gym",
+"type": "title"
+},
+"27": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "28",
 "pauses": {
 },
 "replacements": [  ],
@@ -137,7 +220,7 @@ lines = {
 "translation_key": "The team walks towards the gym.",
 "type": "dialogue"
 },
-"22": {
+"28": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -173,6 +256,79 @@ lines = {
 "translation_key": "Come on team, the early bird gets the worm!",
 "type": "dialogue"
 },
+"30": {
+"next_id": "31",
+"text": "yellow_class",
+"type": "title"
+},
+"31": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "32",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "The team walks into the green house corridor.",
+"time": null,
+"translation_key": "The team walks into the green house corridor.",
+"type": "dialogue"
+},
+"32": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "green_class"
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"34": {
+"next_id": "36",
+"text": "green_class",
+"type": "title"
+},
+"36": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "37",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "The team walks into the green house corridor.",
+"time": null,
+"translation_key": "The team walks into the green house corridor.",
+"type": "dialogue"
+},
+"37": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "green_class"
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"39": {
+"next_id": "40",
+"text": "red_class",
+"type": "title"
+},
 "4": {
 "next_id": "21",
 "next_id_after": "end",
@@ -181,6 +337,35 @@ lines = {
 "text": "Go to the yellow house corridor",
 "translation_key": "Go to the yellow house corridor",
 "type": "response"
+},
+"40": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "41",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "The team walks into the green house corridor.",
+"time": null,
+"translation_key": "The team walks into the green house corridor.",
+"type": "dialogue"
+},
+"41": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "green_class"
+} ]
+},
+"next_id": "",
+"type": "mutation"
 },
 "5": {
 "next_id": "21",
@@ -206,7 +391,7 @@ lines = {
 "value": [  ]
 } ]
 },
-"next_id": "21",
+"next_id": "27",
 "next_id_after": "end",
 "replacements": [  ],
 "text": "Go to the blue house corridor",
@@ -214,7 +399,7 @@ lines = {
 "type": "response"
 },
 "8": {
-"next_id": "21",
+"next_id": "27",
 "next_id_after": "end",
 "replacements": [  ],
 "text": "Go to the gym",

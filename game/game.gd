@@ -8,6 +8,8 @@ var save_dir: String = Loader.dev_mode_save_dir
 var room_node
 var next: String
 
+signal clear_dialogue
+
 func _ready():
 	load_room(States.current_room)
 
@@ -21,6 +23,7 @@ func load_room(room_name: String) -> void:
 	add_child(room_node)
 	States.current_room = room_name
 	room_node.ui.connect("finished", self, "change_room")
+	connect("clear_dialogue", room_node.ui, "clear")
 
 func change_room() -> void:
 	room_node.queue_free()
@@ -45,3 +48,6 @@ func _on_Menu_save_pressed():
 		dir.make_dir_recursive(save_dir)
 	var err = ResourceSaver.save(Loader.save_path, save_game)
 	if err != OK: print(err)
+
+func clear():
+	emit_signal("clear_dialogue")

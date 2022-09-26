@@ -33,6 +33,10 @@ States="*res://game/states.gd"
 Names="*res://game/names.gd"
 Loader="*res://loader/loader.gd"
 
+[debug]
+
+gdscript/warnings/return_value_discarded=false
+
 [display]
 
 window/size/width=960

@@ -16,6 +16,7 @@ func _on_Save_pressed():
 	$MenuContainer/Title.text = "Game saved!"
 	$MenuContainer/Resume.disabled = true
 	$MenuContainer/Save.disabled = true
+	$MenuContainer/MainMenu.disabled = true
 	yield(get_tree().create_timer(1), "timeout")
 	queue_free()
 

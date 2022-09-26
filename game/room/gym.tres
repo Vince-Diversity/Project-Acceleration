@@ -9,14 +9,12 @@ raw_text = "~ first_entrance
 
 This is the gymnastics hall. The orange walls are worn down, which is probably from self-defense arts training classes.
 A crowd of loud students are neatly organized in lines, in front of our combat teacher, {{TEACHER}}.
-- Go back through the main hallway => goto_intersection
 - Join the line and wait for the class to start => start_class
 
 ~ visit
 
 This is the gymnastics hall.
 - Go back through the main hallway => goto_intersection
-- Join the line and wait for the class to start => start_class
 
 ~ goto_intersection
 
@@ -32,13 +30,24 @@ At the sound of house points, the other peers jumped. The rivarly between the ho
 {{YELLOW}}: Yes! I've been itching for a competition! A triple hi-five for the best team in the universe!
 {{RED}}: Hi-five!
 We joined the noise and headed back through the main hallway.
+do clear()
+=> meeting_blue
+
+~ meeting_blue
+Admist the flowing crowd, {{GREEN}} noticed a boy who stood still in the corridor.
+{{GREEN}}: You lost?
+{{BLUE}}: Huh? How do you know that?
+{{GREEN}}: In that case, why not follow us to the assignment rooms?
+Having no reason to deny, {{BLUE}} joined the team.
+
 set next = \"intersection\""
 errors = [  ]
 titles = {
 "first_entrance": "2",
-"goto_intersection": "15",
-"start_class": "20",
-"visit": "9"
+"goto_intersection": "13",
+"meeting_blue": "29",
+"start_class": "18",
+"visit": "8"
 }
 lines = {
 "0": {
@@ -46,32 +55,15 @@ lines = {
 "text": "first_entrance",
 "type": "title"
 },
-"10": {
-"next_id": "15",
-"next_id_after": "end",
-"replacements": [  ],
-"responses": PoolStringArray( "10", "11" ),
-"text": "Go back through the main hallway",
-"translation_key": "Go back through the main hallway",
-"type": "response"
-},
 "11": {
-"next_id": "20",
-"next_id_after": "end",
-"replacements": [  ],
-"text": "Join the line and wait for the class to start",
-"translation_key": "Join the line and wait for the class to start",
-"type": "response"
-},
-"13": {
-"next_id": "15",
+"next_id": "13",
 "text": "goto_intersection",
 "type": "title"
 },
-"15": {
+"13": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "16",
+"next_id": "14",
 "pauses": {
 },
 "replacements": [ {
@@ -87,7 +79,7 @@ lines = {
 "translation_key": "{{GREEN}}'s team goes back through the main hallway.",
 "type": "dialogue"
 },
-"16": {
+"14": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -103,10 +95,50 @@ lines = {
 "next_id": "",
 "type": "mutation"
 },
-"18": {
-"next_id": "20",
+"16": {
+"next_id": "18",
 "text": "start_class",
 "type": "title"
+},
+"18": {
+"character": "{{TEACHER}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "TEACHER"
+} ],
+"value_in_text": "{{TEACHER}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "19",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "Alright younglings! In each house corridor, my colleagues await you!",
+"time": null,
+"translation_key": "Alright younglings! In each house corridor, my colleagues await you!",
+"type": "dialogue"
+},
+"19": {
+"character": "{{TEACHER}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "TEACHER"
+} ],
+"value_in_text": "{{TEACHER}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "20",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "You will be tested in your knowledge, skill and devotion.",
+"time": null,
+"translation_key": "You will be tested in your knowledge, skill and devotion.",
+"type": "dialogue"
 },
 "2": {
 "character": "",
@@ -136,55 +168,15 @@ lines = {
 },
 "replacements": [  ],
 "speeds": [  ],
-"text": "Alright younglings! In each house corridor, my colleagues await you!",
-"time": null,
-"translation_key": "Alright younglings! In each house corridor, my colleagues await you!",
-"type": "dialogue"
-},
-"21": {
-"character": "{{TEACHER}}",
-"character_replacements": [ {
-"expression": [ {
-"type": "variable",
-"value": "TEACHER"
-} ],
-"value_in_text": "{{TEACHER}}"
-} ],
-"inline_mutations": [  ],
-"next_id": "22",
-"pauses": {
-},
-"replacements": [  ],
-"speeds": [  ],
-"text": "You will be tested in your knowledge, skill and devotion.",
-"time": null,
-"translation_key": "You will be tested in your knowledge, skill and devotion.",
-"type": "dialogue"
-},
-"22": {
-"character": "{{TEACHER}}",
-"character_replacements": [ {
-"expression": [ {
-"type": "variable",
-"value": "TEACHER"
-} ],
-"value_in_text": "{{TEACHER}}"
-} ],
-"inline_mutations": [  ],
-"next_id": "23",
-"pauses": {
-},
-"replacements": [  ],
-"speeds": [  ],
 "text": "House points will be delegated! Now go!",
 "time": null,
 "translation_key": "House points will be delegated! Now go!",
 "type": "dialogue"
 },
-"23": {
+"21": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "24",
+"next_id": "22",
 "pauses": {
 },
 "replacements": [  ],
@@ -194,7 +186,7 @@ lines = {
 "translation_key": "At the sound of house points, the other peers jumped. The rivarly between the houses is fierce, and the teachers are feeding this fire.",
 "type": "dialogue"
 },
-"24": {
+"22": {
 "character": "{{YELLOW}}",
 "character_replacements": [ {
 "expression": [ {
@@ -204,7 +196,7 @@ lines = {
 "value_in_text": "{{YELLOW}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "25",
+"next_id": "23",
 "pauses": {
 },
 "replacements": [  ],
@@ -214,7 +206,7 @@ lines = {
 "translation_key": "Yes! I've been itching for a competition! A triple hi-five for the best team in the universe!",
 "type": "dialogue"
 },
-"25": {
+"23": {
 "character": "{{RED}}",
 "character_replacements": [ {
 "expression": [ {
@@ -224,7 +216,7 @@ lines = {
 "value_in_text": "{{RED}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "26",
+"next_id": "24",
 "pauses": {
 },
 "replacements": [  ],
@@ -234,10 +226,10 @@ lines = {
 "translation_key": "Hi-five!",
 "type": "dialogue"
 },
-"26": {
+"24": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "27",
+"next_id": "25",
 "pauses": {
 },
 "replacements": [  ],
@@ -247,21 +239,44 @@ lines = {
 "translation_key": "We joined the noise and headed back through the main hallway.",
 "type": "dialogue"
 },
-"27": {
+"25": {
 "mutation": {
 "expression": [ {
-"type": "variable",
-"value": "next"
-}, {
-"type": "assignment",
-"value": "="
-}, {
-"type": "string",
-"value": "intersection"
+"function": "clear",
+"type": "function",
+"value": [  ]
 } ]
 },
-"next_id": "",
+"next_id": "26",
 "type": "mutation"
+},
+"26": {
+"next_id": "29",
+"type": "goto"
+},
+"28": {
+"next_id": "29",
+"text": "meeting_blue",
+"type": "title"
+},
+"29": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "30",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "Admist the flowing crowd, {{GREEN}} noticed a boy who stood still in the corridor.",
+"time": null,
+"translation_key": "Admist the flowing crowd, {{GREEN}} noticed a boy who stood still in the corridor.",
+"type": "dialogue"
 },
 "3": {
 "character": "",
@@ -282,32 +297,119 @@ lines = {
 "translation_key": "A crowd of loud students are neatly organized in lines, in front of our combat teacher, {{TEACHER}}.",
 "type": "dialogue"
 },
-"4": {
-"next_id": "15",
-"next_id_after": "end",
-"replacements": [  ],
-"responses": PoolStringArray( "4", "5" ),
-"text": "Go back through the main hallway",
-"translation_key": "Go back through the main hallway",
-"type": "response"
+"30": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "31",
+"pauses": {
 },
-"5": {
-"next_id": "20",
+"replacements": [  ],
+"speeds": [  ],
+"text": "You lost?",
+"time": null,
+"translation_key": "You lost?",
+"type": "dialogue"
+},
+"31": {
+"character": "{{BLUE}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "32",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "Huh? How do you know that?",
+"time": null,
+"translation_key": "Huh? How do you know that?",
+"type": "dialogue"
+},
+"32": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "33",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "In that case, why not follow us to the assignment rooms?",
+"time": null,
+"translation_key": "In that case, why not follow us to the assignment rooms?",
+"type": "dialogue"
+},
+"33": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "35",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"speeds": [  ],
+"text": "Having no reason to deny, {{BLUE}} joined the team.",
+"time": null,
+"translation_key": "Having no reason to deny, {{BLUE}} joined the team.",
+"type": "dialogue"
+},
+"35": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "intersection"
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"4": {
+"next_id": "18",
 "next_id_after": "end",
 "replacements": [  ],
+"responses": PoolStringArray( "4" ),
 "text": "Join the line and wait for the class to start",
 "translation_key": "Join the line and wait for the class to start",
 "type": "response"
 },
-"7": {
-"next_id": "9",
+"6": {
+"next_id": "8",
 "text": "visit",
 "type": "title"
 },
-"9": {
+"8": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "10",
+"next_id": "9",
 "pauses": {
 },
 "replacements": [  ],
@@ -316,5 +418,14 @@ lines = {
 "time": null,
 "translation_key": "This is the gymnastics hall.",
 "type": "dialogue"
+},
+"9": {
+"next_id": "13",
+"next_id_after": "end",
+"replacements": [  ],
+"responses": PoolStringArray( "9" ),
+"text": "Go back through the main hallway",
+"translation_key": "Go back through the main hallway",
+"type": "response"
 }
 }

@@ -1,12 +1,18 @@
 extends Control
 
+onready var controls_scn = preload("res://loader/controls.tscn")
 onready var options = $Options
 onready var load_game = $Options/LoadGame
 onready var new_game = $Options/NewGame
 var focus
 
 func _ready():
+	_ready_controls()
 	_ready_main_menu()
+
+func _ready_controls():
+	var controls = controls_scn.instance()
+	add_child(controls)
 
 func _ready_main_menu():
 	adapt_load_button()

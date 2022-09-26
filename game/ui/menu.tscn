@@ -41,7 +41,7 @@ margin_bottom = 63.0
 focus_neighbour_top = NodePath("../Resume")
 text = "Save"
 
-[node name="Main Menu" type="Button" parent="MenuContainer"]
+[node name="MainMenu" type="Button" parent="MenuContainer"]
 margin_top = 67.0
 margin_right = 83.0
 margin_bottom = 87.0
@@ -49,4 +49,4 @@ text = "Main Menu"
 
 [connection signal="pressed" from="MenuContainer/Resume" to="." method="_on_Resume_pressed"]
 [connection signal="pressed" from="MenuContainer/Save" to="." method="_on_Save_pressed"]
-[connection signal="pressed" from="MenuContainer/Main Menu" to="." method="_on_Main_Menu_pressed"]
+[connection signal="pressed" from="MenuContainer/MainMenu" to="." method="_on_Main_Menu_pressed"]

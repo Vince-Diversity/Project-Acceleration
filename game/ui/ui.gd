@@ -60,3 +60,7 @@ func _run_dlg() -> void:
 
 func _on_Game_accept_pressed():
 	emit_signal("accept_pressed")
+
+func clear():
+	for entry in dlg.get_children():
+		dlg.remove_child(entry)
