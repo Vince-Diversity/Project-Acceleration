@@ -20,6 +20,5 @@ func _on_Save_pressed():
 	yield(get_tree().create_timer(1), "timeout")
 	queue_free()
 
-
 func _on_Main_Menu_pressed():
 	Loader.enter_main_menu()

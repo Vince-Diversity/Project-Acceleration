@@ -1,33 +1,30 @@
 extends Node
 
 onready var room_scn = preload("res://game/room/room.tscn")
-onready var room_maker: Resource = preload("res://game/room/room_maker.gd")
 onready var menu_scn = preload("res://game/ui/menu.tscn")
 onready var save_res = preload("res://loader/save_game.gd")
 var save_dir: String = Loader.dev_mode_save_dir
 var room_node
 var next: String
 
-signal clear_dialogue
-
 func _ready():
 	load_room(States.current_room)
+	room_node.run_room()
 
 func _input(event):
 	if event.is_action_pressed("ui_exit"):
 		prompt_menu()
 
 func load_room(room_name: String) -> void:
-	room_node = room_scn.instance()
-	room_maker.make(room_node, room_name)
-	add_child(room_node)
 	States.current_room = room_name
-	room_node.ui.connect("finished", self, "change_room")
-	connect("clear_dialogue", room_node.ui, "clear")
+	room_node = room_scn.instance()
+	add_child(room_node)
+	room_node.ui.connect("change_room", self, "change_room")
 
 func change_room() -> void:
 	room_node.queue_free()
 	load_room(next)
+	room_node.run_room()
 
 func prompt_menu() -> void:
 	var menu = menu_scn.instance()
@@ -48,6 +45,3 @@ func _on_Menu_save_pressed():
 		dir.make_dir_recursive(save_dir)
 	var err = ResourceSaver.save(Loader.save_path, save_game)
 	if err != OK: print(err)
-
-func clear():
-	emit_signal("clear_dialogue")

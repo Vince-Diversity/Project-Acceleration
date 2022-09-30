@@ -1,5 +1,8 @@
 extends Node
 
+const first_visit_dlg_node = "first_visit"
+const revisit_dlg_node = "visit"
+
 var visited := []
 
 var current_room: String

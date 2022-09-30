@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://game/ui/response.gd" type="Script" id=1]
+[ext_resource path="res://game/ui/text_box/response.gd" type="Script" id=1]
 
 [node name="Response" type="Button"]
 margin_left = 20.0
