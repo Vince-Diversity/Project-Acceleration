@@ -3,6 +3,8 @@ extends Node
 const dlg_dir = "res://game/room/"
 const room_dir = "res://game/room/"
 
+enum InputType {RESPONSE, ACTION, REACTIVATION}
+
 func connect_neighbouring_elems(arr: Array) -> void:
 	if arr.size() > 1:
 		arr[0].focus_neighbour_bottom = arr[1].get_path()
@@ -14,3 +16,9 @@ func connect_neighbouring_elems(arr: Array) -> void:
 
 func get_res_filename(res: Resource) -> String:
 	return res.get_path().get_file().trim_suffix("." + res.get_path().get_extension())
+
+func get_dlg_path(dlg_name) -> String:
+	return Utils.dlg_dir + dlg_name + ".tres"
+
+func get_action_state_name(dlg_name: String, action_id: String) -> String:
+	return dlg_name + '_' + Names.action_suffix[action_id]

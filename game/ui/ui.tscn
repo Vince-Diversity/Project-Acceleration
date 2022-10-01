@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://game/ui/ui.gd" type="Script" id=1]
-[ext_resource path="res://game/ui/text_box.gd" type="Script" id=2]
-[ext_resource path="res://game/ui/action_box.gd" type="Script" id=3]
+[ext_resource path="res://game/ui/text_box/text_box.gd" type="Script" id=2]
+[ext_resource path="res://game/ui/action_box/action_box.gd" type="Script" id=3]
 
 [node name="UI" type="Control"]
 margin_left = 50.0

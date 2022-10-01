@@ -1,7 +1,7 @@
 extends Node
 
 onready var room_scn = preload("res://game/room/room.tscn")
-onready var menu_scn = preload("res://game/ui/menu.tscn")
+onready var menu_scn = preload("res://game/menu.tscn")
 onready var save_res = preload("res://loader/save_game.gd")
 var save_dir: String = Loader.dev_mode_save_dir
 var room_node
@@ -32,9 +32,8 @@ func prompt_menu() -> void:
 	add_child(menu)
 
 func save_game_state(save_game: Resource):
-	save_game.data["current_room"] = States.current_room
-	save_game.data["visited"] = States.visited
-	save_game.data["in_blue_space"] = States.in_blue_space
+	for property in States.property_list:
+		save_game.data[property] = States.get(property)
 
 func _on_Menu_save_pressed():
 	var save_game = save_res.new()

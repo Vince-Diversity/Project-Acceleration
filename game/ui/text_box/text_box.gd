@@ -4,25 +4,21 @@ onready var dlg_scn = preload("res://game/ui/text_box/dialogue.tscn")
 onready var narrative_scn = preload("res://game/ui/text_box/narrative_label.tscn")
 onready var pending_scn = preload("res://game/ui/text_box/pending_visual.tscn")
 onready var resp_scn = preload("res://game/ui/text_box/response.tscn")
-onready var resp_maker: Resource = preload("res://game/ui/text_box/response_maker.gd")
 var dlg_res: Resource
 var dlg
+var input_node
 
-signal accept_pressed
+signal responses_displayed(input_node)
+signal input_given
 signal finished_next_set
 
-func _unhandled_key_input(event):
-	if event.is_action_pressed("ui_accept"):
-		emit_signal("accept_pressed")
-
 func load_text(dlg_name):
-	var dlg_path = Utils.dlg_dir + dlg_name + ".tres"
-	dlg_res = load(dlg_path)
+	dlg_res = load(Utils.get_dlg_path(dlg_name))
 
 func run_text() -> void:
 	var dlg_node: String
 	if States.visited.has(Utils.get_res_filename(dlg_res)):
-		dlg_node = States.revisit_dlg_node
+		dlg_node = States.visit_dlg_node
 	else:
 		dlg_node = States.first_visit_dlg_node
 	var dlg_line = yield(dlg_res.get_next_dialogue_line(dlg_node), "completed")
@@ -37,7 +33,7 @@ func run_text() -> void:
 		if dlg_line.responses.empty():
 			var pending_vfx = pending_scn.instance()
 			dlg.add_child(pending_vfx)
-			yield(self, "accept_pressed")
+			yield(input_node, "accept_pressed")
 			dlg.remove_child(pending_vfx)
 			dlg_line = yield(dlg_res.get_next_dialogue_line(dlg_line.next_id), "completed")
 		else:
@@ -45,25 +41,42 @@ func run_text() -> void:
 			var resp
 			for i in dlg_line.responses.size():
 				resp = resp_scn.instance()
-				resp_maker.make(resp, dlg, dlg_line.responses[i], i)
+				make_response(resp, dlg_line.responses[i], i)
 				dlg.add_child(resp)
 				resp_arr.append(resp)
 			Utils.connect_neighbouring_elems(resp_arr)
 			resp_arr[0].grab_focus()
-			var resp_index = yield(dlg, "answered")
-			resp_arr[resp_index].release_focus()
-			dlg_line = yield(dlg_res.get_next_dialogue_line(dlg_line.responses[resp_index].next_id), "completed")
+			emit_signal("responses_displayed", input_node)
+			var input_arr = yield(input_node, "input_on_responding")
+			if input_arr[0] == Utils.InputType.RESPONSE:
+				var resp_index = input_arr[1]
+				resp_arr[resp_index].release_focus()
+				emit_signal("input_given")
+				dlg_line = yield(dlg_res.get_next_dialogue_line(dlg_line.responses[resp_index].next_id), "completed")
+			elif input_arr[0] == Utils.InputType.ACTION:
+				var action_id = input_arr[1]
+				States.set(Utils.get_action_state_name(States.current_room, action_id), true)
+				emit_signal("input_given")
+				dlg_line = yield(dlg_res.get_next_dialogue_line(States.action_dlg_node), "completed")
+			elif input_arr[0] ==  Utils.InputType.REACTIVATION:
+				emit_signal("input_given")
+				dlg_line = yield(dlg_res.get_next_dialogue_line(States.reactivation_dlg_node), "completed")
+			else:
+				push_warning("Textbox received a signal that is not in the Utils.InputType: %s" % input_arr[0])
 	remove_child(dlg)
 	mark_dlg()
 	emit_signal("finished_next_set")
 
+func make_response(resp, resp_line, resp_index: int):
+	resp.prompt(resp_line.prompt)
+	resp.index = resp_index
+	resp.connect("selected", input_node, "_on_Response_selected")
+
 func mark_dlg() -> void:
-	var id = Utils.get_res_filename(dlg_res)
-	if !States.visited.has(id):	States.visited.append(id)
+	var dlg_id = Utils.get_res_filename(dlg_res)
+	if !States.visited.has(dlg_id):
+		States.visited.append(dlg_id)
 
 func clear():
 	for entry in dlg.get_children():
 		dlg.remove_child(entry)
-
-func _on_Game_accept_pressed():
-	emit_signal("accept_pressed")
