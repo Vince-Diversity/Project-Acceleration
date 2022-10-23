@@ -22,35 +22,39 @@ A metallic cat robot is making cat-like noises.
 {{GREEN}}: Good idea.
 set yellow_joined = true
 {{YELLOW}} joined {{GREEN}}.
-- re-visit => goto_cat_lab
+- Wait for a little => stay
+- Restart the robo-cat => restart_cat
+- Go back => dorm_wing_entrance
 
 ~ visit
 
+{{GREEN}} is in {{YELLOW}}'s dorm.
 if cat_lab_revealed == true
 	The room is silent.
 else
 	{{CAT}}: Meo-w. Meo-w.
 	The squeaky robo-cat is alive.
-- revisit => goto_cat_lab
+- Wait for a little => stay
 - Restart the robo-cat => restart_cat
-
-~ goto_cat_lab
-
-Revisit
-set next = \"cat_lab\"
+- Go back => dorm_wing_entrance
 
 ~ execute_action
 
 if cat_lab_revealed == true
 	The cat-bot is lying on its side. The cat noises stopped.
-=> goto_cat_lab
+=> stay
 
 ~ action_reactivated
 
 if cat_lab_revealed == true
 	{{YELLOW}} peeks through their device on the metallic cat again, but nothing happened.
 	{{YELLOW}}: {{GREEN}}, using the {{REVEALER}} again doesn't reverse the effects, see?
-=> goto_cat_lab
+=> stay
+
+~ stay
+
+{{GREEN}} stays in {{YELLOW}}'s dorm a bit longer.
+set next = \"cat_lab\"
 
 ~ restart_cat
 
@@ -59,15 +63,21 @@ if cat_lab_revealed == false
 else:
 	{{YELLOW}} swiftly gets the robo-cat on its feet again.
 	set cat_lab_revealed = false
-=> goto_cat_lab"
+=> stay
+
+~ dorm_wing_entrance
+
+{{GREEN}} leaves the room and follows the same path back.
+set next = \"dorm_wing_entrance\""
 errors = [  ]
 titles = {
-"action_reactivated": "42",
-"execute_action": "36",
+"action_reactivated": "41",
+"dorm_wing_entrance": "62",
+"execute_action": "35",
 "first_visit": "2",
-"goto_cat_lab": "31",
-"restart_cat": "49",
-"visit": "21"
+"restart_cat": "53",
+"stay": "48",
+"visit": "23"
 }
 lines = {
 "0": {
@@ -217,18 +227,29 @@ lines = {
 "type": "dialogue"
 },
 "17": {
-"next_id": "31",
+"next_id": "48",
 "next_id_after": "end",
 "replacements": [  ],
-"responses": PoolStringArray( "17" ),
-"text": "re-visit",
-"translation_key": "re-visit",
+"responses": PoolStringArray( "17", "18", "19" ),
+"text": "Wait for a little",
+"translation_key": "Wait for a little",
+"type": "response"
+},
+"18": {
+"next_id": "53",
+"next_id_after": "end",
+"replacements": [  ],
+"text": "Restart the robo-cat",
+"translation_key": "Restart the robo-cat",
 "type": "response"
 },
 "19": {
-"next_id": "21",
-"text": "visit",
-"type": "title"
+"next_id": "62",
+"next_id_after": "end",
+"replacements": [  ],
+"text": "Go back",
+"translation_key": "Go back",
+"type": "response"
 },
 "2": {
 "character": "{{CAT}}",
@@ -251,6 +272,36 @@ lines = {
 "type": "dialogue"
 },
 "21": {
+"next_id": "23",
+"text": "visit",
+"type": "title"
+},
+"23": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "24",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "YELLOW"
+} ],
+"value_in_text": "{{YELLOW}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} is in {{YELLOW}}'s dorm.",
+"time": null,
+"translation_key": "{{GREEN}} is in {{YELLOW}}'s dorm.",
+"type": "dialogue"
+},
+"24": {
 "condition": {
 "expression": [ {
 "type": "variable",
@@ -263,16 +314,16 @@ lines = {
 "value": true
 } ]
 },
-"next_conditional_id": "23",
-"next_id": "22",
-"next_id_after": "26",
+"next_conditional_id": "26",
+"next_id": "25",
+"next_id_after": "29",
 "type": "condition"
 },
-"22": {
+"25": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "26",
-"parent_id": "21",
+"next_id": "29",
+"parent_id": "24",
 "pauses": {
 },
 "replacements": [  ],
@@ -282,13 +333,13 @@ lines = {
 "translation_key": "The room is silent.",
 "type": "dialogue"
 },
-"23": {
-"next_conditional_id": "26",
-"next_id": "24",
-"next_id_after": "26",
+"26": {
+"next_conditional_id": "29",
+"next_id": "27",
+"next_id_after": "29",
 "type": "condition"
 },
-"24": {
+"27": {
 "character": "{{CAT}}",
 "character_replacements": [ {
 "expression": [ {
@@ -298,8 +349,8 @@ lines = {
 "value_in_text": "{{CAT}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "25",
-"parent_id": "23",
+"next_id": "28",
+"parent_id": "26",
 "pauses": {
 },
 "replacements": [  ],
@@ -309,11 +360,11 @@ lines = {
 "translation_key": "Meo-w. Meo-w.",
 "type": "dialogue"
 },
-"25": {
+"28": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "26",
-"parent_id": "23",
+"next_id": "29",
+"parent_id": "26",
 "pauses": {
 },
 "replacements": [  ],
@@ -323,27 +374,14 @@ lines = {
 "translation_key": "The squeaky robo-cat is alive.",
 "type": "dialogue"
 },
-"26": {
-"next_id": "31",
-"next_id_after": "end",
-"replacements": [  ],
-"responses": PoolStringArray( "26", "27" ),
-"text": "revisit",
-"translation_key": "revisit",
-"type": "response"
-},
-"27": {
-"next_id": "49",
-"next_id_after": "end",
-"replacements": [  ],
-"text": "Restart the robo-cat",
-"translation_key": "Restart the robo-cat",
-"type": "response"
-},
 "29": {
-"next_id": "31",
-"text": "goto_cat_lab",
-"type": "title"
+"next_id": "48",
+"next_id_after": "end",
+"replacements": [  ],
+"responses": PoolStringArray( "29", "30", "31" ),
+"text": "Wait for a little",
+"translation_key": "Wait for a little",
+"type": "response"
 },
 "3": {
 "character": "",
@@ -358,41 +396,28 @@ lines = {
 "translation_key": "A metallic cat robot is making cat-like noises.",
 "type": "dialogue"
 },
-"31": {
-"character": "",
-"inline_mutations": [  ],
-"next_id": "32",
-"pauses": {
-},
+"30": {
+"next_id": "53",
+"next_id_after": "end",
 "replacements": [  ],
-"speeds": [  ],
-"text": "Revisit",
-"time": null,
-"translation_key": "Revisit",
-"type": "dialogue"
+"text": "Restart the robo-cat",
+"translation_key": "Restart the robo-cat",
+"type": "response"
 },
-"32": {
-"mutation": {
-"expression": [ {
-"type": "variable",
-"value": "next"
-}, {
-"type": "assignment",
-"value": "="
-}, {
-"type": "string",
-"value": "cat_lab"
-} ]
+"31": {
+"next_id": "62",
+"next_id_after": "end",
+"replacements": [  ],
+"text": "Go back",
+"translation_key": "Go back",
+"type": "response"
 },
-"next_id": "",
-"type": "mutation"
-},
-"34": {
-"next_id": "36",
+"33": {
+"next_id": "35",
 "text": "execute_action",
 "type": "title"
 },
-"36": {
+"35": {
 "condition": {
 "expression": [ {
 "type": "variable",
@@ -405,16 +430,16 @@ lines = {
 "value": true
 } ]
 },
-"next_conditional_id": "38",
-"next_id": "37",
-"next_id_after": "38",
+"next_conditional_id": "37",
+"next_id": "36",
+"next_id_after": "37",
 "type": "condition"
 },
-"37": {
+"36": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "38",
-"parent_id": "36",
+"next_id": "37",
+"parent_id": "35",
 "pauses": {
 },
 "replacements": [  ],
@@ -424,9 +449,14 @@ lines = {
 "translation_key": "The cat-bot is lying on its side. The cat noises stopped.",
 "type": "dialogue"
 },
-"38": {
-"next_id": "31",
+"37": {
+"next_id": "48",
 "type": "goto"
+},
+"39": {
+"next_id": "41",
+"text": "action_reactivated",
+"type": "title"
 },
 "4": {
 "character": "{{YELLOW}}",
@@ -460,12 +490,7 @@ lines = {
 "translation_key": "With help from little {{CAT}} here, let me demonstrate the wonders of the {{REVEALER}}.",
 "type": "dialogue"
 },
-"40": {
-"next_id": "42",
-"text": "action_reactivated",
-"type": "title"
-},
-"42": {
+"41": {
 "condition": {
 "expression": [ {
 "type": "variable",
@@ -478,16 +503,16 @@ lines = {
 "value": true
 } ]
 },
-"next_conditional_id": "45",
-"next_id": "43",
-"next_id_after": "45",
+"next_conditional_id": "44",
+"next_id": "42",
+"next_id_after": "44",
 "type": "condition"
 },
-"43": {
+"42": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "44",
-"parent_id": "42",
+"next_id": "43",
+"parent_id": "41",
 "pauses": {
 },
 "replacements": [ {
@@ -503,7 +528,7 @@ lines = {
 "translation_key": "{{YELLOW}} peeks through their device on the metallic cat again, but nothing happened.",
 "type": "dialogue"
 },
-"44": {
+"43": {
 "character": "{{YELLOW}}",
 "character_replacements": [ {
 "expression": [ {
@@ -513,8 +538,8 @@ lines = {
 "value_in_text": "{{YELLOW}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "45",
-"parent_id": "42",
+"next_id": "44",
+"parent_id": "41",
 "pauses": {
 },
 "replacements": [ {
@@ -536,32 +561,55 @@ lines = {
 "translation_key": "{{GREEN}}, using the {{REVEALER}} again doesn't reverse the effects, see?",
 "type": "dialogue"
 },
-"45": {
-"next_id": "31",
+"44": {
+"next_id": "48",
 "type": "goto"
 },
-"47": {
-"next_id": "49",
-"text": "restart_cat",
+"46": {
+"next_id": "48",
+"text": "stay",
 "type": "title"
 },
-"49": {
-"condition": {
+"48": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "49",
+"pauses": {
+},
+"replacements": [ {
 "expression": [ {
 "type": "variable",
-"value": "cat_lab_revealed"
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
 }, {
-"type": "comparison",
-"value": "=="
+"expression": [ {
+"type": "variable",
+"value": "YELLOW"
+} ],
+"value_in_text": "{{YELLOW}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} stays in {{YELLOW}}'s dorm a bit longer.",
+"time": null,
+"translation_key": "{{GREEN}} stays in {{YELLOW}}'s dorm a bit longer.",
+"type": "dialogue"
+},
+"49": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
 }, {
-"type": "bool",
-"value": false
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "cat_lab"
 } ]
 },
-"next_conditional_id": "51",
-"next_id": "50",
-"next_id_after": "54",
-"type": "condition"
+"next_id": "",
+"type": "mutation"
 },
 "5": {
 "character": "",
@@ -582,7 +630,30 @@ lines = {
 "translation_key": "{{YELLOW}} peeks through their device. As soon as the cat is sighted through the eyepiece, it is suddently found lying on its side. The cat noises stopped.",
 "type": "dialogue"
 },
-"50": {
+"51": {
+"next_id": "53",
+"text": "restart_cat",
+"type": "title"
+},
+"53": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "cat_lab_revealed"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "bool",
+"value": false
+} ]
+},
+"next_conditional_id": "55",
+"next_id": "54",
+"next_id_after": "58",
+"type": "condition"
+},
+"54": {
 "character": "{{YELLOW}}",
 "character_replacements": [ {
 "expression": [ {
@@ -592,8 +663,8 @@ lines = {
 "value_in_text": "{{YELLOW}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "54",
-"parent_id": "49",
+"next_id": "58",
+"parent_id": "53",
 "pauses": {
 },
 "replacements": [ {
@@ -609,17 +680,17 @@ lines = {
 "translation_key": "{{GREEN}}? The little noise-maker is already on!",
 "type": "dialogue"
 },
-"51": {
-"next_conditional_id": "54",
-"next_id": "52",
-"next_id_after": "54",
+"55": {
+"next_conditional_id": "58",
+"next_id": "56",
+"next_id_after": "58",
 "type": "condition"
 },
-"52": {
+"56": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "53",
-"parent_id": "51",
+"next_id": "57",
+"parent_id": "55",
 "pauses": {
 },
 "replacements": [ {
@@ -635,7 +706,7 @@ lines = {
 "translation_key": "{{YELLOW}} swiftly gets the robo-cat on its feet again.",
 "type": "dialogue"
 },
-"53": {
+"57": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -648,12 +719,12 @@ lines = {
 "value": false
 } ]
 },
-"next_id": "54",
-"parent_id": "51",
+"next_id": "58",
+"parent_id": "55",
 "type": "mutation"
 },
-"54": {
-"next_id": "31",
+"58": {
+"next_id": "48",
 "type": "goto"
 },
 "6": {
@@ -675,6 +746,46 @@ lines = {
 "time": null,
 "translation_key": "Is the cat dead?",
 "type": "dialogue"
+},
+"60": {
+"next_id": "62",
+"text": "dorm_wing_entrance",
+"type": "title"
+},
+"62": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "63",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} leaves the room and follows the same path back.",
+"time": null,
+"translation_key": "{{GREEN}} leaves the room and follows the same path back.",
+"type": "dialogue"
+},
+"63": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "dorm_wing_entrance"
+} ]
+},
+"next_id": "",
+"type": "mutation"
 },
 "7": {
 "character": "{{YELLOW}}",

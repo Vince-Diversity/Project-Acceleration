@@ -6,9 +6,10 @@
 script = ExtResource( 1 )
 game_version = "0.2"
 data = {
+"blue_joined": true,
 "cat_lab_revealed": false,
-"current_room": "cat_lab",
+"current_room": "dorm_wing_entrance",
 "in_blue_space": false,
-"visited": [ "cat_lab" ],
+"visited": [ "cat_lab", "dorm_wing_entrance", "recreation_hallway", "main_entrance", "main_hallway" ],
 "yellow_joined": true
 }

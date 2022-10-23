@@ -18,6 +18,14 @@ var RED = "Clara"
 var BLUE = "Ari"
 var TEACHER = "Phenia"
 var CAT = "Erwin 1.0"
+
+var YELLOW_ASPECT = "Light"
+var GREEN_ASPECT = "Earth"
+var RED_ASPECT = "Heat"
+var BLUE_ASPECT = "Time"
+
+var GREAT_HALL = "Great Hall"
+
 var REVEALER = "Revealing Eyepiece"
 
 var action_names = {

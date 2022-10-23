@@ -8,7 +8,7 @@ func load_actions(input_node):
 	if States.yellow_joined:
 		add_action(input_node, Names.REVEALER)
 	input_node.connect("action_input", self, "_on_action_input")
-	connect("action_reactivated", input_node, "_on_action_reactivated")
+	connect("action_reactivated", input_node, "_on_Action_reactivated")
 
 func add_action(input_node, action_id: String):
 		var action = action_scn.instance()
@@ -16,7 +16,9 @@ func add_action(input_node, action_id: String):
 		action.load_action(input_node, action_id)
 
 func is_action_activated(action_id: String) -> bool:
-	return States.get(Utils.get_action_state_name(States.current_room, action_id))
+	var b = States.get(Utils.get_action_state_name(States.current_room, action_id))
+	if b == null: return false
+	return b
 
 func _on_action_input(is_pressing: bool, action_id: String):
 	for action in get_children():

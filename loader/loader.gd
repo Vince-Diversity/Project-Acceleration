@@ -10,7 +10,10 @@ var save_path = save_dir.plus_file(save_filename)
 
 func new_game():
 	States.reset_states()
+	
 	States.current_room = Names.room_names[Names.Rooms.CAT_LAB]
+	States.blue_joined = true
+	
 	var err = get_tree().change_scene(game_path)
 	if err != OK: push_error(err)
 

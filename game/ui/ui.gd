@@ -30,7 +30,7 @@ func _on_Response_selected(resp_index: int):
 func _on_Action_selected(action_id: String):
 	emit_signal("input_on_responding", Utils.InputType.ACTION, action_id)
 
-func _on_action_reactivated(action_id: String):
+func _on_Action_reactivated(action_id: String):
 	emit_signal("input_on_responding", Utils.InputType.REACTIVATION, action_id)
 
 func _on_TextBox_finished_next_set():

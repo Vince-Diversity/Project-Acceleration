@@ -54,9 +54,11 @@ func run_text() -> void:
 				emit_signal("input_given")
 				dlg_line = yield(dlg_res.get_next_dialogue_line(dlg_line.responses[resp_index].next_id), "completed")
 			elif input_arr[0] == Utils.InputType.ACTION:
-				var action_id = input_arr[1]
-				States.set(Utils.get_action_state_name(States.current_room, action_id), true)
 				emit_signal("input_given")
+				var action_id = input_arr[1]
+				# Matches a state with the action and place to set an action state
+				# If there is no match, the set is ignored
+				States.set(Utils.get_action_state_name(States.current_room, action_id), true)
 				dlg_line = yield(dlg_res.get_next_dialogue_line(States.action_dlg_node), "completed")
 			elif input_arr[0] ==  Utils.InputType.REACTIVATION:
 				emit_signal("input_given")

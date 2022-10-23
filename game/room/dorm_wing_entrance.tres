@@ -1,0 +1,313 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/dialogue_manager/dialogue_resource.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+syntax_version = 2
+raw_text = "~ first_visit
+
+Inside the dorm wing, the path divides to the west and east at several junctions to the north. There are also a set of stairs going up.
+if blue_joined == true
+	{{GREEN}}: This labyrinth is where students live during terms. The door numbers help you navigate.
+	{{BLUE}} nods.
+- Go to {{YELLOW}}'s dorm at number 777 => yellows_dorm
+- Go through the passage to the main building => recreation_hallway
+
+~ visit
+
+{{GREEN}} is at the entrance of the dorm wing.
+- Go to {{YELLOW}}'s dorm at number 777 => yellows_dorm
+- Go towards the main building => recreation_hallway
+
+~ execute_action
+
+No problems here.
+set next = \"dorm_wing_entrance\"
+
+~ yellows_dorm
+
+{{GREEN}} locates {{YELLOW}}'s dorm and enters it.
+set next = \"cat_lab\"
+
+~ recreation_hallway
+
+{{GREEN}} walks over to the main building.
+set next = \"recreation_hallway\""
+errors = [  ]
+titles = {
+"execute_action": "17",
+"first_visit": "2",
+"recreation_hallway": "27",
+"visit": "11",
+"yellows_dorm": "22"
+}
+lines = {
+"0": {
+"next_id": "2",
+"text": "first_visit",
+"type": "title"
+},
+"11": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "12",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} is at the entrance of the dorm wing.",
+"time": null,
+"translation_key": "{{GREEN}} is at the entrance of the dorm wing.",
+"type": "dialogue"
+},
+"12": {
+"next_id": "22",
+"next_id_after": "end",
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "YELLOW"
+} ],
+"value_in_text": "{{YELLOW}}"
+} ],
+"responses": PoolStringArray( "12", "13" ),
+"text": "Go to {{YELLOW}}'s dorm at number 777",
+"translation_key": "Go to {{YELLOW}}'s dorm at number 777",
+"type": "response"
+},
+"13": {
+"next_id": "27",
+"next_id_after": "end",
+"replacements": [  ],
+"text": "Go towards the main building",
+"translation_key": "Go towards the main building",
+"type": "response"
+},
+"15": {
+"next_id": "17",
+"text": "execute_action",
+"type": "title"
+},
+"17": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "18",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "No problems here.",
+"time": null,
+"translation_key": "No problems here.",
+"type": "dialogue"
+},
+"18": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "dorm_wing_entrance"
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"2": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "3",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "Inside the dorm wing, the path divides to the west and east at several junctions to the north. There are also a set of stairs going up.",
+"time": null,
+"translation_key": "Inside the dorm wing, the path divides to the west and east at several junctions to the north. There are also a set of stairs going up.",
+"type": "dialogue"
+},
+"20": {
+"next_id": "22",
+"text": "yellows_dorm",
+"type": "title"
+},
+"22": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "23",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "YELLOW"
+} ],
+"value_in_text": "{{YELLOW}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} locates {{YELLOW}}'s dorm and enters it.",
+"time": null,
+"translation_key": "{{GREEN}} locates {{YELLOW}}'s dorm and enters it.",
+"type": "dialogue"
+},
+"23": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "cat_lab"
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"25": {
+"next_id": "27",
+"text": "recreation_hallway",
+"type": "title"
+},
+"27": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "28",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} walks over to the main building.",
+"time": null,
+"translation_key": "{{GREEN}} walks over to the main building.",
+"type": "dialogue"
+},
+"28": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "recreation_hallway"
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"3": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "blue_joined"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "bool",
+"value": true
+} ]
+},
+"next_conditional_id": "6",
+"next_id": "4",
+"next_id_after": "6",
+"type": "condition"
+},
+"4": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "5",
+"parent_id": "3",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "This labyrinth is where students live during terms. The door numbers help you navigate.",
+"time": null,
+"translation_key": "This labyrinth is where students live during terms. The door numbers help you navigate.",
+"type": "dialogue"
+},
+"5": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "6",
+"parent_id": "3",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"speeds": [  ],
+"text": "{{BLUE}} nods.",
+"time": null,
+"translation_key": "{{BLUE}} nods.",
+"type": "dialogue"
+},
+"6": {
+"next_id": "22",
+"next_id_after": "end",
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "YELLOW"
+} ],
+"value_in_text": "{{YELLOW}}"
+} ],
+"responses": PoolStringArray( "6", "7" ),
+"text": "Go to {{YELLOW}}'s dorm at number 777",
+"translation_key": "Go to {{YELLOW}}'s dorm at number 777",
+"type": "response"
+},
+"7": {
+"next_id": "27",
+"next_id_after": "end",
+"replacements": [  ],
+"text": "Go through the passage to the main building",
+"translation_key": "Go through the passage to the main building",
+"type": "response"
+},
+"9": {
+"next_id": "11",
+"text": "visit",
+"type": "title"
+}
+}

@@ -1,0 +1,534 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/dialogue_manager/dialogue_resource.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+syntax_version = 2
+raw_text = "~ first_visit
+
+The entrance to a large hall is to the north. To the west are two smaller entrances and to the east is one entrance.
+if blue_joined == true
+	{{GREEN}}: Classes are divided into the three magical aspects {{YELLOW_ASPECT}}, {{GREEN_ASPECT}} and {{RED_ASPECT}}. The {{GREAT_HALL}} in front is big enough to fit all students in one go.
+	{{BLUE}} nods.
+- Go through the {{YELLOW_ASPECT}} hallway to the west => yellow_hallway
+- Go through the {{GREEN_ASPECT}} hallway to the north-west => green_hallway
+- Enter the {{GREAT_HALL}} in to the north => great_hall
+- Go through the {{BLUE_ASPECT}} hallway to the north-east [if is_in_blue_space()]  => blue_hallway
+- Go through the {{RED_ASPECT}} hallway to the east => red_hallway
+- Go towards the main entrance to the south => main_entrance
+
+~ visit
+
+{{GREEN}} is in the main hallway.
+- Go through the {{YELLOW_ASPECT}} hallway to the west => yellow_hallway
+- Go through the {{GREEN_ASPECT}} hallway to the north-west => green_hallway
+- Enter the {{GREAT_HALL}} in front => great_hall
+- Go through the {{BLUE_ASPECT}} hallway to the north-east [if is_in_blue_space()]  => blue_hallway
+- Go through the {{RED_ASPECT}} hallway to the east => red_hallway
+- Go towards the main entrance to the south => main_entrance
+
+~ execute_action
+
+No problems here.
+set next = \"main_hallway\"
+
+~ yellow_hallway
+
+a
+
+~ green_hallway
+
+a
+
+~ great_hall
+
+a
+
+~ blue_hallway
+
+a
+
+~ red_hallway
+
+a
+
+~ main_entrance
+
+{{GREEN}} walks towards the main entrance.
+set next = \"main_entrance\""
+errors = [  ]
+titles = {
+"blue_hallway": "42",
+"execute_action": "25",
+"first_visit": "2",
+"great_hall": "38",
+"green_hallway": "34",
+"main_entrance": "50",
+"red_hallway": "46",
+"visit": "15",
+"yellow_hallway": "30"
+}
+lines = {
+"0": {
+"next_id": "2",
+"text": "first_visit",
+"type": "title"
+},
+"10": {
+"next_id": "46",
+"next_id_after": "end",
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "RED_ASPECT"
+} ],
+"value_in_text": "{{RED_ASPECT}}"
+} ],
+"text": "Go through the {{RED_ASPECT}} hallway to the east",
+"translation_key": "Go through the {{RED_ASPECT}} hallway to the east",
+"type": "response"
+},
+"11": {
+"next_id": "50",
+"next_id_after": "end",
+"replacements": [  ],
+"text": "Go towards the main entrance to the south",
+"translation_key": "Go towards the main entrance to the south",
+"type": "response"
+},
+"13": {
+"next_id": "15",
+"text": "visit",
+"type": "title"
+},
+"15": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "16",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} is in the main hallway.",
+"time": null,
+"translation_key": "{{GREEN}} is in the main hallway.",
+"type": "dialogue"
+},
+"16": {
+"next_id": "30",
+"next_id_after": "end",
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "YELLOW_ASPECT"
+} ],
+"value_in_text": "{{YELLOW_ASPECT}}"
+} ],
+"responses": PoolStringArray( "16", "17", "18", "19", "20", "21" ),
+"text": "Go through the {{YELLOW_ASPECT}} hallway to the west",
+"translation_key": "Go through the {{YELLOW_ASPECT}} hallway to the west",
+"type": "response"
+},
+"17": {
+"next_id": "34",
+"next_id_after": "end",
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN_ASPECT"
+} ],
+"value_in_text": "{{GREEN_ASPECT}}"
+} ],
+"text": "Go through the {{GREEN_ASPECT}} hallway to the north-west",
+"translation_key": "Go through the {{GREEN_ASPECT}} hallway to the north-west",
+"type": "response"
+},
+"18": {
+"next_id": "38",
+"next_id_after": "end",
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREAT_HALL"
+} ],
+"value_in_text": "{{GREAT_HALL}}"
+} ],
+"text": "Enter the {{GREAT_HALL}} in front",
+"translation_key": "Enter the {{GREAT_HALL}} in front",
+"type": "response"
+},
+"19": {
+"condition": {
+"expression": [ {
+"function": "is_in_blue_space",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "42",
+"next_id_after": "end",
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE_ASPECT"
+} ],
+"value_in_text": "{{BLUE_ASPECT}}"
+} ],
+"text": "Go through the {{BLUE_ASPECT}} hallway to the north-east",
+"translation_key": "Go through the {{BLUE_ASPECT}} hallway to the north-east",
+"type": "response"
+},
+"2": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "3",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "The entrance to a large hall is to the north. To the west are two smaller entrances and to the east is one entrance.",
+"time": null,
+"translation_key": "The entrance to a large hall is to the north. To the west are two smaller entrances and to the east is one entrance.",
+"type": "dialogue"
+},
+"20": {
+"next_id": "46",
+"next_id_after": "end",
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "RED_ASPECT"
+} ],
+"value_in_text": "{{RED_ASPECT}}"
+} ],
+"text": "Go through the {{RED_ASPECT}} hallway to the east",
+"translation_key": "Go through the {{RED_ASPECT}} hallway to the east",
+"type": "response"
+},
+"21": {
+"next_id": "50",
+"next_id_after": "end",
+"replacements": [  ],
+"text": "Go towards the main entrance to the south",
+"translation_key": "Go towards the main entrance to the south",
+"type": "response"
+},
+"23": {
+"next_id": "25",
+"text": "execute_action",
+"type": "title"
+},
+"25": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "26",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "No problems here.",
+"time": null,
+"translation_key": "No problems here.",
+"type": "dialogue"
+},
+"26": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "main_hallway"
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"28": {
+"next_id": "30",
+"text": "yellow_hallway",
+"type": "title"
+},
+"3": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "blue_joined"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "bool",
+"value": true
+} ]
+},
+"next_conditional_id": "6",
+"next_id": "4",
+"next_id_after": "6",
+"type": "condition"
+},
+"30": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "a",
+"time": null,
+"translation_key": "a",
+"type": "dialogue"
+},
+"32": {
+"next_id": "34",
+"text": "green_hallway",
+"type": "title"
+},
+"34": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "a",
+"time": null,
+"translation_key": "a",
+"type": "dialogue"
+},
+"36": {
+"next_id": "38",
+"text": "great_hall",
+"type": "title"
+},
+"38": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "a",
+"time": null,
+"translation_key": "a",
+"type": "dialogue"
+},
+"4": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "5",
+"parent_id": "3",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "YELLOW_ASPECT"
+} ],
+"value_in_text": "{{YELLOW_ASPECT}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "GREEN_ASPECT"
+} ],
+"value_in_text": "{{GREEN_ASPECT}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "RED_ASPECT"
+} ],
+"value_in_text": "{{RED_ASPECT}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "GREAT_HALL"
+} ],
+"value_in_text": "{{GREAT_HALL}}"
+} ],
+"speeds": [  ],
+"text": "Classes are divided into the three magical aspects {{YELLOW_ASPECT}}, {{GREEN_ASPECT}} and {{RED_ASPECT}}. The {{GREAT_HALL}} in front is big enough to fit all students in one go.",
+"time": null,
+"translation_key": "Classes are divided into the three magical aspects {{YELLOW_ASPECT}}, {{GREEN_ASPECT}} and {{RED_ASPECT}}. The {{GREAT_HALL}} in front is big enough to fit all students in one go.",
+"type": "dialogue"
+},
+"40": {
+"next_id": "42",
+"text": "blue_hallway",
+"type": "title"
+},
+"42": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "a",
+"time": null,
+"translation_key": "a",
+"type": "dialogue"
+},
+"44": {
+"next_id": "46",
+"text": "red_hallway",
+"type": "title"
+},
+"46": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "a",
+"time": null,
+"translation_key": "a",
+"type": "dialogue"
+},
+"48": {
+"next_id": "50",
+"text": "main_entrance",
+"type": "title"
+},
+"5": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "6",
+"parent_id": "3",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"speeds": [  ],
+"text": "{{BLUE}} nods.",
+"time": null,
+"translation_key": "{{BLUE}} nods.",
+"type": "dialogue"
+},
+"50": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "51",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} walks towards the main entrance.",
+"time": null,
+"translation_key": "{{GREEN}} walks towards the main entrance.",
+"type": "dialogue"
+},
+"51": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "main_entrance"
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"6": {
+"next_id": "30",
+"next_id_after": "end",
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "YELLOW_ASPECT"
+} ],
+"value_in_text": "{{YELLOW_ASPECT}}"
+} ],
+"responses": PoolStringArray( "6", "7", "8", "9", "10", "11" ),
+"text": "Go through the {{YELLOW_ASPECT}} hallway to the west",
+"translation_key": "Go through the {{YELLOW_ASPECT}} hallway to the west",
+"type": "response"
+},
+"7": {
+"next_id": "34",
+"next_id_after": "end",
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN_ASPECT"
+} ],
+"value_in_text": "{{GREEN_ASPECT}}"
+} ],
+"text": "Go through the {{GREEN_ASPECT}} hallway to the north-west",
+"translation_key": "Go through the {{GREEN_ASPECT}} hallway to the north-west",
+"type": "response"
+},
+"8": {
+"next_id": "38",
+"next_id_after": "end",
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREAT_HALL"
+} ],
+"value_in_text": "{{GREAT_HALL}}"
+} ],
+"text": "Enter the {{GREAT_HALL}} in to the north",
+"translation_key": "Enter the {{GREAT_HALL}} in to the north",
+"type": "response"
+},
+"9": {
+"condition": {
+"expression": [ {
+"function": "is_in_blue_space",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "42",
+"next_id_after": "end",
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE_ASPECT"
+} ],
+"value_in_text": "{{BLUE_ASPECT}}"
+} ],
+"text": "Go through the {{BLUE_ASPECT}} hallway to the north-east",
+"translation_key": "Go through the {{BLUE_ASPECT}} hallway to the north-east",
+"type": "response"
+}
+}

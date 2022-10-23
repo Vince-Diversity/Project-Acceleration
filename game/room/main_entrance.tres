@@ -1,0 +1,377 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/dialogue_manager/dialogue_resource.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+syntax_version = 2
+raw_text = "~ first_visit
+
+Three large hallways appear to the west, north and east. To the south is the entrance to the schoolyard.
+if blue_joined == true
+	{{GREEN}}: The school is big and well connected. The classrooms and school restaurant is in the main building. Apart from that, there is an extensive library at the left wing and a lot of dorms at the right wing.
+	{{BLUE}} nods.
+- Go through the library hallway to the west => library_hallway
+- Go through the main hallway to the north => main_hallway
+- Go through the dorm and restaurant hallway to the east => dorm_hallway
+- Go outside => outdoors
+
+~ visit
+
+{{GREEN}} is at the main entrance.
+- Go through the library hallway to the west => library_hallway
+- Go through the main hallway to the north => main_hallway
+- Go through the dorm and restaurant hallway to the east => dorm_hallway
+- Go outside => outdoors
+
+~ execute_action
+
+No problems here.
+set next = \"main_entrance\"
+
+~ library_hallway
+
+a
+
+~ main_hallway
+
+{{GREEN}} walks through the main hallway.
+set next = \"main_hallway\"
+
+~ dorm_hallway
+
+{{GREEN}} walks towards the dorms and the restaurant.
+set next = \"recreation_hallway\"
+
+~ outdoors
+
+a"
+errors = [  ]
+titles = {
+"dorm_hallway": "35",
+"execute_action": "21",
+"first_visit": "2",
+"library_hallway": "26",
+"main_hallway": "30",
+"outdoors": "40",
+"visit": "13"
+}
+lines = {
+"0": {
+"next_id": "2",
+"text": "first_visit",
+"type": "title"
+},
+"11": {
+"next_id": "13",
+"text": "visit",
+"type": "title"
+},
+"13": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "14",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} is at the main entrance.",
+"time": null,
+"translation_key": "{{GREEN}} is at the main entrance.",
+"type": "dialogue"
+},
+"14": {
+"next_id": "26",
+"next_id_after": "end",
+"replacements": [  ],
+"responses": PoolStringArray( "14", "15", "16", "17" ),
+"text": "Go through the library hallway to the west",
+"translation_key": "Go through the library hallway to the west",
+"type": "response"
+},
+"15": {
+"next_id": "30",
+"next_id_after": "end",
+"replacements": [  ],
+"text": "Go through the main hallway to the north",
+"translation_key": "Go through the main hallway to the north",
+"type": "response"
+},
+"16": {
+"next_id": "35",
+"next_id_after": "end",
+"replacements": [  ],
+"text": "Go through the dorm and restaurant hallway to the east",
+"translation_key": "Go through the dorm and restaurant hallway to the east",
+"type": "response"
+},
+"17": {
+"next_id": "40",
+"next_id_after": "end",
+"replacements": [  ],
+"text": "Go outside",
+"translation_key": "Go outside",
+"type": "response"
+},
+"19": {
+"next_id": "21",
+"text": "execute_action",
+"type": "title"
+},
+"2": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "3",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "Three large hallways appear to the west, north and east. To the south is the entrance to the schoolyard.",
+"time": null,
+"translation_key": "Three large hallways appear to the west, north and east. To the south is the entrance to the schoolyard.",
+"type": "dialogue"
+},
+"21": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "22",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "No problems here.",
+"time": null,
+"translation_key": "No problems here.",
+"type": "dialogue"
+},
+"22": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "main_entrance"
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"24": {
+"next_id": "26",
+"text": "library_hallway",
+"type": "title"
+},
+"26": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "a",
+"time": null,
+"translation_key": "a",
+"type": "dialogue"
+},
+"28": {
+"next_id": "30",
+"text": "main_hallway",
+"type": "title"
+},
+"3": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "blue_joined"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "bool",
+"value": true
+} ]
+},
+"next_conditional_id": "6",
+"next_id": "4",
+"next_id_after": "6",
+"type": "condition"
+},
+"30": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "31",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} walks through the main hallway.",
+"time": null,
+"translation_key": "{{GREEN}} walks through the main hallway.",
+"type": "dialogue"
+},
+"31": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "main_hallway"
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"33": {
+"next_id": "35",
+"text": "dorm_hallway",
+"type": "title"
+},
+"35": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "36",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} walks towards the dorms and the restaurant.",
+"time": null,
+"translation_key": "{{GREEN}} walks towards the dorms and the restaurant.",
+"type": "dialogue"
+},
+"36": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "recreation_hallway"
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"38": {
+"next_id": "40",
+"text": "outdoors",
+"type": "title"
+},
+"4": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "5",
+"parent_id": "3",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "The school is big and well connected. The classrooms and school restaurant is in the main building. Apart from that, there is an extensive library at the left wing and a lot of dorms at the right wing.",
+"time": null,
+"translation_key": "The school is big and well connected. The classrooms and school restaurant is in the main building. Apart from that, there is an extensive library at the left wing and a lot of dorms at the right wing.",
+"type": "dialogue"
+},
+"40": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "a",
+"time": null,
+"translation_key": "a",
+"type": "dialogue"
+},
+"5": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "6",
+"parent_id": "3",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"speeds": [  ],
+"text": "{{BLUE}} nods.",
+"time": null,
+"translation_key": "{{BLUE}} nods.",
+"type": "dialogue"
+},
+"6": {
+"next_id": "26",
+"next_id_after": "end",
+"replacements": [  ],
+"responses": PoolStringArray( "6", "7", "8", "9" ),
+"text": "Go through the library hallway to the west",
+"translation_key": "Go through the library hallway to the west",
+"type": "response"
+},
+"7": {
+"next_id": "30",
+"next_id_after": "end",
+"replacements": [  ],
+"text": "Go through the main hallway to the north",
+"translation_key": "Go through the main hallway to the north",
+"type": "response"
+},
+"8": {
+"next_id": "35",
+"next_id_after": "end",
+"replacements": [  ],
+"text": "Go through the dorm and restaurant hallway to the east",
+"translation_key": "Go through the dorm and restaurant hallway to the east",
+"type": "response"
+},
+"9": {
+"next_id": "40",
+"next_id_after": "end",
+"replacements": [  ],
+"text": "Go outside",
+"translation_key": "Go outside",
+"type": "response"
+}
+}
