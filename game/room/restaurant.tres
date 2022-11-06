@@ -1,0 +1,231 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/dialogue_manager/dialogue_resource.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+syntax_version = 2
+raw_text = "~ first_visit
+
+A large clean room is found. The room has a faint smell of cooked food.
+if blue_joined == true
+	{{GREEN}}: All meals are served here. Students often buy snacks here too and play board games in the evenings.
+	{{BLUE}} nods.
+- Leave => recreation_hallway
+
+~ visit
+
+{{GREEN}} visits the restaurant.
+- Leave => recreation_hallway
+
+~ execute_action
+
+No problems here.
+set next = \"restaurant\"
+
+~ recreation_hallway
+
+{{GREEN}} leaves the restaurant.
+set next = \"recreation_hallway\""
+errors = [  ]
+titles = {
+"execute_action": "15",
+"first_visit": "2",
+"recreation_hallway": "20",
+"visit": "10"
+}
+lines = {
+"0": {
+"next_id": "2",
+"text": "first_visit",
+"type": "title"
+},
+"10": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "11",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} visits the restaurant.",
+"time": null,
+"translation_key": "{{GREEN}} visits the restaurant.",
+"type": "dialogue"
+},
+"11": {
+"next_id": "20",
+"next_id_after": "end",
+"replacements": [  ],
+"responses": PoolStringArray( "11" ),
+"text": "Leave",
+"translation_key": "Leave",
+"type": "response"
+},
+"13": {
+"next_id": "15",
+"text": "execute_action",
+"type": "title"
+},
+"15": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "16",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "No problems here.",
+"time": null,
+"translation_key": "No problems here.",
+"type": "dialogue"
+},
+"16": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "restaurant"
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"18": {
+"next_id": "20",
+"text": "recreation_hallway",
+"type": "title"
+},
+"2": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "3",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "A large clean room is found. The room has a faint smell of cooked food.",
+"time": null,
+"translation_key": "A large clean room is found. The room has a faint smell of cooked food.",
+"type": "dialogue"
+},
+"20": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "21",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} leaves the restaurant.",
+"time": null,
+"translation_key": "{{GREEN}} leaves the restaurant.",
+"type": "dialogue"
+},
+"21": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "recreation_hallway"
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"3": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "blue_joined"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "bool",
+"value": true
+} ]
+},
+"next_conditional_id": "6",
+"next_id": "4",
+"next_id_after": "6",
+"type": "condition"
+},
+"4": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "5",
+"parent_id": "3",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "All meals are served here. Students often buy snacks here too and play board games in the evenings.",
+"time": null,
+"translation_key": "All meals are served here. Students often buy snacks here too and play board games in the evenings.",
+"type": "dialogue"
+},
+"5": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "6",
+"parent_id": "3",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"speeds": [  ],
+"text": "{{BLUE}} nods.",
+"time": null,
+"translation_key": "{{BLUE}} nods.",
+"type": "dialogue"
+},
+"6": {
+"next_id": "20",
+"next_id_after": "end",
+"replacements": [  ],
+"responses": PoolStringArray( "6" ),
+"text": "Leave",
+"translation_key": "Leave",
+"type": "response"
+},
+"8": {
+"next_id": "10",
+"text": "visit",
+"type": "title"
+}
+}

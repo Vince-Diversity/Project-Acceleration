@@ -1,0 +1,233 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/dialogue_manager/dialogue_resource.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+syntax_version = 2
+raw_text = "~ first_visit
+
+The corridor ends with a large wooden door. Somehow, the wooden patterns are perfectly symmetrical.
+- Enter the door to the north => green_room
+- Go through the corridor to the south => main_hallway
+
+~ visit
+
+{{GREEN}} is next to a wooden door to the north.
+- Enter the door to the north => green_room
+- Go through the corridor to the south => main_hallway
+
+~ execute_action
+
+No problems here.
+set next = \"green_corridor_end\"
+
+~ green_room
+
+{{GREEN}} pushes through the wodden door.
+set next = \"green_classroom\"
+
+~ main_hallway
+
+{{GREEN}} walks through the corridor.
+set next = \"main_hallway\""
+errors = [  ]
+titles = {
+"execute_action": "14",
+"first_visit": "2",
+"green_room": "19",
+"main_hallway": "24",
+"visit": "8"
+}
+lines = {
+"0": {
+"next_id": "2",
+"text": "first_visit",
+"type": "title"
+},
+"10": {
+"next_id": "24",
+"next_id_after": "end",
+"replacements": [  ],
+"text": "Go through the corridor to the south",
+"translation_key": "Go through the corridor to the south",
+"type": "response"
+},
+"12": {
+"next_id": "14",
+"text": "execute_action",
+"type": "title"
+},
+"14": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "15",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "No problems here.",
+"time": null,
+"translation_key": "No problems here.",
+"type": "dialogue"
+},
+"15": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "green_corridor_end"
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"17": {
+"next_id": "19",
+"text": "green_room",
+"type": "title"
+},
+"19": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "20",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} pushes through the wodden door.",
+"time": null,
+"translation_key": "{{GREEN}} pushes through the wodden door.",
+"type": "dialogue"
+},
+"2": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "3",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "The corridor ends with a large wooden door. Somehow, the wooden patterns are perfectly symmetrical.",
+"time": null,
+"translation_key": "The corridor ends with a large wooden door. Somehow, the wooden patterns are perfectly symmetrical.",
+"type": "dialogue"
+},
+"20": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "green_classroom"
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"22": {
+"next_id": "24",
+"text": "main_hallway",
+"type": "title"
+},
+"24": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "25",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} walks through the corridor.",
+"time": null,
+"translation_key": "{{GREEN}} walks through the corridor.",
+"type": "dialogue"
+},
+"25": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "main_hallway"
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"3": {
+"next_id": "19",
+"next_id_after": "end",
+"replacements": [  ],
+"responses": PoolStringArray( "3", "4" ),
+"text": "Enter the door to the north",
+"translation_key": "Enter the door to the north",
+"type": "response"
+},
+"4": {
+"next_id": "24",
+"next_id_after": "end",
+"replacements": [  ],
+"text": "Go through the corridor to the south",
+"translation_key": "Go through the corridor to the south",
+"type": "response"
+},
+"6": {
+"next_id": "8",
+"text": "visit",
+"type": "title"
+},
+"8": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "9",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} is next to a wooden door to the north.",
+"time": null,
+"translation_key": "{{GREEN}} is next to a wooden door to the north.",
+"type": "dialogue"
+},
+"9": {
+"next_id": "19",
+"next_id_after": "end",
+"replacements": [  ],
+"responses": PoolStringArray( "9", "10" ),
+"text": "Enter the door to the north",
+"translation_key": "Enter the door to the north",
+"type": "response"
+}
+}

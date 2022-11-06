@@ -1,0 +1,295 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/dialogue_manager/dialogue_resource.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+syntax_version = 2
+raw_text = "~ first_visit
+
+A plant-rich school garden is found. At a distance, there is a path to the south. The weather is cloudy and mild.
+if blue_joined == true
+	{{GREEN}}: Going out to the garden is very pleasant. The trees and bushes are well maintained, although they make it difficult to practice spells outdoors without hitting anything. But perhaps that is also why they put it here!
+	{{BLUE}} nods.
+- Go into the school entrance to the north => main_entrance
+- Go through the garden towards the south => station
+
+~ visit
+
+{{GREEN}} is in the school garden.
+- Go into the school entrance to the north => main_entrance
+- Go through the garden towards the south => station
+
+~ execute_action
+
+No problems here.
+set next = \"main_outdoors\"
+
+~ main_entrance
+
+{{GREEN}} enters the school.
+set next = \"main_entrance\"
+
+~ station
+
+{{GREEN}} walks on the southern path.
+set next = \"station\""
+errors = [  ]
+titles = {
+"execute_action": "17",
+"first_visit": "2",
+"main_entrance": "22",
+"station": "27",
+"visit": "11"
+}
+lines = {
+"0": {
+"next_id": "2",
+"text": "first_visit",
+"type": "title"
+},
+"11": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "12",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} is in the school garden.",
+"time": null,
+"translation_key": "{{GREEN}} is in the school garden.",
+"type": "dialogue"
+},
+"12": {
+"next_id": "22",
+"next_id_after": "end",
+"replacements": [  ],
+"responses": PoolStringArray( "12", "13" ),
+"text": "Go into the school entrance to the north",
+"translation_key": "Go into the school entrance to the north",
+"type": "response"
+},
+"13": {
+"next_id": "27",
+"next_id_after": "end",
+"replacements": [  ],
+"text": "Go through the garden towards the south",
+"translation_key": "Go through the garden towards the south",
+"type": "response"
+},
+"15": {
+"next_id": "17",
+"text": "execute_action",
+"type": "title"
+},
+"17": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "18",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "No problems here.",
+"time": null,
+"translation_key": "No problems here.",
+"type": "dialogue"
+},
+"18": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "main_outdoors"
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"2": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "3",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "A plant-rich school garden is found. At a distance, there is a path to the south. The weather is cloudy and mild.",
+"time": null,
+"translation_key": "A plant-rich school garden is found. At a distance, there is a path to the south. The weather is cloudy and mild.",
+"type": "dialogue"
+},
+"20": {
+"next_id": "22",
+"text": "main_entrance",
+"type": "title"
+},
+"22": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "23",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} enters the school.",
+"time": null,
+"translation_key": "{{GREEN}} enters the school.",
+"type": "dialogue"
+},
+"23": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "main_entrance"
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"25": {
+"next_id": "27",
+"text": "station",
+"type": "title"
+},
+"27": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "28",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} walks on the southern path.",
+"time": null,
+"translation_key": "{{GREEN}} walks on the southern path.",
+"type": "dialogue"
+},
+"28": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "station"
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"3": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "blue_joined"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "bool",
+"value": true
+} ]
+},
+"next_conditional_id": "6",
+"next_id": "4",
+"next_id_after": "6",
+"type": "condition"
+},
+"4": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "5",
+"parent_id": "3",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "Going out to the garden is very pleasant. The trees and bushes are well maintained, although they make it difficult to practice spells outdoors without hitting anything. But perhaps that is also why they put it here!",
+"time": null,
+"translation_key": "Going out to the garden is very pleasant. The trees and bushes are well maintained, although they make it difficult to practice spells outdoors without hitting anything. But perhaps that is also why they put it here!",
+"type": "dialogue"
+},
+"5": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "6",
+"parent_id": "3",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"speeds": [  ],
+"text": "{{BLUE}} nods.",
+"time": null,
+"translation_key": "{{BLUE}} nods.",
+"type": "dialogue"
+},
+"6": {
+"next_id": "22",
+"next_id_after": "end",
+"replacements": [  ],
+"responses": PoolStringArray( "6", "7" ),
+"text": "Go into the school entrance to the north",
+"translation_key": "Go into the school entrance to the north",
+"type": "response"
+},
+"7": {
+"next_id": "27",
+"next_id_after": "end",
+"replacements": [  ],
+"text": "Go through the garden towards the south",
+"translation_key": "Go through the garden towards the south",
+"type": "response"
+},
+"9": {
+"next_id": "11",
+"text": "visit",
+"type": "title"
+}
+}

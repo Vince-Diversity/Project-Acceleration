@@ -7,55 +7,55 @@ script = ExtResource( 1 )
 syntax_version = 2
 raw_text = "~ first_visit
 
-Three large hallways appear to the west, north and east. To the south is the entrance to the schoolyard.
+A large passage is to the north. To the south-west and north-west are classrooms.
 if blue_joined == true
-	{{GREEN}}: The school is big and well connected. The {{GREAT_HALL}} and classrooms in the main building. Apart from that, there is an extensive library at the left wing and a lot of dorms at the right wing.
+	{{GREEN}}: Sciences and social studies are common for students of any magical aspect. The main building of the school is connected to the library wing from here.
 	{{BLUE}} nods.
-- Go through the hallway to the west => library_hallway
-- Go through the hallway to the north => main_hallway
-- Go through the hallway to the east => dorm_hallway
-- Go outside => outdoors
+- Go through the passage to the library to the north => library
+- Enter the sciences classroom to the north-west => sciences
+- Enter the social studies classroom to the south-west => social_studies
+- Go through the hallway to the east => main_entrance
 
 ~ visit
 
-{{GREEN}} is at the main entrance.
-- Go through the hallway to the west => library_hallway
-- Go through the hallway to the north => main_hallway
-- Go through the hallway to the east => dorm_hallway
-- Go outside => outdoors
+{{GREEN}} is at the end of the classroom and library hallway.
+- Go through the passage to the library to the north => library
+- Enter the sciences classroom to the north-west => sciences
+- Enter the social studies classroom to the south-west => social_studies
+- Go though the hallway to the east => main_entrance
 
 ~ execute_action
 
 No problems here.
-set next = \"main_entrance\"
-
-~ library_hallway
-
-{{GREEN}} walks through the hallway to the west.
 set next = \"knowledge_hallway\"
 
-~ main_hallway
+~ library
 
-{{GREEN}} walks through the hallway to the north.
-set next = \"main_hallway\"
+{{GREEN}} walks over to the library wing.
+set next = \"library\"
 
-~ dorm_hallway
+~ social_studies
+
+{{GREEN}} enters the classroom to the south-west.
+set next = \"social_studies\"
+
+~ sciences
+
+{{GREEN}} enters the classroom to the north-west.
+set next = \"sciences\"
+
+~ main_entrance
 
 {{GREEN}} walks through the hallway to the east.
-set next = \"recreation_hallway\"
-
-~ outdoors
-
-{{GREEN}} exits the school.
-set next = \"main_outdoors\""
+set next = \"main_entrance\""
 errors = [  ]
 titles = {
-"dorm_hallway": "36",
 "execute_action": "21",
 "first_visit": "2",
-"library_hallway": "26",
-"main_hallway": "31",
-"outdoors": "41",
+"library": "26",
+"main_entrance": "41",
+"sciences": "36",
+"social_studies": "31",
 "visit": "13"
 }
 lines = {
@@ -83,9 +83,9 @@ lines = {
 "value_in_text": "{{GREEN}}"
 } ],
 "speeds": [  ],
-"text": "{{GREEN}} is at the main entrance.",
+"text": "{{GREEN}} is at the end of the classroom and library hallway.",
 "time": null,
-"translation_key": "{{GREEN}} is at the main entrance.",
+"translation_key": "{{GREEN}} is at the end of the classroom and library hallway.",
 "type": "dialogue"
 },
 "14": {
@@ -93,32 +93,32 @@ lines = {
 "next_id_after": "end",
 "replacements": [  ],
 "responses": PoolStringArray( "14", "15", "16", "17" ),
-"text": "Go through the hallway to the west",
-"translation_key": "Go through the hallway to the west",
+"text": "Go through the passage to the library to the north",
+"translation_key": "Go through the passage to the library to the north",
 "type": "response"
 },
 "15": {
-"next_id": "31",
-"next_id_after": "end",
-"replacements": [  ],
-"text": "Go through the hallway to the north",
-"translation_key": "Go through the hallway to the north",
-"type": "response"
-},
-"16": {
 "next_id": "36",
 "next_id_after": "end",
 "replacements": [  ],
-"text": "Go through the hallway to the east",
-"translation_key": "Go through the hallway to the east",
+"text": "Enter the sciences classroom to the north-west",
+"translation_key": "Enter the sciences classroom to the north-west",
+"type": "response"
+},
+"16": {
+"next_id": "31",
+"next_id_after": "end",
+"replacements": [  ],
+"text": "Enter the social studies classroom to the south-west",
+"translation_key": "Enter the social studies classroom to the south-west",
 "type": "response"
 },
 "17": {
 "next_id": "41",
 "next_id_after": "end",
 "replacements": [  ],
-"text": "Go outside",
-"translation_key": "Go outside",
+"text": "Go though the hallway to the east",
+"translation_key": "Go though the hallway to the east",
 "type": "response"
 },
 "19": {
@@ -134,9 +134,9 @@ lines = {
 },
 "replacements": [  ],
 "speeds": [  ],
-"text": "Three large hallways appear to the west, north and east. To the south is the entrance to the schoolyard.",
+"text": "A large passage is to the north. To the south-west and north-west are classrooms.",
 "time": null,
-"translation_key": "Three large hallways appear to the west, north and east. To the south is the entrance to the schoolyard.",
+"translation_key": "A large passage is to the north. To the south-west and north-west are classrooms.",
 "type": "dialogue"
 },
 "21": {
@@ -162,7 +162,7 @@ lines = {
 "value": "="
 }, {
 "type": "string",
-"value": "main_entrance"
+"value": "knowledge_hallway"
 } ]
 },
 "next_id": "",
@@ -170,7 +170,7 @@ lines = {
 },
 "24": {
 "next_id": "26",
-"text": "library_hallway",
+"text": "library",
 "type": "title"
 },
 "26": {
@@ -187,9 +187,9 @@ lines = {
 "value_in_text": "{{GREEN}}"
 } ],
 "speeds": [  ],
-"text": "{{GREEN}} walks through the hallway to the west.",
+"text": "{{GREEN}} walks over to the library wing.",
 "time": null,
-"translation_key": "{{GREEN}} walks through the hallway to the west.",
+"translation_key": "{{GREEN}} walks over to the library wing.",
 "type": "dialogue"
 },
 "27": {
@@ -202,7 +202,7 @@ lines = {
 "value": "="
 }, {
 "type": "string",
-"value": "knowledge_hallway"
+"value": "library"
 } ]
 },
 "next_id": "",
@@ -210,7 +210,7 @@ lines = {
 },
 "29": {
 "next_id": "31",
-"text": "main_hallway",
+"text": "social_studies",
 "type": "title"
 },
 "3": {
@@ -245,9 +245,9 @@ lines = {
 "value_in_text": "{{GREEN}}"
 } ],
 "speeds": [  ],
-"text": "{{GREEN}} walks through the hallway to the north.",
+"text": "{{GREEN}} enters the classroom to the south-west.",
 "time": null,
-"translation_key": "{{GREEN}} walks through the hallway to the north.",
+"translation_key": "{{GREEN}} enters the classroom to the south-west.",
 "type": "dialogue"
 },
 "32": {
@@ -260,7 +260,7 @@ lines = {
 "value": "="
 }, {
 "type": "string",
-"value": "main_hallway"
+"value": "social_studies"
 } ]
 },
 "next_id": "",
@@ -268,7 +268,7 @@ lines = {
 },
 "34": {
 "next_id": "36",
-"text": "dorm_hallway",
+"text": "sciences",
 "type": "title"
 },
 "36": {
@@ -285,9 +285,9 @@ lines = {
 "value_in_text": "{{GREEN}}"
 } ],
 "speeds": [  ],
-"text": "{{GREEN}} walks through the hallway to the east.",
+"text": "{{GREEN}} enters the classroom to the north-west.",
 "time": null,
-"translation_key": "{{GREEN}} walks through the hallway to the east.",
+"translation_key": "{{GREEN}} enters the classroom to the north-west.",
 "type": "dialogue"
 },
 "37": {
@@ -300,7 +300,7 @@ lines = {
 "value": "="
 }, {
 "type": "string",
-"value": "recreation_hallway"
+"value": "sciences"
 } ]
 },
 "next_id": "",
@@ -308,7 +308,7 @@ lines = {
 },
 "39": {
 "next_id": "41",
-"text": "outdoors",
+"text": "main_entrance",
 "type": "title"
 },
 "4": {
@@ -325,17 +325,11 @@ lines = {
 "parent_id": "3",
 "pauses": {
 },
-"replacements": [ {
-"expression": [ {
-"type": "variable",
-"value": "GREAT_HALL"
-} ],
-"value_in_text": "{{GREAT_HALL}}"
-} ],
+"replacements": [  ],
 "speeds": [  ],
-"text": "The school is big and well connected. The {{GREAT_HALL}} and classrooms in the main building. Apart from that, there is an extensive library at the left wing and a lot of dorms at the right wing.",
+"text": "Sciences and social studies are common for students of any magical aspect. The main building of the school is connected to the library wing from here.",
 "time": null,
-"translation_key": "The school is big and well connected. The {{GREAT_HALL}} and classrooms in the main building. Apart from that, there is an extensive library at the left wing and a lot of dorms at the right wing.",
+"translation_key": "Sciences and social studies are common for students of any magical aspect. The main building of the school is connected to the library wing from here.",
 "type": "dialogue"
 },
 "41": {
@@ -352,9 +346,9 @@ lines = {
 "value_in_text": "{{GREEN}}"
 } ],
 "speeds": [  ],
-"text": "{{GREEN}} exits the school.",
+"text": "{{GREEN}} walks through the hallway to the east.",
 "time": null,
-"translation_key": "{{GREEN}} exits the school.",
+"translation_key": "{{GREEN}} walks through the hallway to the east.",
 "type": "dialogue"
 },
 "42": {
@@ -367,7 +361,7 @@ lines = {
 "value": "="
 }, {
 "type": "string",
-"value": "main_outdoors"
+"value": "main_entrance"
 } ]
 },
 "next_id": "",
@@ -398,32 +392,32 @@ lines = {
 "next_id_after": "end",
 "replacements": [  ],
 "responses": PoolStringArray( "6", "7", "8", "9" ),
-"text": "Go through the hallway to the west",
-"translation_key": "Go through the hallway to the west",
+"text": "Go through the passage to the library to the north",
+"translation_key": "Go through the passage to the library to the north",
 "type": "response"
 },
 "7": {
-"next_id": "31",
-"next_id_after": "end",
-"replacements": [  ],
-"text": "Go through the hallway to the north",
-"translation_key": "Go through the hallway to the north",
-"type": "response"
-},
-"8": {
 "next_id": "36",
 "next_id_after": "end",
 "replacements": [  ],
-"text": "Go through the hallway to the east",
-"translation_key": "Go through the hallway to the east",
+"text": "Enter the sciences classroom to the north-west",
+"translation_key": "Enter the sciences classroom to the north-west",
+"type": "response"
+},
+"8": {
+"next_id": "31",
+"next_id_after": "end",
+"replacements": [  ],
+"text": "Enter the social studies classroom to the south-west",
+"translation_key": "Enter the social studies classroom to the south-west",
 "type": "response"
 },
 "9": {
 "next_id": "41",
 "next_id_after": "end",
 "replacements": [  ],
-"text": "Go outside",
-"translation_key": "Go outside",
+"text": "Go through the hallway to the east",
+"translation_key": "Go through the hallway to the east",
 "type": "response"
 }
 }

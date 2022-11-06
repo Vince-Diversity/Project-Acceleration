@@ -1,0 +1,585 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/dialogue_manager/dialogue_resource.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+syntax_version = 2
+raw_text = "~ first_visit
+
+At the center of the library with multiple open floors. It is a quiet, echoing building of books, with creepy towering bookcases.
+if blue_joined == true
+	{{GREEN}}: We need to be quiet in the library, let's show you around.
+	They walked around each floor. There are sections for all kinds of magiscientific knowledge. Anatomy and transformation, Alchemy and chemistry, Apparations and optics, Botanics and potions, Culture, Defensive arts, Economy, Ethics, Far-fetcheded arts, Foresight, ...
+	{{GREEN}}: {{BLUE}}? Where did you go?
+	{{BLUE}} was starting intensely on one of the editions of {{FUTURE}}.
+	{{GREEN}}: I know there are awfully many volumes of {{FUTURE}}, but if you stare this hard you might make a hole in this book!
+	Suddenly, the volume caught on fire!
+	{{GREEN}}: Oh no, I was just joking!
+	A moment later, the entire bookcase was on fire. It spread at an impossible speed and engulfed the whole floor before people started to notice.
+	set library_locked = true
+- Make an escape!  [if is_library_locked()] => escape
+- Go back to the main building [if not is_library_locked()] => knowledge_hallway
+
+~ visit
+
+if library_locked == true
+	Halfway through the passage to the west wing, the way has been sealed off. The area smells of burnt paper.
+else
+	{{GREEN}} is in the library.
+- Go back to the main building => knowledge_hallway
+
+~ execute_action
+
+No problems here.
+set next = \"library\"
+
+~ knowledge_hallway
+
+{{GREEN}} leaves through the passage to the main building.
+set next = \"knowledge_hallway\"
+
+~ escape
+
+Panic is spreading! Students and staff rushed out. {{GREEN}} carried {{BLUE}} out. At the passage to the main building, people gathered were gathered. {{GREEN}} could see staff members storm in with fire extinguishers. A big figure appears in front of {{GREEN}} and {{BLUE}}.
+{{CARETAKER}}: You two! You're coming with me.
+{{CARETAKER}} picked up {{GREEN}}, who was holding {{BLUE}}, and carried them both away.
+set court_started = true
+set next = \"great_hall\""
+errors = [  ]
+titles = {
+"escape": "36",
+"execute_action": "26",
+"first_visit": "2",
+"knowledge_hallway": "31",
+"visit": "18"
+}
+lines = {
+"0": {
+"next_id": "2",
+"text": "first_visit",
+"type": "title"
+},
+"10": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "11",
+"parent_id": "3",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "Oh no, I was just joking!",
+"time": null,
+"translation_key": "Oh no, I was just joking!",
+"type": "dialogue"
+},
+"11": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "12",
+"parent_id": "3",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "A moment later, the entire bookcase was on fire. It spread at an impossible speed and engulfed the whole floor before people started to notice.",
+"time": null,
+"translation_key": "A moment later, the entire bookcase was on fire. It spread at an impossible speed and engulfed the whole floor before people started to notice.",
+"type": "dialogue"
+},
+"12": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "library_locked"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "bool",
+"value": true
+} ]
+},
+"next_id": "13",
+"parent_id": "3",
+"type": "mutation"
+},
+"13": {
+"condition": {
+"expression": [ {
+"function": "is_library_locked",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "36",
+"next_id_after": "end",
+"replacements": [  ],
+"responses": PoolStringArray( "13", "14" ),
+"text": "Make an escape!",
+"translation_key": "Make an escape!",
+"type": "response"
+},
+"14": {
+"condition": {
+"expression": [ {
+"type": "not"
+}, {
+"function": "is_library_locked",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "31",
+"next_id_after": "end",
+"replacements": [  ],
+"text": "Go back to the main building",
+"translation_key": "Go back to the main building",
+"type": "response"
+},
+"16": {
+"next_id": "18",
+"text": "visit",
+"type": "title"
+},
+"18": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "library_locked"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "bool",
+"value": true
+} ]
+},
+"next_conditional_id": "20",
+"next_id": "19",
+"next_id_after": "22",
+"type": "condition"
+},
+"19": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "22",
+"parent_id": "18",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "Halfway through the passage to the west wing, the way has been sealed off. The area smells of burnt paper.",
+"time": null,
+"translation_key": "Halfway through the passage to the west wing, the way has been sealed off. The area smells of burnt paper.",
+"type": "dialogue"
+},
+"2": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "3",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "At the center of the library with multiple open floors. It is a quiet, echoing building of books, with creepy towering bookcases.",
+"time": null,
+"translation_key": "At the center of the library with multiple open floors. It is a quiet, echoing building of books, with creepy towering bookcases.",
+"type": "dialogue"
+},
+"20": {
+"next_conditional_id": "22",
+"next_id": "21",
+"next_id_after": "22",
+"type": "condition"
+},
+"21": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "22",
+"parent_id": "20",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} is in the library.",
+"time": null,
+"translation_key": "{{GREEN}} is in the library.",
+"type": "dialogue"
+},
+"22": {
+"next_id": "31",
+"next_id_after": "end",
+"replacements": [  ],
+"responses": PoolStringArray( "22" ),
+"text": "Go back to the main building",
+"translation_key": "Go back to the main building",
+"type": "response"
+},
+"24": {
+"next_id": "26",
+"text": "execute_action",
+"type": "title"
+},
+"26": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "27",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "No problems here.",
+"time": null,
+"translation_key": "No problems here.",
+"type": "dialogue"
+},
+"27": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "library"
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"29": {
+"next_id": "31",
+"text": "knowledge_hallway",
+"type": "title"
+},
+"3": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "blue_joined"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "bool",
+"value": true
+} ]
+},
+"next_conditional_id": "13",
+"next_id": "4",
+"next_id_after": "13",
+"type": "condition"
+},
+"31": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "32",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} leaves through the passage to the main building.",
+"time": null,
+"translation_key": "{{GREEN}} leaves through the passage to the main building.",
+"type": "dialogue"
+},
+"32": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "knowledge_hallway"
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"34": {
+"next_id": "36",
+"text": "escape",
+"type": "title"
+},
+"36": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "37",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"speeds": [  ],
+"text": "Panic is spreading! Students and staff rushed out. {{GREEN}} carried {{BLUE}} out. At the passage to the main building, people gathered were gathered. {{GREEN}} could see staff members storm in with fire extinguishers. A big figure appears in front of {{GREEN}} and {{BLUE}}.",
+"time": null,
+"translation_key": "Panic is spreading! Students and staff rushed out. {{GREEN}} carried {{BLUE}} out. At the passage to the main building, people gathered were gathered. {{GREEN}} could see staff members storm in with fire extinguishers. A big figure appears in front of {{GREEN}} and {{BLUE}}.",
+"type": "dialogue"
+},
+"37": {
+"character": "{{CARETAKER}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "CARETAKER"
+} ],
+"value_in_text": "{{CARETAKER}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "38",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "You two! You're coming with me.",
+"time": null,
+"translation_key": "You two! You're coming with me.",
+"type": "dialogue"
+},
+"38": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "39",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "CARETAKER"
+} ],
+"value_in_text": "{{CARETAKER}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"speeds": [  ],
+"text": "{{CARETAKER}} picked up {{GREEN}}, who was holding {{BLUE}}, and carried them both away.",
+"time": null,
+"translation_key": "{{CARETAKER}} picked up {{GREEN}}, who was holding {{BLUE}}, and carried them both away.",
+"type": "dialogue"
+},
+"39": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "court_started"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "bool",
+"value": true
+} ]
+},
+"next_id": "40",
+"type": "mutation"
+},
+"4": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "5",
+"parent_id": "3",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "We need to be quiet in the library, let's show you around.",
+"time": null,
+"translation_key": "We need to be quiet in the library, let's show you around.",
+"type": "dialogue"
+},
+"40": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "great_hall"
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"5": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "6",
+"parent_id": "3",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "They walked around each floor. There are sections for all kinds of magiscientific knowledge. Anatomy and transformation, Alchemy and chemistry, Apparations and optics, Botanics and potions, Culture, Defensive arts, Economy, Ethics, Far-fetcheded arts, Foresight, ...",
+"time": null,
+"translation_key": "They walked around each floor. There are sections for all kinds of magiscientific knowledge. Anatomy and transformation, Alchemy and chemistry, Apparations and optics, Botanics and potions, Culture, Defensive arts, Economy, Ethics, Far-fetcheded arts, Foresight, ...",
+"type": "dialogue"
+},
+"6": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "7",
+"parent_id": "3",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"speeds": [  ],
+"text": "{{BLUE}}? Where did you go?",
+"time": null,
+"translation_key": "{{BLUE}}? Where did you go?",
+"type": "dialogue"
+},
+"7": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "8",
+"parent_id": "3",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "FUTURE"
+} ],
+"value_in_text": "{{FUTURE}}"
+} ],
+"speeds": [  ],
+"text": "{{BLUE}} was starting intensely on one of the editions of {{FUTURE}}.",
+"time": null,
+"translation_key": "{{BLUE}} was starting intensely on one of the editions of {{FUTURE}}.",
+"type": "dialogue"
+},
+"8": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "9",
+"parent_id": "3",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "FUTURE"
+} ],
+"value_in_text": "{{FUTURE}}"
+} ],
+"speeds": [  ],
+"text": "I know there are awfully many volumes of {{FUTURE}}, but if you stare this hard you might make a hole in this book!",
+"time": null,
+"translation_key": "I know there are awfully many volumes of {{FUTURE}}, but if you stare this hard you might make a hole in this book!",
+"type": "dialogue"
+},
+"9": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "10",
+"parent_id": "3",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "Suddenly, the volume caught on fire!",
+"time": null,
+"translation_key": "Suddenly, the volume caught on fire!",
+"type": "dialogue"
+}
+}

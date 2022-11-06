@@ -1,0 +1,231 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/dialogue_manager/dialogue_resource.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+syntax_version = 2
+raw_text = "~ first_visit
+
+After a bit of walking, some railtracks appear behind a hill. The train station is quiet.
+if blue_joined == true
+	{{GREEN}}: The train which stops here is part of the general commuting system. But considering there is no other feasible way to get here, this should be familliar to you!
+	{{BLUE}} nods.
+- Go back to the school garden to the north => main_outdoors
+
+~ visit
+
+{{GREEN}} is next to the railtracks. The train station is quiet.
+- Go back to the school garden to the north => main_outdoors
+
+~ execute_action
+
+No problems here.
+set next = \"station\"
+
+~ main_outdoors
+
+{{GREEN}} returns to the garden.
+set next = \"main_outdoors\""
+errors = [  ]
+titles = {
+"execute_action": "15",
+"first_visit": "2",
+"main_outdoors": "20",
+"visit": "10"
+}
+lines = {
+"0": {
+"next_id": "2",
+"text": "first_visit",
+"type": "title"
+},
+"10": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "11",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} is next to the railtracks. The train station is quiet.",
+"time": null,
+"translation_key": "{{GREEN}} is next to the railtracks. The train station is quiet.",
+"type": "dialogue"
+},
+"11": {
+"next_id": "20",
+"next_id_after": "end",
+"replacements": [  ],
+"responses": PoolStringArray( "11" ),
+"text": "Go back to the school garden to the north",
+"translation_key": "Go back to the school garden to the north",
+"type": "response"
+},
+"13": {
+"next_id": "15",
+"text": "execute_action",
+"type": "title"
+},
+"15": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "16",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "No problems here.",
+"time": null,
+"translation_key": "No problems here.",
+"type": "dialogue"
+},
+"16": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "station"
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"18": {
+"next_id": "20",
+"text": "main_outdoors",
+"type": "title"
+},
+"2": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "3",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "After a bit of walking, some railtracks appear behind a hill. The train station is quiet.",
+"time": null,
+"translation_key": "After a bit of walking, some railtracks appear behind a hill. The train station is quiet.",
+"type": "dialogue"
+},
+"20": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "21",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} returns to the garden.",
+"time": null,
+"translation_key": "{{GREEN}} returns to the garden.",
+"type": "dialogue"
+},
+"21": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "main_outdoors"
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"3": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "blue_joined"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "bool",
+"value": true
+} ]
+},
+"next_conditional_id": "6",
+"next_id": "4",
+"next_id_after": "6",
+"type": "condition"
+},
+"4": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "5",
+"parent_id": "3",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "The train which stops here is part of the general commuting system. But considering there is no other feasible way to get here, this should be familliar to you!",
+"time": null,
+"translation_key": "The train which stops here is part of the general commuting system. But considering there is no other feasible way to get here, this should be familliar to you!",
+"type": "dialogue"
+},
+"5": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "6",
+"parent_id": "3",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"speeds": [  ],
+"text": "{{BLUE}} nods.",
+"time": null,
+"translation_key": "{{BLUE}} nods.",
+"type": "dialogue"
+},
+"6": {
+"next_id": "20",
+"next_id_after": "end",
+"replacements": [  ],
+"responses": PoolStringArray( "6" ),
+"text": "Go back to the school garden to the north",
+"translation_key": "Go back to the school garden to the north",
+"type": "response"
+},
+"8": {
+"next_id": "10",
+"text": "visit",
+"type": "title"
+}
+}

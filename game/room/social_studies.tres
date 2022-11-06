@@ -1,0 +1,235 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/dialogue_manager/dialogue_resource.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+syntax_version = 2
+raw_text = "~ first_visit
+
+A typical-looking classroom is found. Flags of an extensive number of nationalities are hanging across the room. There are books lying around with cheeky titles.
+if blue_joined == true
+	{{GREEN}}: The history and society of Magiscience is eventful. Students are encouraged to discuss and collaborate in this room.
+	{{BLUE}} nods.
+- Leave => knowledge_hallway
+
+~ visit
+
+{{GREEN}} visits the social studies classroom.
+-Leave => knowledge_hallway
+
+~ execute_action
+
+No problems here.
+set next = \"social_studies\"
+
+~ knowledge_hallway
+
+{{GREEN}} leaves the classroom.
+set next = \"knowledge_hallway\""
+errors = [  ]
+titles = {
+"execute_action": "15",
+"first_visit": "2",
+"knowledge_hallway": "20",
+"visit": "10"
+}
+lines = {
+"0": {
+"next_id": "2",
+"text": "first_visit",
+"type": "title"
+},
+"10": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "11",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} visits the social studies classroom.",
+"time": null,
+"translation_key": "{{GREEN}} visits the social studies classroom.",
+"type": "dialogue"
+},
+"11": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "-Leave => knowledge_hallway",
+"time": null,
+"translation_key": "-Leave => knowledge_hallway",
+"type": "dialogue"
+},
+"13": {
+"next_id": "15",
+"text": "execute_action",
+"type": "title"
+},
+"15": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "16",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "No problems here.",
+"time": null,
+"translation_key": "No problems here.",
+"type": "dialogue"
+},
+"16": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "social_studies"
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"18": {
+"next_id": "20",
+"text": "knowledge_hallway",
+"type": "title"
+},
+"2": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "3",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "A typical-looking classroom is found. Flags of an extensive number of nationalities are hanging across the room. There are books lying around with cheeky titles.",
+"time": null,
+"translation_key": "A typical-looking classroom is found. Flags of an extensive number of nationalities are hanging across the room. There are books lying around with cheeky titles.",
+"type": "dialogue"
+},
+"20": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "21",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} leaves the classroom.",
+"time": null,
+"translation_key": "{{GREEN}} leaves the classroom.",
+"type": "dialogue"
+},
+"21": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "knowledge_hallway"
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"3": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "blue_joined"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "bool",
+"value": true
+} ]
+},
+"next_conditional_id": "6",
+"next_id": "4",
+"next_id_after": "6",
+"type": "condition"
+},
+"4": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "5",
+"parent_id": "3",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "The history and society of Magiscience is eventful. Students are encouraged to discuss and collaborate in this room.",
+"time": null,
+"translation_key": "The history and society of Magiscience is eventful. Students are encouraged to discuss and collaborate in this room.",
+"type": "dialogue"
+},
+"5": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "6",
+"parent_id": "3",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"speeds": [  ],
+"text": "{{BLUE}} nods.",
+"time": null,
+"translation_key": "{{BLUE}} nods.",
+"type": "dialogue"
+},
+"6": {
+"next_id": "20",
+"next_id_after": "end",
+"replacements": [  ],
+"responses": PoolStringArray( "6" ),
+"text": "Leave",
+"translation_key": "Leave",
+"type": "response"
+},
+"8": {
+"next_id": "10",
+"text": "visit",
+"type": "title"
+}
+}

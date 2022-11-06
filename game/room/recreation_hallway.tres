@@ -13,14 +13,14 @@ if blue_joined == true
 	{{BLUE}} nods.
 - Go though the passage to the dorms to the north => dorm_connection
 - Enter the restaurant to the east => restaurant
-- Go towards the main entrance to the west => main_entrance
+- Go through the hallway to the west => main_entrance
 
 ~ visit
 
 {{GREEN}} is at the end of the dorm and restaurant hallway.
 - Go though the passage to the dorms to the north => dorm_connection
 - Enter the restaurant to the east => restaurant
-- Go towards the main entrance to the west => main_entrance
+- Go through the hallway to the west => main_entrance
 
 ~ execute_action
 
@@ -34,18 +34,19 @@ set next = \"dorm_wing_entrance\"
 
 ~ restaurant
 
-a
+{{GREEN}} enters the restaurant.
+set next = \"restaurant\" 
 
 ~ main_entrance
 
-{{GREEN}} walks towards the main entrance.
+{{GREEN}} walks through the hallway to the west.
 set next = \"main_entrance\""
 errors = [  ]
 titles = {
 "dorm_connection": "24",
 "execute_action": "19",
 "first_visit": "2",
-"main_entrance": "33",
+"main_entrance": "34",
 "restaurant": "29",
 "visit": "12"
 }
@@ -97,11 +98,11 @@ lines = {
 "type": "response"
 },
 "15": {
-"next_id": "33",
+"next_id": "34",
 "next_id_after": "end",
 "replacements": [  ],
-"text": "Go towards the main entrance to the west",
-"translation_key": "Go towards the main entrance to the west",
+"text": "Go through the hallway to the west",
+"translation_key": "Go through the hallway to the west",
 "type": "response"
 },
 "17": {
@@ -199,14 +200,20 @@ lines = {
 "29": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "",
+"next_id": "30",
 "pauses": {
 },
-"replacements": [  ],
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
 "speeds": [  ],
-"text": "a",
+"text": "{{GREEN}} enters the restaurant.",
 "time": null,
-"translation_key": "a",
+"translation_key": "{{GREEN}} enters the restaurant.",
 "type": "dialogue"
 },
 "3": {
@@ -227,15 +234,31 @@ lines = {
 "next_id_after": "6",
 "type": "condition"
 },
-"31": {
-"next_id": "33",
+"30": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "restaurant"
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"32": {
+"next_id": "34",
 "text": "main_entrance",
 "type": "title"
 },
-"33": {
+"34": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "34",
+"next_id": "35",
 "pauses": {
 },
 "replacements": [ {
@@ -246,12 +269,12 @@ lines = {
 "value_in_text": "{{GREEN}}"
 } ],
 "speeds": [  ],
-"text": "{{GREEN}} walks towards the main entrance.",
+"text": "{{GREEN}} walks through the hallway to the west.",
 "time": null,
-"translation_key": "{{GREEN}} walks towards the main entrance.",
+"translation_key": "{{GREEN}} walks through the hallway to the west.",
 "type": "dialogue"
 },
-"34": {
+"35": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -326,11 +349,11 @@ lines = {
 "type": "response"
 },
 "8": {
-"next_id": "33",
+"next_id": "34",
 "next_id_after": "end",
 "replacements": [  ],
-"text": "Go towards the main entrance to the west",
-"translation_key": "Go towards the main entrance to the west",
+"text": "Go through the hallway to the west",
+"translation_key": "Go through the hallway to the west",
 "type": "response"
 }
 }

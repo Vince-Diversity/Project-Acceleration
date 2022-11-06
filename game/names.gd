@@ -1,32 +1,27 @@
 extends Node
 
-enum Rooms {
-	INTERSECTION,
-	GYM,
-	CAT_LAB
-	}
-
-const room_names = {
-	Rooms.INTERSECTION: "intersection",
-	Rooms.GYM: "gym",
-	Rooms.CAT_LAB: "cat_lab"
-}
-
 var YELLOW = "Richy"
 var GREEN = "Misa"
 var RED = "Clara"
 var BLUE = "Ari"
-var TEACHER = "Phenia"
+var YELLOW_TEACHER = "Miss Olivia"
+var GREEN_TEACHER = "Mr. Hilbert"
+var RED_TEACHER = "Miss Phenia"
 var CAT = "Erwin 1.0"
+var CARETAKER = "The Caretaker"
+var PRINCIPAL = "The Principal"
 
-var YELLOW_ASPECT = "Light"
+var YELLOW_ASPECT = "Lightning"
 var GREEN_ASPECT = "Earth"
-var RED_ASPECT = "Heat"
+var RED_ASPECT = "Fire"
 var BLUE_ASPECT = "Time"
+var ASPECTLESS = "Magicless"
 
 var GREAT_HALL = "Great Hall"
 
 var REVEALER = "Revealing Eyepiece"
+
+var FUTURE = "Real Transcripts of Real Fortune Telling (TM)"
 
 var action_names = {
 	REVEALER: "Reveal"

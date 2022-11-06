@@ -8,8 +8,10 @@ game_version = "0.2"
 data = {
 "blue_joined": true,
 "cat_lab_revealed": false,
-"current_room": "dorm_wing_entrance",
+"court_started": true,
+"current_room": "great_hall",
 "in_blue_space": false,
-"visited": [ "cat_lab", "dorm_wing_entrance", "recreation_hallway", "main_entrance", "main_hallway" ],
-"yellow_joined": true
+"library_locked": true,
+"visited": [ "main_entrance", "knowledge_hallway", "library" ],
+"yellow_joined": false
 }

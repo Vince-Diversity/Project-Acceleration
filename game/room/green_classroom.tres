@@ -1,0 +1,360 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/dialogue_manager/dialogue_resource.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+syntax_version = 2
+raw_text = "~ first_visit
+
+A tall brown room is found. Wide tables are spread and there are containers of blocks of different colours under each table. At the end of a room, a wide-shouldered bold man is sitting, reading from one such book.
+if blue_joined == true
+	{{GREEN}}: This is the {{GREEN_ASPECT}} aspect's classroom. Students of this aspect learn how to make useful materials and shapes from standard raw materials.
+	{{BLUE}}: Nods.
+	{{GREEN}}: Since this is my born aspect, how about a little demonstration? Let me just ask teacher {{GREEN_TEACHER}} for permission.
+	{{GREEN}} takes a moment to visit {{GREEN_TEACHER}}, who made a friendly gentle go-ahead gesture. {{GREEN}} takes {{BLUE}} to one of the tables.
+	{{GREEN}}: So if I merge a small piece of this with some of that, and take a hair pin, I can get this.
+	Mysteriously, the hair pin has a cherry flower on it. {{GREEN}} attaches it to {{BLUE}}'s hair.
+- Leave => green_corridor_end
+
+~ visit
+
+{{GREEN}} visits the {{GREEN_ASPECT}} aspect's classroom.
+- Leave => green_corridor_end
+
+~ execute_action
+
+No problems here.
+set next = \"green_classroom\"
+
+~ green_corridor_end
+
+{{GREEN}} leaves the classroom.
+set next = \"green_corridor_end\""
+errors = [  ]
+titles = {
+"execute_action": "19",
+"first_visit": "2",
+"green_corridor_end": "24",
+"visit": "14"
+}
+lines = {
+"0": {
+"next_id": "2",
+"text": "first_visit",
+"type": "title"
+},
+"10": {
+"next_id": "24",
+"next_id_after": "end",
+"replacements": [  ],
+"responses": PoolStringArray( "10" ),
+"text": "Leave",
+"translation_key": "Leave",
+"type": "response"
+},
+"12": {
+"next_id": "14",
+"text": "visit",
+"type": "title"
+},
+"14": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "15",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "GREEN_ASPECT"
+} ],
+"value_in_text": "{{GREEN_ASPECT}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} visits the {{GREEN_ASPECT}} aspect's classroom.",
+"time": null,
+"translation_key": "{{GREEN}} visits the {{GREEN_ASPECT}} aspect's classroom.",
+"type": "dialogue"
+},
+"15": {
+"next_id": "24",
+"next_id_after": "end",
+"replacements": [  ],
+"responses": PoolStringArray( "15" ),
+"text": "Leave",
+"translation_key": "Leave",
+"type": "response"
+},
+"17": {
+"next_id": "19",
+"text": "execute_action",
+"type": "title"
+},
+"19": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "20",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "No problems here.",
+"time": null,
+"translation_key": "No problems here.",
+"type": "dialogue"
+},
+"2": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "3",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "A tall brown room is found. Wide tables are spread and there are containers of blocks of different colours under each table. At the end of a room, a wide-shouldered bold man is sitting, reading from one such book.",
+"time": null,
+"translation_key": "A tall brown room is found. Wide tables are spread and there are containers of blocks of different colours under each table. At the end of a room, a wide-shouldered bold man is sitting, reading from one such book.",
+"type": "dialogue"
+},
+"20": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "green_classroom"
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"22": {
+"next_id": "24",
+"text": "green_corridor_end",
+"type": "title"
+},
+"24": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "25",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} leaves the classroom.",
+"time": null,
+"translation_key": "{{GREEN}} leaves the classroom.",
+"type": "dialogue"
+},
+"25": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "green_corridor_end"
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"3": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "blue_joined"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "bool",
+"value": true
+} ]
+},
+"next_conditional_id": "10",
+"next_id": "4",
+"next_id_after": "10",
+"type": "condition"
+},
+"4": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "5",
+"parent_id": "3",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN_ASPECT"
+} ],
+"value_in_text": "{{GREEN_ASPECT}}"
+} ],
+"speeds": [  ],
+"text": "This is the {{GREEN_ASPECT}} aspect's classroom. Students of this aspect learn how to make useful materials and shapes from standard raw materials.",
+"time": null,
+"translation_key": "This is the {{GREEN_ASPECT}} aspect's classroom. Students of this aspect learn how to make useful materials and shapes from standard raw materials.",
+"type": "dialogue"
+},
+"5": {
+"character": "{{BLUE}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "6",
+"parent_id": "3",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "Nods.",
+"time": null,
+"translation_key": "Nods.",
+"type": "dialogue"
+},
+"6": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "7",
+"parent_id": "3",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN_TEACHER"
+} ],
+"value_in_text": "{{GREEN_TEACHER}}"
+} ],
+"speeds": [  ],
+"text": "Since this is my born aspect, how about a little demonstration? Let me just ask teacher {{GREEN_TEACHER}} for permission.",
+"time": null,
+"translation_key": "Since this is my born aspect, how about a little demonstration? Let me just ask teacher {{GREEN_TEACHER}} for permission.",
+"type": "dialogue"
+},
+"7": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "8",
+"parent_id": "3",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "GREEN_TEACHER"
+} ],
+"value_in_text": "{{GREEN_TEACHER}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} takes a moment to visit {{GREEN_TEACHER}}, who made a friendly gentle go-ahead gesture. {{GREEN}} takes {{BLUE}} to one of the tables.",
+"time": null,
+"translation_key": "{{GREEN}} takes a moment to visit {{GREEN_TEACHER}}, who made a friendly gentle go-ahead gesture. {{GREEN}} takes {{BLUE}} to one of the tables.",
+"type": "dialogue"
+},
+"8": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "9",
+"parent_id": "3",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "So if I merge a small piece of this with some of that, and take a hair pin, I can get this.",
+"time": null,
+"translation_key": "So if I merge a small piece of this with some of that, and take a hair pin, I can get this.",
+"type": "dialogue"
+},
+"9": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "10",
+"parent_id": "3",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"speeds": [  ],
+"text": "Mysteriously, the hair pin has a cherry flower on it. {{GREEN}} attaches it to {{BLUE}}'s hair.",
+"time": null,
+"translation_key": "Mysteriously, the hair pin has a cherry flower on it. {{GREEN}} attaches it to {{BLUE}}'s hair.",
+"type": "dialogue"
+}
+}

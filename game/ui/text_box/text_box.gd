@@ -1,11 +1,11 @@
-extends Control
+extends ScrollContainer
 
-onready var dlg_scn = preload("res://game/ui/text_box/dialogue.tscn")
 onready var narrative_scn = preload("res://game/ui/text_box/narrative_label.tscn")
 onready var pending_scn = preload("res://game/ui/text_box/pending_visual.tscn")
 onready var resp_scn = preload("res://game/ui/text_box/response.tscn")
+onready var dlg = $Dialogue
+onready var scroll_bar = get_v_scrollbar()
 var dlg_res: Resource
-var dlg
 var input_node
 
 signal responses_displayed(input_node)
@@ -22,12 +22,10 @@ func run_text() -> void:
 	else:
 		dlg_node = States.first_visit_dlg_node
 	var dlg_line = yield(dlg_res.get_next_dialogue_line(dlg_node), "completed")
-	dlg = dlg_scn.instance()
-	add_child(dlg)
 	while dlg_line != null:
 		var narrative = narrative_scn.instance()
 		dlg.add_child(narrative)
-		narrative.dialogue = dlg_line
+		make_narrative(narrative, dlg_line)
 		narrative.type_out()
 		yield(narrative, "finished")
 		if dlg_line.responses.empty():
@@ -41,9 +39,10 @@ func run_text() -> void:
 			var resp
 			for i in dlg_line.responses.size():
 				resp = resp_scn.instance()
-				make_response(resp, dlg_line.responses[i], i)
+				make_response(resp, i)
 				dlg.add_child(resp)
 				resp_arr.append(resp)
+				resp.prompt(dlg_line.responses[i].prompt)
 			Utils.connect_neighbouring_elems(resp_arr)
 			resp_arr[0].grab_focus()
 			emit_signal("responses_displayed", input_node)
@@ -69,9 +68,13 @@ func run_text() -> void:
 	mark_dlg()
 	emit_signal("finished_next_set")
 
-func make_response(resp, resp_line, resp_index: int):
-	resp.prompt(resp_line.prompt)
+func make_narrative(narrative, dlg_line):
+	narrative.dialogue = dlg_line
+	narrative.scroll_bar = scroll_bar
+
+func make_response(resp, resp_index: int):
 	resp.index = resp_index
+	resp.scroll_bar = scroll_bar
 	resp.connect("selected", input_node, "_on_Response_selected")
 
 func mark_dlg() -> void:
