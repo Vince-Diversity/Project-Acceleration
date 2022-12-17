@@ -22,3 +22,6 @@ func get_dlg_path(dlg_name) -> String:
 
 func get_action_state_name(dlg_name: String, action_id: String) -> String:
 	return dlg_name + '_' + Names.action_suffix[action_id]
+
+func scroll_to_bottom(scroll_bar: ScrollBar) -> void:
+	scroll_bar.value = scroll_bar.max_value

@@ -26,26 +26,34 @@ func run_text() -> void:
 		var narrative = narrative_scn.instance()
 		dlg.add_child(narrative)
 		make_narrative(narrative, dlg_line)
+		yield(narrative.reset_height(), "completed")
 		narrative.type_out()
+		yield(get_tree(), "idle_frame")
+		Utils.scroll_to_bottom(scroll_bar)
 		yield(narrative, "finished")
 		if dlg_line.responses.empty():
 			var pending_vfx = pending_scn.instance()
 			dlg.add_child(pending_vfx)
+#			yield(get_tree(), "idle_frame")
+#			Utils.scroll_to_bottom(scroll_bar) # This looks too jumpy
 			yield(input_node, "accept_pressed")
 			dlg.remove_child(pending_vfx)
 			dlg_line = yield(dlg_res.get_next_dialogue_line(dlg_line.next_id), "completed")
 		else:
 			var resp_arr := []
-			var resp
+			var response
 			for i in dlg_line.responses.size():
-				resp = resp_scn.instance()
-				make_response(resp, i)
-				dlg.add_child(resp)
-				resp_arr.append(resp)
-				resp.prompt(dlg_line.responses[i].prompt)
+				response = resp_scn.instance()
+				make_response(response, i)
+				dlg.add_child(response)
+				resp_arr.append(response)
+				response.prompt(dlg_line.responses[i].prompt)
 			Utils.connect_neighbouring_elems(resp_arr)
 			resp_arr[0].grab_focus()
 			emit_signal("responses_displayed", input_node)
+			yield(get_tree(), "idle_frame")
+			yield(get_tree(), "idle_frame") # This second idle frame matters
+			Utils.scroll_to_bottom(scroll_bar)
 			var input_arr = yield(input_node, "input_on_responding")
 			if input_arr[0] == Utils.InputType.RESPONSE:
 				var resp_index = input_arr[1]
@@ -64,17 +72,17 @@ func run_text() -> void:
 				dlg_line = yield(dlg_res.get_next_dialogue_line(States.reactivation_dlg_node), "completed")
 			else:
 				push_warning("Textbox received a signal that is not in the Utils.InputType: %s" % input_arr[0])
+			for resp in resp_arr:
+				resp.disable()
 	remove_child(dlg)
 	mark_dlg()
 	emit_signal("finished_next_set")
 
 func make_narrative(narrative, dlg_line):
 	narrative.dialogue = dlg_line
-	narrative.scroll_bar = scroll_bar
 
 func make_response(resp, resp_index: int):
 	resp.index = resp_index
-	resp.scroll_bar = scroll_bar
 	resp.connect("selected", input_node, "_on_Response_selected")
 
 func mark_dlg() -> void:
