@@ -5,7 +5,7 @@ const first_visit_dlg_node = "first_visit"
 const visit_dlg_node = "visit"
 const action_dlg_node = "execute_action"
 
-# Voluntary dialogue nodes
+# Optional dialogue nodes
 const reactivation_dlg_node = "action_reactivated"
 
 # Workaround on trying to iterate over all properties in a script
@@ -18,6 +18,7 @@ var property_list = [
 	"yellow_joined",
 	"blue_joined",
 	"cat_lab_revealed",
+	"court_ended",
 ]
 
 # Storing states as properties like this is required by the Dialogue addon
@@ -28,6 +29,7 @@ var court_started: bool
 var in_blue_space: bool
 var yellow_joined: bool
 var blue_joined: bool
+var court_ended: bool
 
 # Format is ROOM_NAME_revealed
 var cat_lab_revealed: bool

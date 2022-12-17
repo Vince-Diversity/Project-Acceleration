@@ -7,10 +7,12 @@ script = ExtResource( 1 )
 syntax_version = 2
 raw_text = "~ first_visit
 
-Three large hallways appear to the west, north and east. To the south is the entrance to the schoolyard.
 if blue_joined == true
+	Three large hallways appear to the west, north and east. To the south is the entrance to the schoolyard.
 	{{GREEN}}: The school is big and well connected. The {{GREAT_HALL}} and classrooms in the main building. Apart from that, there is an extensive library at the left wing and a lot of dorms at the right wing.
 	{{BLUE}} nods.
+else
+	Three large hallways appear to the west, north and east. To the south is the entrance to the schoolyard.
 - Go through the hallway to the west => library_hallway
 - Go through the hallway to the north => main_hallway
 - Go through the hallway to the east => dorm_hallway
@@ -50,13 +52,13 @@ set next = \"recreation_hallway\"
 set next = \"main_outdoors\""
 errors = [  ]
 titles = {
-"dorm_hallway": "36",
-"execute_action": "21",
+"dorm_hallway": "38",
+"execute_action": "23",
 "first_visit": "2",
-"library_hallway": "26",
-"main_hallway": "31",
-"outdoors": "41",
-"visit": "13"
+"library_hallway": "28",
+"main_hallway": "33",
+"outdoors": "43",
+"visit": "15"
 }
 lines = {
 "0": {
@@ -64,15 +66,31 @@ lines = {
 "text": "first_visit",
 "type": "title"
 },
+"10": {
+"next_id": "38",
+"next_id_after": "end",
+"replacements": [  ],
+"text": "Go through the hallway to the east",
+"translation_key": "Go through the hallway to the east",
+"type": "response"
+},
 "11": {
-"next_id": "13",
+"next_id": "43",
+"next_id_after": "end",
+"replacements": [  ],
+"text": "Go outside",
+"translation_key": "Go outside",
+"type": "response"
+},
+"13": {
+"next_id": "15",
 "text": "visit",
 "type": "title"
 },
-"13": {
+"15": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "14",
+"next_id": "16",
 "pauses": {
 },
 "replacements": [ {
@@ -88,61 +106,66 @@ lines = {
 "translation_key": "{{GREEN}} is at the main entrance.",
 "type": "dialogue"
 },
-"14": {
-"next_id": "26",
+"16": {
+"next_id": "28",
 "next_id_after": "end",
 "replacements": [  ],
-"responses": PoolStringArray( "14", "15", "16", "17" ),
+"responses": PoolStringArray( "16", "17", "18", "19" ),
 "text": "Go through the hallway to the west",
 "translation_key": "Go through the hallway to the west",
 "type": "response"
 },
-"15": {
-"next_id": "31",
+"17": {
+"next_id": "33",
 "next_id_after": "end",
 "replacements": [  ],
 "text": "Go through the hallway to the north",
 "translation_key": "Go through the hallway to the north",
 "type": "response"
 },
-"16": {
-"next_id": "36",
+"18": {
+"next_id": "38",
 "next_id_after": "end",
 "replacements": [  ],
 "text": "Go through the hallway to the east",
 "translation_key": "Go through the hallway to the east",
 "type": "response"
 },
-"17": {
-"next_id": "41",
+"19": {
+"next_id": "43",
 "next_id_after": "end",
 "replacements": [  ],
 "text": "Go outside",
 "translation_key": "Go outside",
 "type": "response"
 },
-"19": {
-"next_id": "21",
+"2": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "blue_joined"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "bool",
+"value": true
+} ]
+},
+"next_conditional_id": "6",
+"next_id": "3",
+"next_id_after": "8",
+"type": "condition"
+},
+"21": {
+"next_id": "23",
 "text": "execute_action",
 "type": "title"
 },
-"2": {
+"23": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "3",
-"pauses": {
-},
-"replacements": [  ],
-"speeds": [  ],
-"text": "Three large hallways appear to the west, north and east. To the south is the entrance to the schoolyard.",
-"time": null,
-"translation_key": "Three large hallways appear to the west, north and east. To the south is the entrance to the schoolyard.",
-"type": "dialogue"
-},
-"21": {
-"character": "",
-"inline_mutations": [  ],
-"next_id": "22",
+"next_id": "24",
 "pauses": {
 },
 "replacements": [  ],
@@ -152,7 +175,7 @@ lines = {
 "translation_key": "No problems here.",
 "type": "dialogue"
 },
-"22": {
+"24": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -168,15 +191,15 @@ lines = {
 "next_id": "",
 "type": "mutation"
 },
-"24": {
-"next_id": "26",
+"26": {
+"next_id": "28",
 "text": "library_hallway",
 "type": "title"
 },
-"26": {
+"28": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "27",
+"next_id": "29",
 "pauses": {
 },
 "replacements": [ {
@@ -192,7 +215,7 @@ lines = {
 "translation_key": "{{GREEN}} walks through the hallway to the west.",
 "type": "dialogue"
 },
-"27": {
+"29": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -208,33 +231,29 @@ lines = {
 "next_id": "",
 "type": "mutation"
 },
-"29": {
-"next_id": "31",
+"3": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "4",
+"parent_id": "2",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "Three large hallways appear to the west, north and east. To the south is the entrance to the schoolyard.",
+"time": null,
+"translation_key": "Three large hallways appear to the west, north and east. To the south is the entrance to the schoolyard.",
+"type": "dialogue"
+},
+"31": {
+"next_id": "33",
 "text": "main_hallway",
 "type": "title"
 },
-"3": {
-"condition": {
-"expression": [ {
-"type": "variable",
-"value": "blue_joined"
-}, {
-"type": "comparison",
-"value": "=="
-}, {
-"type": "bool",
-"value": true
-} ]
-},
-"next_conditional_id": "6",
-"next_id": "4",
-"next_id_after": "6",
-"type": "condition"
-},
-"31": {
+"33": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "32",
+"next_id": "34",
 "pauses": {
 },
 "replacements": [ {
@@ -250,7 +269,7 @@ lines = {
 "translation_key": "{{GREEN}} walks through the hallway to the north.",
 "type": "dialogue"
 },
-"32": {
+"34": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -266,15 +285,15 @@ lines = {
 "next_id": "",
 "type": "mutation"
 },
-"34": {
-"next_id": "36",
+"36": {
+"next_id": "38",
 "text": "dorm_hallway",
 "type": "title"
 },
-"36": {
+"38": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "37",
+"next_id": "39",
 "pauses": {
 },
 "replacements": [ {
@@ -290,7 +309,7 @@ lines = {
 "translation_key": "{{GREEN}} walks through the hallway to the east.",
 "type": "dialogue"
 },
-"37": {
+"39": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -306,11 +325,6 @@ lines = {
 "next_id": "",
 "type": "mutation"
 },
-"39": {
-"next_id": "41",
-"text": "outdoors",
-"type": "title"
-},
 "4": {
 "character": "{{GREEN}}",
 "character_replacements": [ {
@@ -322,7 +336,7 @@ lines = {
 } ],
 "inline_mutations": [  ],
 "next_id": "5",
-"parent_id": "3",
+"parent_id": "2",
 "pauses": {
 },
 "replacements": [ {
@@ -339,9 +353,14 @@ lines = {
 "type": "dialogue"
 },
 "41": {
+"next_id": "43",
+"text": "outdoors",
+"type": "title"
+},
+"43": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "42",
+"next_id": "44",
 "pauses": {
 },
 "replacements": [ {
@@ -357,7 +376,7 @@ lines = {
 "translation_key": "{{GREEN}} exits the school.",
 "type": "dialogue"
 },
-"42": {
+"44": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -376,8 +395,8 @@ lines = {
 "5": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "6",
-"parent_id": "3",
+"next_id": "8",
+"parent_id": "2",
 "pauses": {
 },
 "replacements": [ {
@@ -394,36 +413,40 @@ lines = {
 "type": "dialogue"
 },
 "6": {
-"next_id": "26",
+"next_conditional_id": "8",
+"next_id": "7",
+"next_id_after": "8",
+"type": "condition"
+},
+"7": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "8",
+"parent_id": "6",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "Three large hallways appear to the west, north and east. To the south is the entrance to the schoolyard.",
+"time": null,
+"translation_key": "Three large hallways appear to the west, north and east. To the south is the entrance to the schoolyard.",
+"type": "dialogue"
+},
+"8": {
+"next_id": "28",
 "next_id_after": "end",
 "replacements": [  ],
-"responses": PoolStringArray( "6", "7", "8", "9" ),
+"responses": PoolStringArray( "8", "9", "10", "11" ),
 "text": "Go through the hallway to the west",
 "translation_key": "Go through the hallway to the west",
 "type": "response"
 },
-"7": {
-"next_id": "31",
+"9": {
+"next_id": "33",
 "next_id_after": "end",
 "replacements": [  ],
 "text": "Go through the hallway to the north",
 "translation_key": "Go through the hallway to the north",
-"type": "response"
-},
-"8": {
-"next_id": "36",
-"next_id_after": "end",
-"replacements": [  ],
-"text": "Go through the hallway to the east",
-"translation_key": "Go through the hallway to the east",
-"type": "response"
-},
-"9": {
-"next_id": "41",
-"next_id_after": "end",
-"replacements": [  ],
-"text": "Go outside",
-"translation_key": "Go outside",
 "type": "response"
 }
 }

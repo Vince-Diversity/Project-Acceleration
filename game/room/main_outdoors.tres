@@ -7,10 +7,12 @@ script = ExtResource( 1 )
 syntax_version = 2
 raw_text = "~ first_visit
 
-A plant-rich school garden is found. At a distance, there is a path to the south. The weather is cloudy and mild.
 if blue_joined == true
+	A plant-rich school garden is found. At a distance, there is a path to the south. The weather is cloudy and mild.
 	{{GREEN}}: Going out to the garden is very pleasant. The trees and bushes are well maintained, although they make it difficult to practice spells outdoors without hitting anything. But perhaps that is also why they put it here!
 	{{BLUE}} nods.
+else:
+	A plant-rich school garden is found. At a distance, there is a path to the south. The weather is cloudy and mild.
 - Go into the school entrance to the north => main_entrance
 - Go through the garden towards the south => station
 
@@ -36,11 +38,11 @@ set next = \"main_entrance\"
 set next = \"station\""
 errors = [  ]
 titles = {
-"execute_action": "17",
+"execute_action": "19",
 "first_visit": "2",
-"main_entrance": "22",
-"station": "27",
-"visit": "11"
+"main_entrance": "24",
+"station": "29",
+"visit": "13"
 }
 lines = {
 "0": {
@@ -49,9 +51,14 @@ lines = {
 "type": "title"
 },
 "11": {
+"next_id": "13",
+"text": "visit",
+"type": "title"
+},
+"13": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "12",
+"next_id": "14",
 "pauses": {
 },
 "replacements": [ {
@@ -67,32 +74,32 @@ lines = {
 "translation_key": "{{GREEN}} is in the school garden.",
 "type": "dialogue"
 },
-"12": {
-"next_id": "22",
+"14": {
+"next_id": "24",
 "next_id_after": "end",
 "replacements": [  ],
-"responses": PoolStringArray( "12", "13" ),
+"responses": PoolStringArray( "14", "15" ),
 "text": "Go into the school entrance to the north",
 "translation_key": "Go into the school entrance to the north",
 "type": "response"
 },
-"13": {
-"next_id": "27",
+"15": {
+"next_id": "29",
 "next_id_after": "end",
 "replacements": [  ],
 "text": "Go through the garden towards the south",
 "translation_key": "Go through the garden towards the south",
 "type": "response"
 },
-"15": {
-"next_id": "17",
+"17": {
+"next_id": "19",
 "text": "execute_action",
 "type": "title"
 },
-"17": {
+"19": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "18",
+"next_id": "20",
 "pauses": {
 },
 "replacements": [  ],
@@ -102,7 +109,25 @@ lines = {
 "translation_key": "No problems here.",
 "type": "dialogue"
 },
-"18": {
+"2": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "blue_joined"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "bool",
+"value": true
+} ]
+},
+"next_conditional_id": "6",
+"next_id": "3",
+"next_id_after": "8",
+"type": "condition"
+},
+"20": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -118,28 +143,15 @@ lines = {
 "next_id": "",
 "type": "mutation"
 },
-"2": {
-"character": "",
-"inline_mutations": [  ],
-"next_id": "3",
-"pauses": {
-},
-"replacements": [  ],
-"speeds": [  ],
-"text": "A plant-rich school garden is found. At a distance, there is a path to the south. The weather is cloudy and mild.",
-"time": null,
-"translation_key": "A plant-rich school garden is found. At a distance, there is a path to the south. The weather is cloudy and mild.",
-"type": "dialogue"
-},
-"20": {
-"next_id": "22",
+"22": {
+"next_id": "24",
 "text": "main_entrance",
 "type": "title"
 },
-"22": {
+"24": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "23",
+"next_id": "25",
 "pauses": {
 },
 "replacements": [ {
@@ -155,7 +167,7 @@ lines = {
 "translation_key": "{{GREEN}} enters the school.",
 "type": "dialogue"
 },
-"23": {
+"25": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -171,15 +183,15 @@ lines = {
 "next_id": "",
 "type": "mutation"
 },
-"25": {
-"next_id": "27",
+"27": {
+"next_id": "29",
 "text": "station",
 "type": "title"
 },
-"27": {
+"29": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "28",
+"next_id": "30",
 "pauses": {
 },
 "replacements": [ {
@@ -195,7 +207,21 @@ lines = {
 "translation_key": "{{GREEN}} walks on the southern path.",
 "type": "dialogue"
 },
-"28": {
+"3": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "4",
+"parent_id": "2",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "A plant-rich school garden is found. At a distance, there is a path to the south. The weather is cloudy and mild.",
+"time": null,
+"translation_key": "A plant-rich school garden is found. At a distance, there is a path to the south. The weather is cloudy and mild.",
+"type": "dialogue"
+},
+"30": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -211,24 +237,6 @@ lines = {
 "next_id": "",
 "type": "mutation"
 },
-"3": {
-"condition": {
-"expression": [ {
-"type": "variable",
-"value": "blue_joined"
-}, {
-"type": "comparison",
-"value": "=="
-}, {
-"type": "bool",
-"value": true
-} ]
-},
-"next_conditional_id": "6",
-"next_id": "4",
-"next_id_after": "6",
-"type": "condition"
-},
 "4": {
 "character": "{{GREEN}}",
 "character_replacements": [ {
@@ -240,7 +248,7 @@ lines = {
 } ],
 "inline_mutations": [  ],
 "next_id": "5",
-"parent_id": "3",
+"parent_id": "2",
 "pauses": {
 },
 "replacements": [  ],
@@ -253,8 +261,8 @@ lines = {
 "5": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "6",
-"parent_id": "3",
+"next_id": "8",
+"parent_id": "2",
 "pauses": {
 },
 "replacements": [ {
@@ -271,25 +279,40 @@ lines = {
 "type": "dialogue"
 },
 "6": {
-"next_id": "22",
+"next_conditional_id": "8",
+"next_id": "7",
+"next_id_after": "8",
+"type": "condition"
+},
+"7": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "8",
+"parent_id": "6",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "A plant-rich school garden is found. At a distance, there is a path to the south. The weather is cloudy and mild.",
+"time": null,
+"translation_key": "A plant-rich school garden is found. At a distance, there is a path to the south. The weather is cloudy and mild.",
+"type": "dialogue"
+},
+"8": {
+"next_id": "24",
 "next_id_after": "end",
 "replacements": [  ],
-"responses": PoolStringArray( "6", "7" ),
+"responses": PoolStringArray( "8", "9" ),
 "text": "Go into the school entrance to the north",
 "translation_key": "Go into the school entrance to the north",
 "type": "response"
 },
-"7": {
-"next_id": "27",
+"9": {
+"next_id": "29",
 "next_id_after": "end",
 "replacements": [  ],
 "text": "Go through the garden towards the south",
 "translation_key": "Go through the garden towards the south",
 "type": "response"
-},
-"9": {
-"next_id": "11",
-"text": "visit",
-"type": "title"
 }
 }

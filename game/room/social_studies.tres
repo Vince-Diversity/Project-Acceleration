@@ -7,10 +7,12 @@ script = ExtResource( 1 )
 syntax_version = 2
 raw_text = "~ first_visit
 
-A typical-looking classroom is found. Flags of an extensive number of nationalities are hanging across the room. There are books lying around with cheeky titles.
 if blue_joined == true
+	A typical-looking classroom is found. Flags of an extensive number of nationalities are hanging across the room. There are books lying around with cheeky titles.
 	{{GREEN}}: The history and society of Magiscience is eventful. Students are encouraged to discuss and collaborate in this room.
 	{{BLUE}} nods.
+else
+	A typical-looking classroom is found. Flags of an extensive number of nationalities are hanging across the room. There are books lying around with cheeky titles.
 - Leave => knowledge_hallway
 
 ~ visit
@@ -29,10 +31,10 @@ set next = \"social_studies\"
 set next = \"knowledge_hallway\""
 errors = [  ]
 titles = {
-"execute_action": "15",
+"execute_action": "17",
 "first_visit": "2",
-"knowledge_hallway": "20",
-"visit": "10"
+"knowledge_hallway": "22",
+"visit": "12"
 }
 lines = {
 "0": {
@@ -41,9 +43,14 @@ lines = {
 "type": "title"
 },
 "10": {
+"next_id": "12",
+"text": "visit",
+"type": "title"
+},
+"12": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "11",
+"next_id": "13",
 "pauses": {
 },
 "replacements": [ {
@@ -59,7 +66,7 @@ lines = {
 "translation_key": "{{GREEN}} visits the social studies classroom.",
 "type": "dialogue"
 },
-"11": {
+"13": {
 "character": "",
 "inline_mutations": [  ],
 "next_id": "",
@@ -72,15 +79,15 @@ lines = {
 "translation_key": "-Leave => knowledge_hallway",
 "type": "dialogue"
 },
-"13": {
-"next_id": "15",
+"15": {
+"next_id": "17",
 "text": "execute_action",
 "type": "title"
 },
-"15": {
+"17": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "16",
+"next_id": "18",
 "pauses": {
 },
 "replacements": [  ],
@@ -90,7 +97,7 @@ lines = {
 "translation_key": "No problems here.",
 "type": "dialogue"
 },
-"16": {
+"18": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -106,28 +113,33 @@ lines = {
 "next_id": "",
 "type": "mutation"
 },
-"18": {
-"next_id": "20",
+"2": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "blue_joined"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "bool",
+"value": true
+} ]
+},
+"next_conditional_id": "6",
+"next_id": "3",
+"next_id_after": "8",
+"type": "condition"
+},
+"20": {
+"next_id": "22",
 "text": "knowledge_hallway",
 "type": "title"
 },
-"2": {
+"22": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "3",
-"pauses": {
-},
-"replacements": [  ],
-"speeds": [  ],
-"text": "A typical-looking classroom is found. Flags of an extensive number of nationalities are hanging across the room. There are books lying around with cheeky titles.",
-"time": null,
-"translation_key": "A typical-looking classroom is found. Flags of an extensive number of nationalities are hanging across the room. There are books lying around with cheeky titles.",
-"type": "dialogue"
-},
-"20": {
-"character": "",
-"inline_mutations": [  ],
-"next_id": "21",
+"next_id": "23",
 "pauses": {
 },
 "replacements": [ {
@@ -143,7 +155,7 @@ lines = {
 "translation_key": "{{GREEN}} leaves the classroom.",
 "type": "dialogue"
 },
-"21": {
+"23": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -160,22 +172,18 @@ lines = {
 "type": "mutation"
 },
 "3": {
-"condition": {
-"expression": [ {
-"type": "variable",
-"value": "blue_joined"
-}, {
-"type": "comparison",
-"value": "=="
-}, {
-"type": "bool",
-"value": true
-} ]
-},
-"next_conditional_id": "6",
+"character": "",
+"inline_mutations": [  ],
 "next_id": "4",
-"next_id_after": "6",
-"type": "condition"
+"parent_id": "2",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "A typical-looking classroom is found. Flags of an extensive number of nationalities are hanging across the room. There are books lying around with cheeky titles.",
+"time": null,
+"translation_key": "A typical-looking classroom is found. Flags of an extensive number of nationalities are hanging across the room. There are books lying around with cheeky titles.",
+"type": "dialogue"
 },
 "4": {
 "character": "{{GREEN}}",
@@ -188,7 +196,7 @@ lines = {
 } ],
 "inline_mutations": [  ],
 "next_id": "5",
-"parent_id": "3",
+"parent_id": "2",
 "pauses": {
 },
 "replacements": [  ],
@@ -201,8 +209,8 @@ lines = {
 "5": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "6",
-"parent_id": "3",
+"next_id": "8",
+"parent_id": "2",
 "pauses": {
 },
 "replacements": [ {
@@ -219,17 +227,32 @@ lines = {
 "type": "dialogue"
 },
 "6": {
-"next_id": "20",
+"next_conditional_id": "8",
+"next_id": "7",
+"next_id_after": "8",
+"type": "condition"
+},
+"7": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "8",
+"parent_id": "6",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "A typical-looking classroom is found. Flags of an extensive number of nationalities are hanging across the room. There are books lying around with cheeky titles.",
+"time": null,
+"translation_key": "A typical-looking classroom is found. Flags of an extensive number of nationalities are hanging across the room. There are books lying around with cheeky titles.",
+"type": "dialogue"
+},
+"8": {
+"next_id": "22",
 "next_id_after": "end",
 "replacements": [  ],
-"responses": PoolStringArray( "6" ),
+"responses": PoolStringArray( "8" ),
 "text": "Leave",
 "translation_key": "Leave",
 "type": "response"
-},
-"8": {
-"next_id": "10",
-"text": "visit",
-"type": "title"
 }
 }

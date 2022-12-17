@@ -16,8 +16,10 @@ if blue_joined == true
 	{{GREEN}}: I know there are awfully many volumes of {{FUTURE}}, but if you stare this hard you might make a hole in this book!
 	Suddenly, the volume caught on fire!
 	{{GREEN}}: Oh no, I was just joking!
-	A moment later, the entire bookcase was on fire. It spread at an impossible speed and engulfed the whole floor before people started to notice.
 	set library_locked = true
+	A moment later, the entire bookcase was on fire. It spread at an impossible speed and engulfed the whole floor before people started to notice.
+else
+	{{GREEN}}: I don't think I'm supposed to be here right now.
 - Make an escape!  [if is_library_locked()] => escape
 - Go back to the main building [if not is_library_locked()] => knowledge_hallway
 
@@ -48,11 +50,11 @@ set court_started = true
 set next = \"great_hall\""
 errors = [  ]
 titles = {
-"escape": "36",
-"execute_action": "26",
+"escape": "38",
+"execute_action": "28",
 "first_visit": "2",
-"knowledge_hallway": "31",
-"visit": "18"
+"knowledge_hallway": "33",
+"visit": "20"
 }
 lines = {
 "0": {
@@ -82,20 +84,6 @@ lines = {
 "type": "dialogue"
 },
 "11": {
-"character": "",
-"inline_mutations": [  ],
-"next_id": "12",
-"parent_id": "3",
-"pauses": {
-},
-"replacements": [  ],
-"speeds": [  ],
-"text": "A moment later, the entire bookcase was on fire. It spread at an impossible speed and engulfed the whole floor before people started to notice.",
-"time": null,
-"translation_key": "A moment later, the entire bookcase was on fire. It spread at an impossible speed and engulfed the whole floor before people started to notice.",
-"type": "dialogue"
-},
-"12": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -108,11 +96,52 @@ lines = {
 "value": true
 } ]
 },
-"next_id": "13",
+"next_id": "12",
 "parent_id": "3",
 "type": "mutation"
 },
+"12": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "15",
+"parent_id": "3",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "A moment later, the entire bookcase was on fire. It spread at an impossible speed and engulfed the whole floor before people started to notice.",
+"time": null,
+"translation_key": "A moment later, the entire bookcase was on fire. It spread at an impossible speed and engulfed the whole floor before people started to notice.",
+"type": "dialogue"
+},
 "13": {
+"next_conditional_id": "15",
+"next_id": "14",
+"next_id_after": "15",
+"type": "condition"
+},
+"14": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "15",
+"parent_id": "13",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "I don't think I'm supposed to be here right now.",
+"time": null,
+"translation_key": "I don't think I'm supposed to be here right now.",
+"type": "dialogue"
+},
+"15": {
 "condition": {
 "expression": [ {
 "function": "is_library_locked",
@@ -120,15 +149,15 @@ lines = {
 "value": [  ]
 } ]
 },
-"next_id": "36",
+"next_id": "38",
 "next_id_after": "end",
 "replacements": [  ],
-"responses": PoolStringArray( "13", "14" ),
+"responses": PoolStringArray( "15", "16" ),
 "text": "Make an escape!",
 "translation_key": "Make an escape!",
 "type": "response"
 },
-"14": {
+"16": {
 "condition": {
 "expression": [ {
 "type": "not"
@@ -138,49 +167,17 @@ lines = {
 "value": [  ]
 } ]
 },
-"next_id": "31",
+"next_id": "33",
 "next_id_after": "end",
 "replacements": [  ],
 "text": "Go back to the main building",
 "translation_key": "Go back to the main building",
 "type": "response"
 },
-"16": {
-"next_id": "18",
+"18": {
+"next_id": "20",
 "text": "visit",
 "type": "title"
-},
-"18": {
-"condition": {
-"expression": [ {
-"type": "variable",
-"value": "library_locked"
-}, {
-"type": "comparison",
-"value": "=="
-}, {
-"type": "bool",
-"value": true
-} ]
-},
-"next_conditional_id": "20",
-"next_id": "19",
-"next_id_after": "22",
-"type": "condition"
-},
-"19": {
-"character": "",
-"inline_mutations": [  ],
-"next_id": "22",
-"parent_id": "18",
-"pauses": {
-},
-"replacements": [  ],
-"speeds": [  ],
-"text": "Halfway through the passage to the west wing, the way has been sealed off. The area smells of burnt paper.",
-"time": null,
-"translation_key": "Halfway through the passage to the west wing, the way has been sealed off. The area smells of burnt paper.",
-"type": "dialogue"
 },
 "2": {
 "character": "",
@@ -196,16 +193,48 @@ lines = {
 "type": "dialogue"
 },
 "20": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "library_locked"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "bool",
+"value": true
+} ]
+},
 "next_conditional_id": "22",
 "next_id": "21",
-"next_id_after": "22",
+"next_id_after": "24",
 "type": "condition"
 },
 "21": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "22",
+"next_id": "24",
 "parent_id": "20",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "Halfway through the passage to the west wing, the way has been sealed off. The area smells of burnt paper.",
+"time": null,
+"translation_key": "Halfway through the passage to the west wing, the way has been sealed off. The area smells of burnt paper.",
+"type": "dialogue"
+},
+"22": {
+"next_conditional_id": "24",
+"next_id": "23",
+"next_id_after": "24",
+"type": "condition"
+},
+"23": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "24",
+"parent_id": "22",
 "pauses": {
 },
 "replacements": [ {
@@ -221,24 +250,24 @@ lines = {
 "translation_key": "{{GREEN}} is in the library.",
 "type": "dialogue"
 },
-"22": {
-"next_id": "31",
+"24": {
+"next_id": "33",
 "next_id_after": "end",
 "replacements": [  ],
-"responses": PoolStringArray( "22" ),
+"responses": PoolStringArray( "24" ),
 "text": "Go back to the main building",
 "translation_key": "Go back to the main building",
 "type": "response"
 },
-"24": {
-"next_id": "26",
+"26": {
+"next_id": "28",
 "text": "execute_action",
 "type": "title"
 },
-"26": {
+"28": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "27",
+"next_id": "29",
 "pauses": {
 },
 "replacements": [  ],
@@ -248,7 +277,7 @@ lines = {
 "translation_key": "No problems here.",
 "type": "dialogue"
 },
-"27": {
+"29": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -263,11 +292,6 @@ lines = {
 },
 "next_id": "",
 "type": "mutation"
-},
-"29": {
-"next_id": "31",
-"text": "knowledge_hallway",
-"type": "title"
 },
 "3": {
 "condition": {
@@ -284,13 +308,18 @@ lines = {
 },
 "next_conditional_id": "13",
 "next_id": "4",
-"next_id_after": "13",
+"next_id_after": "15",
 "type": "condition"
 },
 "31": {
+"next_id": "33",
+"text": "knowledge_hallway",
+"type": "title"
+},
+"33": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "32",
+"next_id": "34",
 "pauses": {
 },
 "replacements": [ {
@@ -306,7 +335,7 @@ lines = {
 "translation_key": "{{GREEN}} leaves through the passage to the main building.",
 "type": "dialogue"
 },
-"32": {
+"34": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -322,15 +351,15 @@ lines = {
 "next_id": "",
 "type": "mutation"
 },
-"34": {
-"next_id": "36",
+"36": {
+"next_id": "38",
 "text": "escape",
 "type": "title"
 },
-"36": {
+"38": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "37",
+"next_id": "39",
 "pauses": {
 },
 "replacements": [ {
@@ -370,7 +399,7 @@ lines = {
 "translation_key": "Panic is spreading! Students and staff rushed out. {{GREEN}} carried {{BLUE}} out. At the passage to the main building, people gathered were gathered. {{GREEN}} could see staff members storm in with fire extinguishers. A big figure appears in front of {{GREEN}} and {{BLUE}}.",
 "type": "dialogue"
 },
-"37": {
+"39": {
 "character": "{{CARETAKER}}",
 "character_replacements": [ {
 "expression": [ {
@@ -380,7 +409,7 @@ lines = {
 "value_in_text": "{{CARETAKER}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "38",
+"next_id": "40",
 "pauses": {
 },
 "replacements": [  ],
@@ -390,10 +419,31 @@ lines = {
 "translation_key": "You two! You're coming with me.",
 "type": "dialogue"
 },
-"38": {
+"4": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "5",
+"parent_id": "3",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "We need to be quiet in the library, let's show you around.",
+"time": null,
+"translation_key": "We need to be quiet in the library, let's show you around.",
+"type": "dialogue"
+},
+"40": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "39",
+"next_id": "41",
 "pauses": {
 },
 "replacements": [ {
@@ -421,7 +471,7 @@ lines = {
 "translation_key": "{{CARETAKER}} picked up {{GREEN}}, who was holding {{BLUE}}, and carried them both away.",
 "type": "dialogue"
 },
-"39": {
+"41": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -434,31 +484,10 @@ lines = {
 "value": true
 } ]
 },
-"next_id": "40",
+"next_id": "42",
 "type": "mutation"
 },
-"4": {
-"character": "{{GREEN}}",
-"character_replacements": [ {
-"expression": [ {
-"type": "variable",
-"value": "GREEN"
-} ],
-"value_in_text": "{{GREEN}}"
-} ],
-"inline_mutations": [  ],
-"next_id": "5",
-"parent_id": "3",
-"pauses": {
-},
-"replacements": [  ],
-"speeds": [  ],
-"text": "We need to be quiet in the library, let's show you around.",
-"time": null,
-"translation_key": "We need to be quiet in the library, let's show you around.",
-"type": "dialogue"
-},
-"40": {
+"42": {
 "mutation": {
 "expression": [ {
 "type": "variable",

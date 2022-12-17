@@ -7,19 +7,24 @@ script = ExtResource( 1 )
 syntax_version = 2
 raw_text = "~ first_visit
 
-if court_started == true
+if court_started == true and court_ended == false
 	=> court
 else
 	A vast ceremonious room is found. There are plenty of seats and tables stretching towards a stage. An echo can be heard when walking.
 	if blue_joined == true
 		{{GREEN}}: Every year, new students are welcomed and graduates celebrated here in the {{GREAT_HALL}}. Unfortunately, since you arrived mid-term, you missed out on that. By the way, any form of beverage or food into here is prohibited very strictly!
 		{{BLUE}} nods.
+	else
+		{{GREEN}}: I don't think I'm supposed to be here right now.
 - Go back to the main hallway => main_hallway
 
 ~ visit
 
-if court_started == true
+if court_started == true and court_ended == false
 	=> court
+elif court_ended == true
+	{{GREEN}} visits the {{GREAT_HALL}}. {{BLUE}} is not here anymore and all other students had been instructed to return to their dorms.
+- Go back to the main hallway => main_hallway
 else
 	{{GREEN}} visits the {{GREAT_HALL}}.
 - Go back to the main hallway => main_hallway
@@ -111,27 +116,31 @@ It was true. {{BLUE}} was the one who told {{GREEN}} that they were {{ASPECTLESS
 {{PRINCIPAL}}: Does anyone else wish to have the word?
 {{PRINCIPAL}} impatiently waits for a response from the audience.
 {{PRINCIPAL}}: Then this meeting will be closed. The culprit, {{BLUE}}, is to be kept in infinite detention! All classes today are cancelled and the staff must spend all their efforts on restoration spells to return the library to its former glory. Once that is done, the culprit {{BLUE}} is to be expelled from the school indefinitely!
-The audience \"yeahs\" and begin to leave.
+The audience \"yeahs!\".
+{{PRINCIPAL}}: Everyone, dismissed! Students, to avoid any interference I suggest you all return to your dorms until classes are opened again.
+Although, students already began to leave before they heard that.
 {{GREEN}} is worried about {{BLUE}}, who was sitting silently during the entire show.
 {{GREEN}}: {{BLUE}}... I do not think that you have any ill intention in this. As your mentor and primary caretaker in your school life, I promise I will help you.
 {{BLUE}} nods.
-{{CARETAKER}} instructs {{GREEN}} to leave.
+{{CARETAKER}} instructs {{GREEN}} to return to their dorm.
+set blue_joined = false
+set court_ended = true
 => main_hallway"
 errors = [  ]
 titles = {
-"court": "31",
-"court_end": "103",
-"execute_action": "21",
+"court": "36",
+"court_end": "108",
+"execute_action": "26",
 "first_visit": "2",
-"give_up": "98",
-"main_hallway": "26",
-"testimony_1": "51",
-"testimony_1_1": "69",
-"testimony_1_1_1": "92",
-"testimony_2": "61",
-"testimony_2_1": "78",
-"testimony_2_2": "85",
-"visit": "13"
+"give_up": "103",
+"main_hallway": "31",
+"testimony_1": "56",
+"testimony_1_1": "74",
+"testimony_1_1_1": "97",
+"testimony_2": "66",
+"testimony_2_1": "83",
+"testimony_2_2": "90",
+"visit": "15"
 }
 lines = {
 "0": {
@@ -139,12 +148,71 @@ lines = {
 "text": "first_visit",
 "type": "title"
 },
-"101": {
+"10": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "11",
+"parent_id": "9",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "I don't think I'm supposed to be here right now.",
+"time": null,
+"translation_key": "I don't think I'm supposed to be here right now.",
+"type": "dialogue"
+},
+"100": {
 "next_id": "103",
-"text": "court_end",
+"next_id_after": "end",
+"replacements": [  ],
+"responses": PoolStringArray( "100" ),
+"text": "Give up",
+"translation_key": "Give up",
+"type": "response"
+},
+"102": {
+"next_id": "103",
+"text": "give_up",
 "type": "title"
 },
 "103": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "104",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "I retract all my statements. Thank you.",
+"time": null,
+"translation_key": "I retract all my statements. Thank you.",
+"type": "dialogue"
+},
+"104": {
+"next_id": "108",
+"type": "goto"
+},
+"106": {
+"next_id": "108",
+"text": "court_end",
+"type": "title"
+},
+"108": {
 "character": "{{PRINCIPAL}}",
 "character_replacements": [ {
 "expression": [ {
@@ -154,7 +222,7 @@ lines = {
 "value_in_text": "{{PRINCIPAL}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "104",
+"next_id": "109",
 "pauses": {
 },
 "replacements": [  ],
@@ -164,10 +232,10 @@ lines = {
 "translation_key": "Does anyone else wish to have the word?",
 "type": "dialogue"
 },
-"104": {
+"109": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "105",
+"next_id": "110",
 "pauses": {
 },
 "replacements": [ {
@@ -183,7 +251,16 @@ lines = {
 "translation_key": "{{PRINCIPAL}} impatiently waits for a response from the audience.",
 "type": "dialogue"
 },
-"105": {
+"11": {
+"next_id": "31",
+"next_id_after": "end",
+"replacements": [  ],
+"responses": PoolStringArray( "11" ),
+"text": "Go back to the main hallway",
+"translation_key": "Go back to the main hallway",
+"type": "response"
+},
+"110": {
 "character": "{{PRINCIPAL}}",
 "character_replacements": [ {
 "expression": [ {
@@ -193,7 +270,7 @@ lines = {
 "value_in_text": "{{PRINCIPAL}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "106",
+"next_id": "111",
 "pauses": {
 },
 "replacements": [ {
@@ -215,23 +292,56 @@ lines = {
 "translation_key": "Then this meeting will be closed. The culprit, {{BLUE}}, is to be kept in infinite detention! All classes today are cancelled and the staff must spend all their efforts on restoration spells to return the library to its former glory. Once that is done, the culprit {{BLUE}} is to be expelled from the school indefinitely!",
 "type": "dialogue"
 },
-"106": {
+"111": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "107",
+"next_id": "112",
 "pauses": {
 },
 "replacements": [  ],
 "speeds": [  ],
-"text": "The audience \"yeahs\" and begin to leave.",
+"text": "The audience \"yeahs!\".",
 "time": null,
-"translation_key": "The audience \"yeahs\" and begin to leave.",
+"translation_key": "The audience \"yeahs!\".",
 "type": "dialogue"
 },
-"107": {
+"112": {
+"character": "{{PRINCIPAL}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "PRINCIPAL"
+} ],
+"value_in_text": "{{PRINCIPAL}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "113",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "Everyone, dismissed! Students, to avoid any interference I suggest you all return to your dorms until classes are opened again.",
+"time": null,
+"translation_key": "Everyone, dismissed! Students, to avoid any interference I suggest you all return to your dorms until classes are opened again.",
+"type": "dialogue"
+},
+"113": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "108",
+"next_id": "114",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "Although, students already began to leave before they heard that.",
+"time": null,
+"translation_key": "Although, students already began to leave before they heard that.",
+"type": "dialogue"
+},
+"114": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "115",
 "pauses": {
 },
 "replacements": [ {
@@ -253,7 +363,7 @@ lines = {
 "translation_key": "{{GREEN}} is worried about {{BLUE}}, who was sitting silently during the entire show.",
 "type": "dialogue"
 },
-"108": {
+"115": {
 "character": "{{GREEN}}",
 "character_replacements": [ {
 "expression": [ {
@@ -263,7 +373,7 @@ lines = {
 "value_in_text": "{{GREEN}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "109",
+"next_id": "116",
 "pauses": {
 },
 "replacements": [ {
@@ -279,10 +389,10 @@ lines = {
 "translation_key": "{{BLUE}}... I do not think that you have any ill intention in this. As your mentor and primary caretaker in your school life, I promise I will help you.",
 "type": "dialogue"
 },
-"109": {
+"116": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "110",
+"next_id": "117",
 "pauses": {
 },
 "replacements": [ {
@@ -298,15 +408,10 @@ lines = {
 "translation_key": "{{BLUE}} nods.",
 "type": "dialogue"
 },
-"11": {
-"next_id": "13",
-"text": "visit",
-"type": "title"
-},
-"110": {
+"117": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "111",
+"next_id": "118",
 "pauses": {
 },
 "replacements": [ {
@@ -323,16 +428,53 @@ lines = {
 "value_in_text": "{{GREEN}}"
 } ],
 "speeds": [  ],
-"text": "{{CARETAKER}} instructs {{GREEN}} to leave.",
+"text": "{{CARETAKER}} instructs {{GREEN}} to return to their dorm.",
 "time": null,
-"translation_key": "{{CARETAKER}} instructs {{GREEN}} to leave.",
+"translation_key": "{{CARETAKER}} instructs {{GREEN}} to return to their dorm.",
 "type": "dialogue"
 },
-"111": {
-"next_id": "26",
+"118": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "blue_joined"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "bool",
+"value": false
+} ]
+},
+"next_id": "119",
+"type": "mutation"
+},
+"119": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "court_ended"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "bool",
+"value": true
+} ]
+},
+"next_id": "120",
+"type": "mutation"
+},
+"120": {
+"next_id": "31",
 "type": "goto"
 },
 "13": {
+"next_id": "15",
+"text": "visit",
+"type": "title"
+},
+"15": {
 "condition": {
 "expression": [ {
 "type": "variable",
@@ -343,29 +485,130 @@ lines = {
 }, {
 "type": "bool",
 "value": true
+}, {
+"type": "and_or",
+"value": "and"
+}, {
+"type": "variable",
+"value": "court_ended"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "bool",
+"value": false
 } ]
 },
-"next_conditional_id": "15",
-"next_id": "14",
-"next_id_after": "17",
-"type": "condition"
-},
-"14": {
-"next_id": "31",
-"parent_id": "13",
-"type": "goto"
-},
-"15": {
 "next_conditional_id": "17",
 "next_id": "16",
-"next_id_after": "17",
+"next_id_after": "19",
 "type": "condition"
 },
 "16": {
+"next_id": "36",
+"parent_id": "15",
+"type": "goto"
+},
+"17": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "court_ended"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "bool",
+"value": true
+} ]
+},
+"next_conditional_id": "20",
+"next_id": "18",
+"next_id_after": "19",
+"type": "condition"
+},
+"18": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "17",
-"parent_id": "15",
+"next_id": "19",
+"parent_id": "17",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "GREAT_HALL"
+} ],
+"value_in_text": "{{GREAT_HALL}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} visits the {{GREAT_HALL}}. {{BLUE}} is not here anymore and all other students had been instructed to return to their dorms.",
+"time": null,
+"translation_key": "{{GREEN}} visits the {{GREAT_HALL}}. {{BLUE}} is not here anymore and all other students had been instructed to return to their dorms.",
+"type": "dialogue"
+},
+"19": {
+"next_id": "31",
+"next_id_after": "end",
+"replacements": [  ],
+"responses": PoolStringArray( "19" ),
+"text": "Go back to the main hallway",
+"translation_key": "Go back to the main hallway",
+"type": "response"
+},
+"2": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "court_started"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "bool",
+"value": true
+}, {
+"type": "and_or",
+"value": "and"
+}, {
+"type": "variable",
+"value": "court_ended"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "bool",
+"value": false
+} ]
+},
+"next_conditional_id": "4",
+"next_id": "3",
+"next_id_after": "11",
+"type": "condition"
+},
+"20": {
+"next_conditional_id": "22",
+"next_id": "21",
+"next_id_after": "22",
+"type": "condition"
+},
+"21": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "22",
+"parent_id": "20",
 "pauses": {
 },
 "replacements": [ {
@@ -387,42 +630,24 @@ lines = {
 "translation_key": "{{GREEN}} visits the {{GREAT_HALL}}.",
 "type": "dialogue"
 },
-"17": {
-"next_id": "26",
+"22": {
+"next_id": "31",
 "next_id_after": "end",
 "replacements": [  ],
-"responses": PoolStringArray( "17" ),
+"responses": PoolStringArray( "22" ),
 "text": "Go back to the main hallway",
 "translation_key": "Go back to the main hallway",
 "type": "response"
 },
-"19": {
-"next_id": "21",
+"24": {
+"next_id": "26",
 "text": "execute_action",
 "type": "title"
 },
-"2": {
-"condition": {
-"expression": [ {
-"type": "variable",
-"value": "court_started"
-}, {
-"type": "comparison",
-"value": "=="
-}, {
-"type": "bool",
-"value": true
-} ]
-},
-"next_conditional_id": "4",
-"next_id": "3",
-"next_id_after": "9",
-"type": "condition"
-},
-"21": {
+"26": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "22",
+"next_id": "27",
 "pauses": {
 },
 "replacements": [  ],
@@ -432,7 +657,7 @@ lines = {
 "translation_key": "No problems here.",
 "type": "dialogue"
 },
-"22": {
+"27": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -448,15 +673,20 @@ lines = {
 "next_id": "",
 "type": "mutation"
 },
-"24": {
-"next_id": "26",
+"29": {
+"next_id": "31",
 "text": "main_hallway",
 "type": "title"
 },
-"26": {
+"3": {
+"next_id": "36",
+"parent_id": "2",
+"type": "goto"
+},
+"31": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "27",
+"next_id": "32",
 "pauses": {
 },
 "replacements": [ {
@@ -478,7 +708,7 @@ lines = {
 "translation_key": "{{GREEN}} leaves the {{GREAT_HALL}}.",
 "type": "dialogue"
 },
-"27": {
+"32": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -494,20 +724,15 @@ lines = {
 "next_id": "",
 "type": "mutation"
 },
-"29": {
-"next_id": "31",
+"34": {
+"next_id": "36",
 "text": "court",
 "type": "title"
 },
-"3": {
-"next_id": "31",
-"parent_id": "2",
-"type": "goto"
-},
-"31": {
+"36": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "32",
+"next_id": "37",
 "pauses": {
 },
 "replacements": [ {
@@ -547,7 +772,7 @@ lines = {
 "translation_key": "{{GREEN}} is carried north of the main entrance, into the {{GREAT_HALL}} stage, and dropped on a chair. {{GREEN}} dropped {{BLUE}} on an adjacent chair. Upset staff and students from the library are sitting on the frontmost rows of the {{GREAT_HALL}}. Even the principal is here, sitting in the center of the stage in front of some documents.",
 "type": "dialogue"
 },
-"32": {
+"37": {
 "character": "{{PRINCIPAL}}",
 "character_replacements": [ {
 "expression": [ {
@@ -557,7 +782,7 @@ lines = {
 "value_in_text": "{{PRINCIPAL}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "33",
+"next_id": "38",
 "pauses": {
 },
 "replacements": [  ],
@@ -567,10 +792,10 @@ lines = {
 "translation_key": "Please be quiet!",
 "type": "dialogue"
 },
-"33": {
+"38": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "34",
+"next_id": "39",
 "pauses": {
 },
 "replacements": [  ],
@@ -580,7 +805,7 @@ lines = {
 "translation_key": "The audience is yelling about the situation.",
 "type": "dialogue"
 },
-"34": {
+"39": {
 "character": "{{PRINCIPAL}}",
 "character_replacements": [ {
 "expression": [ {
@@ -590,7 +815,7 @@ lines = {
 "value_in_text": "{{PRINCIPAL}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "35",
+"next_id": "40",
 "pauses": {
 },
 "replacements": [  ],
@@ -600,10 +825,16 @@ lines = {
 "translation_key": "Order! Order! Order!!!",
 "type": "dialogue"
 },
-"35": {
+"4": {
+"next_conditional_id": "11",
+"next_id": "5",
+"next_id_after": "11",
+"type": "condition"
+},
+"40": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "36",
+"next_id": "41",
 "pauses": {
 },
 "replacements": [  ],
@@ -613,7 +844,7 @@ lines = {
 "translation_key": "The voice of the principal overcomes everyone's yelling. The room becomes silent.",
 "type": "dialogue"
 },
-"36": {
+"41": {
 "character": "{{PRINCIPAL}}",
 "character_replacements": [ {
 "expression": [ {
@@ -623,7 +854,7 @@ lines = {
 "value_in_text": "{{PRINCIPAL}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "37",
+"next_id": "42",
 "pauses": {
 },
 "replacements": [  ],
@@ -633,10 +864,10 @@ lines = {
 "translation_key": "Alas, an unthinkable tragedy has befallen my school. My world-renowned library has been wickedly sabotaged by an unknown spell that engulfed it in fire! Despite our strict threats of dire punishment if any such spell were to be cast outside of class.",
 "type": "dialogue"
 },
-"37": {
+"42": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "38",
+"next_id": "43",
 "pauses": {
 },
 "replacements": [ {
@@ -652,7 +883,7 @@ lines = {
 "translation_key": "{{GREEN}} started to understand what was going on. A fire spell was cast? By whom?",
 "type": "dialogue"
 },
-"38": {
+"43": {
 "character": "{{PRINCIPAL}}",
 "character_replacements": [ {
 "expression": [ {
@@ -662,7 +893,7 @@ lines = {
 "value_in_text": "{{PRINCIPAL}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "39",
+"next_id": "44",
 "pauses": {
 },
 "replacements": [  ],
@@ -672,10 +903,10 @@ lines = {
 "translation_key": "And thanks to our surveillance of malicious spell activity, it did not take long to identify the culprit!",
 "type": "dialogue"
 },
-"39": {
+"44": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "40",
+"next_id": "45",
 "pauses": {
 },
 "replacements": [ {
@@ -703,13 +934,7 @@ lines = {
 "translation_key": "{{PRINCIPAL}} turned their frightening face towards {{GREEN}} and {{BLUE}} and points.",
 "type": "dialogue"
 },
-"4": {
-"next_conditional_id": "9",
-"next_id": "5",
-"next_id_after": "9",
-"type": "condition"
-},
-"40": {
+"45": {
 "character": "{{PRINCIPAL}}",
 "character_replacements": [ {
 "expression": [ {
@@ -719,7 +944,7 @@ lines = {
 "value_in_text": "{{PRINCIPAL}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "41",
+"next_id": "46",
 "pauses": {
 },
 "replacements": [ {
@@ -735,10 +960,10 @@ lines = {
 "translation_key": "It was YOU, {{BLUE}}! The new and suddenly entered student!",
 "type": "dialogue"
 },
-"41": {
+"46": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "42",
+"next_id": "47",
 "pauses": {
 },
 "replacements": [ {
@@ -754,7 +979,7 @@ lines = {
 "translation_key": "The audience gasps. {{GREEN}} does not believe it.",
 "type": "dialogue"
 },
-"42": {
+"47": {
 "character": "{{GREEN}}",
 "character_replacements": [ {
 "expression": [ {
@@ -764,7 +989,7 @@ lines = {
 "value_in_text": "{{GREEN}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "43",
+"next_id": "48",
 "pauses": {
 },
 "replacements": [  ],
@@ -774,7 +999,7 @@ lines = {
 "translation_key": "Mr. Principal, may I have the word?",
 "type": "dialogue"
 },
-"43": {
+"48": {
 "character": "{{PRINCIPAL}}",
 "character_replacements": [ {
 "expression": [ {
@@ -784,7 +1009,7 @@ lines = {
 "value_in_text": "{{PRINCIPAL}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "44",
+"next_id": "49",
 "pauses": {
 },
 "replacements": [ {
@@ -800,7 +1025,7 @@ lines = {
 "translation_key": "The word is yours, {{GREEN}}, who is mentor of the culprit. What do you have to add?",
 "type": "dialogue"
 },
-"44": {
+"49": {
 "character": "{{GREEN}}",
 "character_replacements": [ {
 "expression": [ {
@@ -810,7 +1035,7 @@ lines = {
 "value_in_text": "{{GREEN}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "45",
+"next_id": "50",
 "pauses": {
 },
 "replacements": [  ],
@@ -819,71 +1044,6 @@ lines = {
 "time": null,
 "translation_key": "As witness of this event, allow me to make my contribution.",
 "type": "dialogue"
-},
-"45": {
-"character": "",
-"inline_mutations": [  ],
-"next_id": "46",
-"pauses": {
-},
-"replacements": [ {
-"expression": [ {
-"type": "variable",
-"value": "GREEN"
-} ],
-"value_in_text": "{{GREEN}}"
-} ],
-"speeds": [  ],
-"text": "{{GREEN}} says:",
-"time": null,
-"translation_key": "{{GREEN}} says:",
-"type": "dialogue"
-},
-"46": {
-"next_id": "51",
-"next_id_after": "end",
-"replacements": [ {
-"expression": [ {
-"type": "variable",
-"value": "BLUE"
-} ],
-"value_in_text": "{{BLUE}}"
-}, {
-"expression": [ {
-"type": "variable",
-"value": "BLUE"
-} ],
-"value_in_text": "{{BLUE}}"
-}, {
-"expression": [ {
-"type": "variable",
-"value": "BLUE"
-} ],
-"value_in_text": "{{BLUE}}"
-} ],
-"responses": PoolStringArray( "46", "47" ),
-"text": "I was next to {{BLUE}} when the fire started. I saw no trace of a spell being conjured by {{BLUE}}. Therefore, {{BLUE}} is innocent.",
-"translation_key": "I was next to {{BLUE}} when the fire started. I saw no trace of a spell being conjured by {{BLUE}}. Therefore, {{BLUE}} is innocent.",
-"type": "response"
-},
-"47": {
-"next_id": "61",
-"next_id_after": "end",
-"replacements": [ {
-"expression": [ {
-"type": "variable",
-"value": "BLUE"
-} ],
-"value_in_text": "{{BLUE}}"
-} ],
-"text": "I was in the library at the event. The spread of the fire was instant, clearly beyond physical reasonability. Yet the ignition areas were accurate. Such a complex spell could not have been cast by a newly enrolled student such as {{BLUE}}.",
-"translation_key": "I was in the library at the event. The spread of the fire was instant, clearly beyond physical reasonability. Yet the ignition areas were accurate. Such a complex spell could not have been cast by a newly enrolled student such as {{BLUE}}.",
-"type": "response"
-},
-"49": {
-"next_id": "51",
-"text": "testimony_1",
-"type": "title"
 },
 "5": {
 "character": "",
@@ -899,97 +1059,10 @@ lines = {
 "translation_key": "A vast ceremonious room is found. There are plenty of seats and tables stretching towards a stage. An echo can be heard when walking.",
 "type": "dialogue"
 },
-"51": {
+"50": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "52",
-"pauses": {
-},
-"replacements": [  ],
-"speeds": [  ],
-"text": "The audience frowns.",
-"time": null,
-"translation_key": "The audience frowns.",
-"type": "dialogue"
-},
-"52": {
-"character": "{{PRINCIPAL}}",
-"character_replacements": [ {
-"expression": [ {
-"type": "variable",
-"value": "PRINCIPAL"
-} ],
-"value_in_text": "{{PRINCIPAL}}"
-} ],
-"inline_mutations": [  ],
-"next_id": "53",
-"pauses": {
-},
-"replacements": [ {
-"expression": [ {
-"type": "variable",
-"value": "BLUE"
-} ],
-"value_in_text": "{{BLUE}}"
-} ],
-"speeds": [  ],
-"text": "Your deduction is incorrect! As I said, our spell-tracking signature clearly shows that {{BLUE}} was the only one who cast a spell before disaster struck. You may simply have not seen it!",
-"time": null,
-"translation_key": "Your deduction is incorrect! As I said, our spell-tracking signature clearly shows that {{BLUE}} was the only one who cast a spell before disaster struck. You may simply have not seen it!",
-"type": "dialogue"
-},
-"53": {
-"character": "",
-"inline_mutations": [  ],
-"next_id": "54",
-"pauses": {
-},
-"replacements": [ {
-"expression": [ {
-"type": "variable",
-"value": "GREEN"
-} ],
-"value_in_text": "{{GREEN}}"
-} ],
-"speeds": [  ],
-"text": "{{GREEN}} is not convinced.",
-"time": null,
-"translation_key": "{{GREEN}} is not convinced.",
-"type": "dialogue"
-},
-"54": {
-"next_id": "55",
-"next_id_after": "55",
-"replacements": [  ],
-"responses": PoolStringArray( "54" ),
-"text": "It may be possible that I could not have seen it. But the result of the spell-tracker is likewise questionable.",
-"translation_key": "It may be possible that I could not have seen it. But the result of the spell-tracker is likewise questionable.",
-"type": "response"
-},
-"55": {
-"character": "{{PRINCIPAL}}",
-"character_replacements": [ {
-"expression": [ {
-"type": "variable",
-"value": "PRINCIPAL"
-} ],
-"value_in_text": "{{PRINCIPAL}}"
-} ],
-"inline_mutations": [  ],
-"next_id": "56",
-"pauses": {
-},
-"replacements": [  ],
-"speeds": [  ],
-"text": "And why is that so, mentor of the culprit?",
-"time": null,
-"translation_key": "And why is that so, mentor of the culprit?",
-"type": "dialogue"
-},
-"56": {
-"character": "",
-"inline_mutations": [  ],
-"next_id": "57",
+"next_id": "51",
 "pauses": {
 },
 "replacements": [ {
@@ -1005,8 +1078,8 @@ lines = {
 "translation_key": "{{GREEN}} says:",
 "type": "dialogue"
 },
-"57": {
-"next_id": "69",
+"51": {
+"next_id": "56",
 "next_id_after": "end",
 "replacements": [ {
 "expression": [ {
@@ -1017,19 +1090,106 @@ lines = {
 }, {
 "expression": [ {
 "type": "variable",
-"value": "RED_ASPECT"
+"value": "BLUE"
 } ],
-"value_in_text": "{{RED_ASPECT}}"
+"value_in_text": "{{BLUE}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
 } ],
-"responses": PoolStringArray( "57" ),
-"text": "{{BLUE}} has not been born with the {{RED_ASPECT}} aspect. Therefore, they could not have cast a spell that engulfed the library in fire.",
-"translation_key": "{{BLUE}} has not been born with the {{RED_ASPECT}} aspect. Therefore, they could not have cast a spell that engulfed the library in fire.",
+"value_in_text": "{{BLUE}}"
+} ],
+"responses": PoolStringArray( "51", "52" ),
+"text": "I was next to {{BLUE}} when the fire started. I saw no trace of a spell being conjured by {{BLUE}}. Therefore, {{BLUE}} is innocent.",
+"translation_key": "I was next to {{BLUE}} when the fire started. I saw no trace of a spell being conjured by {{BLUE}}. Therefore, {{BLUE}} is innocent.",
 "type": "response"
 },
-"59": {
-"next_id": "61",
-"text": "testimony_2",
+"52": {
+"next_id": "66",
+"next_id_after": "end",
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"text": "I was in the library at the event. The spread of the fire was instant, clearly beyond physical reasonability. Yet the ignition areas were accurate. Such a complex spell could not have been cast by a newly enrolled student such as {{BLUE}}.",
+"translation_key": "I was in the library at the event. The spread of the fire was instant, clearly beyond physical reasonability. Yet the ignition areas were accurate. Such a complex spell could not have been cast by a newly enrolled student such as {{BLUE}}.",
+"type": "response"
+},
+"54": {
+"next_id": "56",
+"text": "testimony_1",
 "type": "title"
+},
+"56": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "57",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "The audience frowns.",
+"time": null,
+"translation_key": "The audience frowns.",
+"type": "dialogue"
+},
+"57": {
+"character": "{{PRINCIPAL}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "PRINCIPAL"
+} ],
+"value_in_text": "{{PRINCIPAL}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "58",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"speeds": [  ],
+"text": "Your deduction is incorrect! As I said, our spell-tracking signature clearly shows that {{BLUE}} was the only one who cast a spell before disaster struck. You may simply have not seen it!",
+"time": null,
+"translation_key": "Your deduction is incorrect! As I said, our spell-tracking signature clearly shows that {{BLUE}} was the only one who cast a spell before disaster struck. You may simply have not seen it!",
+"type": "dialogue"
+},
+"58": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "59",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} is not convinced.",
+"time": null,
+"translation_key": "{{GREEN}} is not convinced.",
+"type": "dialogue"
+},
+"59": {
+"next_id": "60",
+"next_id_after": "60",
+"replacements": [  ],
+"responses": PoolStringArray( "59" ),
+"text": "It may be possible that I could not have seen it. But the result of the spell-tracker is likewise questionable.",
+"translation_key": "It may be possible that I could not have seen it. But the result of the spell-tracker is likewise questionable.",
+"type": "response"
 },
 "6": {
 "condition": {
@@ -1046,24 +1206,11 @@ lines = {
 },
 "next_conditional_id": "9",
 "next_id": "7",
-"next_id_after": "9",
+"next_id_after": "11",
 "parent_id": "4",
 "type": "condition"
 },
-"61": {
-"character": "",
-"inline_mutations": [  ],
-"next_id": "62",
-"pauses": {
-},
-"replacements": [  ],
-"speeds": [  ],
-"text": "The audience looks thoughtful.",
-"time": null,
-"translation_key": "The audience looks thoughtful.",
-"type": "dialogue"
-},
-"62": {
+"60": {
 "character": "{{PRINCIPAL}}",
 "character_replacements": [ {
 "expression": [ {
@@ -1073,7 +1220,85 @@ lines = {
 "value_in_text": "{{PRINCIPAL}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "63",
+"next_id": "61",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "And why is that so, mentor of the culprit?",
+"time": null,
+"translation_key": "And why is that so, mentor of the culprit?",
+"type": "dialogue"
+},
+"61": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "62",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} says:",
+"time": null,
+"translation_key": "{{GREEN}} says:",
+"type": "dialogue"
+},
+"62": {
+"next_id": "74",
+"next_id_after": "end",
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "RED_ASPECT"
+} ],
+"value_in_text": "{{RED_ASPECT}}"
+} ],
+"responses": PoolStringArray( "62" ),
+"text": "{{BLUE}} has not been born with the {{RED_ASPECT}} aspect. Therefore, they could not have cast a spell that engulfed the library in fire.",
+"translation_key": "{{BLUE}} has not been born with the {{RED_ASPECT}} aspect. Therefore, they could not have cast a spell that engulfed the library in fire.",
+"type": "response"
+},
+"64": {
+"next_id": "66",
+"text": "testimony_2",
+"type": "title"
+},
+"66": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "67",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "The audience looks thoughtful.",
+"time": null,
+"translation_key": "The audience looks thoughtful.",
+"type": "dialogue"
+},
+"67": {
+"character": "{{PRINCIPAL}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "PRINCIPAL"
+} ],
+"value_in_text": "{{PRINCIPAL}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "68",
 "pauses": {
 },
 "replacements": [ {
@@ -1089,8 +1314,8 @@ lines = {
 "translation_key": "We are indeed very surprised that such a masterful spell could have been cast by a newly admitted student. However, our spell-tracker is unequivocal, it was cast by this mysterious figure {{BLUE}}! How would you explain the readings of the spell-tracker, mentor of the culprit?",
 "type": "dialogue"
 },
-"63": {
-"next_id": "78",
+"68": {
+"next_id": "83",
 "next_id_after": "end",
 "replacements": [ {
 "expression": [ {
@@ -1099,42 +1324,18 @@ lines = {
 } ],
 "value_in_text": "{{BLUE}}"
 } ],
-"responses": PoolStringArray( "63", "64" ),
+"responses": PoolStringArray( "68", "69" ),
 "text": "The true culprit has set {{BLUE}} up, in order to get away themselves.",
 "translation_key": "The true culprit has set {{BLUE}} up, in order to get away themselves.",
 "type": "response"
 },
-"64": {
-"next_id": "85",
+"69": {
+"next_id": "90",
 "next_id_after": "end",
 "replacements": [  ],
 "text": "The spell-tracker is not fully certain. It is just as implausible that a student without experience in spells could have performed such a large-scale, accurate spell. Therefore, we are unable to identify any culprit yet.",
 "translation_key": "The spell-tracker is not fully certain. It is just as implausible that a student without experience in spells could have performed such a large-scale, accurate spell. Therefore, we are unable to identify any culprit yet.",
 "type": "response"
-},
-"66": {
-"next_id": "69",
-"text": "testimony_1_1",
-"type": "title"
-},
-"69": {
-"character": "",
-"inline_mutations": [  ],
-"next_id": "70",
-"pauses": {
-},
-"replacements": [ {
-"expression": [ {
-"type": "variable",
-"value": "RED_ASPECT"
-} ],
-"value_in_text": "{{RED_ASPECT}}"
-} ],
-"speeds": [  ],
-"text": "The audience gasps again when they learnt that the suspected culprit was not a {{RED_ASPECT}} mage.",
-"time": null,
-"translation_key": "The audience gasps again when they learnt that the suspected culprit was not a {{RED_ASPECT}} mage.",
-"type": "dialogue"
 },
 "7": {
 "character": "{{GREEN}}",
@@ -1163,7 +1364,31 @@ lines = {
 "translation_key": "Every year, new students are welcomed and graduates celebrated here in the {{GREAT_HALL}}. Unfortunately, since you arrived mid-term, you missed out on that. By the way, any form of beverage or food into here is prohibited very strictly!",
 "type": "dialogue"
 },
-"70": {
+"71": {
+"next_id": "74",
+"text": "testimony_1_1",
+"type": "title"
+},
+"74": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "75",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "RED_ASPECT"
+} ],
+"value_in_text": "{{RED_ASPECT}}"
+} ],
+"speeds": [  ],
+"text": "The audience gasps again when they learnt that the suspected culprit was not a {{RED_ASPECT}} mage.",
+"time": null,
+"translation_key": "The audience gasps again when they learnt that the suspected culprit was not a {{RED_ASPECT}} mage.",
+"type": "dialogue"
+},
+"75": {
 "character": "{{PRINCIPAL}}",
 "character_replacements": [ {
 "expression": [ {
@@ -1173,7 +1398,7 @@ lines = {
 "value_in_text": "{{PRINCIPAL}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "71",
+"next_id": "76",
 "pauses": {
 },
 "replacements": [ {
@@ -1189,10 +1414,10 @@ lines = {
 "translation_key": "A naive misconception! Although the culprit is not a {{RED_ASPECT}} mage, there are infinite possibilities for the culprit to utilise their born powers in such a way that causes fiery destruction.",
 "type": "dialogue"
 },
-"71": {
+"76": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "72",
+"next_id": "77",
 "pauses": {
 },
 "replacements": [ {
@@ -1208,8 +1433,8 @@ lines = {
 "translation_key": "The audience \"yeahs\". {{GREEN}} is not convinced.",
 "type": "dialogue"
 },
-"72": {
-"next_id": "92",
+"77": {
+"next_id": "97",
 "next_id_after": "end",
 "replacements": [ {
 "expression": [ {
@@ -1224,13 +1449,13 @@ lines = {
 } ],
 "value_in_text": "{{ASPECTLESS}}"
 } ],
-"responses": PoolStringArray( "72", "73", "74" ),
+"responses": PoolStringArray( "77", "78", "79" ),
 "text": "That fact does not apply to {{BLUE}}, because they are not born with any magical capability at all. They are {{ASPECTLESS}}.",
 "translation_key": "That fact does not apply to {{BLUE}}, because they are not born with any magical capability at all. They are {{ASPECTLESS}}.",
 "type": "response"
 },
-"73": {
-"next_id": "61",
+"78": {
+"next_id": "66",
 "next_id_after": "end",
 "replacements": [ {
 "expression": [ {
@@ -1243,56 +1468,18 @@ lines = {
 "translation_key": "Even if that were to be true, the spread of the fire was instant, clearly beyond physical reasonability. Yet the ignition areas were accurate. Such a complex spell could not have been cast by a newly enrolled student such as {{BLUE}}.",
 "type": "response"
 },
-"74": {
-"next_id": "98",
+"79": {
+"next_id": "103",
 "next_id_after": "end",
 "replacements": [  ],
 "text": "Give up",
 "translation_key": "Give up",
 "type": "response"
 },
-"76": {
-"next_id": "78",
-"text": "testimony_2_1",
-"type": "title"
-},
-"78": {
-"character": "",
-"inline_mutations": [  ],
-"next_id": "79",
-"pauses": {
-},
-"replacements": [  ],
-"speeds": [  ],
-"text": "The audience frowns.",
-"time": null,
-"translation_key": "The audience frowns.",
-"type": "dialogue"
-},
-"79": {
-"character": "{{PRINCIPAL}}",
-"character_replacements": [ {
-"expression": [ {
-"type": "variable",
-"value": "PRINCIPAL"
-} ],
-"value_in_text": "{{PRINCIPAL}}"
-} ],
-"inline_mutations": [  ],
-"next_id": "80",
-"pauses": {
-},
-"replacements": [  ],
-"speeds": [  ],
-"text": "A void argument! How can we believe this ad-hoc of yours if you do not even provide an alleged culprit?",
-"time": null,
-"translation_key": "A void argument! How can we believe this ad-hoc of yours if you do not even provide an alleged culprit?",
-"type": "dialogue"
-},
 "8": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "9",
+"next_id": "11",
 "parent_id": "6",
 "pauses": {
 },
@@ -1309,10 +1496,48 @@ lines = {
 "translation_key": "{{BLUE}} nods.",
 "type": "dialogue"
 },
-"80": {
+"81": {
+"next_id": "83",
+"text": "testimony_2_1",
+"type": "title"
+},
+"83": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "81",
+"next_id": "84",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "The audience frowns.",
+"time": null,
+"translation_key": "The audience frowns.",
+"type": "dialogue"
+},
+"84": {
+"character": "{{PRINCIPAL}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "PRINCIPAL"
+} ],
+"value_in_text": "{{PRINCIPAL}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "85",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "A void argument! How can we believe this ad-hoc of yours if you do not even provide an alleged culprit?",
+"time": null,
+"translation_key": "A void argument! How can we believe this ad-hoc of yours if you do not even provide an alleged culprit?",
+"type": "dialogue"
+},
+"85": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "86",
 "pauses": {
 },
 "replacements": [ {
@@ -1328,24 +1553,31 @@ lines = {
 "translation_key": "{{GREEN}} realises they do not of anyone else who wanted to or even could have performed this deed.",
 "type": "dialogue"
 },
-"81": {
-"next_id": "98",
+"86": {
+"next_id": "103",
 "next_id_after": "end",
 "replacements": [  ],
-"responses": PoolStringArray( "81" ),
+"responses": PoolStringArray( "86" ),
 "text": "Give up",
 "translation_key": "Give up",
 "type": "response"
 },
-"83": {
-"next_id": "85",
+"88": {
+"next_id": "90",
 "text": "testimony_2_2",
 "type": "title"
 },
-"85": {
+"9": {
+"next_conditional_id": "11",
+"next_id": "10",
+"next_id_after": "11",
+"parent_id": "4",
+"type": "condition"
+},
+"90": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "86",
+"next_id": "91",
 "pauses": {
 },
 "replacements": [  ],
@@ -1355,7 +1587,7 @@ lines = {
 "translation_key": "The audience looks more confused.",
 "type": "dialogue"
 },
-"86": {
+"91": {
 "character": "{{PRINCIPAL}}",
 "character_replacements": [ {
 "expression": [ {
@@ -1365,7 +1597,7 @@ lines = {
 "value_in_text": "{{PRINCIPAL}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "87",
+"next_id": "92",
 "pauses": {
 },
 "replacements": [  ],
@@ -1375,10 +1607,10 @@ lines = {
 "translation_key": "A play with words! Attempting to mislead us into an endless search for alternative causes when the answer is in front of our noses!",
 "type": "dialogue"
 },
-"87": {
+"92": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "88",
+"next_id": "93",
 "pauses": {
 },
 "replacements": [ {
@@ -1400,33 +1632,24 @@ lines = {
 "translation_key": "{{GREEN}} realises that {{PRINCIPAL}} is far too stubborn to convince.",
 "type": "dialogue"
 },
-"88": {
-"next_id": "98",
+"93": {
+"next_id": "103",
 "next_id_after": "end",
 "replacements": [  ],
-"responses": PoolStringArray( "88" ),
+"responses": PoolStringArray( "93" ),
 "text": "Give up",
 "translation_key": "Give up",
 "type": "response"
 },
-"9": {
-"next_id": "26",
-"next_id_after": "end",
-"replacements": [  ],
-"responses": PoolStringArray( "9" ),
-"text": "Go back to the main hallway",
-"translation_key": "Go back to the main hallway",
-"type": "response"
-},
-"90": {
-"next_id": "92",
+"95": {
+"next_id": "97",
 "text": "testimony_1_1_1",
 "type": "title"
 },
-"92": {
+"97": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "93",
+"next_id": "98",
 "pauses": {
 },
 "replacements": [  ],
@@ -1436,7 +1659,7 @@ lines = {
 "translation_key": "The audience gasps again. Some \"noes\" were whispered.",
 "type": "dialogue"
 },
-"93": {
+"98": {
 "character": "{{PRINCIPAL}}",
 "character_replacements": [ {
 "expression": [ {
@@ -1446,7 +1669,7 @@ lines = {
 "value_in_text": "{{PRINCIPAL}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "94",
+"next_id": "99",
 "pauses": {
 },
 "replacements": [ {
@@ -1474,10 +1697,10 @@ lines = {
 "translation_key": "{{GREEN}}, might I have to remind you of your studies? The existence of {{ASPECTLESS}} is an unproven myth. What proof do you have that {{BLUE}} is the first example of this? Is it perhaps the words of the culprit that you now speak?",
 "type": "dialogue"
 },
-"94": {
+"99": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "95",
+"next_id": "100",
 "pauses": {
 },
 "replacements": [ {
@@ -1510,43 +1733,5 @@ lines = {
 "time": null,
 "translation_key": "It was true. {{BLUE}} was the one who told {{GREEN}} that they were {{ASPECTLESS}}. {{GREEN}} realises that the argument was lost.",
 "type": "dialogue"
-},
-"95": {
-"next_id": "98",
-"next_id_after": "end",
-"replacements": [  ],
-"responses": PoolStringArray( "95" ),
-"text": "Give up",
-"translation_key": "Give up",
-"type": "response"
-},
-"97": {
-"next_id": "98",
-"text": "give_up",
-"type": "title"
-},
-"98": {
-"character": "{{GREEN}}",
-"character_replacements": [ {
-"expression": [ {
-"type": "variable",
-"value": "GREEN"
-} ],
-"value_in_text": "{{GREEN}}"
-} ],
-"inline_mutations": [  ],
-"next_id": "99",
-"pauses": {
-},
-"replacements": [  ],
-"speeds": [  ],
-"text": "I retract all my statements. Thank you.",
-"time": null,
-"translation_key": "I retract all my statements. Thank you.",
-"type": "dialogue"
-},
-"99": {
-"next_id": "103",
-"type": "goto"
 }
 }

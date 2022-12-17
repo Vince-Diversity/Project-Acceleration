@@ -7,10 +7,12 @@ script = ExtResource( 1 )
 syntax_version = 2
 raw_text = "~ first_visit
 
-The entrance to a large hall is to the north. To the west are two smaller corridors and to the east is one corridors.
 if blue_joined == true
+	The entrance to a large hall is to the north. To the west are two smaller corridors and to the east is one corridors.
 	{{GREEN}}: Classes are divided into the three magical aspects {{YELLOW_ASPECT}}, {{GREEN_ASPECT}} and {{RED_ASPECT}}. The {{GREAT_HALL}} in front is big enough to fit all students in one go.
 	{{BLUE}} nods.
+else
+	The entrance to a large hall is to the north. To the west are two smaller corridors and to the east is one corridors.
 - Go through the corridor to the west => yellow_hallway
 - Go through the corridor to the north-west => green_hallway
 - Enter the {{GREAT_HALL}} in to the north => great_hall
@@ -63,15 +65,15 @@ set next = \"red_corridor_end\"
 set next = \"main_entrance\""
 errors = [  ]
 titles = {
-"blue_hallway": "45",
-"execute_action": "25",
+"blue_hallway": "47",
+"execute_action": "27",
 "first_visit": "2",
-"great_hall": "40",
-"green_hallway": "35",
-"main_entrance": "54",
-"red_hallway": "49",
-"visit": "15",
-"yellow_hallway": "30"
+"great_hall": "42",
+"green_hallway": "37",
+"main_entrance": "56",
+"red_hallway": "51",
+"visit": "17",
+"yellow_hallway": "32"
 }
 lines = {
 "0": {
@@ -80,30 +82,59 @@ lines = {
 "type": "title"
 },
 "10": {
-"next_id": "49",
+"next_id": "42",
+"next_id_after": "end",
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREAT_HALL"
+} ],
+"value_in_text": "{{GREAT_HALL}}"
+} ],
+"text": "Enter the {{GREAT_HALL}} in to the north",
+"translation_key": "Enter the {{GREAT_HALL}} in to the north",
+"type": "response"
+},
+"11": {
+"condition": {
+"expression": [ {
+"function": "is_in_blue_space",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "47",
+"next_id_after": "end",
+"replacements": [  ],
+"text": "Go through the corridor to the north-east",
+"translation_key": "Go through the corridor to the north-east",
+"type": "response"
+},
+"12": {
+"next_id": "51",
 "next_id_after": "end",
 "replacements": [  ],
 "text": "Go through the corridor to the east",
 "translation_key": "Go through the corridor to the east",
 "type": "response"
 },
-"11": {
-"next_id": "54",
+"13": {
+"next_id": "56",
 "next_id_after": "end",
 "replacements": [  ],
 "text": "Go through the hallway to the south",
 "translation_key": "Go through the hallway to the south",
 "type": "response"
 },
-"13": {
-"next_id": "15",
+"15": {
+"next_id": "17",
 "text": "visit",
 "type": "title"
 },
-"15": {
+"17": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "16",
+"next_id": "18",
 "pauses": {
 },
 "replacements": [ {
@@ -119,25 +150,43 @@ lines = {
 "translation_key": "{{GREEN}} is in the main hallway.",
 "type": "dialogue"
 },
-"16": {
-"next_id": "30",
+"18": {
+"next_id": "32",
 "next_id_after": "end",
 "replacements": [  ],
-"responses": PoolStringArray( "16", "17", "18", "19", "20", "21" ),
+"responses": PoolStringArray( "18", "19", "20", "21", "22", "23" ),
 "text": "Go through the corridor to the west",
 "translation_key": "Go through the corridor to the west",
 "type": "response"
 },
-"17": {
-"next_id": "35",
+"19": {
+"next_id": "37",
 "next_id_after": "end",
 "replacements": [  ],
 "text": "Go through the corridor to the north-west",
 "translation_key": "Go through the corridor to the north-west",
 "type": "response"
 },
-"18": {
-"next_id": "40",
+"2": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "blue_joined"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "bool",
+"value": true
+} ]
+},
+"next_conditional_id": "6",
+"next_id": "3",
+"next_id_after": "8",
+"type": "condition"
+},
+"20": {
+"next_id": "42",
 "next_id_after": "end",
 "replacements": [ {
 "expression": [ {
@@ -150,7 +199,7 @@ lines = {
 "translation_key": "Enter the {{GREAT_HALL}} in front",
 "type": "response"
 },
-"19": {
+"21": {
 "condition": {
 "expression": [ {
 "function": "is_in_blue_space",
@@ -158,51 +207,38 @@ lines = {
 "value": [  ]
 } ]
 },
-"next_id": "45",
+"next_id": "47",
 "next_id_after": "end",
 "replacements": [  ],
 "text": "Go through the corridor to the north-east",
 "translation_key": "Go through the corridor to the north-east",
 "type": "response"
 },
-"2": {
-"character": "",
-"inline_mutations": [  ],
-"next_id": "3",
-"pauses": {
-},
-"replacements": [  ],
-"speeds": [  ],
-"text": "The entrance to a large hall is to the north. To the west are two smaller corridors and to the east is one corridors.",
-"time": null,
-"translation_key": "The entrance to a large hall is to the north. To the west are two smaller corridors and to the east is one corridors.",
-"type": "dialogue"
-},
-"20": {
-"next_id": "49",
+"22": {
+"next_id": "51",
 "next_id_after": "end",
 "replacements": [  ],
 "text": "Go through the corridor to the east",
 "translation_key": "Go through the corridor to the east",
 "type": "response"
 },
-"21": {
-"next_id": "54",
+"23": {
+"next_id": "56",
 "next_id_after": "end",
 "replacements": [  ],
 "text": "Go through the hallway to the south",
 "translation_key": "Go through the hallway to the south",
 "type": "response"
 },
-"23": {
-"next_id": "25",
+"25": {
+"next_id": "27",
 "text": "execute_action",
 "type": "title"
 },
-"25": {
+"27": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "26",
+"next_id": "28",
 "pauses": {
 },
 "replacements": [  ],
@@ -212,7 +248,7 @@ lines = {
 "translation_key": "No problems here.",
 "type": "dialogue"
 },
-"26": {
+"28": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -228,33 +264,29 @@ lines = {
 "next_id": "",
 "type": "mutation"
 },
-"28": {
-"next_id": "30",
+"3": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "4",
+"parent_id": "2",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "The entrance to a large hall is to the north. To the west are two smaller corridors and to the east is one corridors.",
+"time": null,
+"translation_key": "The entrance to a large hall is to the north. To the west are two smaller corridors and to the east is one corridors.",
+"type": "dialogue"
+},
+"30": {
+"next_id": "32",
 "text": "yellow_hallway",
 "type": "title"
 },
-"3": {
-"condition": {
-"expression": [ {
-"type": "variable",
-"value": "blue_joined"
-}, {
-"type": "comparison",
-"value": "=="
-}, {
-"type": "bool",
-"value": true
-} ]
-},
-"next_conditional_id": "6",
-"next_id": "4",
-"next_id_after": "6",
-"type": "condition"
-},
-"30": {
+"32": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "31",
+"next_id": "33",
 "pauses": {
 },
 "replacements": [ {
@@ -270,7 +302,7 @@ lines = {
 "translation_key": "{{GREEN}} enters the corridor to the west.",
 "type": "dialogue"
 },
-"31": {
+"33": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -286,15 +318,15 @@ lines = {
 "next_id": "",
 "type": "mutation"
 },
-"33": {
-"next_id": "35",
+"35": {
+"next_id": "37",
 "text": "green_hallway",
 "type": "title"
 },
-"35": {
+"37": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "36",
+"next_id": "38",
 "pauses": {
 },
 "replacements": [ {
@@ -310,7 +342,7 @@ lines = {
 "translation_key": "{{GREEN}} enters the corridor to the north-west.",
 "type": "dialogue"
 },
-"36": {
+"38": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -326,11 +358,6 @@ lines = {
 "next_id": "",
 "type": "mutation"
 },
-"38": {
-"next_id": "40",
-"text": "great_hall",
-"type": "title"
-},
 "4": {
 "character": "{{GREEN}}",
 "character_replacements": [ {
@@ -342,7 +369,7 @@ lines = {
 } ],
 "inline_mutations": [  ],
 "next_id": "5",
-"parent_id": "3",
+"parent_id": "2",
 "pauses": {
 },
 "replacements": [ {
@@ -377,9 +404,14 @@ lines = {
 "type": "dialogue"
 },
 "40": {
+"next_id": "42",
+"text": "great_hall",
+"type": "title"
+},
+"42": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "41",
+"next_id": "43",
 "pauses": {
 },
 "replacements": [ {
@@ -401,7 +433,7 @@ lines = {
 "translation_key": "{{GREEN}} enters the {{GREAT_HALL}}.",
 "type": "dialogue"
 },
-"41": {
+"43": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -417,12 +449,12 @@ lines = {
 "next_id": "",
 "type": "mutation"
 },
-"43": {
-"next_id": "45",
+"45": {
+"next_id": "47",
 "text": "blue_hallway",
 "type": "title"
 },
-"45": {
+"47": {
 "character": "",
 "inline_mutations": [  ],
 "next_id": "",
@@ -435,35 +467,16 @@ lines = {
 "translation_key": "a",
 "type": "dialogue"
 },
-"47": {
-"next_id": "49",
+"49": {
+"next_id": "51",
 "text": "red_hallway",
 "type": "title"
-},
-"49": {
-"character": "",
-"inline_mutations": [  ],
-"next_id": "50",
-"pauses": {
-},
-"replacements": [ {
-"expression": [ {
-"type": "variable",
-"value": "GREEN"
-} ],
-"value_in_text": "{{GREEN}}"
-} ],
-"speeds": [  ],
-"text": "{{GREEN}} enters the corridor to the east.",
-"time": null,
-"translation_key": "{{GREEN}} enters the corridor to the east.",
-"type": "dialogue"
 },
 "5": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "6",
-"parent_id": "3",
+"next_id": "8",
+"parent_id": "2",
 "pauses": {
 },
 "replacements": [ {
@@ -479,7 +492,26 @@ lines = {
 "translation_key": "{{BLUE}} nods.",
 "type": "dialogue"
 },
-"50": {
+"51": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "52",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} enters the corridor to the east.",
+"time": null,
+"translation_key": "{{GREEN}} enters the corridor to the east.",
+"type": "dialogue"
+},
+"52": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -495,15 +527,15 @@ lines = {
 "next_id": "",
 "type": "mutation"
 },
-"52": {
-"next_id": "54",
+"54": {
+"next_id": "56",
 "text": "main_entrance",
 "type": "title"
 },
-"54": {
+"56": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "55",
+"next_id": "57",
 "pauses": {
 },
 "replacements": [ {
@@ -519,7 +551,7 @@ lines = {
 "translation_key": "{{GREEN}} walks through the hallway to the south.",
 "type": "dialogue"
 },
-"55": {
+"57": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -536,49 +568,40 @@ lines = {
 "type": "mutation"
 },
 "6": {
-"next_id": "30",
+"next_conditional_id": "8",
+"next_id": "7",
+"next_id_after": "8",
+"type": "condition"
+},
+"7": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "8",
+"parent_id": "6",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "The entrance to a large hall is to the north. To the west are two smaller corridors and to the east is one corridors.",
+"time": null,
+"translation_key": "The entrance to a large hall is to the north. To the west are two smaller corridors and to the east is one corridors.",
+"type": "dialogue"
+},
+"8": {
+"next_id": "32",
 "next_id_after": "end",
 "replacements": [  ],
-"responses": PoolStringArray( "6", "7", "8", "9", "10", "11" ),
+"responses": PoolStringArray( "8", "9", "10", "11", "12", "13" ),
 "text": "Go through the corridor to the west",
 "translation_key": "Go through the corridor to the west",
 "type": "response"
 },
-"7": {
-"next_id": "35",
+"9": {
+"next_id": "37",
 "next_id_after": "end",
 "replacements": [  ],
 "text": "Go through the corridor to the north-west",
 "translation_key": "Go through the corridor to the north-west",
-"type": "response"
-},
-"8": {
-"next_id": "40",
-"next_id_after": "end",
-"replacements": [ {
-"expression": [ {
-"type": "variable",
-"value": "GREAT_HALL"
-} ],
-"value_in_text": "{{GREAT_HALL}}"
-} ],
-"text": "Enter the {{GREAT_HALL}} in to the north",
-"translation_key": "Enter the {{GREAT_HALL}} in to the north",
-"type": "response"
-},
-"9": {
-"condition": {
-"expression": [ {
-"function": "is_in_blue_space",
-"type": "function",
-"value": [  ]
-} ]
-},
-"next_id": "45",
-"next_id_after": "end",
-"replacements": [  ],
-"text": "Go through the corridor to the north-east",
-"translation_key": "Go through the corridor to the north-east",
 "type": "response"
 }
 }

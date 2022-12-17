@@ -7,10 +7,12 @@ script = ExtResource( 1 )
 syntax_version = 2
 raw_text = "~ first_visit
 
-After a bit of walking, some railtracks appear behind a hill. The train station is quiet.
 if blue_joined == true
+	After a bit of walking, some railtracks appear behind a hill. The train station is quiet.
 	{{GREEN}}: The train which stops here is part of the general commuting system. But considering there is no other feasible way to get here, this should be familliar to you!
 	{{BLUE}} nods.
+else
+	After a bit of walking, some railtracks appear behind a hill. The train station is quiet.
 - Go back to the school garden to the north => main_outdoors
 
 ~ visit
@@ -29,10 +31,10 @@ set next = \"station\"
 set next = \"main_outdoors\""
 errors = [  ]
 titles = {
-"execute_action": "15",
+"execute_action": "17",
 "first_visit": "2",
-"main_outdoors": "20",
-"visit": "10"
+"main_outdoors": "22",
+"visit": "12"
 }
 lines = {
 "0": {
@@ -41,9 +43,14 @@ lines = {
 "type": "title"
 },
 "10": {
+"next_id": "12",
+"text": "visit",
+"type": "title"
+},
+"12": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "11",
+"next_id": "13",
 "pauses": {
 },
 "replacements": [ {
@@ -59,24 +66,24 @@ lines = {
 "translation_key": "{{GREEN}} is next to the railtracks. The train station is quiet.",
 "type": "dialogue"
 },
-"11": {
-"next_id": "20",
+"13": {
+"next_id": "22",
 "next_id_after": "end",
 "replacements": [  ],
-"responses": PoolStringArray( "11" ),
+"responses": PoolStringArray( "13" ),
 "text": "Go back to the school garden to the north",
 "translation_key": "Go back to the school garden to the north",
 "type": "response"
 },
-"13": {
-"next_id": "15",
+"15": {
+"next_id": "17",
 "text": "execute_action",
 "type": "title"
 },
-"15": {
+"17": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "16",
+"next_id": "18",
 "pauses": {
 },
 "replacements": [  ],
@@ -86,7 +93,7 @@ lines = {
 "translation_key": "No problems here.",
 "type": "dialogue"
 },
-"16": {
+"18": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -102,28 +109,33 @@ lines = {
 "next_id": "",
 "type": "mutation"
 },
-"18": {
-"next_id": "20",
+"2": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "blue_joined"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "bool",
+"value": true
+} ]
+},
+"next_conditional_id": "6",
+"next_id": "3",
+"next_id_after": "8",
+"type": "condition"
+},
+"20": {
+"next_id": "22",
 "text": "main_outdoors",
 "type": "title"
 },
-"2": {
+"22": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "3",
-"pauses": {
-},
-"replacements": [  ],
-"speeds": [  ],
-"text": "After a bit of walking, some railtracks appear behind a hill. The train station is quiet.",
-"time": null,
-"translation_key": "After a bit of walking, some railtracks appear behind a hill. The train station is quiet.",
-"type": "dialogue"
-},
-"20": {
-"character": "",
-"inline_mutations": [  ],
-"next_id": "21",
+"next_id": "23",
 "pauses": {
 },
 "replacements": [ {
@@ -139,7 +151,7 @@ lines = {
 "translation_key": "{{GREEN}} returns to the garden.",
 "type": "dialogue"
 },
-"21": {
+"23": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -156,22 +168,18 @@ lines = {
 "type": "mutation"
 },
 "3": {
-"condition": {
-"expression": [ {
-"type": "variable",
-"value": "blue_joined"
-}, {
-"type": "comparison",
-"value": "=="
-}, {
-"type": "bool",
-"value": true
-} ]
-},
-"next_conditional_id": "6",
+"character": "",
+"inline_mutations": [  ],
 "next_id": "4",
-"next_id_after": "6",
-"type": "condition"
+"parent_id": "2",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "After a bit of walking, some railtracks appear behind a hill. The train station is quiet.",
+"time": null,
+"translation_key": "After a bit of walking, some railtracks appear behind a hill. The train station is quiet.",
+"type": "dialogue"
 },
 "4": {
 "character": "{{GREEN}}",
@@ -184,7 +192,7 @@ lines = {
 } ],
 "inline_mutations": [  ],
 "next_id": "5",
-"parent_id": "3",
+"parent_id": "2",
 "pauses": {
 },
 "replacements": [  ],
@@ -197,8 +205,8 @@ lines = {
 "5": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "6",
-"parent_id": "3",
+"next_id": "8",
+"parent_id": "2",
 "pauses": {
 },
 "replacements": [ {
@@ -215,17 +223,32 @@ lines = {
 "type": "dialogue"
 },
 "6": {
-"next_id": "20",
+"next_conditional_id": "8",
+"next_id": "7",
+"next_id_after": "8",
+"type": "condition"
+},
+"7": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "8",
+"parent_id": "6",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "After a bit of walking, some railtracks appear behind a hill. The train station is quiet.",
+"time": null,
+"translation_key": "After a bit of walking, some railtracks appear behind a hill. The train station is quiet.",
+"type": "dialogue"
+},
+"8": {
+"next_id": "22",
 "next_id_after": "end",
 "replacements": [  ],
-"responses": PoolStringArray( "6" ),
+"responses": PoolStringArray( "8" ),
 "text": "Go back to the school garden to the north",
 "translation_key": "Go back to the school garden to the north",
 "type": "response"
-},
-"8": {
-"next_id": "10",
-"text": "visit",
-"type": "title"
 }
 }

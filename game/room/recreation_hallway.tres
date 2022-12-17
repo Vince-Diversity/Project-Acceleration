@@ -7,10 +7,12 @@ script = ExtResource( 1 )
 syntax_version = 2
 raw_text = "~ first_visit
 
-A large passage is to the north. To the east is a large room with many seats.
 if blue_joined == true
+	A large passage is to the north. To the east is a large restaurant with many seats.
 	{{GREEN}}: During breaks and end-of-day, students come here to refuel and rest. The school is connected to the dorm wing through here.
 	{{BLUE}} nods.
+else
+	A large passage is to the north. To the east is a large restaurant with many seats.
 - Go though the passage to the dorms to the north => dorm_connection
 - Enter the restaurant to the east => restaurant
 - Go through the hallway to the west => main_entrance
@@ -43,12 +45,12 @@ set next = \"restaurant\"
 set next = \"main_entrance\""
 errors = [  ]
 titles = {
-"dorm_connection": "24",
-"execute_action": "19",
+"dorm_connection": "26",
+"execute_action": "21",
 "first_visit": "2",
-"main_entrance": "34",
-"restaurant": "29",
-"visit": "12"
+"main_entrance": "36",
+"restaurant": "31",
+"visit": "14"
 }
 lines = {
 "0": {
@@ -57,14 +59,22 @@ lines = {
 "type": "title"
 },
 "10": {
-"next_id": "12",
+"next_id": "36",
+"next_id_after": "end",
+"replacements": [  ],
+"text": "Go through the hallway to the west",
+"translation_key": "Go through the hallway to the west",
+"type": "response"
+},
+"12": {
+"next_id": "14",
 "text": "visit",
 "type": "title"
 },
-"12": {
+"14": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "13",
+"next_id": "15",
 "pauses": {
 },
 "replacements": [ {
@@ -80,40 +90,58 @@ lines = {
 "translation_key": "{{GREEN}} is at the end of the dorm and restaurant hallway.",
 "type": "dialogue"
 },
-"13": {
-"next_id": "24",
+"15": {
+"next_id": "26",
 "next_id_after": "end",
 "replacements": [  ],
-"responses": PoolStringArray( "13", "14", "15" ),
+"responses": PoolStringArray( "15", "16", "17" ),
 "text": "Go though the passage to the dorms to the north",
 "translation_key": "Go though the passage to the dorms to the north",
 "type": "response"
 },
-"14": {
-"next_id": "29",
+"16": {
+"next_id": "31",
 "next_id_after": "end",
 "replacements": [  ],
 "text": "Enter the restaurant to the east",
 "translation_key": "Enter the restaurant to the east",
 "type": "response"
 },
-"15": {
-"next_id": "34",
+"17": {
+"next_id": "36",
 "next_id_after": "end",
 "replacements": [  ],
 "text": "Go through the hallway to the west",
 "translation_key": "Go through the hallway to the west",
 "type": "response"
 },
-"17": {
-"next_id": "19",
+"19": {
+"next_id": "21",
 "text": "execute_action",
 "type": "title"
 },
-"19": {
+"2": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "blue_joined"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "bool",
+"value": true
+} ]
+},
+"next_conditional_id": "6",
+"next_id": "3",
+"next_id_after": "8",
+"type": "condition"
+},
+"21": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "20",
+"next_id": "22",
 "pauses": {
 },
 "replacements": [  ],
@@ -123,20 +151,7 @@ lines = {
 "translation_key": "No problems here.",
 "type": "dialogue"
 },
-"2": {
-"character": "",
-"inline_mutations": [  ],
-"next_id": "3",
-"pauses": {
-},
-"replacements": [  ],
-"speeds": [  ],
-"text": "A large passage is to the north. To the east is a large room with many seats.",
-"time": null,
-"translation_key": "A large passage is to the north. To the east is a large room with many seats.",
-"type": "dialogue"
-},
-"20": {
+"22": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -152,15 +167,15 @@ lines = {
 "next_id": "",
 "type": "mutation"
 },
-"22": {
-"next_id": "24",
+"24": {
+"next_id": "26",
 "text": "dorm_connection",
 "type": "title"
 },
-"24": {
+"26": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "25",
+"next_id": "27",
 "pauses": {
 },
 "replacements": [ {
@@ -176,7 +191,7 @@ lines = {
 "translation_key": "{{GREEN}} walks over to the dorm wing.",
 "type": "dialogue"
 },
-"25": {
+"27": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -192,15 +207,29 @@ lines = {
 "next_id": "",
 "type": "mutation"
 },
-"27": {
-"next_id": "29",
+"29": {
+"next_id": "31",
 "text": "restaurant",
 "type": "title"
 },
-"29": {
+"3": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "30",
+"next_id": "4",
+"parent_id": "2",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "A large passage is to the north. To the east is a large restaurant with many seats.",
+"time": null,
+"translation_key": "A large passage is to the north. To the east is a large restaurant with many seats.",
+"type": "dialogue"
+},
+"31": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "32",
 "pauses": {
 },
 "replacements": [ {
@@ -216,25 +245,7 @@ lines = {
 "translation_key": "{{GREEN}} enters the restaurant.",
 "type": "dialogue"
 },
-"3": {
-"condition": {
-"expression": [ {
-"type": "variable",
-"value": "blue_joined"
-}, {
-"type": "comparison",
-"value": "=="
-}, {
-"type": "bool",
-"value": true
-} ]
-},
-"next_conditional_id": "6",
-"next_id": "4",
-"next_id_after": "6",
-"type": "condition"
-},
-"30": {
+"32": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -250,15 +261,15 @@ lines = {
 "next_id": "",
 "type": "mutation"
 },
-"32": {
-"next_id": "34",
+"34": {
+"next_id": "36",
 "text": "main_entrance",
 "type": "title"
 },
-"34": {
+"36": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "35",
+"next_id": "37",
 "pauses": {
 },
 "replacements": [ {
@@ -274,7 +285,7 @@ lines = {
 "translation_key": "{{GREEN}} walks through the hallway to the west.",
 "type": "dialogue"
 },
-"35": {
+"37": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -301,7 +312,7 @@ lines = {
 } ],
 "inline_mutations": [  ],
 "next_id": "5",
-"parent_id": "3",
+"parent_id": "2",
 "pauses": {
 },
 "replacements": [  ],
@@ -314,8 +325,8 @@ lines = {
 "5": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "6",
-"parent_id": "3",
+"next_id": "8",
+"parent_id": "2",
 "pauses": {
 },
 "replacements": [ {
@@ -332,28 +343,40 @@ lines = {
 "type": "dialogue"
 },
 "6": {
-"next_id": "24",
+"next_conditional_id": "8",
+"next_id": "7",
+"next_id_after": "8",
+"type": "condition"
+},
+"7": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "8",
+"parent_id": "6",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "A large passage is to the north. To the east is a large restaurant with many seats.",
+"time": null,
+"translation_key": "A large passage is to the north. To the east is a large restaurant with many seats.",
+"type": "dialogue"
+},
+"8": {
+"next_id": "26",
 "next_id_after": "end",
 "replacements": [  ],
-"responses": PoolStringArray( "6", "7", "8" ),
+"responses": PoolStringArray( "8", "9", "10" ),
 "text": "Go though the passage to the dorms to the north",
 "translation_key": "Go though the passage to the dorms to the north",
 "type": "response"
 },
-"7": {
-"next_id": "29",
+"9": {
+"next_id": "31",
 "next_id_after": "end",
 "replacements": [  ],
 "text": "Enter the restaurant to the east",
 "translation_key": "Enter the restaurant to the east",
-"type": "response"
-},
-"8": {
-"next_id": "34",
-"next_id_after": "end",
-"replacements": [  ],
-"text": "Go through the hallway to the west",
-"translation_key": "Go through the hallway to the west",
 "type": "response"
 }
 }

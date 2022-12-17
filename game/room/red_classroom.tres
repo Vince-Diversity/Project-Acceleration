@@ -9,11 +9,14 @@ raw_text = "~ first_visit
 
 A chilly room covered by cave-like walls is found. The room has no roof and there are fire pits spread across the room. One is lit up, displaying a female silhouette on the wall.
 if blue_joined == true
+	A chilly room covered by cave-like walls is found. The room has no roof and there are fire pits spread across the room. One is lit up, displaying a female silhouette on the wall.
 	{{GREEN}}: This is the {{RED_ASPECT}} aspect students learn how to unleash their powers. Let's ask for a demonstration from their teacher {{RED_TEACHER}}.
 	{{BLUE}} nods.
 	They go to the teacher, who is wearing what resembles a gymnastics suit and embraces the request with a energetic dance.
 	{{RED_TEACHER}}: Now students, witness my devotion to the {{RED_ASPECT}} element!
 	The fire next to {{GREEN}} intensified. A few seconds later, all other fire pits in the room also lit up at the same time. The room quickly became warm. {{GREEN}} looks around in awe.
+else
+	A chilly room covered by cave-like walls is found. The room has no roof and there are fire pits spread across the room. One is lit up, displaying a female silhouette on the wall.
 - Leave => red_corridor_end
 
 ~ visit
@@ -32,10 +35,10 @@ set next = \"green_classroom\"
 set next = \"red_corridor_end\""
 errors = [  ]
 titles = {
-"execute_action": "18",
+"execute_action": "21",
 "first_visit": "2",
-"red_corridor_end": "23",
-"visit": "13"
+"red_corridor_end": "26",
+"visit": "16"
 }
 lines = {
 "0": {
@@ -43,15 +46,44 @@ lines = {
 "text": "first_visit",
 "type": "title"
 },
+"10": {
+"next_conditional_id": "12",
+"next_id": "11",
+"next_id_after": "12",
+"type": "condition"
+},
 "11": {
-"next_id": "13",
+"character": "",
+"inline_mutations": [  ],
+"next_id": "12",
+"parent_id": "10",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "A chilly room covered by cave-like walls is found. The room has no roof and there are fire pits spread across the room. One is lit up, displaying a female silhouette on the wall.",
+"time": null,
+"translation_key": "A chilly room covered by cave-like walls is found. The room has no roof and there are fire pits spread across the room. One is lit up, displaying a female silhouette on the wall.",
+"type": "dialogue"
+},
+"12": {
+"next_id": "26",
+"next_id_after": "end",
+"replacements": [  ],
+"responses": PoolStringArray( "12" ),
+"text": "Leave",
+"translation_key": "Leave",
+"type": "response"
+},
+"14": {
+"next_id": "16",
 "text": "visit",
 "type": "title"
 },
-"13": {
+"16": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "14",
+"next_id": "17",
 "pauses": {
 },
 "replacements": [ {
@@ -73,48 +105,19 @@ lines = {
 "translation_key": "{{GREEN}} visits the {{RED_ASPECT}} aspect's classroom, although it has no resemblance of a classroom.",
 "type": "dialogue"
 },
-"14": {
-"next_id": "23",
+"17": {
+"next_id": "26",
 "next_id_after": "end",
 "replacements": [  ],
-"responses": PoolStringArray( "14" ),
+"responses": PoolStringArray( "17" ),
 "text": "Leave",
 "translation_key": "Leave",
 "type": "response"
 },
-"16": {
-"next_id": "18",
+"19": {
+"next_id": "21",
 "text": "execute_action",
 "type": "title"
-},
-"18": {
-"character": "",
-"inline_mutations": [  ],
-"next_id": "19",
-"pauses": {
-},
-"replacements": [  ],
-"speeds": [  ],
-"text": "No problems here.",
-"time": null,
-"translation_key": "No problems here.",
-"type": "dialogue"
-},
-"19": {
-"mutation": {
-"expression": [ {
-"type": "variable",
-"value": "next"
-}, {
-"type": "assignment",
-"value": "="
-}, {
-"type": "string",
-"value": "green_classroom"
-} ]
-},
-"next_id": "",
-"type": "mutation"
 },
 "2": {
 "character": "",
@@ -130,14 +133,43 @@ lines = {
 "type": "dialogue"
 },
 "21": {
-"next_id": "23",
+"character": "",
+"inline_mutations": [  ],
+"next_id": "22",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "No problems here.",
+"time": null,
+"translation_key": "No problems here.",
+"type": "dialogue"
+},
+"22": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "green_classroom"
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"24": {
+"next_id": "26",
 "text": "red_corridor_end",
 "type": "title"
 },
-"23": {
+"26": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "24",
+"next_id": "27",
 "pauses": {
 },
 "replacements": [ {
@@ -153,7 +185,7 @@ lines = {
 "translation_key": "{{GREEN}} leaves the classroom.",
 "type": "dialogue"
 },
-"24": {
+"27": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -182,12 +214,26 @@ lines = {
 "value": true
 } ]
 },
-"next_conditional_id": "9",
+"next_conditional_id": "10",
 "next_id": "4",
-"next_id_after": "9",
+"next_id_after": "12",
 "type": "condition"
 },
 "4": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "5",
+"parent_id": "3",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "A chilly room covered by cave-like walls is found. The room has no roof and there are fire pits spread across the room. One is lit up, displaying a female silhouette on the wall.",
+"time": null,
+"translation_key": "A chilly room covered by cave-like walls is found. The room has no roof and there are fire pits spread across the room. One is lit up, displaying a female silhouette on the wall.",
+"type": "dialogue"
+},
+"5": {
 "character": "{{GREEN}}",
 "character_replacements": [ {
 "expression": [ {
@@ -197,7 +243,7 @@ lines = {
 "value_in_text": "{{GREEN}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "5",
+"next_id": "6",
 "parent_id": "3",
 "pauses": {
 },
@@ -220,10 +266,10 @@ lines = {
 "translation_key": "This is the {{RED_ASPECT}} aspect students learn how to unleash their powers. Let's ask for a demonstration from their teacher {{RED_TEACHER}}.",
 "type": "dialogue"
 },
-"5": {
+"6": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "6",
+"next_id": "7",
 "parent_id": "3",
 "pauses": {
 },
@@ -240,10 +286,10 @@ lines = {
 "translation_key": "{{BLUE}} nods.",
 "type": "dialogue"
 },
-"6": {
+"7": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "7",
+"next_id": "8",
 "parent_id": "3",
 "pauses": {
 },
@@ -254,7 +300,7 @@ lines = {
 "translation_key": "They go to the teacher, who is wearing what resembles a gymnastics suit and embraces the request with a energetic dance.",
 "type": "dialogue"
 },
-"7": {
+"8": {
 "character": "{{RED_TEACHER}}",
 "character_replacements": [ {
 "expression": [ {
@@ -264,7 +310,7 @@ lines = {
 "value_in_text": "{{RED_TEACHER}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "8",
+"next_id": "9",
 "parent_id": "3",
 "pauses": {
 },
@@ -281,10 +327,10 @@ lines = {
 "translation_key": "Now students, witness my devotion to the {{RED_ASPECT}} element!",
 "type": "dialogue"
 },
-"8": {
+"9": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "9",
+"next_id": "12",
 "parent_id": "3",
 "pauses": {
 },
@@ -306,14 +352,5 @@ lines = {
 "time": null,
 "translation_key": "The fire next to {{GREEN}} intensified. A few seconds later, all other fire pits in the room also lit up at the same time. The room quickly became warm. {{GREEN}} looks around in awe.",
 "type": "dialogue"
-},
-"9": {
-"next_id": "23",
-"next_id_after": "end",
-"replacements": [  ],
-"responses": PoolStringArray( "9" ),
-"text": "Leave",
-"translation_key": "Leave",
-"type": "response"
 }
 }

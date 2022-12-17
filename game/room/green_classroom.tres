@@ -7,14 +7,16 @@ script = ExtResource( 1 )
 syntax_version = 2
 raw_text = "~ first_visit
 
-A tall brown room is found. Wide tables are spread and there are containers of blocks of different colours under each table. At the end of a room, a wide-shouldered bold man is sitting, reading from one such book.
 if blue_joined == true
+	A tall brown room is found. Wide tables are spread and there are containers of blocks of different colours under each table. At the end of a room, a wide-shouldered bold man is sitting, reading from one such book.
 	{{GREEN}}: This is the {{GREEN_ASPECT}} aspect's classroom. Students of this aspect learn how to make useful materials and shapes from standard raw materials.
 	{{BLUE}}: Nods.
 	{{GREEN}}: Since this is my born aspect, how about a little demonstration? Let me just ask teacher {{GREEN_TEACHER}} for permission.
 	{{GREEN}} takes a moment to visit {{GREEN_TEACHER}}, who made a friendly gentle go-ahead gesture. {{GREEN}} takes {{BLUE}} to one of the tables.
 	{{GREEN}}: So if I merge a small piece of this with some of that, and take a hair pin, I can get this.
 	Mysteriously, the hair pin has a cherry flower on it. {{GREEN}} attaches it to {{BLUE}}'s hair.
+else
+	A tall brown room is found. Wide tables are spread and there are containers of blocks of different colours under each table. At the end of a room, a wide-shouldered bold man is sitting, reading from one such book.
 - Leave => green_corridor_end
 
 ~ visit
@@ -33,10 +35,10 @@ set next = \"green_classroom\"
 set next = \"green_corridor_end\""
 errors = [  ]
 titles = {
-"execute_action": "19",
+"execute_action": "21",
 "first_visit": "2",
-"green_corridor_end": "24",
-"visit": "14"
+"green_corridor_end": "26",
+"visit": "16"
 }
 lines = {
 "0": {
@@ -45,23 +47,43 @@ lines = {
 "type": "title"
 },
 "10": {
-"next_id": "24",
+"next_conditional_id": "12",
+"next_id": "11",
+"next_id_after": "12",
+"type": "condition"
+},
+"11": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "12",
+"parent_id": "10",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "A tall brown room is found. Wide tables are spread and there are containers of blocks of different colours under each table. At the end of a room, a wide-shouldered bold man is sitting, reading from one such book.",
+"time": null,
+"translation_key": "A tall brown room is found. Wide tables are spread and there are containers of blocks of different colours under each table. At the end of a room, a wide-shouldered bold man is sitting, reading from one such book.",
+"type": "dialogue"
+},
+"12": {
+"next_id": "26",
 "next_id_after": "end",
 "replacements": [  ],
-"responses": PoolStringArray( "10" ),
+"responses": PoolStringArray( "12" ),
 "text": "Leave",
 "translation_key": "Leave",
 "type": "response"
 },
-"12": {
-"next_id": "14",
+"14": {
+"next_id": "16",
 "text": "visit",
 "type": "title"
 },
-"14": {
+"16": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "15",
+"next_id": "17",
 "pauses": {
 },
 "replacements": [ {
@@ -83,24 +105,42 @@ lines = {
 "translation_key": "{{GREEN}} visits the {{GREEN_ASPECT}} aspect's classroom.",
 "type": "dialogue"
 },
-"15": {
-"next_id": "24",
+"17": {
+"next_id": "26",
 "next_id_after": "end",
 "replacements": [  ],
-"responses": PoolStringArray( "15" ),
+"responses": PoolStringArray( "17" ),
 "text": "Leave",
 "translation_key": "Leave",
 "type": "response"
 },
-"17": {
-"next_id": "19",
+"19": {
+"next_id": "21",
 "text": "execute_action",
 "type": "title"
 },
-"19": {
+"2": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "blue_joined"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "bool",
+"value": true
+} ]
+},
+"next_conditional_id": "10",
+"next_id": "3",
+"next_id_after": "12",
+"type": "condition"
+},
+"21": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "20",
+"next_id": "22",
 "pauses": {
 },
 "replacements": [  ],
@@ -110,20 +150,7 @@ lines = {
 "translation_key": "No problems here.",
 "type": "dialogue"
 },
-"2": {
-"character": "",
-"inline_mutations": [  ],
-"next_id": "3",
-"pauses": {
-},
-"replacements": [  ],
-"speeds": [  ],
-"text": "A tall brown room is found. Wide tables are spread and there are containers of blocks of different colours under each table. At the end of a room, a wide-shouldered bold man is sitting, reading from one such book.",
-"time": null,
-"translation_key": "A tall brown room is found. Wide tables are spread and there are containers of blocks of different colours under each table. At the end of a room, a wide-shouldered bold man is sitting, reading from one such book.",
-"type": "dialogue"
-},
-"20": {
+"22": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -139,15 +166,15 @@ lines = {
 "next_id": "",
 "type": "mutation"
 },
-"22": {
-"next_id": "24",
+"24": {
+"next_id": "26",
 "text": "green_corridor_end",
 "type": "title"
 },
-"24": {
+"26": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "25",
+"next_id": "27",
 "pauses": {
 },
 "replacements": [ {
@@ -163,7 +190,7 @@ lines = {
 "translation_key": "{{GREEN}} leaves the classroom.",
 "type": "dialogue"
 },
-"25": {
+"27": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -180,22 +207,18 @@ lines = {
 "type": "mutation"
 },
 "3": {
-"condition": {
-"expression": [ {
-"type": "variable",
-"value": "blue_joined"
-}, {
-"type": "comparison",
-"value": "=="
-}, {
-"type": "bool",
-"value": true
-} ]
-},
-"next_conditional_id": "10",
+"character": "",
+"inline_mutations": [  ],
 "next_id": "4",
-"next_id_after": "10",
-"type": "condition"
+"parent_id": "2",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "A tall brown room is found. Wide tables are spread and there are containers of blocks of different colours under each table. At the end of a room, a wide-shouldered bold man is sitting, reading from one such book.",
+"time": null,
+"translation_key": "A tall brown room is found. Wide tables are spread and there are containers of blocks of different colours under each table. At the end of a room, a wide-shouldered bold man is sitting, reading from one such book.",
+"type": "dialogue"
 },
 "4": {
 "character": "{{GREEN}}",
@@ -208,7 +231,7 @@ lines = {
 } ],
 "inline_mutations": [  ],
 "next_id": "5",
-"parent_id": "3",
+"parent_id": "2",
 "pauses": {
 },
 "replacements": [ {
@@ -235,7 +258,7 @@ lines = {
 } ],
 "inline_mutations": [  ],
 "next_id": "6",
-"parent_id": "3",
+"parent_id": "2",
 "pauses": {
 },
 "replacements": [  ],
@@ -256,7 +279,7 @@ lines = {
 } ],
 "inline_mutations": [  ],
 "next_id": "7",
-"parent_id": "3",
+"parent_id": "2",
 "pauses": {
 },
 "replacements": [ {
@@ -276,7 +299,7 @@ lines = {
 "character": "",
 "inline_mutations": [  ],
 "next_id": "8",
-"parent_id": "3",
+"parent_id": "2",
 "pauses": {
 },
 "replacements": [ {
@@ -321,7 +344,7 @@ lines = {
 } ],
 "inline_mutations": [  ],
 "next_id": "9",
-"parent_id": "3",
+"parent_id": "2",
 "pauses": {
 },
 "replacements": [  ],
@@ -334,8 +357,8 @@ lines = {
 "9": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "10",
-"parent_id": "3",
+"next_id": "12",
+"parent_id": "2",
 "pauses": {
 },
 "replacements": [ {

@@ -6,12 +6,13 @@
 script = ExtResource( 1 )
 game_version = "0.2"
 data = {
-"blue_joined": true,
+"blue_joined": false,
 "cat_lab_revealed": false,
+"court_ended": true,
 "court_started": true,
-"current_room": "great_hall",
+"current_room": "dorm_wing_entrance",
 "in_blue_space": false,
 "library_locked": true,
-"visited": [ "main_entrance", "knowledge_hallway", "library" ],
-"yellow_joined": false
+"visited": [ "main_entrance", "knowledge_hallway", "library", "great_hall", "main_hallway", "red_corridor_end", "recreation_hallway", "dorm_wing_entrance", "greens_dorm", "cat_lab" ],
+"yellow_joined": true
 }

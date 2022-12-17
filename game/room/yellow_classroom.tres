@@ -14,10 +14,12 @@ if blue_joined == true
 else
 	{{GREEN}}: I'm fine, do not worry about it! I am just looking around.
 {{YELLOW_TEACHER}}: Feel free to look around. Just make sure to read the safety signs and avoid touching anything!
-The room has several stations with various electrostatic machines and mounting boards. {{GREEN}} goes to one of these stations.
 if blue_joined == true
+	The room has several stations with various electrostatic machines and mounting boards. {{GREEN}} goes to one of these stations.
 	{{GREEN}}: In this room, the {{YELLOW_ASPECT}} students learn how to control electrical and light phenomena. They also learn how to move very quickly, which is somehow related to this.
 	{{BLUE}} nods.
+else
+	The room has several stations with various electrostatic machines and mounting boards. {{GREEN}} goes to one of these stations.
 - Leave => yellow_corridor_end
 
 ~ visit
@@ -36,10 +38,10 @@ set next = \"yellow_classroom\"
 set next = \"yellow_corridor_end\""
 errors = [  ]
 titles = {
-"execute_action": "22",
+"execute_action": "24",
 "first_visit": "2",
-"visit": "17",
-"yellow_corridor_end": "27"
+"visit": "19",
+"yellow_corridor_end": "29"
 }
 lines = {
 "0": {
@@ -48,22 +50,24 @@ lines = {
 "type": "title"
 },
 "10": {
-"condition": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "11",
+"parent_id": "9",
+"pauses": {
+},
+"replacements": [ {
 "expression": [ {
 "type": "variable",
-"value": "blue_joined"
-}, {
-"type": "comparison",
-"value": "=="
-}, {
-"type": "bool",
-"value": true
-} ]
-},
-"next_conditional_id": "13",
-"next_id": "11",
-"next_id_after": "13",
-"type": "condition"
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "The room has several stations with various electrostatic machines and mounting boards. {{GREEN}} goes to one of these stations.",
+"time": null,
+"translation_key": "The room has several stations with various electrostatic machines and mounting boards. {{GREEN}} goes to one of these stations.",
+"type": "dialogue"
 },
 "11": {
 "character": "{{GREEN}}",
@@ -76,7 +80,7 @@ lines = {
 } ],
 "inline_mutations": [  ],
 "next_id": "12",
-"parent_id": "10",
+"parent_id": "9",
 "pauses": {
 },
 "replacements": [ {
@@ -95,8 +99,8 @@ lines = {
 "12": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "13",
-"parent_id": "10",
+"next_id": "15",
+"parent_id": "9",
 "pauses": {
 },
 "replacements": [ {
@@ -113,23 +117,49 @@ lines = {
 "type": "dialogue"
 },
 "13": {
-"next_id": "27",
+"next_conditional_id": "15",
+"next_id": "14",
+"next_id_after": "15",
+"type": "condition"
+},
+"14": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "15",
+"parent_id": "13",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "The room has several stations with various electrostatic machines and mounting boards. {{GREEN}} goes to one of these stations.",
+"time": null,
+"translation_key": "The room has several stations with various electrostatic machines and mounting boards. {{GREEN}} goes to one of these stations.",
+"type": "dialogue"
+},
+"15": {
+"next_id": "29",
 "next_id_after": "end",
 "replacements": [  ],
-"responses": PoolStringArray( "13" ),
+"responses": PoolStringArray( "15" ),
 "text": "Leave",
 "translation_key": "Leave",
 "type": "response"
 },
-"15": {
-"next_id": "17",
+"17": {
+"next_id": "19",
 "text": "visit",
 "type": "title"
 },
-"17": {
+"19": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "18",
+"next_id": "20",
 "pauses": {
 },
 "replacements": [ {
@@ -151,15 +181,6 @@ lines = {
 "translation_key": "{{GREEN}} visits the {{YELLOW_ASPECT}} aspect's classroom.",
 "type": "dialogue"
 },
-"18": {
-"next_id": "27",
-"next_id_after": "end",
-"replacements": [  ],
-"responses": PoolStringArray( "18" ),
-"text": "Leave",
-"translation_key": "Leave",
-"type": "response"
-},
 "2": {
 "character": "",
 "inline_mutations": [  ],
@@ -174,14 +195,23 @@ lines = {
 "type": "dialogue"
 },
 "20": {
-"next_id": "22",
+"next_id": "29",
+"next_id_after": "end",
+"replacements": [  ],
+"responses": PoolStringArray( "20" ),
+"text": "Leave",
+"translation_key": "Leave",
+"type": "response"
+},
+"22": {
+"next_id": "24",
 "text": "execute_action",
 "type": "title"
 },
-"22": {
+"24": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "23",
+"next_id": "25",
 "pauses": {
 },
 "replacements": [  ],
@@ -191,7 +221,7 @@ lines = {
 "translation_key": "No problems here.",
 "type": "dialogue"
 },
-"23": {
+"25": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -207,15 +237,15 @@ lines = {
 "next_id": "",
 "type": "mutation"
 },
-"25": {
-"next_id": "27",
+"27": {
+"next_id": "29",
 "text": "yellow_corridor_end",
 "type": "title"
 },
-"27": {
+"29": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "28",
+"next_id": "30",
 "pauses": {
 },
 "replacements": [ {
@@ -230,22 +260,6 @@ lines = {
 "time": null,
 "translation_key": "{{GREEN}} leaves the classroom.",
 "type": "dialogue"
-},
-"28": {
-"mutation": {
-"expression": [ {
-"type": "variable",
-"value": "next"
-}, {
-"type": "assignment",
-"value": "="
-}, {
-"type": "string",
-"value": "yellow_corridor_end"
-} ]
-},
-"next_id": "",
-"type": "mutation"
 },
 "3": {
 "character": "{{YELLOW_TEACHER}}",
@@ -266,6 +280,22 @@ lines = {
 "time": null,
 "translation_key": "Students! So sorry for startling you. I am preparing a demonstration for next class.",
 "type": "dialogue"
+},
+"30": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "yellow_corridor_end"
+} ]
+},
+"next_id": "",
+"type": "mutation"
 },
 "4": {
 "condition": {
@@ -366,22 +396,21 @@ lines = {
 "type": "dialogue"
 },
 "9": {
-"character": "",
-"inline_mutations": [  ],
-"next_id": "10",
-"pauses": {
-},
-"replacements": [ {
+"condition": {
 "expression": [ {
 "type": "variable",
-"value": "GREEN"
-} ],
-"value_in_text": "{{GREEN}}"
-} ],
-"speeds": [  ],
-"text": "The room has several stations with various electrostatic machines and mounting boards. {{GREEN}} goes to one of these stations.",
-"time": null,
-"translation_key": "The room has several stations with various electrostatic machines and mounting boards. {{GREEN}} goes to one of these stations.",
-"type": "dialogue"
+"value": "blue_joined"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "bool",
+"value": true
+} ]
+},
+"next_conditional_id": "13",
+"next_id": "10",
+"next_id_after": "15",
+"type": "condition"
 }
 }

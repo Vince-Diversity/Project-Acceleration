@@ -7,17 +7,19 @@ script = ExtResource( 1 )
 syntax_version = 2
 raw_text = "~ first_visit
 
-Inside the dorm wing, the path divides to the west and east at several junctions to the north. There are also a set of stairs going up.
 if blue_joined == true
+	Inside the dorm wing, the path divides to the west and east at several junctions to the north. There are also a set of stairs going up.
 	{{GREEN}}: This labyrinth is where students live during terms. The door numbers help you navigate.
 	{{BLUE}} nods.
-- Go to {{YELLOW}}'s dorm at number 777 => yellows_dorm
+else
+	Inside the dorm wing, the path divides to the west and east at several junctions to the north. There are also a set of stairs going up.
+- Go to {{GREEN}}'s dorm => greens_dorm
 - Go through the passage to the main building => recreation_hallway
 
 ~ visit
 
 {{GREEN}} is at the entrance of the dorm wing.
-- Go to {{YELLOW}}'s dorm at number 777 => yellows_dorm
+- Go to {{GREEN}}'s dorm => greens_dorm
 - Go towards the main building => recreation_hallway
 
 ~ execute_action
@@ -25,10 +27,10 @@ if blue_joined == true
 No problems here.
 set next = \"dorm_wing_entrance\"
 
-~ yellows_dorm
+~ greens_dorm
 
-{{GREEN}} locates {{YELLOW}}'s dorm and enters it.
-set next = \"cat_lab\"
+{{GREEN}} finds their designated dorm.
+set next = \"greens_dorm\"
 
 ~ recreation_hallway
 
@@ -36,11 +38,11 @@ set next = \"cat_lab\"
 set next = \"recreation_hallway\""
 errors = [  ]
 titles = {
-"execute_action": "17",
+"execute_action": "19",
 "first_visit": "2",
-"recreation_hallway": "27",
-"visit": "11",
-"yellows_dorm": "22"
+"greens_dorm": "24",
+"recreation_hallway": "29",
+"visit": "13"
 }
 lines = {
 "0": {
@@ -49,9 +51,14 @@ lines = {
 "type": "title"
 },
 "11": {
+"next_id": "13",
+"text": "visit",
+"type": "title"
+},
+"13": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "12",
+"next_id": "14",
 "pauses": {
 },
 "replacements": [ {
@@ -67,38 +74,38 @@ lines = {
 "translation_key": "{{GREEN}} is at the entrance of the dorm wing.",
 "type": "dialogue"
 },
-"12": {
-"next_id": "22",
+"14": {
+"next_id": "24",
 "next_id_after": "end",
 "replacements": [ {
 "expression": [ {
 "type": "variable",
-"value": "YELLOW"
+"value": "GREEN"
 } ],
-"value_in_text": "{{YELLOW}}"
+"value_in_text": "{{GREEN}}"
 } ],
-"responses": PoolStringArray( "12", "13" ),
-"text": "Go to {{YELLOW}}'s dorm at number 777",
-"translation_key": "Go to {{YELLOW}}'s dorm at number 777",
+"responses": PoolStringArray( "14", "15" ),
+"text": "Go to {{GREEN}}'s dorm",
+"translation_key": "Go to {{GREEN}}'s dorm",
 "type": "response"
 },
-"13": {
-"next_id": "27",
+"15": {
+"next_id": "29",
 "next_id_after": "end",
 "replacements": [  ],
 "text": "Go towards the main building",
 "translation_key": "Go towards the main building",
 "type": "response"
 },
-"15": {
-"next_id": "17",
+"17": {
+"next_id": "19",
 "text": "execute_action",
 "type": "title"
 },
-"17": {
+"19": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "18",
+"next_id": "20",
 "pauses": {
 },
 "replacements": [  ],
@@ -108,7 +115,25 @@ lines = {
 "translation_key": "No problems here.",
 "type": "dialogue"
 },
-"18": {
+"2": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "blue_joined"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "bool",
+"value": true
+} ]
+},
+"next_conditional_id": "6",
+"next_id": "3",
+"next_id_after": "8",
+"type": "condition"
+},
+"20": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -124,28 +149,15 @@ lines = {
 "next_id": "",
 "type": "mutation"
 },
-"2": {
-"character": "",
-"inline_mutations": [  ],
-"next_id": "3",
-"pauses": {
-},
-"replacements": [  ],
-"speeds": [  ],
-"text": "Inside the dorm wing, the path divides to the west and east at several junctions to the north. There are also a set of stairs going up.",
-"time": null,
-"translation_key": "Inside the dorm wing, the path divides to the west and east at several junctions to the north. There are also a set of stairs going up.",
-"type": "dialogue"
-},
-"20": {
-"next_id": "22",
-"text": "yellows_dorm",
+"22": {
+"next_id": "24",
+"text": "greens_dorm",
 "type": "title"
 },
-"22": {
+"24": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "23",
+"next_id": "25",
 "pauses": {
 },
 "replacements": [ {
@@ -154,20 +166,14 @@ lines = {
 "value": "GREEN"
 } ],
 "value_in_text": "{{GREEN}}"
-}, {
-"expression": [ {
-"type": "variable",
-"value": "YELLOW"
-} ],
-"value_in_text": "{{YELLOW}}"
 } ],
 "speeds": [  ],
-"text": "{{GREEN}} locates {{YELLOW}}'s dorm and enters it.",
+"text": "{{GREEN}} finds their designated dorm.",
 "time": null,
-"translation_key": "{{GREEN}} locates {{YELLOW}}'s dorm and enters it.",
+"translation_key": "{{GREEN}} finds their designated dorm.",
 "type": "dialogue"
 },
-"23": {
+"25": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -177,21 +183,21 @@ lines = {
 "value": "="
 }, {
 "type": "string",
-"value": "cat_lab"
+"value": "greens_dorm"
 } ]
 },
 "next_id": "",
 "type": "mutation"
 },
-"25": {
-"next_id": "27",
+"27": {
+"next_id": "29",
 "text": "recreation_hallway",
 "type": "title"
 },
-"27": {
+"29": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "28",
+"next_id": "30",
 "pauses": {
 },
 "replacements": [ {
@@ -207,7 +213,21 @@ lines = {
 "translation_key": "{{GREEN}} walks over to the main building.",
 "type": "dialogue"
 },
-"28": {
+"3": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "4",
+"parent_id": "2",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "Inside the dorm wing, the path divides to the west and east at several junctions to the north. There are also a set of stairs going up.",
+"time": null,
+"translation_key": "Inside the dorm wing, the path divides to the west and east at several junctions to the north. There are also a set of stairs going up.",
+"type": "dialogue"
+},
+"30": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -223,24 +243,6 @@ lines = {
 "next_id": "",
 "type": "mutation"
 },
-"3": {
-"condition": {
-"expression": [ {
-"type": "variable",
-"value": "blue_joined"
-}, {
-"type": "comparison",
-"value": "=="
-}, {
-"type": "bool",
-"value": true
-} ]
-},
-"next_conditional_id": "6",
-"next_id": "4",
-"next_id_after": "6",
-"type": "condition"
-},
 "4": {
 "character": "{{GREEN}}",
 "character_replacements": [ {
@@ -252,7 +254,7 @@ lines = {
 } ],
 "inline_mutations": [  ],
 "next_id": "5",
-"parent_id": "3",
+"parent_id": "2",
 "pauses": {
 },
 "replacements": [  ],
@@ -265,8 +267,8 @@ lines = {
 "5": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "6",
-"parent_id": "3",
+"next_id": "8",
+"parent_id": "2",
 "pauses": {
 },
 "replacements": [ {
@@ -283,31 +285,46 @@ lines = {
 "type": "dialogue"
 },
 "6": {
-"next_id": "22",
+"next_conditional_id": "8",
+"next_id": "7",
+"next_id_after": "8",
+"type": "condition"
+},
+"7": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "8",
+"parent_id": "6",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "Inside the dorm wing, the path divides to the west and east at several junctions to the north. There are also a set of stairs going up.",
+"time": null,
+"translation_key": "Inside the dorm wing, the path divides to the west and east at several junctions to the north. There are also a set of stairs going up.",
+"type": "dialogue"
+},
+"8": {
+"next_id": "24",
 "next_id_after": "end",
 "replacements": [ {
 "expression": [ {
 "type": "variable",
-"value": "YELLOW"
+"value": "GREEN"
 } ],
-"value_in_text": "{{YELLOW}}"
+"value_in_text": "{{GREEN}}"
 } ],
-"responses": PoolStringArray( "6", "7" ),
-"text": "Go to {{YELLOW}}'s dorm at number 777",
-"translation_key": "Go to {{YELLOW}}'s dorm at number 777",
+"responses": PoolStringArray( "8", "9" ),
+"text": "Go to {{GREEN}}'s dorm",
+"translation_key": "Go to {{GREEN}}'s dorm",
 "type": "response"
 },
-"7": {
-"next_id": "27",
+"9": {
+"next_id": "29",
 "next_id_after": "end",
 "replacements": [  ],
 "text": "Go through the passage to the main building",
 "translation_key": "Go through the passage to the main building",
 "type": "response"
-},
-"9": {
-"next_id": "11",
-"text": "visit",
-"type": "title"
 }
 }

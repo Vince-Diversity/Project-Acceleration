@@ -1,0 +1,336 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/dialogue_manager/dialogue_resource.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+syntax_version = 2
+raw_text = "~ first_visit
+An ordinary dorm is found, decorated in green colours.
+if blue_joined == true
+	{{GREEN}}: As per school rules, decorating our dorm is discouraged. That is why every dorm looks the same. Or, at least they should...
+	{{BLUE}} nods.
+else
+	{{GREEN}}: Hello, my room, we meet again.
+if court_ended == true
+	=> cat_lab
+- Go back to the entrance of the dorm wing => dorm_wing_entrance
+
+~ visit
+{{GREEN}} visits their dorm.
+if court_ended == true
+	=> cat_lab
+- Go back to the entrance of the dorm wing => dorm_wing_entrance
+
+~ execute_action
+No problems here.
+
+~ dorm_wing_entrance
+{{GREEN}} leaves their dorm.
+set next = \"dorm_wing_entrance\"
+
+~ cat_lab
+For some reason, there is an artificial cat in {{GREEN}}'s room.
+set next = \"cat_lab\"
+
+"
+errors = [  ]
+titles = {
+"cat_lab": "25",
+"dorm_wing_entrance": "21",
+"execute_action": "18",
+"first_visit": "1",
+"visit": "12"
+}
+lines = {
+"0": {
+"next_id": "1",
+"text": "first_visit",
+"type": "title"
+},
+"1": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "2",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "An ordinary dorm is found, decorated in green colours.",
+"time": null,
+"translation_key": "An ordinary dorm is found, decorated in green colours.",
+"type": "dialogue"
+},
+"11": {
+"next_id": "12",
+"text": "visit",
+"type": "title"
+},
+"12": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "13",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} visits their dorm.",
+"time": null,
+"translation_key": "{{GREEN}} visits their dorm.",
+"type": "dialogue"
+},
+"13": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "court_ended"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "bool",
+"value": true
+} ]
+},
+"next_conditional_id": "15",
+"next_id": "14",
+"next_id_after": "15",
+"type": "condition"
+},
+"14": {
+"next_id": "25",
+"parent_id": "13",
+"type": "goto"
+},
+"15": {
+"next_id": "21",
+"next_id_after": "end",
+"replacements": [  ],
+"responses": PoolStringArray( "15" ),
+"text": "Go back to the entrance of the dorm wing",
+"translation_key": "Go back to the entrance of the dorm wing",
+"type": "response"
+},
+"17": {
+"next_id": "18",
+"text": "execute_action",
+"type": "title"
+},
+"18": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "No problems here.",
+"time": null,
+"translation_key": "No problems here.",
+"type": "dialogue"
+},
+"2": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "blue_joined"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "bool",
+"value": true
+} ]
+},
+"next_conditional_id": "5",
+"next_id": "3",
+"next_id_after": "7",
+"type": "condition"
+},
+"20": {
+"next_id": "21",
+"text": "dorm_wing_entrance",
+"type": "title"
+},
+"21": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "22",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} leaves their dorm.",
+"time": null,
+"translation_key": "{{GREEN}} leaves their dorm.",
+"type": "dialogue"
+},
+"22": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "dorm_wing_entrance"
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"24": {
+"next_id": "25",
+"text": "cat_lab",
+"type": "title"
+},
+"25": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "26",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "For some reason, there is an artificial cat in {{GREEN}}'s room.",
+"time": null,
+"translation_key": "For some reason, there is an artificial cat in {{GREEN}}'s room.",
+"type": "dialogue"
+},
+"26": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "cat_lab"
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"3": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "4",
+"parent_id": "2",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "As per school rules, decorating our dorm is discouraged. That is why every dorm looks the same. Or, at least they should...",
+"time": null,
+"translation_key": "As per school rules, decorating our dorm is discouraged. That is why every dorm looks the same. Or, at least they should...",
+"type": "dialogue"
+},
+"4": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "7",
+"parent_id": "2",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"speeds": [  ],
+"text": "{{BLUE}} nods.",
+"time": null,
+"translation_key": "{{BLUE}} nods.",
+"type": "dialogue"
+},
+"5": {
+"next_conditional_id": "7",
+"next_id": "6",
+"next_id_after": "7",
+"type": "condition"
+},
+"6": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "7",
+"parent_id": "5",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "Hello, my room, we meet again.",
+"time": null,
+"translation_key": "Hello, my room, we meet again.",
+"type": "dialogue"
+},
+"7": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "court_ended"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "bool",
+"value": true
+} ]
+},
+"next_conditional_id": "9",
+"next_id": "8",
+"next_id_after": "9",
+"type": "condition"
+},
+"8": {
+"next_id": "25",
+"parent_id": "7",
+"type": "goto"
+},
+"9": {
+"next_id": "21",
+"next_id_after": "end",
+"replacements": [  ],
+"responses": PoolStringArray( "9" ),
+"text": "Go back to the entrance of the dorm wing",
+"translation_key": "Go back to the entrance of the dorm wing",
+"type": "response"
+}
+}
