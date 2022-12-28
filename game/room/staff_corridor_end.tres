@@ -1,0 +1,439 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/dialogue_manager/dialogue_resource.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+syntax_version = 2
+raw_text = "~ first_visit
+
+On the upper floor, there is a corridor of small office rooms. The corridor ends with a large gray door. There is a button and a microphone next to it.
+- Press the button => principal_office
+- Go downstairs => main_entrance
+
+~ visit
+
+if in_blue_space
+	The door to the office of {{PRINCIPAL}} is open. A blue mist covers the view.
+	- Enter => blue_principal_office
+	- Go downstairs => main_entrance
+else
+	{{GREEN}} is next to a large gray door. There is a button and a microphone next to it.
+	- Press the button => principal_office
+	- Go downstairs => main_entrance
+
+~ execute_action
+
+No problems here.
+set next = \"staff_corridor_end\"
+
+~ principal_office
+
+A noisy version of voice of {{PRINCIPAL}} can be heard from the microphone.
+{{PRINCIPAL}}: Who is this, and what is your business here?
+{{GREEN}}: This is {{GREEN}}, the mentor of {{BLUE}}. I would like to visit {{BLUE}}.
+{{PRINCIPAL}}: Make it quick.
+The grey door opened automatically.
+set next = \"principal_office\"
+
+~ blue_principal_office
+
+{{GREEN}} enters the grey door.
+set next = \"principal_office\"
+
+~ main_entrance
+
+{{GREEN}} walks downstairs.
+set next = \"main_entrance\""
+errors = [  ]
+titles = {
+"blue_principal_office": "33",
+"execute_action": "19",
+"first_visit": "2",
+"main_entrance": "38",
+"principal_office": "24",
+"visit": "8"
+}
+lines = {
+"0": {
+"next_id": "2",
+"text": "first_visit",
+"type": "title"
+},
+"10": {
+"next_id": "33",
+"next_id_after": "end",
+"parent_id": "8",
+"replacements": [  ],
+"responses": PoolStringArray( "10", "11" ),
+"text": "Enter",
+"translation_key": "Enter",
+"type": "response"
+},
+"11": {
+"next_id": "38",
+"next_id_after": "end",
+"parent_id": "8",
+"replacements": [  ],
+"text": "Go downstairs",
+"translation_key": "Go downstairs",
+"type": "response"
+},
+"12": {
+"next_conditional_id": "end",
+"next_id": "13",
+"next_id_after": "end",
+"type": "condition"
+},
+"13": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "14",
+"parent_id": "12",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} is next to a large gray door. There is a button and a microphone next to it.",
+"time": null,
+"translation_key": "{{GREEN}} is next to a large gray door. There is a button and a microphone next to it.",
+"type": "dialogue"
+},
+"14": {
+"next_id": "24",
+"next_id_after": "end",
+"parent_id": "12",
+"replacements": [  ],
+"responses": PoolStringArray( "14", "15" ),
+"text": "Press the button",
+"translation_key": "Press the button",
+"type": "response"
+},
+"15": {
+"next_id": "38",
+"next_id_after": "end",
+"parent_id": "12",
+"replacements": [  ],
+"text": "Go downstairs",
+"translation_key": "Go downstairs",
+"type": "response"
+},
+"17": {
+"next_id": "19",
+"text": "execute_action",
+"type": "title"
+},
+"19": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "20",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "No problems here.",
+"time": null,
+"translation_key": "No problems here.",
+"type": "dialogue"
+},
+"2": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "3",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "On the upper floor, there is a corridor of small office rooms. The corridor ends with a large gray door. There is a button and a microphone next to it.",
+"time": null,
+"translation_key": "On the upper floor, there is a corridor of small office rooms. The corridor ends with a large gray door. There is a button and a microphone next to it.",
+"type": "dialogue"
+},
+"20": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "staff_corridor_end"
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"22": {
+"next_id": "24",
+"text": "principal_office",
+"type": "title"
+},
+"24": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "25",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "PRINCIPAL"
+} ],
+"value_in_text": "{{PRINCIPAL}}"
+} ],
+"speeds": [  ],
+"text": "A noisy version of voice of {{PRINCIPAL}} can be heard from the microphone.",
+"time": null,
+"translation_key": "A noisy version of voice of {{PRINCIPAL}} can be heard from the microphone.",
+"type": "dialogue"
+},
+"25": {
+"character": "{{PRINCIPAL}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "PRINCIPAL"
+} ],
+"value_in_text": "{{PRINCIPAL}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "26",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "Who is this, and what is your business here?",
+"time": null,
+"translation_key": "Who is this, and what is your business here?",
+"type": "dialogue"
+},
+"26": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "27",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"speeds": [  ],
+"text": "This is {{GREEN}}, the mentor of {{BLUE}}. I would like to visit {{BLUE}}.",
+"time": null,
+"translation_key": "This is {{GREEN}}, the mentor of {{BLUE}}. I would like to visit {{BLUE}}.",
+"type": "dialogue"
+},
+"27": {
+"character": "{{PRINCIPAL}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "PRINCIPAL"
+} ],
+"value_in_text": "{{PRINCIPAL}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "28",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "Make it quick.",
+"time": null,
+"translation_key": "Make it quick.",
+"type": "dialogue"
+},
+"28": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "29",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "The grey door opened automatically.",
+"time": null,
+"translation_key": "The grey door opened automatically.",
+"type": "dialogue"
+},
+"29": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "principal_office"
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"3": {
+"next_id": "24",
+"next_id_after": "end",
+"replacements": [  ],
+"responses": PoolStringArray( "3", "4" ),
+"text": "Press the button",
+"translation_key": "Press the button",
+"type": "response"
+},
+"31": {
+"next_id": "33",
+"text": "blue_principal_office",
+"type": "title"
+},
+"33": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "34",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} enters the grey door.",
+"time": null,
+"translation_key": "{{GREEN}} enters the grey door.",
+"type": "dialogue"
+},
+"34": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "principal_office"
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"36": {
+"next_id": "38",
+"text": "main_entrance",
+"type": "title"
+},
+"38": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "39",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} walks downstairs.",
+"time": null,
+"translation_key": "{{GREEN}} walks downstairs.",
+"type": "dialogue"
+},
+"39": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "main_entrance"
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"4": {
+"next_id": "38",
+"next_id_after": "end",
+"replacements": [  ],
+"text": "Go downstairs",
+"translation_key": "Go downstairs",
+"type": "response"
+},
+"6": {
+"next_id": "8",
+"text": "visit",
+"type": "title"
+},
+"8": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "in_blue_space"
+} ]
+},
+"next_conditional_id": "12",
+"next_id": "9",
+"next_id_after": "end",
+"type": "condition"
+},
+"9": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "10",
+"parent_id": "8",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "PRINCIPAL"
+} ],
+"value_in_text": "{{PRINCIPAL}}"
+} ],
+"speeds": [  ],
+"text": "The door to the office of {{PRINCIPAL}} is open. A blue mist covers the view.",
+"time": null,
+"translation_key": "The door to the office of {{PRINCIPAL}} is open. A blue mist covers the view.",
+"type": "dialogue"
+}
+}

@@ -10,9 +10,10 @@ data = {
 "cat_lab_revealed": false,
 "court_ended": true,
 "court_started": true,
-"current_room": "dorm_wing_entrance",
-"in_blue_space": false,
+"current_room": "knowledge_hallway",
+"has_ouroboros": true,
+"in_blue_space": true,
 "library_locked": true,
-"visited": [ "main_entrance", "knowledge_hallway", "library", "great_hall", "main_hallway", "red_corridor_end", "recreation_hallway", "dorm_wing_entrance", "greens_dorm", "cat_lab" ],
+"visited": [ "main_entrance", "knowledge_hallway", "library", "great_hall", "main_hallway", "yellow_corridor_end", "yellow_classroom", "staff_corridor_end", "principal_office", "recreation_hallway", "dorm_wing_entrance", "greens_dorm", "cat_lab", "blue_corridor_end", "blue_classroom" ],
 "yellow_joined": true
 }

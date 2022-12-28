@@ -33,5 +33,9 @@ func _on_Action_selected(action_id: String):
 func _on_Action_reactivated(action_id: String):
 	emit_signal("input_on_responding", Utils.InputType.REACTIVATION, action_id)
 
+func _on_Action_focus_entered():
+	# Workaround, pressing down somehow focuses on the action node. This reverts the focus.
+	text_box.resp_arr[-1].grab_focus()
+
 func _on_TextBox_finished_next_set():
 	emit_signal("change_room")

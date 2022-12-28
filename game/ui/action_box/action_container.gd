@@ -11,9 +11,9 @@ func load_actions(input_node):
 	connect("action_reactivated", input_node, "_on_Action_reactivated")
 
 func add_action(input_node, action_id: String):
-		var action = action_scn.instance()
-		add_child(action)
-		action.load_action(input_node, action_id)
+	var action = action_scn.instance()
+	add_child(action)
+	action.load_action(input_node, action_id)
 
 func is_action_activated(action_id: String) -> bool:
 	var b = States.get(Utils.get_action_state_name(States.current_room, action_id))

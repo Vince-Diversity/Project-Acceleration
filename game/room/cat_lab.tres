@@ -19,8 +19,8 @@ The cat continues to make noises.
 ...
 {{YELLOW}}: Harm-free, of course.
 {{GREEN}} why don't you show me then?
-{{YELLOW}}: Go, {{REVEALER}}!
-{{YELLOW}} peeks through their device. As soon as the cat is sighted through the eyepiece, it is suddently found lying on its side. The cat noises stopped.
+{{YELLOW}}: Spotlights on, {{CAT}}!
+{{YELLOW}} peeks through the {{REVEALER}}. As soon as the cat is sighted through the eyepiece, it is suddently found lying on its side. The cat noises stopped.
 {{GREEN}}: I am concerned about your idea of harm-free...
 {{YELLOW}}: Aha, this is why {{CAT}} is such a good subject!
 {{YELLOW}} reactivates the cat-bot using a hidden button on its belly.
@@ -186,14 +186,14 @@ lines = {
 "replacements": [ {
 "expression": [ {
 "type": "variable",
-"value": "REVEALER"
+"value": "CAT"
 } ],
-"value_in_text": "{{REVEALER}}"
+"value_in_text": "{{CAT}}"
 } ],
 "speeds": [  ],
-"text": "Go, {{REVEALER}}!",
+"text": "Spotlights on, {{CAT}}!",
 "time": null,
-"translation_key": "Go, {{REVEALER}}!",
+"translation_key": "Spotlights on, {{CAT}}!",
 "type": "dialogue"
 },
 "15": {
@@ -208,11 +208,17 @@ lines = {
 "value": "YELLOW"
 } ],
 "value_in_text": "{{YELLOW}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "REVEALER"
+} ],
+"value_in_text": "{{REVEALER}}"
 } ],
 "speeds": [  ],
-"text": "{{YELLOW}} peeks through their device. As soon as the cat is sighted through the eyepiece, it is suddently found lying on its side. The cat noises stopped.",
+"text": "{{YELLOW}} peeks through the {{REVEALER}}. As soon as the cat is sighted through the eyepiece, it is suddently found lying on its side. The cat noises stopped.",
 "time": null,
-"translation_key": "{{YELLOW}} peeks through their device. As soon as the cat is sighted through the eyepiece, it is suddently found lying on its side. The cat noises stopped.",
+"translation_key": "{{YELLOW}} peeks through the {{REVEALER}}. As soon as the cat is sighted through the eyepiece, it is suddently found lying on its side. The cat noises stopped.",
 "type": "dialogue"
 },
 "16": {

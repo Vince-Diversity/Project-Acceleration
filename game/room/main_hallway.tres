@@ -7,7 +7,7 @@ script = ExtResource( 1 )
 syntax_version = 2
 raw_text = "~ first_visit
 
-if blue_joined == true
+if blue_joined
 	The entrance to a large hall is to the north. To the west are two smaller corridors and to the east is one corridors.
 	{{GREEN}}: Classes are divided into the three magical aspects {{YELLOW_ASPECT}}, {{GREEN_ASPECT}} and {{RED_ASPECT}}. The {{GREAT_HALL}} in front is big enough to fit all students in one go.
 	{{BLUE}} nods.
@@ -22,7 +22,14 @@ else
 
 ~ visit
 
-{{GREEN}} is in the main hallway.
+if in_blue_space
+	if has_ouroboros
+		{{GREEN}} is in the main hallway. A blue mist covers the view.
+	else
+		The shadowy figure seemingly went through the wall to the north-east. While {{GREEN}} wonders how, the blue mist disperses from that wall, revealing a new pathway.
+		- Go through the corridor to the north-east  => blue_hallway
+else
+	{{GREEN}} is in the main hallway.
 - Go through the corridor to the west => yellow_hallway
 - Go through the corridor to the north-west => green_hallway
 - Enter the {{GREAT_HALL}} in front => great_hall
@@ -37,27 +44,44 @@ set next = \"main_hallway\"
 
 ~ yellow_hallway
 
-{{GREEN}} enters the corridor to the west.
-set next = \"yellow_corridor_end\"
+if in_blue_space
+	{{GREEN}} attempts to enter the corridor to the west. The blue mist thickens and when it clears, the path ends where {{GREEN}} started from!
+	set next = \"main_hallway\"
+else
+	{{GREEN}} enters the corridor to the west.
+	set next = \"yellow_corridor_end\"
 
 ~ green_hallway
 
-{{GREEN}} enters the corridor to the north-west.
-set next = \"green_corridor_end\"
+if in_blue_space
+	{{GREEN}} attempts to enter the corridor to the north-west. The blue mist thickens and when it clears, the path ends where {{GREEN}} started from!
+	set next = \"main_hallway\"
+else
+	{{GREEN}} enters the corridor to the north-west.
+	set next = \"green_corridor_end\"
 
 ~ great_hall
 
-{{GREEN}} enters the {{GREAT_HALL}}.
-set next = \"great_hall\"
+if in_blue_space
+	{{GREEN}} attempts to enter the {{GREAT_HALL}}. The blue mist thickens and when it clears, the path ends where {{GREEN}} started from!
+	set next = \"main_hallway\"
+else
+	{{GREEN}} enters the {{GREAT_HALL}}.
+	set next = \"great_hall\"
 
 ~ blue_hallway
 
-a
+{{GREEN}} enters the corridor to the north-east.
+set next = \"blue_corridor_end\"
 
 ~ red_hallway
 
-{{GREEN}} enters the corridor to the east.
-set next = \"red_corridor_end\"
+if in_blue_space
+	{{GREEN}} attempts to enter the corridor to the east. The blue mist thickens and when it clears, the path ends where {{GREEN}} started from!
+	set next = \"main_hallway\"
+else
+	{{GREEN}} enters the corridor to the east.
+	set next = \"red_corridor_end\"
 
 ~ main_entrance
 
@@ -65,15 +89,15 @@ set next = \"red_corridor_end\"
 set next = \"main_entrance\""
 errors = [  ]
 titles = {
-"blue_hallway": "47",
-"execute_action": "27",
+"blue_hallway": "66",
+"execute_action": "34",
 "first_visit": "2",
-"great_hall": "42",
-"green_hallway": "37",
-"main_entrance": "56",
-"red_hallway": "51",
+"great_hall": "57",
+"green_hallway": "48",
+"main_entrance": "80",
+"red_hallway": "71",
 "visit": "17",
-"yellow_hallway": "32"
+"yellow_hallway": "39"
 }
 lines = {
 "0": {
@@ -82,7 +106,7 @@ lines = {
 "type": "title"
 },
 "10": {
-"next_id": "42",
+"next_id": "57",
 "next_id_after": "end",
 "replacements": [ {
 "expression": [ {
@@ -103,7 +127,7 @@ lines = {
 "value": [  ]
 } ]
 },
-"next_id": "47",
+"next_id": "66",
 "next_id_after": "end",
 "replacements": [  ],
 "text": "Go through the corridor to the north-east",
@@ -111,7 +135,7 @@ lines = {
 "type": "response"
 },
 "12": {
-"next_id": "51",
+"next_id": "71",
 "next_id_after": "end",
 "replacements": [  ],
 "text": "Go through the corridor to the east",
@@ -119,7 +143,7 @@ lines = {
 "type": "response"
 },
 "13": {
-"next_id": "56",
+"next_id": "80",
 "next_id_after": "end",
 "replacements": [  ],
 "text": "Go through the hallway to the south",
@@ -132,9 +156,110 @@ lines = {
 "type": "title"
 },
 "17": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "in_blue_space"
+} ]
+},
+"next_conditional_id": "23",
+"next_id": "18",
+"next_id_after": "25",
+"type": "condition"
+},
+"18": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "has_ouroboros"
+} ]
+},
+"next_conditional_id": "20",
+"next_id": "19",
+"next_id_after": "25",
+"parent_id": "17",
+"type": "condition"
+},
+"19": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "18",
+"next_id": "25",
+"parent_id": "18",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} is in the main hallway. A blue mist covers the view.",
+"time": null,
+"translation_key": "{{GREEN}} is in the main hallway. A blue mist covers the view.",
+"type": "dialogue"
+},
+"2": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "blue_joined"
+} ]
+},
+"next_conditional_id": "6",
+"next_id": "3",
+"next_id_after": "8",
+"type": "condition"
+},
+"20": {
+"next_conditional_id": "25",
+"next_id": "21",
+"next_id_after": "25",
+"parent_id": "17",
+"type": "condition"
+},
+"21": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "22",
+"parent_id": "20",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "The shadowy figure seemingly went through the wall to the north-east. While {{GREEN}} wonders how, the blue mist disperses from that wall, revealing a new pathway.",
+"time": null,
+"translation_key": "The shadowy figure seemingly went through the wall to the north-east. While {{GREEN}} wonders how, the blue mist disperses from that wall, revealing a new pathway.",
+"type": "dialogue"
+},
+"22": {
+"next_id": "66",
+"next_id_after": "25",
+"parent_id": "20",
+"replacements": [  ],
+"responses": PoolStringArray( "22" ),
+"text": "Go through the corridor to the north-east",
+"translation_key": "Go through the corridor to the north-east",
+"type": "response"
+},
+"23": {
+"next_conditional_id": "25",
+"next_id": "24",
+"next_id_after": "25",
+"type": "condition"
+},
+"24": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "25",
+"parent_id": "23",
 "pauses": {
 },
 "replacements": [ {
@@ -150,43 +275,25 @@ lines = {
 "translation_key": "{{GREEN}} is in the main hallway.",
 "type": "dialogue"
 },
-"18": {
-"next_id": "32",
+"25": {
+"next_id": "39",
 "next_id_after": "end",
 "replacements": [  ],
-"responses": PoolStringArray( "18", "19", "20", "21", "22", "23" ),
+"responses": PoolStringArray( "25", "26", "27", "28", "29", "30" ),
 "text": "Go through the corridor to the west",
 "translation_key": "Go through the corridor to the west",
 "type": "response"
 },
-"19": {
-"next_id": "37",
+"26": {
+"next_id": "48",
 "next_id_after": "end",
 "replacements": [  ],
 "text": "Go through the corridor to the north-west",
 "translation_key": "Go through the corridor to the north-west",
 "type": "response"
 },
-"2": {
-"condition": {
-"expression": [ {
-"type": "variable",
-"value": "blue_joined"
-}, {
-"type": "comparison",
-"value": "=="
-}, {
-"type": "bool",
-"value": true
-} ]
-},
-"next_conditional_id": "6",
-"next_id": "3",
-"next_id_after": "8",
-"type": "condition"
-},
-"20": {
-"next_id": "42",
+"27": {
+"next_id": "57",
 "next_id_after": "end",
 "replacements": [ {
 "expression": [ {
@@ -199,7 +306,7 @@ lines = {
 "translation_key": "Enter the {{GREAT_HALL}} in front",
 "type": "response"
 },
-"21": {
+"28": {
 "condition": {
 "expression": [ {
 "function": "is_in_blue_space",
@@ -207,62 +314,20 @@ lines = {
 "value": [  ]
 } ]
 },
-"next_id": "47",
+"next_id": "66",
 "next_id_after": "end",
 "replacements": [  ],
 "text": "Go through the corridor to the north-east",
 "translation_key": "Go through the corridor to the north-east",
 "type": "response"
 },
-"22": {
-"next_id": "51",
+"29": {
+"next_id": "71",
 "next_id_after": "end",
 "replacements": [  ],
 "text": "Go through the corridor to the east",
 "translation_key": "Go through the corridor to the east",
 "type": "response"
-},
-"23": {
-"next_id": "56",
-"next_id_after": "end",
-"replacements": [  ],
-"text": "Go through the hallway to the south",
-"translation_key": "Go through the hallway to the south",
-"type": "response"
-},
-"25": {
-"next_id": "27",
-"text": "execute_action",
-"type": "title"
-},
-"27": {
-"character": "",
-"inline_mutations": [  ],
-"next_id": "28",
-"pauses": {
-},
-"replacements": [  ],
-"speeds": [  ],
-"text": "No problems here.",
-"time": null,
-"translation_key": "No problems here.",
-"type": "dialogue"
-},
-"28": {
-"mutation": {
-"expression": [ {
-"type": "variable",
-"value": "next"
-}, {
-"type": "assignment",
-"value": "="
-}, {
-"type": "string",
-"value": "main_hallway"
-} ]
-},
-"next_id": "",
-"type": "mutation"
 },
 "3": {
 "character": "",
@@ -279,84 +344,63 @@ lines = {
 "type": "dialogue"
 },
 "30": {
-"next_id": "32",
+"next_id": "80",
+"next_id_after": "end",
+"replacements": [  ],
+"text": "Go through the hallway to the south",
+"translation_key": "Go through the hallway to the south",
+"type": "response"
+},
+"32": {
+"next_id": "34",
+"text": "execute_action",
+"type": "title"
+},
+"34": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "35",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "No problems here.",
+"time": null,
+"translation_key": "No problems here.",
+"type": "dialogue"
+},
+"35": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "main_hallway"
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"37": {
+"next_id": "39",
 "text": "yellow_hallway",
 "type": "title"
 },
-"32": {
-"character": "",
-"inline_mutations": [  ],
-"next_id": "33",
-"pauses": {
-},
-"replacements": [ {
+"39": {
+"condition": {
 "expression": [ {
 "type": "variable",
-"value": "GREEN"
-} ],
-"value_in_text": "{{GREEN}}"
-} ],
-"speeds": [  ],
-"text": "{{GREEN}} enters the corridor to the west.",
-"time": null,
-"translation_key": "{{GREEN}} enters the corridor to the west.",
-"type": "dialogue"
-},
-"33": {
-"mutation": {
-"expression": [ {
-"type": "variable",
-"value": "next"
-}, {
-"type": "assignment",
-"value": "="
-}, {
-"type": "string",
-"value": "yellow_corridor_end"
+"value": "in_blue_space"
 } ]
 },
-"next_id": "",
-"type": "mutation"
-},
-"35": {
-"next_id": "37",
-"text": "green_hallway",
-"type": "title"
-},
-"37": {
-"character": "",
-"inline_mutations": [  ],
-"next_id": "38",
-"pauses": {
-},
-"replacements": [ {
-"expression": [ {
-"type": "variable",
-"value": "GREEN"
-} ],
-"value_in_text": "{{GREEN}}"
-} ],
-"speeds": [  ],
-"text": "{{GREEN}} enters the corridor to the north-west.",
-"time": null,
-"translation_key": "{{GREEN}} enters the corridor to the north-west.",
-"type": "dialogue"
-},
-"38": {
-"mutation": {
-"expression": [ {
-"type": "variable",
-"value": "next"
-}, {
-"type": "assignment",
-"value": "="
-}, {
-"type": "string",
-"value": "green_corridor_end"
-} ]
-},
-"next_id": "",
-"type": "mutation"
+"next_conditional_id": "42",
+"next_id": "40",
+"next_id_after": "end",
+"type": "condition"
 },
 "4": {
 "character": "{{GREEN}}",
@@ -404,14 +448,10 @@ lines = {
 "type": "dialogue"
 },
 "40": {
-"next_id": "42",
-"text": "great_hall",
-"type": "title"
-},
-"42": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "43",
+"next_id": "41",
+"parent_id": "39",
 "pauses": {
 },
 "replacements": [ {
@@ -423,17 +463,17 @@ lines = {
 }, {
 "expression": [ {
 "type": "variable",
-"value": "GREAT_HALL"
+"value": "GREEN"
 } ],
-"value_in_text": "{{GREAT_HALL}}"
+"value_in_text": "{{GREEN}}"
 } ],
 "speeds": [  ],
-"text": "{{GREEN}} enters the {{GREAT_HALL}}.",
+"text": "{{GREEN}} attempts to enter the corridor to the west. The blue mist thickens and when it clears, the path ends where {{GREEN}} started from!",
 "time": null,
-"translation_key": "{{GREEN}} enters the {{GREAT_HALL}}.",
+"translation_key": "{{GREEN}} attempts to enter the corridor to the west. The blue mist thickens and when it clears, the path ends where {{GREEN}} started from!",
 "type": "dialogue"
 },
-"43": {
+"41": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -443,34 +483,98 @@ lines = {
 "value": "="
 }, {
 "type": "string",
-"value": "great_hall"
+"value": "main_hallway"
 } ]
 },
-"next_id": "",
+"next_id": "end",
+"parent_id": "39",
 "type": "mutation"
 },
-"45": {
-"next_id": "47",
-"text": "blue_hallway",
-"type": "title"
+"42": {
+"next_conditional_id": "end",
+"next_id": "43",
+"next_id_after": "end",
+"type": "condition"
 },
-"47": {
+"43": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "",
+"next_id": "44",
+"parent_id": "42",
 "pauses": {
 },
-"replacements": [  ],
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
 "speeds": [  ],
-"text": "a",
+"text": "{{GREEN}} enters the corridor to the west.",
 "time": null,
-"translation_key": "a",
+"translation_key": "{{GREEN}} enters the corridor to the west.",
 "type": "dialogue"
 },
-"49": {
-"next_id": "51",
-"text": "red_hallway",
+"44": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "yellow_corridor_end"
+} ]
+},
+"next_id": "end",
+"parent_id": "42",
+"type": "mutation"
+},
+"46": {
+"next_id": "48",
+"text": "green_hallway",
 "type": "title"
+},
+"48": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "in_blue_space"
+} ]
+},
+"next_conditional_id": "51",
+"next_id": "49",
+"next_id_after": "end",
+"type": "condition"
+},
+"49": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "50",
+"parent_id": "48",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} attempts to enter the corridor to the north-west. The blue mist thickens and when it clears, the path ends where {{GREEN}} started from!",
+"time": null,
+"translation_key": "{{GREEN}} attempts to enter the corridor to the north-west. The blue mist thickens and when it clears, the path ends where {{GREEN}} started from!",
+"type": "dialogue"
 },
 "5": {
 "character": "",
@@ -492,26 +596,7 @@ lines = {
 "translation_key": "{{BLUE}} nods.",
 "type": "dialogue"
 },
-"51": {
-"character": "",
-"inline_mutations": [  ],
-"next_id": "52",
-"pauses": {
-},
-"replacements": [ {
-"expression": [ {
-"type": "variable",
-"value": "GREEN"
-} ],
-"value_in_text": "{{GREEN}}"
-} ],
-"speeds": [  ],
-"text": "{{GREEN}} enters the corridor to the east.",
-"time": null,
-"translation_key": "{{GREEN}} enters the corridor to the east.",
-"type": "dialogue"
-},
-"52": {
+"50": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -521,21 +606,24 @@ lines = {
 "value": "="
 }, {
 "type": "string",
-"value": "red_corridor_end"
+"value": "main_hallway"
 } ]
 },
-"next_id": "",
+"next_id": "end",
+"parent_id": "48",
 "type": "mutation"
 },
-"54": {
-"next_id": "56",
-"text": "main_entrance",
-"type": "title"
+"51": {
+"next_conditional_id": "end",
+"next_id": "52",
+"next_id_after": "end",
+"type": "condition"
 },
-"56": {
+"52": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "57",
+"next_id": "53",
+"parent_id": "51",
 "pauses": {
 },
 "replacements": [ {
@@ -546,12 +634,12 @@ lines = {
 "value_in_text": "{{GREEN}}"
 } ],
 "speeds": [  ],
-"text": "{{GREEN}} walks through the hallway to the south.",
+"text": "{{GREEN}} enters the corridor to the north-west.",
 "time": null,
-"translation_key": "{{GREEN}} walks through the hallway to the south.",
+"translation_key": "{{GREEN}} enters the corridor to the north-west.",
 "type": "dialogue"
 },
-"57": {
+"53": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -561,10 +649,77 @@ lines = {
 "value": "="
 }, {
 "type": "string",
-"value": "main_entrance"
+"value": "green_corridor_end"
 } ]
 },
-"next_id": "",
+"next_id": "end",
+"parent_id": "51",
+"type": "mutation"
+},
+"55": {
+"next_id": "57",
+"text": "great_hall",
+"type": "title"
+},
+"57": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "in_blue_space"
+} ]
+},
+"next_conditional_id": "60",
+"next_id": "58",
+"next_id_after": "end",
+"type": "condition"
+},
+"58": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "59",
+"parent_id": "57",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "GREAT_HALL"
+} ],
+"value_in_text": "{{GREAT_HALL}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} attempts to enter the {{GREAT_HALL}}. The blue mist thickens and when it clears, the path ends where {{GREEN}} started from!",
+"time": null,
+"translation_key": "{{GREEN}} attempts to enter the {{GREAT_HALL}}. The blue mist thickens and when it clears, the path ends where {{GREEN}} started from!",
+"type": "dialogue"
+},
+"59": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "main_hallway"
+} ]
+},
+"next_id": "end",
+"parent_id": "57",
 "type": "mutation"
 },
 "6": {
@@ -572,6 +727,100 @@ lines = {
 "next_id": "7",
 "next_id_after": "8",
 "type": "condition"
+},
+"60": {
+"next_conditional_id": "end",
+"next_id": "61",
+"next_id_after": "end",
+"type": "condition"
+},
+"61": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "62",
+"parent_id": "60",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "GREAT_HALL"
+} ],
+"value_in_text": "{{GREAT_HALL}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} enters the {{GREAT_HALL}}.",
+"time": null,
+"translation_key": "{{GREEN}} enters the {{GREAT_HALL}}.",
+"type": "dialogue"
+},
+"62": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "great_hall"
+} ]
+},
+"next_id": "end",
+"parent_id": "60",
+"type": "mutation"
+},
+"64": {
+"next_id": "66",
+"text": "blue_hallway",
+"type": "title"
+},
+"66": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "67",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} enters the corridor to the north-east.",
+"time": null,
+"translation_key": "{{GREEN}} enters the corridor to the north-east.",
+"type": "dialogue"
+},
+"67": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "blue_corridor_end"
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"69": {
+"next_id": "71",
+"text": "red_hallway",
+"type": "title"
 },
 "7": {
 "character": "",
@@ -587,8 +836,111 @@ lines = {
 "translation_key": "The entrance to a large hall is to the north. To the west are two smaller corridors and to the east is one corridors.",
 "type": "dialogue"
 },
+"71": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "in_blue_space"
+} ]
+},
+"next_conditional_id": "74",
+"next_id": "72",
+"next_id_after": "end",
+"type": "condition"
+},
+"72": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "73",
+"parent_id": "71",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} attempts to enter the corridor to the east. The blue mist thickens and when it clears, the path ends where {{GREEN}} started from!",
+"time": null,
+"translation_key": "{{GREEN}} attempts to enter the corridor to the east. The blue mist thickens and when it clears, the path ends where {{GREEN}} started from!",
+"type": "dialogue"
+},
+"73": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "main_hallway"
+} ]
+},
+"next_id": "end",
+"parent_id": "71",
+"type": "mutation"
+},
+"74": {
+"next_conditional_id": "end",
+"next_id": "75",
+"next_id_after": "end",
+"type": "condition"
+},
+"75": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "76",
+"parent_id": "74",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} enters the corridor to the east.",
+"time": null,
+"translation_key": "{{GREEN}} enters the corridor to the east.",
+"type": "dialogue"
+},
+"76": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "red_corridor_end"
+} ]
+},
+"next_id": "end",
+"parent_id": "74",
+"type": "mutation"
+},
+"78": {
+"next_id": "80",
+"text": "main_entrance",
+"type": "title"
+},
 "8": {
-"next_id": "32",
+"next_id": "39",
 "next_id_after": "end",
 "replacements": [  ],
 "responses": PoolStringArray( "8", "9", "10", "11", "12", "13" ),
@@ -596,8 +948,43 @@ lines = {
 "translation_key": "Go through the corridor to the west",
 "type": "response"
 },
+"80": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "81",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} walks through the hallway to the south.",
+"time": null,
+"translation_key": "{{GREEN}} walks through the hallway to the south.",
+"type": "dialogue"
+},
+"81": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "main_entrance"
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
 "9": {
-"next_id": "37",
+"next_id": "48",
 "next_id_after": "end",
 "replacements": [  ],
 "text": "Go through the corridor to the north-west",

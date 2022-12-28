@@ -8,7 +8,7 @@ syntax_version = 2
 raw_text = "~ first_visit
 
 if blue_joined == true
-	A tall brown room is found. Wide tables are spread and there are containers of blocks of different colours under each table. At the end of a room, a wide-shouldered bold man is sitting, reading from one such book.
+	A tall brown room is found. Wide tables are spread and there are containers of blocks of different colours under each table.
 	{{GREEN}}: This is the {{GREEN_ASPECT}} aspect's classroom. Students of this aspect learn how to make useful materials and shapes from standard raw materials.
 	{{BLUE}}: Nods.
 	{{GREEN}}: Since this is my born aspect, how about a little demonstration? Let me just ask teacher {{GREEN_TEACHER}} for permission.
@@ -16,12 +16,16 @@ if blue_joined == true
 	{{GREEN}}: So if I merge a small piece of this with some of that, and take a hair pin, I can get this.
 	Mysteriously, the hair pin has a cherry flower on it. {{GREEN}} attaches it to {{BLUE}}'s hair.
 else
-	A tall brown room is found. Wide tables are spread and there are containers of blocks of different colours under each table. At the end of a room, a wide-shouldered bold man is sitting, reading from one such book.
+	A tall brown room is found. Wide tables are spread and there are containers of blocks of different colours under each table.
+if court_ended == true
+	=> green_teacher
 - Leave => green_corridor_end
 
 ~ visit
 
 {{GREEN}} visits the {{GREEN_ASPECT}} aspect's classroom.
+if court_ended == true
+	=> green_teacher
 - Leave => green_corridor_end
 
 ~ execute_action
@@ -32,13 +36,32 @@ set next = \"green_classroom\"
 ~ green_corridor_end
 
 {{GREEN}} leaves the classroom.
-set next = \"green_corridor_end\""
+set next = \"green_corridor_end\"
+
+~ green_teacher
+
+{{GREEN_TEACHER}} is at their desk, A bulky book in hand.
+- Ask where {{BLUE}} is => ask_for_blue
+- Leave => green_corridor_end
+
+~ ask_for_blue
+
+{{GREEN}}: Excuse me, {{GREEN_TEACHER}}, could I ask you about the student which you assigned me?
+{{GREEN_TEACHER}} gives an understanding response.
+{{GREEN_TEACHER}}: What happened is unfortunate and beyond my understanding. I think you should meet the new student again.
+{{GREEN}}: Do you know where {{BLUE}} is being under watch?
+{{GREEN_TEACHER}}: If not in the {{GREAT_HALL}}, perhaps the office of the responsible watcher.
+{{GREEN}} understands. {{BLUE}} might be in {{PRINCIPAL}}'s office.
+{{GREEN}}: Thank you so much, {{GREEN_TEACHER}}.
+=> green_corridor_end"
 errors = [  ]
 titles = {
-"execute_action": "21",
+"ask_for_blue": "41",
+"execute_action": "25",
 "first_visit": "2",
-"green_corridor_end": "26",
-"visit": "16"
+"green_corridor_end": "30",
+"green_teacher": "35",
+"visit": "18"
 }
 lines = {
 "0": {
@@ -61,29 +84,52 @@ lines = {
 },
 "replacements": [  ],
 "speeds": [  ],
-"text": "A tall brown room is found. Wide tables are spread and there are containers of blocks of different colours under each table. At the end of a room, a wide-shouldered bold man is sitting, reading from one such book.",
+"text": "A tall brown room is found. Wide tables are spread and there are containers of blocks of different colours under each table.",
 "time": null,
-"translation_key": "A tall brown room is found. Wide tables are spread and there are containers of blocks of different colours under each table. At the end of a room, a wide-shouldered bold man is sitting, reading from one such book.",
+"translation_key": "A tall brown room is found. Wide tables are spread and there are containers of blocks of different colours under each table.",
 "type": "dialogue"
 },
 "12": {
-"next_id": "26",
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "court_ended"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "bool",
+"value": true
+} ]
+},
+"next_conditional_id": "14",
+"next_id": "13",
+"next_id_after": "14",
+"type": "condition"
+},
+"13": {
+"next_id": "35",
+"parent_id": "12",
+"type": "goto"
+},
+"14": {
+"next_id": "30",
 "next_id_after": "end",
 "replacements": [  ],
-"responses": PoolStringArray( "12" ),
+"responses": PoolStringArray( "14" ),
 "text": "Leave",
 "translation_key": "Leave",
 "type": "response"
 },
-"14": {
-"next_id": "16",
+"16": {
+"next_id": "18",
 "text": "visit",
 "type": "title"
 },
-"16": {
+"18": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "17",
+"next_id": "19",
 "pauses": {
 },
 "replacements": [ {
@@ -105,19 +151,23 @@ lines = {
 "translation_key": "{{GREEN}} visits the {{GREEN_ASPECT}} aspect's classroom.",
 "type": "dialogue"
 },
-"17": {
-"next_id": "26",
-"next_id_after": "end",
-"replacements": [  ],
-"responses": PoolStringArray( "17" ),
-"text": "Leave",
-"translation_key": "Leave",
-"type": "response"
-},
 "19": {
-"next_id": "21",
-"text": "execute_action",
-"type": "title"
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "court_ended"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "bool",
+"value": true
+} ]
+},
+"next_conditional_id": "21",
+"next_id": "20",
+"next_id_after": "21",
+"type": "condition"
 },
 "2": {
 "condition": {
@@ -137,10 +187,29 @@ lines = {
 "next_id_after": "12",
 "type": "condition"
 },
+"20": {
+"next_id": "35",
+"parent_id": "19",
+"type": "goto"
+},
 "21": {
+"next_id": "30",
+"next_id_after": "end",
+"replacements": [  ],
+"responses": PoolStringArray( "21" ),
+"text": "Leave",
+"translation_key": "Leave",
+"type": "response"
+},
+"23": {
+"next_id": "25",
+"text": "execute_action",
+"type": "title"
+},
+"25": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "22",
+"next_id": "26",
 "pauses": {
 },
 "replacements": [  ],
@@ -150,7 +219,7 @@ lines = {
 "translation_key": "No problems here.",
 "type": "dialogue"
 },
-"22": {
+"26": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -166,15 +235,29 @@ lines = {
 "next_id": "",
 "type": "mutation"
 },
-"24": {
-"next_id": "26",
+"28": {
+"next_id": "30",
 "text": "green_corridor_end",
 "type": "title"
 },
-"26": {
+"3": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "27",
+"next_id": "4",
+"parent_id": "2",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "A tall brown room is found. Wide tables are spread and there are containers of blocks of different colours under each table.",
+"time": null,
+"translation_key": "A tall brown room is found. Wide tables are spread and there are containers of blocks of different colours under each table.",
+"type": "dialogue"
+},
+"30": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "31",
 "pauses": {
 },
 "replacements": [ {
@@ -190,7 +273,7 @@ lines = {
 "translation_key": "{{GREEN}} leaves the classroom.",
 "type": "dialogue"
 },
-"27": {
+"31": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -206,19 +289,57 @@ lines = {
 "next_id": "",
 "type": "mutation"
 },
-"3": {
+"33": {
+"next_id": "35",
+"text": "green_teacher",
+"type": "title"
+},
+"35": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "4",
-"parent_id": "2",
+"next_id": "36",
 "pauses": {
 },
-"replacements": [  ],
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN_TEACHER"
+} ],
+"value_in_text": "{{GREEN_TEACHER}}"
+} ],
 "speeds": [  ],
-"text": "A tall brown room is found. Wide tables are spread and there are containers of blocks of different colours under each table. At the end of a room, a wide-shouldered bold man is sitting, reading from one such book.",
+"text": "{{GREEN_TEACHER}} is at their desk, A bulky book in hand.",
 "time": null,
-"translation_key": "A tall brown room is found. Wide tables are spread and there are containers of blocks of different colours under each table. At the end of a room, a wide-shouldered bold man is sitting, reading from one such book.",
+"translation_key": "{{GREEN_TEACHER}} is at their desk, A bulky book in hand.",
 "type": "dialogue"
+},
+"36": {
+"next_id": "41",
+"next_id_after": "end",
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"responses": PoolStringArray( "36", "37" ),
+"text": "Ask where {{BLUE}} is",
+"translation_key": "Ask where {{BLUE}} is",
+"type": "response"
+},
+"37": {
+"next_id": "30",
+"next_id_after": "end",
+"replacements": [  ],
+"text": "Leave",
+"translation_key": "Leave",
+"type": "response"
+},
+"39": {
+"next_id": "41",
+"text": "ask_for_blue",
+"type": "title"
 },
 "4": {
 "character": "{{GREEN}}",
@@ -246,6 +367,184 @@ lines = {
 "time": null,
 "translation_key": "This is the {{GREEN_ASPECT}} aspect's classroom. Students of this aspect learn how to make useful materials and shapes from standard raw materials.",
 "type": "dialogue"
+},
+"41": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "42",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN_TEACHER"
+} ],
+"value_in_text": "{{GREEN_TEACHER}}"
+} ],
+"speeds": [  ],
+"text": "Excuse me, {{GREEN_TEACHER}}, could I ask you about the student which you assigned me?",
+"time": null,
+"translation_key": "Excuse me, {{GREEN_TEACHER}}, could I ask you about the student which you assigned me?",
+"type": "dialogue"
+},
+"42": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "43",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN_TEACHER"
+} ],
+"value_in_text": "{{GREEN_TEACHER}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN_TEACHER}} gives an understanding response.",
+"time": null,
+"translation_key": "{{GREEN_TEACHER}} gives an understanding response.",
+"type": "dialogue"
+},
+"43": {
+"character": "{{GREEN_TEACHER}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN_TEACHER"
+} ],
+"value_in_text": "{{GREEN_TEACHER}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "44",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "What happened is unfortunate and beyond my understanding. I think you should meet the new student again.",
+"time": null,
+"translation_key": "What happened is unfortunate and beyond my understanding. I think you should meet the new student again.",
+"type": "dialogue"
+},
+"44": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "45",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"speeds": [  ],
+"text": "Do you know where {{BLUE}} is being under watch?",
+"time": null,
+"translation_key": "Do you know where {{BLUE}} is being under watch?",
+"type": "dialogue"
+},
+"45": {
+"character": "{{GREEN_TEACHER}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN_TEACHER"
+} ],
+"value_in_text": "{{GREEN_TEACHER}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "46",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREAT_HALL"
+} ],
+"value_in_text": "{{GREAT_HALL}}"
+} ],
+"speeds": [  ],
+"text": "If not in the {{GREAT_HALL}}, perhaps the office of the responsible watcher.",
+"time": null,
+"translation_key": "If not in the {{GREAT_HALL}}, perhaps the office of the responsible watcher.",
+"type": "dialogue"
+},
+"46": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "47",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "PRINCIPAL"
+} ],
+"value_in_text": "{{PRINCIPAL}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} understands. {{BLUE}} might be in {{PRINCIPAL}}'s office.",
+"time": null,
+"translation_key": "{{GREEN}} understands. {{BLUE}} might be in {{PRINCIPAL}}'s office.",
+"type": "dialogue"
+},
+"47": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "48",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN_TEACHER"
+} ],
+"value_in_text": "{{GREEN_TEACHER}}"
+} ],
+"speeds": [  ],
+"text": "Thank you so much, {{GREEN_TEACHER}}.",
+"time": null,
+"translation_key": "Thank you so much, {{GREEN_TEACHER}}.",
+"type": "dialogue"
+},
+"48": {
+"next_id": "30",
+"type": "goto"
 },
 "5": {
 "character": "{{BLUE}}",

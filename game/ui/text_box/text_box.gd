@@ -7,6 +7,7 @@ onready var dlg = $Dialogue
 onready var scroll_bar = get_v_scrollbar()
 var dlg_res: Resource
 var input_node
+var resp_arr := []
 
 signal responses_displayed(input_node)
 signal input_given
@@ -23,6 +24,7 @@ func run_text() -> void:
 		dlg_node = States.first_visit_dlg_node
 	var dlg_line = yield(dlg_res.get_next_dialogue_line(dlg_node), "completed")
 	while dlg_line != null:
+		resp_arr = []
 		var narrative = narrative_scn.instance()
 		dlg.add_child(narrative)
 		make_narrative(narrative, dlg_line)
@@ -40,7 +42,6 @@ func run_text() -> void:
 			dlg.remove_child(pending_vfx)
 			dlg_line = yield(dlg_res.get_next_dialogue_line(dlg_line.next_id), "completed")
 		else:
-			var resp_arr := []
 			var response
 			for i in dlg_line.responses.size():
 				response = resp_scn.instance()
@@ -49,7 +50,7 @@ func run_text() -> void:
 				resp_arr.append(response)
 				response.prompt(dlg_line.responses[i].prompt)
 			Utils.connect_neighbouring_elems(resp_arr)
-			resp_arr[0].grab_focus()
+			grab_next_focus()
 			emit_signal("responses_displayed", input_node)
 			yield(get_tree(), "idle_frame")
 			yield(get_tree(), "idle_frame") # This second idle frame matters
@@ -93,3 +94,7 @@ func mark_dlg() -> void:
 func clear():
 	for entry in dlg.get_children():
 		dlg.remove_child(entry)
+
+func grab_next_focus():
+	if !resp_arr.empty():
+		resp_arr[0].grab_focus()

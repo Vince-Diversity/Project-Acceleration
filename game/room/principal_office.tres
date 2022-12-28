@@ -1,0 +1,676 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/dialogue_manager/dialogue_resource.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+syntax_version = 2
+raw_text = "~ first_visit
+
+The office looks used. In front, there is a large window with an extensive view of the school garden. At the center is a desk where {{PRINCIPAL}} is watching.
+{{BLUE}} is sitting at a corner and seems surprised to get a visit.
+- Sit next to {{BLUE}} => interact_blue
+- Leave => staff_corridor_end
+
+~ visit
+
+{{GREEN}} is in the office of {{PRINCIPAL}}.
+if in_blue_space
+	A blue mist covers the view.
+	- Leave => staff_corridor_end
+else
+	{{BLUE}} is sitting at a corner.
+	- Sit next to {{BLUE}} => interact_blue
+	- Leave => staff_corridor_end
+
+~ execute_action
+
+if principal_office_revealed == true
+	{{YELLOW}} appears from nowhere.
+	{{PRINCIPAL}}: What is the meaning of this?
+	{{YELLOW}}: To solve the mystery of the new student, {{BLUE}}!
+	{{YELLOW}} peeks through the {{REVEALER}} in the direction {{BLUE}} is. However, there was no image of {{BLUE}}.
+	{{YELLOW}}: Wha- what? Where did {{BLUE}} go?
+	Before {{GREEN}} could react, the light dimmed and the room lost its natural colours. A blue mist covers the view.
+	{{GREEN}}: Where am I?
+	{{YELLOW}}: I could ask you the same thing, {{GREEN}}! And where did {{PRINCIPAL}} go?
+	{{GREEN}}: I do not know, but maybe this could be a step to solving the mystery?
+	set in_blue_space = true
+	=> visit
+
+~ action_reactivated
+
+if principal_office_revealed == true
+	{{YELLOW}} attempts peek through the {{REVEALER}}, but the blue mist blocks the view.
+	set next = \"principal_office\"
+
+~ interact_blue
+
+{{GREEN}} sits next to {{BLUE}}.
+- Stay a bit longer => interact_blue
+- Leave => staff_corridor_end
+
+~ staff_corridor_end
+
+{{GREEN}} leaves the office.
+set next = \"staff_corridor_end\""
+errors = [  ]
+titles = {
+"action_reactivated": "35",
+"execute_action": "20",
+"first_visit": "2",
+"interact_blue": "41",
+"staff_corridor_end": "47",
+"visit": "9"
+}
+lines = {
+"0": {
+"next_id": "2",
+"text": "first_visit",
+"type": "title"
+},
+"10": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "in_blue_space"
+} ]
+},
+"next_conditional_id": "13",
+"next_id": "11",
+"next_id_after": "end",
+"type": "condition"
+},
+"11": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "12",
+"parent_id": "10",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "A blue mist covers the view.",
+"time": null,
+"translation_key": "A blue mist covers the view.",
+"type": "dialogue"
+},
+"12": {
+"next_id": "47",
+"next_id_after": "end",
+"parent_id": "10",
+"replacements": [  ],
+"responses": PoolStringArray( "12" ),
+"text": "Leave",
+"translation_key": "Leave",
+"type": "response"
+},
+"13": {
+"next_conditional_id": "end",
+"next_id": "14",
+"next_id_after": "end",
+"type": "condition"
+},
+"14": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "15",
+"parent_id": "13",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"speeds": [  ],
+"text": "{{BLUE}} is sitting at a corner.",
+"time": null,
+"translation_key": "{{BLUE}} is sitting at a corner.",
+"type": "dialogue"
+},
+"15": {
+"next_id": "41",
+"next_id_after": "end",
+"parent_id": "13",
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"responses": PoolStringArray( "15", "16" ),
+"text": "Sit next to {{BLUE}}",
+"translation_key": "Sit next to {{BLUE}}",
+"type": "response"
+},
+"16": {
+"next_id": "47",
+"next_id_after": "end",
+"parent_id": "13",
+"replacements": [  ],
+"text": "Leave",
+"translation_key": "Leave",
+"type": "response"
+},
+"18": {
+"next_id": "20",
+"text": "execute_action",
+"type": "title"
+},
+"2": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "3",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "PRINCIPAL"
+} ],
+"value_in_text": "{{PRINCIPAL}}"
+} ],
+"speeds": [  ],
+"text": "The office looks used. In front, there is a large window with an extensive view of the school garden. At the center is a desk where {{PRINCIPAL}} is watching.",
+"time": null,
+"translation_key": "The office looks used. In front, there is a large window with an extensive view of the school garden. At the center is a desk where {{PRINCIPAL}} is watching.",
+"type": "dialogue"
+},
+"20": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "principal_office_revealed"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "bool",
+"value": true
+} ]
+},
+"next_conditional_id": "end",
+"next_id": "21",
+"next_id_after": "end",
+"type": "condition"
+},
+"21": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "22",
+"parent_id": "20",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "YELLOW"
+} ],
+"value_in_text": "{{YELLOW}}"
+} ],
+"speeds": [  ],
+"text": "{{YELLOW}} appears from nowhere.",
+"time": null,
+"translation_key": "{{YELLOW}} appears from nowhere.",
+"type": "dialogue"
+},
+"22": {
+"character": "{{PRINCIPAL}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "PRINCIPAL"
+} ],
+"value_in_text": "{{PRINCIPAL}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "23",
+"parent_id": "20",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "What is the meaning of this?",
+"time": null,
+"translation_key": "What is the meaning of this?",
+"type": "dialogue"
+},
+"23": {
+"character": "{{YELLOW}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "YELLOW"
+} ],
+"value_in_text": "{{YELLOW}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "24",
+"parent_id": "20",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"speeds": [  ],
+"text": "To solve the mystery of the new student, {{BLUE}}!",
+"time": null,
+"translation_key": "To solve the mystery of the new student, {{BLUE}}!",
+"type": "dialogue"
+},
+"24": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "25",
+"parent_id": "20",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "YELLOW"
+} ],
+"value_in_text": "{{YELLOW}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "REVEALER"
+} ],
+"value_in_text": "{{REVEALER}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"speeds": [  ],
+"text": "{{YELLOW}} peeks through the {{REVEALER}} in the direction {{BLUE}} is. However, there was no image of {{BLUE}}.",
+"time": null,
+"translation_key": "{{YELLOW}} peeks through the {{REVEALER}} in the direction {{BLUE}} is. However, there was no image of {{BLUE}}.",
+"type": "dialogue"
+},
+"25": {
+"character": "{{YELLOW}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "YELLOW"
+} ],
+"value_in_text": "{{YELLOW}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "26",
+"parent_id": "20",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"speeds": [  ],
+"text": "Wha- what? Where did {{BLUE}} go?",
+"time": null,
+"translation_key": "Wha- what? Where did {{BLUE}} go?",
+"type": "dialogue"
+},
+"26": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "27",
+"parent_id": "20",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "Before {{GREEN}} could react, the light dimmed and the room lost its natural colours. A blue mist covers the view.",
+"time": null,
+"translation_key": "Before {{GREEN}} could react, the light dimmed and the room lost its natural colours. A blue mist covers the view.",
+"type": "dialogue"
+},
+"27": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "28",
+"parent_id": "20",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "Where am I?",
+"time": null,
+"translation_key": "Where am I?",
+"type": "dialogue"
+},
+"28": {
+"character": "{{YELLOW}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "YELLOW"
+} ],
+"value_in_text": "{{YELLOW}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "29",
+"parent_id": "20",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "PRINCIPAL"
+} ],
+"value_in_text": "{{PRINCIPAL}}"
+} ],
+"speeds": [  ],
+"text": "I could ask you the same thing, {{GREEN}}! And where did {{PRINCIPAL}} go?",
+"time": null,
+"translation_key": "I could ask you the same thing, {{GREEN}}! And where did {{PRINCIPAL}} go?",
+"type": "dialogue"
+},
+"29": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "30",
+"parent_id": "20",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "I do not know, but maybe this could be a step to solving the mystery?",
+"time": null,
+"translation_key": "I do not know, but maybe this could be a step to solving the mystery?",
+"type": "dialogue"
+},
+"3": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "4",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"speeds": [  ],
+"text": "{{BLUE}} is sitting at a corner and seems surprised to get a visit.",
+"time": null,
+"translation_key": "{{BLUE}} is sitting at a corner and seems surprised to get a visit.",
+"type": "dialogue"
+},
+"30": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "in_blue_space"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "bool",
+"value": true
+} ]
+},
+"next_id": "31",
+"parent_id": "20",
+"type": "mutation"
+},
+"31": {
+"next_id": "9",
+"parent_id": "20",
+"type": "goto"
+},
+"33": {
+"next_id": "35",
+"text": "action_reactivated",
+"type": "title"
+},
+"35": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "principal_office_revealed"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "bool",
+"value": true
+} ]
+},
+"next_conditional_id": "end",
+"next_id": "36",
+"next_id_after": "end",
+"type": "condition"
+},
+"36": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "37",
+"parent_id": "35",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "YELLOW"
+} ],
+"value_in_text": "{{YELLOW}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "REVEALER"
+} ],
+"value_in_text": "{{REVEALER}}"
+} ],
+"speeds": [  ],
+"text": "{{YELLOW}} attempts peek through the {{REVEALER}}, but the blue mist blocks the view.",
+"time": null,
+"translation_key": "{{YELLOW}} attempts peek through the {{REVEALER}}, but the blue mist blocks the view.",
+"type": "dialogue"
+},
+"37": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "principal_office"
+} ]
+},
+"next_id": "end",
+"parent_id": "35",
+"type": "mutation"
+},
+"39": {
+"next_id": "41",
+"text": "interact_blue",
+"type": "title"
+},
+"4": {
+"next_id": "41",
+"next_id_after": "end",
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"responses": PoolStringArray( "4", "5" ),
+"text": "Sit next to {{BLUE}}",
+"translation_key": "Sit next to {{BLUE}}",
+"type": "response"
+},
+"41": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "42",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} sits next to {{BLUE}}.",
+"time": null,
+"translation_key": "{{GREEN}} sits next to {{BLUE}}.",
+"type": "dialogue"
+},
+"42": {
+"next_id": "41",
+"next_id_after": "end",
+"replacements": [  ],
+"responses": PoolStringArray( "42", "43" ),
+"text": "Stay a bit longer",
+"translation_key": "Stay a bit longer",
+"type": "response"
+},
+"43": {
+"next_id": "47",
+"next_id_after": "end",
+"replacements": [  ],
+"text": "Leave",
+"translation_key": "Leave",
+"type": "response"
+},
+"45": {
+"next_id": "47",
+"text": "staff_corridor_end",
+"type": "title"
+},
+"47": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "48",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} leaves the office.",
+"time": null,
+"translation_key": "{{GREEN}} leaves the office.",
+"type": "dialogue"
+},
+"48": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "staff_corridor_end"
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"5": {
+"next_id": "47",
+"next_id_after": "end",
+"replacements": [  ],
+"text": "Leave",
+"translation_key": "Leave",
+"type": "response"
+},
+"7": {
+"next_id": "9",
+"text": "visit",
+"type": "title"
+},
+"9": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "10",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "PRINCIPAL"
+} ],
+"value_in_text": "{{PRINCIPAL}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} is in the office of {{PRINCIPAL}}.",
+"time": null,
+"translation_key": "{{GREEN}} is in the office of {{PRINCIPAL}}.",
+"type": "dialogue"
+}
+}

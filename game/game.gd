@@ -5,6 +5,7 @@ onready var menu_scn = preload("res://game/menu.tscn")
 onready var save_res = preload("res://loader/save_game.gd")
 var save_dir: String = Loader.dev_mode_save_dir
 var room_node
+var menu
 var next: String
 
 func _ready():
@@ -27,9 +28,11 @@ func change_room() -> void:
 	room_node.run_room()
 
 func prompt_menu() -> void:
-	var menu = menu_scn.instance()
-	menu.connect("save_pressed", self, "_on_Menu_save_pressed")
-	add_child(menu)
+	if !is_instance_valid(menu):
+		menu = menu_scn.instance()
+		menu.connect("save_pressed", self, "_on_Menu_save_pressed")
+		menu.connect("reset_focus", self, "_on_Menu_reset_focus")
+		add_child(menu)
 
 func save_game_state(save_game: Resource):
 	for property in States.property_list:
@@ -44,3 +47,6 @@ func _on_Menu_save_pressed():
 		dir.make_dir_recursive(save_dir)
 	var err = ResourceSaver.save(Loader.save_path, save_game)
 	if err != OK: print(err)
+
+func _on_Menu_reset_focus():
+	room_node.ui.text_box.grab_next_focus()

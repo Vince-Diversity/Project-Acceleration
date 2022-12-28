@@ -1,0 +1,1475 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/dialogue_manager/dialogue_resource.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+syntax_version = 2
+raw_text = "~ first_visit
+
+if has_ouroboros
+	A traditional classroom is found.
+else
+	A desk is becoming discernible in the darkness. Someone is behind it.
+	The shady figure has a short conversation with that someone before inviting {{GREEN}}.
+	{{BLUE_TEACHER}}: \"When the {{WISHMAKER}} weaves together the strings of {{CIRRUSENG}}, the fate of the new world has been set in motion.\"
+	{{GREEN}} looks confused.
+	{{BLUE_TEACHER}}: That which I just told you, is an excerpt from {{BLUE_FATHER}}'s last conclusion.
+	{{BLUE_TEACHER}} changes to a more informal tone.
+	{{BLUE_TEACHER}}: Please, have a seat.
+	{{GREEN}} takes a seat with a friendly smile.
+	set next = \"blue_classroom\"
+
+~ visit
+
+if has_ouroboros
+	A traditional classroom is becoming discernible in the darkness. Behind the teacher's desk is the teacher, {{BLUE_TEACHER}}.
+	- Talk to {{BLUE_TEACHER}} => talk
+	- Leave => blue_corridor_end
+else
+	A traditional classroom is becoming discernible in the darkness.
+	{{BLUE_TEACHER}}: From my student's intuition, you are from the {{REAL_SPACE}}. Have you been warped from your original environment in some way?
+	{{GREEN}}: Hmm... I believe so.
+	{{BLUE_TEACHER}}: The \"{{REAL_SPACE}}\" connotates the space which we all believe to originate from. On the contrast, the {{DUAL_SPACE}} is a parallel and mutually existing dimension. The latter dimension is where we are now.
+	{{GREEN}} nods, somewhat understandingly.
+	{{BLUE_TEACHER}}: Your sudden appearance may make my students here feel uneasy. May I ask you to wear this?
+	{{BLUE_TEACHER}} makes a gesture. A floating white snake-like creature appears.
+	if yellow_joined
+		{{YELLOW}}: Woah. Is that what I think it is?
+	{{OUROBOROS}}: Hi there! Call me {{OUROBOROS}}.
+	{{BLUE_TEACHER}}: The Ouroboros is a mysterious creature. Records show that it plays a role in the cycle of life. {{OUROBOROS}} here is a spiritual piece of this creature.
+	{{OUROBOROS}} floats above {{GREEN}}'s head and starts moving in circles.
+	{{BLUE_TEACHER}}: Let {{OUROBOROS}} follow you and students will know that I am aware of your visits to the {{DUAL_SPACE}}.
+	set has_ouroboros = true
+	{{OUROBOROS}} joins {{GREEN}}'s team.
+	set next = \"blue_classroom\"
+
+~ execute_action
+
+No problems here.
+set next = \"blue_classroom\"
+
+~ blue_corridor_end
+
+{{GREEN}} leaves the classroom.
+set next = \"blue_corridor_end\"
+
+~ talk
+
+{{GREEN}} continues to sit in the classroom.
+- Could you tell me more about this friend floating above my head? => ouroboros
+- Tell me about the main subject taught in this classroom. => blue_aspect
+- What is the {{DUAL_SPACE}}? => dual_space
+- Do you know of any other students who entered the {{DUAL_SPACE}} recently? [if not is_blue_joined()] => guidance
+- Could you explain the except you mentioned when we met? => blue_father
+- Leave => blue_corridor_end
+
+~ ouroboros
+
+{{BLUE_TEACHER}}: {{OUROBOROS}} is a magical creature that I have been designated to take care of since I became head teacher of the {{BLUE_ASPECT}} aspect. Like other tameable magical creatures in this school, {{OUROBOROS}} is granted power of a deity, as told by historical records. Although, we are still searching for key understanding of the power of the Ouroboros.
+=> talk
+
+~ blue_father
+
+{{GREEN}}: \"When the {{WISHMAKER}} weaves together the strings of {{CIRRUSENG}}, the fate of the new world has been set in motion.\" What does this mean?
+{{BLUE_TEACHER}}: This is written in the last work from {{BLUE_FATHER}}, commonly referred to as the highest authority of {{BLUE_ASPECT}} aspect research. Many regard the {{BLUE_FATHER}}'s prophecies as that of a deity, although to me it is an important conclusion of a fellow magi-scientist's work.
+{{GREEN}}: Oh, so does {{BLUE_FATHER}} and you study future sight?
+{{BLUE_TEACHER}}: No. My greater priority is care of my students. As for {{BLUE_FATHER}} it is rather the contrary. The work is a warning to political powers that wish to use future sight for commercial use. I picked this quote in particular since it is the most mysterious, and I was hoping that you would make something out of it.
+{{GREEN}} gives a comtemplative look.
+=> talk
+
+~ blue_aspect
+
+{{BLUE_TEACHER}}: This is the main classroom for the {{BLUE_ASPECT}} aspect. Unlike the other magic practice classes, our abilities are more a matter of knowing the rules and responsibility of use.
+{{GREEN}}: I'm sorry to interrupt, but I have not heard of this {{BLUE_ASPECT}} aspect before. Is it perhaps a secret?
+{{BLUE_TEACHER}} pauses and gives a curious look.
+{{BLUE_TEACHER}}: That... is yet another mystery that we need to solve. However, our students and I are currently puzzled by the fact that we can no longer return to the {{REAL_SPACE}}. Which is why your arrival is so surprising.
+=> talk
+
+~ dual_space
+
+{{BLUE_TEACHER}}: Like the duality between the mind and the soul, or the duality between a particle and a wave, the {{DUAL_SPACE}} and {{REAL_SPACE}} are two sides of the same entity which we perceive as reality. A {{BLUE_ASPECT}} mage can learn to travel between the two. However, altering the {{DUAL_SPACE}} also alters the {{REAL_SPACE}} in a corresponding way. Therefore, the travelling is highly restrictive.
+{{GREEN}} nods understandingly.
+{{BLUE_TEACHER}}: Although, I and my students are in a serious conundrum, as we have been unable to return to the {{REAL_SPACE}} for a long time. My students fear the worst, but I will continue to resolve this mystery. Your arrival sparks a small hope for us.
+{{GREEN}}: This is concerning. I will help you and your students return.
+{{BLUE_TEACHER}}: I am devoted to be of your help as much as I can.
+=> talk
+
+~ guidance
+
+{{BLUE_TEACHER}}: Are you thinking of any particular student?
+{{GREEN}}: Yes, the student's name is {{BLUE}}. The student enrolled today and I am showing them around the school.
+{{BLUE_TEACHER}}: I have not heard of this student. If you suspect that more students have arrived to the {{DUAL_SPACE}} recently, feel free to search for them.
+=> talk
+"
+errors = [  ]
+titles = {
+"blue_aspect": "75",
+"blue_corridor_end": "46",
+"blue_father": "66",
+"dual_space": "83",
+"execute_action": "41",
+"first_visit": "2",
+"guidance": "92",
+"ouroboros": "61",
+"talk": "51",
+"visit": "17"
+}
+lines = {
+"0": {
+"next_id": "2",
+"text": "first_visit",
+"type": "title"
+},
+"10": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "11",
+"parent_id": "4",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE_TEACHER"
+} ],
+"value_in_text": "{{BLUE_TEACHER}}"
+} ],
+"speeds": [  ],
+"text": "{{BLUE_TEACHER}} changes to a more informal tone.",
+"time": null,
+"translation_key": "{{BLUE_TEACHER}} changes to a more informal tone.",
+"type": "dialogue"
+},
+"11": {
+"character": "{{BLUE_TEACHER}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE_TEACHER"
+} ],
+"value_in_text": "{{BLUE_TEACHER}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "12",
+"parent_id": "4",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "Please, have a seat.",
+"time": null,
+"translation_key": "Please, have a seat.",
+"type": "dialogue"
+},
+"12": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "13",
+"parent_id": "4",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} takes a seat with a friendly smile.",
+"time": null,
+"translation_key": "{{GREEN}} takes a seat with a friendly smile.",
+"type": "dialogue"
+},
+"13": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "blue_classroom"
+} ]
+},
+"next_id": "end",
+"parent_id": "4",
+"type": "mutation"
+},
+"15": {
+"next_id": "17",
+"text": "visit",
+"type": "title"
+},
+"17": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "has_ouroboros"
+} ]
+},
+"next_conditional_id": "21",
+"next_id": "18",
+"next_id_after": "end",
+"type": "condition"
+},
+"18": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "19",
+"parent_id": "17",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE_TEACHER"
+} ],
+"value_in_text": "{{BLUE_TEACHER}}"
+} ],
+"speeds": [  ],
+"text": "A traditional classroom is becoming discernible in the darkness. Behind the teacher's desk is the teacher, {{BLUE_TEACHER}}.",
+"time": null,
+"translation_key": "A traditional classroom is becoming discernible in the darkness. Behind the teacher's desk is the teacher, {{BLUE_TEACHER}}.",
+"type": "dialogue"
+},
+"19": {
+"next_id": "51",
+"next_id_after": "end",
+"parent_id": "17",
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE_TEACHER"
+} ],
+"value_in_text": "{{BLUE_TEACHER}}"
+} ],
+"responses": PoolStringArray( "19", "20" ),
+"text": "Talk to {{BLUE_TEACHER}}",
+"translation_key": "Talk to {{BLUE_TEACHER}}",
+"type": "response"
+},
+"2": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "has_ouroboros"
+} ]
+},
+"next_conditional_id": "4",
+"next_id": "3",
+"next_id_after": "end",
+"type": "condition"
+},
+"20": {
+"next_id": "46",
+"next_id_after": "end",
+"parent_id": "17",
+"replacements": [  ],
+"text": "Leave",
+"translation_key": "Leave",
+"type": "response"
+},
+"21": {
+"next_conditional_id": "end",
+"next_id": "22",
+"next_id_after": "end",
+"type": "condition"
+},
+"22": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "23",
+"parent_id": "21",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "A traditional classroom is becoming discernible in the darkness.",
+"time": null,
+"translation_key": "A traditional classroom is becoming discernible in the darkness.",
+"type": "dialogue"
+},
+"23": {
+"character": "{{BLUE_TEACHER}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE_TEACHER"
+} ],
+"value_in_text": "{{BLUE_TEACHER}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "24",
+"parent_id": "21",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "REAL_SPACE"
+} ],
+"value_in_text": "{{REAL_SPACE}}"
+} ],
+"speeds": [  ],
+"text": "From my student's intuition, you are from the {{REAL_SPACE}}. Have you been warped from your original environment in some way?",
+"time": null,
+"translation_key": "From my student's intuition, you are from the {{REAL_SPACE}}. Have you been warped from your original environment in some way?",
+"type": "dialogue"
+},
+"24": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "25",
+"parent_id": "21",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "Hmm... I believe so.",
+"time": null,
+"translation_key": "Hmm... I believe so.",
+"type": "dialogue"
+},
+"25": {
+"character": "{{BLUE_TEACHER}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE_TEACHER"
+} ],
+"value_in_text": "{{BLUE_TEACHER}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "26",
+"parent_id": "21",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "REAL_SPACE"
+} ],
+"value_in_text": "{{REAL_SPACE}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "DUAL_SPACE"
+} ],
+"value_in_text": "{{DUAL_SPACE}}"
+} ],
+"speeds": [  ],
+"text": "The \"{{REAL_SPACE}}\" connotates the space which we all believe to originate from. On the contrast, the {{DUAL_SPACE}} is a parallel and mutually existing dimension. The latter dimension is where we are now.",
+"time": null,
+"translation_key": "The \"{{REAL_SPACE}}\" connotates the space which we all believe to originate from. On the contrast, the {{DUAL_SPACE}} is a parallel and mutually existing dimension. The latter dimension is where we are now.",
+"type": "dialogue"
+},
+"26": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "27",
+"parent_id": "21",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} nods, somewhat understandingly.",
+"time": null,
+"translation_key": "{{GREEN}} nods, somewhat understandingly.",
+"type": "dialogue"
+},
+"27": {
+"character": "{{BLUE_TEACHER}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE_TEACHER"
+} ],
+"value_in_text": "{{BLUE_TEACHER}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "28",
+"parent_id": "21",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "Your sudden appearance may make my students here feel uneasy. May I ask you to wear this?",
+"time": null,
+"translation_key": "Your sudden appearance may make my students here feel uneasy. May I ask you to wear this?",
+"type": "dialogue"
+},
+"28": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "29",
+"parent_id": "21",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE_TEACHER"
+} ],
+"value_in_text": "{{BLUE_TEACHER}}"
+} ],
+"speeds": [  ],
+"text": "{{BLUE_TEACHER}} makes a gesture. A floating white snake-like creature appears.",
+"time": null,
+"translation_key": "{{BLUE_TEACHER}} makes a gesture. A floating white snake-like creature appears.",
+"type": "dialogue"
+},
+"29": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "yellow_joined"
+} ]
+},
+"next_conditional_id": "31",
+"next_id": "30",
+"next_id_after": "31",
+"parent_id": "21",
+"type": "condition"
+},
+"3": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "end",
+"parent_id": "2",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "A traditional classroom is found.",
+"time": null,
+"translation_key": "A traditional classroom is found.",
+"type": "dialogue"
+},
+"30": {
+"character": "{{YELLOW}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "YELLOW"
+} ],
+"value_in_text": "{{YELLOW}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "31",
+"parent_id": "29",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "Woah. Is that what I think it is?",
+"time": null,
+"translation_key": "Woah. Is that what I think it is?",
+"type": "dialogue"
+},
+"31": {
+"character": "{{OUROBOROS}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "OUROBOROS"
+} ],
+"value_in_text": "{{OUROBOROS}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "32",
+"parent_id": "21",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "OUROBOROS"
+} ],
+"value_in_text": "{{OUROBOROS}}"
+} ],
+"speeds": [  ],
+"text": "Hi there! Call me {{OUROBOROS}}.",
+"time": null,
+"translation_key": "Hi there! Call me {{OUROBOROS}}.",
+"type": "dialogue"
+},
+"32": {
+"character": "{{BLUE_TEACHER}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE_TEACHER"
+} ],
+"value_in_text": "{{BLUE_TEACHER}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "33",
+"parent_id": "21",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "OUROBOROS"
+} ],
+"value_in_text": "{{OUROBOROS}}"
+} ],
+"speeds": [  ],
+"text": "The Ouroboros is a mysterious creature. Records show that it plays a role in the cycle of life. {{OUROBOROS}} here is a spiritual piece of this creature.",
+"time": null,
+"translation_key": "The Ouroboros is a mysterious creature. Records show that it plays a role in the cycle of life. {{OUROBOROS}} here is a spiritual piece of this creature.",
+"type": "dialogue"
+},
+"33": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "34",
+"parent_id": "21",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "OUROBOROS"
+} ],
+"value_in_text": "{{OUROBOROS}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{OUROBOROS}} floats above {{GREEN}}'s head and starts moving in circles.",
+"time": null,
+"translation_key": "{{OUROBOROS}} floats above {{GREEN}}'s head and starts moving in circles.",
+"type": "dialogue"
+},
+"34": {
+"character": "{{BLUE_TEACHER}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE_TEACHER"
+} ],
+"value_in_text": "{{BLUE_TEACHER}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "35",
+"parent_id": "21",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "OUROBOROS"
+} ],
+"value_in_text": "{{OUROBOROS}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "DUAL_SPACE"
+} ],
+"value_in_text": "{{DUAL_SPACE}}"
+} ],
+"speeds": [  ],
+"text": "Let {{OUROBOROS}} follow you and students will know that I am aware of your visits to the {{DUAL_SPACE}}.",
+"time": null,
+"translation_key": "Let {{OUROBOROS}} follow you and students will know that I am aware of your visits to the {{DUAL_SPACE}}.",
+"type": "dialogue"
+},
+"35": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "has_ouroboros"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "bool",
+"value": true
+} ]
+},
+"next_id": "36",
+"parent_id": "21",
+"type": "mutation"
+},
+"36": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "37",
+"parent_id": "21",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "OUROBOROS"
+} ],
+"value_in_text": "{{OUROBOROS}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{OUROBOROS}} joins {{GREEN}}'s team.",
+"time": null,
+"translation_key": "{{OUROBOROS}} joins {{GREEN}}'s team.",
+"type": "dialogue"
+},
+"37": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "blue_classroom"
+} ]
+},
+"next_id": "end",
+"parent_id": "21",
+"type": "mutation"
+},
+"39": {
+"next_id": "41",
+"text": "execute_action",
+"type": "title"
+},
+"4": {
+"next_conditional_id": "end",
+"next_id": "5",
+"next_id_after": "end",
+"type": "condition"
+},
+"41": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "42",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "No problems here.",
+"time": null,
+"translation_key": "No problems here.",
+"type": "dialogue"
+},
+"42": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "blue_classroom"
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"44": {
+"next_id": "46",
+"text": "blue_corridor_end",
+"type": "title"
+},
+"46": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "47",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} leaves the classroom.",
+"time": null,
+"translation_key": "{{GREEN}} leaves the classroom.",
+"type": "dialogue"
+},
+"47": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "blue_corridor_end"
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"49": {
+"next_id": "51",
+"text": "talk",
+"type": "title"
+},
+"5": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "6",
+"parent_id": "4",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "A desk is becoming discernible in the darkness. Someone is behind it.",
+"time": null,
+"translation_key": "A desk is becoming discernible in the darkness. Someone is behind it.",
+"type": "dialogue"
+},
+"51": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "52",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} continues to sit in the classroom.",
+"time": null,
+"translation_key": "{{GREEN}} continues to sit in the classroom.",
+"type": "dialogue"
+},
+"52": {
+"next_id": "61",
+"next_id_after": "end",
+"replacements": [  ],
+"responses": PoolStringArray( "52", "53", "54", "55", "56", "57" ),
+"text": "Could you tell me more about this friend floating above my head?",
+"translation_key": "Could you tell me more about this friend floating above my head?",
+"type": "response"
+},
+"53": {
+"next_id": "75",
+"next_id_after": "end",
+"replacements": [  ],
+"text": "Tell me about the main subject taught in this classroom.",
+"translation_key": "Tell me about the main subject taught in this classroom.",
+"type": "response"
+},
+"54": {
+"next_id": "83",
+"next_id_after": "end",
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "DUAL_SPACE"
+} ],
+"value_in_text": "{{DUAL_SPACE}}"
+} ],
+"text": "What is the {{DUAL_SPACE}}?",
+"translation_key": "What is the {{DUAL_SPACE}}?",
+"type": "response"
+},
+"55": {
+"condition": {
+"expression": [ {
+"type": "not"
+}, {
+"function": "is_blue_joined",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "92",
+"next_id_after": "end",
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "DUAL_SPACE"
+} ],
+"value_in_text": "{{DUAL_SPACE}}"
+} ],
+"text": "Do you know of any other students who entered the {{DUAL_SPACE}} recently?",
+"translation_key": "Do you know of any other students who entered the {{DUAL_SPACE}} recently?",
+"type": "response"
+},
+"56": {
+"next_id": "66",
+"next_id_after": "end",
+"replacements": [  ],
+"text": "Could you explain the except you mentioned when we met?",
+"translation_key": "Could you explain the except you mentioned when we met?",
+"type": "response"
+},
+"57": {
+"next_id": "46",
+"next_id_after": "end",
+"replacements": [  ],
+"text": "Leave",
+"translation_key": "Leave",
+"type": "response"
+},
+"59": {
+"next_id": "61",
+"text": "ouroboros",
+"type": "title"
+},
+"6": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "7",
+"parent_id": "4",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "The shady figure has a short conversation with that someone before inviting {{GREEN}}.",
+"time": null,
+"translation_key": "The shady figure has a short conversation with that someone before inviting {{GREEN}}.",
+"type": "dialogue"
+},
+"61": {
+"character": "{{BLUE_TEACHER}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE_TEACHER"
+} ],
+"value_in_text": "{{BLUE_TEACHER}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "62",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "OUROBOROS"
+} ],
+"value_in_text": "{{OUROBOROS}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "BLUE_ASPECT"
+} ],
+"value_in_text": "{{BLUE_ASPECT}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "OUROBOROS"
+} ],
+"value_in_text": "{{OUROBOROS}}"
+} ],
+"speeds": [  ],
+"text": "{{OUROBOROS}} is a magical creature that I have been designated to take care of since I became head teacher of the {{BLUE_ASPECT}} aspect. Like other tameable magical creatures in this school, {{OUROBOROS}} is granted power of a deity, as told by historical records. Although, we are still searching for key understanding of the power of the Ouroboros.",
+"time": null,
+"translation_key": "{{OUROBOROS}} is a magical creature that I have been designated to take care of since I became head teacher of the {{BLUE_ASPECT}} aspect. Like other tameable magical creatures in this school, {{OUROBOROS}} is granted power of a deity, as told by historical records. Although, we are still searching for key understanding of the power of the Ouroboros.",
+"type": "dialogue"
+},
+"62": {
+"next_id": "51",
+"type": "goto"
+},
+"64": {
+"next_id": "66",
+"text": "blue_father",
+"type": "title"
+},
+"66": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "67",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "WISHMAKER"
+} ],
+"value_in_text": "{{WISHMAKER}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "CIRRUSENG"
+} ],
+"value_in_text": "{{CIRRUSENG}}"
+} ],
+"speeds": [  ],
+"text": "\"When the {{WISHMAKER}} weaves together the strings of {{CIRRUSENG}}, the fate of the new world has been set in motion.\" What does this mean?",
+"time": null,
+"translation_key": "\"When the {{WISHMAKER}} weaves together the strings of {{CIRRUSENG}}, the fate of the new world has been set in motion.\" What does this mean?",
+"type": "dialogue"
+},
+"67": {
+"character": "{{BLUE_TEACHER}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE_TEACHER"
+} ],
+"value_in_text": "{{BLUE_TEACHER}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "68",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE_FATHER"
+} ],
+"value_in_text": "{{BLUE_FATHER}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "BLUE_ASPECT"
+} ],
+"value_in_text": "{{BLUE_ASPECT}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "BLUE_FATHER"
+} ],
+"value_in_text": "{{BLUE_FATHER}}"
+} ],
+"speeds": [  ],
+"text": "This is written in the last work from {{BLUE_FATHER}}, commonly referred to as the highest authority of {{BLUE_ASPECT}} aspect research. Many regard the {{BLUE_FATHER}}'s prophecies as that of a deity, although to me it is an important conclusion of a fellow magi-scientist's work.",
+"time": null,
+"translation_key": "This is written in the last work from {{BLUE_FATHER}}, commonly referred to as the highest authority of {{BLUE_ASPECT}} aspect research. Many regard the {{BLUE_FATHER}}'s prophecies as that of a deity, although to me it is an important conclusion of a fellow magi-scientist's work.",
+"type": "dialogue"
+},
+"68": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "69",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE_FATHER"
+} ],
+"value_in_text": "{{BLUE_FATHER}}"
+} ],
+"speeds": [  ],
+"text": "Oh, so does {{BLUE_FATHER}} and you study future sight?",
+"time": null,
+"translation_key": "Oh, so does {{BLUE_FATHER}} and you study future sight?",
+"type": "dialogue"
+},
+"69": {
+"character": "{{BLUE_TEACHER}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE_TEACHER"
+} ],
+"value_in_text": "{{BLUE_TEACHER}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "70",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE_FATHER"
+} ],
+"value_in_text": "{{BLUE_FATHER}}"
+} ],
+"speeds": [  ],
+"text": "No. My greater priority is care of my students. As for {{BLUE_FATHER}} it is rather the contrary. The work is a warning to political powers that wish to use future sight for commercial use. I picked this quote in particular since it is the most mysterious, and I was hoping that you would make something out of it.",
+"time": null,
+"translation_key": "No. My greater priority is care of my students. As for {{BLUE_FATHER}} it is rather the contrary. The work is a warning to political powers that wish to use future sight for commercial use. I picked this quote in particular since it is the most mysterious, and I was hoping that you would make something out of it.",
+"type": "dialogue"
+},
+"7": {
+"character": "{{BLUE_TEACHER}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE_TEACHER"
+} ],
+"value_in_text": "{{BLUE_TEACHER}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "8",
+"parent_id": "4",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "WISHMAKER"
+} ],
+"value_in_text": "{{WISHMAKER}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "CIRRUSENG"
+} ],
+"value_in_text": "{{CIRRUSENG}}"
+} ],
+"speeds": [  ],
+"text": "\"When the {{WISHMAKER}} weaves together the strings of {{CIRRUSENG}}, the fate of the new world has been set in motion.\"",
+"time": null,
+"translation_key": "\"When the {{WISHMAKER}} weaves together the strings of {{CIRRUSENG}}, the fate of the new world has been set in motion.\"",
+"type": "dialogue"
+},
+"70": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "71",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} gives a comtemplative look.",
+"time": null,
+"translation_key": "{{GREEN}} gives a comtemplative look.",
+"type": "dialogue"
+},
+"71": {
+"next_id": "51",
+"type": "goto"
+},
+"73": {
+"next_id": "75",
+"text": "blue_aspect",
+"type": "title"
+},
+"75": {
+"character": "{{BLUE_TEACHER}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE_TEACHER"
+} ],
+"value_in_text": "{{BLUE_TEACHER}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "76",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE_ASPECT"
+} ],
+"value_in_text": "{{BLUE_ASPECT}}"
+} ],
+"speeds": [  ],
+"text": "This is the main classroom for the {{BLUE_ASPECT}} aspect. Unlike the other magic practice classes, our abilities are more a matter of knowing the rules and responsibility of use.",
+"time": null,
+"translation_key": "This is the main classroom for the {{BLUE_ASPECT}} aspect. Unlike the other magic practice classes, our abilities are more a matter of knowing the rules and responsibility of use.",
+"type": "dialogue"
+},
+"76": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "77",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE_ASPECT"
+} ],
+"value_in_text": "{{BLUE_ASPECT}}"
+} ],
+"speeds": [  ],
+"text": "I'm sorry to interrupt, but I have not heard of this {{BLUE_ASPECT}} aspect before. Is it perhaps a secret?",
+"time": null,
+"translation_key": "I'm sorry to interrupt, but I have not heard of this {{BLUE_ASPECT}} aspect before. Is it perhaps a secret?",
+"type": "dialogue"
+},
+"77": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "78",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE_TEACHER"
+} ],
+"value_in_text": "{{BLUE_TEACHER}}"
+} ],
+"speeds": [  ],
+"text": "{{BLUE_TEACHER}} pauses and gives a curious look.",
+"time": null,
+"translation_key": "{{BLUE_TEACHER}} pauses and gives a curious look.",
+"type": "dialogue"
+},
+"78": {
+"character": "{{BLUE_TEACHER}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE_TEACHER"
+} ],
+"value_in_text": "{{BLUE_TEACHER}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "79",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "REAL_SPACE"
+} ],
+"value_in_text": "{{REAL_SPACE}}"
+} ],
+"speeds": [  ],
+"text": "That... is yet another mystery that we need to solve. However, our students and I are currently puzzled by the fact that we can no longer return to the {{REAL_SPACE}}. Which is why your arrival is so surprising.",
+"time": null,
+"translation_key": "That... is yet another mystery that we need to solve. However, our students and I are currently puzzled by the fact that we can no longer return to the {{REAL_SPACE}}. Which is why your arrival is so surprising.",
+"type": "dialogue"
+},
+"79": {
+"next_id": "51",
+"type": "goto"
+},
+"8": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "9",
+"parent_id": "4",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} looks confused.",
+"time": null,
+"translation_key": "{{GREEN}} looks confused.",
+"type": "dialogue"
+},
+"81": {
+"next_id": "83",
+"text": "dual_space",
+"type": "title"
+},
+"83": {
+"character": "{{BLUE_TEACHER}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE_TEACHER"
+} ],
+"value_in_text": "{{BLUE_TEACHER}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "84",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "DUAL_SPACE"
+} ],
+"value_in_text": "{{DUAL_SPACE}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "REAL_SPACE"
+} ],
+"value_in_text": "{{REAL_SPACE}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "BLUE_ASPECT"
+} ],
+"value_in_text": "{{BLUE_ASPECT}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "DUAL_SPACE"
+} ],
+"value_in_text": "{{DUAL_SPACE}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "REAL_SPACE"
+} ],
+"value_in_text": "{{REAL_SPACE}}"
+} ],
+"speeds": [  ],
+"text": "Like the duality between the mind and the soul, or the duality between a particle and a wave, the {{DUAL_SPACE}} and {{REAL_SPACE}} are two sides of the same entity which we perceive as reality. A {{BLUE_ASPECT}} mage can learn to travel between the two. However, altering the {{DUAL_SPACE}} also alters the {{REAL_SPACE}} in a corresponding way. Therefore, the travelling is highly restrictive.",
+"time": null,
+"translation_key": "Like the duality between the mind and the soul, or the duality between a particle and a wave, the {{DUAL_SPACE}} and {{REAL_SPACE}} are two sides of the same entity which we perceive as reality. A {{BLUE_ASPECT}} mage can learn to travel between the two. However, altering the {{DUAL_SPACE}} also alters the {{REAL_SPACE}} in a corresponding way. Therefore, the travelling is highly restrictive.",
+"type": "dialogue"
+},
+"84": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "85",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} nods understandingly.",
+"time": null,
+"translation_key": "{{GREEN}} nods understandingly.",
+"type": "dialogue"
+},
+"85": {
+"character": "{{BLUE_TEACHER}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE_TEACHER"
+} ],
+"value_in_text": "{{BLUE_TEACHER}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "86",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "REAL_SPACE"
+} ],
+"value_in_text": "{{REAL_SPACE}}"
+} ],
+"speeds": [  ],
+"text": "Although, I and my students are in a serious conundrum, as we have been unable to return to the {{REAL_SPACE}} for a long time. My students fear the worst, but I will continue to resolve this mystery. Your arrival sparks a small hope for us.",
+"time": null,
+"translation_key": "Although, I and my students are in a serious conundrum, as we have been unable to return to the {{REAL_SPACE}} for a long time. My students fear the worst, but I will continue to resolve this mystery. Your arrival sparks a small hope for us.",
+"type": "dialogue"
+},
+"86": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "87",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "This is concerning. I will help you and your students return.",
+"time": null,
+"translation_key": "This is concerning. I will help you and your students return.",
+"type": "dialogue"
+},
+"87": {
+"character": "{{BLUE_TEACHER}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE_TEACHER"
+} ],
+"value_in_text": "{{BLUE_TEACHER}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "88",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "I am devoted to be of your help as much as I can.",
+"time": null,
+"translation_key": "I am devoted to be of your help as much as I can.",
+"type": "dialogue"
+},
+"88": {
+"next_id": "51",
+"type": "goto"
+},
+"9": {
+"character": "{{BLUE_TEACHER}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE_TEACHER"
+} ],
+"value_in_text": "{{BLUE_TEACHER}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "10",
+"parent_id": "4",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE_FATHER"
+} ],
+"value_in_text": "{{BLUE_FATHER}}"
+} ],
+"speeds": [  ],
+"text": "That which I just told you, is an excerpt from {{BLUE_FATHER}}'s last conclusion.",
+"time": null,
+"translation_key": "That which I just told you, is an excerpt from {{BLUE_FATHER}}'s last conclusion.",
+"type": "dialogue"
+},
+"90": {
+"next_id": "92",
+"text": "guidance",
+"type": "title"
+},
+"92": {
+"character": "{{BLUE_TEACHER}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE_TEACHER"
+} ],
+"value_in_text": "{{BLUE_TEACHER}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "93",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "Are you thinking of any particular student?",
+"time": null,
+"translation_key": "Are you thinking of any particular student?",
+"type": "dialogue"
+},
+"93": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "94",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"speeds": [  ],
+"text": "Yes, the student's name is {{BLUE}}. The student enrolled today and I am showing them around the school.",
+"time": null,
+"translation_key": "Yes, the student's name is {{BLUE}}. The student enrolled today and I am showing them around the school.",
+"type": "dialogue"
+},
+"94": {
+"character": "{{BLUE_TEACHER}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE_TEACHER"
+} ],
+"value_in_text": "{{BLUE_TEACHER}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "95",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "DUAL_SPACE"
+} ],
+"value_in_text": "{{DUAL_SPACE}}"
+} ],
+"speeds": [  ],
+"text": "I have not heard of this student. If you suspect that more students have arrived to the {{DUAL_SPACE}} recently, feel free to search for them.",
+"time": null,
+"translation_key": "I have not heard of this student. If you suspect that more students have arrived to the {{DUAL_SPACE}} recently, feel free to search for them.",
+"type": "dialogue"
+},
+"95": {
+"next_id": "51",
+"type": "goto"
+}
+}
