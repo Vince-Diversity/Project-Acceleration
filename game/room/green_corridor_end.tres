@@ -20,7 +20,7 @@ The corridor ends with a large wooden door. Somehow, the wooden patterns are per
 ~ execute_action
 
 No problems here.
-set next = \"green_corridor_end\"
+set next = current_room
 
 ~ green_room
 
@@ -80,8 +80,8 @@ lines = {
 "type": "assignment",
 "value": "="
 }, {
-"type": "string",
-"value": "green_corridor_end"
+"type": "variable",
+"value": "current_room"
 } ]
 },
 "next_id": "",

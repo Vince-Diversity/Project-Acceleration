@@ -32,7 +32,7 @@ else
 ~ execute_action
 
 No problems here.
-set next = \"great_hall\"
+set next = current_room
 
 ~ main_hallway
 
@@ -666,8 +666,8 @@ lines = {
 "type": "assignment",
 "value": "="
 }, {
-"type": "string",
-"value": "great_hall"
+"type": "variable",
+"value": "current_room"
 } ]
 },
 "next_id": "",

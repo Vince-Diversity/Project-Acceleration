@@ -18,10 +18,13 @@ func load_text(dlg_name):
 
 func run_text() -> void:
 	var dlg_node: String
-	if States.visited.has(Utils.get_res_filename(dlg_res)):
+	if States.visited_with_blue.has(Utils.get_res_filename(dlg_res)):
 		dlg_node = States.visit_dlg_node
 	else:
-		dlg_node = States.first_visit_dlg_node
+		if States.visited.has(Utils.get_res_filename(dlg_res)):
+			dlg_node = States.visit_dlg_node
+		else:
+			dlg_node = States.first_visit_dlg_node
 	var dlg_line = yield(dlg_res.get_next_dialogue_line(dlg_node), "completed")
 	while dlg_line != null:
 		resp_arr = []
@@ -90,6 +93,8 @@ func mark_dlg() -> void:
 	var dlg_id = Utils.get_res_filename(dlg_res)
 	if !States.visited.has(dlg_id):
 		States.visited.append(dlg_id)
+		if States.blue_joined:
+			States.visited_with_blue.append(dlg_id)
 
 func clear():
 	for entry in dlg.get_children():

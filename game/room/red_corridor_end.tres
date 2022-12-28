@@ -20,7 +20,7 @@ The corridor ends with a large stone door. That must be very heavy.
 ~ execute_action
 
 No problems here.
-set next = \"red_corridor_end\"
+set next = current_room
 
 ~ red_room
 
@@ -80,8 +80,8 @@ lines = {
 "type": "assignment",
 "value": "="
 }, {
-"type": "string",
-"value": "red_corridor_end"
+"type": "variable",
+"value": "current_room"
 } ]
 },
 "next_id": "",

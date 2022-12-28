@@ -43,7 +43,7 @@ else
 ~ execute_action
 
 No problems here.
-set next = \"main_entrance\"
+set next = current_room
 
 ~ library_hallway
 
@@ -53,7 +53,7 @@ if in_blue_space
 else
 	if court_ended
 		{{GREEN}} attempts to walk through the hallway to the west, but the passage has been sealed off.
-		set next = \"main_entrance\"
+		set next = current_room
 	else
 		{{GREEN}} walks through the hallway to the west.
 		set next = \"knowledge_hallway\"
@@ -78,7 +78,7 @@ if court_ended
 	set next = \"staff_corridor_end\"
 else
 	{{GREEN}}: It would be rude to disturb the staff without a good reason.
-	set next = \"main_entrance\"
+	set next = current_room
 
 ~ outdoors
 
@@ -86,7 +86,7 @@ if in_blue_space
 	{{GREEN}} attempts to exit the school. The blue mist thickens and when it clears, the path ends where {{GREEN}} started from!
 	{{GREEN}} feels a chill go down their spine.
 	{{GREEN}}: Oh no, we really are stuck! I feel sorry for the students...
-	set next = \"main_entrance\"
+	set next = current_room
 else
 	{{GREEN}} exits the school.
 	set next = \"main_outdoors\"
@@ -448,8 +448,8 @@ lines = {
 "type": "assignment",
 "value": "="
 }, {
-"type": "string",
-"value": "main_entrance"
+"type": "variable",
+"value": "current_room"
 } ]
 },
 "next_id": "",
@@ -584,8 +584,8 @@ lines = {
 "type": "assignment",
 "value": "="
 }, {
-"type": "string",
-"value": "main_entrance"
+"type": "variable",
+"value": "current_room"
 } ]
 },
 "next_id": "end",
@@ -892,8 +892,8 @@ lines = {
 "type": "assignment",
 "value": "="
 }, {
-"type": "string",
-"value": "main_entrance"
+"type": "variable",
+"value": "current_room"
 } ]
 },
 "next_id": "end",
@@ -1002,8 +1002,8 @@ lines = {
 "type": "assignment",
 "value": "="
 }, {
-"type": "string",
-"value": "main_entrance"
+"type": "variable",
+"value": "current_room"
 } ]
 },
 "next_id": "end",

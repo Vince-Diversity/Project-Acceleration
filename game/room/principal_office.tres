@@ -41,8 +41,8 @@ if principal_office_revealed == true
 ~ action_reactivated
 
 if principal_office_revealed == true
-	{{YELLOW}} attempts peek through the {{REVEALER}}, but the blue mist blocks the view.
-	set next = \"principal_office\"
+	{{YELLOW}} attempts peek through the {{REVEALER}}, there is nothing to see but blue mist.
+	set next = current_room
 
 ~ interact_blue
 
@@ -511,9 +511,9 @@ lines = {
 "value_in_text": "{{REVEALER}}"
 } ],
 "speeds": [  ],
-"text": "{{YELLOW}} attempts peek through the {{REVEALER}}, but the blue mist blocks the view.",
+"text": "{{YELLOW}} attempts peek through the {{REVEALER}}, there is nothing to see but blue mist.",
 "time": null,
-"translation_key": "{{YELLOW}} attempts peek through the {{REVEALER}}, but the blue mist blocks the view.",
+"translation_key": "{{YELLOW}} attempts peek through the {{REVEALER}}, there is nothing to see but blue mist.",
 "type": "dialogue"
 },
 "37": {
@@ -525,8 +525,8 @@ lines = {
 "type": "assignment",
 "value": "="
 }, {
-"type": "string",
-"value": "principal_office"
+"type": "variable",
+"value": "current_room"
 } ]
 },
 "next_id": "end",

@@ -18,7 +18,7 @@ else
 	{{BLUE_TEACHER}} changes to a more informal tone.
 	{{BLUE_TEACHER}}: Please, have a seat.
 	{{GREEN}} takes a seat with a friendly smile.
-	set next = \"blue_classroom\"
+	set next = current_room
 
 ~ visit
 
@@ -42,12 +42,12 @@ else
 	{{BLUE_TEACHER}}: Let {{OUROBOROS}} follow you and students will know that I am aware of your visits to the {{DUAL_SPACE}}.
 	set has_ouroboros = true
 	{{OUROBOROS}} joins {{GREEN}}'s team.
-	set next = \"blue_classroom\"
+	set next = current_room
 
 ~ execute_action
 
 No problems here.
-set next = \"blue_classroom\"
+set next = current_room
 
 ~ blue_corridor_end
 
@@ -191,8 +191,8 @@ lines = {
 "type": "assignment",
 "value": "="
 }, {
-"type": "string",
-"value": "blue_classroom"
+"type": "variable",
+"value": "current_room"
 } ]
 },
 "next_id": "end",
@@ -648,8 +648,8 @@ lines = {
 "type": "assignment",
 "value": "="
 }, {
-"type": "string",
-"value": "blue_classroom"
+"type": "variable",
+"value": "current_room"
 } ]
 },
 "next_id": "end",
@@ -689,8 +689,8 @@ lines = {
 "type": "assignment",
 "value": "="
 }, {
-"type": "string",
-"value": "blue_classroom"
+"type": "variable",
+"value": "current_room"
 } ]
 },
 "next_id": "",

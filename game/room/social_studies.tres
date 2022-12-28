@@ -9,7 +9,7 @@ raw_text = "~ first_visit
 
 if blue_joined == true
 	A typical-looking classroom is found. Flags of an extensive number of nationalities are hanging across the room. There are books lying around with cheeky titles.
-	{{GREEN}}: The history and society of Magiscience is eventful. Students are encouraged to discuss and collaborate in this room.
+	{{GREEN}}: The history and society of magi-science is eventful. Students are encouraged to discuss and collaborate in this room.
 	{{BLUE}} nods.
 else
 	A typical-looking classroom is found. Flags of an extensive number of nationalities are hanging across the room. There are books lying around with cheeky titles.
@@ -23,7 +23,7 @@ else
 ~ execute_action
 
 No problems here.
-set next = \"social_studies\"
+set next = current_room
 
 ~ knowledge_hallway
 
@@ -106,8 +106,8 @@ lines = {
 "type": "assignment",
 "value": "="
 }, {
-"type": "string",
-"value": "social_studies"
+"type": "variable",
+"value": "current_room"
 } ]
 },
 "next_id": "",
@@ -201,9 +201,9 @@ lines = {
 },
 "replacements": [  ],
 "speeds": [  ],
-"text": "The history and society of Magiscience is eventful. Students are encouraged to discuss and collaborate in this room.",
+"text": "The history and society of magi-science is eventful. Students are encouraged to discuss and collaborate in this room.",
 "time": null,
-"translation_key": "The history and society of Magiscience is eventful. Students are encouraged to discuss and collaborate in this room.",
+"translation_key": "The history and society of magi-science is eventful. Students are encouraged to discuss and collaborate in this room.",
 "type": "dialogue"
 },
 "5": {

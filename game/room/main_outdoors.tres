@@ -25,7 +25,7 @@ else:
 ~ execute_action
 
 No problems here.
-set next = \"main_outdoors\"
+set next = current_room
 
 ~ main_entrance
 
@@ -136,8 +136,8 @@ lines = {
 "type": "assignment",
 "value": "="
 }, {
-"type": "string",
-"value": "main_outdoors"
+"type": "variable",
+"value": "current_room"
 } ]
 },
 "next_id": "",

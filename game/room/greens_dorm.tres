@@ -24,6 +24,7 @@ if court_ended == true
 
 ~ execute_action
 No problems here.
+set next = current_room
 
 ~ dorm_wing_entrance
 {{GREEN}} leaves their dorm.
@@ -36,8 +37,8 @@ set next = \"cat_lab\"
 "
 errors = [  ]
 titles = {
-"cat_lab": "25",
-"dorm_wing_entrance": "21",
+"cat_lab": "26",
+"dorm_wing_entrance": "22",
 "execute_action": "18",
 "first_visit": "1",
 "visit": "12"
@@ -104,12 +105,12 @@ lines = {
 "type": "condition"
 },
 "14": {
-"next_id": "25",
+"next_id": "26",
 "parent_id": "13",
 "type": "goto"
 },
 "15": {
-"next_id": "21",
+"next_id": "22",
 "next_id_after": "end",
 "replacements": [  ],
 "responses": PoolStringArray( "15" ),
@@ -125,7 +126,7 @@ lines = {
 "18": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "",
+"next_id": "19",
 "pauses": {
 },
 "replacements": [  ],
@@ -134,6 +135,22 @@ lines = {
 "time": null,
 "translation_key": "No problems here.",
 "type": "dialogue"
+},
+"19": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "variable",
+"value": "current_room"
+} ]
+},
+"next_id": "",
+"type": "mutation"
 },
 "2": {
 "condition": {
@@ -153,15 +170,15 @@ lines = {
 "next_id_after": "7",
 "type": "condition"
 },
-"20": {
-"next_id": "21",
+"21": {
+"next_id": "22",
 "text": "dorm_wing_entrance",
 "type": "title"
 },
-"21": {
+"22": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "22",
+"next_id": "23",
 "pauses": {
 },
 "replacements": [ {
@@ -177,7 +194,7 @@ lines = {
 "translation_key": "{{GREEN}} leaves their dorm.",
 "type": "dialogue"
 },
-"22": {
+"23": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -193,15 +210,15 @@ lines = {
 "next_id": "",
 "type": "mutation"
 },
-"24": {
-"next_id": "25",
+"25": {
+"next_id": "26",
 "text": "cat_lab",
 "type": "title"
 },
-"25": {
+"26": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "26",
+"next_id": "27",
 "pauses": {
 },
 "replacements": [ {
@@ -217,7 +234,7 @@ lines = {
 "translation_key": "For some reason, there is an artificial cat in {{GREEN}}'s room.",
 "type": "dialogue"
 },
-"26": {
+"27": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -320,12 +337,12 @@ lines = {
 "type": "condition"
 },
 "8": {
-"next_id": "25",
+"next_id": "26",
 "parent_id": "7",
 "type": "goto"
 },
 "9": {
-"next_id": "21",
+"next_id": "22",
 "next_id_after": "end",
 "replacements": [  ],
 "responses": PoolStringArray( "9" ),

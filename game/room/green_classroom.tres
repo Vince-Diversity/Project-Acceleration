@@ -31,7 +31,7 @@ if court_ended == true
 ~ execute_action
 
 No problems here.
-set next = \"green_classroom\"
+set next = current_room
 
 ~ green_corridor_end
 
@@ -228,8 +228,8 @@ lines = {
 "type": "assignment",
 "value": "="
 }, {
-"type": "string",
-"value": "green_classroom"
+"type": "variable",
+"value": "current_room"
 } ]
 },
 "next_id": "",

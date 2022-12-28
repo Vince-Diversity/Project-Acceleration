@@ -7,18 +7,15 @@ script = ExtResource( 1 )
 syntax_version = 2
 raw_text = "~ first_visit
 
-Upon entering the room,a sudden bolt of lightning struck. A blink later, a short figure in lab coat with long dark hair and oval glasses appeared.
-{{YELLOW_TEACHER}}: Students! So sorry for startling you. I am preparing a demonstration for next class.
 if blue_joined == true
+	Upon entering the room,a sudden bolt of lightning struck. A blink later, a short figure in lab coat with long dark hair and oval glasses appears.
+	{{YELLOW_TEACHER}}: Students! So sorry for startling you. I am preparing a demonstration for next class.
 	{{GREEN}}: I'm fine, do not worry about it! I am just here to show {{BLUE}} around the {{YELLOW_ASPECT}} students' classroom.
-else
-	{{GREEN}}: I'm fine, do not worry about it! I am just looking around.
-{{YELLOW_TEACHER}}: Feel free to look around. Just make sure to read the safety signs and avoid touching anything!
-if blue_joined == true
-	The room has several stations with various electrostatic machines and mounting boards. {{GREEN}} goes to one of these stations.
 	{{GREEN}}: In this room, the {{YELLOW_ASPECT}} students learn how to control electrical and light phenomena. They also learn how to move very quickly, which is somehow related to this.
 	{{BLUE}} nods.
 else
+	Immediately as {{GREEN}} enters, a short figure in lab coat with long dark hair and oval glasses appears.
+	{{YELLOW_TEACHER}}: Feel free to look around. Just make sure to read the safety signs and avoid touching anything!
 	The room has several stations with various electrostatic machines and mounting boards. {{GREEN}} goes to one of these stations.
 - Leave => yellow_corridor_end
 
@@ -30,7 +27,7 @@ else
 ~ execute_action
 
 No problems here.
-set next = \"yellow_classroom\"
+set next = current_room
 
 ~ yellow_corridor_end
 
@@ -38,10 +35,10 @@ set next = \"yellow_classroom\"
 set next = \"yellow_corridor_end\""
 errors = [  ]
 titles = {
-"execute_action": "24",
+"execute_action": "21",
 "first_visit": "2",
-"visit": "19",
-"yellow_corridor_end": "29"
+"visit": "16",
+"yellow_corridor_end": "26"
 }
 lines = {
 "0": {
@@ -50,83 +47,31 @@ lines = {
 "type": "title"
 },
 "10": {
-"character": "",
-"inline_mutations": [  ],
-"next_id": "11",
-"parent_id": "9",
-"pauses": {
-},
-"replacements": [ {
-"expression": [ {
-"type": "variable",
-"value": "GREEN"
-} ],
-"value_in_text": "{{GREEN}}"
-} ],
-"speeds": [  ],
-"text": "The room has several stations with various electrostatic machines and mounting boards. {{GREEN}} goes to one of these stations.",
-"time": null,
-"translation_key": "The room has several stations with various electrostatic machines and mounting boards. {{GREEN}} goes to one of these stations.",
-"type": "dialogue"
-},
-"11": {
-"character": "{{GREEN}}",
+"character": "{{YELLOW_TEACHER}}",
 "character_replacements": [ {
 "expression": [ {
 "type": "variable",
-"value": "GREEN"
+"value": "YELLOW_TEACHER"
 } ],
-"value_in_text": "{{GREEN}}"
+"value_in_text": "{{YELLOW_TEACHER}}"
 } ],
+"inline_mutations": [  ],
+"next_id": "11",
+"parent_id": "8",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "Feel free to look around. Just make sure to read the safety signs and avoid touching anything!",
+"time": null,
+"translation_key": "Feel free to look around. Just make sure to read the safety signs and avoid touching anything!",
+"type": "dialogue"
+},
+"11": {
+"character": "",
 "inline_mutations": [  ],
 "next_id": "12",
-"parent_id": "9",
-"pauses": {
-},
-"replacements": [ {
-"expression": [ {
-"type": "variable",
-"value": "YELLOW_ASPECT"
-} ],
-"value_in_text": "{{YELLOW_ASPECT}}"
-} ],
-"speeds": [  ],
-"text": "In this room, the {{YELLOW_ASPECT}} students learn how to control electrical and light phenomena. They also learn how to move very quickly, which is somehow related to this.",
-"time": null,
-"translation_key": "In this room, the {{YELLOW_ASPECT}} students learn how to control electrical and light phenomena. They also learn how to move very quickly, which is somehow related to this.",
-"type": "dialogue"
-},
-"12": {
-"character": "",
-"inline_mutations": [  ],
-"next_id": "15",
-"parent_id": "9",
-"pauses": {
-},
-"replacements": [ {
-"expression": [ {
-"type": "variable",
-"value": "BLUE"
-} ],
-"value_in_text": "{{BLUE}}"
-} ],
-"speeds": [  ],
-"text": "{{BLUE}} nods.",
-"time": null,
-"translation_key": "{{BLUE}} nods.",
-"type": "dialogue"
-},
-"13": {
-"next_conditional_id": "15",
-"next_id": "14",
-"next_id_after": "15",
-"type": "condition"
-},
-"14": {
-"character": "",
-"inline_mutations": [  ],
-"next_id": "15",
-"parent_id": "13",
+"parent_id": "8",
 "pauses": {
 },
 "replacements": [ {
@@ -142,24 +87,24 @@ lines = {
 "translation_key": "The room has several stations with various electrostatic machines and mounting boards. {{GREEN}} goes to one of these stations.",
 "type": "dialogue"
 },
-"15": {
-"next_id": "29",
+"12": {
+"next_id": "26",
 "next_id_after": "end",
 "replacements": [  ],
-"responses": PoolStringArray( "15" ),
+"responses": PoolStringArray( "12" ),
 "text": "Leave",
 "translation_key": "Leave",
 "type": "response"
 },
-"17": {
-"next_id": "19",
+"14": {
+"next_id": "16",
 "text": "visit",
 "type": "title"
 },
-"19": {
+"16": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "20",
+"next_id": "17",
 "pauses": {
 },
 "replacements": [ {
@@ -181,37 +126,42 @@ lines = {
 "translation_key": "{{GREEN}} visits the {{YELLOW_ASPECT}} aspect's classroom.",
 "type": "dialogue"
 },
-"2": {
-"character": "",
-"inline_mutations": [  ],
-"next_id": "3",
-"pauses": {
-},
-"replacements": [  ],
-"speeds": [  ],
-"text": "Upon entering the room,a sudden bolt of lightning struck. A blink later, a short figure in lab coat with long dark hair and oval glasses appeared.",
-"time": null,
-"translation_key": "Upon entering the room,a sudden bolt of lightning struck. A blink later, a short figure in lab coat with long dark hair and oval glasses appeared.",
-"type": "dialogue"
-},
-"20": {
-"next_id": "29",
+"17": {
+"next_id": "26",
 "next_id_after": "end",
 "replacements": [  ],
-"responses": PoolStringArray( "20" ),
+"responses": PoolStringArray( "17" ),
 "text": "Leave",
 "translation_key": "Leave",
 "type": "response"
 },
-"22": {
-"next_id": "24",
+"19": {
+"next_id": "21",
 "text": "execute_action",
 "type": "title"
 },
-"24": {
+"2": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "blue_joined"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "bool",
+"value": true
+} ]
+},
+"next_conditional_id": "8",
+"next_id": "3",
+"next_id_after": "12",
+"type": "condition"
+},
+"21": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "25",
+"next_id": "22",
 "pauses": {
 },
 "replacements": [  ],
@@ -221,7 +171,7 @@ lines = {
 "translation_key": "No problems here.",
 "type": "dialogue"
 },
-"25": {
+"22": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -230,22 +180,22 @@ lines = {
 "type": "assignment",
 "value": "="
 }, {
-"type": "string",
-"value": "yellow_classroom"
+"type": "variable",
+"value": "current_room"
 } ]
 },
 "next_id": "",
 "type": "mutation"
 },
-"27": {
-"next_id": "29",
+"24": {
+"next_id": "26",
 "text": "yellow_corridor_end",
 "type": "title"
 },
-"29": {
+"26": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "30",
+"next_id": "27",
 "pauses": {
 },
 "replacements": [ {
@@ -261,27 +211,7 @@ lines = {
 "translation_key": "{{GREEN}} leaves the classroom.",
 "type": "dialogue"
 },
-"3": {
-"character": "{{YELLOW_TEACHER}}",
-"character_replacements": [ {
-"expression": [ {
-"type": "variable",
-"value": "YELLOW_TEACHER"
-} ],
-"value_in_text": "{{YELLOW_TEACHER}}"
-} ],
-"inline_mutations": [  ],
-"next_id": "4",
-"pauses": {
-},
-"replacements": [  ],
-"speeds": [  ],
-"text": "Students! So sorry for startling you. I am preparing a demonstration for next class.",
-"time": null,
-"translation_key": "Students! So sorry for startling you. I am preparing a demonstration for next class.",
-"type": "dialogue"
-},
-"30": {
+"27": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -297,23 +227,40 @@ lines = {
 "next_id": "",
 "type": "mutation"
 },
+"3": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "4",
+"parent_id": "2",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "Upon entering the room,a sudden bolt of lightning struck. A blink later, a short figure in lab coat with long dark hair and oval glasses appears.",
+"time": null,
+"translation_key": "Upon entering the room,a sudden bolt of lightning struck. A blink later, a short figure in lab coat with long dark hair and oval glasses appears.",
+"type": "dialogue"
+},
 "4": {
-"condition": {
+"character": "{{YELLOW_TEACHER}}",
+"character_replacements": [ {
 "expression": [ {
 "type": "variable",
-"value": "blue_joined"
-}, {
-"type": "comparison",
-"value": "=="
-}, {
-"type": "bool",
-"value": true
-} ]
-},
-"next_conditional_id": "6",
+"value": "YELLOW_TEACHER"
+} ],
+"value_in_text": "{{YELLOW_TEACHER}}"
+} ],
+"inline_mutations": [  ],
 "next_id": "5",
-"next_id_after": "8",
-"type": "condition"
+"parent_id": "2",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "Students! So sorry for startling you. I am preparing a demonstration for next class.",
+"time": null,
+"translation_key": "Students! So sorry for startling you. I am preparing a demonstration for next class.",
+"type": "dialogue"
 },
 "5": {
 "character": "{{GREEN}}",
@@ -325,8 +272,8 @@ lines = {
 "value_in_text": "{{GREEN}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "8",
-"parent_id": "4",
+"next_id": "6",
+"parent_id": "2",
 "pauses": {
 },
 "replacements": [ {
@@ -349,12 +296,6 @@ lines = {
 "type": "dialogue"
 },
 "6": {
-"next_conditional_id": "8",
-"next_id": "7",
-"next_id_after": "8",
-"type": "condition"
-},
-"7": {
 "character": "{{GREEN}}",
 "character_replacements": [ {
 "expression": [ {
@@ -364,53 +305,67 @@ lines = {
 "value_in_text": "{{GREEN}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "8",
-"parent_id": "6",
+"next_id": "7",
+"parent_id": "2",
 "pauses": {
 },
-"replacements": [  ],
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "YELLOW_ASPECT"
+} ],
+"value_in_text": "{{YELLOW_ASPECT}}"
+} ],
 "speeds": [  ],
-"text": "I'm fine, do not worry about it! I am just looking around.",
+"text": "In this room, the {{YELLOW_ASPECT}} students learn how to control electrical and light phenomena. They also learn how to move very quickly, which is somehow related to this.",
 "time": null,
-"translation_key": "I'm fine, do not worry about it! I am just looking around.",
+"translation_key": "In this room, the {{YELLOW_ASPECT}} students learn how to control electrical and light phenomena. They also learn how to move very quickly, which is somehow related to this.",
+"type": "dialogue"
+},
+"7": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "12",
+"parent_id": "2",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"speeds": [  ],
+"text": "{{BLUE}} nods.",
+"time": null,
+"translation_key": "{{BLUE}} nods.",
 "type": "dialogue"
 },
 "8": {
-"character": "{{YELLOW_TEACHER}}",
-"character_replacements": [ {
-"expression": [ {
-"type": "variable",
-"value": "YELLOW_TEACHER"
-} ],
-"value_in_text": "{{YELLOW_TEACHER}}"
-} ],
-"inline_mutations": [  ],
+"next_conditional_id": "12",
 "next_id": "9",
-"pauses": {
-},
-"replacements": [  ],
-"speeds": [  ],
-"text": "Feel free to look around. Just make sure to read the safety signs and avoid touching anything!",
-"time": null,
-"translation_key": "Feel free to look around. Just make sure to read the safety signs and avoid touching anything!",
-"type": "dialogue"
+"next_id_after": "12",
+"type": "condition"
 },
 "9": {
-"condition": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "10",
+"parent_id": "8",
+"pauses": {
+},
+"replacements": [ {
 "expression": [ {
 "type": "variable",
-"value": "blue_joined"
-}, {
-"type": "comparison",
-"value": "=="
-}, {
-"type": "bool",
-"value": true
-} ]
-},
-"next_conditional_id": "13",
-"next_id": "10",
-"next_id_after": "15",
-"type": "condition"
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "Immediately as {{GREEN}} enters, a short figure in lab coat with long dark hair and oval glasses appears.",
+"time": null,
+"translation_key": "Immediately as {{GREEN}} enters, a short figure in lab coat with long dark hair and oval glasses appears.",
+"type": "dialogue"
 }
 }

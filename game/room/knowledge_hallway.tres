@@ -32,8 +32,7 @@ else
 ~ execute_action
 
 No problems here.
-set next = \"knowledge_hallway\"
-
+set next = current_room
 ~ library
 
 {{GREEN}} walks over to the library wing.
@@ -43,7 +42,7 @@ set next = \"library\"
 
 if has_ouroboros
 	{{GREEN}} attempts to enter the classroom to the south-west. The blue mist thickens and when it clears, the path ends where {{GREEN}} started from!
-	set next = \"knowledge_hallway\"
+	set next = current_room
 else
 	{{GREEN}} enters the classroom to the south-west.
 	set next = \"social_studies\"
@@ -52,7 +51,7 @@ else
 
 if has_ouroboros
 	{{GREEN}} attempts to enter the classroom to the north-west. The blue mist thickens and when it clears, the path ends where {{GREEN}} started from!
-	set next = \"knowledge_hallway\"
+	set next = current_room
 else
 	{{GREEN}} enters the classroom to the north-west.
 	set next = \"sciences\"
@@ -65,10 +64,10 @@ errors = [  ]
 titles = {
 "execute_action": "26",
 "first_visit": "2",
-"library": "31",
-"main_entrance": "54",
-"sciences": "45",
-"social_studies": "36",
+"library": "30",
+"main_entrance": "53",
+"sciences": "44",
+"social_studies": "35",
 "visit": "15"
 }
 lines = {
@@ -78,7 +77,7 @@ lines = {
 "type": "title"
 },
 "10": {
-"next_id": "36",
+"next_id": "35",
 "next_id_after": "end",
 "replacements": [  ],
 "text": "Enter the social studies classroom to the south-west",
@@ -86,7 +85,7 @@ lines = {
 "type": "response"
 },
 "11": {
-"next_id": "54",
+"next_id": "53",
 "next_id_after": "end",
 "replacements": [  ],
 "text": "Go through the hallway to the east",
@@ -157,7 +156,7 @@ lines = {
 "type": "dialogue"
 },
 "19": {
-"next_id": "31",
+"next_id": "30",
 "next_id_after": "end",
 "replacements": [  ],
 "responses": PoolStringArray( "19", "20", "21", "22" ),
@@ -184,7 +183,7 @@ lines = {
 "type": "condition"
 },
 "20": {
-"next_id": "45",
+"next_id": "44",
 "next_id_after": "end",
 "replacements": [  ],
 "text": "Enter the sciences classroom to the north-west",
@@ -192,7 +191,7 @@ lines = {
 "type": "response"
 },
 "21": {
-"next_id": "36",
+"next_id": "35",
 "next_id_after": "end",
 "replacements": [  ],
 "text": "Enter the social studies classroom to the south-west",
@@ -200,7 +199,7 @@ lines = {
 "type": "response"
 },
 "22": {
-"next_id": "54",
+"next_id": "53",
 "next_id_after": "end",
 "replacements": [  ],
 "text": "Go though the hallway to the east",
@@ -234,15 +233,15 @@ lines = {
 "type": "assignment",
 "value": "="
 }, {
-"type": "string",
-"value": "knowledge_hallway"
+"type": "variable",
+"value": "current_room"
 } ]
 },
 "next_id": "",
 "type": "mutation"
 },
-"29": {
-"next_id": "31",
+"28": {
+"next_id": "30",
 "text": "library",
 "type": "title"
 },
@@ -260,10 +259,10 @@ lines = {
 "translation_key": "A large passage is to the north. To the south-west and north-west are classrooms.",
 "type": "dialogue"
 },
-"31": {
+"30": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "32",
+"next_id": "31",
 "pauses": {
 },
 "replacements": [ {
@@ -279,7 +278,7 @@ lines = {
 "translation_key": "{{GREEN}} walks over to the library wing.",
 "type": "dialogue"
 },
-"32": {
+"31": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -295,28 +294,28 @@ lines = {
 "next_id": "",
 "type": "mutation"
 },
-"34": {
-"next_id": "36",
+"33": {
+"next_id": "35",
 "text": "social_studies",
 "type": "title"
 },
-"36": {
+"35": {
 "condition": {
 "expression": [ {
 "type": "variable",
 "value": "has_ouroboros"
 } ]
 },
-"next_conditional_id": "39",
-"next_id": "37",
+"next_conditional_id": "38",
+"next_id": "36",
 "next_id_after": "end",
 "type": "condition"
 },
-"37": {
+"36": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "38",
-"parent_id": "36",
+"next_id": "37",
+"parent_id": "35",
 "pauses": {
 },
 "replacements": [ {
@@ -338,7 +337,7 @@ lines = {
 "translation_key": "{{GREEN}} attempts to enter the classroom to the south-west. The blue mist thickens and when it clears, the path ends where {{GREEN}} started from!",
 "type": "dialogue"
 },
-"38": {
+"37": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -347,19 +346,39 @@ lines = {
 "type": "assignment",
 "value": "="
 }, {
-"type": "string",
-"value": "knowledge_hallway"
+"type": "variable",
+"value": "current_room"
 } ]
 },
 "next_id": "end",
-"parent_id": "36",
+"parent_id": "35",
 "type": "mutation"
 },
-"39": {
+"38": {
 "next_conditional_id": "end",
-"next_id": "40",
+"next_id": "39",
 "next_id_after": "end",
 "type": "condition"
+},
+"39": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "40",
+"parent_id": "38",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} enters the classroom to the south-west.",
+"time": null,
+"translation_key": "{{GREEN}} enters the classroom to the south-west.",
+"type": "dialogue"
 },
 "4": {
 "character": "{{GREEN}}",
@@ -383,26 +402,6 @@ lines = {
 "type": "dialogue"
 },
 "40": {
-"character": "",
-"inline_mutations": [  ],
-"next_id": "41",
-"parent_id": "39",
-"pauses": {
-},
-"replacements": [ {
-"expression": [ {
-"type": "variable",
-"value": "GREEN"
-} ],
-"value_in_text": "{{GREEN}}"
-} ],
-"speeds": [  ],
-"text": "{{GREEN}} enters the classroom to the south-west.",
-"time": null,
-"translation_key": "{{GREEN}} enters the classroom to the south-west.",
-"type": "dialogue"
-},
-"41": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -416,31 +415,31 @@ lines = {
 } ]
 },
 "next_id": "end",
-"parent_id": "39",
+"parent_id": "38",
 "type": "mutation"
 },
-"43": {
-"next_id": "45",
+"42": {
+"next_id": "44",
 "text": "sciences",
 "type": "title"
 },
-"45": {
+"44": {
 "condition": {
 "expression": [ {
 "type": "variable",
 "value": "has_ouroboros"
 } ]
 },
-"next_conditional_id": "48",
-"next_id": "46",
+"next_conditional_id": "47",
+"next_id": "45",
 "next_id_after": "end",
 "type": "condition"
 },
-"46": {
+"45": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "47",
-"parent_id": "45",
+"next_id": "46",
+"parent_id": "44",
 "pauses": {
 },
 "replacements": [ {
@@ -462,7 +461,7 @@ lines = {
 "translation_key": "{{GREEN}} attempts to enter the classroom to the north-west. The blue mist thickens and when it clears, the path ends where {{GREEN}} started from!",
 "type": "dialogue"
 },
-"47": {
+"46": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -471,25 +470,25 @@ lines = {
 "type": "assignment",
 "value": "="
 }, {
-"type": "string",
-"value": "knowledge_hallway"
+"type": "variable",
+"value": "current_room"
 } ]
 },
 "next_id": "end",
-"parent_id": "45",
+"parent_id": "44",
 "type": "mutation"
 },
-"48": {
+"47": {
 "next_conditional_id": "end",
-"next_id": "49",
+"next_id": "48",
 "next_id_after": "end",
 "type": "condition"
 },
-"49": {
+"48": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "50",
-"parent_id": "48",
+"next_id": "49",
+"parent_id": "47",
 "pauses": {
 },
 "replacements": [ {
@@ -504,6 +503,23 @@ lines = {
 "time": null,
 "translation_key": "{{GREEN}} enters the classroom to the north-west.",
 "type": "dialogue"
+},
+"49": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "sciences"
+} ]
+},
+"next_id": "end",
+"parent_id": "47",
+"type": "mutation"
 },
 "5": {
 "character": "",
@@ -525,32 +541,15 @@ lines = {
 "translation_key": "{{BLUE}} nods.",
 "type": "dialogue"
 },
-"50": {
-"mutation": {
-"expression": [ {
-"type": "variable",
-"value": "next"
-}, {
-"type": "assignment",
-"value": "="
-}, {
-"type": "string",
-"value": "sciences"
-} ]
-},
-"next_id": "end",
-"parent_id": "48",
-"type": "mutation"
-},
-"52": {
-"next_id": "54",
+"51": {
+"next_id": "53",
 "text": "main_entrance",
 "type": "title"
 },
-"54": {
+"53": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "55",
+"next_id": "54",
 "pauses": {
 },
 "replacements": [ {
@@ -566,7 +565,7 @@ lines = {
 "translation_key": "{{GREEN}} walks through the hallway to the east.",
 "type": "dialogue"
 },
-"55": {
+"54": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -603,7 +602,7 @@ lines = {
 "type": "dialogue"
 },
 "8": {
-"next_id": "31",
+"next_id": "30",
 "next_id_after": "end",
 "replacements": [  ],
 "responses": PoolStringArray( "8", "9", "10", "11" ),
@@ -612,7 +611,7 @@ lines = {
 "type": "response"
 },
 "9": {
-"next_id": "45",
+"next_id": "44",
 "next_id_after": "end",
 "replacements": [  ],
 "text": "Enter the sciences classroom to the north-west",

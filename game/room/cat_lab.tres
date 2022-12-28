@@ -65,7 +65,7 @@ if cat_lab_revealed == true
 ~ stay
 
 {{GREEN}} stays in their dorm a bit longer.
-set next = \"cat_lab\"
+set next = current_room
 
 ~ restart_cat
 
@@ -860,8 +860,8 @@ lines = {
 "type": "assignment",
 "value": "="
 }, {
-"type": "string",
-"value": "cat_lab"
+"type": "variable",
+"value": "current_room"
 } ]
 },
 "next_id": "",

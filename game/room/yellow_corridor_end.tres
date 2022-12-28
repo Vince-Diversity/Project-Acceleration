@@ -20,7 +20,7 @@ The corridor ends with a large, metallic door. On the door is a caution sign for
 ~ execute_action
 
 No problems here.
-set next = \"yellow_corridor_end\"
+set next = current_room
 
 ~ yellow_room
 
@@ -80,8 +80,8 @@ lines = {
 "type": "assignment",
 "value": "="
 }, {
-"type": "string",
-"value": "yellow_corridor_end"
+"type": "variable",
+"value": "current_room"
 } ]
 },
 "next_id": "",

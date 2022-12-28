@@ -40,13 +40,13 @@ else
 ~ execute_action
 
 No problems here.
-set next = \"main_hallway\"
+set next = current_room
 
 ~ yellow_hallway
 
 if in_blue_space
 	{{GREEN}} attempts to enter the corridor to the west. The blue mist thickens and when it clears, the path ends where {{GREEN}} started from!
-	set next = \"main_hallway\"
+	set next = current_room
 else
 	{{GREEN}} enters the corridor to the west.
 	set next = \"yellow_corridor_end\"
@@ -55,7 +55,7 @@ else
 
 if in_blue_space
 	{{GREEN}} attempts to enter the corridor to the north-west. The blue mist thickens and when it clears, the path ends where {{GREEN}} started from!
-	set next = \"main_hallway\"
+	set next = current_room
 else
 	{{GREEN}} enters the corridor to the north-west.
 	set next = \"green_corridor_end\"
@@ -64,7 +64,7 @@ else
 
 if in_blue_space
 	{{GREEN}} attempts to enter the {{GREAT_HALL}}. The blue mist thickens and when it clears, the path ends where {{GREEN}} started from!
-	set next = \"main_hallway\"
+	set next = current_room
 else
 	{{GREEN}} enters the {{GREAT_HALL}}.
 	set next = \"great_hall\"
@@ -78,7 +78,7 @@ set next = \"blue_corridor_end\"
 
 if in_blue_space
 	{{GREEN}} attempts to enter the corridor to the east. The blue mist thickens and when it clears, the path ends where {{GREEN}} started from!
-	set next = \"main_hallway\"
+	set next = current_room
 else
 	{{GREEN}} enters the corridor to the east.
 	set next = \"red_corridor_end\"
@@ -378,8 +378,8 @@ lines = {
 "type": "assignment",
 "value": "="
 }, {
-"type": "string",
-"value": "main_hallway"
+"type": "variable",
+"value": "current_room"
 } ]
 },
 "next_id": "",
@@ -482,8 +482,8 @@ lines = {
 "type": "assignment",
 "value": "="
 }, {
-"type": "string",
-"value": "main_hallway"
+"type": "variable",
+"value": "current_room"
 } ]
 },
 "next_id": "end",
@@ -605,8 +605,8 @@ lines = {
 "type": "assignment",
 "value": "="
 }, {
-"type": "string",
-"value": "main_hallway"
+"type": "variable",
+"value": "current_room"
 } ]
 },
 "next_id": "end",
@@ -714,8 +714,8 @@ lines = {
 "type": "assignment",
 "value": "="
 }, {
-"type": "string",
-"value": "main_hallway"
+"type": "variable",
+"value": "current_room"
 } ]
 },
 "next_id": "end",
@@ -883,8 +883,8 @@ lines = {
 "type": "assignment",
 "value": "="
 }, {
-"type": "string",
-"value": "main_hallway"
+"type": "variable",
+"value": "current_room"
 } ]
 },
 "next_id": "end",
