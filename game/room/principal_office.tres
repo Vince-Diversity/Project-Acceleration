@@ -25,24 +25,59 @@ else
 
 ~ execute_action
 
-if principal_office_revealed == true
-	{{YELLOW}} appears from nowhere.
-	{{PRINCIPAL}}: What is the meaning of this?
-	{{YELLOW}}: To solve the mystery of the new student, {{BLUE}}!
-	{{YELLOW}} peeks through the {{REVEALER}} in the direction {{BLUE}} is. However, there was no image of {{BLUE}}.
-	{{YELLOW}}: Wha- what? Where did {{BLUE}} go?
-	Before {{GREEN}} could react, the light dimmed and the room lost its natural colours. A blue mist covers the view.
-	{{GREEN}}: Where am I?
-	{{YELLOW}}: I could ask you the same thing, {{GREEN}}! And where did {{PRINCIPAL}} go?
-	{{GREEN}}: I do not know, but maybe this could be a step to solving the mystery?
-	set in_blue_space = true
-	=> visit
+if in_blue_space
+	if principal_office_remembered and not principal_office_revealed
+		set in_blue_space = false
+		set principal_office_revealed = false
+		set yellow_joined = true
+		set blue_joined = false
+		{{BLUE}} remembers when {{GREEN}} was visiting during detention. The office of {{PRINCIPAL}} from the {{REAL_SPACE}} can be seen.
+		=> visit
+	else
+		{{YELLOW}} attempts peek through the {{REVEALER}}, there is nothing to see but blue mist.
+		set principal_office_revealed = false
+		set next = current_room
+else
+	if principal_office_revealed == true
+		if has_ouroboros
+			{{YELLOW}} appears from nowhere.
+			{{PRINCIPAL}}: What is the meaning of this?
+			{{YELLOW}}: To solve the mystery of the new student, {{BLUE}}!
+			{{YELLOW}} peeks through the {{REVEALER}} in the direction {{BLUE}} is. There is an image of {{BLUE}}, but the surrounding suddenly turns dark.
+			A blue mist covers the view.
+			{{YELLOW}}: Wha-what? Where are we? And where did {{PRINCIPAL}} go? And what is on your head?
+			{{GREEN}} responds with a smile. On {{GREEN}}'s head, {{OUROBOROS}} is floating in circles.
+			set blue_joined = true
+		else
+			{{YELLOW}} appears from nowhere.
+			{{PRINCIPAL}}: What is the meaning of this?
+			{{YELLOW}}: To solve the mystery of the new student, {{BLUE}}!
+			{{YELLOW}} peeks through the {{REVEALER}} in the direction {{BLUE}} is. However, there was no image of {{BLUE}}.
+			{{YELLOW}}: Wha- what? Where did {{BLUE}} go?
+			Before {{GREEN}} could react, the light dimmed and the room lost its natural colours. A blue mist covers the view.
+			{{GREEN}}: Where am I?
+			{{YELLOW}}: I could ask you the same thing, {{GREEN}}! And where did {{PRINCIPAL}} go?
+			{{GREEN}}: I do not know, but maybe this could be a step to solving the mystery?
+		set in_blue_space = true
+		set principal_office_revealed = false
+		=> visit
 
 ~ action_reactivated
 
-if principal_office_revealed == true
-	{{YELLOW}} attempts peek through the {{REVEALER}}, there is nothing to see but blue mist.
-	set next = current_room
+if in_blue_space
+	if principal_office_remembered and not principal_office_revealed
+		set in_blue_space = false
+		set principal_office_revealed = false
+		set yellow_joined = true
+		set blue_joined = false
+		{{BLUE}} remembers when {{GREEN}} was visiting during detention. The office of {{PRINCIPAL}} from the {{REAL_SPACE}} can be seen.
+		=> visit
+	else
+		No problems here.
+		set next = current_room
+else
+	{{GREEN}} Um, this is a time paradox. {{YELLOW}} did not use the {{REVEALER}} in {{PRINCIPAL}} yet.
+	=> visit
 
 ~ interact_blue
 
@@ -56,11 +91,11 @@ if principal_office_revealed == true
 set next = \"staff_corridor_end\""
 errors = [  ]
 titles = {
-"action_reactivated": "35",
+"action_reactivated": "59",
 "execute_action": "20",
 "first_visit": "2",
-"interact_blue": "41",
-"staff_corridor_end": "47",
+"interact_blue": "76",
+"staff_corridor_end": "82",
 "visit": "9"
 }
 lines = {
@@ -96,7 +131,7 @@ lines = {
 "type": "dialogue"
 },
 "12": {
-"next_id": "47",
+"next_id": "82",
 "next_id_after": "end",
 "parent_id": "10",
 "replacements": [  ],
@@ -132,7 +167,7 @@ lines = {
 "type": "dialogue"
 },
 "15": {
-"next_id": "41",
+"next_id": "76",
 "next_id_after": "end",
 "parent_id": "13",
 "replacements": [ {
@@ -148,7 +183,7 @@ lines = {
 "type": "response"
 },
 "16": {
-"next_id": "47",
+"next_id": "82",
 "next_id_after": "end",
 "parent_id": "13",
 "replacements": [  ],
@@ -184,6 +219,242 @@ lines = {
 "condition": {
 "expression": [ {
 "type": "variable",
+"value": "in_blue_space"
+} ]
+},
+"next_conditional_id": "32",
+"next_id": "21",
+"next_id_after": "end",
+"type": "condition"
+},
+"21": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "principal_office_remembered"
+}, {
+"type": "and_or",
+"value": "and"
+}, {
+"type": "not"
+}, {
+"type": "variable",
+"value": "principal_office_revealed"
+} ]
+},
+"next_conditional_id": "28",
+"next_id": "22",
+"next_id_after": "end",
+"parent_id": "20",
+"type": "condition"
+},
+"22": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "in_blue_space"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "bool",
+"value": false
+} ]
+},
+"next_id": "23",
+"parent_id": "21",
+"type": "mutation"
+},
+"23": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "principal_office_revealed"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "bool",
+"value": false
+} ]
+},
+"next_id": "24",
+"parent_id": "21",
+"type": "mutation"
+},
+"24": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "yellow_joined"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "bool",
+"value": true
+} ]
+},
+"next_id": "25",
+"parent_id": "21",
+"type": "mutation"
+},
+"25": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "blue_joined"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "bool",
+"value": false
+} ]
+},
+"next_id": "26",
+"parent_id": "21",
+"type": "mutation"
+},
+"26": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "27",
+"parent_id": "21",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "PRINCIPAL"
+} ],
+"value_in_text": "{{PRINCIPAL}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "REAL_SPACE"
+} ],
+"value_in_text": "{{REAL_SPACE}}"
+} ],
+"speeds": [  ],
+"text": "{{BLUE}} remembers when {{GREEN}} was visiting during detention. The office of {{PRINCIPAL}} from the {{REAL_SPACE}} can be seen.",
+"time": null,
+"translation_key": "{{BLUE}} remembers when {{GREEN}} was visiting during detention. The office of {{PRINCIPAL}} from the {{REAL_SPACE}} can be seen.",
+"type": "dialogue"
+},
+"27": {
+"next_id": "9",
+"parent_id": "21",
+"type": "goto"
+},
+"28": {
+"next_conditional_id": "end",
+"next_id": "29",
+"next_id_after": "end",
+"parent_id": "20",
+"type": "condition"
+},
+"29": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "30",
+"parent_id": "28",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "YELLOW"
+} ],
+"value_in_text": "{{YELLOW}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "REVEALER"
+} ],
+"value_in_text": "{{REVEALER}}"
+} ],
+"speeds": [  ],
+"text": "{{YELLOW}} attempts peek through the {{REVEALER}}, there is nothing to see but blue mist.",
+"time": null,
+"translation_key": "{{YELLOW}} attempts peek through the {{REVEALER}}, there is nothing to see but blue mist.",
+"type": "dialogue"
+},
+"3": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "4",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"speeds": [  ],
+"text": "{{BLUE}} is sitting at a corner and seems surprised to get a visit.",
+"time": null,
+"translation_key": "{{BLUE}} is sitting at a corner and seems surprised to get a visit.",
+"type": "dialogue"
+},
+"30": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "principal_office_revealed"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "bool",
+"value": false
+} ]
+},
+"next_id": "31",
+"parent_id": "28",
+"type": "mutation"
+},
+"31": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "variable",
+"value": "current_room"
+} ]
+},
+"next_id": "end",
+"parent_id": "28",
+"type": "mutation"
+},
+"32": {
+"next_conditional_id": "end",
+"next_id": "33",
+"next_id_after": "end",
+"type": "condition"
+},
+"33": {
+"condition": {
+"expression": [ {
+"type": "variable",
 "value": "principal_office_revealed"
 }, {
 "type": "comparison",
@@ -194,15 +465,29 @@ lines = {
 } ]
 },
 "next_conditional_id": "end",
-"next_id": "21",
+"next_id": "34",
 "next_id_after": "end",
+"parent_id": "32",
 "type": "condition"
 },
-"21": {
+"34": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "has_ouroboros"
+} ]
+},
+"next_conditional_id": "43",
+"next_id": "35",
+"next_id_after": "53",
+"parent_id": "33",
+"type": "condition"
+},
+"35": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "22",
-"parent_id": "20",
+"next_id": "36",
+"parent_id": "34",
 "pauses": {
 },
 "replacements": [ {
@@ -218,7 +503,7 @@ lines = {
 "translation_key": "{{YELLOW}} appears from nowhere.",
 "type": "dialogue"
 },
-"22": {
+"36": {
 "character": "{{PRINCIPAL}}",
 "character_replacements": [ {
 "expression": [ {
@@ -228,8 +513,8 @@ lines = {
 "value_in_text": "{{PRINCIPAL}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "23",
-"parent_id": "20",
+"next_id": "37",
+"parent_id": "34",
 "pauses": {
 },
 "replacements": [  ],
@@ -239,7 +524,7 @@ lines = {
 "translation_key": "What is the meaning of this?",
 "type": "dialogue"
 },
-"23": {
+"37": {
 "character": "{{YELLOW}}",
 "character_replacements": [ {
 "expression": [ {
@@ -249,8 +534,8 @@ lines = {
 "value_in_text": "{{YELLOW}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "24",
-"parent_id": "20",
+"next_id": "38",
+"parent_id": "34",
 "pauses": {
 },
 "replacements": [ {
@@ -266,11 +551,229 @@ lines = {
 "translation_key": "To solve the mystery of the new student, {{BLUE}}!",
 "type": "dialogue"
 },
-"24": {
+"38": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "25",
-"parent_id": "20",
+"next_id": "39",
+"parent_id": "34",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "YELLOW"
+} ],
+"value_in_text": "{{YELLOW}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "REVEALER"
+} ],
+"value_in_text": "{{REVEALER}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"speeds": [  ],
+"text": "{{YELLOW}} peeks through the {{REVEALER}} in the direction {{BLUE}} is. There is an image of {{BLUE}}, but the surrounding suddenly turns dark.",
+"time": null,
+"translation_key": "{{YELLOW}} peeks through the {{REVEALER}} in the direction {{BLUE}} is. There is an image of {{BLUE}}, but the surrounding suddenly turns dark.",
+"type": "dialogue"
+},
+"39": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "40",
+"parent_id": "34",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "A blue mist covers the view.",
+"time": null,
+"translation_key": "A blue mist covers the view.",
+"type": "dialogue"
+},
+"4": {
+"next_id": "76",
+"next_id_after": "end",
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"responses": PoolStringArray( "4", "5" ),
+"text": "Sit next to {{BLUE}}",
+"translation_key": "Sit next to {{BLUE}}",
+"type": "response"
+},
+"40": {
+"character": "{{YELLOW}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "YELLOW"
+} ],
+"value_in_text": "{{YELLOW}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "41",
+"parent_id": "34",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "PRINCIPAL"
+} ],
+"value_in_text": "{{PRINCIPAL}}"
+} ],
+"speeds": [  ],
+"text": "Wha-what? Where are we? And where did {{PRINCIPAL}} go? And what is on your head?",
+"time": null,
+"translation_key": "Wha-what? Where are we? And where did {{PRINCIPAL}} go? And what is on your head?",
+"type": "dialogue"
+},
+"41": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "42",
+"parent_id": "34",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "OUROBOROS"
+} ],
+"value_in_text": "{{OUROBOROS}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} responds with a smile. On {{GREEN}}'s head, {{OUROBOROS}} is floating in circles.",
+"time": null,
+"translation_key": "{{GREEN}} responds with a smile. On {{GREEN}}'s head, {{OUROBOROS}} is floating in circles.",
+"type": "dialogue"
+},
+"42": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "blue_joined"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "bool",
+"value": true
+} ]
+},
+"next_id": "53",
+"parent_id": "34",
+"type": "mutation"
+},
+"43": {
+"next_conditional_id": "53",
+"next_id": "44",
+"next_id_after": "53",
+"parent_id": "33",
+"type": "condition"
+},
+"44": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "45",
+"parent_id": "43",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "YELLOW"
+} ],
+"value_in_text": "{{YELLOW}}"
+} ],
+"speeds": [  ],
+"text": "{{YELLOW}} appears from nowhere.",
+"time": null,
+"translation_key": "{{YELLOW}} appears from nowhere.",
+"type": "dialogue"
+},
+"45": {
+"character": "{{PRINCIPAL}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "PRINCIPAL"
+} ],
+"value_in_text": "{{PRINCIPAL}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "46",
+"parent_id": "43",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "What is the meaning of this?",
+"time": null,
+"translation_key": "What is the meaning of this?",
+"type": "dialogue"
+},
+"46": {
+"character": "{{YELLOW}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "YELLOW"
+} ],
+"value_in_text": "{{YELLOW}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "47",
+"parent_id": "43",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"speeds": [  ],
+"text": "To solve the mystery of the new student, {{BLUE}}!",
+"time": null,
+"translation_key": "To solve the mystery of the new student, {{BLUE}}!",
+"type": "dialogue"
+},
+"47": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "48",
+"parent_id": "43",
 "pauses": {
 },
 "replacements": [ {
@@ -304,7 +807,7 @@ lines = {
 "translation_key": "{{YELLOW}} peeks through the {{REVEALER}} in the direction {{BLUE}} is. However, there was no image of {{BLUE}}.",
 "type": "dialogue"
 },
-"25": {
+"48": {
 "character": "{{YELLOW}}",
 "character_replacements": [ {
 "expression": [ {
@@ -314,8 +817,8 @@ lines = {
 "value_in_text": "{{YELLOW}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "26",
-"parent_id": "20",
+"next_id": "49",
+"parent_id": "43",
 "pauses": {
 },
 "replacements": [ {
@@ -331,11 +834,11 @@ lines = {
 "translation_key": "Wha- what? Where did {{BLUE}} go?",
 "type": "dialogue"
 },
-"26": {
+"49": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "27",
-"parent_id": "20",
+"next_id": "50",
+"parent_id": "43",
 "pauses": {
 },
 "replacements": [ {
@@ -351,7 +854,15 @@ lines = {
 "translation_key": "Before {{GREEN}} could react, the light dimmed and the room lost its natural colours. A blue mist covers the view.",
 "type": "dialogue"
 },
-"27": {
+"5": {
+"next_id": "82",
+"next_id_after": "end",
+"replacements": [  ],
+"text": "Leave",
+"translation_key": "Leave",
+"type": "response"
+},
+"50": {
 "character": "{{GREEN}}",
 "character_replacements": [ {
 "expression": [ {
@@ -361,8 +872,8 @@ lines = {
 "value_in_text": "{{GREEN}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "28",
-"parent_id": "20",
+"next_id": "51",
+"parent_id": "43",
 "pauses": {
 },
 "replacements": [  ],
@@ -372,7 +883,7 @@ lines = {
 "translation_key": "Where am I?",
 "type": "dialogue"
 },
-"28": {
+"51": {
 "character": "{{YELLOW}}",
 "character_replacements": [ {
 "expression": [ {
@@ -382,8 +893,8 @@ lines = {
 "value_in_text": "{{YELLOW}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "29",
-"parent_id": "20",
+"next_id": "52",
+"parent_id": "43",
 "pauses": {
 },
 "replacements": [ {
@@ -405,7 +916,7 @@ lines = {
 "translation_key": "I could ask you the same thing, {{GREEN}}! And where did {{PRINCIPAL}} go?",
 "type": "dialogue"
 },
-"29": {
+"52": {
 "character": "{{GREEN}}",
 "character_replacements": [ {
 "expression": [ {
@@ -415,8 +926,8 @@ lines = {
 "value_in_text": "{{GREEN}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "30",
-"parent_id": "20",
+"next_id": "53",
+"parent_id": "43",
 "pauses": {
 },
 "replacements": [  ],
@@ -426,26 +937,7 @@ lines = {
 "translation_key": "I do not know, but maybe this could be a step to solving the mystery?",
 "type": "dialogue"
 },
-"3": {
-"character": "",
-"inline_mutations": [  ],
-"next_id": "4",
-"pauses": {
-},
-"replacements": [ {
-"expression": [ {
-"type": "variable",
-"value": "BLUE"
-} ],
-"value_in_text": "{{BLUE}}"
-} ],
-"speeds": [  ],
-"text": "{{BLUE}} is sitting at a corner and seems surprised to get a visit.",
-"time": null,
-"translation_key": "{{BLUE}} is sitting at a corner and seems surprised to get a visit.",
-"type": "dialogue"
-},
-"30": {
+"53": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -458,65 +950,203 @@ lines = {
 "value": true
 } ]
 },
-"next_id": "31",
-"parent_id": "20",
+"next_id": "54",
+"parent_id": "33",
 "type": "mutation"
 },
-"31": {
-"next_id": "9",
-"parent_id": "20",
-"type": "goto"
-},
-"33": {
-"next_id": "35",
-"text": "action_reactivated",
-"type": "title"
-},
-"35": {
-"condition": {
+"54": {
+"mutation": {
 "expression": [ {
 "type": "variable",
 "value": "principal_office_revealed"
 }, {
-"type": "comparison",
-"value": "=="
+"type": "assignment",
+"value": "="
+}, {
+"type": "bool",
+"value": false
+} ]
+},
+"next_id": "55",
+"parent_id": "33",
+"type": "mutation"
+},
+"55": {
+"next_id": "9",
+"parent_id": "33",
+"type": "goto"
+},
+"57": {
+"next_id": "59",
+"text": "action_reactivated",
+"type": "title"
+},
+"59": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "in_blue_space"
+} ]
+},
+"next_conditional_id": "70",
+"next_id": "60",
+"next_id_after": "end",
+"type": "condition"
+},
+"60": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "principal_office_remembered"
+}, {
+"type": "and_or",
+"value": "and"
+}, {
+"type": "not"
+}, {
+"type": "variable",
+"value": "principal_office_revealed"
+} ]
+},
+"next_conditional_id": "67",
+"next_id": "61",
+"next_id_after": "end",
+"parent_id": "59",
+"type": "condition"
+},
+"61": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "in_blue_space"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "bool",
+"value": false
+} ]
+},
+"next_id": "62",
+"parent_id": "60",
+"type": "mutation"
+},
+"62": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "principal_office_revealed"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "bool",
+"value": false
+} ]
+},
+"next_id": "63",
+"parent_id": "60",
+"type": "mutation"
+},
+"63": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "yellow_joined"
+}, {
+"type": "assignment",
+"value": "="
 }, {
 "type": "bool",
 "value": true
 } ]
 },
-"next_conditional_id": "end",
-"next_id": "36",
-"next_id_after": "end",
-"type": "condition"
+"next_id": "64",
+"parent_id": "60",
+"type": "mutation"
 },
-"36": {
+"64": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "blue_joined"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "bool",
+"value": false
+} ]
+},
+"next_id": "65",
+"parent_id": "60",
+"type": "mutation"
+},
+"65": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "37",
-"parent_id": "35",
+"next_id": "66",
+"parent_id": "60",
 "pauses": {
 },
 "replacements": [ {
 "expression": [ {
 "type": "variable",
-"value": "YELLOW"
+"value": "BLUE"
 } ],
-"value_in_text": "{{YELLOW}}"
+"value_in_text": "{{BLUE}}"
 }, {
 "expression": [ {
 "type": "variable",
-"value": "REVEALER"
+"value": "GREEN"
 } ],
-"value_in_text": "{{REVEALER}}"
+"value_in_text": "{{GREEN}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "PRINCIPAL"
+} ],
+"value_in_text": "{{PRINCIPAL}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "REAL_SPACE"
+} ],
+"value_in_text": "{{REAL_SPACE}}"
 } ],
 "speeds": [  ],
-"text": "{{YELLOW}} attempts peek through the {{REVEALER}}, there is nothing to see but blue mist.",
+"text": "{{BLUE}} remembers when {{GREEN}} was visiting during detention. The office of {{PRINCIPAL}} from the {{REAL_SPACE}} can be seen.",
 "time": null,
-"translation_key": "{{YELLOW}} attempts peek through the {{REVEALER}}, there is nothing to see but blue mist.",
+"translation_key": "{{BLUE}} remembers when {{GREEN}} was visiting during detention. The office of {{PRINCIPAL}} from the {{REAL_SPACE}} can be seen.",
 "type": "dialogue"
 },
-"37": {
+"66": {
+"next_id": "9",
+"parent_id": "60",
+"type": "goto"
+},
+"67": {
+"next_conditional_id": "end",
+"next_id": "68",
+"next_id_after": "end",
+"parent_id": "59",
+"type": "condition"
+},
+"68": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "69",
+"parent_id": "67",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "No problems here.",
+"time": null,
+"translation_key": "No problems here.",
+"type": "dialogue"
+},
+"69": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -530,33 +1160,72 @@ lines = {
 } ]
 },
 "next_id": "end",
-"parent_id": "35",
+"parent_id": "67",
 "type": "mutation"
 },
-"39": {
-"next_id": "41",
-"text": "interact_blue",
+"7": {
+"next_id": "9",
+"text": "visit",
 "type": "title"
 },
-"4": {
-"next_id": "41",
+"70": {
+"next_conditional_id": "end",
+"next_id": "71",
 "next_id_after": "end",
+"type": "condition"
+},
+"71": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "72",
+"parent_id": "70",
+"pauses": {
+},
 "replacements": [ {
 "expression": [ {
 "type": "variable",
-"value": "BLUE"
+"value": "GREEN"
 } ],
-"value_in_text": "{{BLUE}}"
+"value_in_text": "{{GREEN}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "YELLOW"
 } ],
-"responses": PoolStringArray( "4", "5" ),
-"text": "Sit next to {{BLUE}}",
-"translation_key": "Sit next to {{BLUE}}",
-"type": "response"
+"value_in_text": "{{YELLOW}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "REVEALER"
+} ],
+"value_in_text": "{{REVEALER}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "PRINCIPAL"
+} ],
+"value_in_text": "{{PRINCIPAL}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} Um, this is a time paradox. {{YELLOW}} did not use the {{REVEALER}} in {{PRINCIPAL}} yet.",
+"time": null,
+"translation_key": "{{GREEN}} Um, this is a time paradox. {{YELLOW}} did not use the {{REVEALER}} in {{PRINCIPAL}} yet.",
+"type": "dialogue"
 },
-"41": {
+"72": {
+"next_id": "9",
+"parent_id": "70",
+"type": "goto"
+},
+"74": {
+"next_id": "76",
+"text": "interact_blue",
+"type": "title"
+},
+"76": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "42",
+"next_id": "77",
 "pauses": {
 },
 "replacements": [ {
@@ -578,32 +1247,32 @@ lines = {
 "translation_key": "{{GREEN}} sits next to {{BLUE}}.",
 "type": "dialogue"
 },
-"42": {
-"next_id": "41",
+"77": {
+"next_id": "76",
 "next_id_after": "end",
 "replacements": [  ],
-"responses": PoolStringArray( "42", "43" ),
+"responses": PoolStringArray( "77", "78" ),
 "text": "Stay a bit longer",
 "translation_key": "Stay a bit longer",
 "type": "response"
 },
-"43": {
-"next_id": "47",
+"78": {
+"next_id": "82",
 "next_id_after": "end",
 "replacements": [  ],
 "text": "Leave",
 "translation_key": "Leave",
 "type": "response"
 },
-"45": {
-"next_id": "47",
+"80": {
+"next_id": "82",
 "text": "staff_corridor_end",
 "type": "title"
 },
-"47": {
+"82": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "48",
+"next_id": "83",
 "pauses": {
 },
 "replacements": [ {
@@ -619,7 +1288,7 @@ lines = {
 "translation_key": "{{GREEN}} leaves the office.",
 "type": "dialogue"
 },
-"48": {
+"83": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -634,19 +1303,6 @@ lines = {
 },
 "next_id": "",
 "type": "mutation"
-},
-"5": {
-"next_id": "47",
-"next_id_after": "end",
-"replacements": [  ],
-"text": "Leave",
-"translation_key": "Leave",
-"type": "response"
-},
-"7": {
-"next_id": "9",
-"text": "visit",
-"type": "title"
 },
 "9": {
 "character": "",

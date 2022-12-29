@@ -27,18 +27,22 @@ var CIRRUSENG = "Cirruseng"
 var GREAT_HALL = "Great Hall"
 
 var REVEALER = "Revealing Eyepiece"
+var TRAVELLER = "Remembering"
 
 var FUTURE = "Real Transcripts of Real Fortune Telling (TM)"
 var SHADOW = "Shadow"
 
 var action_names = {
-	REVEALER: "Reveal"
+	REVEALER: "Reveal",
+	TRAVELLER: "Remember",
 }
 
 var action_keys = {
-	REVEALER: "z"
+	REVEALER: "z",
+	TRAVELLER: "x",
 }
 
 var action_suffix = {
-	REVEALER: "revealed"
+	REVEALER: "revealed",
+	TRAVELLER: "remembered",
 }

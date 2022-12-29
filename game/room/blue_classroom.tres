@@ -60,8 +60,9 @@ set next = \"blue_corridor_end\"
 - Could you tell me more about this friend floating above my head? => ouroboros
 - Tell me about the main subject taught in this classroom. => blue_aspect
 - What is the {{DUAL_SPACE}}? => dual_space
-- Do you know of any other students who entered the {{DUAL_SPACE}} recently? [if not is_blue_joined()] => guidance
 - Could you explain the except you mentioned when we met? => blue_father
+- Do you know of any other students who entered the {{DUAL_SPACE}} recently? [if not is_blue_joined()] => guidance
+- Do you know if time travelling really is possible? [if is_blue_joined()] => time_travel
 - Leave => blue_corridor_end
 
 ~ ouroboros
@@ -101,18 +102,24 @@ set next = \"blue_corridor_end\"
 {{GREEN}}: Yes, the student's name is {{BLUE}}. The student enrolled today and I am showing them around the school.
 {{BLUE_TEACHER}}: I have not heard of this student. If you suspect that more students have arrived to the {{DUAL_SPACE}} recently, feel free to search for them.
 => talk
-"
+
+~ time_travel
+
+{{BLUE_TEACHER}}: My general answer is no. Like you suggest, neither have I seen any evidence that time travelling is possible. Even if we assume that reality itself from the past is recreated, that reality would not be the past. According to our scientific understanding, nature is inherently uncertain and therefore no perfect copies can be created.
+{{GREEN}} gives a contemplative look.
+=> talk"
 errors = [  ]
 titles = {
-"blue_aspect": "75",
+"blue_aspect": "76",
 "blue_corridor_end": "46",
-"blue_father": "66",
-"dual_space": "83",
+"blue_father": "67",
+"dual_space": "84",
 "execute_action": "41",
 "first_visit": "2",
-"guidance": "92",
-"ouroboros": "61",
+"guidance": "93",
+"ouroboros": "62",
 "talk": "51",
+"time_travel": "100",
 "visit": "17"
 }
 lines = {
@@ -140,6 +147,49 @@ lines = {
 "time": null,
 "translation_key": "{{BLUE_TEACHER}} changes to a more informal tone.",
 "type": "dialogue"
+},
+"100": {
+"character": "{{BLUE_TEACHER}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE_TEACHER"
+} ],
+"value_in_text": "{{BLUE_TEACHER}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "101",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "My general answer is no. Like you suggest, neither have I seen any evidence that time travelling is possible. Even if we assume that reality itself from the past is recreated, that reality would not be the past. According to our scientific understanding, nature is inherently uncertain and therefore no perfect copies can be created.",
+"time": null,
+"translation_key": "My general answer is no. Like you suggest, neither have I seen any evidence that time travelling is possible. Even if we assume that reality itself from the past is recreated, that reality would not be the past. According to our scientific understanding, nature is inherently uncertain and therefore no perfect copies can be created.",
+"type": "dialogue"
+},
+"101": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "102",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} gives a contemplative look.",
+"time": null,
+"translation_key": "{{GREEN}} gives a contemplative look.",
+"type": "dialogue"
+},
+"102": {
+"next_id": "51",
+"type": "goto"
 },
 "11": {
 "character": "{{BLUE_TEACHER}}",
@@ -775,16 +825,16 @@ lines = {
 "type": "dialogue"
 },
 "52": {
-"next_id": "61",
+"next_id": "62",
 "next_id_after": "end",
 "replacements": [  ],
-"responses": PoolStringArray( "52", "53", "54", "55", "56", "57" ),
+"responses": PoolStringArray( "52", "53", "54", "55", "56", "57", "58" ),
 "text": "Could you tell me more about this friend floating above my head?",
 "translation_key": "Could you tell me more about this friend floating above my head?",
 "type": "response"
 },
 "53": {
-"next_id": "75",
+"next_id": "76",
 "next_id_after": "end",
 "replacements": [  ],
 "text": "Tell me about the main subject taught in this classroom.",
@@ -792,7 +842,7 @@ lines = {
 "type": "response"
 },
 "54": {
-"next_id": "83",
+"next_id": "84",
 "next_id_after": "end",
 "replacements": [ {
 "expression": [ {
@@ -806,6 +856,14 @@ lines = {
 "type": "response"
 },
 "55": {
+"next_id": "67",
+"next_id_after": "end",
+"replacements": [  ],
+"text": "Could you explain the except you mentioned when we met?",
+"translation_key": "Could you explain the except you mentioned when we met?",
+"type": "response"
+},
+"56": {
 "condition": {
 "expression": [ {
 "type": "not"
@@ -815,7 +873,7 @@ lines = {
 "value": [  ]
 } ]
 },
-"next_id": "92",
+"next_id": "93",
 "next_id_after": "end",
 "replacements": [ {
 "expression": [ {
@@ -828,26 +886,28 @@ lines = {
 "translation_key": "Do you know of any other students who entered the {{DUAL_SPACE}} recently?",
 "type": "response"
 },
-"56": {
-"next_id": "66",
+"57": {
+"condition": {
+"expression": [ {
+"function": "is_blue_joined",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "100",
 "next_id_after": "end",
 "replacements": [  ],
-"text": "Could you explain the except you mentioned when we met?",
-"translation_key": "Could you explain the except you mentioned when we met?",
+"text": "Do you know if time travelling really is possible?",
+"translation_key": "Do you know if time travelling really is possible?",
 "type": "response"
 },
-"57": {
+"58": {
 "next_id": "46",
 "next_id_after": "end",
 "replacements": [  ],
 "text": "Leave",
 "translation_key": "Leave",
 "type": "response"
-},
-"59": {
-"next_id": "61",
-"text": "ouroboros",
-"type": "title"
 },
 "6": {
 "character": "",
@@ -869,7 +929,12 @@ lines = {
 "translation_key": "The shady figure has a short conversation with that someone before inviting {{GREEN}}.",
 "type": "dialogue"
 },
-"61": {
+"60": {
+"next_id": "62",
+"text": "ouroboros",
+"type": "title"
+},
+"62": {
 "character": "{{BLUE_TEACHER}}",
 "character_replacements": [ {
 "expression": [ {
@@ -879,7 +944,7 @@ lines = {
 "value_in_text": "{{BLUE_TEACHER}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "62",
+"next_id": "63",
 "pauses": {
 },
 "replacements": [ {
@@ -907,16 +972,16 @@ lines = {
 "translation_key": "{{OUROBOROS}} is a magical creature that I have been designated to take care of since I became head teacher of the {{BLUE_ASPECT}} aspect. Like other tameable magical creatures in this school, {{OUROBOROS}} is granted power of a deity, as told by historical records. Although, we are still searching for key understanding of the power of the Ouroboros.",
 "type": "dialogue"
 },
-"62": {
+"63": {
 "next_id": "51",
 "type": "goto"
 },
-"64": {
-"next_id": "66",
+"65": {
+"next_id": "67",
 "text": "blue_father",
 "type": "title"
 },
-"66": {
+"67": {
 "character": "{{GREEN}}",
 "character_replacements": [ {
 "expression": [ {
@@ -926,7 +991,7 @@ lines = {
 "value_in_text": "{{GREEN}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "67",
+"next_id": "68",
 "pauses": {
 },
 "replacements": [ {
@@ -948,7 +1013,7 @@ lines = {
 "translation_key": "\"When the {{WISHMAKER}} weaves together the strings of {{CIRRUSENG}}, the fate of the new world has been set in motion.\" What does this mean?",
 "type": "dialogue"
 },
-"67": {
+"68": {
 "character": "{{BLUE_TEACHER}}",
 "character_replacements": [ {
 "expression": [ {
@@ -958,7 +1023,7 @@ lines = {
 "value_in_text": "{{BLUE_TEACHER}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "68",
+"next_id": "69",
 "pauses": {
 },
 "replacements": [ {
@@ -986,7 +1051,7 @@ lines = {
 "translation_key": "This is written in the last work from {{BLUE_FATHER}}, commonly referred to as the highest authority of {{BLUE_ASPECT}} aspect research. Many regard the {{BLUE_FATHER}}'s prophecies as that of a deity, although to me it is an important conclusion of a fellow magi-scientist's work.",
 "type": "dialogue"
 },
-"68": {
+"69": {
 "character": "{{GREEN}}",
 "character_replacements": [ {
 "expression": [ {
@@ -994,32 +1059,6 @@ lines = {
 "value": "GREEN"
 } ],
 "value_in_text": "{{GREEN}}"
-} ],
-"inline_mutations": [  ],
-"next_id": "69",
-"pauses": {
-},
-"replacements": [ {
-"expression": [ {
-"type": "variable",
-"value": "BLUE_FATHER"
-} ],
-"value_in_text": "{{BLUE_FATHER}}"
-} ],
-"speeds": [  ],
-"text": "Oh, so does {{BLUE_FATHER}} and you study future sight?",
-"time": null,
-"translation_key": "Oh, so does {{BLUE_FATHER}} and you study future sight?",
-"type": "dialogue"
-},
-"69": {
-"character": "{{BLUE_TEACHER}}",
-"character_replacements": [ {
-"expression": [ {
-"type": "variable",
-"value": "BLUE_TEACHER"
-} ],
-"value_in_text": "{{BLUE_TEACHER}}"
 } ],
 "inline_mutations": [  ],
 "next_id": "70",
@@ -1033,9 +1072,9 @@ lines = {
 "value_in_text": "{{BLUE_FATHER}}"
 } ],
 "speeds": [  ],
-"text": "No. My greater priority is care of my students. As for {{BLUE_FATHER}} it is rather the contrary. The work is a warning to political powers that wish to use future sight for commercial use. I picked this quote in particular since it is the most mysterious, and I was hoping that you would make something out of it.",
+"text": "Oh, so does {{BLUE_FATHER}} and you study future sight?",
 "time": null,
-"translation_key": "No. My greater priority is care of my students. As for {{BLUE_FATHER}} it is rather the contrary. The work is a warning to political powers that wish to use future sight for commercial use. I picked this quote in particular since it is the most mysterious, and I was hoping that you would make something out of it.",
+"translation_key": "Oh, so does {{BLUE_FATHER}} and you study future sight?",
 "type": "dialogue"
 },
 "7": {
@@ -1072,9 +1111,35 @@ lines = {
 "type": "dialogue"
 },
 "70": {
-"character": "",
+"character": "{{BLUE_TEACHER}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE_TEACHER"
+} ],
+"value_in_text": "{{BLUE_TEACHER}}"
+} ],
 "inline_mutations": [  ],
 "next_id": "71",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE_FATHER"
+} ],
+"value_in_text": "{{BLUE_FATHER}}"
+} ],
+"speeds": [  ],
+"text": "No. My greater priority is care of my students. As for {{BLUE_FATHER}} it is rather the contrary. The work is a warning to political powers that wish to use future sight for commercial use. I picked this quote in particular since it is the most mysterious, and I was hoping that you would make something out of it.",
+"time": null,
+"translation_key": "No. My greater priority is care of my students. As for {{BLUE_FATHER}} it is rather the contrary. The work is a warning to political powers that wish to use future sight for commercial use. I picked this quote in particular since it is the most mysterious, and I was hoping that you would make something out of it.",
+"type": "dialogue"
+},
+"71": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "72",
 "pauses": {
 },
 "replacements": [ {
@@ -1090,16 +1155,16 @@ lines = {
 "translation_key": "{{GREEN}} gives a comtemplative look.",
 "type": "dialogue"
 },
-"71": {
+"72": {
 "next_id": "51",
 "type": "goto"
 },
-"73": {
-"next_id": "75",
+"74": {
+"next_id": "76",
 "text": "blue_aspect",
 "type": "title"
 },
-"75": {
+"76": {
 "character": "{{BLUE_TEACHER}}",
 "character_replacements": [ {
 "expression": [ {
@@ -1109,7 +1174,7 @@ lines = {
 "value_in_text": "{{BLUE_TEACHER}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "76",
+"next_id": "77",
 "pauses": {
 },
 "replacements": [ {
@@ -1125,7 +1190,7 @@ lines = {
 "translation_key": "This is the main classroom for the {{BLUE_ASPECT}} aspect. Unlike the other magic practice classes, our abilities are more a matter of knowing the rules and responsibility of use.",
 "type": "dialogue"
 },
-"76": {
+"77": {
 "character": "{{GREEN}}",
 "character_replacements": [ {
 "expression": [ {
@@ -1135,7 +1200,7 @@ lines = {
 "value_in_text": "{{GREEN}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "77",
+"next_id": "78",
 "pauses": {
 },
 "replacements": [ {
@@ -1151,10 +1216,10 @@ lines = {
 "translation_key": "I'm sorry to interrupt, but I have not heard of this {{BLUE_ASPECT}} aspect before. Is it perhaps a secret?",
 "type": "dialogue"
 },
-"77": {
+"78": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "78",
+"next_id": "79",
 "pauses": {
 },
 "replacements": [ {
@@ -1170,7 +1235,7 @@ lines = {
 "translation_key": "{{BLUE_TEACHER}} pauses and gives a curious look.",
 "type": "dialogue"
 },
-"78": {
+"79": {
 "character": "{{BLUE_TEACHER}}",
 "character_replacements": [ {
 "expression": [ {
@@ -1180,7 +1245,7 @@ lines = {
 "value_in_text": "{{BLUE_TEACHER}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "79",
+"next_id": "80",
 "pauses": {
 },
 "replacements": [ {
@@ -1195,10 +1260,6 @@ lines = {
 "time": null,
 "translation_key": "That... is yet another mystery that we need to solve. However, our students and I are currently puzzled by the fact that we can no longer return to the {{REAL_SPACE}}. Which is why your arrival is so surprising.",
 "type": "dialogue"
-},
-"79": {
-"next_id": "51",
-"type": "goto"
 },
 "8": {
 "character": "",
@@ -1220,12 +1281,16 @@ lines = {
 "translation_key": "{{GREEN}} looks confused.",
 "type": "dialogue"
 },
-"81": {
-"next_id": "83",
+"80": {
+"next_id": "51",
+"type": "goto"
+},
+"82": {
+"next_id": "84",
 "text": "dual_space",
 "type": "title"
 },
-"83": {
+"84": {
 "character": "{{BLUE_TEACHER}}",
 "character_replacements": [ {
 "expression": [ {
@@ -1235,7 +1300,7 @@ lines = {
 "value_in_text": "{{BLUE_TEACHER}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "84",
+"next_id": "85",
 "pauses": {
 },
 "replacements": [ {
@@ -1275,10 +1340,10 @@ lines = {
 "translation_key": "Like the duality between the mind and the soul, or the duality between a particle and a wave, the {{DUAL_SPACE}} and {{REAL_SPACE}} are two sides of the same entity which we perceive as reality. A {{BLUE_ASPECT}} mage can learn to travel between the two. However, altering the {{DUAL_SPACE}} also alters the {{REAL_SPACE}} in a corresponding way. Therefore, the travelling is highly restrictive.",
 "type": "dialogue"
 },
-"84": {
+"85": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "85",
+"next_id": "86",
 "pauses": {
 },
 "replacements": [ {
@@ -1294,7 +1359,7 @@ lines = {
 "translation_key": "{{GREEN}} nods understandingly.",
 "type": "dialogue"
 },
-"85": {
+"86": {
 "character": "{{BLUE_TEACHER}}",
 "character_replacements": [ {
 "expression": [ {
@@ -1304,7 +1369,7 @@ lines = {
 "value_in_text": "{{BLUE_TEACHER}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "86",
+"next_id": "87",
 "pauses": {
 },
 "replacements": [ {
@@ -1320,7 +1385,7 @@ lines = {
 "translation_key": "Although, I and my students are in a serious conundrum, as we have been unable to return to the {{REAL_SPACE}} for a long time. My students fear the worst, but I will continue to resolve this mystery. Your arrival sparks a small hope for us.",
 "type": "dialogue"
 },
-"86": {
+"87": {
 "character": "{{GREEN}}",
 "character_replacements": [ {
 "expression": [ {
@@ -1330,7 +1395,7 @@ lines = {
 "value_in_text": "{{GREEN}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "87",
+"next_id": "88",
 "pauses": {
 },
 "replacements": [  ],
@@ -1340,7 +1405,7 @@ lines = {
 "translation_key": "This is concerning. I will help you and your students return.",
 "type": "dialogue"
 },
-"87": {
+"88": {
 "character": "{{BLUE_TEACHER}}",
 "character_replacements": [ {
 "expression": [ {
@@ -1350,7 +1415,7 @@ lines = {
 "value_in_text": "{{BLUE_TEACHER}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "88",
+"next_id": "89",
 "pauses": {
 },
 "replacements": [  ],
@@ -1360,7 +1425,7 @@ lines = {
 "translation_key": "I am devoted to be of your help as much as I can.",
 "type": "dialogue"
 },
-"88": {
+"89": {
 "next_id": "51",
 "type": "goto"
 },
@@ -1391,12 +1456,12 @@ lines = {
 "translation_key": "That which I just told you, is an excerpt from {{BLUE_FATHER}}'s last conclusion.",
 "type": "dialogue"
 },
-"90": {
-"next_id": "92",
+"91": {
+"next_id": "93",
 "text": "guidance",
 "type": "title"
 },
-"92": {
+"93": {
 "character": "{{BLUE_TEACHER}}",
 "character_replacements": [ {
 "expression": [ {
@@ -1406,7 +1471,7 @@ lines = {
 "value_in_text": "{{BLUE_TEACHER}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "93",
+"next_id": "94",
 "pauses": {
 },
 "replacements": [  ],
@@ -1416,7 +1481,7 @@ lines = {
 "translation_key": "Are you thinking of any particular student?",
 "type": "dialogue"
 },
-"93": {
+"94": {
 "character": "{{GREEN}}",
 "character_replacements": [ {
 "expression": [ {
@@ -1426,7 +1491,7 @@ lines = {
 "value_in_text": "{{GREEN}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "94",
+"next_id": "95",
 "pauses": {
 },
 "replacements": [ {
@@ -1442,7 +1507,7 @@ lines = {
 "translation_key": "Yes, the student's name is {{BLUE}}. The student enrolled today and I am showing them around the school.",
 "type": "dialogue"
 },
-"94": {
+"95": {
 "character": "{{BLUE_TEACHER}}",
 "character_replacements": [ {
 "expression": [ {
@@ -1452,7 +1517,7 @@ lines = {
 "value_in_text": "{{BLUE_TEACHER}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "95",
+"next_id": "96",
 "pauses": {
 },
 "replacements": [ {
@@ -1468,8 +1533,13 @@ lines = {
 "translation_key": "I have not heard of this student. If you suspect that more students have arrived to the {{DUAL_SPACE}} recently, feel free to search for them.",
 "type": "dialogue"
 },
-"95": {
+"96": {
 "next_id": "51",
 "type": "goto"
+},
+"98": {
+"next_id": "100",
+"text": "time_travel",
+"type": "title"
 }
 }

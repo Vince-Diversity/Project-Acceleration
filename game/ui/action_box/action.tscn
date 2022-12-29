@@ -5,6 +5,7 @@
 [node name="Action" type="Control"]
 margin_right = 60.0
 margin_bottom = 40.0
+rect_min_size = Vector2( 60, 40 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
