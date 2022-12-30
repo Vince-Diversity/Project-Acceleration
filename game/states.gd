@@ -21,8 +21,12 @@ var property_list = [
 	"has_ouroboros",
 	"principal_office_revealed",
 	"principal_office_remembered",
+	"principal_office_burned",
 	"library_revealed",
 	"library_remembered",
+	"library_burned",
+	"talked_to_red",
+	"red_joined",
 ]
 
 # Storing states as properties like this is required by the Dialogue addon
@@ -35,13 +39,17 @@ var court_ended: bool
 var yellow_joined: bool
 var has_ouroboros: bool
 var blue_joined: bool
+var talked_to_red: bool
+var red_joined: bool
 
 # Format is ROOM_NAME_SUFFIX
 var cat_lab_revealed: bool
 var principal_office_revealed: bool
 var principal_office_remembered: bool
+var principal_office_burned: bool
 var library_revealed: bool
 var library_remembered: bool
+var library_burned: bool
 
 func is_in_blue_space() -> bool:
 	return in_blue_space

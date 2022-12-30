@@ -1,0 +1,144 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/dialogue_manager/dialogue_resource.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+syntax_version = 2
+raw_text = "~ first_visit
+
+=> visit
+
+~ visit
+
+The team walks in a dark, misty corridor. The corridor ends with a door.
+- Enter the door => forbidden_room
+
+~ execute_action
+
+No problems here.
+set next = current_room
+
+~ forbidden_room
+
+{{GREEN}} opens the door.
+set next = \"forbidden_room\""
+errors = [  ]
+titles = {
+"execute_action": "11",
+"first_visit": "2",
+"forbidden_room": "16",
+"visit": "6"
+}
+lines = {
+"0": {
+"next_id": "2",
+"text": "first_visit",
+"type": "title"
+},
+"11": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "12",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "No problems here.",
+"time": null,
+"translation_key": "No problems here.",
+"type": "dialogue"
+},
+"12": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "variable",
+"value": "current_room"
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"14": {
+"next_id": "16",
+"text": "forbidden_room",
+"type": "title"
+},
+"16": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "17",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} opens the door.",
+"time": null,
+"translation_key": "{{GREEN}} opens the door.",
+"type": "dialogue"
+},
+"17": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "forbidden_room"
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"2": {
+"next_id": "6",
+"type": "goto"
+},
+"4": {
+"next_id": "6",
+"text": "visit",
+"type": "title"
+},
+"6": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "7",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "The team walks in a dark, misty corridor. The corridor ends with a door.",
+"time": null,
+"translation_key": "The team walks in a dark, misty corridor. The corridor ends with a door.",
+"type": "dialogue"
+},
+"7": {
+"next_id": "16",
+"next_id_after": "end",
+"replacements": [  ],
+"responses": PoolStringArray( "7" ),
+"text": "Enter the door",
+"translation_key": "Enter the door",
+"type": "response"
+},
+"9": {
+"next_id": "11",
+"text": "execute_action",
+"type": "title"
+}
+}

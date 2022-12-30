@@ -9,6 +9,8 @@ func load_actions(input_node):
 		add_action(input_node, Names.REVEALER)
 	if States.blue_joined and States.has_ouroboros:
 		add_action(input_node, Names.TRAVELLER)
+	if States.red_joined:
+		add_action(input_node, Names.IGNITER)
 	input_node.connect("action_input", self, "_on_action_input")
 	connect("action_reactivated", input_node, "_on_Action_reactivated")
 

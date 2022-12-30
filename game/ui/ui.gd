@@ -20,6 +20,10 @@ func _unhandled_key_input(event):
 		emit_signal("action_input", true, Names.TRAVELLER)
 	if event.is_action_released("ui_action_1"):
 		emit_signal("action_input", false, Names.TRAVELLER)
+	if event.is_action_pressed("ui_action_2"):
+		emit_signal("action_input", true, Names.IGNITER)
+	if event.is_action_released("ui_action_2"):
+		emit_signal("action_input", false, Names.IGNITER)
 
 func load_ui():
 	text_box.input_node = self

@@ -10,7 +10,7 @@ raw_text = "~ first_visit
 At the center of the library with multiple open floors. It is a quiet, echoing building of books, with creepy towering bookcases.
 if blue_joined == true
 	{{GREEN}}: We need to be quiet in the library, let's show you around.
-	They walked around each floor. There are sections for all kinds of magiscientific knowledge. Anatomy and transformation, Alchemy and chemistry, Apparations and optics, Botanics and potions, Culture, Defensive arts, Economy, Ethics, Far-fetcheded arts, Foresight, ...
+	They walked around each floor. There are sections for all kinds of magi-scientific knowledge. Anatomy and transformation, Alchemy and chemistry, Apparations and optics, Botanics and potions, Culture, Defensive arts, Economy, Ethics, Far-fetcheded arts, Foresight, ...
 	{{GREEN}}: {{BLUE}}? Where did you go?
 	{{BLUE}} was starting intensely on one of the editions of {{FUTURE}}.
 	{{GREEN}}: I know there are awfully many volumes of {{FUTURE}}, but if you stare this hard you might make a hole in this book!
@@ -82,10 +82,11 @@ else
 		{{GREEN}} is in the library.
 		{{GREEN}}: Let's not explore too much so the same event doesn't happen again!
 		- Go back to the main building => knowledge_hallway
+		- Explore anyways => again
 
 ~ execute_action
 if in_blue_space
-	if library_remembered and not library_revealed
+	if library_remembered and not library_revealed and not library_burned
 		set in_blue_space = false
 		set court_started = false
 		set court_ended = false
@@ -99,6 +100,8 @@ if in_blue_space
 		{{GREEN}}: You mean {{YELLOW}}? Maybe because we are at a point in time before {{YELLOW}} went with me.
 		{{BLUE}}: I think so too.
 		=> visit
+	elif library_burned
+		=> burn
 	else
 		No problems here.
 		set library_revealed = false
@@ -124,13 +127,17 @@ else
 ~ action_reactivated
 
 if in_blue_space
-	if library_remembered and not library_revealed
+	if library_remembered and not library_revealed and not library_burned
 		set in_blue_space = false
 		set court_started = false
 		set court_ended = false
 		set principal_office_revealed = false
 		set yellow_joined = true
+		set red_joined = false
 		{{BLUE}} remembers how {{GREEN}} was showing the different floors of the library. For a split second, the surrounding turned blinding white. As the view was recovering, the library from the {{REAL_SPACE}} can be seen.
+		=> visit
+	elif library_burned
+		{{RED}}: We already did that, {{GREEN}}!
 		=> visit
 	else
 		No problems here.
@@ -140,7 +147,6 @@ else
 		set in_blue_space = true
 		set court_started = true
 		set court_ended = true
-		set principal_office_revealed = true
 		set yellow_joined = true
 		{{BLUE}} remembers when {{GREEN}} and {{YELLOW}} appeared in the {{DUAL_SPACE}}. The library from the {{DUAL_SPACE}} can be seen.
 		On {{GREEN}}'s head, {{OUROBOROS}} is floating in circles.
@@ -166,21 +172,78 @@ Students and staff rushed out. {{GREEN}} carried {{BLUE}} out. At the passage to
 set court_started = true
 set next = \"great_hall\"
 
+~ again
+
+Carelessly, {{GREEN}} walked towards the many volumes of {{FUTURE}} again. Suddenly, the volumes caught on fire, again!
+{{GREEN}}: Maybe this wasn't the best idea...
+A moment later, the entire bookcase was on fire. It spread at an impossible speed and engulfed the whole floor before people started to notice.
+=> escape
+
+
 ~ wait_for_travel
 
 set yellow_joined = false
 {{BLUE}} concentrates on the surrounding.
 - Wait => wait_for_travel
+
+~ burn
+
+{{GREEN}} guides the team to the location of the volumes of {{FUTURE}}.
+{{GREEN}}: This is where the fire started in our dimension. Is it ok if you could help us cast a fire spell here?
+{{RED}} looks concerned.
+{{RED}}: {{GREEN}}, can we pause for a bit? Do you know why we are doing this?
+{{GREEN}}: Sort of. The students in this dimension seem to be trapped and {{BLUE}} told me that we need to do this.
+{{RED}}: I don't know about that. Causing a fire is no small business and I have no understanding of how altering things here will influence reality. How sure are we about the consequences of this action?
+{{GREEN}}: We do not have more information to go from, right?
+{{YELLOW}}: Agreed. Sometimes, taking a chance is the only way to move forward!
+{{RED}}: Is that it? I'm sorry, but I wouldn't trust a student I just met and just take a chance like this! This is far too rash of you.
+{{BLUE}}: I understand why you are doubtful {{RED}}. All of this is just because of the voice of my father that I can hear, telling me that this is the right thing. If you think I am crazy, I would understand that...
+{{RED}} takes a moment to think.
+{{RED}}: While it is true that I am doubtful, I still want to help in this situation. However, as you should know {{GREEN}}, the energy that a {{RED_ASPECT}} mage can conjure diminishes very strongly when forced.
+{{GREEN}}: I know that! Otherwise, I could have just suggested we time travel back if things go wrong.
+{{RED}}: I'm sorry, but what? Are you suggesting that you can travel back in time too, now?
+{{GREEN}}: Oh, did I forget to mention it earlier? I'm so sorry, I forgot to tell you about it! We escaped this dimension by going back through {{BLUE}}'s memories, and after that I also knew I needed you to come with us!
+{{RED}} takes another moment to think about it.
+{{RED}}: So am I correct if I say we only have two options now? Either, we act now, or we go back in time, somehow, to further contemplate on our actions.
+{{YELLOW}}: Hold on, when did we start time-travelling? I have no recollection of that!
+{{GREEN}}: You don't? That is strange, I still had my memories when I went back to the real world. {{BLUE}}, do you know why?
+{{BLUE}}: No... I didn't even know you could enter this place to begin with...
+{{BLUE}} looks for the cause, the mysterious creature floating above {{GREEN}}'s head might be a reason, but {{BLUE}} does not know how to explain that.
+{{RED}}: Okay, so my second option is instead, that when we somehow go back in time, I will have forgotten that we entered this place. It would be as if I never knew that this even happened. Unless, I started to trust you more.
+{{GREEN}}: I think so too. I might try to look around here again and try to find new evidence for building our trust for {{BLUE}} here. I feel obliged to continue trying, because I am your mentor, {{BLUE}}, and I promised to help you so that you can have a future in this school!
+{{RED}} is reminded of what happened at the {{GREAT_HALL}}. The creature above {{GREEN}}'s head starts to shine and {{RED}} made a decision.
+{{RED}}: You do not need to do that, {{GREEN}}, not anymore.
+{{GREEN}}: Anymore? What do you mean...
+Before {{GREEN}} had the chance to speak, the floor and bookcases start to shake violently. {{RED}} is gathering energy.
+{{YELLOW}}: Yikes, you could have warned us.
+{{RED}}: Get somewhere safe, now!
+{{YELLOW}} took {{GREEN}} and {{BLUE}} to the entrance of the library instantly.
+{{RED}} remembers {{RED_TEACHER}}'s voice, \"Show them your devotion!\", and engulfes the library in a great fire. Yet, {{RED}} controlled the fire skilfully.
+{{YELLOW}}: This is so much energy! How is {{RED}} doing this? Who exactly is your friend, {{GREEN}}?
+{{GREEN}} just watches the great display in awe. The burning is going much faster than naturally, it did not take long before all books have been turned into ash. As {{RED}} took care of the remaining smoke, {{GREEN}} sees that a door appeared in front of the entrance.
+{{BLUE}}: Look! A door appeared!
+{{GREEN}}: I had completely forgotten that there is a small study room there!
+{{RED}} walks down to the entrance and notices the door.
+{{RED}}: So did I. But I noticed some of the books had some strange effects to my spell. Perhaps those books were enchanted to seal away this forgotten door?
+=> forbidden_corridor
+
+~ forbidden_corridor
+
+{{GREEN}} slowly enters the forgotten door.
+set next = \"forbidden_corridor_end\"
 "
 errors = [  ]
 titles = {
-"action_reactivated": "118",
-"escape": "155",
-"execute_action": "79",
+"action_reactivated": "121",
+"again": "169",
+"burn": "183",
+"escape": "161",
+"execute_action": "80",
 "first_visit": "2",
-"knowledge_hallway": "150",
+"forbidden_corridor": "224",
+"knowledge_hallway": "156",
 "visit": "19",
-"wait_for_travel": "163"
+"wait_for_travel": "177"
 }
 lines = {
 "0": {
@@ -213,6 +276,42 @@ lines = {
 "mutation": {
 "expression": [ {
 "type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "variable",
+"value": "current_room"
+} ]
+},
+"next_id": "end",
+"parent_id": "97",
+"type": "mutation"
+},
+"101": {
+"next_conditional_id": "end",
+"next_id": "102",
+"next_id_after": "end",
+"type": "condition"
+},
+"102": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "library_remembered"
+} ]
+},
+"next_conditional_id": "115",
+"next_id": "103",
+"next_id_after": "end",
+"parent_id": "101",
+"type": "condition"
+},
+"103": {
+"mutation": {
+"expression": [ {
+"type": "variable",
 "value": "in_blue_space"
 }, {
 "type": "assignment",
@@ -222,11 +321,11 @@ lines = {
 "value": true
 } ]
 },
-"next_id": "101",
-"parent_id": "99",
+"next_id": "104",
+"parent_id": "102",
 "type": "mutation"
 },
-"101": {
+"104": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -239,11 +338,11 @@ lines = {
 "value": true
 } ]
 },
-"next_id": "102",
-"parent_id": "99",
+"next_id": "105",
+"parent_id": "102",
 "type": "mutation"
 },
-"102": {
+"105": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -256,11 +355,11 @@ lines = {
 "value": true
 } ]
 },
-"next_id": "103",
-"parent_id": "99",
+"next_id": "106",
+"parent_id": "102",
 "type": "mutation"
 },
-"103": {
+"106": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -273,11 +372,11 @@ lines = {
 "value": true
 } ]
 },
-"next_id": "104",
-"parent_id": "99",
+"next_id": "107",
+"parent_id": "102",
 "type": "mutation"
 },
-"104": {
+"107": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -290,15 +389,15 @@ lines = {
 "value": true
 } ]
 },
-"next_id": "105",
-"parent_id": "99",
+"next_id": "108",
+"parent_id": "102",
 "type": "mutation"
 },
-"105": {
+"108": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "106",
-"parent_id": "99",
+"next_id": "109",
+"parent_id": "102",
 "pauses": {
 },
 "replacements": [ {
@@ -338,11 +437,11 @@ lines = {
 "translation_key": "{{BLUE}} remembers when {{GREEN}} and {{YELLOW}} appeared in the {{DUAL_SPACE}}. The library from the {{DUAL_SPACE}} can be seen.",
 "type": "dialogue"
 },
-"106": {
+"109": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "107",
-"parent_id": "99",
+"next_id": "110",
+"parent_id": "102",
 "pauses": {
 },
 "replacements": [ {
@@ -364,7 +463,21 @@ lines = {
 "translation_key": "On {{GREEN}}'s head, {{OUROBOROS}} is floating in circles.",
 "type": "dialogue"
 },
-"107": {
+"11": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "12",
+"parent_id": "3",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "A moment later, the entire bookcase was on fire. It spread at an impossible speed and engulfed the whole floor before people started to notice.",
+"time": null,
+"translation_key": "A moment later, the entire bookcase was on fire. It spread at an impossible speed and engulfed the whole floor before people started to notice.",
+"type": "dialogue"
+},
+"110": {
 "character": "{{OUROBOROS}}",
 "character_replacements": [ {
 "expression": [ {
@@ -374,8 +487,8 @@ lines = {
 "value_in_text": "{{OUROBOROS}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "108",
-"parent_id": "99",
+"next_id": "111",
+"parent_id": "102",
 "pauses": {
 },
 "replacements": [  ],
@@ -385,7 +498,7 @@ lines = {
 "translation_key": "Hi again! I've been waiting for you.",
 "type": "dialogue"
 },
-"108": {
+"111": {
 "character": "{{GREEN}}",
 "character_replacements": [ {
 "expression": [ {
@@ -395,8 +508,8 @@ lines = {
 "value_in_text": "{{GREEN}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "109",
-"parent_id": "99",
+"next_id": "112",
+"parent_id": "102",
 "pauses": {
 },
 "replacements": [ {
@@ -418,7 +531,7 @@ lines = {
 "translation_key": "Hi {{OUROBOROS}}, and {{YELLOW}} too!",
 "type": "dialogue"
 },
-"109": {
+"112": {
 "character": "{{YELLOW}}",
 "character_replacements": [ {
 "expression": [ {
@@ -428,8 +541,8 @@ lines = {
 "value_in_text": "{{YELLOW}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "110",
-"parent_id": "99",
+"next_id": "113",
+"parent_id": "102",
 "pauses": {
 },
 "replacements": [  ],
@@ -439,21 +552,7 @@ lines = {
 "translation_key": "Huh? What's with the random hellos?",
 "type": "dialogue"
 },
-"11": {
-"character": "",
-"inline_mutations": [  ],
-"next_id": "12",
-"parent_id": "3",
-"pauses": {
-},
-"replacements": [  ],
-"speeds": [  ],
-"text": "A moment later, the entire bookcase was on fire. It spread at an impossible speed and engulfed the whole floor before people started to notice.",
-"time": null,
-"translation_key": "A moment later, the entire bookcase was on fire. It spread at an impossible speed and engulfed the whole floor before people started to notice.",
-"type": "dialogue"
-},
-"110": {
+"113": {
 "character": "{{GREEN}}",
 "character_replacements": [ {
 "expression": [ {
@@ -463,8 +562,8 @@ lines = {
 "value_in_text": "{{GREEN}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "111",
-"parent_id": "99",
+"next_id": "114",
+"parent_id": "102",
 "pauses": {
 },
 "replacements": [  ],
@@ -474,23 +573,23 @@ lines = {
 "translation_key": "Oh, right... I forgot. It was nothing.",
 "type": "dialogue"
 },
-"111": {
+"114": {
 "next_id": "19",
-"parent_id": "99",
+"parent_id": "102",
 "type": "goto"
 },
-"112": {
+"115": {
 "next_conditional_id": "end",
-"next_id": "113",
+"next_id": "116",
 "next_id_after": "end",
-"parent_id": "98",
+"parent_id": "101",
 "type": "condition"
 },
-"113": {
+"116": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "114",
-"parent_id": "112",
+"next_id": "117",
+"parent_id": "115",
 "pauses": {
 },
 "replacements": [  ],
@@ -500,7 +599,7 @@ lines = {
 "translation_key": "No problems here.",
 "type": "dialogue"
 },
-"114": {
+"117": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -514,27 +613,32 @@ lines = {
 } ]
 },
 "next_id": "end",
-"parent_id": "112",
+"parent_id": "115",
 "type": "mutation"
 },
-"116": {
-"next_id": "118",
+"119": {
+"next_id": "121",
 "text": "action_reactivated",
 "type": "title"
 },
-"118": {
+"12": {
+"next_id": "161",
+"parent_id": "3",
+"type": "goto"
+},
+"121": {
 "condition": {
 "expression": [ {
 "type": "variable",
 "value": "in_blue_space"
 } ]
 },
-"next_conditional_id": "130",
-"next_id": "119",
+"next_conditional_id": "137",
+"next_id": "122",
 "next_id_after": "end",
 "type": "condition"
 },
-"119": {
+"122": {
 "condition": {
 "expression": [ {
 "type": "variable",
@@ -547,20 +651,23 @@ lines = {
 }, {
 "type": "variable",
 "value": "library_revealed"
+}, {
+"type": "and_or",
+"value": "and"
+}, {
+"type": "not"
+}, {
+"type": "variable",
+"value": "library_burned"
 } ]
 },
-"next_conditional_id": "127",
-"next_id": "120",
+"next_conditional_id": "131",
+"next_id": "123",
 "next_id_after": "end",
-"parent_id": "118",
+"parent_id": "121",
 "type": "condition"
 },
-"12": {
-"next_id": "155",
-"parent_id": "3",
-"type": "goto"
-},
-"120": {
+"123": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -573,11 +680,11 @@ lines = {
 "value": false
 } ]
 },
-"next_id": "121",
-"parent_id": "119",
+"next_id": "124",
+"parent_id": "122",
 "type": "mutation"
 },
-"121": {
+"124": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -590,11 +697,11 @@ lines = {
 "value": false
 } ]
 },
-"next_id": "122",
-"parent_id": "119",
+"next_id": "125",
+"parent_id": "122",
 "type": "mutation"
 },
-"122": {
+"125": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -607,11 +714,11 @@ lines = {
 "value": false
 } ]
 },
-"next_id": "123",
-"parent_id": "119",
+"next_id": "126",
+"parent_id": "122",
 "type": "mutation"
 },
-"123": {
+"126": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -624,11 +731,11 @@ lines = {
 "value": false
 } ]
 },
-"next_id": "124",
-"parent_id": "119",
+"next_id": "127",
+"parent_id": "122",
 "type": "mutation"
 },
-"124": {
+"127": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -641,15 +748,32 @@ lines = {
 "value": true
 } ]
 },
-"next_id": "125",
-"parent_id": "119",
+"next_id": "128",
+"parent_id": "122",
 "type": "mutation"
 },
-"125": {
+"128": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "red_joined"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "bool",
+"value": false
+} ]
+},
+"next_id": "129",
+"parent_id": "122",
+"type": "mutation"
+},
+"129": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "126",
-"parent_id": "119",
+"next_id": "130",
+"parent_id": "122",
 "pauses": {
 },
 "replacements": [ {
@@ -677,23 +801,74 @@ lines = {
 "translation_key": "{{BLUE}} remembers how {{GREEN}} was showing the different floors of the library. For a split second, the surrounding turned blinding white. As the view was recovering, the library from the {{REAL_SPACE}} can be seen.",
 "type": "dialogue"
 },
-"126": {
-"next_id": "19",
-"parent_id": "119",
-"type": "goto"
-},
-"127": {
-"next_conditional_id": "end",
-"next_id": "128",
-"next_id_after": "end",
-"parent_id": "118",
+"13": {
+"next_conditional_id": "15",
+"next_id": "14",
+"next_id_after": "15",
 "type": "condition"
 },
-"128": {
+"130": {
+"next_id": "19",
+"parent_id": "122",
+"type": "goto"
+},
+"131": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "library_burned"
+} ]
+},
+"next_conditional_id": "134",
+"next_id": "132",
+"next_id_after": "end",
+"parent_id": "121",
+"type": "condition"
+},
+"132": {
+"character": "{{RED}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "RED"
+} ],
+"value_in_text": "{{RED}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "133",
+"parent_id": "131",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "We already did that, {{GREEN}}!",
+"time": null,
+"translation_key": "We already did that, {{GREEN}}!",
+"type": "dialogue"
+},
+"133": {
+"next_id": "19",
+"parent_id": "131",
+"type": "goto"
+},
+"134": {
+"next_conditional_id": "end",
+"next_id": "135",
+"next_id_after": "end",
+"parent_id": "121",
+"type": "condition"
+},
+"135": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "129",
-"parent_id": "127",
+"next_id": "136",
+"parent_id": "134",
 "pauses": {
 },
 "replacements": [  ],
@@ -703,7 +878,7 @@ lines = {
 "translation_key": "No problems here.",
 "type": "dialogue"
 },
-"129": {
+"136": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -717,35 +892,29 @@ lines = {
 } ]
 },
 "next_id": "end",
-"parent_id": "127",
+"parent_id": "134",
 "type": "mutation"
 },
-"13": {
-"next_conditional_id": "15",
-"next_id": "14",
-"next_id_after": "15",
-"type": "condition"
-},
-"130": {
+"137": {
 "next_conditional_id": "end",
-"next_id": "131",
+"next_id": "138",
 "next_id_after": "end",
 "type": "condition"
 },
-"131": {
+"138": {
 "condition": {
 "expression": [ {
 "type": "variable",
 "value": "library_remembered"
 } ]
 },
-"next_conditional_id": "144",
-"next_id": "132",
+"next_conditional_id": "150",
+"next_id": "139",
 "next_id_after": "end",
-"parent_id": "130",
+"parent_id": "137",
 "type": "condition"
 },
-"132": {
+"139": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -758,11 +927,32 @@ lines = {
 "value": true
 } ]
 },
-"next_id": "133",
-"parent_id": "131",
+"next_id": "140",
+"parent_id": "138",
 "type": "mutation"
 },
-"133": {
+"14": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "15",
+"parent_id": "13",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "I don't think I'm supposed to be here.",
+"time": null,
+"translation_key": "I don't think I'm supposed to be here.",
+"type": "dialogue"
+},
+"140": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -775,11 +965,11 @@ lines = {
 "value": true
 } ]
 },
-"next_id": "134",
-"parent_id": "131",
+"next_id": "141",
+"parent_id": "138",
 "type": "mutation"
 },
-"134": {
+"141": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -792,28 +982,11 @@ lines = {
 "value": true
 } ]
 },
-"next_id": "135",
-"parent_id": "131",
+"next_id": "142",
+"parent_id": "138",
 "type": "mutation"
 },
-"135": {
-"mutation": {
-"expression": [ {
-"type": "variable",
-"value": "principal_office_revealed"
-}, {
-"type": "assignment",
-"value": "="
-}, {
-"type": "bool",
-"value": true
-} ]
-},
-"next_id": "136",
-"parent_id": "131",
-"type": "mutation"
-},
-"136": {
+"142": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -826,15 +999,15 @@ lines = {
 "value": true
 } ]
 },
-"next_id": "137",
-"parent_id": "131",
+"next_id": "143",
+"parent_id": "138",
 "type": "mutation"
 },
-"137": {
+"143": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "138",
-"parent_id": "131",
+"next_id": "144",
+"parent_id": "138",
 "pauses": {
 },
 "replacements": [ {
@@ -874,11 +1047,11 @@ lines = {
 "translation_key": "{{BLUE}} remembers when {{GREEN}} and {{YELLOW}} appeared in the {{DUAL_SPACE}}. The library from the {{DUAL_SPACE}} can be seen.",
 "type": "dialogue"
 },
-"138": {
+"144": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "139",
-"parent_id": "131",
+"next_id": "145",
+"parent_id": "138",
 "pauses": {
 },
 "replacements": [ {
@@ -900,7 +1073,7 @@ lines = {
 "translation_key": "On {{GREEN}}'s head, {{OUROBOROS}} is floating in circles.",
 "type": "dialogue"
 },
-"139": {
+"145": {
 "character": "{{OUROBOROS}}",
 "character_replacements": [ {
 "expression": [ {
@@ -910,8 +1083,8 @@ lines = {
 "value_in_text": "{{OUROBOROS}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "140",
-"parent_id": "131",
+"next_id": "146",
+"parent_id": "138",
 "pauses": {
 },
 "replacements": [  ],
@@ -921,7 +1094,7 @@ lines = {
 "translation_key": "Hi again! I've been waiting for you.",
 "type": "dialogue"
 },
-"14": {
+"146": {
 "character": "{{GREEN}}",
 "character_replacements": [ {
 "expression": [ {
@@ -931,29 +1104,8 @@ lines = {
 "value_in_text": "{{GREEN}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "15",
-"parent_id": "13",
-"pauses": {
-},
-"replacements": [  ],
-"speeds": [  ],
-"text": "I don't think I'm supposed to be here.",
-"time": null,
-"translation_key": "I don't think I'm supposed to be here.",
-"type": "dialogue"
-},
-"140": {
-"character": "{{GREEN}}",
-"character_replacements": [ {
-"expression": [ {
-"type": "variable",
-"value": "GREEN"
-} ],
-"value_in_text": "{{GREEN}}"
-} ],
-"inline_mutations": [  ],
-"next_id": "141",
-"parent_id": "131",
+"next_id": "147",
+"parent_id": "138",
 "pauses": {
 },
 "replacements": [ {
@@ -975,7 +1127,7 @@ lines = {
 "translation_key": "Hi {{OUROBOROS}}, and {{YELLOW}} too!",
 "type": "dialogue"
 },
-"141": {
+"147": {
 "character": "{{YELLOW}}",
 "character_replacements": [ {
 "expression": [ {
@@ -985,8 +1137,8 @@ lines = {
 "value_in_text": "{{YELLOW}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "142",
-"parent_id": "131",
+"next_id": "148",
+"parent_id": "138",
 "pauses": {
 },
 "replacements": [  ],
@@ -996,11 +1148,11 @@ lines = {
 "translation_key": "Huh? What's with the random hellos?",
 "type": "dialogue"
 },
-"142": {
+"148": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "143",
-"parent_id": "131",
+"next_id": "149",
+"parent_id": "138",
 "pauses": {
 },
 "replacements": [ {
@@ -1016,23 +1168,41 @@ lines = {
 "translation_key": "{{GREEN}} responds with a smile.",
 "type": "dialogue"
 },
-"143": {
+"149": {
 "next_id": "19",
-"parent_id": "131",
+"parent_id": "138",
 "type": "goto"
 },
-"144": {
-"next_conditional_id": "end",
-"next_id": "145",
+"15": {
+"condition": {
+"expression": [ {
+"type": "not"
+}, {
+"function": "is_library_locked",
+"type": "function",
+"value": [  ]
+} ]
+},
+"next_id": "156",
 "next_id_after": "end",
-"parent_id": "130",
+"replacements": [  ],
+"responses": PoolStringArray( "15" ),
+"text": "Go back to the main building",
+"translation_key": "Go back to the main building",
+"type": "response"
+},
+"150": {
+"next_conditional_id": "end",
+"next_id": "151",
+"next_id_after": "end",
+"parent_id": "137",
 "type": "condition"
 },
-"145": {
+"151": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "146",
-"parent_id": "144",
+"next_id": "152",
+"parent_id": "150",
 "pauses": {
 },
 "replacements": [  ],
@@ -1042,7 +1212,7 @@ lines = {
 "translation_key": "No problems here.",
 "type": "dialogue"
 },
-"146": {
+"152": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -1056,36 +1226,18 @@ lines = {
 } ]
 },
 "next_id": "end",
-"parent_id": "144",
+"parent_id": "150",
 "type": "mutation"
 },
-"148": {
-"next_id": "150",
+"154": {
+"next_id": "156",
 "text": "knowledge_hallway",
 "type": "title"
 },
-"15": {
-"condition": {
-"expression": [ {
-"type": "not"
-}, {
-"function": "is_library_locked",
-"type": "function",
-"value": [  ]
-} ]
-},
-"next_id": "150",
-"next_id_after": "end",
-"replacements": [  ],
-"responses": PoolStringArray( "15" ),
-"text": "Go back to the main building",
-"translation_key": "Go back to the main building",
-"type": "response"
-},
-"150": {
+"156": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "151",
+"next_id": "157",
 "pauses": {
 },
 "replacements": [ {
@@ -1101,7 +1253,7 @@ lines = {
 "translation_key": "{{GREEN}} leaves through the passage to the main building.",
 "type": "dialogue"
 },
-"151": {
+"157": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -1117,15 +1269,15 @@ lines = {
 "next_id": "",
 "type": "mutation"
 },
-"153": {
-"next_id": "155",
+"159": {
+"next_id": "161",
 "text": "escape",
 "type": "title"
 },
-"155": {
+"161": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "156",
+"next_id": "162",
 "pauses": {
 },
 "replacements": [ {
@@ -1165,7 +1317,7 @@ lines = {
 "translation_key": "Students and staff rushed out. {{GREEN}} carried {{BLUE}} out. At the passage to the main building, people gathered were gathered. {{GREEN}} could see staff members storm in with fire extinguishers. A big figure appears in front of {{GREEN}} and {{BLUE}}.",
 "type": "dialogue"
 },
-"156": {
+"162": {
 "character": "{{CARETAKER}}",
 "character_replacements": [ {
 "expression": [ {
@@ -1175,7 +1327,7 @@ lines = {
 "value_in_text": "{{CARETAKER}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "157",
+"next_id": "163",
 "pauses": {
 },
 "replacements": [  ],
@@ -1185,10 +1337,10 @@ lines = {
 "translation_key": "You two! You're coming with me.",
 "type": "dialogue"
 },
-"157": {
+"163": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "158",
+"next_id": "164",
 "pauses": {
 },
 "replacements": [ {
@@ -1216,7 +1368,7 @@ lines = {
 "translation_key": "{{CARETAKER}} picked up {{GREEN}}, who was holding {{BLUE}}, and carried them both away.",
 "type": "dialogue"
 },
-"158": {
+"164": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -1229,10 +1381,10 @@ lines = {
 "value": true
 } ]
 },
-"next_id": "159",
+"next_id": "165",
 "type": "mutation"
 },
-"159": {
+"165": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -1248,12 +1400,84 @@ lines = {
 "next_id": "",
 "type": "mutation"
 },
-"161": {
-"next_id": "163",
+"167": {
+"next_id": "169",
+"text": "again",
+"type": "title"
+},
+"169": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "170",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "FUTURE"
+} ],
+"value_in_text": "{{FUTURE}}"
+} ],
+"speeds": [  ],
+"text": "Carelessly, {{GREEN}} walked towards the many volumes of {{FUTURE}} again. Suddenly, the volumes caught on fire, again!",
+"time": null,
+"translation_key": "Carelessly, {{GREEN}} walked towards the many volumes of {{FUTURE}} again. Suddenly, the volumes caught on fire, again!",
+"type": "dialogue"
+},
+"17": {
+"next_id": "19",
+"text": "visit",
+"type": "title"
+},
+"170": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "171",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "Maybe this wasn't the best idea...",
+"time": null,
+"translation_key": "Maybe this wasn't the best idea...",
+"type": "dialogue"
+},
+"171": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "172",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "A moment later, the entire bookcase was on fire. It spread at an impossible speed and engulfed the whole floor before people started to notice.",
+"time": null,
+"translation_key": "A moment later, the entire bookcase was on fire. It spread at an impossible speed and engulfed the whole floor before people started to notice.",
+"type": "dialogue"
+},
+"172": {
+"next_id": "161",
+"type": "goto"
+},
+"175": {
+"next_id": "177",
 "text": "wait_for_travel",
 "type": "title"
 },
-"163": {
+"177": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -1266,13 +1490,13 @@ lines = {
 "value": false
 } ]
 },
-"next_id": "164",
+"next_id": "178",
 "type": "mutation"
 },
-"164": {
+"178": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "165",
+"next_id": "179",
 "pauses": {
 },
 "replacements": [ {
@@ -1288,19 +1512,175 @@ lines = {
 "translation_key": "{{BLUE}} concentrates on the surrounding.",
 "type": "dialogue"
 },
-"165": {
-"next_id": "163",
+"179": {
+"next_id": "177",
 "next_id_after": "end",
 "replacements": [  ],
-"responses": PoolStringArray( "165" ),
+"responses": PoolStringArray( "179" ),
 "text": "Wait",
 "translation_key": "Wait",
 "type": "response"
 },
-"17": {
-"next_id": "19",
-"text": "visit",
+"181": {
+"next_id": "183",
+"text": "burn",
 "type": "title"
+},
+"183": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "184",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "FUTURE"
+} ],
+"value_in_text": "{{FUTURE}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} guides the team to the location of the volumes of {{FUTURE}}.",
+"time": null,
+"translation_key": "{{GREEN}} guides the team to the location of the volumes of {{FUTURE}}.",
+"type": "dialogue"
+},
+"184": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "185",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "This is where the fire started in our dimension. Is it ok if you could help us cast a fire spell here?",
+"time": null,
+"translation_key": "This is where the fire started in our dimension. Is it ok if you could help us cast a fire spell here?",
+"type": "dialogue"
+},
+"185": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "186",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "RED"
+} ],
+"value_in_text": "{{RED}}"
+} ],
+"speeds": [  ],
+"text": "{{RED}} looks concerned.",
+"time": null,
+"translation_key": "{{RED}} looks concerned.",
+"type": "dialogue"
+},
+"186": {
+"character": "{{RED}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "RED"
+} ],
+"value_in_text": "{{RED}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "187",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}}, can we pause for a bit? Do you know why we are doing this?",
+"time": null,
+"translation_key": "{{GREEN}}, can we pause for a bit? Do you know why we are doing this?",
+"type": "dialogue"
+},
+"187": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "188",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"speeds": [  ],
+"text": "Sort of. The students in this dimension seem to be trapped and {{BLUE}} told me that we need to do this.",
+"time": null,
+"translation_key": "Sort of. The students in this dimension seem to be trapped and {{BLUE}} told me that we need to do this.",
+"type": "dialogue"
+},
+"188": {
+"character": "{{RED}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "RED"
+} ],
+"value_in_text": "{{RED}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "189",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "I don't know about that. Causing a fire is no small business and I have no understanding of how altering things here will influence reality. How sure are we about the consequences of this action?",
+"time": null,
+"translation_key": "I don't know about that. Causing a fire is no small business and I have no understanding of how altering things here will influence reality. How sure are we about the consequences of this action?",
+"type": "dialogue"
+},
+"189": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "190",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "We do not have more information to go from, right?",
+"time": null,
+"translation_key": "We do not have more information to go from, right?",
+"type": "dialogue"
 },
 "19": {
 "condition": {
@@ -1313,6 +1693,228 @@ lines = {
 "next_id": "20",
 "next_id_after": "end",
 "type": "condition"
+},
+"190": {
+"character": "{{YELLOW}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "YELLOW"
+} ],
+"value_in_text": "{{YELLOW}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "191",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "Agreed. Sometimes, taking a chance is the only way to move forward!",
+"time": null,
+"translation_key": "Agreed. Sometimes, taking a chance is the only way to move forward!",
+"type": "dialogue"
+},
+"191": {
+"character": "{{RED}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "RED"
+} ],
+"value_in_text": "{{RED}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "192",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "Is that it? I'm sorry, but I wouldn't trust a student I just met and just take a chance like this! This is far too rash of you.",
+"time": null,
+"translation_key": "Is that it? I'm sorry, but I wouldn't trust a student I just met and just take a chance like this! This is far too rash of you.",
+"type": "dialogue"
+},
+"192": {
+"character": "{{BLUE}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "193",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "RED"
+} ],
+"value_in_text": "{{RED}}"
+} ],
+"speeds": [  ],
+"text": "I understand why you are doubtful {{RED}}. All of this is just because of the voice of my father that I can hear, telling me that this is the right thing. If you think I am crazy, I would understand that...",
+"time": null,
+"translation_key": "I understand why you are doubtful {{RED}}. All of this is just because of the voice of my father that I can hear, telling me that this is the right thing. If you think I am crazy, I would understand that...",
+"type": "dialogue"
+},
+"193": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "194",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "RED"
+} ],
+"value_in_text": "{{RED}}"
+} ],
+"speeds": [  ],
+"text": "{{RED}} takes a moment to think.",
+"time": null,
+"translation_key": "{{RED}} takes a moment to think.",
+"type": "dialogue"
+},
+"194": {
+"character": "{{RED}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "RED"
+} ],
+"value_in_text": "{{RED}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "195",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "RED_ASPECT"
+} ],
+"value_in_text": "{{RED_ASPECT}}"
+} ],
+"speeds": [  ],
+"text": "While it is true that I am doubtful, I still want to help in this situation. However, as you should know {{GREEN}}, the energy that a {{RED_ASPECT}} mage can conjure diminishes very strongly when forced.",
+"time": null,
+"translation_key": "While it is true that I am doubtful, I still want to help in this situation. However, as you should know {{GREEN}}, the energy that a {{RED_ASPECT}} mage can conjure diminishes very strongly when forced.",
+"type": "dialogue"
+},
+"195": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "196",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "I know that! Otherwise, I could have just suggested we time travel back if things go wrong.",
+"time": null,
+"translation_key": "I know that! Otherwise, I could have just suggested we time travel back if things go wrong.",
+"type": "dialogue"
+},
+"196": {
+"character": "{{RED}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "RED"
+} ],
+"value_in_text": "{{RED}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "197",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "I'm sorry, but what? Are you suggesting that you can travel back in time too, now?",
+"time": null,
+"translation_key": "I'm sorry, but what? Are you suggesting that you can travel back in time too, now?",
+"type": "dialogue"
+},
+"197": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "198",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"speeds": [  ],
+"text": "Oh, did I forget to mention it earlier? I'm so sorry, I forgot to tell you about it! We escaped this dimension by going back through {{BLUE}}'s memories, and after that I also knew I needed you to come with us!",
+"time": null,
+"translation_key": "Oh, did I forget to mention it earlier? I'm so sorry, I forgot to tell you about it! We escaped this dimension by going back through {{BLUE}}'s memories, and after that I also knew I needed you to come with us!",
+"type": "dialogue"
+},
+"198": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "199",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "RED"
+} ],
+"value_in_text": "{{RED}}"
+} ],
+"speeds": [  ],
+"text": "{{RED}} takes another moment to think about it.",
+"time": null,
+"translation_key": "{{RED}} takes another moment to think about it.",
+"type": "dialogue"
+},
+"199": {
+"character": "{{RED}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "RED"
+} ],
+"value_in_text": "{{RED}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "200",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "So am I correct if I say we only have two options now? Either, we act now, or we go back in time, somehow, to further contemplate on our actions.",
+"time": null,
+"translation_key": "So am I correct if I say we only have two options now? Either, we act now, or we go back in time, somehow, to further contemplate on our actions.",
+"type": "dialogue"
 },
 "2": {
 "character": "",
@@ -1340,6 +1942,263 @@ lines = {
 "parent_id": "19",
 "type": "condition"
 },
+"200": {
+"character": "{{YELLOW}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "YELLOW"
+} ],
+"value_in_text": "{{YELLOW}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "201",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "Hold on, when did we start time-travelling? I have no recollection of that!",
+"time": null,
+"translation_key": "Hold on, when did we start time-travelling? I have no recollection of that!",
+"type": "dialogue"
+},
+"201": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "202",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"speeds": [  ],
+"text": "You don't? That is strange, I still had my memories when I went back to the real world. {{BLUE}}, do you know why?",
+"time": null,
+"translation_key": "You don't? That is strange, I still had my memories when I went back to the real world. {{BLUE}}, do you know why?",
+"type": "dialogue"
+},
+"202": {
+"character": "{{BLUE}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "203",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "No... I didn't even know you could enter this place to begin with...",
+"time": null,
+"translation_key": "No... I didn't even know you could enter this place to begin with...",
+"type": "dialogue"
+},
+"203": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "204",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"speeds": [  ],
+"text": "{{BLUE}} looks for the cause, the mysterious creature floating above {{GREEN}}'s head might be a reason, but {{BLUE}} does not know how to explain that.",
+"time": null,
+"translation_key": "{{BLUE}} looks for the cause, the mysterious creature floating above {{GREEN}}'s head might be a reason, but {{BLUE}} does not know how to explain that.",
+"type": "dialogue"
+},
+"204": {
+"character": "{{RED}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "RED"
+} ],
+"value_in_text": "{{RED}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "205",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "Okay, so my second option is instead, that when we somehow go back in time, I will have forgotten that we entered this place. It would be as if I never knew that this even happened. Unless, I started to trust you more.",
+"time": null,
+"translation_key": "Okay, so my second option is instead, that when we somehow go back in time, I will have forgotten that we entered this place. It would be as if I never knew that this even happened. Unless, I started to trust you more.",
+"type": "dialogue"
+},
+"205": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "206",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"speeds": [  ],
+"text": "I think so too. I might try to look around here again and try to find new evidence for building our trust for {{BLUE}} here. I feel obliged to continue trying, because I am your mentor, {{BLUE}}, and I promised to help you so that you can have a future in this school!",
+"time": null,
+"translation_key": "I think so too. I might try to look around here again and try to find new evidence for building our trust for {{BLUE}} here. I feel obliged to continue trying, because I am your mentor, {{BLUE}}, and I promised to help you so that you can have a future in this school!",
+"type": "dialogue"
+},
+"206": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "207",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "RED"
+} ],
+"value_in_text": "{{RED}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "GREAT_HALL"
+} ],
+"value_in_text": "{{GREAT_HALL}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "RED"
+} ],
+"value_in_text": "{{RED}}"
+} ],
+"speeds": [  ],
+"text": "{{RED}} is reminded of what happened at the {{GREAT_HALL}}. The creature above {{GREEN}}'s head starts to shine and {{RED}} made a decision.",
+"time": null,
+"translation_key": "{{RED}} is reminded of what happened at the {{GREAT_HALL}}. The creature above {{GREEN}}'s head starts to shine and {{RED}} made a decision.",
+"type": "dialogue"
+},
+"207": {
+"character": "{{RED}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "RED"
+} ],
+"value_in_text": "{{RED}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "208",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "You do not need to do that, {{GREEN}}, not anymore.",
+"time": null,
+"translation_key": "You do not need to do that, {{GREEN}}, not anymore.",
+"type": "dialogue"
+},
+"208": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "209",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "Anymore? What do you mean...",
+"time": null,
+"translation_key": "Anymore? What do you mean...",
+"type": "dialogue"
+},
+"209": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "210",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "RED"
+} ],
+"value_in_text": "{{RED}}"
+} ],
+"speeds": [  ],
+"text": "Before {{GREEN}} had the chance to speak, the floor and bookcases start to shake violently. {{RED}} is gathering energy.",
+"time": null,
+"translation_key": "Before {{GREEN}} had the chance to speak, the floor and bookcases start to shake violently. {{RED}} is gathering energy.",
+"type": "dialogue"
+},
 "21": {
 "character": "",
 "inline_mutations": [  ],
@@ -1360,8 +2219,252 @@ lines = {
 "translation_key": "{{GREEN}} is in the library. A blue mist covers the view.",
 "type": "dialogue"
 },
+"210": {
+"character": "{{YELLOW}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "YELLOW"
+} ],
+"value_in_text": "{{YELLOW}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "211",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "Yikes, you could have warned us.",
+"time": null,
+"translation_key": "Yikes, you could have warned us.",
+"type": "dialogue"
+},
+"211": {
+"character": "{{RED}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "RED"
+} ],
+"value_in_text": "{{RED}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "212",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "Get somewhere safe, now!",
+"time": null,
+"translation_key": "Get somewhere safe, now!",
+"type": "dialogue"
+},
+"212": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "213",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "YELLOW"
+} ],
+"value_in_text": "{{YELLOW}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"speeds": [  ],
+"text": "{{YELLOW}} took {{GREEN}} and {{BLUE}} to the entrance of the library instantly.",
+"time": null,
+"translation_key": "{{YELLOW}} took {{GREEN}} and {{BLUE}} to the entrance of the library instantly.",
+"type": "dialogue"
+},
+"213": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "214",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "RED"
+} ],
+"value_in_text": "{{RED}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "RED_TEACHER"
+} ],
+"value_in_text": "{{RED_TEACHER}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "RED"
+} ],
+"value_in_text": "{{RED}}"
+} ],
+"speeds": [  ],
+"text": "{{RED}} remembers {{RED_TEACHER}}'s voice, \"Show them your devotion!\", and engulfes the library in a great fire. Yet, {{RED}} controlled the fire skilfully.",
+"time": null,
+"translation_key": "{{RED}} remembers {{RED_TEACHER}}'s voice, \"Show them your devotion!\", and engulfes the library in a great fire. Yet, {{RED}} controlled the fire skilfully.",
+"type": "dialogue"
+},
+"214": {
+"character": "{{YELLOW}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "YELLOW"
+} ],
+"value_in_text": "{{YELLOW}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "215",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "RED"
+} ],
+"value_in_text": "{{RED}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "This is so much energy! How is {{RED}} doing this? Who exactly is your friend, {{GREEN}}?",
+"time": null,
+"translation_key": "This is so much energy! How is {{RED}} doing this? Who exactly is your friend, {{GREEN}}?",
+"type": "dialogue"
+},
+"215": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "216",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "RED"
+} ],
+"value_in_text": "{{RED}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} just watches the great display in awe. The burning is going much faster than naturally, it did not take long before all books have been turned into ash. As {{RED}} took care of the remaining smoke, {{GREEN}} sees that a door appeared in front of the entrance.",
+"time": null,
+"translation_key": "{{GREEN}} just watches the great display in awe. The burning is going much faster than naturally, it did not take long before all books have been turned into ash. As {{RED}} took care of the remaining smoke, {{GREEN}} sees that a door appeared in front of the entrance.",
+"type": "dialogue"
+},
+"216": {
+"character": "{{BLUE}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "217",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "Look! A door appeared!",
+"time": null,
+"translation_key": "Look! A door appeared!",
+"type": "dialogue"
+},
+"217": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "218",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "I had completely forgotten that there is a small study room there!",
+"time": null,
+"translation_key": "I had completely forgotten that there is a small study room there!",
+"type": "dialogue"
+},
+"218": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "219",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "RED"
+} ],
+"value_in_text": "{{RED}}"
+} ],
+"speeds": [  ],
+"text": "{{RED}} walks down to the entrance and notices the door.",
+"time": null,
+"translation_key": "{{RED}} walks down to the entrance and notices the door.",
+"type": "dialogue"
+},
+"219": {
+"character": "{{RED}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "RED"
+} ],
+"value_in_text": "{{RED}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "220",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "So did I. But I noticed some of the books had some strange effects to my spell. Perhaps those books were enchanted to seal away this forgotten door?",
+"time": null,
+"translation_key": "So did I. But I noticed some of the books had some strange effects to my spell. Perhaps those books were enchanted to seal away this forgotten door?",
+"type": "dialogue"
+},
 "22": {
-"next_id": "150",
+"next_id": "156",
 "next_id_after": "end",
 "parent_id": "20",
 "replacements": [  ],
@@ -1369,6 +2472,50 @@ lines = {
 "text": "Go back to the main building",
 "translation_key": "Go back to the main building",
 "type": "response"
+},
+"220": {
+"next_id": "224",
+"type": "goto"
+},
+"222": {
+"next_id": "224",
+"text": "forbidden_corridor",
+"type": "title"
+},
+"224": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "225",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} slowly enters the forgotten door.",
+"time": null,
+"translation_key": "{{GREEN}} slowly enters the forgotten door.",
+"type": "dialogue"
+},
+"225": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "forbidden_corridor_end"
+} ]
+},
+"next_id": "",
+"type": "mutation"
 },
 "23": {
 "next_conditional_id": "end",
@@ -1411,7 +2558,7 @@ lines = {
 "type": "dialogue"
 },
 "26": {
-"next_id": "150",
+"next_id": "156",
 "next_id_after": "end",
 "parent_id": "24",
 "replacements": [  ],
@@ -1976,9 +3123,9 @@ lines = {
 },
 "replacements": [  ],
 "speeds": [  ],
-"text": "They walked around each floor. There are sections for all kinds of magiscientific knowledge. Anatomy and transformation, Alchemy and chemistry, Apparations and optics, Botanics and potions, Culture, Defensive arts, Economy, Ethics, Far-fetcheded arts, Foresight, ...",
+"text": "They walked around each floor. There are sections for all kinds of magi-scientific knowledge. Anatomy and transformation, Alchemy and chemistry, Apparations and optics, Botanics and potions, Culture, Defensive arts, Economy, Ethics, Far-fetcheded arts, Foresight, ...",
 "time": null,
-"translation_key": "They walked around each floor. There are sections for all kinds of magiscientific knowledge. Anatomy and transformation, Alchemy and chemistry, Apparations and optics, Botanics and potions, Culture, Defensive arts, Economy, Ethics, Far-fetcheded arts, Foresight, ...",
+"translation_key": "They walked around each floor. There are sections for all kinds of magi-scientific knowledge. Anatomy and transformation, Alchemy and chemistry, Apparations and optics, Botanics and potions, Culture, Defensive arts, Economy, Ethics, Far-fetcheded arts, Foresight, ...",
 "type": "dialogue"
 },
 "50": {
@@ -2418,7 +3565,7 @@ lines = {
 "type": "dialogue"
 },
 "69": {
-"next_id": "163",
+"next_id": "177",
 "parent_id": "27",
 "type": "goto"
 },
@@ -2530,31 +3677,28 @@ lines = {
 "type": "dialogue"
 },
 "76": {
-"next_id": "150",
+"next_id": "156",
 "next_id_after": "end",
 "parent_id": "73",
 "replacements": [  ],
-"responses": PoolStringArray( "76" ),
+"responses": PoolStringArray( "76", "77" ),
 "text": "Go back to the main building",
 "translation_key": "Go back to the main building",
 "type": "response"
 },
-"78": {
-"next_id": "79",
-"text": "execute_action",
-"type": "title"
+"77": {
+"next_id": "169",
+"next_id_after": "end",
+"parent_id": "73",
+"replacements": [  ],
+"text": "Explore anyways",
+"translation_key": "Explore anyways",
+"type": "response"
 },
 "79": {
-"condition": {
-"expression": [ {
-"type": "variable",
-"value": "in_blue_space"
-} ]
-},
-"next_conditional_id": "98",
 "next_id": "80",
-"next_id_after": "end",
-"type": "condition"
+"text": "execute_action",
+"type": "title"
 },
 "8": {
 "character": "{{GREEN}}",
@@ -2587,6 +3731,18 @@ lines = {
 "condition": {
 "expression": [ {
 "type": "variable",
+"value": "in_blue_space"
+} ]
+},
+"next_conditional_id": "101",
+"next_id": "81",
+"next_id_after": "end",
+"type": "condition"
+},
+"81": {
+"condition": {
+"expression": [ {
+"type": "variable",
 "value": "library_remembered"
 }, {
 "type": "and_or",
@@ -2596,15 +3752,23 @@ lines = {
 }, {
 "type": "variable",
 "value": "library_revealed"
+}, {
+"type": "and_or",
+"value": "and"
+}, {
+"type": "not"
+}, {
+"type": "variable",
+"value": "library_burned"
 } ]
 },
-"next_conditional_id": "94",
-"next_id": "81",
+"next_conditional_id": "95",
+"next_id": "82",
 "next_id_after": "end",
-"parent_id": "79",
+"parent_id": "80",
 "type": "condition"
 },
-"81": {
+"82": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -2617,11 +3781,11 @@ lines = {
 "value": false
 } ]
 },
-"next_id": "82",
-"parent_id": "80",
+"next_id": "83",
+"parent_id": "81",
 "type": "mutation"
 },
-"82": {
+"83": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -2634,11 +3798,11 @@ lines = {
 "value": false
 } ]
 },
-"next_id": "83",
-"parent_id": "80",
+"next_id": "84",
+"parent_id": "81",
 "type": "mutation"
 },
-"83": {
+"84": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -2651,11 +3815,11 @@ lines = {
 "value": false
 } ]
 },
-"next_id": "84",
-"parent_id": "80",
+"next_id": "85",
+"parent_id": "81",
 "type": "mutation"
 },
-"84": {
+"85": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -2668,15 +3832,15 @@ lines = {
 "value": false
 } ]
 },
-"next_id": "85",
-"parent_id": "80",
+"next_id": "86",
+"parent_id": "81",
 "type": "mutation"
 },
-"85": {
+"86": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "86",
-"parent_id": "80",
+"next_id": "87",
+"parent_id": "81",
 "pauses": {
 },
 "replacements": [ {
@@ -2704,7 +3868,7 @@ lines = {
 "translation_key": "{{BLUE}} remembers how {{GREEN}} was showing the different floors of the library. For a split second, the surrounding turned blinding white. As the view was recovering, the library from the {{REAL_SPACE}} can be seen.",
 "type": "dialogue"
 },
-"86": {
+"87": {
 "character": "{{BLUE}}",
 "character_replacements": [ {
 "expression": [ {
@@ -2714,8 +3878,8 @@ lines = {
 "value_in_text": "{{BLUE}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "87",
-"parent_id": "80",
+"next_id": "88",
+"parent_id": "81",
 "pauses": {
 },
 "replacements": [  ],
@@ -2725,7 +3889,7 @@ lines = {
 "translation_key": "I think it worked. We're back in the library.",
 "type": "dialogue"
 },
-"87": {
+"88": {
 "character": "{{GREEN}}",
 "character_replacements": [ {
 "expression": [ {
@@ -2735,8 +3899,8 @@ lines = {
 "value_in_text": "{{GREEN}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "88",
-"parent_id": "80",
+"next_id": "89",
+"parent_id": "81",
 "pauses": {
 },
 "replacements": [  ],
@@ -2746,7 +3910,7 @@ lines = {
 "translation_key": "Oh, you're right! But why is there no signs of damage on the library?",
 "type": "dialogue"
 },
-"88": {
+"89": {
 "character": "{{BLUE}}",
 "character_replacements": [ {
 "expression": [ {
@@ -2756,8 +3920,8 @@ lines = {
 "value_in_text": "{{BLUE}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "89",
-"parent_id": "80",
+"next_id": "90",
+"parent_id": "81",
 "pauses": {
 },
 "replacements": [  ],
@@ -2765,33 +3929,6 @@ lines = {
 "text": "I picked a memory from before that happened. Maybe that is why.",
 "time": null,
 "translation_key": "I picked a memory from before that happened. Maybe that is why.",
-"type": "dialogue"
-},
-"89": {
-"character": "{{GREEN}}",
-"character_replacements": [ {
-"expression": [ {
-"type": "variable",
-"value": "GREEN"
-} ],
-"value_in_text": "{{GREEN}}"
-} ],
-"inline_mutations": [  ],
-"next_id": "90",
-"parent_id": "80",
-"pauses": {
-},
-"replacements": [ {
-"expression": [ {
-"type": "variable",
-"value": "BLUE"
-} ],
-"value_in_text": "{{BLUE}}"
-} ],
-"speeds": [  ],
-"text": "Oh, are we time travelling? You're full of surprises, {{BLUE}}!",
-"time": null,
-"translation_key": "Oh, are we time travelling? You're full of surprises, {{BLUE}}!",
 "type": "dialogue"
 },
 "9": {
@@ -2809,27 +3946,6 @@ lines = {
 "type": "dialogue"
 },
 "90": {
-"character": "{{BLUE}}",
-"character_replacements": [ {
-"expression": [ {
-"type": "variable",
-"value": "BLUE"
-} ],
-"value_in_text": "{{BLUE}}"
-} ],
-"inline_mutations": [  ],
-"next_id": "91",
-"parent_id": "80",
-"pauses": {
-},
-"replacements": [  ],
-"speeds": [  ],
-"text": "Wasn't there another student with you? Are they lurking again?",
-"time": null,
-"translation_key": "Wasn't there another student with you? Are they lurking again?",
-"type": "dialogue"
-},
-"91": {
 "character": "{{GREEN}}",
 "character_replacements": [ {
 "expression": [ {
@@ -2839,8 +3955,56 @@ lines = {
 "value_in_text": "{{GREEN}}"
 } ],
 "inline_mutations": [  ],
+"next_id": "91",
+"parent_id": "81",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"speeds": [  ],
+"text": "Oh, are we time travelling? You're full of surprises, {{BLUE}}!",
+"time": null,
+"translation_key": "Oh, are we time travelling? You're full of surprises, {{BLUE}}!",
+"type": "dialogue"
+},
+"91": {
+"character": "{{BLUE}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"inline_mutations": [  ],
 "next_id": "92",
-"parent_id": "80",
+"parent_id": "81",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "Wasn't there another student with you? Are they lurking again?",
+"time": null,
+"translation_key": "Wasn't there another student with you? Are they lurking again?",
+"type": "dialogue"
+},
+"92": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "93",
+"parent_id": "81",
 "pauses": {
 },
 "replacements": [ {
@@ -2862,7 +4026,7 @@ lines = {
 "translation_key": "You mean {{YELLOW}}? Maybe because we are at a point in time before {{YELLOW}} went with me.",
 "type": "dialogue"
 },
-"92": {
+"93": {
 "character": "{{BLUE}}",
 "character_replacements": [ {
 "expression": [ {
@@ -2872,8 +4036,8 @@ lines = {
 "value_in_text": "{{BLUE}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "93",
-"parent_id": "80",
+"next_id": "94",
+"parent_id": "81",
 "pauses": {
 },
 "replacements": [  ],
@@ -2883,23 +4047,41 @@ lines = {
 "translation_key": "I think so too.",
 "type": "dialogue"
 },
-"93": {
+"94": {
 "next_id": "19",
-"parent_id": "80",
+"parent_id": "81",
 "type": "goto"
 },
-"94": {
-"next_conditional_id": "end",
-"next_id": "95",
+"95": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "library_burned"
+} ]
+},
+"next_conditional_id": "97",
+"next_id": "96",
 "next_id_after": "end",
-"parent_id": "79",
+"parent_id": "80",
 "type": "condition"
 },
-"95": {
+"96": {
+"next_id": "183",
+"parent_id": "95",
+"type": "goto"
+},
+"97": {
+"next_conditional_id": "end",
+"next_id": "98",
+"next_id_after": "end",
+"parent_id": "80",
+"type": "condition"
+},
+"98": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "96",
-"parent_id": "94",
+"next_id": "99",
+"parent_id": "97",
 "pauses": {
 },
 "replacements": [  ],
@@ -2909,7 +4091,7 @@ lines = {
 "translation_key": "No problems here.",
 "type": "dialogue"
 },
-"96": {
+"99": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -2922,44 +4104,8 @@ lines = {
 "value": false
 } ]
 },
-"next_id": "97",
-"parent_id": "94",
-"type": "mutation"
-},
-"97": {
-"mutation": {
-"expression": [ {
-"type": "variable",
-"value": "next"
-}, {
-"type": "assignment",
-"value": "="
-}, {
-"type": "variable",
-"value": "current_room"
-} ]
-},
-"next_id": "end",
-"parent_id": "94",
-"type": "mutation"
-},
-"98": {
-"next_conditional_id": "end",
-"next_id": "99",
-"next_id_after": "end",
-"type": "condition"
-},
-"99": {
-"condition": {
-"expression": [ {
-"type": "variable",
-"value": "library_remembered"
-} ]
-},
-"next_conditional_id": "112",
 "next_id": "100",
-"next_id_after": "end",
-"parent_id": "98",
-"type": "condition"
+"parent_id": "97",
+"type": "mutation"
 }
 }

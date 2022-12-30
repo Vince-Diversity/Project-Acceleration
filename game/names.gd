@@ -13,6 +13,8 @@ var CAT = "Erwin 1.0"
 var CARETAKER = "The Caretaker"
 var PRINCIPAL = "The Principal"
 var WISHMAKER = "Wishmaker"
+var IMAGINER = "Worldmaster"
+var SEAL = "Safety Construct"
 var OUROBOROS = "Obo"
 
 var YELLOW_ASPECT = "Lightning"
@@ -28,21 +30,26 @@ var GREAT_HALL = "Great Hall"
 
 var REVEALER = "Revealing Eyepiece"
 var TRAVELLER = "Remembering"
+var IGNITER = "Burning"
 
 var FUTURE = "Real Transcripts of Real Fortune Telling (TM)"
 var SHADOW = "Shadow"
+var CERTAINTY = "Certainty"
 
 var action_names = {
 	REVEALER: "Reveal",
 	TRAVELLER: "Remember",
+	IGNITER: "Burn"
 }
 
 var action_keys = {
 	REVEALER: "z",
 	TRAVELLER: "x",
+	IGNITER: "c",
 }
 
 var action_suffix = {
 	REVEALER: "revealed",
 	TRAVELLER: "remembered",
+	IGNITER: "burned"
 }

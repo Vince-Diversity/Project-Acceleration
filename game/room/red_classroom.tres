@@ -7,21 +7,31 @@ script = ExtResource( 1 )
 syntax_version = 2
 raw_text = "~ first_visit
 
-A chilly room covered by cave-like walls is found. The room has no roof and there are fire pits spread across the room. One is lit up, displaying a female silhouette on the wall.
 if blue_joined == true
-	A chilly room covered by cave-like walls is found. The room has no roof and there are fire pits spread across the room. One is lit up, displaying a female silhouette on the wall.
+	A chilly room covered by cave-like walls is found. The room has no roof and there are fire pits spread across the room. One is lit up, displaying two people's silhouettes on the walls.
 	{{GREEN}}: This is the {{RED_ASPECT}} aspect students learn how to unleash their powers. Let's ask for a demonstration from their teacher {{RED_TEACHER}}.
 	{{BLUE}} nods.
-	They go to the teacher, who is wearing what resembles a gymnastics suit and embraces the request with a energetic dance.
-	{{RED_TEACHER}}: Now students, witness my devotion to the {{RED_ASPECT}} element!
-	The fire next to {{GREEN}} intensified. A few seconds later, all other fire pits in the room also lit up at the same time. The room quickly became warm. {{GREEN}} looks around in awe.
+	{{RED}}: Hi {{GREEN}}, I and my teacher are just preparing for the next class demonstration. And you must be the new student {{GREEN}} is taking care of?
+	{{RED_TEACHER}}: Delightful of you to visit! How about you me our audience of {{RED}}?
+	{{RED}} concentrates on one of the fire pits.
+	{{RED_TEACHER}}: Show them your devotion!
+	Enouraged by the words of {{RED_TEACHER}}, {{RED}} caused a violent fire to lit up. The sudden flux of energy made the ground shake. {{GREEN}} watches in awe.
+	{{GREEN}}: You're so far ahead of all the other students, {{RED}}.
+	{{RED}}: Thanks, {{GREEN}}!
+	if has_ouroboros and not talked_to_red
+		=> red_request
+	{{GREEN}}: See you around.
 else
-	A chilly room covered by cave-like walls is found. The room has no roof and there are fire pits spread across the room. One is lit up, displaying a female silhouette on the wall.
+	{{GREEN}}: I do not think that I am supposed to be here right now.
 - Leave => red_corridor_end
 
 ~ visit
 
 {{GREEN}} visits the {{RED_ASPECT}} aspect's classroom, although it has no resemblance of a classroom.
+{{RED_TEACHER}} and {{RED}} are preparing a demonstration for the next class.
+if has_ouroboros and not talked_to_red
+	=> red_request
+{{GREEN}} sits next to the fire {{RED}} made.
 - Leave => red_corridor_end
 
 ~ execute_action
@@ -32,13 +42,29 @@ set next = current_room
 ~ red_corridor_end
 
 {{GREEN}} leaves the classroom.
-set next = \"red_corridor_end\""
+set next = \"red_corridor_end\"
+
+~ red_request
+
+{{GREEN}}: Could I ask for your for some help {{RED}}? I need to use your {{RED_ASPECT}} powers for something important.
+{{RED}}: I always want to be there for you, {{GREEN}}, well, as long as we have permission to use this spell.
+{{GREEN}}: Well, no. I am certain we do not have permission for what I am thinking!
+{{RED}}: That is unfortunate...
+{{RED_TEACHER}} notices the discussion.
+{{RED_TEACHER}}: Are you talking about the no-spells-outside-class rule? Don't tell {{PRINCIPAL}} but I despise this rule. It inhibits students far too much!
+{{RED}} understands the point {{RED_TEACHER}} is making.
+{{RED}}: If you'd like to, we can discuss it more after class. I will be at my dorm.
+{{GREEN}}: Sounds good.
+set talked_to_red = true
+set next = current_room
+"
 errors = [  ]
 titles = {
-"execute_action": "21",
+"execute_action": "31",
 "first_visit": "2",
-"red_corridor_end": "26",
-"visit": "16"
+"red_corridor_end": "36",
+"red_request": "41",
+"visit": "22"
 }
 lines = {
 "0": {
@@ -47,43 +73,201 @@ lines = {
 "type": "title"
 },
 "10": {
-"next_conditional_id": "12",
-"next_id": "11",
-"next_id_after": "12",
-"type": "condition"
-},
-"11": {
 "character": "",
 "inline_mutations": [  ],
+"next_id": "11",
+"parent_id": "2",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "RED_TEACHER"
+} ],
+"value_in_text": "{{RED_TEACHER}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "RED"
+} ],
+"value_in_text": "{{RED}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "Enouraged by the words of {{RED_TEACHER}}, {{RED}} caused a violent fire to lit up. The sudden flux of energy made the ground shake. {{GREEN}} watches in awe.",
+"time": null,
+"translation_key": "Enouraged by the words of {{RED_TEACHER}}, {{RED}} caused a violent fire to lit up. The sudden flux of energy made the ground shake. {{GREEN}} watches in awe.",
+"type": "dialogue"
+},
+"11": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
 "next_id": "12",
-"parent_id": "10",
+"parent_id": "2",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "RED"
+} ],
+"value_in_text": "{{RED}}"
+} ],
+"speeds": [  ],
+"text": "You're so far ahead of all the other students, {{RED}}.",
+"time": null,
+"translation_key": "You're so far ahead of all the other students, {{RED}}.",
+"type": "dialogue"
+},
+"12": {
+"character": "{{RED}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "RED"
+} ],
+"value_in_text": "{{RED}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "13",
+"parent_id": "2",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "Thanks, {{GREEN}}!",
+"time": null,
+"translation_key": "Thanks, {{GREEN}}!",
+"type": "dialogue"
+},
+"13": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "has_ouroboros"
+}, {
+"type": "and_or",
+"value": "and"
+}, {
+"type": "not"
+}, {
+"type": "variable",
+"value": "talked_to_red"
+} ]
+},
+"next_conditional_id": "15",
+"next_id": "14",
+"next_id_after": "15",
+"parent_id": "2",
+"type": "condition"
+},
+"14": {
+"next_id": "41",
+"parent_id": "13",
+"type": "goto"
+},
+"15": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "18",
+"parent_id": "2",
 "pauses": {
 },
 "replacements": [  ],
 "speeds": [  ],
-"text": "A chilly room covered by cave-like walls is found. The room has no roof and there are fire pits spread across the room. One is lit up, displaying a female silhouette on the wall.",
+"text": "See you around.",
 "time": null,
-"translation_key": "A chilly room covered by cave-like walls is found. The room has no roof and there are fire pits spread across the room. One is lit up, displaying a female silhouette on the wall.",
+"translation_key": "See you around.",
 "type": "dialogue"
 },
-"12": {
-"next_id": "26",
+"16": {
+"next_conditional_id": "18",
+"next_id": "17",
+"next_id_after": "18",
+"type": "condition"
+},
+"17": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "18",
+"parent_id": "16",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "I do not think that I am supposed to be here right now.",
+"time": null,
+"translation_key": "I do not think that I am supposed to be here right now.",
+"type": "dialogue"
+},
+"18": {
+"next_id": "36",
 "next_id_after": "end",
 "replacements": [  ],
-"responses": PoolStringArray( "12" ),
+"responses": PoolStringArray( "18" ),
 "text": "Leave",
 "translation_key": "Leave",
 "type": "response"
 },
-"14": {
-"next_id": "16",
+"2": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "blue_joined"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "bool",
+"value": true
+} ]
+},
+"next_conditional_id": "16",
+"next_id": "3",
+"next_id_after": "18",
+"type": "condition"
+},
+"20": {
+"next_id": "22",
 "text": "visit",
 "type": "title"
 },
-"16": {
+"22": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "17",
+"next_id": "23",
 "pauses": {
 },
 "replacements": [ {
@@ -105,37 +289,113 @@ lines = {
 "translation_key": "{{GREEN}} visits the {{RED_ASPECT}} aspect's classroom, although it has no resemblance of a classroom.",
 "type": "dialogue"
 },
-"17": {
-"next_id": "26",
+"23": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "24",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "RED_TEACHER"
+} ],
+"value_in_text": "{{RED_TEACHER}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "RED"
+} ],
+"value_in_text": "{{RED}}"
+} ],
+"speeds": [  ],
+"text": "{{RED_TEACHER}} and {{RED}} are preparing a demonstration for the next class.",
+"time": null,
+"translation_key": "{{RED_TEACHER}} and {{RED}} are preparing a demonstration for the next class.",
+"type": "dialogue"
+},
+"24": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "has_ouroboros"
+}, {
+"type": "and_or",
+"value": "and"
+}, {
+"type": "not"
+}, {
+"type": "variable",
+"value": "talked_to_red"
+} ]
+},
+"next_conditional_id": "26",
+"next_id": "25",
+"next_id_after": "26",
+"type": "condition"
+},
+"25": {
+"next_id": "41",
+"parent_id": "24",
+"type": "goto"
+},
+"26": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "27",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "RED"
+} ],
+"value_in_text": "{{RED}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} sits next to the fire {{RED}} made.",
+"time": null,
+"translation_key": "{{GREEN}} sits next to the fire {{RED}} made.",
+"type": "dialogue"
+},
+"27": {
+"next_id": "36",
 "next_id_after": "end",
 "replacements": [  ],
-"responses": PoolStringArray( "17" ),
+"responses": PoolStringArray( "27" ),
 "text": "Leave",
 "translation_key": "Leave",
 "type": "response"
 },
-"19": {
-"next_id": "21",
+"29": {
+"next_id": "31",
 "text": "execute_action",
 "type": "title"
 },
-"2": {
+"3": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "3",
+"next_id": "4",
+"parent_id": "2",
 "pauses": {
 },
 "replacements": [  ],
 "speeds": [  ],
-"text": "A chilly room covered by cave-like walls is found. The room has no roof and there are fire pits spread across the room. One is lit up, displaying a female silhouette on the wall.",
+"text": "A chilly room covered by cave-like walls is found. The room has no roof and there are fire pits spread across the room. One is lit up, displaying two people's silhouettes on the walls.",
 "time": null,
-"translation_key": "A chilly room covered by cave-like walls is found. The room has no roof and there are fire pits spread across the room. One is lit up, displaying a female silhouette on the wall.",
+"translation_key": "A chilly room covered by cave-like walls is found. The room has no roof and there are fire pits spread across the room. One is lit up, displaying two people's silhouettes on the walls.",
 "type": "dialogue"
 },
-"21": {
+"31": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "22",
+"next_id": "32",
 "pauses": {
 },
 "replacements": [  ],
@@ -145,7 +405,7 @@ lines = {
 "translation_key": "No problems here.",
 "type": "dialogue"
 },
-"22": {
+"32": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -161,15 +421,15 @@ lines = {
 "next_id": "",
 "type": "mutation"
 },
-"24": {
-"next_id": "26",
+"34": {
+"next_id": "36",
 "text": "red_corridor_end",
 "type": "title"
 },
-"26": {
+"36": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "27",
+"next_id": "37",
 "pauses": {
 },
 "replacements": [ {
@@ -185,7 +445,7 @@ lines = {
 "translation_key": "{{GREEN}} leaves the classroom.",
 "type": "dialogue"
 },
-"27": {
+"37": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -201,39 +461,12 @@ lines = {
 "next_id": "",
 "type": "mutation"
 },
-"3": {
-"condition": {
-"expression": [ {
-"type": "variable",
-"value": "blue_joined"
-}, {
-"type": "comparison",
-"value": "=="
-}, {
-"type": "bool",
-"value": true
-} ]
-},
-"next_conditional_id": "10",
-"next_id": "4",
-"next_id_after": "12",
-"type": "condition"
+"39": {
+"next_id": "41",
+"text": "red_request",
+"type": "title"
 },
 "4": {
-"character": "",
-"inline_mutations": [  ],
-"next_id": "5",
-"parent_id": "3",
-"pauses": {
-},
-"replacements": [  ],
-"speeds": [  ],
-"text": "A chilly room covered by cave-like walls is found. The room has no roof and there are fire pits spread across the room. One is lit up, displaying a female silhouette on the wall.",
-"time": null,
-"translation_key": "A chilly room covered by cave-like walls is found. The room has no roof and there are fire pits spread across the room. One is lit up, displaying a female silhouette on the wall.",
-"type": "dialogue"
-},
-"5": {
 "character": "{{GREEN}}",
 "character_replacements": [ {
 "expression": [ {
@@ -243,8 +476,8 @@ lines = {
 "value_in_text": "{{GREEN}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "6",
-"parent_id": "3",
+"next_id": "5",
+"parent_id": "2",
 "pauses": {
 },
 "replacements": [ {
@@ -266,11 +499,219 @@ lines = {
 "translation_key": "This is the {{RED_ASPECT}} aspect students learn how to unleash their powers. Let's ask for a demonstration from their teacher {{RED_TEACHER}}.",
 "type": "dialogue"
 },
-"6": {
+"41": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "42",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "RED"
+} ],
+"value_in_text": "{{RED}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "RED_ASPECT"
+} ],
+"value_in_text": "{{RED_ASPECT}}"
+} ],
+"speeds": [  ],
+"text": "Could I ask for your for some help {{RED}}? I need to use your {{RED_ASPECT}} powers for something important.",
+"time": null,
+"translation_key": "Could I ask for your for some help {{RED}}? I need to use your {{RED_ASPECT}} powers for something important.",
+"type": "dialogue"
+},
+"42": {
+"character": "{{RED}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "RED"
+} ],
+"value_in_text": "{{RED}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "43",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "I always want to be there for you, {{GREEN}}, well, as long as we have permission to use this spell.",
+"time": null,
+"translation_key": "I always want to be there for you, {{GREEN}}, well, as long as we have permission to use this spell.",
+"type": "dialogue"
+},
+"43": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "44",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "Well, no. I am certain we do not have permission for what I am thinking!",
+"time": null,
+"translation_key": "Well, no. I am certain we do not have permission for what I am thinking!",
+"type": "dialogue"
+},
+"44": {
+"character": "{{RED}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "RED"
+} ],
+"value_in_text": "{{RED}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "45",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "That is unfortunate...",
+"time": null,
+"translation_key": "That is unfortunate...",
+"type": "dialogue"
+},
+"45": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "7",
-"parent_id": "3",
+"next_id": "46",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "RED_TEACHER"
+} ],
+"value_in_text": "{{RED_TEACHER}}"
+} ],
+"speeds": [  ],
+"text": "{{RED_TEACHER}} notices the discussion.",
+"time": null,
+"translation_key": "{{RED_TEACHER}} notices the discussion.",
+"type": "dialogue"
+},
+"46": {
+"character": "{{RED_TEACHER}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "RED_TEACHER"
+} ],
+"value_in_text": "{{RED_TEACHER}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "47",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "PRINCIPAL"
+} ],
+"value_in_text": "{{PRINCIPAL}}"
+} ],
+"speeds": [  ],
+"text": "Are you talking about the no-spells-outside-class rule? Don't tell {{PRINCIPAL}} but I despise this rule. It inhibits students far too much!",
+"time": null,
+"translation_key": "Are you talking about the no-spells-outside-class rule? Don't tell {{PRINCIPAL}} but I despise this rule. It inhibits students far too much!",
+"type": "dialogue"
+},
+"47": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "48",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "RED"
+} ],
+"value_in_text": "{{RED}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "RED_TEACHER"
+} ],
+"value_in_text": "{{RED_TEACHER}}"
+} ],
+"speeds": [  ],
+"text": "{{RED}} understands the point {{RED_TEACHER}} is making.",
+"time": null,
+"translation_key": "{{RED}} understands the point {{RED_TEACHER}} is making.",
+"type": "dialogue"
+},
+"48": {
+"character": "{{RED}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "RED"
+} ],
+"value_in_text": "{{RED}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "49",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "If you'd like to, we can discuss it more after class. I will be at my dorm.",
+"time": null,
+"translation_key": "If you'd like to, we can discuss it more after class. I will be at my dorm.",
+"type": "dialogue"
+},
+"49": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "50",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "Sounds good.",
+"time": null,
+"translation_key": "Sounds good.",
+"type": "dialogue"
+},
+"5": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "6",
+"parent_id": "2",
 "pauses": {
 },
 "replacements": [ {
@@ -286,52 +727,50 @@ lines = {
 "translation_key": "{{BLUE}} nods.",
 "type": "dialogue"
 },
-"7": {
-"character": "",
-"inline_mutations": [  ],
-"next_id": "8",
-"parent_id": "3",
-"pauses": {
+"50": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "talked_to_red"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "bool",
+"value": true
+} ]
 },
-"replacements": [  ],
-"speeds": [  ],
-"text": "They go to the teacher, who is wearing what resembles a gymnastics suit and embraces the request with a energetic dance.",
-"time": null,
-"translation_key": "They go to the teacher, who is wearing what resembles a gymnastics suit and embraces the request with a energetic dance.",
-"type": "dialogue"
+"next_id": "51",
+"type": "mutation"
 },
-"8": {
-"character": "{{RED_TEACHER}}",
+"51": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "variable",
+"value": "current_room"
+} ]
+},
+"next_id": "",
+"type": "mutation"
+},
+"6": {
+"character": "{{RED}}",
 "character_replacements": [ {
 "expression": [ {
 "type": "variable",
-"value": "RED_TEACHER"
+"value": "RED"
 } ],
-"value_in_text": "{{RED_TEACHER}}"
+"value_in_text": "{{RED}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "9",
-"parent_id": "3",
-"pauses": {
-},
-"replacements": [ {
-"expression": [ {
-"type": "variable",
-"value": "RED_ASPECT"
-} ],
-"value_in_text": "{{RED_ASPECT}}"
-} ],
-"speeds": [  ],
-"text": "Now students, witness my devotion to the {{RED_ASPECT}} element!",
-"time": null,
-"translation_key": "Now students, witness my devotion to the {{RED_ASPECT}} element!",
-"type": "dialogue"
-},
-"9": {
-"character": "",
-"inline_mutations": [  ],
-"next_id": "12",
-"parent_id": "3",
+"next_id": "7",
+"parent_id": "2",
 "pauses": {
 },
 "replacements": [ {
@@ -348,9 +787,77 @@ lines = {
 "value_in_text": "{{GREEN}}"
 } ],
 "speeds": [  ],
-"text": "The fire next to {{GREEN}} intensified. A few seconds later, all other fire pits in the room also lit up at the same time. The room quickly became warm. {{GREEN}} looks around in awe.",
+"text": "Hi {{GREEN}}, I and my teacher are just preparing for the next class demonstration. And you must be the new student {{GREEN}} is taking care of?",
 "time": null,
-"translation_key": "The fire next to {{GREEN}} intensified. A few seconds later, all other fire pits in the room also lit up at the same time. The room quickly became warm. {{GREEN}} looks around in awe.",
+"translation_key": "Hi {{GREEN}}, I and my teacher are just preparing for the next class demonstration. And you must be the new student {{GREEN}} is taking care of?",
+"type": "dialogue"
+},
+"7": {
+"character": "{{RED_TEACHER}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "RED_TEACHER"
+} ],
+"value_in_text": "{{RED_TEACHER}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "8",
+"parent_id": "2",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "RED"
+} ],
+"value_in_text": "{{RED}}"
+} ],
+"speeds": [  ],
+"text": "Delightful of you to visit! How about you me our audience of {{RED}}?",
+"time": null,
+"translation_key": "Delightful of you to visit! How about you me our audience of {{RED}}?",
+"type": "dialogue"
+},
+"8": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "9",
+"parent_id": "2",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "RED"
+} ],
+"value_in_text": "{{RED}}"
+} ],
+"speeds": [  ],
+"text": "{{RED}} concentrates on one of the fire pits.",
+"time": null,
+"translation_key": "{{RED}} concentrates on one of the fire pits.",
+"type": "dialogue"
+},
+"9": {
+"character": "{{RED_TEACHER}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "RED_TEACHER"
+} ],
+"value_in_text": "{{RED_TEACHER}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "10",
+"parent_id": "2",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "Show them your devotion!",
+"time": null,
+"translation_key": "Show them your devotion!",
 "type": "dialogue"
 }
 }

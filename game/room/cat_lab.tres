@@ -68,6 +68,7 @@ if cat_lab_revealed == true
 ~ stay
 
 {{GREEN}} stays in their dorm a bit longer.
+{{GREEN}} starts to wonder where {{BLUE}} is now.
 set next = current_room
 
 ~ restart_cat
@@ -88,10 +89,10 @@ set next = \"dorm_wing_entrance\"
 errors = [  ]
 titles = {
 "action_reactivated": "55",
-"dorm_wing_entrance": "76",
+"dorm_wing_entrance": "77",
 "execute_action": "46",
 "first_visit": "2",
-"restart_cat": "67",
+"restart_cat": "68",
 "stay": "62",
 "visit": "34"
 }
@@ -506,7 +507,7 @@ lines = {
 "type": "response"
 },
 "29": {
-"next_id": "67",
+"next_id": "68",
 "next_id_after": "end",
 "replacements": [  ],
 "text": "Restart the robo-cat",
@@ -527,7 +528,7 @@ lines = {
 "type": "dialogue"
 },
 "30": {
-"next_id": "76",
+"next_id": "77",
 "next_id_after": "end",
 "replacements": [  ],
 "text": "Go back to the entrance of the dorm wing",
@@ -661,7 +662,7 @@ lines = {
 "type": "response"
 },
 "41": {
-"next_id": "67",
+"next_id": "68",
 "next_id_after": "end",
 "replacements": [  ],
 "text": "Restart the robo-cat",
@@ -669,7 +670,7 @@ lines = {
 "type": "response"
 },
 "42": {
-"next_id": "76",
+"next_id": "77",
 "next_id_after": "end",
 "replacements": [  ],
 "text": "Go back to the entrance of the dorm wing",
@@ -892,6 +893,31 @@ lines = {
 "type": "dialogue"
 },
 "63": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "64",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} starts to wonder where {{BLUE}} is now.",
+"time": null,
+"translation_key": "{{GREEN}} starts to wonder where {{BLUE}} is now.",
+"type": "dialogue"
+},
+"64": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -907,12 +933,12 @@ lines = {
 "next_id": "",
 "type": "mutation"
 },
-"65": {
-"next_id": "67",
+"66": {
+"next_id": "68",
 "text": "restart_cat",
 "type": "title"
 },
-"67": {
+"68": {
 "condition": {
 "expression": [ {
 "type": "variable",
@@ -925,12 +951,12 @@ lines = {
 "value": false
 } ]
 },
-"next_conditional_id": "69",
-"next_id": "68",
-"next_id_after": "72",
+"next_conditional_id": "70",
+"next_id": "69",
+"next_id_after": "73",
 "type": "condition"
 },
-"68": {
+"69": {
 "character": "{{YELLOW}}",
 "character_replacements": [ {
 "expression": [ {
@@ -940,8 +966,8 @@ lines = {
 "value_in_text": "{{YELLOW}}"
 } ],
 "inline_mutations": [  ],
-"next_id": "72",
-"parent_id": "67",
+"next_id": "73",
+"parent_id": "68",
 "pauses": {
 },
 "replacements": [ {
@@ -956,12 +982,6 @@ lines = {
 "time": null,
 "translation_key": "{{GREEN}}? The little noise-maker is already on!",
 "type": "dialogue"
-},
-"69": {
-"next_conditional_id": "72",
-"next_id": "70",
-"next_id_after": "72",
-"type": "condition"
 },
 "7": {
 "character": "",
@@ -983,10 +1003,16 @@ lines = {
 "type": "dialogue"
 },
 "70": {
+"next_conditional_id": "73",
+"next_id": "71",
+"next_id_after": "73",
+"type": "condition"
+},
+"71": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "71",
-"parent_id": "69",
+"next_id": "72",
+"parent_id": "70",
 "pauses": {
 },
 "replacements": [ {
@@ -1002,7 +1028,7 @@ lines = {
 "translation_key": "{{YELLOW}} swiftly gets the robo-cat on its feet again.",
 "type": "dialogue"
 },
-"71": {
+"72": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -1015,23 +1041,23 @@ lines = {
 "value": false
 } ]
 },
-"next_id": "72",
-"parent_id": "69",
+"next_id": "73",
+"parent_id": "70",
 "type": "mutation"
 },
-"72": {
+"73": {
 "next_id": "62",
 "type": "goto"
 },
-"74": {
-"next_id": "76",
+"75": {
+"next_id": "77",
 "text": "dorm_wing_entrance",
 "type": "title"
 },
-"76": {
+"77": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "77",
+"next_id": "78",
 "pauses": {
 },
 "replacements": [ {
@@ -1047,7 +1073,7 @@ lines = {
 "translation_key": "{{GREEN}} leaves their dorm.",
 "type": "dialogue"
 },
-"77": {
+"78": {
 "mutation": {
 "expression": [ {
 "type": "variable",

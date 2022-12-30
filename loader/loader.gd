@@ -10,10 +10,7 @@ var save_path = save_dir.plus_file(save_filename)
 
 func new_game():
 	States.reset_states()
-	
-	States.current_room = "main_entrance"
-	States.blue_joined = true
-	
+	States.current_room = "station"
 	var err = get_tree().change_scene(game_path)
 	if err != OK: push_error(err)
 

@@ -81,7 +81,7 @@ The audience looks thoughtful.
 
 The audience gasps again when they learnt that the suspected culprit was not a {{RED_ASPECT}} mage.
 {{PRINCIPAL}}: A naive misconception! Although the culprit is not a {{RED_ASPECT}} mage, there are infinite possibilities for the culprit to utilise their born powers in such a way that causes fiery destruction.
-The audience \"yeahs\". {{GREEN}} is not convinced.
+The audience looks confused. {{GREEN}} is not convinced.
 - That fact does not apply to {{BLUE}}, because they are not born with any magical capability at all. They are {{ASPECTLESS}}. => testimony_1_1_1
 - Even if that were to be true, the spread of the fire was instant, clearly beyond physical reasonability. Yet the ignition areas were accurate. Such a complex spell could not have been cast by a newly enrolled student such as {{BLUE}}. => testimony_2
 - Give up => give_up
@@ -116,7 +116,7 @@ It was true. {{BLUE}} was the one who told {{GREEN}} that they were {{ASPECTLESS
 {{PRINCIPAL}}: Does anyone else wish to have the word?
 {{PRINCIPAL}} impatiently waits for a response from the audience.
 {{PRINCIPAL}}: Then this meeting will be closed. The culprit, {{BLUE}}, is to be kept in infinite detention! All classes today are cancelled and the staff must spend all their efforts on restoration spells to return the library to its former glory. Once that is done, the culprit {{BLUE}} is to be expelled from the school indefinitely!
-The audience \"yeahs!\".
+The audience barely seemed to care and started leaving.
 {{PRINCIPAL}}: Everyone, dismissed! Students, to avoid any interference I suggest you all return to your dorms until classes are opened again.
 Although, students already began to leave before they heard that.
 {{GREEN}} is worried about {{BLUE}}, who was sitting silently during the entire show.
@@ -300,9 +300,9 @@ lines = {
 },
 "replacements": [  ],
 "speeds": [  ],
-"text": "The audience \"yeahs!\".",
+"text": "The audience barely seemed to care and started leaving.",
 "time": null,
-"translation_key": "The audience \"yeahs!\".",
+"translation_key": "The audience barely seemed to care and started leaving.",
 "type": "dialogue"
 },
 "112": {
@@ -1428,9 +1428,9 @@ lines = {
 "value_in_text": "{{GREEN}}"
 } ],
 "speeds": [  ],
-"text": "The audience \"yeahs\". {{GREEN}} is not convinced.",
+"text": "The audience looks confused. {{GREEN}} is not convinced.",
 "time": null,
-"translation_key": "The audience \"yeahs\". {{GREEN}} is not convinced.",
+"translation_key": "The audience looks confused. {{GREEN}} is not convinced.",
 "type": "dialogue"
 },
 "77": {

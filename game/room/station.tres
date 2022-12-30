@@ -11,9 +11,23 @@ if blue_joined == true
 	After a bit of walking, some railtracks appear behind a hill. The train station is quiet.
 	{{GREEN}}: The train which stops here is part of the general commuting system. But considering there is no other feasible way to get here, this should be familliar to you!
 	{{BLUE}} nods.
+	- Go back to the school garden to the north => main_outdoors
 else
-	After a bit of walking, some railtracks appear behind a hill. The train station is quiet.
-- Go back to the school garden to the north => main_outdoors
+	{{BLUE}} steps out of a modern passenger train, onto an old-fashioned station in the forest. A student with long green hair notices {{BLUE}} and gives a friendly smile.
+	{{GREEN}}: You are {{BLUE}}, right?
+	{{BLUE}} nods.
+	{{GREEN}}: Welcome! My name is {{GREEN}} and I will be your mentor during your first time at the magi-scientific boarding school. Please, follow me.
+	{{GREEN}} takes {{BLUE}} over a passageway in the forest.
+	set blue_joined = true
+	{{GREEN}} looks at {{BLUE}}, a rather short and quiet new student.
+	{{GREEN}}: Let's have an introduction. I study Materials and Creative Magic. I am born with the {{GREEN_ASPECT}} aspect. What are you going to study?
+	{{BLUE}} looks around, as if they seem to have forgotten about something.
+	{{BLUE}}: I am going to study Astrology. As for magical aspect... I do not remember what it is...
+	{{GREEN}}: That's very curious! Do you know why?
+	{{BLUE}}: I suppose I am simply not born with one.
+	{{GREEN}}: So you are {{ASPECTLESS}}? I did not know there were people without magic. You're a very interesting student, {{BLUE}}!
+	{{GREEN}} reaches the end of the pathway, a school garden begins to reveal itself
+	set next = \"main_outdoors\"
 
 ~ visit
 
@@ -31,10 +45,10 @@ set next = current_room
 set next = \"main_outdoors\""
 errors = [  ]
 titles = {
-"execute_action": "17",
+"execute_action": "31",
 "first_visit": "2",
-"main_outdoors": "22",
-"visit": "12"
+"main_outdoors": "36",
+"visit": "26"
 }
 lines = {
 "0": {
@@ -43,14 +57,328 @@ lines = {
 "type": "title"
 },
 "10": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "11",
+"parent_id": "7",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"speeds": [  ],
+"text": "{{BLUE}} nods.",
+"time": null,
+"translation_key": "{{BLUE}} nods.",
+"type": "dialogue"
+},
+"11": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
 "next_id": "12",
-"text": "visit",
-"type": "title"
+"parent_id": "7",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "Welcome! My name is {{GREEN}} and I will be your mentor during your first time at the magi-scientific boarding school. Please, follow me.",
+"time": null,
+"translation_key": "Welcome! My name is {{GREEN}} and I will be your mentor during your first time at the magi-scientific boarding school. Please, follow me.",
+"type": "dialogue"
 },
 "12": {
 "character": "",
 "inline_mutations": [  ],
 "next_id": "13",
+"parent_id": "7",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} takes {{BLUE}} over a passageway in the forest.",
+"time": null,
+"translation_key": "{{GREEN}} takes {{BLUE}} over a passageway in the forest.",
+"type": "dialogue"
+},
+"13": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "blue_joined"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "bool",
+"value": true
+} ]
+},
+"next_id": "14",
+"parent_id": "7",
+"type": "mutation"
+},
+"14": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "15",
+"parent_id": "7",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} looks at {{BLUE}}, a rather short and quiet new student.",
+"time": null,
+"translation_key": "{{GREEN}} looks at {{BLUE}}, a rather short and quiet new student.",
+"type": "dialogue"
+},
+"15": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "16",
+"parent_id": "7",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN_ASPECT"
+} ],
+"value_in_text": "{{GREEN_ASPECT}}"
+} ],
+"speeds": [  ],
+"text": "Let's have an introduction. I study Materials and Creative Magic. I am born with the {{GREEN_ASPECT}} aspect. What are you going to study?",
+"time": null,
+"translation_key": "Let's have an introduction. I study Materials and Creative Magic. I am born with the {{GREEN_ASPECT}} aspect. What are you going to study?",
+"type": "dialogue"
+},
+"16": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "17",
+"parent_id": "7",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"speeds": [  ],
+"text": "{{BLUE}} looks around, as if they seem to have forgotten about something.",
+"time": null,
+"translation_key": "{{BLUE}} looks around, as if they seem to have forgotten about something.",
+"type": "dialogue"
+},
+"17": {
+"character": "{{BLUE}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "18",
+"parent_id": "7",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "I am going to study Astrology. As for magical aspect... I do not remember what it is...",
+"time": null,
+"translation_key": "I am going to study Astrology. As for magical aspect... I do not remember what it is...",
+"type": "dialogue"
+},
+"18": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "19",
+"parent_id": "7",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "That's very curious! Do you know why?",
+"time": null,
+"translation_key": "That's very curious! Do you know why?",
+"type": "dialogue"
+},
+"19": {
+"character": "{{BLUE}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "20",
+"parent_id": "7",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "I suppose I am simply not born with one.",
+"time": null,
+"translation_key": "I suppose I am simply not born with one.",
+"type": "dialogue"
+},
+"2": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "blue_joined"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "bool",
+"value": true
+} ]
+},
+"next_conditional_id": "7",
+"next_id": "3",
+"next_id_after": "end",
+"type": "condition"
+},
+"20": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "21",
+"parent_id": "7",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "ASPECTLESS"
+} ],
+"value_in_text": "{{ASPECTLESS}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"speeds": [  ],
+"text": "So you are {{ASPECTLESS}}? I did not know there were people without magic. You're a very interesting student, {{BLUE}}!",
+"time": null,
+"translation_key": "So you are {{ASPECTLESS}}? I did not know there were people without magic. You're a very interesting student, {{BLUE}}!",
+"type": "dialogue"
+},
+"21": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "22",
+"parent_id": "7",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"speeds": [  ],
+"text": "{{GREEN}} reaches the end of the pathway, a school garden begins to reveal itself",
+"time": null,
+"translation_key": "{{GREEN}} reaches the end of the pathway, a school garden begins to reveal itself",
+"type": "dialogue"
+},
+"22": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "next"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "main_outdoors"
+} ]
+},
+"next_id": "end",
+"parent_id": "7",
+"type": "mutation"
+},
+"24": {
+"next_id": "26",
+"text": "visit",
+"type": "title"
+},
+"26": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "27",
 "pauses": {
 },
 "replacements": [ {
@@ -66,24 +394,38 @@ lines = {
 "translation_key": "{{GREEN}} is next to the railtracks. The train station is quiet.",
 "type": "dialogue"
 },
-"13": {
-"next_id": "22",
+"27": {
+"next_id": "36",
 "next_id_after": "end",
 "replacements": [  ],
-"responses": PoolStringArray( "13" ),
+"responses": PoolStringArray( "27" ),
 "text": "Go back to the school garden to the north",
 "translation_key": "Go back to the school garden to the north",
 "type": "response"
 },
-"15": {
-"next_id": "17",
+"29": {
+"next_id": "31",
 "text": "execute_action",
 "type": "title"
 },
-"17": {
+"3": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "18",
+"next_id": "4",
+"parent_id": "2",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "After a bit of walking, some railtracks appear behind a hill. The train station is quiet.",
+"time": null,
+"translation_key": "After a bit of walking, some railtracks appear behind a hill. The train station is quiet.",
+"type": "dialogue"
+},
+"31": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "32",
 "pauses": {
 },
 "replacements": [  ],
@@ -93,7 +435,7 @@ lines = {
 "translation_key": "No problems here.",
 "type": "dialogue"
 },
-"18": {
+"32": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -109,33 +451,15 @@ lines = {
 "next_id": "",
 "type": "mutation"
 },
-"2": {
-"condition": {
-"expression": [ {
-"type": "variable",
-"value": "blue_joined"
-}, {
-"type": "comparison",
-"value": "=="
-}, {
-"type": "bool",
-"value": true
-} ]
-},
-"next_conditional_id": "6",
-"next_id": "3",
-"next_id_after": "8",
-"type": "condition"
-},
-"20": {
-"next_id": "22",
+"34": {
+"next_id": "36",
 "text": "main_outdoors",
 "type": "title"
 },
-"22": {
+"36": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "23",
+"next_id": "37",
 "pauses": {
 },
 "replacements": [ {
@@ -151,7 +475,7 @@ lines = {
 "translation_key": "{{GREEN}} returns to the garden.",
 "type": "dialogue"
 },
-"23": {
+"37": {
 "mutation": {
 "expression": [ {
 "type": "variable",
@@ -166,20 +490,6 @@ lines = {
 },
 "next_id": "",
 "type": "mutation"
-},
-"3": {
-"character": "",
-"inline_mutations": [  ],
-"next_id": "4",
-"parent_id": "2",
-"pauses": {
-},
-"replacements": [  ],
-"speeds": [  ],
-"text": "After a bit of walking, some railtracks appear behind a hill. The train station is quiet.",
-"time": null,
-"translation_key": "After a bit of walking, some railtracks appear behind a hill. The train station is quiet.",
-"type": "dialogue"
 },
 "4": {
 "character": "{{GREEN}}",
@@ -205,7 +515,7 @@ lines = {
 "5": {
 "character": "",
 "inline_mutations": [  ],
-"next_id": "8",
+"next_id": "6",
 "parent_id": "2",
 "pauses": {
 },
@@ -223,32 +533,72 @@ lines = {
 "type": "dialogue"
 },
 "6": {
-"next_conditional_id": "8",
-"next_id": "7",
-"next_id_after": "8",
-"type": "condition"
-},
-"7": {
-"character": "",
-"inline_mutations": [  ],
-"next_id": "8",
-"parent_id": "6",
-"pauses": {
-},
-"replacements": [  ],
-"speeds": [  ],
-"text": "After a bit of walking, some railtracks appear behind a hill. The train station is quiet.",
-"time": null,
-"translation_key": "After a bit of walking, some railtracks appear behind a hill. The train station is quiet.",
-"type": "dialogue"
-},
-"8": {
-"next_id": "22",
+"next_id": "36",
 "next_id_after": "end",
+"parent_id": "2",
 "replacements": [  ],
-"responses": PoolStringArray( "8" ),
+"responses": PoolStringArray( "6" ),
 "text": "Go back to the school garden to the north",
 "translation_key": "Go back to the school garden to the north",
 "type": "response"
+},
+"7": {
+"next_conditional_id": "end",
+"next_id": "8",
+"next_id_after": "end",
+"type": "condition"
+},
+"8": {
+"character": "",
+"inline_mutations": [  ],
+"next_id": "9",
+"parent_id": "7",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+}, {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"speeds": [  ],
+"text": "{{BLUE}} steps out of a modern passenger train, onto an old-fashioned station in the forest. A student with long green hair notices {{BLUE}} and gives a friendly smile.",
+"time": null,
+"translation_key": "{{BLUE}} steps out of a modern passenger train, onto an old-fashioned station in the forest. A student with long green hair notices {{BLUE}} and gives a friendly smile.",
+"type": "dialogue"
+},
+"9": {
+"character": "{{GREEN}}",
+"character_replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "GREEN"
+} ],
+"value_in_text": "{{GREEN}}"
+} ],
+"inline_mutations": [  ],
+"next_id": "10",
+"parent_id": "7",
+"pauses": {
+},
+"replacements": [ {
+"expression": [ {
+"type": "variable",
+"value": "BLUE"
+} ],
+"value_in_text": "{{BLUE}}"
+} ],
+"speeds": [  ],
+"text": "You are {{BLUE}}, right?",
+"time": null,
+"translation_key": "You are {{BLUE}}, right?",
+"type": "dialogue"
 }
 }
