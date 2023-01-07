@@ -4,6 +4,21 @@ const dlg_dir = "res://game/room/"
 const room_dir = "res://game/room/"
 
 enum InputType {RESPONSE, ACTION, REACTIVATION}
+enum AnimID {DOWN, LEFT, UP, RIGHT}
+
+const anim_direction = {
+	Vector2.DOWN: AnimID.DOWN,
+	Vector2.LEFT: AnimID.LEFT, 
+	Vector2.UP: AnimID.UP,
+	Vector2.RIGHT: AnimID.RIGHT,
+}
+
+const anim_name = {
+	AnimID.DOWN: "down",
+	AnimID.LEFT: "left",
+	AnimID.UP: "up",
+	AnimID.RIGHT: "right",
+}
 
 func connect_neighbouring_elems(arr: Array) -> void:
 	if arr.size() > 1:
@@ -25,3 +40,13 @@ func get_action_state_name(dlg_name: String, action_id: String) -> String:
 
 func scroll_to_bottom(scroll_bar: ScrollBar) -> void:
 	scroll_bar.value = scroll_bar.max_value
+
+func snap_to_compass(direction: Vector2) -> Vector2:
+	if direction == Vector2.ZERO: return direction
+	if direction in anim_direction.keys(): return direction
+	
+	var snapped_angle = stepify(direction.angle(), PI / 2)
+	var snapped_vector = Vector2.RIGHT.rotated(snapped_angle)
+	if is_equal_approx(snapped_vector.x, 0): snapped_vector.x = 0
+	if is_equal_approx(snapped_vector.y, 0): snapped_vector.y = 0
+	return snapped_vector

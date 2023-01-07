@@ -23,7 +23,7 @@ _global_script_class_icons={
 config/name="ProjectAcceleration"
 run/main_scene="res://main_menu/main_menu.tscn"
 config/icon="res://assets/misc/icon.png"
-config/version="0.2"
+config/version="0.3"
 
 [autoload]
 
