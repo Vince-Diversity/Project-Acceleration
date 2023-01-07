@@ -4,7 +4,11 @@ const dev_mode_save_dir := "res://dev/save/"
 const game_save_dir := "user://save/"
 const game_path := "res://game/game.tscn"
 const main_menu_path := "res://main_menu/main_menu.tscn"
+
+## Change this mode when releasing
 var save_dir = dev_mode_save_dir
+##
+
 var save_filename = "cirruseng_v%s.tres" % ProjectSettings.get_setting("application/config/version")
 var save_path = save_dir.plus_file(save_filename)
 

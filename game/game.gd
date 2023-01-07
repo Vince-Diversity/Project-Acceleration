@@ -3,7 +3,7 @@ extends Node
 onready var room_scn = preload("res://game/room/room.tscn")
 onready var menu_scn = preload("res://game/menu.tscn")
 onready var save_res = preload("res://loader/save_game.gd")
-var save_dir: String = Loader.dev_mode_save_dir
+var save_dir: String = Loader.save_dir
 var room_node
 var menu
 var next: String
