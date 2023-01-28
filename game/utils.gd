@@ -35,6 +35,9 @@ func get_res_filename(res: Resource) -> String:
 func get_dlg_path(dlg_name) -> String:
 	return Utils.dlg_dir + dlg_name + ".tres"
 
+func get_room_path(room_name: String) -> String:
+	return Utils.room_dir + room_name + ".tscn"
+
 func get_action_state_name(dlg_name: String, action_id: String) -> String:
 	return dlg_name + '_' + Names.action_suffix[action_id]
 

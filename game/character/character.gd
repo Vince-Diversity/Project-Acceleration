@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 onready var anim = $AnimatedSprite
+onready var interact_area = $InteractArea
 var velocity := Vector2()
 var speed := 100.0
 var inputted_direction := Vector2()

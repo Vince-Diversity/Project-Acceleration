@@ -1,7 +1,7 @@
-extends Control
+extends Node2D
 
-onready var ui = $UI
-onready var player = $Player
+onready var player = $YSort/Player
+onready var thing = $YSort/Cat
 var dlg_res: Resource
 
 func _physics_process(_delta):
@@ -11,6 +11,10 @@ func _physics_process(_delta):
 	else:
 		player.move()
 
-func run_room():
-	ui.load_ui()
-	ui.text_box.run_text()
+func _input(_event):
+	if Input.is_action_just_pressed("ui_select"):
+		check_interaction()
+
+func check_interaction():
+	for body in thing.interact_area.get_overlapping_bodies():
+		print("%s pats %s" % [player.name, thing.name])

@@ -1,6 +1,5 @@
 extends Node
 
-onready var room_scn = preload("res://game/room/room.tscn")
 onready var menu_scn = preload("res://game/menu.tscn")
 onready var save_res = preload("res://loader/save_game.gd")
 var save_dir: String = Loader.save_dir
@@ -10,7 +9,6 @@ var next: String
 
 func _ready():
 	load_room(States.current_room)
-	room_node.run_room()
 
 func _input(event):
 	if event.is_action_pressed("ui_exit"):
@@ -18,9 +16,8 @@ func _input(event):
 
 func load_room(room_name: String) -> void:
 	States.current_room = room_name
-	room_node = room_scn.instance()
+	room_node = load(Utils.get_room_path(room_name)).instance()
 	add_child(room_node)
-	room_node.ui.connect("change_room", self, "change_room")
 
 func change_room() -> void:
 	room_node.queue_free()
