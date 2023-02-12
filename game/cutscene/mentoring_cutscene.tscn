@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://game/cutscene/mentoring_cutscene.gd" type="Script" id=1]
+
+[node name="MentoringCutscene" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="MentorMark" type="Position2D" parent="."]
+
+[node name="StudentMark" type="Position2D" parent="."]

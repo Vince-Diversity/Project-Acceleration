@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://game/character/character.tscn" type="PackedScene" id=1]
+[ext_resource path="res://resources/characters/blue.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://game/character/ally.gd" type="Script" id=3]
+
+[node name="Ally" instance=ExtResource( 1 )]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 3 )
+
+[node name="AnimatedSprite" parent="." index="0"]
+frames = ExtResource( 2 )
+
+[connection signal="area_entered" from="FollowingArea" to="." method="_on_FollowingArea_area_entered"]
+[connection signal="area_exited" from="FollowingArea" to="." method="_on_FollowingArea_area_exited"]

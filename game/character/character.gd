@@ -1,10 +1,11 @@
 extends KinematicBody2D
 
 onready var anim = $AnimatedSprite
-onready var interact_area = $InteractArea
+onready var following_area = $FollowingArea
 var velocity := Vector2()
 var speed := 100.0
-var inputted_direction := Vector2()
+var inputted_direction := Vector2(0, 1)
+var party
 
 func move():
 	velocity = speed * inputted_direction
@@ -23,8 +24,8 @@ func animate_walk():
 	anim.play(anim_name)
 
 func animate_idle():
+	pass
 	anim.stop()
-	anim.set_frame(0)
 
-func update_input_direction():
-	inputted_direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+func set_direction(direction: Vector2):
+	inputted_direction = direction.normalized()

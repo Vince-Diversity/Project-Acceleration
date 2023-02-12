@@ -1,20 +1,27 @@
 extends Node2D
 
-onready var player = $YSort/Player
+enum States {ROAM, CUTSCENE}
+
+onready var party = $YSort/Party
 onready var thing = $YSort/Cat
+onready var cutscenes = $Cutscenes
+var state = States.ROAM
 var dlg_res: Resource
 
-func _physics_process(_delta):
-	player.update_input_direction()
-	if player.inputted_direction == Vector2.ZERO:
-		player.animate_idle()
-	else:
-		player.move()
+func _ready():
+	state = States.ROAM
 
-func _input(_event):
-	if Input.is_action_just_pressed("ui_select"):
+func _physics_process(delta):
+	match state:
+		States.ROAM:
+			party.roam()
+		States.CUTSCENE:
+			cutscenes.get_children()[0].do_cutscene(delta, self)
+
+func _unhandled_input(event):
+	if event.is_action_pressed("ui_select"):
 		check_interaction()
 
 func check_interaction():
-	for body in thing.interact_area.get_overlapping_bodies():
-		print("%s pats %s" % [player.name, thing.name])
+	if thing.interact_area.get_overlapping_areas():
+		state = States.CUTSCENE

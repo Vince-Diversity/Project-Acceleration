@@ -7,9 +7,6 @@ var room_node
 var menu
 var next: String
 
-func _ready():
-	load_room(States.current_room)
-
 func _input(event):
 	if event.is_action_pressed("ui_exit"):
 		prompt_menu()
