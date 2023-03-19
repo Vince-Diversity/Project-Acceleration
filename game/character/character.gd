@@ -13,6 +13,20 @@ func move():
 	animate_walk()
 
 func animate_walk():
+	anim.play(get_anim_name())
+
+func animate_idle():
+	anim.stop()
+
+func set_direction(direction: Vector2):
+	inputted_direction = direction.normalized()
+
+func update_direction():
+	anim.play(get_anim_name())
+	anim.set_frame(0)
+	anim.stop()
+
+func get_anim_name() -> String:
 	var snapped_direction = Utils.snap_to_compass(inputted_direction)
 	var anim_id = Utils.anim_direction[snapped_direction]
 	var anim_name = Utils.anim_name[anim_id]
@@ -21,11 +35,4 @@ func animate_walk():
 		anim.set_flip_h(true)
 	else:
 		anim.set_flip_h(false)
-	anim.play(anim_name)
-
-func animate_idle():
-	pass
-	anim.stop()
-
-func set_direction(direction: Vector2):
-	inputted_direction = direction.normalized()
+	return anim_name

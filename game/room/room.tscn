@@ -35,7 +35,7 @@ tile_data = PoolIntArray( 2, 0, 196609, 3, 0, 3, 4, 0, 3, 5, 0, 0, 65537, 0, 196
 position = Vector2( 509, 188 )
 
 [node name="Party" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 508, 286 )
+position = Vector2( 509, 115 )
 
 [node name="Cutscenes" type="Node2D" parent="."]
 

@@ -2,7 +2,8 @@ extends Node
 
 onready var menu_scn = preload("res://game/menu.tscn")
 onready var save_res = preload("res://loader/save_game.gd")
-var save_dir: String = Loader.save_dir
+var loader
+var save_dir: String
 var room_node
 var menu
 var next: String
@@ -39,7 +40,7 @@ func _on_Menu_save_pressed():
 	var dir = Directory.new()
 	if not dir.dir_exists(save_dir):
 		dir.make_dir_recursive(save_dir)
-	var err = ResourceSaver.save(Loader.save_path, save_game)
+	var err = ResourceSaver.save(loader.save_path, save_game)
 	if err != OK: print(err)
 
 func _on_Menu_reset_focus():

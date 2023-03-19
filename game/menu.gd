@@ -24,4 +24,5 @@ func _on_Save_pressed():
 	queue_free()
 
 func _on_Main_Menu_pressed():
-	Loader.enter_main_menu()
+	pass
+#	loader.enter_main_menu()

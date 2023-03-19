@@ -7,10 +7,7 @@ var room
 func do_cutscene(_delta, _root_node) -> void:
 	pass
 
-func _move_to_position(_delta, _character, _target_position) -> void:
-	pass
-
-func _turn_to_direction(_delta, _character, _target_direction) -> void:
+func _move_to_position(_delta, _party, _target_position, _target_direction) -> void:
 	pass
 
 func _end_cutscene() -> void:

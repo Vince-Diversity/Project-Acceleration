@@ -7,8 +7,12 @@ func _ready():
 	update_angle()
 
 func move():
-	update_angle()
 	.move()
+	update_angle()
+
+func update_direction():
+	.update_direction()
+	update_angle()
 
 func update_angle():
 	direction_node.rotation = Utils.snap_to_compass(inputted_direction).angle()
