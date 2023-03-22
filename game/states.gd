@@ -57,6 +57,7 @@ func is_in_blue_space() -> bool:
 func is_blue_joined() -> bool:
 	return blue_joined
 
+
 func reset_states() -> void:
 	for property in States.property_list:
 		# For resetting all properties to the equivalent of null

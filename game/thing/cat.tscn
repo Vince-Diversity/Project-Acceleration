@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3]
 
-[ext_resource path="res://resources/things/cat.tres" type="SpriteFrames" id=1]
-[ext_resource path="res://game/thing/thing.tscn" type="PackedScene" id=2]
+[ext_resource type="SpriteFrames" path="res://resources/things/cat.tres" id="1"]
+[ext_resource type="PackedScene" path="res://game/thing/thing.tscn" id="2"]
 
 [node name="Cat" instance=ExtResource( 2 )]
 

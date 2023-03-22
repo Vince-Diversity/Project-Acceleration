@@ -1,27 +1,31 @@
-extends Control
+class_name MainMenu extends Control
 
-onready var controls_scn = preload("res://loader/controls.tscn")
-onready var options = $Options
-onready var load_game = $Options/LoadGame
-onready var new_game = $Options/NewGame
+@onready var controls_scn = preload("res://loader/controls.tscn")
+@onready var options = $Options
+@onready var load_game = $Options/LoadGame
+@onready var new_game = $Options/NewGame
+
 var focus
 var loader
+
 
 func _ready():
 	_ready_controls()
 	_ready_main_menu()
 
+
 func _ready_controls():
-	var controls = controls_scn.instance()
+	var controls = controls_scn.instantiate()
 	add_child(controls)
+
 
 func _ready_main_menu():
 	adapt_load_button()
 	focus.grab_focus()
 
+
 func adapt_load_button():
-	var file = File.new()
-	if !file.file_exists(loader.save_path):
+	if !FileAccess.file_exists(loader.save_path):
 		options.remove_child(load_game)
 		focus = new_game
 	else:

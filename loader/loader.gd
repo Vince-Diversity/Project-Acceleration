@@ -1,4 +1,4 @@
-extends Node
+class_name Loader extends Node
 
 const dev_mode_save_dir := "res://dev/save/"
 const game_save_dir := "user://save/"
@@ -6,17 +6,19 @@ const game_path := "res://game/game.tscn"
 const main_menu_path := "res://main_menu/main_menu.tscn"
 
 ## Change this mode when releasing
-var save_dir = dev_mode_save_dir
+var save_dir: String = dev_mode_save_dir
 
-var save_filename = "cirruseng_v%s.tres" % ProjectSettings.get_setting("application/config/version")
-var save_path = save_dir.plus_file(save_filename)
+var save_filename: String = "cirruseng_v%s.tres" % ProjectSettings.get_setting("application/config/version")
+var save_path: String = save_dir.path_join(save_filename)
 var game
 var main_menu
 
+
 func _ready():
-	main_menu = load(main_menu_path).instance()
+	main_menu = load(main_menu_path).instantiate()
 	main_menu.loader = self
 	get_tree().get_root().call_deferred("add_child", main_menu)
+
 
 ## Change this function for making a new game default
 func _ready_new_game():
@@ -30,9 +32,8 @@ func _ready_new_game():
 
 func new_game():
 	States.reset_states()
-	game = load(game_path).instance()
+	game = load(game_path).instantiate()
 	get_tree().get_root().add_child(game)
-	yield(get_tree(), "idle_frame")
 	_ready_new_game()
 
 func enter_game():

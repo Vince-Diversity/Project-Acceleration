@@ -1,0 +1,7 @@
+[gd_resource type="Shortcut" load_steps=2 format=3 uid="uid://coeb8oxthe2v4"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_fcfrk"]
+action = &"ui_action_0"
+
+[resource]
+events = [SubResource("InputEventAction_fcfrk")]

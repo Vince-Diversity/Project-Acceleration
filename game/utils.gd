@@ -48,18 +48,18 @@ func snap_to_compass(direction: Vector2) -> Vector2:
 	if direction == Vector2.ZERO: return direction
 	if direction in anim_direction.keys(): return direction
 	
-	var snapped_angle = stepify(direction.angle(), PI / 2)
+	var snapped_angle = snapped(direction.angle(), PI / 2)
 	var snapped_vector = Vector2.RIGHT.rotated(snapped_angle)
 	if is_equal_approx(snapped_vector.x, 0): snapped_vector.x = 0
 	if is_equal_approx(snapped_vector.y, 0): snapped_vector.y = 0
 	return snapped_vector
 
 # Makes a boolean array containing true elements
-func ones(list) -> Array:
-	var ones = []
-	for el in list:
-		ones.append(true)
-	return ones
+#func ones(list) -> Array:
+#	var ones = []
+#	for el in list:
+#		ones.append(true)
+#	return ones
 
 # Checks if boolean array only contains false
 func any(list: Array) -> bool:
