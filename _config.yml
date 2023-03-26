@@ -23,9 +23,7 @@ description: >-
   In a three-dimensional space, acceleration is the rate of velocity.
   Time is a fourth dimension in the theory of relativity.
   Thus, acceleration can also be imagined as the rate of time.
-  To imagine the acceleration of time, a story-driven game is being made
-  where familliar laws of nature are bent by imagination.
-  This is the origin of this project.
+  This is the origin behind the name of this project.
 
 domain: vince-diversity.github.io
 baseurl: /Project-Acceleration/ # the subpath of your site, e.g. /blog
