@@ -22,7 +22,7 @@ func _physics_process(delta):
 
 
 func _unhandled_input(event):
-	if event.is_action_pressed("ui_select"):
+	if event.is_action_pressed("ui_accept"):
 		check_interaction()
 
 

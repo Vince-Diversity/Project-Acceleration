@@ -55,11 +55,11 @@ func snap_to_compass(direction: Vector2) -> Vector2:
 	return snapped_vector
 
 # Makes a boolean array containing true elements
-#func ones(list) -> Array:
-#	var ones = []
-#	for el in list:
-#		ones.append(true)
-#	return ones
+func ones(list) -> Array:
+	var arr = []
+	for el in list:
+		arr.append(true)
+	return arr
 
 # Checks if boolean array only contains false
 func any(list: Array) -> bool:

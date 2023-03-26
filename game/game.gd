@@ -28,9 +28,9 @@ func change_room() -> void:
 
 func prompt_menu() -> void:
 	if !is_instance_valid(menu):
-		menu = menu_scn.instance()
-		menu.connect("save_pressed", self, "_on_Menu_save_pressed")
-		menu.connect("reset_focus", self, "_on_Menu_reset_focus")
+		menu = menu_scn.instantiate()
+		menu.save_pressed.connect(_on_Menu_save_pressed)
+		menu.reset_focus.connect(_on_Menu_reset_focus)
 		add_child(menu)
 
 
@@ -45,11 +45,12 @@ func _on_Menu_save_pressed():
 	save_game_state(save_game)
 	var dir = DirAccess.open(save_dir)
 	if not dir:
-		dir.make_dir_recursive(save_dir)
+		DirAccess.make_dir_absolute(save_dir)
 	var err = ResourceSaver.save(save_game, loader.save_path)
 	if err != OK: print(err)
 
 
 func _on_Menu_reset_focus():
-	room_node.ui.text_box.grab_next_focus()
+	pass
+#	room_node.ui.text_box.grab_next_focus()
 

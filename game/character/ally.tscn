@@ -1,16 +1,29 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=6 format=3 uid="uid://bse4v6rqspf6x"]
 
-[ext_resource type="PackedScene" path="res://game/character/character.tscn" id="1"]
-[ext_resource type="SpriteFrames" path="res://resources/characters/blue.tres" id="2"]
+[ext_resource type="PackedScene" uid="uid://bk16wp1xkfq2e" path="res://game/character/character.tscn" id="1"]
+[ext_resource type="SpriteFrames" uid="uid://b4v52gufgibni" path="res://resources/characters/blue.tres" id="2"]
 [ext_resource type="Script" path="res://game/character/ally.gd" id="3"]
 
-[node name="Ally" instance=ExtResource( 1 )]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kil8s"]
+radius = 5.0
+height = 10.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pg2hi"]
+radius = 20.0
+
+[node name="Ally" instance=ExtResource("1")]
 collision_layer = 2
 collision_mask = 0
-script = ExtResource( 3 )
+script = ExtResource("3")
 
 [node name="AnimatedSprite" parent="." index="0"]
-frames = ExtResource( 2 )
+sprite_frames = ExtResource("2")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CapsuleShape2D_kil8s")
+
+[node name="CollisionShape2D" parent="FollowingArea" index="0"]
+shape = SubResource("CircleShape2D_pg2hi")
 
 [connection signal="area_entered" from="FollowingArea" to="." method="_on_FollowingArea_area_entered"]
 [connection signal="area_exited" from="FollowingArea" to="." method="_on_FollowingArea_area_exited"]

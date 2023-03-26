@@ -30,22 +30,31 @@ func _ready_new_game():
 	game.loader = self
 	game.save_dir = save_dir
 
+
+func _add_child_to_root(node_path: String):
+	game = load(node_path).instantiate()
+	get_tree().get_root().add_child(game)
+
+
 func new_game():
 	States.reset_states()
-	game = load(game_path).instantiate()
-	get_tree().get_root().add_child(game)
+	_add_child_to_root(game_path)
 	_ready_new_game()
 
+
+# ToDo
 func enter_game():
 	var save_game: Resource = load(save_path)
 	load_game_state(save_game)
-	var err = get_tree().change_scene(game_path)
-	if err != OK: push_error(err)
+	_add_child_to_root(game_path)
+
 
 func enter_main_menu():
-	var err = get_tree().change_scene(main_menu_path)
+	var err = get_tree().change_scene_to_file(main_menu_path)
 	if err != OK: push_error(err)
+
 
 func load_game_state(save_game: Resource):
 	for key in save_game.data:
 		States.set(key, save_game.data[key])
+

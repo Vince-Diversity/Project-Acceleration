@@ -1,27 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://di7l5u26mhuk8"]
+[gd_scene load_steps=6 format=3 uid="uid://di7l5u26mhuk8"]
 
 [ext_resource type="Script" path="res://game/room/room.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://dhlrmcbeup4qa" path="res://assets/background/empty_bg.png" id="2"]
-[ext_resource type="PackedScene" path="res://game/character/party.tscn" id="3"]
-[ext_resource type="TileSet" path="res://resources/default_tileset.tres" id="4"]
-[ext_resource type="PackedScene" path="res://game/thing/cat.tscn" id="5"]
-[ext_resource type="PackedScene" path="res://game/cutscene/mentoring_cutscene.tscn" id="6"]
+[ext_resource type="TileSet" uid="uid://dtwbusdibv1qo" path="res://resources/default_tileset.tres" id="2_1y5al"]
+[ext_resource type="PackedScene" uid="uid://db8dgl6yj1t18" path="res://game/character/party.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://bbv4g4ekf8c24" path="res://game/thing/cat.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://cbkbfabme6mpp" path="res://game/cutscene/mentoring_cutscene.tscn" id="6"]
 
 [node name="Room" type="Node2D"]
 script = ExtResource("1")
 
-[node name="Background" type="TextureRect" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-texture = ExtResource("2")
-stretch_mode = 1
-
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = ExtResource("4")
+tile_set = ExtResource("2_1y5al")
 format = 2
+layer_0/tile_data = PackedInt32Array(3, 131073, 1, 65540, 131073, 1, 65539, 131073, 1, 4, 131073, 1, 2, 65537, 1, 65538, 131073, 1, 65541, 131073, 1, 5, 131073, 0, 131077, 131073, 1, 131076, 131073, 1, 131075, 131073, 1, 131074, 131073, 1, 327689, 1, 3, 262153, 1, 3, 196617, 1, 3, 131081, 1, 3, 65545, 1, 3, 9, 1, 3, -65527, 1, 3, 327688, 1, 3, 262152, 196609, 3, 196616, 196609, 2, 131080, 1, 0, 65544, 1, 3, 8, 1, 3, -65528, 1, 3, 327687, 1, 3, 262151, 65537, 2, 196615, 131073, 1, 131079, 131073, 0, 65543, 196609, 2, 7, 1, 0, -65529, 1, 3, 327686, 1, 3, 262150, 65537, 2, 196614, 131073, 1, 131078, 131073, 1, 65542, 131073, 1, 6, 196609, 0, -65530, 1, 3, 327685, 196609, 3, 262149, 196609, 1, 196613, 131073, 1, -65531, 1, 0, 327684, 65537, 2, 262148, 131073, 1, 196612, 131073, 1, -65532, 196609, 0, 327683, 65537, 2, 262147, 131073, 1, 196611, 131073, 1, -65533, 196609, 0, 327682, 1, 2, 262146, 131073, 2, 196610, 131073, 1, -65534, 65537, 3, 327681, 1, 3, 262145, 65537, 2, 196609, 131073, 1, 131073, 131073, 1, 65537, 131073, 1, 1, 196609, 0, -65535, 1, 3, 327680, 1, 3, 262144, 65537, 2, 196608, 131073, 1, 131072, 65537, 1, 65536, 65537, 0, 0, 65537, 3, -65536, 1, 3, 393215, 1, 3, 327679, 1, 2, 262143, 65537, 0, 196607, 65537, 3, 131071, 1, 3, 65535, 1, 3, -1, 1, 3, 393214, 1, 3, 327678, 1, 3, 262142, 1, 3, 196606, 1, 3, 131070, 1, 3, 65534, 1, 3, -2, 1, 3)
 
 [node name="YSort" type="Node2D" parent="."]
 y_sort_enabled = true

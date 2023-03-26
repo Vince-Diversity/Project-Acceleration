@@ -1,7 +1,7 @@
 extends Cutscene
 
-onready var mentor_mark = $MentorMark
-onready var student_mark = $StudentMark
+@onready var mentor_mark = $MentorMark
+@onready var student_mark = $StudentMark
 var is_moving
 
 func do_cutscene(delta, root_node) -> void:
