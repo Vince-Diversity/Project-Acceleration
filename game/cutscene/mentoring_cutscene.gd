@@ -3,6 +3,10 @@ extends Cutscene
 @onready var mentor_mark = $MentorMark
 @onready var student_mark = $StudentMark
 var is_moving
+var dlg_res: DialogueResource
+var text_box: TextBox
+var is_dlg_ended: bool
+
 
 func do_cutscene(delta, root_node) -> void:
 	room = root_node
@@ -17,7 +21,13 @@ func do_cutscene(delta, root_node) -> void:
 			[mentor_mark.global_position, student_mark.global_position],
 			Vector2.UP)
 		2: _interact()
-		3: _end_cutscene()
+		3: _wait_interact()
+		4: _end_cutscene()
+
+func grab_cutscene_focus() -> void:
+	if text_box != null:
+		text_box.balloon.grab_focus()
+
 
 func _move_to_position(delta, party, target_position, target_direction) -> void:
 	var member_list = party.get_party_ordered()
@@ -35,14 +45,29 @@ func _move_to_position(delta, party, target_position, target_direction) -> void:
 	else:
 		step += 1
 
+
 func _interact():
-	var bln_scn = load("res://game/ui/default_balloon/balloon.tscn")
-	var bln = bln_scn.instantiate()
-	add_child(bln)
-	var dlg_res = load("res://game/dialogue/default.dialogue")
-	bln.start(dlg_res, "default")
+	var text_box_scn = load("res://game/ui/default_balloon/balloon.tscn")
+	text_box = text_box_scn.instantiate()
+	add_child(text_box)
+	dlg_res = load("res://resources/dialogue/default.dialogue")
+	DialogueManager.dialogue_ended.connect(_on_dialogue_ended, CONNECT_ONE_SHOT)
+	text_box.start(dlg_res, "default")
+	is_dlg_ended = false
 	step += 1
+
+
+func _wait_interact():
+	if is_dlg_ended:
+		step += 1
+
 
 func _end_cutscene():
 	room.state = room.States.ROAM
 	step = 0
+
+
+func _on_dialogue_ended(ended_dlg_res: DialogueResource):
+	if dlg_res == ended_dlg_res:
+		is_dlg_ended = true
+

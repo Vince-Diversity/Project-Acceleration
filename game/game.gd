@@ -51,6 +51,6 @@ func _on_Menu_save_pressed():
 
 
 func _on_Menu_reset_focus():
-	pass
-#	room_node.ui.text_box.grab_next_focus()
+	var cutscene: Cutscene = room_node.get_current_cutscene()
+	cutscene.grab_cutscene_focus()
 

@@ -30,3 +30,7 @@ func check_interaction():
 	if thing.interact_area.get_overlapping_areas():
 		state = States.CUTSCENE
 
+
+func get_current_cutscene():
+	return cutscenes.get_children()[0]
+

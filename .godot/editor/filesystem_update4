@@ -1,10 +1,5 @@
-res://addons/dialogue_manager/test_scene.tscn
-res://resources/characters/green.tres
-res://game/character/player.tscn
 res://game/ui/default_balloon/balloon.tscn
 res://resources/default_tileset.tres
-res://game/names.gd
 res://game/cutscene/mentoring_cutscene.gd
+res://game/ui/default_balloon/balloon.gd
 res://game/room/room.tscn
-res://addons/dialogue_manager/example_balloon/example_balloon.tscn
-res://loader/controls.gd

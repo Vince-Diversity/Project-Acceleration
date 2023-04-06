@@ -1,4 +1,4 @@
-extends CanvasLayer
+class_name TextBox extends CanvasLayer
 
 
 @onready var balloon: ColorRect = $Balloon
@@ -209,4 +209,5 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 
 
 func _on_margin_resized() -> void:
-	handle_resize()
+	pass
+#	handle_resize()
