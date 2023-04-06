@@ -36,7 +36,11 @@ func _move_to_position(delta, party, target_position, target_direction) -> void:
 		step += 1
 
 func _interact():
-	print("%s pats %s" % ['Green', 'Cat'])
+	var bln_scn = load("res://game/ui/default_balloon/balloon.tscn")
+	var bln = bln_scn.instantiate()
+	add_child(bln)
+	var dlg_res = load("res://game/dialogue/default.dialogue")
+	bln.start(dlg_res, "default")
 	step += 1
 
 func _end_cutscene():

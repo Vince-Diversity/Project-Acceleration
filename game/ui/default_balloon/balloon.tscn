@@ -1,4 +1,9 @@
-extends CanvasLayer
+[gd_scene load_steps=5 format=3 uid="uid://73jm5qjy52vq"]
+
+[ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
+
+[sub_resource type="GDScript" id="GDScript_hraev"]
+script/source = "extends CanvasLayer
 
 
 @onready var balloon: ColorRect = $Balloon
@@ -37,7 +42,7 @@ var dialogue_line: DialogueLine:
 		dialogue_line = next_dialogue_line
 		
 		character_label.visible = not dialogue_line.character.is_empty()
-		character_label.text = tr(dialogue_line.character, "dialogue")
+		character_label.text = tr(dialogue_line.character, \"dialogue\")
 		
 		dialogue_label.modulate.a = 0
 		dialogue_label.custom_minimum_size.x = dialogue_label.get_parent().size.x - 1
@@ -49,9 +54,9 @@ var dialogue_line: DialogueLine:
 			for response in dialogue_line.responses:
 				# Duplicate the template so we can grab the fonts, sizing, etc
 				var item: RichTextLabel = response_template.duplicate(0)
-				item.name = "Response%d" % responses_menu.get_child_count()
+				item.name = \"Response%d\" % responses_menu.get_child_count()
 				if not response.is_allowed:
-					item.name = String(item.name) + "Disallowed"
+					item.name = String(item.name) + \"Disallowed\"
 					item.modulate.a = 0.4
 				item.text = response.text
 				item.show()
@@ -71,7 +76,7 @@ var dialogue_line: DialogueLine:
 			responses_menu.modulate.a = 1
 			configure_menu()
 		elif dialogue_line.time != null:
-			var time = dialogue_line.text.length() * 0.02 if dialogue_line.time == "auto" else dialogue_line.time.to_float()
+			var time = dialogue_line.text.length() * 0.02 if dialogue_line.time == \"auto\" else dialogue_line.time.to_float()
 			await get_tree().create_timer(time).timeout
 			next(dialogue_line.next_id)
 		else:
@@ -87,7 +92,7 @@ func _ready() -> void:
 	balloon.hide()
 	balloon.custom_minimum_size.x = balloon.get_viewport_rect().size.x
 	
-	Engine.get_singleton("DialogueManager").mutated.connect(_on_mutated)
+	Engine.get_singleton(\"DialogueManager\").mutated.connect(_on_mutated)
 
 
 func _unhandled_input(_event: InputEvent) -> void:
@@ -149,7 +154,7 @@ func configure_menu() -> void:
 func get_responses() -> Array:
 	var items: Array = []
 	for child in responses_menu.get_children():
-		if "Disallowed" in child.name: continue
+		if \"Disallowed\" in child.name: continue
 		items.append(child)
 		
 	return items
@@ -157,7 +162,7 @@ func get_responses() -> Array:
 
 func handle_resize() -> void:
 	if not is_instance_valid(margin):
-		call_deferred("handle_resize")
+		call_deferred(\"handle_resize\")
 		return
 		
 	balloon.custom_minimum_size.y = margin.size.y
@@ -181,17 +186,17 @@ func _on_mutated(_mutation: Dictionary) -> void:
 
 
 func _on_response_mouse_entered(item: Control) -> void:
-	if "Disallowed" in item.name: return
+	if \"Disallowed\" in item.name: return
 	
 	item.grab_focus()
 
 
 func _on_response_gui_input(event: InputEvent, item: Control) -> void:
-	if "Disallowed" in item.name: return
+	if \"Disallowed\" in item.name: return
 	
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == 1:
 		next(dialogue_line.responses[item.get_index()].next_id)
-	elif event.is_action_pressed("ui_accept") and item in get_responses():
+	elif event.is_action_pressed(\"ui_accept\") and item in get_responses():
 		next(dialogue_line.responses[item.get_index()].next_id)
 
 
@@ -204,9 +209,94 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 	
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == 1:
 		next(dialogue_line.next_id)
-	elif event.is_action_pressed("ui_accept") and get_viewport().gui_get_focus_owner() == balloon:
+	elif event.is_action_pressed(\"ui_accept\") and get_viewport().gui_get_focus_owner() == balloon:
 		next(dialogue_line.next_id)
 
 
 func _on_margin_resized() -> void:
-	handle_resize()
+	pass
+	#handle_resize()
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5d24i"]
+content_margin_left = 40.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(1, 1, 1, 0.25098)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oj3c8"]
+content_margin_left = 40.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+draw_center = false
+
+[node name="ExampleBalloon" type="CanvasLayer"]
+layer = 100
+script = SubResource("GDScript_hraev")
+
+[node name="Balloon" type="ColorRect" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -148.0
+offset_bottom = -148.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0, 0, 1)
+
+[node name="Margin" type="MarginContainer" parent="Balloon"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 86.0
+offset_bottom = 336.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 10
+metadata/_edit_layout_mode = 1
+
+[node name="VBox" type="VBoxContainer" parent="Balloon/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="CharacterLabel" type="RichTextLabel" parent="Balloon/Margin/VBox"]
+modulate = Color(1, 1, 1, 0.501961)
+layout_mode = 2
+mouse_filter = 1
+bbcode_enabled = true
+text = "Character"
+fit_content = true
+scroll_active = false
+
+[node name="DialogueLabel" parent="Balloon/Margin/VBox" instance=ExtResource("2_a8ve6")]
+layout_mode = 2
+text = "Dialogue"
+
+[node name="Responses" type="VBoxContainer" parent="Balloon/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="ResponseTemplate" type="RichTextLabel" parent="Balloon/Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_5d24i")
+theme_override_styles/normal = SubResource("StyleBoxFlat_oj3c8")
+bbcode_enabled = true
+text = "Response"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+meta_underlined = false
+hint_underlined = false
+
+[connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
+[connection signal="resized" from="Balloon/Margin" to="." method="_on_margin_resized"]
