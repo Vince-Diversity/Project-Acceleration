@@ -63,7 +63,7 @@ func _wait_interact():
 
 
 func _end_cutscene():
-	room.state = room.States.ROAM
+	room.stm.change_state(room.party_roam_state.state_id)
 	step = 0
 
 

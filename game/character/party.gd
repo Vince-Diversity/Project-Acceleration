@@ -1,6 +1,6 @@
-extends Node2D
+class_name Party extends Node2D
 
-var player: Character
+var player: Player
 
 
 func add_member(path):

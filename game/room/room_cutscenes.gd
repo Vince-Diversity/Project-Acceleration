@@ -1,0 +1,1 @@
+class_name RoomCutscenes extends Node2D

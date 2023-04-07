@@ -2,6 +2,7 @@ extends Node
 
 @onready var menu_scn = preload("res://game/menu.tscn")
 @onready var save_res = preload("res://loader/save_game.gd")
+@onready var stm: StateMachine = preload("res://game/state/state_machine.gd").new()
 var loader: Loader
 var save_dir: String
 var room_node
@@ -17,6 +18,7 @@ func _input(event):
 func load_room(room_name: String) -> void:
 	States.current_room = room_name
 	room_node = load(Utils.get_room_path(room_name)).instantiate()
+	room_node.stm = stm
 	add_child(room_node)
 
 

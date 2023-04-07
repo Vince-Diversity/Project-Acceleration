@@ -1,4 +1,4 @@
-extends Character
+class_name Player extends Character
 
 @onready var direction_node = $Direction
 @onready var interact_area = $Direction/InteractArea

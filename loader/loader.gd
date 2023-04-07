@@ -3,7 +3,7 @@ class_name Loader extends Node
 const dev_mode_save_dir := "res://dev/save/"
 const game_save_dir := "user://save/"
 const game_path := "res://game/game.tscn"
-const main_menu_path := "res://main_menu/main_menu.tscn"
+const main_menu_path := "res://loader/main_menu/main_menu.tscn"
 
 ## Change this mode when releasing
 var save_dir: String = dev_mode_save_dir
@@ -25,8 +25,6 @@ func _ready_new_game():
 	States.current_room = "room"
 	main_menu.queue_free()
 	game.load_room(States.current_room)
-	game.room_node.party.add_player("res://game/character/player.tscn")
-	game.room_node.party.add_member("res://game/character/ally.tscn")
 	game.loader = self
 	game.save_dir = save_dir
 

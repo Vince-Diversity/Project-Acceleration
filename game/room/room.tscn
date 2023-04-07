@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://di7l5u26mhuk8"]
+[gd_scene load_steps=7 format=3 uid="uid://bnw04pjtq4f6t"]
 
 [ext_resource type="Script" path="res://game/room/room.gd" id="1"]
 [ext_resource type="TileSet" uid="uid://dtwbusdibv1qo" path="res://resources/default_tileset.tres" id="2_1y5al"]
 [ext_resource type="PackedScene" uid="uid://db8dgl6yj1t18" path="res://game/character/party.tscn" id="3"]
 [ext_resource type="PackedScene" uid="uid://bbv4g4ekf8c24" path="res://game/thing/cat.tscn" id="5"]
+[ext_resource type="Script" path="res://game/room/room_cutscenes.gd" id="5_lnlsj"]
 [ext_resource type="PackedScene" uid="uid://cbkbfabme6mpp" path="res://game/cutscene/mentoring_cutscene.tscn" id="6"]
 
 [node name="Room" type="Node2D"]
@@ -23,15 +24,16 @@ position = Vector2(509, 188)
 [node name="Party" parent="YSort" instance=ExtResource("3")]
 position = Vector2(509, 115)
 
-[node name="Cutscenes" type="Node2D" parent="."]
+[node name="RoomCutscenes" type="Node2D" parent="."]
+script = ExtResource("5_lnlsj")
 
-[node name="MentoringCutscene" parent="Cutscenes" instance=ExtResource("6")]
+[node name="MentoringCutscene" parent="RoomCutscenes" instance=ExtResource("6")]
 position = Vector2(508, 222)
 
-[node name="MentorMark" parent="Cutscenes/MentoringCutscene" index="0"]
+[node name="MentorMark" parent="RoomCutscenes/MentoringCutscene" index="0"]
 position = Vector2(-23, 1)
 
-[node name="StudentMark" parent="Cutscenes/MentoringCutscene" index="1"]
+[node name="StudentMark" parent="RoomCutscenes/MentoringCutscene" index="1"]
 position = Vector2(22, 1)
 
-[editable path="Cutscenes/MentoringCutscene"]
+[editable path="RoomCutscenes/MentoringCutscene"]

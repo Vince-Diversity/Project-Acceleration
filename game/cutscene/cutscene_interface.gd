@@ -1,5 +1,4 @@
-extends Node2D
-class_name Cutscene
+class_name Cutscene extends Node2D
 
 var step := 0
 var room
