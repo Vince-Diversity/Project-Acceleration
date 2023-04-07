@@ -3,19 +3,20 @@ class_name Party extends Node2D
 var player: Player
 
 
-func add_member(path):
-	var member = load(path).instantiate()
+func add_member(path: String):
+	var member: Character = load(path).instantiate()
+	member.init_character(self)
 	add_child(member)
-	member.party = self
 	return member
 
 
 func add_player(path):
-	var member = add_member(path)
+	var member: Player = add_member(path)
 	player = member
 	move_child(member, 0)
 
 
+# ToDo: allow anyone to be leader
 func roam():
 	for member in get_party_ordered():
 		if member == player:
@@ -31,7 +32,7 @@ func roam():
 			else:
 				member.animate_idle()
 
-func get_next_ally(member):
+func get_next_member(member: Character) -> Character:
 	return get_party_ordered()[member.get_index() - 1]
 
 
@@ -39,8 +40,7 @@ func get_party_ordered() -> Array:
 	return get_children()
 
 
-func _set_following_direction(member):
-	var next_ally = get_next_ally(member)
-	var direction = next_ally.global_position - member.global_position
+func _set_following_direction(member: Character):
+	var next_member: Character = get_next_member(member)
+	var direction: Vector2 = next_member.global_position - member.global_position
 	member.set_direction(direction)
-

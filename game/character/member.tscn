@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bse4v6rqspf6x"]
+[gd_scene load_steps=6 format=3 uid="uid://b1h2wocw7ja2u"]
 
-[ext_resource type="PackedScene" uid="uid://bk16wp1xkfq2e" path="res://game/character/character.tscn" id="1"]
-[ext_resource type="SpriteFrames" uid="uid://b4v52gufgibni" path="res://resources/characters/blue.tres" id="2"]
-[ext_resource type="Script" path="res://game/character/ally.gd" id="3"]
+[ext_resource type="PackedScene" uid="uid://bk16wp1xkfq2e" path="res://game/character/character.tscn" id="1_wfmq8"]
+[ext_resource type="Script" path="res://game/character/member.gd" id="2_6ip4m"]
+[ext_resource type="SpriteFrames" uid="uid://b4v52gufgibni" path="res://resources/characters/blue.tres" id="3_eu738"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kil8s"]
 radius = 5.0
@@ -11,13 +11,13 @@ height = 10.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_pg2hi"]
 radius = 20.0
 
-[node name="Ally" instance=ExtResource("1")]
+[node name="Ally" instance=ExtResource("1_wfmq8")]
 collision_layer = 2
 collision_mask = 0
-script = ExtResource("3")
+script = ExtResource("2_6ip4m")
 
 [node name="AnimatedSprite" parent="." index="0"]
-sprite_frames = ExtResource("2")
+sprite_frames = ExtResource("3_eu738")
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("CapsuleShape2D_kil8s")

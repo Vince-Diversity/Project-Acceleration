@@ -3,17 +3,21 @@ class_name PartyRoamState extends State
 var party: Party
 
 
-func update(_delta: float) -> void:
+func init_state(given_party: Party):
+	party = given_party
+
+
+func update(_delta: float):
 	party.roam()
 
 
-func handle_input() -> void:
+func handle_input():
 	pass
 
 
-func enter() -> void:
+func enter():
 	pass
 
 
-func exit() -> void:
+func exit():
 	pass

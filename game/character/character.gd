@@ -4,7 +4,11 @@ class_name Character extends CharacterBody2D
 @onready var following_area = $FollowingArea
 var speed := 100.0
 var inputted_direction := Vector2(0, 1)
-var party
+var party: Party
+
+
+func init_character(given_party: Party):
+	party = given_party
 
 
 func move():
@@ -32,13 +36,12 @@ func update_direction():
 
 
 func get_anim_name() -> String:
-	var snapped_direction = Utils.snap_to_compass(inputted_direction)
-	var anim_id = Utils.anim_direction[snapped_direction]
-	var anim_name = Utils.anim_name[anim_id]
+	var snapped_direction: Vector2 = Utils.snap_to_compass(inputted_direction)
+	var anim_id: int = Utils.anim_direction[snapped_direction]
+	var anim_name: String = Utils.anim_name[anim_id]
 	if anim_name == Utils.anim_name[Utils.AnimID.RIGHT]:
 		anim_name = Utils.anim_name[Utils.AnimID.LEFT]
 		anim.set_flip_h(true)
 	else:
 		anim.set_flip_h(false)
 	return anim_name
-

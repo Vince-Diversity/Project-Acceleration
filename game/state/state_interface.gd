@@ -7,15 +7,15 @@ var state_id: String
 func _init(given_state_id: String):
 	state_id = given_state_id
 
-func update(_delta: float) -> void:
+func update(_delta: float):
 	pass
 
-func handle_input() -> void:
+func handle_input():
 	pass
 
-func enter() -> void:
+func enter():
 	pass
 
-func exit() -> void:
+func exit():
 	pass
 

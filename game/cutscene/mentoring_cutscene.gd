@@ -2,13 +2,13 @@ extends Cutscene
 
 @onready var mentor_mark = $MentorMark
 @onready var student_mark = $StudentMark
-var is_moving
+var is_moving: Array[bool]
 var dlg_res: DialogueResource
 var text_box: TextBox
 var is_dlg_ended: bool
 
 
-func do_cutscene(delta, root_node) -> void:
+func do_cutscene(delta, root_node):
 	room = root_node
 	match step:
 		0:
@@ -24,12 +24,12 @@ func do_cutscene(delta, root_node) -> void:
 		3: _wait_interact()
 		4: _end_cutscene()
 
-func grab_cutscene_focus() -> void:
-	if text_box != null:
+func grab_cutscene_focus():
+	if is_instance_valid(text_box):
 		text_box.balloon.grab_focus()
 
 
-func _move_to_position(delta, party, target_position, target_direction) -> void:
+func _move_to_position(delta, party, target_position, target_direction):
 	var member_list = party.get_party_ordered()
 	if Utils.any(is_moving):
 		for member_i in member_list.size():

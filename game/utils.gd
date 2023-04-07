@@ -20,7 +20,7 @@ const anim_name = {
 	AnimID.RIGHT: "right",
 }
 
-func connect_neighbouring_elems(arr: Array) -> void:
+func connect_neighbouring_elems(arr: Array):
 	if arr.size() > 1:
 		arr[0].focus_neighbour_bottom = arr[1].get_path()
 		arr[-1].focus_neighbour_top = arr[-2].get_path()
@@ -41,7 +41,7 @@ func get_room_path(room_name: String) -> String:
 func get_action_state_name(dlg_name: String, action_id: String) -> String:
 	return dlg_name + '_' + Names.action_suffix[action_id]
 
-func scroll_to_bottom(scroll_bar: ScrollBar) -> void:
+func scroll_to_bottom(scroll_bar: ScrollBar):
 	scroll_bar.value = scroll_bar.max_value
 
 func snap_to_compass(direction: Vector2) -> Vector2:
@@ -55,14 +55,14 @@ func snap_to_compass(direction: Vector2) -> Vector2:
 	return snapped_vector
 
 # Makes a boolean array containing true elements
-func ones(list) -> Array:
-	var arr = []
+func ones(list) -> Array[bool]:
+	var arr: Array[bool] = []
 	for el in list:
 		arr.append(true)
 	return arr
 
 # Checks if boolean array only contains false
-func any(list: Array) -> bool:
+func any(list: Array[bool]) -> bool:
 	for el in list:
 		if el == true:
 			return true

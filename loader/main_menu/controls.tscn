@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dyxcothjlr0so"]
 
-[ext_resource type="Script" path="res://loader/controls.gd" id="1"]
+[ext_resource type="Script" path="res://loader/controls.gd" id="1_ienc8"]
 
 [node name="Info" type="RichTextLabel"]
 anchors_preset = 3
@@ -10,4 +10,4 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 bbcode_enabled = true
 scroll_active = false
-script = ExtResource("1")
+script = ExtResource("1_ienc8")

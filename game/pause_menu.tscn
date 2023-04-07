@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://yaduhvdr1frn"]
+[gd_scene load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://game/menu.gd" id="1"]
+[ext_resource type="Script" path="res://game/pause_menu.gd" id="1"]
 
 [node name="Menu" type="CenterContainer"]
 anchors_preset = 15
