@@ -2,8 +2,9 @@ class_name Game extends Node
 
 @onready var menu_scn = preload("res://game/pause_menu.tscn")
 @onready var save_res = preload("res://loader/save_game.gd")
-@onready var stm: StateMachine = preload("res://game/state/state_machine.gd").new()
-@onready var menu_state: State = preload("res://game/state/menu_state.gd").new("menu_state")
+@onready var default_state: DefaultState = preload("res://game/state/default_state.gd").new("default_state")
+@onready var menu_state: PauseMenuState = preload("res://game/state/pause_menu_state.gd").new("pause_menu_state")
+@onready var stm: StateMachine = preload("res://game/state/state_machine.gd").new(default_state)
 var loader: Loader
 var save_dir: String
 var current_room: Room
@@ -15,10 +16,8 @@ func _ready():
 	stm.add_state(menu_state)
 
 
-# ToDo: move to state machine
-func _input(event):
-	if event.is_action_pressed("ui_exit"):
-		prompt_menu()
+func _input(event: InputEvent):
+	stm.handle_input_state(event)
 
 
 func init_game(given_loader: Loader, given_save_dir: String):
@@ -29,7 +28,7 @@ func init_game(given_loader: Loader, given_save_dir: String):
 func load_room(room_name: String):
 	States.current_room = room_name
 	current_room = load(Utils.get_room_path(room_name)).instantiate()
-	current_room.init_room(stm)
+	current_room.init_room(stm, _on_prompt_menu)
 	add_child(current_room)
 
 
@@ -39,7 +38,12 @@ func change_room():
 	current_room.run_room()
 
 
-func prompt_menu():
+func save_game_state(save_game: Resource):
+	for property in States.property_list:
+		save_game.data[property] = States.get(property)
+
+
+func _on_prompt_menu():
 	if !is_instance_valid(menu):
 		menu = menu_scn.instantiate()
 		menu.init_pause_menu(
@@ -49,11 +53,6 @@ func prompt_menu():
 			_on_Menu_reset_focus)
 		add_child(menu)
 		stm.change_state(menu_state.state_id)
-
-
-func save_game_state(save_game: Resource):
-	for property in States.property_list:
-		save_game.data[property] = States.get(property)
 
 
 func _on_Menu_save_pressed():

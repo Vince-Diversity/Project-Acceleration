@@ -16,7 +16,6 @@ func add_player(path):
 	move_child(member, 0)
 
 
-# ToDo: allow anyone to be leader
 func roam():
 	for member in get_party_ordered():
 		if member == player:

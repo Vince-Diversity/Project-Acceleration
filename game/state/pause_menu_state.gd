@@ -1,11 +1,4 @@
-class_name State extends GDScript
-
-# The filename without extension is used as ID
-var state_id: String
-
-
-func _init(given_state_id: String):
-	state_id = given_state_id
+class_name PauseMenuState extends State
 
 
 func update(_delta: float):
