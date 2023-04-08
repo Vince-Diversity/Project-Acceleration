@@ -41,6 +41,10 @@ window/size/height=540
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 
+[filesystem]
+
+import/blender/enabled=false
+
 [global]
 
 version=""
