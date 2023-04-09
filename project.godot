@@ -19,7 +19,7 @@ config/version="0.3"
 [autoload]
 
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
-Utils="*res://game/utils.gd"
+Utils="*res://game/utils/utils.gd"
 States="*res://game/states.gd"
 Names="*res://game/names.gd"
 

@@ -1,6 +1,6 @@
 extends Node
 
-const dlg_dir = "res://game/room/"
+const dlg_dir = "res://resources/dialogue/"
 const room_dir = "res://game/room/"
 
 enum InputType {RESPONSE, ACTION, REACTIVATION}
@@ -32,8 +32,8 @@ func connect_neighbouring_elems(arr: Array):
 func get_res_filename(res: Resource) -> String:
 	return res.get_path().get_file().trim_suffix("." + res.get_path().get_extension())
 
-func get_dlg_path(dlg_name) -> String:
-	return Utils.dlg_dir + dlg_name + ".tres"
+func get_dlg_path(dlg_id: String) -> String:
+	return Utils.dlg_dir.path_join(dlg_id + ".dialogue")
 
 func get_room_path(room_name: String) -> String:
 	return Utils.room_dir + room_name + ".tscn"
@@ -55,7 +55,7 @@ func snap_to_compass(direction: Vector2) -> Vector2:
 	return snapped_vector
 
 # Makes a boolean array containing true elements
-func ones(list) -> Array[bool]:
+func ones(list: Array) -> Array[bool]:
 	var arr: Array[bool] = []
 	for el in list:
 		arr.append(true)

@@ -27,8 +27,10 @@ func handle_unhandled_input_state(event: InputEvent):
 
 
 func change_state(state_id: String):
+	current_state.exit()
 	previous_state = current_state
 	current_state = state_list[state_id]
+	current_state.enter()
 
 
 func change_to_previous_state() -> void:

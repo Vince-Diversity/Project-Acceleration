@@ -2,17 +2,17 @@ class_name PartyRoamState extends State
 
 var party: Party
 
-signal prompt_pause_menu
-signal check_interaction
+signal pause_menu_prompted
+signal interaction_checked
 
 
 func init_state(
 		given_party: Party,
-		prompt_pause_menu_target: Callable,
-		check_interaction_target: Callable):
+		pause_menu_prompted_target: Callable,
+		interaction_checked_target: Callable):
 	party = given_party
-	prompt_pause_menu.connect(prompt_pause_menu_target)
-	check_interaction.connect(check_interaction_target)
+	pause_menu_prompted.connect(pause_menu_prompted_target)
+	interaction_checked.connect(interaction_checked_target)
 
 
 func update(_delta: float):
@@ -21,12 +21,12 @@ func update(_delta: float):
 
 func handle_input(event: InputEvent):
 	if event.is_action_pressed("ui_exit"):
-		prompt_pause_menu.emit()
+		pause_menu_prompted.emit()
 
 
 func handle_unhandled_input(event: InputEvent):
 	if event.is_action_pressed("ui_accept"):
-		check_interaction.emit()
+		interaction_checked.emit()
 
 
 func enter():

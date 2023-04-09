@@ -5,11 +5,14 @@ class_name Game extends Node
 @onready var default_state: DefaultState = preload("res://game/state/default_state.gd").new("default_state")
 @onready var menu_state: PauseMenuState = preload("res://game/state/pause_menu_state.gd").new("pause_menu_state")
 @onready var stm: StateMachine = preload("res://game/state/state_machine.gd").new(default_state)
+@onready var text_box_scn: PackedScene = preload("res://game/ui/default_balloon/balloon.tscn")
 var loader: Loader
 var save_dir: String
 var current_room: Room
 var menu: PauseMenu
 var next_room_name: String
+var text_box: TextBox
+var dlg_res: DialogueResource
 
 
 func _ready():
@@ -28,7 +31,12 @@ func init_game(given_loader: Loader, given_save_dir: String):
 func load_room(room_name: String):
 	States.current_room = room_name
 	current_room = load(Utils.get_room_path(room_name)).instantiate()
-	current_room.init_room(stm, _on_prompt_menu)
+	current_room.init_room(
+		stm,
+		_on_menu_prompted,
+		_on_textbox_started,
+		_on_cutscene_ended,
+		_on_textbox_focused)
 	add_child(current_room)
 
 
@@ -43,7 +51,7 @@ func save_game_state(save_game: Resource):
 		save_game.data[property] = States.get(property)
 
 
-func _on_prompt_menu():
+func _on_menu_prompted():
 	if !is_instance_valid(menu):
 		menu = menu_scn.instantiate()
 		menu.init_pause_menu(
@@ -53,6 +61,26 @@ func _on_prompt_menu():
 			_on_Menu_reset_focus)
 		add_child(menu)
 		stm.change_state(menu_state.state_id)
+
+
+func _on_textbox_started(
+		dialogue_id: String,
+		dialogue_node: String,
+		dialogue_ended_target: Callable):
+	text_box = text_box_scn.instantiate()
+	add_child(text_box)
+	var dlg_path = Utils.get_dlg_path(dialogue_id)
+	dlg_res = load(dlg_path)
+	DialogueManager.dialogue_ended.connect(dialogue_ended_target, CONNECT_ONE_SHOT)
+	text_box.start(dlg_res, dialogue_node)
+
+
+func _on_cutscene_ended(next_state_id: String):
+	stm.change_state(next_state_id)
+
+
+func _on_textbox_focused():
+	text_box.balloon.grab_focus()
 
 
 func _on_Menu_save_pressed():
@@ -72,4 +100,4 @@ func _on_Menu_main_menu_pressed():
 
 func _on_Menu_reset_focus():
 	if stm.previous_state.state_id == "cutscene_state":
-		current_room.get_current_cutscene().grab_cutscene_focus()
+		current_room.cutscenes.get_current_cutscene().grab_cutscene_focus()
