@@ -21,10 +21,6 @@ func handle_input_state(event: InputEvent):
 	current_state.handle_input(event)
 
 
-func handle_unhandled_input_state(event: InputEvent):
-	current_state.handle_unhandled_input(event)
-
-
 func change_state(state_id: String):
 	current_state.exit()
 	current_state = state_list[state_id]

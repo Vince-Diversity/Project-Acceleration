@@ -8,6 +8,8 @@ signal pause_menu_closed
 
 
 func _ready():
+	set_process_mode(Node.PROCESS_MODE_WHEN_PAUSED)
+	get_tree().set_pause(true)
 	_ready_menu()
 
 
@@ -25,7 +27,7 @@ func init_pause_menu(
 
 
 func _on_Resume_pressed():
-	_close_menu()
+	_unpause()
 
 
 # Disabled until saving is implemented
@@ -36,13 +38,16 @@ func _on_Save_pressed():
 	$MenuContainer/Save.disabled = true
 	$MenuContainer/MainMenu.disabled = true
 	await get_tree().create_timer(1.0).timeout
-	_close_menu()
+	_unpause()
 
 
 func _on_Main_Menu_pressed():
+	_unpause()
 	main_menu_pressed.emit()
 
 
-func _close_menu():
+func _unpause():
 	pause_menu_closed.emit()
+	get_tree().set_pause(false)
 	queue_free()
+

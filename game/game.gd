@@ -62,11 +62,6 @@ func _pause():
 			_on_PauseMenu_main_menu_pressed,
 			_on_PauseMenu_closed)
 		add_child(menu)
-		get_tree().set_pause(true)
-
-
-func _unpause():
-	get_tree().set_pause(false)
 
 
 func _on_textbox_started(
@@ -106,7 +101,6 @@ func _on_PauseMenu_main_menu_pressed():
 
 func _on_PauseMenu_closed():
 	_reset_focus()
-	_unpause()
 
 
 func _reset_focus():
