@@ -4,7 +4,7 @@ var stm: StateMachine
 
 signal save_pressed
 signal main_menu_pressed
-signal focus_reset
+signal pause_menu_closed
 
 
 func _ready():
@@ -16,18 +16,15 @@ func _ready_menu():
 
 
 func init_pause_menu(
-		given_stm: StateMachine,
 		save_pressed_target: Callable,
 		main_menu_pressed_target: Callable,
-		focus_reset_target: Callable):
-	stm = given_stm
+		pause_menu_closed_target: Callable):
 	save_pressed.connect(save_pressed_target)
 	main_menu_pressed.connect(main_menu_pressed_target)
-	focus_reset.connect(focus_reset_target)
+	pause_menu_closed.connect(pause_menu_closed_target)
 
 
 func _on_Resume_pressed():
-#	focus_reset.emit()
 	_close_menu()
 
 
@@ -39,7 +36,6 @@ func _on_Save_pressed():
 	$MenuContainer/Save.disabled = true
 	$MenuContainer/MainMenu.disabled = true
 	await get_tree().create_timer(1.0).timeout
-#	focus_reset.emit()
 	_close_menu()
 
 
@@ -48,7 +44,5 @@ func _on_Main_Menu_pressed():
 
 
 func _close_menu():
-	stm.change_to_previous_state()
+	pause_menu_closed.emit()
 	queue_free()
-	get_tree().set_pause(false)
-

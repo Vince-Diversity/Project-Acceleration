@@ -31,7 +31,6 @@ func update(delta: float):
 		act_finished.emit()
 
 
-
 func enter():
 	is_party_moving = Utils.ones(party.get_party_ordered())
 

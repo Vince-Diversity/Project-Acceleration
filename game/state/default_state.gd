@@ -19,3 +19,7 @@ func enter():
 
 func exit():
 	pass
+
+
+func grab_focus():
+	pass

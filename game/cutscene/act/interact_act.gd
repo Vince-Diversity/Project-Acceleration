@@ -7,7 +7,7 @@ signal textbox_started(
 		dialogue_id: String,
 		dialogue_node: String,
 		dialogue_ended_target: Callable)
-signal textbox_focused()
+signal textbox_focused
 
 
 func init_act(
@@ -21,7 +21,6 @@ func init_act(
 	textbox_focused.connect(textbox_focused_target)
 
 
-# ToDo: make a custom textbox which updates here
 func update(_delta: float):
 	pass
 
@@ -34,9 +33,9 @@ func exit():
 	pass
 
 
-func grab_focus():
-	textbox_focused.emit()
-
-
 func _on_dialogue_ended(_dlg_res: DialogueResource):
 	act_finished.emit()
+
+
+func grab_focus():
+	textbox_focused.emit()

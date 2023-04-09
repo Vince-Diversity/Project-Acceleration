@@ -3,7 +3,6 @@ class_name Game extends Node
 @onready var menu_scn = preload("res://game/pause_menu.tscn")
 @onready var save_res = preload("res://loader/save_game.gd")
 @onready var default_state: DefaultState = preload("res://game/state/default_state.gd").new("default_state")
-@onready var menu_state: PauseMenuState = preload("res://game/state/pause_menu_state.gd").new("pause_menu_state")
 @onready var stm: StateMachine = preload("res://game/state/state_machine.gd").new(default_state)
 @onready var text_box_scn: PackedScene = preload("res://game/ui/textbox/textbox.tscn")
 var loader: Loader
@@ -15,20 +14,17 @@ var text_box: TextBox
 var dlg_res: DialogueResource
 
 
-func _ready():
-	stm.add_state(menu_state)
-
-
 func _physics_process(delta):
 	stm.update_state(delta)
 
 
 func _input(event: InputEvent):
-	stm.handle_input_state(event)
+	if event.is_action_pressed("ui_exit"):
+		_pause()
 
 
 func _unhandled_input(event):
-	stm.handle_unhandled_input_state(event)
+	stm.handle_input_state(event)
 
 
 func init_game(given_loader: Loader, given_save_dir: String):
@@ -41,7 +37,6 @@ func load_room(room_name: String):
 	current_room = load(Utils.get_room_path(room_name)).instantiate()
 	current_room.init_room(
 		stm,
-		_on_menu_prompted,
 		_on_textbox_started,
 		_on_cutscene_ended,
 		_on_textbox_focused)
@@ -59,17 +54,19 @@ func save_game_state(save_game: Resource):
 		save_game.data[property] = States.get(property)
 
 
-func _on_menu_prompted():
+func _pause():
 	if !is_instance_valid(menu):
 		menu = menu_scn.instantiate()
 		menu.init_pause_menu(
-			stm,
-			_on_Menu_save_pressed,
-			_on_Menu_main_menu_pressed,
-			_on_Menu_reset_focus)
+			_on_PauseMenu_save_pressed,
+			_on_PauseMenu_main_menu_pressed,
+			_on_PauseMenu_closed)
 		add_child(menu)
-		stm.change_state(menu_state.state_id)
 		get_tree().set_pause(true)
+
+
+func _unpause():
+	get_tree().set_pause(false)
 
 
 func _on_textbox_started(
@@ -89,10 +86,10 @@ func _on_cutscene_ended(next_state_id: String):
 
 
 func _on_textbox_focused():
-	text_box.balloon.grab_focus()
+	text_box.reset_focus()
 
 
-func _on_Menu_save_pressed():
+func _on_PauseMenu_save_pressed():
 	var save_game = save_res.new()
 	save_game.game_version = ProjectSettings.get_setting("application/config/version")
 	save_game_state(save_game)
@@ -103,10 +100,14 @@ func _on_Menu_save_pressed():
 	if err != OK: print(err)
 
 
-func _on_Menu_main_menu_pressed():
+func _on_PauseMenu_main_menu_pressed():
 	loader.enter_main_menu()
 
 
-func _on_Menu_reset_focus():
-	if stm.previous_state.state_id == "cutscene_state":
-		current_room.cutscenes.get_current_cutscene().grab_cutscene_focus()
+func _on_PauseMenu_closed():
+	_reset_focus()
+	_unpause()
+
+
+func _reset_focus():
+	stm.grab_state_focus()

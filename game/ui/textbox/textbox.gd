@@ -1,11 +1,12 @@
 class_name TextBox extends CanvasLayer
 ## Edited version of the example balloon from Dialogue addon v2.14.1
 
-@onready var balloon: ColorRect = $Margin/Balloon
-@onready var margin: MarginContainer = $Margin/Balloon/Margin
-@onready var character_label: RichTextLabel = $Margin/Balloon/Margin/VBox/CharacterLabel
-@onready var dialogue_label := $Margin/Balloon/Margin/VBox/DialogueLabel
-@onready var responses_menu: VBoxContainer = $Margin/Balloon/Margin/VBox/Responses
+@onready var box: Control = $Box
+@onready var balloon: ColorRect = $Box/Balloon
+@onready var margin: MarginContainer = $Box/Balloon/Margin
+@onready var character_label: RichTextLabel = %CharacterLabel
+@onready var dialogue_label := %DialogueLabel
+@onready var responses_menu: VBoxContainer = %Responses
 @onready var response_template: RichTextLabel = %ResponseTemplate
 
 ## The dialogue resource
@@ -143,6 +144,12 @@ func configure_menu() -> void:
 	items[0].grab_focus()
 
 
+# Hiw external scripts reset the focus when done
+func reset_focus():
+	balloon.focus_mode = Control.FOCUS_ALL
+	balloon.grab_focus()
+
+
 # Get a list of enabled items
 func get_responses() -> Array:
 	var items: Array = []
@@ -151,6 +158,7 @@ func get_responses() -> Array:
 		items.append(child)
 		
 	return items
+
 
 ### Signals
 
