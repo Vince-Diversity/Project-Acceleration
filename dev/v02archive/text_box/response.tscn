@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bhpi0d2cpqn6d"]
+[gd_scene load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://game/ui/text_box/response.gd" id="1"]
+[ext_resource type="Script" path="res://dev/v02archive/text_box/response.gd" id="1"]
 
 [node name="Response" type="Button"]
 script = ExtResource("1")

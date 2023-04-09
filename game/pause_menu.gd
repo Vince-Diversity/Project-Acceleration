@@ -27,7 +27,7 @@ func init_pause_menu(
 
 
 func _on_Resume_pressed():
-	focus_reset.emit()
+#	focus_reset.emit()
 	_close_menu()
 
 
@@ -50,3 +50,5 @@ func _on_Main_Menu_pressed():
 func _close_menu():
 	stm.change_to_previous_state()
 	queue_free()
+	get_tree().set_pause(false)
+

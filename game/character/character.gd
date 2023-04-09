@@ -1,8 +1,8 @@
 class_name Character extends CharacterBody2D
 
+@export var speed: float = 150
 @onready var anim = $AnimatedSprite
 @onready var following_area = $FollowingArea
-var speed := 100.0
 var inputted_direction := Vector2(0, 1)
 var party: Party
 

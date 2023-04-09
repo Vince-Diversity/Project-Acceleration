@@ -21,7 +21,7 @@ func init_act(
 	textbox_focused.connect(textbox_focused_target)
 
 
-# ToDo: make a custom balloon which updates here
+# ToDo: make a custom textbox which updates here
 func update(_delta: float):
 	pass
 

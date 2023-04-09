@@ -1,11 +1,11 @@
 class_name TextBox extends CanvasLayer
+## Edited version of the example balloon from Dialogue addon v2.14.1
 
-
-@onready var balloon: ColorRect = $Balloon
-@onready var margin: MarginContainer = $Balloon/Margin
-@onready var character_label: RichTextLabel = $Balloon/Margin/VBox/CharacterLabel
-@onready var dialogue_label := $Balloon/Margin/VBox/DialogueLabel
-@onready var responses_menu: VBoxContainer = $Balloon/Margin/VBox/Responses
+@onready var balloon: ColorRect = $Margin/Balloon
+@onready var margin: MarginContainer = $Margin/Balloon/Margin
+@onready var character_label: RichTextLabel = $Margin/Balloon/Margin/VBox/CharacterLabel
+@onready var dialogue_label := $Margin/Balloon/Margin/VBox/DialogueLabel
+@onready var responses_menu: VBoxContainer = $Margin/Balloon/Margin/VBox/Responses
 @onready var response_template: RichTextLabel = %ResponseTemplate
 
 ## The dialogue resource
@@ -40,7 +40,6 @@ var dialogue_line: DialogueLine:
 		character_label.text = tr(dialogue_line.character, "dialogue")
 		
 		dialogue_label.modulate.a = 0
-		dialogue_label.custom_minimum_size.x = dialogue_label.get_parent().size.x - 1
 		dialogue_label.dialogue_line = dialogue_line
 
 		# Show any responses we have
@@ -85,7 +84,6 @@ var dialogue_line: DialogueLine:
 func _ready() -> void:
 	response_template.hide()
 	balloon.hide()
-	balloon.custom_minimum_size.x = balloon.get_viewport_rect().size.x
 	
 	Engine.get_singleton("DialogueManager").mutated.connect(_on_mutated)
 
@@ -154,19 +152,6 @@ func get_responses() -> Array:
 		
 	return items
 
-
-func handle_resize() -> void:
-	if not is_instance_valid(margin):
-		call_deferred("handle_resize")
-		return
-		
-	balloon.custom_minimum_size.y = margin.size.y
-	# Force a resize on only the height
-	balloon.size.y = 0
-	var viewport_size = balloon.get_viewport_rect().size
-	balloon.global_position = Vector2((viewport_size.x - balloon.size.x) * 0.5, viewport_size.y - balloon.size.y)
-
-
 ### Signals
 
 
@@ -206,8 +191,3 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 		next(dialogue_line.next_id)
 	elif event.is_action_pressed("ui_accept") and get_viewport().gui_get_focus_owner() == balloon:
 		next(dialogue_line.next_id)
-
-
-func _on_margin_resized() -> void:
-	pass
-#	handle_resize()

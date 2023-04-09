@@ -36,14 +36,6 @@ func _ready():
 		textbox_focused_target)
 
 
-func _physics_process(delta):
-	stm.update_state(delta)
-
-
-func _unhandled_input(event):
-	stm.handle_unhandled_input_state(event)
-
-
 func init_room(
 		given_stm: StateMachine,
 		given_pause_menu_prompted_target: Callable,

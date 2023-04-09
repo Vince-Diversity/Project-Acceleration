@@ -5,7 +5,7 @@ class_name Game extends Node
 @onready var default_state: DefaultState = preload("res://game/state/default_state.gd").new("default_state")
 @onready var menu_state: PauseMenuState = preload("res://game/state/pause_menu_state.gd").new("pause_menu_state")
 @onready var stm: StateMachine = preload("res://game/state/state_machine.gd").new(default_state)
-@onready var text_box_scn: PackedScene = preload("res://game/ui/default_balloon/balloon.tscn")
+@onready var text_box_scn: PackedScene = preload("res://game/ui/textbox/textbox.tscn")
 var loader: Loader
 var save_dir: String
 var current_room: Room
@@ -19,8 +19,16 @@ func _ready():
 	stm.add_state(menu_state)
 
 
+func _physics_process(delta):
+	stm.update_state(delta)
+
+
 func _input(event: InputEvent):
 	stm.handle_input_state(event)
+
+
+func _unhandled_input(event):
+	stm.handle_unhandled_input_state(event)
 
 
 func init_game(given_loader: Loader, given_save_dir: String):
@@ -61,6 +69,7 @@ func _on_menu_prompted():
 			_on_Menu_reset_focus)
 		add_child(menu)
 		stm.change_state(menu_state.state_id)
+		get_tree().set_pause(true)
 
 
 func _on_textbox_started(
