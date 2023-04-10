@@ -11,6 +11,10 @@ func init_character(given_party: Party):
 	party = given_party
 
 
+func roam():
+	pass
+
+
 func move():
 	velocity = speed * inputted_direction
 	move_and_slide()

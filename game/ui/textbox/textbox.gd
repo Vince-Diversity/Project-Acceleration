@@ -144,10 +144,15 @@ func configure_menu() -> void:
 	items[0].grab_focus()
 
 
-# Hiw external scripts reset the focus when done
+# When external scripts reset the focus
 func reset_focus():
-	balloon.focus_mode = Control.FOCUS_ALL
-	balloon.grab_focus()
+	if dialogue_line.responses.size() > 0:
+		var item = get_responses()[0]
+		item.focus_mode = Control.FOCUS_ALL
+		item.grab_focus()
+	else:
+		balloon.focus_mode = Control.FOCUS_ALL
+		balloon.grab_focus()
 
 
 # Get a list of enabled items

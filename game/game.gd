@@ -3,6 +3,7 @@ class_name Game extends Node
 @onready var menu_scn = preload("res://game/pause_menu.tscn")
 @onready var save_res = preload("res://loader/save_game.gd")
 @onready var default_state: DefaultState = preload("res://game/state/default_state.gd").new("default_state")
+@onready var cutscene_state: CutsceneState = preload("res://game/state/cutscene_state.gd").new("cutscene_state")
 @onready var stm: StateMachine = preload("res://game/state/state_machine.gd").new(default_state)
 @onready var text_box_scn: PackedScene = preload("res://game/ui/textbox/textbox.tscn")
 var loader: Loader

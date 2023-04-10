@@ -8,6 +8,14 @@ func _ready():
 	update_angle()
 
 
+func roam():
+	update_input_direction()
+	if inputted_direction == Vector2.ZERO:
+		animate_idle()
+	else:
+		move()
+
+
 func move():
 	super()
 	update_angle()

@@ -1,7 +1,11 @@
-res://game/ui/textbox/textbox.tscn
-res://game/state/default_state.gd
-res://game/state/state_machine.gd
 res://loader/loader.tscn
-res://game/pause_menu.tscn
-res://game/pause_menu.gd
+res://game/character/character.gd
+res://game/character/member.gd
+res://game/character/party.gd
+res://game/character/player.gd
+res://game/state/cutscene_state.gd
+res://game/room/room.gd
 res://game/game.gd
+res://game/room/room.tscn
+res://resources/default_tileset.tres
+res://game/ui/textbox/textbox.gd
