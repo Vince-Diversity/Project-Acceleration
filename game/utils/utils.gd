@@ -54,12 +54,14 @@ func snap_to_compass(direction: Vector2) -> Vector2:
 	if is_equal_approx(snapped_vector.y, 0): snapped_vector.y = 0
 	return snapped_vector
 
+
 # Makes a boolean array containing true elements
 func ones(list: Array) -> Array[bool]:
 	var arr: Array[bool] = []
 	for el in list:
 		arr.append(true)
 	return arr
+
 
 # Checks if boolean array only contains false
 func any(list: Array[bool]) -> bool:

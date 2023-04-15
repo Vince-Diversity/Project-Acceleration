@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://cthstmmaxqfm5"]
+
+[ext_resource type="Texture2D" uid="uid://cmo0sug7yc43m" path="res://assets/tiles/door.png" id="1_juldx"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_juldx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]

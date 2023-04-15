@@ -1,11 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://dqktwnq312s04"]
+[gd_scene load_steps=4 format=3 uid="uid://dqktwnq312s04"]
 
 [ext_resource type="PackedScene" uid="uid://nfl8ij5d7dfw" path="res://game/thing/thing.tscn" id="1_vpjhx"]
+[ext_resource type="Script" path="res://game/thing/door/door.gd" id="2_utemx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wmfr8"]
 size = Vector2(64, 64)
 
 [node name="Door" instance=ExtResource("1_vpjhx")]
+script = ExtResource("2_utemx")
+entrance_direction = 0
 
 [node name="CollisionShape2D" parent="InteractArea" index="0"]
 shape = SubResource("RectangleShape2D_wmfr8")
+
+[node name="SpawnPoint" type="Marker2D" parent="." index="2"]

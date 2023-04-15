@@ -1,7 +1,8 @@
-res://game/thing
-res://game
+res://game/cutscene
 res://game/thing/door
-res://resources/tilesets/door
+res://game/room
 res://assets/tiles
 res://resources/things
+res://game/thing
+res://game
 res://game/state

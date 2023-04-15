@@ -1,9 +1,6 @@
-[gd_resource type="TileSet" load_steps=4 format=3 uid="uid://cdo3nndlngxq0"]
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://cdo3nndlngxq0"]
 
 [ext_resource type="Texture2D" uid="uid://ctfaoswskxakc" path="res://assets/tiles/tilesets/default_tileset.png" id="2_vlcke"]
-
-[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_syqoo"]
-resource_name = "door"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jj31j"]
 resource_name = "interior"
@@ -180,4 +177,3 @@ terrain_set_0/terrain_0/color = Color(0.501961, 0.345098, 0.25098, 1)
 terrain_set_0/terrain_1/name = "Floor"
 terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
 sources/1 = SubResource("TileSetAtlasSource_jj31j")
-sources/0 = SubResource("TileSetScenesCollectionSource_syqoo")

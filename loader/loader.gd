@@ -23,9 +23,8 @@ func _ready():
 
 ## Change this function for making a new game default
 func _ready_new_game():
-	States.current_room = "room"
 	main_menu.queue_free()
-	game.load_room(States.current_room)
+	game.load_room("main_entrance", "DoorDown")
 
 
 func new_game():
@@ -43,7 +42,7 @@ func enter_game():
 	game = game_scn.instantiate()
 	game.init_game(self, save_dir)
 	_add_child_to_root(game)
-	game.load_room(States.current_room)
+	game.load_room("", "")
 
 
 func enter_main_menu():

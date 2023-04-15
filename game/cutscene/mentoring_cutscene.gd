@@ -8,8 +8,12 @@ extends Cutscene
 
 func make():
 	var move_to_position_act: Act = move_to_position_act_scr.new()
-	var target_position: Array[Vector2] = [mentor_mark.global_position, student_mark.global_position]
-	var target_direction: Array[Vector2] = [Vector2.UP, Vector2.UP]
+	var target_position: Array[Vector2] = [
+		mentor_mark.global_position,
+		student_mark.global_position]
+	var target_direction: Array[Vector2] = [
+		mentor_mark.get_target_direction(),
+		student_mark.get_target_direction()]
 	move_to_position_act.init_act(
 		owner.party,
 		target_position,

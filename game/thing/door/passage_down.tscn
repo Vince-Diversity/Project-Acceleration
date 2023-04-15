@@ -6,6 +6,7 @@
 size = Vector2(128, 64)
 
 [node name="PassageDown" instance=ExtResource("1_ajot6")]
+entrance_direction = 2
 
 [node name="CollisionShape2D" parent="InteractArea" index="0"]
 position = Vector2(0, 32)

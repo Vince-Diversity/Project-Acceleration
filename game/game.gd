@@ -10,7 +10,6 @@ var loader: Loader
 var save_dir: String
 var current_room: Room
 var menu: PauseMenu
-var next_room_name: String
 var text_box: TextBox
 var dlg_res: DialogueResource
 
@@ -33,21 +32,22 @@ func init_game(given_loader: Loader, given_save_dir: String):
 	save_dir = given_save_dir
 
 
-func load_room(room_name: String):
-	States.current_room = room_name
-	current_room = load(Utils.get_room_path(room_name)).instantiate()
+func load_room(room_id: String, entrance_node: String):
+	current_room = load(Utils.get_room_path(room_id)).instantiate()
 	current_room.init_room(
+		room_id,
+		entrance_node,
 		stm,
+		change_room,
 		_on_textbox_started,
 		_on_cutscene_ended,
 		_on_textbox_focused)
 	add_child(current_room)
 
 
-func change_room():
+func change_room(room_id: String, entrance_node: String):
 	current_room.queue_free()
-	load_room(next_room_name)
-	current_room.run_room()
+	load_room(room_id, entrance_node)
 
 
 func save_game_state(save_game: Resource):
