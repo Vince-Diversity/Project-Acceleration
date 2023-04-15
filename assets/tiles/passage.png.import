@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctfaoswskxakc"
-path="res://.godot/imported/default_tileset.png-06746fbcc790ef2f201d22e77dcd9f59.ctex"
+uid="uid://cebosdctvl3n8"
+path="res://.godot/imported/passage.png-ef3a0dabacf8117d0aaa2803eb674a18.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/default_tileset.png"
-dest_files=["res://.godot/imported/default_tileset.png-06746fbcc790ef2f201d22e77dcd9f59.ctex"]
+source_file="res://assets/tiles/passage.png"
+dest_files=["res://.godot/imported/passage.png-ef3a0dabacf8117d0aaa2803eb674a18.ctex"]
 
 [params]
 

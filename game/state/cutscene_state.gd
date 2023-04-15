@@ -1,18 +1,15 @@
 class_name CutsceneState extends State
 
 var cutscenes: RoomCutscenes
-var room: Room
 
 
 func init_state(
-		given_cutscenes: RoomCutscenes,
-		given_room: Room):
+		given_cutscenes: RoomCutscenes):
 	cutscenes = given_cutscenes
-	room = given_room
 
 
 func update(delta: float):
-	cutscenes.get_current_cutscene().update_cutscene(delta)
+	cutscenes.current_cutscene.update_cutscene(delta)
 
 
 func handle_input(_event: InputEvent):
@@ -20,7 +17,7 @@ func handle_input(_event: InputEvent):
 
 
 func enter():
-	cutscenes.get_current_cutscene().begin_cutscene()
+	cutscenes.current_cutscene.begin_cutscene()
 
 
 func exit():
@@ -28,4 +25,4 @@ func exit():
 
 
 func grab_focus():
-	cutscenes.get_current_cutscene().grab_cutscene_focus()
+	cutscenes.current_cutscene.grab_cutscene_focus()

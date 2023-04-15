@@ -2,12 +2,18 @@ class_name Cutscene extends Node2D
 
 @onready var actm_scr: GDScript = preload("res://game/cutscene/act/act_manager.gd")
 var actm: ActManager
+var cutscenes: RoomCutscenes
 
+signal cutscene_begun()
 signal cutscene_ended(next_state_id: String)
 
 
 func _ready():
 	actm = actm_scr.new(end_cutscene)
+
+
+func make():
+	pass
 
 
 func begin_cutscene():

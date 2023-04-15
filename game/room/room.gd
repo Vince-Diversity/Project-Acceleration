@@ -1,8 +1,9 @@
 class_name Room extends Node2D
 
 @onready var party = $YSort/Party
-@onready var thing = $YSort/Cat
 @onready var cutscenes = $RoomCutscenes
+@onready var things = $YSort/Things
+@onready var doors = $Doors
 @onready var party_roam_state: PartyRoamState = preload("res://game/state/party_roam_state.gd").new("party_roam_state")
 @onready var cutscene_state: CutsceneState = preload("res://game/state/cutscene_state.gd").new("cutscene_state")
 var dlg_res: DialogueResource
@@ -11,26 +12,31 @@ var textbox_started_target: Callable
 var cutscene_ended_target: Callable
 var textbox_focused_target: Callable
 
+signal player_interacted(interactable: Node2D)
+
 
 func _ready():
 	party.add_player("res://game/character/player.tscn")
+	party.player.player_interacted.connect(_on_player_interacted)
 	party.add_member("res://game/character/member.tscn")
+	for thing in things.get_children():
+		player_interacted.connect(thing.check_interaction)
+		thing.begin_interaction.connect(_on_thing_begin_interaction)
+	for door in doors.get_children():
+		player_interacted.connect(door.check_interaction)
+		door.begin_interaction.connect(_on_door_begin_interaction)
 	party_roam_state.init_state(
-		party,
-		_on_interaction_checked)
+		party)
 	stm.add_state(party_roam_state)
 	cutscene_state.init_state(
-		cutscenes,
-		self)
+		cutscenes)
 	stm.add_state(cutscene_state)
+	for cutscene in cutscenes.get_children():
+		cutscene.cutscenes = cutscenes
+		cutscene.cutscene_begun.connect(
+			_on_cutscene_begun_first_time, CONNECT_ONE_SHOT)
+		cutscene.cutscene_ended.connect(cutscene_ended_target)
 	stm.change_state(party_roam_state.state_id)
-	cutscenes.get_current_cutscene().make_cutscene(
-		party,
-		textbox_started_target,
-		"default",
-		"default",
-		cutscene_ended_target,
-		textbox_focused_target)
 
 
 func init_room(
@@ -44,6 +50,20 @@ func init_room(
 	textbox_focused_target = given_textbox_focused_target
 
 
-func _on_interaction_checked():
-	if thing.interact_area.get_overlapping_areas():
-		stm.change_state(cutscene_state.state_id)
+func _on_player_interacted(interactable: Node2D):
+	player_interacted.emit(interactable)
+
+
+func _on_thing_begin_interaction(thing: Thing):
+	cutscenes.change_cutscene(thing.interaction_node)
+	cutscenes.change_dialogue(thing.dialogue_id, thing.dialogue_node)
+	cutscenes.current_cutscene.cutscene_begun.emit()
+	stm.change_state(cutscene_state.state_id)
+
+
+func _on_door_begin_interaction(_door: Thing):
+	pass
+
+
+func _on_cutscene_begun_first_time():
+	cutscenes.current_cutscene.make()

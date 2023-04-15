@@ -1,16 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://nfl8ij5d7dfw"]
+[gd_scene load_steps=4 format=3 uid="uid://nfl8ij5d7dfw"]
 
 [ext_resource type="Script" path="res://game/thing/thing.gd" id="1"]
+[ext_resource type="Script" path="res://game/thing/thing_interact_area.gd" id="2_8tyvk"]
 
 [sub_resource type="CircleShape2D" id="1"]
 radius = 20.0
 
-[node name="Thing" type="Node2D"]
+[node name="Thing" type="Marker2D"]
 script = ExtResource("1")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 
 [node name="InteractArea" type="Area2D" parent="."]
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("2_8tyvk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
 shape = SubResource("1")

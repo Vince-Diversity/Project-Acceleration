@@ -2,23 +2,20 @@ class_name PartyRoamState extends State
 
 var party: Party
 
-signal interaction_checked
-
 
 func init_state(
-		given_party: Party,
-		interaction_checked_target: Callable):
+		given_party: Party):
 	party = given_party
-	interaction_checked.connect(interaction_checked_target)
 
 
 func update(_delta: float):
+	party.player.check_nearest_interactable()
 	party.roam()
 
 
 func handle_input(event: InputEvent):
 	if event.is_action_pressed("ui_accept"):
-		interaction_checked.emit()
+		party.player.check_interaction()
 
 
 func enter():

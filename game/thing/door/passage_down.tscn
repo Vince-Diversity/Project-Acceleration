@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsfvepwkk4y7l"]
+
+[ext_resource type="PackedScene" uid="uid://dqktwnq312s04" path="res://game/thing/door/door.tscn" id="1_ajot6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j40hj"]
+size = Vector2(128, 64)
+
+[node name="PassageDown" instance=ExtResource("1_ajot6")]
+
+[node name="CollisionShape2D" parent="InteractArea" index="0"]
+position = Vector2(0, 32)
+shape = SubResource("RectangleShape2D_j40hj")

@@ -25,13 +25,16 @@ func enter_next_act():
 	if current_i < act_list.size():
 		act_list[current_i].enter()
 	else:
-		act_list_finished.emit()
-		current_i = -1
-
+		end_act_list()
 
 func next_act():
 	act_list[current_i].exit()
 	enter_next_act()
+
+
+func end_act_list():
+	current_i = -1
+	act_list_finished.emit()
 
 
 func grab_act_focus():
