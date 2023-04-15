@@ -23,6 +23,8 @@ func _ready():
 	party.player.player_interacted.connect(_on_player_interacted)
 	party.add_member("res://game/character/member.tscn")
 	var entrance = doors.get_node(entrance_node)
+	if !is_instance_valid(entrance):
+		entrance = doors.get_children()[0]
 	party.global_position = entrance.spawn_point.global_position
 	for member in party.get_party_ordered():
 		entrance.set_entrance_direction(member)
@@ -68,17 +70,17 @@ func _on_player_interacted(interactable: Node2D):
 
 
 func _on_thing_begin_interaction(thing: Thing):
-	cutscenes.change_cutscene(thing.interaction_node)
-	cutscenes.change_dialogue(thing.dialogue_id, thing.dialogue_node)
-	cutscenes.current_cutscene.cutscene_begun.emit()
-	stm.change_state(cutscene_state.state_id)
+	if cutscenes.has_node(thing.interaction_node):
+		cutscenes.change_cutscene(thing.interaction_node)
+		cutscenes.change_dialogue(thing.dialogue_id, thing.dialogue_node)
+		cutscenes.current_cutscene.cutscene_begun.emit()
+		stm.change_state(cutscene_state.state_id)
+	else:
+		push_error('Interaction node not found: "%s"' % thing.interaction_node)
 
 
 func _on_door_begin_interaction(door: Thing):
-	if door.next_room_id.is_empty():
-		room_changed.emit(room_id, entrance_node)
-	else:
-		room_changed.emit(door.next_room_id, door.next_room_entrance_node)
+	room_changed.emit(door.next_room_id, door.next_room_entrance_node)
 
 
 func _on_cutscene_begun_first_time():

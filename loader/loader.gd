@@ -28,7 +28,7 @@ func _ready_new_game():
 
 
 func new_game():
-	States.reset_states()
+#	States.reset_states()
 	game = game_scn.instantiate()
 	game.init_game(self, save_dir)
 	_add_child_to_root(game)
@@ -62,4 +62,5 @@ func _add_child_to_root_deferred(node: Node):
 
 func _load_game_state(save_game: Resource):
 	for key in save_game.data:
-		States.set(key, save_game.data[key])
+		pass
+#		States.set(key, save_game.data[key])

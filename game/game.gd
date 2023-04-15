@@ -33,7 +33,8 @@ func init_game(given_loader: Loader, given_save_dir: String):
 
 
 func load_room(room_id: String, entrance_node: String):
-	current_room = load(Utils.get_room_path(room_id)).instantiate()
+	var room_path = Utils.get_room_path(room_id)
+	current_room = load(room_path).instantiate()
 	current_room.init_room(
 		room_id,
 		entrance_node,
@@ -46,8 +47,12 @@ func load_room(room_id: String, entrance_node: String):
 
 
 func change_room(room_id: String, entrance_node: String):
-	current_room.queue_free()
-	load_room(room_id, entrance_node)
+	var room_path = Utils.get_room_path(room_id)
+	if FileAccess.file_exists(room_path):
+		current_room.queue_free()
+		load_room(room_id, entrance_node)
+	else:
+		push_error('Room not found: "%s"' % room_path)
 
 
 func save_game_state(save_game: Resource):
@@ -72,6 +77,9 @@ func _on_textbox_started(
 	text_box = text_box_scn.instantiate()
 	add_child(text_box)
 	var dlg_path = Utils.get_dlg_path(dialogue_id)
+	if !FileAccess.file_exists(dlg_path):
+		push_error('Dialogue not found: %s' % dlg_path)
+		dlg_path = Utils.get_dlg_path("default")
 	dlg_res = load(dlg_path)
 	DialogueManager.dialogue_ended.connect(dialogue_ended_target, CONNECT_ONE_SHOT)
 	text_box.start(dlg_res, dialogue_node)

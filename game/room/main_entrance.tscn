@@ -20,24 +20,28 @@ next_room_entrance_node = "PassageRight"
 
 [node name="DoorDown" parent="Doors" index="1" instance=ExtResource("4_igb0a")]
 position = Vector2(576, 576)
-next_room_id = "main_entrance"
-next_room_entrance_node = "DoorDown"
+next_room_id = "outdoor"
+next_room_entrance_node = ""
 
 [node name="Cat" parent="YSort/Things" index="0" instance=ExtResource("2_jytel")]
 position = Vector2(576, 256)
-interaction_node = "Default"
+interaction_node = "RoboCat"
 dialogue_id = "default"
 dialogue_node = "default"
 
-[node name="Default" parent="RoomCutscenes" index="0" instance=ExtResource("2_mg8pa")]
+[node name="Cat2" parent="YSort/Things" index="1" instance=ExtResource("2_jytel")]
+position = Vector2(672, 256)
+interaction_node = "RoboCat2"
+
+[node name="RoboCat" parent="RoomCutscenes" index="0" instance=ExtResource("2_mg8pa")]
 position = Vector2(576, 288)
 
-[node name="MentorMark" parent="RoomCutscenes/Default" index="0"]
+[node name="MentorMark" parent="RoomCutscenes/RoboCat" index="0"]
 position = Vector2(-32, -32)
 target_direction_id = 3
 
-[node name="StudentMark" parent="RoomCutscenes/Default" index="1"]
+[node name="StudentMark" parent="RoomCutscenes/RoboCat" index="1"]
 position = Vector2(-32, 0)
 target_direction_id = 3
 
-[editable path="RoomCutscenes/Default"]
+[editable path="RoomCutscenes/RoboCat"]

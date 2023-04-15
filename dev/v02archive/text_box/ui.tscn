@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://dev/v02archive/text_box/ui.gd" id="1"]
 [ext_resource type="Script" path="res://dev/v02archive/text_box/text_box.gd" id="2"]
-[ext_resource type="Script" path="res://game/ui/action_box/action_box.gd" id="3"]
+[ext_resource type="Script" path="res://dev/v02archive/action_box/action_box.gd" id="3"]
 [ext_resource type="PackedScene" path="res://dev/v02archive/text_box/dialogue.tscn" id="4"]
 
 [node name="UI" type="Control"]

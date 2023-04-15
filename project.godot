@@ -20,7 +20,7 @@ config/version="0.3"
 
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 Utils="*res://game/utils/utils.gd"
-States="*res://game/states.gd"
+States="*res://dev/v02archive/states.gd"
 Names="*res://game/names.gd"
 
 [debug]
