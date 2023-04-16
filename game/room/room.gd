@@ -19,21 +19,41 @@ signal player_interacted(interactable: Node2D)
 
 
 func _ready():
+	_ready_party()
+	_ready_entrance()
+	_ready_doors()
+	_ready_things()
+	_ready_states()
+
+
+func _ready_party():
 	party.add_player("res://game/character/player.tscn")
 	party.player.player_interacted.connect(_on_player_interacted)
 	party.add_member("res://game/character/member.tscn")
+
+
+func _ready_entrance():
 	var entrance = doors.get_node(entrance_node)
 	if !is_instance_valid(entrance):
 		entrance = doors.get_children()[0]
 	party.global_position = entrance.spawn_point.global_position
 	for member in party.get_party_ordered():
 		entrance.set_entrance_direction(member)
-	for thing in things.get_children():
-		player_interacted.connect(thing.check_interaction)
-		thing.begin_interaction.connect(_on_thing_begin_interaction)
+
+
+func _ready_doors():
 	for door in doors.get_children():
 		player_interacted.connect(door.check_interaction)
 		door.begin_interaction.connect(_on_door_begin_interaction)
+
+
+func _ready_things():
+	for thing in things.get_children():
+		player_interacted.connect(thing.check_interaction)
+		thing.begin_interaction.connect(_on_thing_begin_interaction)
+
+
+func _ready_states():
 	party_roam_state.init_state(
 		party)
 	stm.add_state(party_roam_state)

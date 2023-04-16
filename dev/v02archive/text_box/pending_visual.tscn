@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=4 format=3]
 
-[ext_resource path="res://assets/misc/pending.png" type="Texture" id=1]
+[ext_resource type="Texture" uid="uid://sokywwnv1em8" path="res://assets/misc/pending.png" id="1"]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Pending"

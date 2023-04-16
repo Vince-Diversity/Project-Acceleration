@@ -8,10 +8,10 @@ class_name Game extends Node
 @onready var text_box_scn: PackedScene = preload("res://game/ui/textbox/textbox.tscn")
 var loader: Loader
 var save_dir: String
-var current_room: Room
 var menu: PauseMenu
 var text_box: TextBox
 var dlg_res: DialogueResource
+var current_room: Room
 
 
 func _physics_process(delta):
@@ -30,6 +30,11 @@ func _unhandled_input(event):
 func init_game(given_loader: Loader, given_save_dir: String):
 	loader = given_loader
 	save_dir = given_save_dir
+
+
+func make_save(save_game: SaveGame):
+	save_game.data["current_room_id"] = current_room.room_id
+	save_game.data["entrance_node"] = current_room.entrance_node
 
 
 func load_room(room_id: String, entrance_node: String):
@@ -55,9 +60,14 @@ func change_room(room_id: String, entrance_node: String):
 		push_error('Room not found: "%s"' % room_path)
 
 
-func save_game_state(save_game: Resource):
-	for property in States.property_list:
-		save_game.data[property] = States.get(property)
+func save():
+	var save_game: SaveGame = save_res.new()
+	save_game.game_version = ProjectSettings.get_setting("application/config/version")
+	make_save(save_game)
+	var dir = DirAccess.open(save_dir)
+	if not dir:
+		DirAccess.make_dir_absolute(save_dir)
+	ResourceSaver.save(save_game, loader.save_path)
 
 
 func _pause():
@@ -94,14 +104,7 @@ func _on_textbox_focused():
 
 
 func _on_PauseMenu_save_pressed():
-	var save_game = save_res.new()
-	save_game.game_version = ProjectSettings.get_setting("application/config/version")
-	save_game_state(save_game)
-	var dir = DirAccess.open(save_dir)
-	if not dir:
-		DirAccess.make_dir_absolute(save_dir)
-	var err = ResourceSaver.save(save_game, loader.save_path)
-	if err != OK: print(err)
+	save()
 
 
 func _on_PauseMenu_main_menu_pressed():

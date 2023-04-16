@@ -1,7 +1,7 @@
 extends Node
 
 var YELLOW = "Richy"
-var GREEN = "Misa"
+const GREEN = "Misa"
 var RED = "Clara"
 var BLUE = "Ari"
 var BLUE_FATHER = "Lord Arwin"

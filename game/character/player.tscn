@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://kmbb38hp7tsk"]
 
 [ext_resource type="PackedScene" uid="uid://bk16wp1xkfq2e" path="res://game/character/character.tscn" id="1"]
-[ext_resource type="SpriteFrames" uid="uid://b231erjd1aqlc" path="res://resources/characters/green.tres" id="2"]
+[ext_resource type="SpriteFrames" uid="uid://drrwv183eagft" path="res://resources/characters/green.tres" id="2"]
 [ext_resource type="Script" path="res://game/character/player.gd" id="3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_act1d"]

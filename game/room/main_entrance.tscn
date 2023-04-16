@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bypwfk54tvx6l" path="res://game/thing/door/passage_left.tscn" id="2_fkubj"]
 [ext_resource type="PackedScene" uid="uid://bbv4g4ekf8c24" path="res://game/thing/cat/cat.tscn" id="2_jytel"]
 [ext_resource type="PackedScene" uid="uid://cbkbfabme6mpp" path="res://game/cutscene/mentoring_cutscene.tscn" id="2_mg8pa"]
-[ext_resource type="TileSet" uid="uid://cdo3nndlngxq0" path="res://resources/tilesets/real_interior.tres" id="2_nxr72"]
+[ext_resource type="TileSet" uid="uid://dmf7r6bjkitf" path="res://resources/tilesets/real_interior.tres" id="2_nxr72"]
 [ext_resource type="PackedScene" uid="uid://crgs75xh58fgm" path="res://game/thing/door/door_down.tscn" id="4_igb0a"]
 
 [node name="MainEntrance" instance=ExtResource("1_ysrto")]
@@ -21,7 +21,6 @@ next_room_entrance_node = "PassageRight"
 [node name="DoorDown" parent="Doors" index="1" instance=ExtResource("4_igb0a")]
 position = Vector2(576, 576)
 next_room_id = "outdoor"
-next_room_entrance_node = ""
 
 [node name="Cat" parent="YSort/Things" index="0" instance=ExtResource("2_jytel")]
 position = Vector2(576, 256)

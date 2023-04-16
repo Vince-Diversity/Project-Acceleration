@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://d0qqtk18hatho"]
 
 [ext_resource type="PackedScene" uid="uid://c1go3780g6ead" path="res://game/room/room.tscn" id="1_fma43"]
-[ext_resource type="TileSet" uid="uid://cdo3nndlngxq0" path="res://resources/tilesets/real_interior.tres" id="2_6laxt"]
+[ext_resource type="TileSet" uid="uid://dmf7r6bjkitf" path="res://resources/tilesets/real_interior.tres" id="2_6laxt"]
 [ext_resource type="PackedScene" uid="uid://m70p5l8u2p8r" path="res://game/thing/door/passage_right.tscn" id="3_37qmc"]
 
 [node name="KnowledgeHallway" instance=ExtResource("1_fma43")]

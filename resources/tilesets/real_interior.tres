@@ -1,10 +1,10 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://cdo3nndlngxq0"]
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://dmf7r6bjkitf"]
 
-[ext_resource type="Texture2D" uid="uid://ctfaoswskxakc" path="res://assets/tiles/tilesets/default_tileset.png" id="2_vlcke"]
+[ext_resource type="Texture2D" uid="uid://ctfaoswskxakc" path="res://assets/tiles/tilesets/default_tileset.png" id="1_dhjqu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jj31j"]
 resource_name = "interior"
-texture = ExtResource("2_vlcke")
+texture = ExtResource("1_dhjqu")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
 0:0/0/terrain_set = 0

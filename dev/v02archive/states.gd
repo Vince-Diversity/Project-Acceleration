@@ -59,8 +59,9 @@ func is_blue_joined() -> bool:
 
 
 func reset_states() -> void:
-	for property in States.property_list:
+	pass
+#	for property in States.property_list:
 		# For resetting all properties to the equivalent of null
-		set(property, convert("", typeof(property)))
+#		set(property, convert("", typeof(property)))
 	# But it does not seem to work on arrays
-	visited = []
+#	visited = []

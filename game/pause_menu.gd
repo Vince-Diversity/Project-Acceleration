@@ -30,9 +30,8 @@ func _on_Resume_pressed():
 	_unpause()
 
 
-# Disabled until saving is implemented
 func _on_Save_pressed():
-#	save_pressed.emit()
+	save_pressed.emit()
 	$MenuContainer/Title.text = "Game saved!"
 	$MenuContainer/Resume.disabled = true
 	$MenuContainer/Save.disabled = true
