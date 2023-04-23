@@ -3,8 +3,7 @@ res://game/cutscene/act/act_manager.gd
 res://game/pause_menu.gd
 res://resources/tilesets/real_interior.tres
 res://resources/things/door.tres
+res://game/game.gd
 res://loader/loader.tscn
 res://game/room/main_entrance.tscn
 res://game/pause_menu.tscn
-res://game/ui/textbox/textbox.gd
-res://game/game.gd

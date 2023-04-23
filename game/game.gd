@@ -78,7 +78,6 @@ func _pause():
 			_on_PauseMenu_main_menu_pressed,
 			_on_PauseMenu_closed)
 		add_child(menu)
-		
 
 
 func _on_textbox_started(
@@ -88,17 +87,15 @@ func _on_textbox_started(
 	text_box = text_box_scn.instantiate()
 	add_child(text_box)
 	var dlg_path = Utils.get_dlg_path(dialogue_id)
-	if !FileAccess.file_exists(dlg_path): # if the dialogue resource does not exist
+	if !FileAccess.file_exists(dlg_path):
 		dlg_path = Utils.get_dlg_path("default")
 	dlg_res = load(dlg_path)
-	if dlg_res.lines.size() <= 0: # if the dialogue resource is empty
+	if dlg_res.lines.size() <= 0 or not dlg_res.titles.has(dialogue_node):
 		dlg_path = Utils.get_dlg_path("default")
 		dlg_res = load(dlg_path)
 	DialogueManager.dialogue_ended.connect(dialogue_ended_target, CONNECT_ONE_SHOT)
-	if dialogue_node.is_empty(): # if no dialogue node is given
+	if dialogue_node.is_empty():
 		dialogue_node = "default"
-	# if the given dialogue node is not in the dialogue resource,
-	# it seems to be starting on the first dialogue node
 	text_box.start(dlg_res, dialogue_node)
 
 
