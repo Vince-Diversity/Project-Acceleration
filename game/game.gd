@@ -88,13 +88,17 @@ func _on_textbox_started(
 	text_box = text_box_scn.instantiate()
 	add_child(text_box)
 	var dlg_path = Utils.get_dlg_path(dialogue_id)
-	if !FileAccess.file_exists(dlg_path):
+	if !FileAccess.file_exists(dlg_path): # if the dialogue resource does not exist
 		dlg_path = Utils.get_dlg_path("default")
 	dlg_res = load(dlg_path)
+	if dlg_res.lines.size() <= 0: # if the dialogue resource is empty
+		dlg_path = Utils.get_dlg_path("default")
+		dlg_res = load(dlg_path)
 	DialogueManager.dialogue_ended.connect(dialogue_ended_target, CONNECT_ONE_SHOT)
-	if dialogue_node.is_empty():
+	if dialogue_node.is_empty(): # if no dialogue node is given
 		dialogue_node = "default"
-	# if the dialogue node is wrong, the addon will start the first node found
+	# if the given dialogue node is not in the dialogue resource,
+	# it seems to be starting on the first dialogue node
 	text_box.start(dlg_res, dialogue_node)
 
 

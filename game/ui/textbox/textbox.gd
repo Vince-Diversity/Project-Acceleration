@@ -99,10 +99,10 @@ func start(dialogue_resource: DialogueResource, title: String, extra_game_states
 	temporary_game_states = extra_game_states
 	is_waiting_for_input = false
 	resource = dialogue_resource
-	
+
 	self.dialogue_line = await resource.get_next_dialogue_line(title, temporary_game_states)
 	if !is_instance_valid(self.dialogue_line):
-		push_error('Dialogue node not found: "%s"' % title)
+		push_error('Dialogue node not found: "%s in %s"' % [title, resource.resource_path])
 
 
 ## Go to the next line
