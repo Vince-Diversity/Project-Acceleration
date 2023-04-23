@@ -1,6 +1,6 @@
-[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://c2shp7hdt8kjs"]
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://d2gasqmip3odt"]
 
-[ext_resource type="Texture2D" uid="uid://cmo0sug7yc43m" path="res://assets/tiles/door.png" id="1_juldx"]
+[ext_resource type="Texture2D" uid="uid://cmo0sug7yc43m" path="res://assets/things/door.png" id="1_juldx"]
 
 [resource]
 animations = [{

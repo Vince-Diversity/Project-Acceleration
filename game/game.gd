@@ -78,6 +78,7 @@ func _pause():
 			_on_PauseMenu_main_menu_pressed,
 			_on_PauseMenu_closed)
 		add_child(menu)
+		
 
 
 func _on_textbox_started(
@@ -88,10 +89,12 @@ func _on_textbox_started(
 	add_child(text_box)
 	var dlg_path = Utils.get_dlg_path(dialogue_id)
 	if !FileAccess.file_exists(dlg_path):
-		push_error('Dialogue not found: %s' % dlg_path)
 		dlg_path = Utils.get_dlg_path("default")
 	dlg_res = load(dlg_path)
 	DialogueManager.dialogue_ended.connect(dialogue_ended_target, CONNECT_ONE_SHOT)
+	if dialogue_node.is_empty():
+		dialogue_node = "default"
+	# if the dialogue node is wrong, the addon will start the first node found
 	text_box.start(dlg_res, dialogue_node)
 
 

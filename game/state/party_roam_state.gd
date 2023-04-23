@@ -9,7 +9,6 @@ func init_state(
 
 
 func update(_delta: float):
-	party.player.check_nearest_interactable()
 	party.roam()
 
 

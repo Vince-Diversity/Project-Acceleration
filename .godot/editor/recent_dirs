@@ -1,9 +1,12 @@
-res://game/constant
 res://game/cutscene
+res://assets/things
+res://game/thing/bookcase
+res://assets/vfx
+res://resources/things
+res://game/constant
 res://game/thing/door
 res://game/room
 res://assets/tiles
-res://resources/things
 res://game/thing
 res://game
 res://game/state

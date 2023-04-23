@@ -6,6 +6,8 @@ class_name Room extends Node2D
 @onready var doors = $Doors
 @onready var party_roam_state: PartyRoamState = preload("res://game/state/party_roam_state.gd").new("party_roam_state")
 @onready var cutscene_state: CutsceneState = preload("res://game/state/cutscene_state.gd").new("cutscene_state")
+@onready var player_only_cutscene_scn: PackedScene = preload("res://game/cutscene/player_only_cutscene.tscn")
+var thing_rng: RandomNumberGenerator
 var room_id: String
 var entrance_node: String
 var dlg_res: DialogueResource
@@ -24,6 +26,8 @@ func _ready():
 	_ready_doors()
 	_ready_things()
 	_ready_states()
+	_ready_cutscenes()
+	stm.change_state(party_roam_state.state_id)
 
 
 func _ready_party():
@@ -48,9 +52,13 @@ func _ready_doors():
 
 
 func _ready_things():
+	thing_rng = RandomNumberGenerator.new()
+	var thing_seed = Utils.str_to_seed(name)
+	thing_rng.set_seed(thing_seed)
 	for thing in things.get_children():
 		player_interacted.connect(thing.check_interaction)
 		thing.begin_interaction.connect(_on_thing_begin_interaction)
+		thing.set_rng(thing_rng)
 
 
 func _ready_states():
@@ -60,12 +68,18 @@ func _ready_states():
 	cutscene_state.init_state(
 		cutscenes)
 	stm.add_state(cutscene_state)
+
+
+func _ready_cutscenes():
 	for cutscene in cutscenes.get_children():
+		_ready_cutscene(cutscene)
+
+
+func _ready_cutscene(cutscene: Cutscene):
 		cutscene.cutscenes = cutscenes
 		cutscene.cutscene_begun.connect(
 			_on_cutscene_begun_first_time, CONNECT_ONE_SHOT)
 		cutscene.cutscene_ended.connect(cutscene_ended_target)
-	stm.change_state(party_roam_state.state_id)
 
 
 func init_room(
@@ -96,11 +110,22 @@ func _on_thing_begin_interaction(thing: Thing):
 		cutscenes.current_cutscene.cutscene_begun.emit()
 		stm.change_state(cutscene_state.state_id)
 	else:
-		push_error('Interaction node not found: "%s"' % thing.interaction_node)
+		var player_only_cutscene: Cutscene = player_only_cutscene_scn.instantiate()
+		cutscenes.add_child(player_only_cutscene)
+		player_only_cutscene.owner = self
+		_ready_cutscene(player_only_cutscene)
+		var new_name = "Default%s" % cutscenes.get_children().size()
+		player_only_cutscene.name = new_name
+		thing.interaction_node = new_name
+		_on_thing_begin_interaction.call_deferred(thing)
 
 
 func _on_door_begin_interaction(door: Thing):
-	room_changed.emit(door.next_room_id, door.next_room_entrance_node)
+	var room_path = Utils.get_room_path(door.next_room_id)
+	if FileAccess.file_exists(room_path):
+		room_changed.emit(door.next_room_id, door.next_room_entrance_node)
+	else:
+		_on_thing_begin_interaction(door)
 
 
 func _on_cutscene_begun_first_time():

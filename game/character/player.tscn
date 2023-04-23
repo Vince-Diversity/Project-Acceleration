@@ -1,14 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://kmbb38hp7tsk"]
+[gd_scene load_steps=9 format=3 uid="uid://kmbb38hp7tsk"]
 
 [ext_resource type="PackedScene" uid="uid://bk16wp1xkfq2e" path="res://game/character/character.tscn" id="1"]
 [ext_resource type="SpriteFrames" uid="uid://drrwv183eagft" path="res://resources/characters/green.tres" id="2"]
 [ext_resource type="Script" path="res://game/character/player.gd" id="3"]
+[ext_resource type="PackedScene" uid="uid://bcvfpw0neifvb" path="res://game/ui/bubble/bubble.tscn" id="4_pvxn0"]
+[ext_resource type="SpriteFrames" uid="uid://dt10ddsmgxqyp" path="res://resources/vfx/exclamation.tres" id="5_cnrpg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_act1d"]
 radius = 8.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c5j42"]
-height = 40.0
+radius = 6.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rkx78"]
 radius = 20.0
@@ -28,13 +30,21 @@ shape = SubResource("CircleShape2D_act1d")
 [node name="Direction" type="Marker2D" parent="." index="2"]
 
 [node name="InteractArea" type="Area2D" parent="Direction" index="0"]
-collision_mask = 14
+collision_mask = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/InteractArea" index="0"]
-position = Vector2(20, 0)
+position = Vector2(16, 0)
 shape = SubResource("CapsuleShape2D_c5j42")
 
 [node name="Camera2D" type="Camera2D" parent="." index="3"]
 
+[node name="FollowingArea" parent="." index="4"]
+collision_layer = 1
+collision_mask = 2
+
 [node name="CollisionShape2D" parent="FollowingArea" index="0"]
 shape = SubResource("CircleShape2D_rkx78")
+
+[node name="BubblePlace" parent="." index="5" instance=ExtResource("4_pvxn0")]
+position = Vector2(18, -29)
+sprite_frames = ExtResource("5_cnrpg")

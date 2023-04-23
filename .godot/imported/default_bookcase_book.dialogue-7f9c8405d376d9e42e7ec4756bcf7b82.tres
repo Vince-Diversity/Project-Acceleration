@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_2sdd8"]
+
+[resource]
+script = ExtResource("1_2sdd8")
+titles = {
+"default": "3"
+}
+character_names = PackedStringArray("{{GREEN}}")
+first_title = "3"
+lines = {
+"1": {
+"next_id": "3",
+"text": "default",
+"type": "title"
+},
+"3": {
+"character": "{{GREEN}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "GREEN"
+}]),
+"value_in_text": "{{GREEN}}"
+}]),
+"next_id": "",
+"text": "(It would feel weird to start reading a book [i]just[/i] because it sticks out a little...)",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "(It would feel weird to start reading a book [i]just[/i] because it sticks out a little...)",
+"type": "dialogue"
+}
+}
+metadata/dialogue_manager_version = "2.15.2"

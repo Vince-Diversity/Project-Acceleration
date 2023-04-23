@@ -43,6 +43,19 @@ static func get_room_path(room_name: String) -> String:
 	return Utils.room_dir + room_name + ".tscn"
 
 
+static func get_res_arr(res_dir_path: String) -> Array:
+	var res_dir = DirAccess.open(res_dir_path)
+	var name_arr = Array(res_dir.get_files())
+	for name in name_arr:
+		if name.ends_with(".import"):
+			name_arr.erase(name)
+	return name_arr
+
+
+static func str_to_seed(name: String) -> int:
+	return hash(name)
+
+
 static func snap_to_compass(direction: Vector2) -> Vector2:
 	if direction == Vector2.ZERO: return direction
 	if direction in anim_direction.keys(): return direction

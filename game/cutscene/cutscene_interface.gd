@@ -1,6 +1,8 @@
 class_name Cutscene extends Node2D
 
 @onready var actm_scr: GDScript = preload("res://game/cutscene/act/act_manager.gd")
+@onready var move_to_position_act_scr: GDScript = preload("res://game/cutscene/act/move_to_position_act.gd")
+@onready var interact_act_scr: GDScript = preload("res://game/cutscene/act/interact_act.gd")
 var actm: ActManager
 var cutscenes: RoomCutscenes
 

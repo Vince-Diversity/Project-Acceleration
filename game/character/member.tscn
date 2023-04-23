@@ -13,7 +13,6 @@ radius = 20.0
 
 [node name="Ally" instance=ExtResource("1_wfmq8")]
 collision_layer = 8
-collision_mask = 1
 script = ExtResource("2_6ip4m")
 
 [node name="AnimatedSprite" parent="." index="0"]
@@ -21,6 +20,10 @@ sprite_frames = ExtResource("3_eu738")
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("CapsuleShape2D_kil8s")
+
+[node name="FollowingArea" parent="." index="2"]
+collision_layer = 2
+collision_mask = 1
 
 [node name="CollisionShape2D" parent="FollowingArea" index="0"]
 shape = SubResource("CircleShape2D_pg2hi")

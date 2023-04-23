@@ -1,4 +1,4 @@
-class_name PauseMenu extends Control
+class_name PauseMenu extends CanvasLayer
 
 var stm: StateMachine
 
@@ -14,7 +14,10 @@ func _ready():
 
 
 func _ready_menu():
-	$MenuContainer/Resume.grab_focus()
+	%Resume.pressed.connect(_on_resume_pressed)
+	%Save.pressed.connect(_on_save_pressed)
+	%MainMenu.pressed.connect(_on_main_menu_pressed)
+	%Resume.grab_focus()
 
 
 func init_pause_menu(
@@ -26,21 +29,21 @@ func init_pause_menu(
 	pause_menu_closed.connect(pause_menu_closed_target)
 
 
-func _on_Resume_pressed():
+func _on_resume_pressed():
 	_unpause()
 
 
-func _on_Save_pressed():
+func _on_save_pressed():
 	save_pressed.emit()
-	$MenuContainer/Title.text = "Game saved!"
-	$MenuContainer/Resume.disabled = true
-	$MenuContainer/Save.disabled = true
-	$MenuContainer/MainMenu.disabled = true
+	%Title.text = "Game saved!"
+	%Resume.disabled = true
+	%Save.disabled = true
+	%MainMenu.disabled = true
 	await get_tree().create_timer(1.0).timeout
 	_unpause()
 
 
-func _on_Main_Menu_pressed():
+func _on_main_menu_pressed():
 	_unpause()
 	main_menu_pressed.emit()
 
@@ -49,4 +52,3 @@ func _unpause():
 	pause_menu_closed.emit()
 	get_tree().set_pause(false)
 	queue_free()
-

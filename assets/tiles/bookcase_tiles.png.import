@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmo0sug7yc43m"
-path="res://.godot/imported/door.png-0ec67209a6ec3033ffe869b908758e70.ctex"
+uid="uid://bm8koxrkfy2km"
+path="res://.godot/imported/bookcase_tiles.png-f999b5c7b816ac6420ad5e802aa8bb4f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tiles/door.png"
-dest_files=["res://.godot/imported/door.png-0ec67209a6ec3033ffe869b908758e70.ctex"]
+source_file="res://assets/tiles/bookcase_tiles.png"
+dest_files=["res://.godot/imported/bookcase_tiles.png-f999b5c7b816ac6420ad5e802aa8bb4f.ctex"]
 
 [params]
 

@@ -8,7 +8,11 @@ size = Vector2(64, 64)
 
 [node name="Door" instance=ExtResource("1_vpjhx")]
 script = ExtResource("2_utemx")
+next_room_id = ""
+next_room_entrance_node = ""
 entrance_direction = 0
+dialogue_id = "default_door"
+dialogue_node = "default"
 
 [node name="CollisionShape2D" parent="InteractArea" index="0"]
 shape = SubResource("RectangleShape2D_wmfr8")

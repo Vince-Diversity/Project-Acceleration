@@ -1,9 +1,9 @@
 extends Node
 
 var YELLOW = "Richy"
-const GREEN = "Misa"
+const GREEN: StringName = "Misa"
 var RED = "Clara"
-var BLUE = "Ari"
+const BLUE: StringName = "Ari"
 var BLUE_FATHER = "Lord Arwin"
 var YELLOW_TEACHER = "Miss Olivia"
 var GREEN_TEACHER = "Mr. Hilbert"

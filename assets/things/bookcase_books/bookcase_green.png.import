@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://igb77x0m1crj"
-path="res://.godot/imported/cat-down.png-0e01be49efc595df43aa6d1f92d54f02.ctex"
+uid="uid://brpotbo54v38r"
+path="res://.godot/imported/bookcase_green.png-81455e614b619f447eed2d941d741aad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/things/cat/cat-down.png"
-dest_files=["res://.godot/imported/cat-down.png-0e01be49efc595df43aa6d1f92d54f02.ctex"]
+source_file="res://assets/things/bookcase_books/bookcase_green.png"
+dest_files=["res://.godot/imported/bookcase_green.png-81455e614b619f447eed2d941d741aad.ctex"]
 
 [params]
 

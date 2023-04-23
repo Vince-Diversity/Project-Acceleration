@@ -1,3 +1,9 @@
+CanvasLayer
+CollisionShape2D
+StaticBody2D
+AnimatedSprite2D
+CharacterBody2D
+Character
 Node
 Marker2D
 Node2D

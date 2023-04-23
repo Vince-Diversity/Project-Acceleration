@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://dt10ddsmgxqyp"]
+
+[ext_resource type="Texture2D" uid="uid://blmclgd6q1jyk" path="res://assets/vfx/exclamation.png" id="1_780sd"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_780sd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

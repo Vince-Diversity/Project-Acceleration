@@ -2,8 +2,6 @@ extends Cutscene
 
 @onready var mentor_mark = $MentorMark
 @onready var student_mark = $StudentMark
-@onready var move_to_position_act_scr: GDScript = preload("res://game/cutscene/act/move_to_position_act.gd")
-@onready var interact_act_scr: GDScript = preload("res://game/cutscene/act/interact_act.gd")
 
 
 func make():
