@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bas74fxnyowhl"
-path="res://.godot/imported/bookcase_tileset.png-5be00fae92c7350ae1cb4782e29e3f73.ctex"
+uid="uid://c7dyssuaaw00e"
+path="res://.godot/imported/stairs.png-752f5eae91ad99bc659fda9d5287961c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tiles/bookcase_tileset.png"
-dest_files=["res://.godot/imported/bookcase_tileset.png-5be00fae92c7350ae1cb4782e29e3f73.ctex"]
+source_file="res://assets/tiles/stairs.png"
+dest_files=["res://.godot/imported/stairs.png-752f5eae91ad99bc659fda9d5287961c.ctex"]
 
 [params]
 

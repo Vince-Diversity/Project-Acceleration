@@ -4,16 +4,18 @@ var player: Player
 
 
 func add_member(path: String):
-	var member: Character = load(path).instantiate()
+	var member: Member = load(path).instantiate()
 	member.init_character(self)
 	add_child(member)
+	move_child(member, 0)
 	return member
 
 
 func add_player(path):
-	var member: Player = add_member(path)
+	var member: Player = load(path).instantiate()
+	member.init_character(self)
+	add_child(member)
 	player = member
-	move_child(member, 0)
 
 
 func roam():
@@ -22,4 +24,10 @@ func roam():
 
 
 func get_party_ordered() -> Array:
-	return get_children()
+	var party_ordered = get_children()
+	party_ordered.reverse()
+	return party_ordered
+
+
+func get_next_member(member: Character) -> Character:
+	return get_children()[member.get_index() - 1]

@@ -34,8 +34,6 @@ func new_game():
 	if FileAccess.file_exists(room_path):
 		_change_to_game()
 		game.load_room(new_game_room_id, new_game_entrance_node)
-	else:
-		push_error('Room not found: "%s"' % room_path)
 
 
 func enter_game():

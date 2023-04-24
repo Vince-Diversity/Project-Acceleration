@@ -1,4 +1,4 @@
-class_name Game extends Node
+class_name Game extends Node2D
 
 @onready var menu_scn = preload("res://game/pause_menu.tscn")
 @onready var save_res = preload("res://loader/save_game.gd")
@@ -57,7 +57,7 @@ func change_room(room_id: String, entrance_node: String):
 		current_room.queue_free()
 		load_room(room_id, entrance_node)
 	else:
-		push_error('Room not found: "%s"' % room_path)
+		load_room("main_entrance", "DefaultDoor")
 
 
 func save():

@@ -16,7 +16,7 @@ var textbox_started_target: Callable
 var cutscene_ended_target: Callable
 var textbox_focused_target: Callable
 
-signal room_changed(door: Door)
+signal room_changed(next_room_id: String, next_room_entrance_node: String)
 signal player_interacted(interactable: Node2D)
 
 
@@ -31,14 +31,19 @@ func _ready():
 
 
 func _ready_party():
+	party.add_member("res://game/character/member.tscn")
 	party.add_player("res://game/character/player.tscn")
 	party.player.player_interacted.connect(_on_player_interacted)
-	party.add_member("res://game/character/member.tscn")
 
 
 func _ready_entrance():
-	var entrance = doors.get_node(entrance_node)
-	if !is_instance_valid(entrance):
+	if doors.get_child_count() == 0:
+		room_changed.emit("main_entrance", "DefaultDoor")
+		return
+	var entrance
+	if doors.has_node(entrance_node):
+		entrance = doors.get_node(entrance_node)
+	else:
 		entrance = doors.get_children()[0]
 	party.global_position = entrance.spawn_point.global_position
 	for member in party.get_party_ordered():
@@ -76,10 +81,10 @@ func _ready_cutscenes():
 
 
 func _ready_cutscene(cutscene: Cutscene):
-		cutscene.cutscenes = cutscenes
-		cutscene.cutscene_begun.connect(
-			_on_cutscene_begun_first_time, CONNECT_ONE_SHOT)
-		cutscene.cutscene_ended.connect(cutscene_ended_target)
+	cutscene.cutscenes = cutscenes
+	cutscene.cutscene_begun.connect(
+		_on_cutscene_begun_first_time, CONNECT_ONE_SHOT)
+	cutscene.cutscene_ended.connect(cutscene_ended_target)
 
 
 func init_room(
@@ -93,7 +98,7 @@ func init_room(
 	room_id = given_room_id
 	entrance_node = given_entrance_node
 	stm = given_stm
-	room_changed.connect(change_room_target)
+	room_changed.connect(change_room_target, CONNECT_DEFERRED)
 	textbox_started_target = given_textbox_started_target
 	cutscene_ended_target = given_cutscene_ended_target
 	textbox_focused_target = given_textbox_focused_target

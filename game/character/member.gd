@@ -17,10 +17,6 @@ func _set_following_direction():
 	set_direction(direction)
 
 
-func get_next_member() -> Character:
-	return party.get_party_ordered()[get_index() - 1]
-
-
 func _on_FollowingArea_area_entered(area: Area2D):
 	if area == get_next_member().following_area:
 		is_following = false
@@ -29,3 +25,7 @@ func _on_FollowingArea_area_entered(area: Area2D):
 func _on_FollowingArea_area_exited(area: Area2D):
 	if area == get_next_member().following_area:
 		is_following = true
+
+
+func get_next_member() -> Character:
+	return party.get_next_member(self)

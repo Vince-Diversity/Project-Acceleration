@@ -21,7 +21,7 @@ position = Vector2(320, 320)
 next_room_id = "knowledge_hallway"
 next_room_entrance_node = "PassageRight"
 
-[node name="DoorDown" parent="Doors" index="1" instance=ExtResource("4_igb0a")]
+[node name="DefaultDoor" parent="Doors" index="1" instance=ExtResource("4_igb0a")]
 position = Vector2(576, 576)
 
 [node name="Cat" parent="YSort/Things" index="0" instance=ExtResource("2_jytel")]
