@@ -1,9 +1,13 @@
 extends Node
 
+const green: StringName = "Misa"
+const green_cheerful: StringName = "Misa"
+
+const blue: StringName = "Ari"
+
+
 var YELLOW = "Richy"
-const GREEN: StringName = "Misa"
 var RED = "Clara"
-const BLUE: StringName = "Ari"
 var BLUE_FATHER = "Lord Arwin"
 var YELLOW_TEACHER = "Miss Olivia"
 var GREEN_TEACHER = "Mr. Hilbert"

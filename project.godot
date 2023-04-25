@@ -32,6 +32,7 @@ general/states=["Names"]
 
 [display]
 
+window/stretch/mode="viewport"
 window/size/width=960
 window/size/height=540
 
@@ -68,7 +69,7 @@ ui_exit={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://game/dialogue/default.dialogue", "res://resources/dialogue/default.dialogue", "res://resources/dialogue/default_bookcase_book.dialogue", "res://resources/dialogue/default_door.dialogue")
+locale/translations_pot_files=PackedStringArray("res://game/dialogue/default.dialogue", "res://resources/dialogue/default.dialogue", "res://resources/dialogue/default_bookcase_book.dialogue", "res://resources/dialogue/default_door.dialogue", "res://resources/dialogue/book_imaginary_space.dialogue")
 
 [layer_names]
 
@@ -83,4 +84,6 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+2d/snap/snap_2d_transforms_to_pixel=true
+textures/canvas_textures/default_texture_filter=0
 environment/default_environment="res://default_env.tres"

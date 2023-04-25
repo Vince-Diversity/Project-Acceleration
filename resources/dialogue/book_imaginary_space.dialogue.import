@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_8"
+type="Resource"
+uid="uid://hniluyvw5gpm"
+path="res://.godot/imported/book_imaginary_space.dialogue-5702db51438c747ef046f5c0885d0c1b.tres"
+
+[deps]
+
+source_file="res://resources/dialogue/book_imaginary_space.dialogue"
+dest_files=["res://.godot/imported/book_imaginary_space.dialogue-5702db51438c747ef046f5c0885d0c1b.tres"]
+
+[params]
+

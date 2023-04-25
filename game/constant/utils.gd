@@ -5,6 +5,7 @@ enum AnimID {DOWN, LEFT, UP, RIGHT}
 
 const dlg_dir = "res://resources/dialogue/"
 const room_dir = "res://game/room/"
+const profile_dir = "res://assets/profiles/"
 
 const anim_direction = {
 	Vector2.DOWN: AnimID.DOWN,
@@ -50,6 +51,15 @@ static func get_res_arr(res_dir_path: String) -> Array:
 		if name.ends_with(".import"):
 			name_arr.erase(name)
 	return name_arr
+
+
+static func get_profile_path(dlg_line: DialogueLine) -> String:
+	if dlg_line.character_replacements.is_empty():
+		return ""
+	else:
+		var expression = dlg_line.character_replacements[0]["expression"][0]["value"]
+		var name = expression.split('_')[0]
+		return profile_dir.path_join(name).path_join(expression + '.png')
 
 
 static func str_to_seed(name: String) -> int:

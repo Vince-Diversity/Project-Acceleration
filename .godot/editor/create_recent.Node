@@ -1,3 +1,5 @@
+TextureRect
+MarginContainer
 Node2D
 CanvasLayer
 CollisionShape2D
@@ -7,4 +9,3 @@ CharacterBody2D
 Character
 Node
 Marker2D
-MarginContainer

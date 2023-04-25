@@ -3,11 +3,11 @@ class_name TextBox extends CanvasLayer
 
 @onready var box: Control = $Box
 @onready var balloon: ColorRect = $Box/Balloon
-@onready var margin: MarginContainer = $Box/Balloon/Margin
 @onready var character_label: RichTextLabel = %CharacterLabel
 @onready var dialogue_label := %DialogueLabel
 @onready var responses_menu: VBoxContainer = %Responses
 @onready var response_template: RichTextLabel = %ResponseTemplate
+@onready var profile: TextureRect = %Profile
 
 ## The dialogue resource
 var resource: DialogueResource
@@ -42,7 +42,7 @@ var dialogue_line: DialogueLine:
 		
 		dialogue_label.modulate.a = 0
 		dialogue_label.dialogue_line = dialogue_line
-
+		
 		# Show any responses we have
 		responses_menu.modulate.a = 0
 		if dialogue_line.responses.size() > 0:
@@ -60,6 +60,10 @@ var dialogue_line: DialogueLine:
 		# Show our balloon
 		balloon.show()
 		will_hide_balloon = false
+		
+		var profile_path = Utils.get_profile_path(dialogue_line)
+		if FileAccess.file_exists(profile_path):
+			profile.texture = load(profile_path)
 		
 		dialogue_label.modulate.a = 1
 		if not dialogue_line.text.is_empty():

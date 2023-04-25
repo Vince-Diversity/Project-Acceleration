@@ -19,5 +19,5 @@ next_room_entrance_node = "PassageLeft"
 
 [node name="PassageUp" parent="Doors" index="1" instance=ExtResource("4_hofts")]
 position = Vector2(448, 64)
-next_room_id = "library"
+next_room_id = "library_1f"
 next_room_entrance_node = "Entrance"

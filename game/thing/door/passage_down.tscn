@@ -11,3 +11,6 @@ entrance_direction = 2
 [node name="CollisionShape2D" parent="InteractArea" index="0"]
 position = Vector2(0, 32)
 shape = SubResource("RectangleShape2D_j40hj")
+
+[node name="SpawnPoint" parent="." index="2"]
+position = Vector2(0, -32)

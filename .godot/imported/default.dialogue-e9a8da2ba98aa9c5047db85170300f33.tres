@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_pag8y"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_046yj"]
 
 [resource]
-script = ExtResource("1_pag8y")
+script = ExtResource("1_046yj")
 titles = {
 "default": "3"
 }
@@ -19,15 +19,15 @@ lines = {
 "character": "",
 "character_replacements": Array[Dictionary]([]),
 "next_id": "4",
-"text": "Somehow cat sounds appear and steal {{GREEN}}'s attention. Me-ow Me-ow Me-ow Me-ow Me-ow.",
+"text": "Somehow cat sounds appear and steal {{green}}'s attention. Me-ow Me-ow Me-ow Me-ow Me-ow.",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
 "type": "variable",
-"value": "GREEN"
+"value": "green"
 }]),
-"value_in_text": "{{GREEN}}"
+"value_in_text": "{{green}}"
 }]),
-"translation_key": "Somehow cat sounds appear and steal {{GREEN}}'s attention. Me-ow Me-ow Me-ow Me-ow Me-ow.",
+"translation_key": "Somehow cat sounds appear and steal {{green}}'s attention. Me-ow Me-ow Me-ow Me-ow Me-ow.",
 "type": "dialogue"
 },
 "4": {

@@ -1,0 +1,169 @@
+[gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_t0w5a"]
+
+[resource]
+script = ExtResource("1_t0w5a")
+titles = {
+"read": "3"
+}
+character_names = PackedStringArray("{{green}}", "{{green_cheerful}}")
+first_title = "3"
+lines = {
+"1": {
+"next_id": "3",
+"text": "read",
+"type": "title"
+},
+"10": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"next_id": "11",
+"text": "\"Hence, the Deepest Layer became recognised by the name: Cirruseng.\"",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "\"Hence, the Deepest Layer became recognised by the name: Cirruseng.\"",
+"type": "dialogue"
+},
+"11": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"next_id": "12",
+"text": "Hmm... I believe we should try look for this place called Cirruseng sometime.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Hmm... I believe we should try look for this place called Cirruseng sometime.",
+"type": "dialogue"
+},
+"12": {
+"character": "{{green_cheerful}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green_cheerful"
+}]),
+"value_in_text": "{{green_cheerful}}"
+}]),
+"next_id": "",
+"text": "We may be able to find a solution to your concerns there!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "We may be able to find a solution to your concerns there!",
+"type": "dialogue"
+},
+"3": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"next_id": "4",
+"text": "\"Imaginary Space - The Enigma For Millenia\".",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "\"Imaginary Space - The Enigma For Millenia\".",
+"type": "dialogue"
+},
+"4": {
+"character": "{{green_cheerful}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green_cheerful"
+}]),
+"value_in_text": "{{green_cheerful}}"
+}]),
+"next_id": "5",
+"text": "This topic might be of help to you!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "This topic might be of help to you!",
+"type": "dialogue"
+},
+"5": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"next_id": "6",
+"text": "\"Reality is merely the top layer of the onion which represents our world. The Imaginary are its layers.\"",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "\"Reality is merely the top layer of the onion which represents our world. The Imaginary are its layers.\"",
+"type": "dialogue"
+},
+"6": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"next_id": "7",
+"text": "\"By peeling its many layers, one may travel deeper into the Imaginary.\"",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "\"By peeling its many layers, one may travel deeper into the Imaginary.\"",
+"type": "dialogue"
+},
+"7": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"next_id": "8",
+"text": "\"But, just like an onion, our most trusted theory predicts that the Imaginary has a core, a Deepest Layer.\"",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "\"But, just like an onion, our most trusted theory predicts that the Imaginary has a core, a Deepest Layer.\"",
+"type": "dialogue"
+},
+"8": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"next_id": "9",
+"text": "\"Yet, despite all efforts, there is no consensus on the scientific validity of alledged evidence for its existence.\"",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "\"Yet, despite all efforts, there is no consensus on the scientific validity of alledged evidence for its existence.\"",
+"type": "dialogue"
+},
+"9": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"next_id": "10",
+"text": "\"Researchers have merely been able to state that this mystery is yet enshrouded in an incomprehensible mist.\"",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "\"Researchers have merely been able to state that this mystery is yet enshrouded in an incomprehensible mist.\"",
+"type": "dialogue"
+}
+}
+metadata/dialogue_manager_version = "2.15.3"
