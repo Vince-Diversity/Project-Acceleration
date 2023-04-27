@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_t0w5a"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_3ixub"]
 
 [resource]
-script = ExtResource("1_t0w5a")
+script = ExtResource("1_3ixub")
 titles = {
 "read": "3"
 }
@@ -25,9 +25,15 @@ lines = {
 "value_in_text": "{{green}}"
 }]),
 "next_id": "11",
-"text": "\"Hence, the Deepest Layer became recognised by the name: Cirruseng.\"",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "\"Hence, the Deepest Layer became recognised by the name: Cirruseng.\"",
+"text": "\"Hence, the Deepest Layer became recognised by the name: {{deepest_layer}}.\"",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "deepest_layer"
+}]),
+"value_in_text": "{{deepest_layer}}"
+}]),
+"translation_key": "\"Hence, the Deepest Layer became recognised by the name: {{deepest_layer}}.\"",
 "type": "dialogue"
 },
 "11": {
@@ -40,9 +46,15 @@ lines = {
 "value_in_text": "{{green}}"
 }]),
 "next_id": "12",
-"text": "Hmm... I believe we should try look for this place called Cirruseng sometime.",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "Hmm... I believe we should try look for this place called Cirruseng sometime.",
+"text": "Hmm... I believe we should try look for this place called {{deepest_layer}} sometime.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "deepest_layer"
+}]),
+"value_in_text": "{{deepest_layer}}"
+}]),
+"translation_key": "Hmm... I believe we should try look for this place called {{deepest_layer}} sometime.",
 "type": "dialogue"
 },
 "12": {

@@ -1,10 +1,11 @@
 extends Node
 
-const green: StringName = "Misa"
-const green_cheerful: StringName = "Misa"
+const green = "Misa"
+const green_cheerful = "Misa"
 
-const blue: StringName = "Ari"
+const blue = "Ari"
 
+const deepest_layer = "Cirruseng"
 
 var YELLOW = "Richy"
 var RED = "Clara"

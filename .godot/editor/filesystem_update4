@@ -1,7 +1,3 @@
+res://loader/loader.tscn
 res://game/cutscene/act/act_manager.gd
 res://game/pause_menu.gd
-res://resources/tilesets/library.tres
-res://game/room/library_3f.tscn
-res://loader/loader.tscn
-res://game/cutscene/mentoring_cutscene.tscn
-res://game/cutscene/player_only_cutscene.tscn
