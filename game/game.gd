@@ -83,7 +83,8 @@ func _pause():
 func _on_textbox_started(
 		dialogue_id: String,
 		dialogue_node: String,
-		dialogue_ended_target: Callable):
+		dialogue_ended_target: Callable,
+		cutscene: DialogueCutscene):
 	text_box = text_box_scn.instantiate()
 	add_child(text_box)
 	var dlg_path = Utils.get_dlg_path(dialogue_id)
@@ -96,7 +97,7 @@ func _on_textbox_started(
 	DialogueManager.dialogue_ended.connect(dialogue_ended_target, CONNECT_ONE_SHOT)
 	if dialogue_node.is_empty():
 		dialogue_node = "default"
-	text_box.start(dlg_res, dialogue_node)
+	text_box.start(dlg_res, dialogue_node, [cutscene])
 
 
 func _on_cutscene_ended(next_state_id: String):

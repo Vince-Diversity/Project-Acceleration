@@ -1,10 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://b416s7522iuts"]
+[gd_scene load_steps=6 format=3 uid="uid://bgavvws0ddxaf"]
 
 [ext_resource type="PackedScene" uid="uid://c1go3780g6ead" path="res://game/room/room.tscn" id="1_tk3um"]
 [ext_resource type="TileSet" uid="uid://cxb2ylaabf0t5" path="res://resources/tilesets/library.tres" id="2_dicuw"]
 [ext_resource type="PackedScene" uid="uid://dsfvepwkk4y7l" path="res://game/thing/door/passage_down.tscn" id="3_s34t7"]
 [ext_resource type="PackedScene" uid="uid://f62lyhp5kra6" path="res://game/thing/bookcase/bookcase.tscn" id="4_qtmhs"]
-[ext_resource type="PackedScene" uid="uid://cbkbfabme6mpp" path="res://game/cutscene/mentoring_cutscene.tscn" id="5_qv5eq"]
+[ext_resource type="PackedScene" uid="uid://bqlmbt878hrxk" path="res://game/cutscene/dialogue_cutscene.tscn" id="5_qv5eq"]
 
 [node name="Library3F" instance=ExtResource("1_tk3um")]
 
@@ -28,7 +28,7 @@ next_room_entrance_node = "PassageUp2"
 position = Vector2(416, 192)
 interaction_node = "ImaginarySpace"
 dialogue_id = "book_imaginary_space"
-dialogue_node = "read"
+dialogue_node = "cue"
 
 [node name="ImaginarySpace" parent="RoomCutscenes" index="0" instance=ExtResource("5_qv5eq")]
 position = Vector2(416, 224)

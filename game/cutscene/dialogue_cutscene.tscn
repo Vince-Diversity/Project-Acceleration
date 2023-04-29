@@ -1,10 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://cbkbfabme6mpp"]
+[gd_scene load_steps=3 format=3 uid="uid://bqlmbt878hrxk"]
 
-[ext_resource type="Script" path="res://game/cutscene/mentoring_cutscene.gd" id="1"]
+[ext_resource type="Script" path="res://game/cutscene/dialogue_cutscene.gd" id="1_hl2ci"]
 [ext_resource type="Script" path="res://game/cutscene/character_mark.gd" id="2_s6uhi"]
 
 [node name="MentoringCutscene" type="Node2D"]
-script = ExtResource("1")
+script = ExtResource("1_hl2ci")
 
 [node name="MentorMark" type="Marker2D" parent="."]
 script = ExtResource("2_s6uhi")

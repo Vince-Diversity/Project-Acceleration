@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://brcoy56hf7tyi"]
+
+[ext_resource type="Script" path="res://game/cutscene/silent_cutscene.gd" id="1_vt76f"]
+
+[node name="DialogueCutscene" type="Node2D"]
+script = ExtResource("1_vt76f")

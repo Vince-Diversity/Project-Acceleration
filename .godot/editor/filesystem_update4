@@ -1,10 +1,6 @@
-res://game/ui/textbox/textbox.tscn
+res://game/game.tscn
 res://game/cutscene/act/act_manager.gd
 res://game/pause_menu.gd
+res://resources/tilesets/real_interior.tres
+res://resources/things/door.tres
 res://resources/tilesets/library.tres
-res://game/ui/textbox/textbox.gd
-res://loader/loader.tscn
-res://game/room/library_3f.tscn
-res://game/ui/textbox/profile.gd
-res://game/constant/utils.gd
-res://game/constant/names.gd

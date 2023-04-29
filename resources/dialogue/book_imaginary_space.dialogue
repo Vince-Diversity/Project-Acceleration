@@ -1,3 +1,9 @@
+~ cue
+
+{{green}}: Look over here, {{blue}}!
+do move("read")
+=> END!
+
 ~ read
 
 {{green}}: "Imaginary Space - The Enigma For Millenia".
@@ -10,3 +16,4 @@
 {{green}}: "Hence, the Deepest Layer became recognised by the name: {{deepest_layer}}."
 {{green}}: Hmm... I believe we should try look for this place called {{deepest_layer}} sometime.
 {{green}}: We may be able to find a solution to your concerns there!
+=> END!

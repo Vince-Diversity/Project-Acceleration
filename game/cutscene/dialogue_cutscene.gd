@@ -1,10 +1,19 @@
-extends Cutscene
+class_name DialogueCutscene extends Cutscene
 
 @onready var mentor_mark = $MentorMark
 @onready var student_mark = $StudentMark
 
 
 func make():
+	make_interact_act()
+
+
+func move(next_dialogue_node: String):
+	make_move_to_position_act()
+	make_next_dialogue(next_dialogue_node)
+
+
+func make_move_to_position_act():
 	var move_to_position_act: Act = move_to_position_act_scr.new()
 	var target_position: Array[Vector2] = [
 		mentor_mark.global_position,
@@ -17,13 +26,13 @@ func make():
 		target_position,
 		target_direction)
 	actm.add_act(move_to_position_act)
-	var interact_act: Act = interact_act_scr.new()
-	interact_act.init_act(
-		owner.textbox_started_target,
+
+
+func make_next_dialogue(next_dialogue_node: String):
+	cutscenes.change_dialogue(
 		cutscenes.current_dialogue_id,
-		cutscenes.current_dialogue_node,
-		owner.textbox_focused_target)
-	actm.add_act(interact_act)
+		next_dialogue_node)
+	make_interact_act()
 
 
 func begin_cutscene():

@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_046yj"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_idpua"]
 
 [resource]
-script = ExtResource("1_046yj")
+script = ExtResource("1_idpua")
 titles = {
 "default": "3"
 }
@@ -48,4 +48,4 @@ lines = {
 "type": "response"
 }
 }
-metadata/dialogue_manager_version = "2.15.2"
+metadata/dialogue_manager_version = "2.15.4"

@@ -6,7 +6,7 @@ class_name Room extends Node2D
 @onready var doors = $Doors
 @onready var party_roam_state: PartyRoamState = preload("res://game/state/party_roam_state.gd").new("party_roam_state")
 @onready var cutscene_state: CutsceneState = preload("res://game/state/cutscene_state.gd").new("cutscene_state")
-@onready var player_only_cutscene_scn: PackedScene = preload("res://game/cutscene/player_only_cutscene.tscn")
+@onready var dialogue_cutscene_scn: PackedScene = preload("res://game/cutscene/dialogue_cutscene.tscn")
 var thing_rng: RandomNumberGenerator
 var room_id: String
 var entrance_node: String
@@ -115,12 +115,12 @@ func _on_thing_begin_interaction(thing: Thing):
 		cutscenes.current_cutscene.cutscene_begun.emit()
 		stm.change_state(cutscene_state.state_id)
 	else:
-		var player_only_cutscene: Cutscene = player_only_cutscene_scn.instantiate()
-		cutscenes.add_child(player_only_cutscene)
-		player_only_cutscene.owner = self
-		_ready_cutscene(player_only_cutscene)
+		var dlg_cutscene: Cutscene = dialogue_cutscene_scn.instantiate()
+		cutscenes.add_child(dlg_cutscene)
+		dlg_cutscene.owner = self
+		_ready_cutscene(dlg_cutscene)
 		var new_name = "Default%s" % cutscenes.get_children().size()
-		player_only_cutscene.name = new_name
+		dlg_cutscene.name = new_name
 		thing.interaction_node = new_name
 		_on_thing_begin_interaction.call_deferred(thing)
 

@@ -44,6 +44,7 @@ theme_override_constants/margin_left = 450
 theme_override_constants/margin_right = 450
 
 [node name="ProfileBackground" type="ColorRect" parent="Overhead/Spacer/ProfileMargin"]
+unique_name_in_owner = true
 layout_mode = 2
 color = Color(0, 0, 0, 0.501961)
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://qqwgcf5f10e"]
+[gd_scene load_steps=8 format=3 uid="uid://bthq23kx2q8m3"]
 
 [ext_resource type="PackedScene" uid="uid://c1go3780g6ead" path="res://game/room/room.tscn" id="1_ysrto"]
 [ext_resource type="PackedScene" uid="uid://bypwfk54tvx6l" path="res://game/thing/door/passage_left.tscn" id="2_fkubj"]
@@ -6,7 +6,7 @@
 [ext_resource type="TileSet" uid="uid://dmf7r6bjkitf" path="res://resources/tilesets/real_interior.tres" id="2_nxr72"]
 [ext_resource type="PackedScene" uid="uid://crgs75xh58fgm" path="res://game/thing/door/door_down.tscn" id="4_igb0a"]
 [ext_resource type="PackedScene" uid="uid://f62lyhp5kra6" path="res://game/thing/bookcase/bookcase.tscn" id="6_l2h0y"]
-[ext_resource type="PackedScene" uid="uid://cbkbfabme6mpp" path="res://game/cutscene/mentoring_cutscene.tscn" id="7_hcn8u"]
+[ext_resource type="PackedScene" uid="uid://bqlmbt878hrxk" path="res://game/cutscene/dialogue_cutscene.tscn" id="7_hcn8u"]
 
 [node name="MainEntrance" instance=ExtResource("1_ysrto")]
 

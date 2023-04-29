@@ -6,6 +6,7 @@ class_name TextBox extends CanvasLayer
 @onready var dialogue_label := %DialogueLabel
 @onready var responses_menu: VBoxContainer = %Responses
 @onready var response_template: RichTextLabel = %ResponseTemplate
+@onready var profile_background := %ProfileBackground
 @onready var profile: TextureRect = %Profile
 
 ## The dialogue resource
@@ -58,6 +59,7 @@ var dialogue_line: DialogueLine:
 		
 		# Refresh profile
 		profile.set_texture(null)
+		profile_background.set_visible(false)
 		if not dialogue_line.character.is_empty():
 			if dialogue_line.inline_mutations.is_empty():
 				profile.express(profile.neutral)
