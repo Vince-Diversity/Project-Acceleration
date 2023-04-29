@@ -53,13 +53,14 @@ static func get_res_arr(res_dir_path: String) -> Array:
 	return name_arr
 
 
-static func get_profile_path(dlg_line: DialogueLine) -> String:
-	if dlg_line.character_replacements.is_empty():
-		return ""
+static func get_profile_path(dlg_line: DialogueLine, expression: String) -> String:
+	var name = dlg_line.character_replacements[0].expression[0].value
+	var profile_id
+	if expression.is_empty():
+		profile_id = name
 	else:
-		var expression = dlg_line.character_replacements[0]["expression"][0]["value"]
-		var name = expression.split('_')[0]
-		return profile_dir.path_join(name).path_join(expression + '.png')
+		profile_id = "%s_%s" % [name, expression]
+	return profile_dir.path_join(name).path_join(profile_id + '.png')
 
 
 static func str_to_seed(name: String) -> int:

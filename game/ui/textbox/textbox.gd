@@ -1,8 +1,7 @@
 class_name TextBox extends CanvasLayer
 ## Edited version of the example balloon from Dialogue addon v2.14.1
 
-@onready var box: Control = $Box
-@onready var balloon: ColorRect = $Box/Balloon
+@onready var balloon: ColorRect = %TextBackground
 @onready var character_label: RichTextLabel = %CharacterLabel
 @onready var dialogue_label := %DialogueLabel
 @onready var responses_menu: VBoxContainer = %Responses
@@ -57,13 +56,18 @@ var dialogue_line: DialogueLine:
 				item.show()
 				responses_menu.add_child(item)
 		
+		# Refresh profile
+		profile.set_texture(null)
+		if not dialogue_line.character.is_empty():
+			if dialogue_line.inline_mutations.is_empty():
+				profile.express(profile.neutral)
+			else:
+				if not dialogue_line.inline_mutations[0][1].has("expression"):
+					profile.express(profile.neutral)
+		
 		# Show our balloon
 		balloon.show()
 		will_hide_balloon = false
-		
-		var profile_path = Utils.get_profile_path(dialogue_line)
-		if FileAccess.file_exists(profile_path):
-			profile.texture = load(profile_path)
 		
 		dialogue_label.modulate.a = 1
 		if not dialogue_line.text.is_empty():
@@ -101,6 +105,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 ## Start some dialogue
 func start(dialogue_resource: DialogueResource, title: String, extra_game_states: Array = []) -> void:
 	temporary_game_states = extra_game_states
+	temporary_game_states.push_front(profile)
 	is_waiting_for_input = false
 	resource = dialogue_resource
 

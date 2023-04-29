@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_3ixub"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_hmhmi"]
 
 [resource]
-script = ExtResource("1_3ixub")
+script = ExtResource("1_hmhmi")
 titles = {
 "read": "3"
 }
-character_names = PackedStringArray("{{green}}", "{{green_cheerful}}")
+character_names = PackedStringArray("{{green}}")
 first_title = "3"
 lines = {
 "1": {
@@ -58,13 +58,13 @@ lines = {
 "type": "dialogue"
 },
 "12": {
-"character": "{{green_cheerful}}",
+"character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
 "type": "variable",
-"value": "green_cheerful"
+"value": "green"
 }]),
-"value_in_text": "{{green_cheerful}}"
+"value_in_text": "{{green}}"
 }]),
 "next_id": "",
 "text": "We may be able to find a solution to your concerns there!",
@@ -88,18 +88,18 @@ lines = {
 "type": "dialogue"
 },
 "4": {
-"character": "{{green_cheerful}}",
+"character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
 "type": "variable",
-"value": "green_cheerful"
+"value": "green"
 }]),
-"value_in_text": "{{green_cheerful}}"
+"value_in_text": "{{green}}"
 }]),
 "next_id": "5",
-"text": "This topic might be of help to you!",
+"text": "[do express(cheerful)] This topic might be of help to you!",
 "text_replacements": Array[Dictionary]([]),
-"translation_key": "This topic might be of help to you!",
+"translation_key": "[do express(cheerful)] This topic might be of help to you!",
 "type": "dialogue"
 },
 "5": {
@@ -178,4 +178,4 @@ lines = {
 "type": "dialogue"
 }
 }
-metadata/dialogue_manager_version = "2.15.3"
+metadata/dialogue_manager_version = "2.15.4"

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dgdtl8dga7hfu"]
+[gd_scene load_steps=6 format=3 uid="uid://dgdtl8dga7hfu"]
 
 [ext_resource type="Script" path="res://game/ui/textbox/textbox.gd" id="1_nnvnk"]
 [ext_resource type="PackedScene" uid="uid://2fy1qxa14358" path="res://game/ui/textbox/dialogue_label.tscn" id="2_jlmye"]
+[ext_resource type="Script" path="res://game/ui/textbox/profile.gd" id="3_75bxf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5d24i"]
 content_margin_left = 40.0
@@ -21,25 +22,45 @@ draw_center = false
 layer = 100
 script = ExtResource("1_nnvnk")
 
-[node name="Box" type="MarginContainer" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 500.0
-grow_horizontal = 2
+[node name="Overhead" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(160, 150)
+offset_top = 350.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 0
 grow_vertical = 2
-theme_override_constants/margin_left = 80
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 80
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 40
 
-[node name="Balloon" type="ColorRect" parent="Box"]
+[node name="Spacer" type="VBoxContainer" parent="Overhead"]
+layout_mode = 2
+
+[node name="ProfileMargin" type="MarginContainer" parent="Overhead/Spacer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_constants/margin_left = 450
+theme_override_constants/margin_right = 450
+
+[node name="ProfileBackground" type="ColorRect" parent="Overhead/Spacer/ProfileMargin"]
+layout_mode = 2
+color = Color(0, 0, 0, 0.501961)
+
+[node name="Profile" type="TextureRect" parent="Overhead/Spacer/ProfileMargin"]
+unique_name_in_owner = true
+layout_mode = 2
+stretch_mode = 5
+script = ExtResource("3_75bxf")
+
+[node name="TextBackground" type="ColorRect" parent="Overhead/Spacer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color(0, 0, 0, 0.501961)
 
-[node name="TextMargin" type="MarginContainer" parent="Box/Balloon"]
+[node name="TextMargin" type="MarginContainer" parent="Overhead/Spacer/TextBackground"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -52,11 +73,11 @@ theme_override_constants/margin_right = 160
 theme_override_constants/margin_bottom = 10
 metadata/_edit_layout_mode = 1
 
-[node name="VBox" type="VBoxContainer" parent="Box/Balloon/TextMargin"]
+[node name="VBox" type="VBoxContainer" parent="Overhead/Spacer/TextBackground/TextMargin"]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="CharacterLabel" type="RichTextLabel" parent="Box/Balloon/TextMargin/VBox"]
+[node name="CharacterLabel" type="RichTextLabel" parent="Overhead/Spacer/TextBackground/TextMargin/VBox"]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.501961)
 layout_mode = 2
@@ -66,17 +87,17 @@ text = "Character"
 fit_content = true
 scroll_active = false
 
-[node name="DialogueLabel" parent="Box/Balloon/TextMargin/VBox" instance=ExtResource("2_jlmye")]
+[node name="DialogueLabel" parent="Overhead/Spacer/TextBackground/TextMargin/VBox" instance=ExtResource("2_jlmye")]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Dialogue"
 
-[node name="Responses" type="VBoxContainer" parent="Box/Balloon/TextMargin/VBox"]
+[node name="Responses" type="VBoxContainer" parent="Overhead/Spacer/TextBackground/TextMargin/VBox"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 2
 
-[node name="ResponseTemplate" type="RichTextLabel" parent="Box/Balloon/TextMargin/VBox"]
+[node name="ResponseTemplate" type="RichTextLabel" parent="Overhead/Spacer/TextBackground/TextMargin/VBox"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxFlat_5d24i")
@@ -89,22 +110,4 @@ shortcut_keys_enabled = false
 meta_underlined = false
 hint_underlined = false
 
-[node name="ProfileMargin" type="MarginContainer" parent="Box/Balloon"]
-custom_minimum_size = Vector2(160, 0)
-layout_mode = 1
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 40
-theme_override_constants/margin_bottom = 10
-
-[node name="Profile" type="TextureRect" parent="Box/Balloon/ProfileMargin"]
-unique_name_in_owner = true
-layout_mode = 2
-stretch_mode = 5
-
-[connection signal="gui_input" from="Box/Balloon" to="." method="_on_balloon_gui_input"]
+[connection signal="gui_input" from="Overhead/Spacer/TextBackground" to="." method="_on_balloon_gui_input"]

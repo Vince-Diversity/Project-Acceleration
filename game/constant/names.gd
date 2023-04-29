@@ -1,8 +1,6 @@
 extends Node
 
 const green = "Misa"
-const green_cheerful = "Misa"
-
 const blue = "Ari"
 
 const deepest_layer = "Cirruseng"

@@ -1,5 +1,8 @@
-TextureRect
 MarginContainer
+ColorRect
+VBoxContainer
+VSplitContainer
+TextureRect
 Node2D
 CanvasLayer
 CollisionShape2D
