@@ -4,6 +4,7 @@ class_name Thing extends StaticBody2D
 @export var dialogue_id: String
 @export var dialogue_node: String
 @export var bubble_content: Bubble.Content
+@onready var anim_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 signal begin_interaction(thing: Thing)
 

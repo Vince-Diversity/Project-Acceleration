@@ -6,7 +6,7 @@
 [node name="DoorDown" instance=ExtResource("1_hbmiv")]
 entrance_direction = 2
 
-[node name="AnimatedSprite" parent="." index="0"]
+[node name="AnimatedSprite2D" parent="." index="0"]
 position = Vector2(0, 32)
 sprite_frames = ExtResource("2_q2dx6")
 

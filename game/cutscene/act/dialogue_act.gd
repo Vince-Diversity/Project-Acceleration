@@ -37,9 +37,9 @@ func exit():
 	pass
 
 
-func _on_dialogue_ended(_dlg_res: DialogueResource):
-	act_finished.emit()
-
-
 func grab_focus():
 	textbox_focused.emit()
+
+
+func _on_dialogue_ended(_dlg_res: DialogueResource):
+	act_finished.emit()

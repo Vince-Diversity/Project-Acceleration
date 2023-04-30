@@ -7,5 +7,5 @@ class_name Door extends Thing
 
 func set_entrance_direction(character: Character):
 	character.set_direction(
-		Utils.anim_direction.find_key(entrance_direction))
+		Utils.get_anim_direction(entrance_direction))
 	character.update_direction()

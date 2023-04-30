@@ -1,6 +1,5 @@
 class_name Utils extends Object
 
-enum InputType {RESPONSE, ACTION, REACTIVATION}
 enum AnimID {DOWN, LEFT, UP, RIGHT}
 
 const dlg_dir = "res://resources/dialogue/"
@@ -20,6 +19,14 @@ const anim_name = {
 	AnimID.UP: "up",
 	AnimID.RIGHT: "right",
 }
+
+
+static func get_anim_direction(id: AnimID) -> Variant:
+	return anim_direction.find_key(id)
+
+
+static func get_anim_id(name: String) -> Variant:
+	return anim_name.find_key(name)
 
 
 static func connect_neighbouring_elems(arr: Array):

@@ -20,9 +20,9 @@ func handle_input(event: InputEvent):
 func enter():
 	pass
 
-
 func exit():
-	pass
+	for member in party.get_party_ordered():
+		member.animate_idle()
 
 
 func grab_focus():

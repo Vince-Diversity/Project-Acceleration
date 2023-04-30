@@ -24,7 +24,7 @@ position = Vector2(896, 576)
 next_room_id = "library_2f"
 next_room_entrance_node = "PassageUp2"
 
-[node name="Bookcase" parent="YSort/Things" index="0" instance=ExtResource("4_qtmhs")]
+[node name="BookcaseImaginarySpace" parent="YSort/Things" index="0" instance=ExtResource("4_qtmhs")]
 position = Vector2(416, 192)
 interaction_node = "ImaginarySpace"
 dialogue_id = "book_imaginary_space"
@@ -32,10 +32,10 @@ dialogue_node = "cue"
 
 [node name="ImaginarySpace" parent="RoomCutscenes" index="0" instance=ExtResource("5_qv5eq")]
 position = Vector2(416, 224)
+player_anim = "read"
 
 [node name="MentorMark" parent="RoomCutscenes/ImaginarySpace" index="0"]
-position = Vector2(32, 0)
-target_direction_id = 1
+target_direction_id = 2
 
 [node name="StudentMark" parent="RoomCutscenes/ImaginarySpace" index="1"]
 position = Vector2(0, 32)

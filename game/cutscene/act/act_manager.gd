@@ -33,8 +33,13 @@ func next_act():
 
 
 func end_act_list():
+	clear_act_list.call_deferred()
 	current_i = -1
 	act_list_finished.emit()
+
+
+func clear_act_list():
+	act_list = []
 
 
 func grab_act_focus():

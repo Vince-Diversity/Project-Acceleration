@@ -14,9 +14,8 @@ size = Vector2(50, 54)
 script = ExtResource("2_xymvb")
 dialogue_id = "default_bookcase_book"
 dialogue_node = "default"
-bubble_content = null
 
-[node name="AnimatedSprite" parent="." index="0"]
+[node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = ExtResource("3_t18v2")
 
 [node name="CollisionShape2D" parent="InteractArea" index="0"]

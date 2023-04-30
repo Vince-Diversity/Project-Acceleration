@@ -82,8 +82,8 @@ func _ready_cutscenes():
 
 func _ready_cutscene(cutscene: Cutscene):
 	cutscene.cutscenes = cutscenes
-	cutscene.cutscene_begun.connect(
-		_on_cutscene_begun_first_time, CONNECT_ONE_SHOT)
+	cutscene.cutscene_started.connect(
+		_on_cutscene_started)
 	cutscene.cutscene_ended.connect(cutscene_ended_target)
 
 
@@ -112,7 +112,7 @@ func _on_thing_begin_interaction(thing: Thing):
 	if cutscenes.has_node(thing.interaction_node):
 		cutscenes.change_cutscene(thing.interaction_node)
 		cutscenes.change_dialogue(thing.dialogue_id, thing.dialogue_node)
-		cutscenes.current_cutscene.cutscene_begun.emit()
+		cutscenes.current_cutscene.cutscene_started.emit()
 		stm.change_state(cutscene_state.state_id)
 	else:
 		var dlg_cutscene: Cutscene = dialogue_cutscene_scn.instantiate()
@@ -133,5 +133,5 @@ func _on_door_begin_interaction(door: Thing):
 		_on_thing_begin_interaction(door)
 
 
-func _on_cutscene_begun_first_time():
+func _on_cutscene_started():
 	cutscenes.current_cutscene.make()

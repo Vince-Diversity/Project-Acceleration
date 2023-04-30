@@ -1,9 +1,12 @@
 extends Node
 
-const green = "Misa"
-const blue = "Ari"
+const green := "Misa"
+const blue := "Ari"
 
-const deepest_layer = "Cirruseng"
+const deepest_layer := "Cirruseng"
+
+const bookcase_anim := "default"
+const bookcase_taken_anim := "taken"
 
 var YELLOW = "Richy"
 var RED = "Clara"

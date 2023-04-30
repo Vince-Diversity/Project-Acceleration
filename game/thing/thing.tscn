@@ -10,7 +10,7 @@ radius = 20.0
 collision_layer = 4
 script = ExtResource("1")
 
-[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 
 [node name="InteractArea" type="Area2D" parent="."]
 collision_layer = 5

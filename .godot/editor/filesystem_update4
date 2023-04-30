@@ -1,6 +1,15 @@
-res://game/game.tscn
+res://game/character/member.tscn
 res://game/cutscene/act/act_manager.gd
 res://game/pause_menu.gd
+res://resources/tilesets/library.tres
 res://resources/tilesets/real_interior.tres
 res://resources/things/door.tres
-res://resources/tilesets/library.tres
+res://resources/characters/blue.tres
+res://resources/characters/green.tres
+res://loader/loader.tscn
+res://game/room/library_3f.tscn
+res://game/room/main_entrance.tscn
+res://game/character/player.tscn
+res://game/character/character.tscn
+res://game/character/character.gd
+res://game/room/library_2f.tscn
