@@ -1,0 +1,14 @@
+~ open_book
+
+{{green}}: "{{yellow_aspect}} Magic"
+do set_thing_anim("YellowAspect", bookcase_taken_anim)
+do animate_player(read_anim, "read")
+=> END!
+
+~ read
+do set_player_anim("reading")
+{{green}}: "The name originates from when practitioners demonstrated that they could instantly warp through space, like a bolt of lightning!"
+{{green}}: "The magic of electricity and light is a very practical ability to have. Tons of techno-magical inventions have been possible thanks to it, and techno-magical development is nowadays the biggest source of potency for this power.
+do set_thing_anim("YellowAspect", bookcase_anim)
+do set_player_anim("down")
+=> END!

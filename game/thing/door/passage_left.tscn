@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dqktwnq312s04" path="res://game/thing/door/door.tscn" id="1_m78bf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x11qh"]
-size = Vector2(64, 128)
+size = Vector2(64, 64)
 
 [node name="PassageLeft" instance=ExtResource("1_m78bf")]
 rotation = 3.14159

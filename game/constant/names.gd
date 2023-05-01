@@ -4,9 +4,17 @@ const green := "Misa"
 const blue := "Ari"
 
 const deepest_layer := "Cirruseng"
+const imaginary := "Imaginary Space"
+const real := "Real Space"
 
 const bookcase_anim := "default"
 const bookcase_taken_anim := "taken"
+const read_anim := "read"
+
+const yellow_aspect := "Lightning"
+const green_aspect := "Earth"
+const red_aspect := "Fire"
+const blue_aspect := "Immaterial"
 
 var YELLOW = "Richy"
 var RED = "Clara"

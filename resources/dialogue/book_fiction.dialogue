@@ -1,0 +1,17 @@
+~ open_book
+
+{{green}}: "The Manifestation of our Collective Fiction"
+do set_thing_anim("BookcaseFiction", bookcase_taken_anim)
+do animate_player(read_anim, "read")
+=> END!
+
+~ read
+do set_player_anim("reading")
+{{green}}: "Countries, laws, economy, maybe even science itself. To allow cilivization to exist, we need collective fiction."
+{{green}}: "But technology and magic has made it increasingly difficult to distinguish between fiction and reality."
+{{green}}: "This is no news. Our Extended Reality machines are making fiction dauntingly real. And the study of the {{blue_aspect}} has enhanced this experience to almost terrifying heights."
+{{green}}: "More and more researchers are suggesting that the world conjured by {{blue_aspect}} magic is not fiction, but actually real. Perhaps their research subject has taken its toll on their senses. And yet, the critics have no better explanation themselves."
+{{green}}: "One of the most striking breakthroughs was the discovery of the {{imaginary}}. A world created entirely by our collective fiction?! We will give an extensive coverage of the evidence and the limitations to this monstrous idea..."
+do set_thing_anim("BookcaseFiction", bookcase_anim)
+do set_player_anim("down")
+=> END!

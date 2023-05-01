@@ -1,6 +1,5 @@
 class_name DialogueCutscene extends Cutscene
 
-@export var player_anim: String
 @onready var mentor_mark = $MentorMark
 @onready var student_mark = $StudentMark
 
@@ -14,8 +13,8 @@ func move(next_dialogue_node: String):
 	make_next_dialogue(next_dialogue_node)
 
 
-func animate_player(next_dialogue_line: String):
-	make_animate_act(owner.party.player, player_anim)
+func animate_player(anim_name: String, next_dialogue_line: String):
+	make_animate_act(owner.party.player, anim_name)
 	make_next_dialogue(next_dialogue_line)
 
 
@@ -43,7 +42,8 @@ func make_move_to_position_act():
 
 
 func set_thing_anim(thing_node: String, anim_name: String):
-	owner.things.get_node(thing_node).anim_sprite.play(anim_name)
+	if owner.things.has_node(thing_node):
+		owner.things.get_node(thing_node).anim_sprite.play(anim_name)
 
 
 func set_player_anim(anim_name: String):

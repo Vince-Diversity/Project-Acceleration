@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dqktwnq312s04" path="res://game/thing/door/door.tscn" id="1_w4u1b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8fnap"]
-size = Vector2(128, 64)
+size = Vector2(64, 64)
 
 [node name="PassageUp" instance=ExtResource("1_w4u1b")]
 

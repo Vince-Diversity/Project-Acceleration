@@ -1,0 +1,15 @@
+~ open_book
+
+{{green}}: "{{green_aspect}} Magic"
+{{green}}: [do express(cheerful)] This is my Magics Major, by the way!
+do set_thing_anim("GreenAspect", bookcase_taken_anim)
+do animate_player(read_anim, "read")
+=> END!
+
+~ read
+do set_player_anim("reading")
+{{green}}: "{{green_aspect}} is a traditional name, originating from when practitioners able to make plants sprout in a matter of seconds."
+{{green}}: "The better knowledge a {{green_aspect}} magic practitioner has of their working substances and the nature of the material world, the more freely they seem to be able to make things."
+do set_thing_anim("GreenAspect", bookcase_anim)
+do set_player_anim("down")
+=> END!

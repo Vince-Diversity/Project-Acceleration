@@ -3,11 +3,14 @@
 [ext_resource type="Script" path="res://game/cutscene/dialogue_cutscene.gd" id="1_hl2ci"]
 [ext_resource type="Script" path="res://game/cutscene/character_mark.gd" id="2_s6uhi"]
 
-[node name="MentoringCutscene" type="Node2D"]
+[node name="DialogueCutscene" type="Node2D"]
 script = ExtResource("1_hl2ci")
 
 [node name="MentorMark" type="Marker2D" parent="."]
+position = Vector2(0, 32)
 script = ExtResource("2_s6uhi")
 
 [node name="StudentMark" type="Marker2D" parent="."]
+position = Vector2(0, 64)
 script = ExtResource("2_s6uhi")
+target_direction_id = 2

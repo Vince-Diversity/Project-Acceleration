@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_8"
+type="Resource"
+uid="uid://cmxyj25xckjun"
+path="res://.godot/imported/book_blue.dialogue-40069afe44aab238b2426252b36b79fa.tres"
+
+[deps]
+
+source_file="res://resources/dialogue/book_blue.dialogue"
+dest_files=["res://.godot/imported/book_blue.dialogue-40069afe44aab238b2426252b36b79fa.tres"]
+
+[params]
+

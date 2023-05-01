@@ -6,6 +6,6 @@
 script = ExtResource("1_hlvjo")
 game_version = "0.3"
 data = {
-"current_room_id": "library_3f",
-"entrance_node": "PassageDown"
+"current_room_id": "library_1f",
+"entrance_node": "PassageUp"
 }

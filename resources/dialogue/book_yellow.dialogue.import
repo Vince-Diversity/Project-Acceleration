@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_8"
+type="Resource"
+uid="uid://c0cc2qj1nvgkq"
+path="res://.godot/imported/book_yellow.dialogue-43bd3180ced7366c7c05c48e8cbb718d.tres"
+
+[deps]
+
+source_file="res://resources/dialogue/book_yellow.dialogue"
+dest_files=["res://.godot/imported/book_yellow.dialogue-43bd3180ced7366c7c05c48e8cbb718d.tres"]
+
+[params]
+

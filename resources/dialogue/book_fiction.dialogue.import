@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_8"
+type="Resource"
+uid="uid://braw8rxf5gvme"
+path="res://.godot/imported/book_fiction.dialogue-ed74914a4ba31a562cd749547744f36f.tres"
+
+[deps]
+
+source_file="res://resources/dialogue/book_fiction.dialogue"
+dest_files=["res://.godot/imported/book_fiction.dialogue-ed74914a4ba31a562cd749547744f36f.tres"]
+
+[params]
+

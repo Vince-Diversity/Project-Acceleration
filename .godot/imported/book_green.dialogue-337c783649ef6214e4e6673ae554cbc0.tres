@@ -1,0 +1,192 @@
+[gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_tdvxk"]
+
+[resource]
+script = ExtResource("1_tdvxk")
+titles = {
+"open_book": "3",
+"read": "10"
+}
+character_names = PackedStringArray("{{green}}")
+first_title = "3"
+lines = {
+"1": {
+"next_id": "3",
+"text": "open_book",
+"type": "title"
+},
+"10": {
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_player_anim",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "reading"
+}])])
+}])
+},
+"next_id": "11",
+"type": "mutation"
+},
+"11": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"next_id": "12",
+"text": "\"{{green_aspect}} is a traditional name, originating from when practitioners able to make plants sprout in a matter of seconds.\"",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green_aspect"
+}]),
+"value_in_text": "{{green_aspect}}"
+}]),
+"translation_key": "\"{{green_aspect}} is a traditional name, originating from when practitioners able to make plants sprout in a matter of seconds.\"",
+"type": "dialogue"
+},
+"12": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"next_id": "13",
+"text": "\"The better knowledge a {{green_aspect}} magic practitioner has of their working substances and the nature of the material world, the more freely they seem to be able to make things.\"",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green_aspect"
+}]),
+"value_in_text": "{{green_aspect}}"
+}]),
+"translation_key": "\"The better knowledge a {{green_aspect}} magic practitioner has of their working substances and the nature of the material world, the more freely they seem to be able to make things.\"",
+"type": "dialogue"
+},
+"13": {
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_thing_anim",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "GreenAspect"
+}]), Array[Dictionary]([{
+"type": "variable",
+"value": "bookcase_anim"
+}])])
+}])
+},
+"next_id": "14",
+"type": "mutation"
+},
+"14": {
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_player_anim",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "down"
+}])])
+}])
+},
+"next_id": "15",
+"type": "mutation"
+},
+"15": {
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"3": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"next_id": "4",
+"text": "\"{{green_aspect}} Magic\"",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green_aspect"
+}]),
+"value_in_text": "{{green_aspect}}"
+}]),
+"translation_key": "\"{{green_aspect}} Magic\"",
+"type": "dialogue"
+},
+"4": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"next_id": "5",
+"text": "[do express(cheerful)] This is my Magics Major, by the way!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "[do express(cheerful)] This is my Magics Major, by the way!",
+"type": "dialogue"
+},
+"5": {
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_thing_anim",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "GreenAspect"
+}]), Array[Dictionary]([{
+"type": "variable",
+"value": "bookcase_taken_anim"
+}])])
+}])
+},
+"next_id": "6",
+"type": "mutation"
+},
+"6": {
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "animate_player",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "variable",
+"value": "read_anim"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "read"
+}])])
+}])
+},
+"next_id": "7",
+"type": "mutation"
+},
+"7": {
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"9": {
+"next_id": "10",
+"text": "read",
+"type": "title"
+}
+}
+metadata/dialogue_manager_version = "2.15.5"

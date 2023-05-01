@@ -1,0 +1,14 @@
+~ open_book
+
+{{green}}: "{{red_aspect}} Magic"
+do set_thing_anim("RedAspect", bookcase_taken_anim)
+do animate_player(read_anim, "read")
+=> END!
+
+~ read
+do set_player_anim("reading")
+{{green}}: "The {{red_aspect}} magic is the ability to conjure heat, perhaps even energy itself."
+{{green}}: "Where this energy is coming from is hard to understand. But it is clear that the user's willpower is a vital ingredient."
+do set_thing_anim("RedAspect", bookcase_anim)
+do set_player_anim("down")
+=> END!

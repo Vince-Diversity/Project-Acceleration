@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=2 format=3]
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://b0scp1rrdq4tk"]
 
 [ext_resource type="Texture2D" uid="uid://dbbt062g7m1sg" path="res://assets/things/bookcase.png" id="1_vy1ok"]
 
@@ -8,7 +8,12 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("1_vy1ok")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": false,
+"name": &"taken",
 "speed": 5.0
 }]

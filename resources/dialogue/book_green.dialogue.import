@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_8"
+type="Resource"
+uid="uid://b8l36xftv3mwl"
+path="res://.godot/imported/book_green.dialogue-337c783649ef6214e4e6673ae554cbc0.tres"
+
+[deps]
+
+source_file="res://resources/dialogue/book_green.dialogue"
+dest_files=["res://.godot/imported/book_green.dialogue-337c783649ef6214e4e6673ae554cbc0.tres"]
+
+[params]
+

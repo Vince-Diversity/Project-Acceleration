@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://nfl8ij5d7dfw" path="res://game/thing/thing.tscn" id="1_o02on"]
 [ext_resource type="Script" path="res://game/thing/bookcase/bookcase.gd" id="2_xymvb"]
-[ext_resource type="SpriteFrames" path="res://resources/things/bookcase.tres" id="3_t18v2"]
+[ext_resource type="SpriteFrames" uid="uid://b0scp1rrdq4tk" path="res://resources/things/bookcase.tres" id="3_t18v2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e53fq"]
 size = Vector2(32, 32)
@@ -17,6 +17,7 @@ dialogue_node = "default"
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = ExtResource("3_t18v2")
+animation = &"taken"
 
 [node name="CollisionShape2D" parent="InteractArea" index="0"]
 shape = SubResource("RectangleShape2D_e53fq")
