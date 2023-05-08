@@ -6,4 +6,4 @@ categories: art
 ---
 
 Just visualising the two protagonists. Not an artist, but sprite art is fun.
-![Art-of-protagonists](/Project-Acceleration/docs/assets/green-blue.png)
+![Art-of-protagonists](/Project-Acceleration/docs/assets/images/green-blue.png)
