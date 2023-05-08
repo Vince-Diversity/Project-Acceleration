@@ -1,6 +1,9 @@
-~ open_book
+~ check
+{{green}}: "The Manifestation of our Collective Fiction." (Read this one?)"
+- Read => open_book
+- Leave => END!
 
-{{green}}: "The Manifestation of our Collective Fiction"
+~ open_book
 do set_thing_anim("BookcaseFiction", bookcase_taken_anim)
 do animate_player(read_anim, "read")
 => END!

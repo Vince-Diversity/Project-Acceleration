@@ -1,6 +1,10 @@
-~ open_book
+~ check
 
-{{green}}: "{{red_aspect}} Magic"
+{{green}}: "{{red_aspect}} Magic". (Read this one?)
+- Read => open_book
+- Leave => END!
+
+~ open_book
 do set_thing_anim("RedAspect", bookcase_taken_anim)
 do animate_player(read_anim, "read")
 => END!

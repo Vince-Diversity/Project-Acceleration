@@ -1,0 +1,357 @@
+[gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_d08t8"]
+
+[resource]
+script = ExtResource("1_d08t8")
+titles = {
+"AO": "3",
+"AT": "8",
+"BM": "28",
+"BP": "13",
+"CF": "18",
+"DA": "23",
+"EB": "48",
+"HM": "38",
+"MH": "58",
+"MM": "53",
+"SD": "33",
+"TM": "63",
+"WP": "43"
+}
+character_names = PackedStringArray("{{green}}")
+first_title = "3"
+lines = {
+"1": {
+"next_id": "3",
+"text": "AO",
+"type": "title"
+},
+"11": {
+"next_id": "13",
+"text": "BP",
+"type": "title"
+},
+"13": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"next_id": "14",
+"text": "\"Botanics and Potions\"",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "\"Botanics and Potions\"",
+"type": "dialogue"
+},
+"14": {
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"16": {
+"next_id": "18",
+"text": "CF",
+"type": "title"
+},
+"18": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"next_id": "19",
+"text": "\"Chaos Theory and Foresight\"",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "\"Chaos Theory and Foresight\"",
+"type": "dialogue"
+},
+"19": {
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"21": {
+"next_id": "23",
+"text": "DA",
+"type": "title"
+},
+"23": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"next_id": "24",
+"text": "\"Defense against Magic\"",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "\"Defense against Magic\"",
+"type": "dialogue"
+},
+"24": {
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"26": {
+"next_id": "28",
+"text": "BM",
+"type": "title"
+},
+"28": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"next_id": "29",
+"text": "\"Beliefs of Mythical Beings\"",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "\"Beliefs of Mythical Beings\"",
+"type": "dialogue"
+},
+"29": {
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"3": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"next_id": "4",
+"text": "\"Apparations and Optics\"",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "\"Apparations and Optics\"",
+"type": "dialogue"
+},
+"31": {
+"next_id": "33",
+"text": "SD",
+"type": "title"
+},
+"33": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"next_id": "34",
+"text": "\"Statistics and Other Delusive Black Magic\"",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "\"Statistics and Other Delusive Black Magic\"",
+"type": "dialogue"
+},
+"34": {
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"36": {
+"next_id": "38",
+"text": "HM",
+"type": "title"
+},
+"38": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"next_id": "39",
+"text": "\"History of Magiscience\"",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "\"History of Magiscience\"",
+"type": "dialogue"
+},
+"39": {
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"4": {
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"41": {
+"next_id": "43",
+"text": "WP",
+"type": "title"
+},
+"43": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"next_id": "44",
+"text": "\"Explaining Warping - The Endless Entanglement Debate\"",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "\"Explaining Warping - The Endless Entanglement Debate\"",
+"type": "dialogue"
+},
+"44": {
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"46": {
+"next_id": "48",
+"text": "EB",
+"type": "title"
+},
+"48": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"next_id": "49",
+"text": "\"Electronic Beings - Sentient AI or Just Magic?\"",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "\"Electronic Beings - Sentient AI or Just Magic?\"",
+"type": "dialogue"
+},
+"49": {
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"51": {
+"next_id": "53",
+"text": "MM",
+"type": "title"
+},
+"53": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"next_id": "54",
+"text": "\"Mathematics of Magiscience\"",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "\"Mathematics of Magiscience\"",
+"type": "dialogue"
+},
+"54": {
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"56": {
+"next_id": "58",
+"text": "MH",
+"type": "title"
+},
+"58": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"next_id": "59",
+"text": "\"Medicine and Healing Magic\"",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "\"Medicine and Healing Magic\"",
+"type": "dialogue"
+},
+"59": {
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"6": {
+"next_id": "8",
+"text": "AT",
+"type": "title"
+},
+"61": {
+"next_id": "63",
+"text": "TM",
+"type": "title"
+},
+"63": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"next_id": "64",
+"text": "\"Unified Theory for Thermodynamics and {{red_aspect}} Magic?\"",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "red_aspect"
+}]),
+"value_in_text": "{{red_aspect}}"
+}]),
+"translation_key": "\"Unified Theory for Thermodynamics and {{red_aspect}} Magic?\"",
+"type": "dialogue"
+},
+"64": {
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"8": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"next_id": "9",
+"text": "\"Anatomy and Transformations\"",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "\"Anatomy and Transformations\"",
+"type": "dialogue"
+},
+"9": {
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+}
+}
+metadata/dialogue_manager_version = "2.15.5"

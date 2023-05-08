@@ -1,71 +1,40 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_ovkcw"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_qs4lx"]
 
 [resource]
-script = ExtResource("1_ovkcw")
+script = ExtResource("1_qs4lx")
 titles = {
-"open_book": "3",
-"read": "9"
+"check": "2",
+"open_book": "7",
+"read": "12"
 }
 character_names = PackedStringArray("{{green}}")
-first_title = "3"
+first_title = "2"
 lines = {
 "1": {
-"next_id": "3",
-"text": "open_book",
+"next_id": "2",
+"text": "check",
 "type": "title"
 },
-"10": {
-"character": "{{green}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "green"
-}]),
-"value_in_text": "{{green}}"
-}]),
-"next_id": "11",
-"text": "\"Countries, laws, economy, maybe even science itself. To allow cilivization to exist, we need collective fiction.\"",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "\"Countries, laws, economy, maybe even science itself. To allow cilivization to exist, we need collective fiction.\"",
-"type": "dialogue"
-},
 "11": {
-"character": "{{green}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "green"
-}]),
-"value_in_text": "{{green}}"
-}]),
 "next_id": "12",
-"text": "\"But technology and magic has made it increasingly difficult to distinguish between fiction and reality.\"",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "\"But technology and magic has made it increasingly difficult to distinguish between fiction and reality.\"",
-"type": "dialogue"
+"text": "read",
+"type": "title"
 },
 "12": {
-"character": "{{green}}",
-"character_replacements": Array[Dictionary]([{
+"mutation": {
 "expression": Array[Dictionary]([{
-"type": "variable",
-"value": "green"
-}]),
-"value_in_text": "{{green}}"
-}]),
+"function": "set_player_anim",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "reading"
+}])])
+}])
+},
 "next_id": "13",
-"text": "\"This is no news. Our Extended Reality machines are making fiction dauntingly real. And the study of the {{blue_aspect}} has enhanced this experience to almost terrifying heights.\"",
-"text_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "blue_aspect"
-}]),
-"value_in_text": "{{blue_aspect}}"
-}]),
-"translation_key": "\"This is no news. Our Extended Reality machines are making fiction dauntingly real. And the study of the {{blue_aspect}} has enhanced this experience to almost terrifying heights.\"",
-"type": "dialogue"
+"type": "mutation"
 },
 "13": {
 "character": "{{green}}",
@@ -77,15 +46,9 @@ lines = {
 "value_in_text": "{{green}}"
 }]),
 "next_id": "14",
-"text": "\"More and more researchers are suggesting that the world conjured by {{blue_aspect}} magic is not fiction, but actually real. Perhaps their research subject has taken its toll on their senses. And yet, the critics have no better explanation themselves.\"",
-"text_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "blue_aspect"
-}]),
-"value_in_text": "{{blue_aspect}}"
-}]),
-"translation_key": "\"More and more researchers are suggesting that the world conjured by {{blue_aspect}} magic is not fiction, but actually real. Perhaps their research subject has taken its toll on their senses. And yet, the critics have no better explanation themselves.\"",
+"text": "\"Countries, laws, economy, maybe even science itself. To allow cilivization to exist, we need collective fiction.\"",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "\"Countries, laws, economy, maybe even science itself. To allow cilivization to exist, we need collective fiction.\"",
 "type": "dialogue"
 },
 "14": {
@@ -98,6 +61,63 @@ lines = {
 "value_in_text": "{{green}}"
 }]),
 "next_id": "15",
+"text": "\"But technology and magic has made it increasingly difficult to distinguish between fiction and reality.\"",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "\"But technology and magic has made it increasingly difficult to distinguish between fiction and reality.\"",
+"type": "dialogue"
+},
+"15": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"next_id": "16",
+"text": "\"This is no news. Our Extended Reality machines are making fiction dauntingly real. And the study of the {{blue_aspect}} has enhanced this experience to almost terrifying heights.\"",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "blue_aspect"
+}]),
+"value_in_text": "{{blue_aspect}}"
+}]),
+"translation_key": "\"This is no news. Our Extended Reality machines are making fiction dauntingly real. And the study of the {{blue_aspect}} has enhanced this experience to almost terrifying heights.\"",
+"type": "dialogue"
+},
+"16": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"next_id": "17",
+"text": "\"More and more researchers are suggesting that the world conjured by {{blue_aspect}} magic is not fiction, but actually real. Perhaps their research subject has taken its toll on their senses. And yet, the critics have no better explanation themselves.\"",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "blue_aspect"
+}]),
+"value_in_text": "{{blue_aspect}}"
+}]),
+"translation_key": "\"More and more researchers are suggesting that the world conjured by {{blue_aspect}} magic is not fiction, but actually real. Perhaps their research subject has taken its toll on their senses. And yet, the critics have no better explanation themselves.\"",
+"type": "dialogue"
+},
+"17": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"next_id": "18",
 "text": "\"One of the most striking breakthroughs was the discovery of the {{imaginary}}. A world created entirely by our collective fiction?! We will give an extensive coverage of the evidence and the limitations to this monstrous idea...\"",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -109,7 +129,7 @@ lines = {
 "translation_key": "\"One of the most striking breakthroughs was the discovery of the {{imaginary}}. A world created entirely by our collective fiction?! We will give an extensive coverage of the evidence and the limitations to this monstrous idea...\"",
 "type": "dialogue"
 },
-"15": {
+"18": {
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_thing_anim",
@@ -123,10 +143,10 @@ lines = {
 }])])
 }])
 },
-"next_id": "16",
+"next_id": "19",
 "type": "mutation"
 },
-"16": {
+"19": {
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_player_anim",
@@ -137,15 +157,10 @@ lines = {
 }])])
 }])
 },
-"next_id": "17",
+"next_id": "20",
 "type": "mutation"
 },
-"17": {
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
-},
-"3": {
+"2": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -154,13 +169,40 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
-"next_id": "4",
-"text": "\"The Manifestation of our Collective Fiction\"",
+"next_id": "3",
+"text": "\"The Manifestation of our Collective Fiction.\" (Read this one?)\"",
 "text_replacements": Array[Dictionary]([]),
-"translation_key": "\"The Manifestation of our Collective Fiction\"",
+"translation_key": "\"The Manifestation of our Collective Fiction.\" (Read this one?)\"",
 "type": "dialogue"
 },
+"20": {
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"3": {
+"next_id": "7",
+"next_id_after": "7",
+"responses": PackedStringArray("3", "4"),
+"text": "Read",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Read",
+"type": "response"
+},
 "4": {
+"next_id": "end!",
+"next_id_after": "7",
+"text": "Leave",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Leave",
+"type": "response"
+},
+"6": {
+"next_id": "7",
+"text": "open_book",
+"type": "title"
+},
+"7": {
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_thing_anim",
@@ -174,10 +216,10 @@ lines = {
 }])])
 }])
 },
-"next_id": "5",
+"next_id": "8",
 "type": "mutation"
 },
-"5": {
+"8": {
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "animate_player",
@@ -191,32 +233,13 @@ lines = {
 }])])
 }])
 },
-"next_id": "6",
+"next_id": "9",
 "type": "mutation"
 },
-"6": {
+"9": {
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
-},
-"8": {
-"next_id": "9",
-"text": "read",
-"type": "title"
-},
-"9": {
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "set_player_anim",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "reading"
-}])])
-}])
-},
-"next_id": "10",
-"type": "mutation"
 }
 }
 metadata/dialogue_manager_version = "2.15.5"

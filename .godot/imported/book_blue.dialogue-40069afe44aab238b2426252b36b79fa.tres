@@ -1,22 +1,42 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_mscna"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_qyyyq"]
 
 [resource]
-script = ExtResource("1_mscna")
+script = ExtResource("1_qyyyq")
 titles = {
-"open_book": "3",
-"read": "9"
+"check": "2",
+"open_book": "7",
+"read": "12"
 }
 character_names = PackedStringArray("{{green}}")
-first_title = "3"
+first_title = "2"
 lines = {
 "1": {
-"next_id": "3",
-"text": "open_book",
+"next_id": "2",
+"text": "check",
 "type": "title"
 },
-"10": {
+"11": {
+"next_id": "12",
+"text": "read",
+"type": "title"
+},
+"12": {
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_player_anim",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "reading"
+}])])
+}])
+},
+"next_id": "13",
+"type": "mutation"
+},
+"13": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -25,7 +45,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
-"next_id": "11",
+"next_id": "14",
 "text": "\"All other magical elements affect reality in some way. But the {{blue_aspect}} magic appears to go beyond that reality.\"",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -37,7 +57,7 @@ lines = {
 "translation_key": "\"All other magical elements affect reality in some way. But the {{blue_aspect}} magic appears to go beyond that reality.\"",
 "type": "dialogue"
 },
-"11": {
+"14": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -46,40 +66,13 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
-"next_id": "12",
+"next_id": "15",
 "text": "\"Practitioners are able to vanish, becoming invicible and undetectable.\"",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "\"Practitioners are able to vanish, becoming invicible and undetectable.\"",
 "type": "dialogue"
 },
-"12": {
-"character": "{{green}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "green"
-}]),
-"value_in_text": "{{green}}"
-}]),
-"next_id": "13",
-"text": "\"The utility of the {{blue_aspect}} surged when practitioners figured out how to build portals to an enigmatic world called the {{imaginary}}.\"",
-"text_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "blue_aspect"
-}]),
-"value_in_text": "{{blue_aspect}}"
-}, {
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "imaginary"
-}]),
-"value_in_text": "{{imaginary}}"
-}]),
-"translation_key": "\"The utility of the {{blue_aspect}} surged when practitioners figured out how to build portals to an enigmatic world called the {{imaginary}}.\"",
-"type": "dialogue"
-},
-"13": {
+"15": {
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_thing_anim",
@@ -93,10 +86,10 @@ lines = {
 }])])
 }])
 },
-"next_id": "14",
+"next_id": "16",
 "type": "mutation"
 },
-"14": {
+"16": {
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_player_anim",
@@ -107,15 +100,15 @@ lines = {
 }])])
 }])
 },
-"next_id": "15",
+"next_id": "17",
 "type": "mutation"
 },
-"15": {
+"17": {
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 },
-"3": {
+"2": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -124,8 +117,8 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
-"next_id": "4",
-"text": "\"{{blue_aspect}} Magic\"",
+"next_id": "3",
+"text": "\"{{blue_aspect}} Magic\". (Read this one?)",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
 "type": "variable",
@@ -133,10 +126,32 @@ lines = {
 }]),
 "value_in_text": "{{blue_aspect}}"
 }]),
-"translation_key": "\"{{blue_aspect}} Magic\"",
+"translation_key": "\"{{blue_aspect}} Magic\". (Read this one?)",
 "type": "dialogue"
 },
+"3": {
+"next_id": "7",
+"next_id_after": "7",
+"responses": PackedStringArray("3", "4"),
+"text": "Read",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Read",
+"type": "response"
+},
 "4": {
+"next_id": "end!",
+"next_id_after": "7",
+"text": "Leave",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Leave",
+"type": "response"
+},
+"6": {
+"next_id": "7",
+"text": "open_book",
+"type": "title"
+},
+"7": {
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_thing_anim",
@@ -150,10 +165,10 @@ lines = {
 }])])
 }])
 },
-"next_id": "5",
+"next_id": "8",
 "type": "mutation"
 },
-"5": {
+"8": {
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "animate_player",
@@ -167,32 +182,13 @@ lines = {
 }])])
 }])
 },
-"next_id": "6",
+"next_id": "9",
 "type": "mutation"
 },
-"6": {
+"9": {
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
-},
-"8": {
-"next_id": "9",
-"text": "read",
-"type": "title"
-},
-"9": {
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "set_player_anim",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "reading"
-}])])
-}])
-},
-"next_id": "10",
-"type": "mutation"
 }
 }
 metadata/dialogue_manager_version = "2.15.5"

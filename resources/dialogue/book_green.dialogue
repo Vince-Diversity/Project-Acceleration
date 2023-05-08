@@ -1,7 +1,11 @@
-~ open_book
+~ check
 
 {{green}}: "{{green_aspect}} Magic"
-{{green}}: [do express(cheerful)] This is my Magics Major, by the way!
+{{green}}: [do express(cheerful)] This is my magics major, by the way!
+- Read => open_book
+- Leave => END!
+
+~ open_book
 do set_thing_anim("GreenAspect", bookcase_taken_anim)
 do animate_player(read_anim, "read")
 => END!

@@ -5,7 +5,7 @@ do move("open_book")
 
 ~ open_book
 {{green}}: "The Myth of {{deepest_layer}}".
-{{green}}: [do express(cheerful)] This topic might be of help to you!
+{{green}}: [do express(cheerful)] This might be of help to you!
 do set_thing_anim("BookcaseImaginarySpace", bookcase_taken_anim)
 do animate_player(read_anim, "read")
 => END!

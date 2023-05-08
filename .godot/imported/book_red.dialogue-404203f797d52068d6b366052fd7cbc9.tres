@@ -1,22 +1,47 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_wer0v"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_yeki1"]
 
 [resource]
-script = ExtResource("1_wer0v")
+script = ExtResource("1_yeki1")
 titles = {
-"open_book": "3",
-"read": "9"
+"check": "3",
+"open_book": "8",
+"read": "13"
 }
 character_names = PackedStringArray("{{green}}")
 first_title = "3"
 lines = {
 "1": {
 "next_id": "3",
-"text": "open_book",
+"text": "check",
 "type": "title"
 },
 "10": {
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"12": {
+"next_id": "13",
+"text": "read",
+"type": "title"
+},
+"13": {
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_player_anim",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "reading"
+}])])
+}])
+},
+"next_id": "14",
+"type": "mutation"
+},
+"14": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -25,7 +50,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
-"next_id": "11",
+"next_id": "15",
 "text": "\"The {{red_aspect}} magic is the ability to conjure heat, perhaps even energy itself.\"",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -37,7 +62,7 @@ lines = {
 "translation_key": "\"The {{red_aspect}} magic is the ability to conjure heat, perhaps even energy itself.\"",
 "type": "dialogue"
 },
-"11": {
+"15": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -46,13 +71,13 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
-"next_id": "12",
+"next_id": "16",
 "text": "\"Where this energy is coming from is hard to understand. But it is clear that the user's willpower is a vital ingredient.\"",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "\"Where this energy is coming from is hard to understand. But it is clear that the user's willpower is a vital ingredient.\"",
 "type": "dialogue"
 },
-"12": {
+"16": {
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_thing_anim",
@@ -66,10 +91,10 @@ lines = {
 }])])
 }])
 },
-"next_id": "13",
+"next_id": "17",
 "type": "mutation"
 },
-"13": {
+"17": {
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_player_anim",
@@ -80,10 +105,10 @@ lines = {
 }])])
 }])
 },
-"next_id": "14",
+"next_id": "18",
 "type": "mutation"
 },
-"14": {
+"18": {
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
@@ -98,7 +123,7 @@ lines = {
 "value_in_text": "{{green}}"
 }]),
 "next_id": "4",
-"text": "\"{{red_aspect}} Magic\"",
+"text": "\"{{red_aspect}} Magic\". (Read this one?)",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
 "type": "variable",
@@ -106,10 +131,32 @@ lines = {
 }]),
 "value_in_text": "{{red_aspect}}"
 }]),
-"translation_key": "\"{{red_aspect}} Magic\"",
+"translation_key": "\"{{red_aspect}} Magic\". (Read this one?)",
 "type": "dialogue"
 },
 "4": {
+"next_id": "8",
+"next_id_after": "8",
+"responses": PackedStringArray("4", "5"),
+"text": "Read",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Read",
+"type": "response"
+},
+"5": {
+"next_id": "end!",
+"next_id_after": "8",
+"text": "Leave",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Leave",
+"type": "response"
+},
+"7": {
+"next_id": "8",
+"text": "open_book",
+"type": "title"
+},
+"8": {
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_thing_anim",
@@ -123,10 +170,10 @@ lines = {
 }])])
 }])
 },
-"next_id": "5",
+"next_id": "9",
 "type": "mutation"
 },
-"5": {
+"9": {
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "animate_player",
@@ -137,30 +184,6 @@ lines = {
 }]), Array[Dictionary]([{
 "type": "string",
 "value": "read"
-}])])
-}])
-},
-"next_id": "6",
-"type": "mutation"
-},
-"6": {
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
-},
-"8": {
-"next_id": "9",
-"text": "read",
-"type": "title"
-},
-"9": {
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "set_player_anim",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "reading"
 }])])
 }])
 },

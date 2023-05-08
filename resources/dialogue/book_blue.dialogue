@@ -1,6 +1,9 @@
-~ open_book
+~ check
+{{green}}: "{{blue_aspect}} Magic". (Read this one?)
+- Read => open_book
+- Leave => END!
 
-{{green}}: "{{blue_aspect}} Magic"
+~ open_book
 do set_thing_anim("BlueAspect", bookcase_taken_anim)
 do animate_player(read_anim, "read")
 => END!
@@ -9,7 +12,6 @@ do animate_player(read_anim, "read")
 do set_player_anim("reading")
 {{green}}: "All other magical elements affect reality in some way. But the {{blue_aspect}} magic appears to go beyond that reality."
 {{green}}: "Practitioners are able to vanish, becoming invicible and undetectable."
-{{green}}: "The utility of the {{blue_aspect}} surged when practitioners figured out how to build portals to an enigmatic world called the {{imaginary}}."
 do set_thing_anim("BlueAspect", bookcase_anim)
 do set_player_anim("down")
 => END!

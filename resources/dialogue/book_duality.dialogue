@@ -1,6 +1,10 @@
-~ open_book
+~ check
 
-{{green}}: "Duality and the {{imaginary}}"
+{{green}}: "Duality and the {{imaginary}}. (Read this one?)"
+- Read => open_book
+- Leave => END!
+
+~ open_book
 do set_thing_anim("BookcaseDuality", bookcase_taken_anim)
 do animate_player(read_anim, "read")
 => END!
