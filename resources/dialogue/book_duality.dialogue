@@ -10,7 +10,7 @@ do animate_player(read_anim, "read")
 => END!
 
 ~ read
-do set_player_anim("reading")
+do set_player_anim(reading_anim)
 {{green}}: "René Descartes wrote 'I think, therefore I am', separating the concepts of mind and body. Quantum physicists are only finding more evidence for the the wave-particle duality. The duality of truth is omnifarious."
 {{green}}: "When speaking of duality, we mean that something exists in two distincly different ways, simultaneously!"
 {{green}}: "In this book, we argue for the duality between the {{real}} and the {{imaginary}}..."

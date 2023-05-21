@@ -1,64 +1,47 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_sprgk"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_5rca4"]
 
 [resource]
-script = ExtResource("1_sprgk")
+script = ExtResource("1_5rca4")
 titles = {
-"check": "3",
-"open_book": "9",
-"read": "14"
+"check": "2",
+"open_book": "8",
+"read": "13"
 }
 character_names = PackedStringArray("{{green}}")
-first_title = "3"
+first_title = "2"
 lines = {
 "1": {
-"next_id": "3",
+"next_id": "2",
 "text": "check",
 "type": "title"
 },
 "10": {
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "animate_player",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "variable",
-"value": "read_anim"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "read"
-}])])
-}])
-},
-"next_id": "11",
-"type": "mutation"
-},
-"11": {
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 },
-"13": {
-"next_id": "14",
+"12": {
+"next_id": "13",
 "text": "read",
 "type": "title"
 },
-"14": {
+"13": {
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_player_anim",
 "type": "function",
 "value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "reading"
+"type": "variable",
+"value": "reading_anim"
 }])])
 }])
 },
-"next_id": "15",
+"next_id": "14",
 "type": "mutation"
 },
-"15": {
+"14": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -67,7 +50,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
-"next_id": "16",
+"next_id": "15",
 "text": "\"{{green_aspect}} is a traditional name, originating from when practitioners able to make plants sprout in a matter of seconds.\"",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -79,7 +62,7 @@ lines = {
 "translation_key": "\"{{green_aspect}} is a traditional name, originating from when practitioners able to make plants sprout in a matter of seconds.\"",
 "type": "dialogue"
 },
-"16": {
+"15": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -88,7 +71,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
-"next_id": "17",
+"next_id": "16",
 "text": "\"The better knowledge a {{green_aspect}} magic practitioner has of their working substances and the nature of the material world, the more freely they seem to be able to make things.\"",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -100,7 +83,7 @@ lines = {
 "translation_key": "\"The better knowledge a {{green_aspect}} magic practitioner has of their working substances and the nature of the material world, the more freely they seem to be able to make things.\"",
 "type": "dialogue"
 },
-"17": {
+"16": {
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_thing_anim",
@@ -114,10 +97,10 @@ lines = {
 }])])
 }])
 },
-"next_id": "18",
+"next_id": "17",
 "type": "mutation"
 },
-"18": {
+"17": {
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_player_anim",
@@ -128,15 +111,15 @@ lines = {
 }])])
 }])
 },
-"next_id": "19",
+"next_id": "18",
 "type": "mutation"
 },
-"19": {
+"18": {
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 },
-"3": {
+"2": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -145,7 +128,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
-"next_id": "4",
+"next_id": "3",
 "text": "\"{{green_aspect}} Magic\"",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -157,7 +140,7 @@ lines = {
 "translation_key": "\"{{green_aspect}} Magic\"",
 "type": "dialogue"
 },
-"4": {
+"3": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -166,35 +149,35 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
-"next_id": "5",
+"next_id": "4",
 "text": "[do express(cheerful)] This is my magics major, by the way!",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "[do express(cheerful)] This is my magics major, by the way!",
 "type": "dialogue"
 },
-"5": {
-"next_id": "9",
-"next_id_after": "9",
-"responses": PackedStringArray("5", "6"),
+"4": {
+"next_id": "8",
+"next_id_after": "8",
+"responses": PackedStringArray("4", "5"),
 "text": "Read",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "Read",
 "type": "response"
 },
-"6": {
+"5": {
 "next_id": "end!",
-"next_id_after": "9",
+"next_id_after": "8",
 "text": "Leave",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "Leave",
 "type": "response"
 },
-"8": {
-"next_id": "9",
+"7": {
+"next_id": "8",
 "text": "open_book",
 "type": "title"
 },
-"9": {
+"8": {
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_thing_anim",
@@ -205,6 +188,23 @@ lines = {
 }]), Array[Dictionary]([{
 "type": "variable",
 "value": "bookcase_taken_anim"
+}])])
+}])
+},
+"next_id": "9",
+"type": "mutation"
+},
+"9": {
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "animate_player",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "variable",
+"value": "read_anim"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "read"
 }])])
 }])
 },

@@ -9,7 +9,6 @@ func init_act(
 		given_anim_name):
 	anim = given_anim
 	anim_name = given_anim_name
-	anim.animation_finished.connect(_on_animation_finished)
 
 
 func update(_delta: float):
@@ -17,6 +16,7 @@ func update(_delta: float):
 
 
 func enter():
+	anim.animation_finished.connect(_on_animation_finished, CONNECT_ONE_SHOT)
 	anim.play(anim_name)
 
 

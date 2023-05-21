@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_d4y07"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_2jeqw"]
 
 [resource]
-script = ExtResource("1_d4y07")
+script = ExtResource("1_2jeqw")
 titles = {
 "check": "3",
 "open_book": "8",
@@ -33,8 +33,8 @@ lines = {
 "function": "set_player_anim",
 "type": "function",
 "value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "reading"
+"type": "variable",
+"value": "reading_anim"
 }])])
 }])
 },

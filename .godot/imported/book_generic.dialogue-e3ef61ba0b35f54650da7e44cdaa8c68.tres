@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_d08t8"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_vobwd"]
 
 [resource]
-script = ExtResource("1_d08t8")
+script = ExtResource("1_vobwd")
 titles = {
 "AO": "3",
 "AT": "8",
@@ -157,9 +157,9 @@ lines = {
 "value_in_text": "{{green}}"
 }]),
 "next_id": "34",
-"text": "\"Statistics and Other Delusive Black Magic\"",
+"text": "\"Statistics and Other Delusive Magic\"",
 "text_replacements": Array[Dictionary]([]),
-"translation_key": "\"Statistics and Other Delusive Black Magic\"",
+"translation_key": "\"Statistics and Other Delusive Magic\"",
 "type": "dialogue"
 },
 "34": {

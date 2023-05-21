@@ -11,7 +11,7 @@ do animate_player(read_anim, "read")
 => END!
 
 ~ read
-do set_player_anim("reading")
+do set_player_anim(reading_anim)
 {{green}}: "Reality is merely the top layer of the onion which represents our world. The imaginary are its layers."
 {{green}}: "By peeling its many layers, one may travel deeper into the imaginary."
 {{green}}: "But, just like an onion, our most trusted theory predicts that the imaginary has a core, a deepest layer."

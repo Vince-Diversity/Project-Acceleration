@@ -9,7 +9,7 @@ do animate_player(read_anim, "read")
 => END!
 
 ~ read
-do set_player_anim("reading")
+do set_player_anim(reading_anim)
 {{green}}: "Countries, laws, economy, maybe even science itself. To allow cilivization to exist, we need collective fiction."
 {{green}}: "But technology and magic has made it increasingly difficult to distinguish between fiction and reality."
 {{green}}: "This is no news. Our Extended Reality machines are making fiction dauntingly real. And the study of the {{blue_aspect}} has enhanced this experience to almost terrifying heights."

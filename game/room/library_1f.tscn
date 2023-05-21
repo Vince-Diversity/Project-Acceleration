@@ -48,6 +48,3 @@ dialogue_node = "check"
 position = Vector2(736, -192)
 dialogue_id = "book_blue"
 dialogue_node = "check"
-
-[node name="Party" parent="YSort" index="1"]
-z_index = 1

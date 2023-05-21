@@ -9,7 +9,7 @@ do animate_player(read_anim, "read")
 => END!
 
 ~ read
-do set_player_anim("reading")
+do set_player_anim(reading_anim)
 {{green}}: "All other magical elements affect reality in some way. But the {{blue_aspect}} magic appears to go beyond that reality."
 {{green}}: "Practitioners are able to vanish, becoming invicible and undetectable."
 do set_thing_anim("BlueAspect", bookcase_anim)

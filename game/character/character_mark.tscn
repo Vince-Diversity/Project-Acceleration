@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtkkkrcbtqu58"]
+
+[ext_resource type="Script" path="res://game/cutscene/character_mark.gd" id="1_hxyp3"]
+
+[node name="CharacterMark" type="Marker2D"]
+position = Vector2(0, 32)
+script = ExtResource("1_hxyp3")

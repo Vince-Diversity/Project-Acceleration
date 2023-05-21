@@ -10,7 +10,7 @@ do animate_player(read_anim, "read")
 => END!
 
 ~ read
-do set_player_anim("reading")
+do set_player_anim(reading_anim)
 {{green}}: "The {{red_aspect}} magic is the ability to conjure heat, perhaps even energy itself."
 {{green}}: "Where this energy is coming from is hard to understand. But it is clear that the user's willpower is a vital ingredient."
 do set_thing_anim("RedAspect", bookcase_anim)

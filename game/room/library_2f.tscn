@@ -109,6 +109,3 @@ dialogue_node = "MH"
 position = Vector2(672, 448)
 dialogue_id = "book_generic"
 dialogue_node = "TM"
-
-[node name="Party" parent="YSort" index="1"]
-z_index = 1

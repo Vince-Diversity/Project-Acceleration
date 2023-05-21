@@ -1,15 +1,16 @@
 [gd_scene load_steps=3 format=3 uid="uid://yn8jo1jenttp"]
 
 [ext_resource type="PackedScene" uid="uid://dqktwnq312s04" path="res://game/thing/door/door.tscn" id="1_s00ab"]
-[ext_resource type="SpriteFrames" uid="uid://c2shp7hdt8kjs" path="res://resources/things/door.tres" id="2_thih7"]
+[ext_resource type="SpriteFrames" uid="uid://d2gasqmip3odt" path="res://resources/things/door.tres" id="2_thih7"]
 
 [node name="DoorUp" instance=ExtResource("1_s00ab")]
-next_room_id = ""
-next_room_entrance_node = ""
 
-[node name="AnimatedSprite" parent="." index="0"]
+[node name="AnimatedSprite2D" parent="." index="0"]
 position = Vector2(0, -32)
 sprite_frames = ExtResource("2_thih7")
 
 [node name="InteractArea" parent="." index="1"]
 position = Vector2(0, -32)
+
+[node name="SpawnPoint" parent="." index="2"]
+position = Vector2(0, 32)

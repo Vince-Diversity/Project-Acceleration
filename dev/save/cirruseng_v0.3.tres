@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="SaveGame" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://loader/save_game.gd" id="1_hlvjo"]
+[ext_resource type="Script" path="res://loader/save_game.gd" id="1_q07fb"]
 
 [resource]
-script = ExtResource("1_hlvjo")
+script = ExtResource("1_q07fb")
 game_version = "0.3"
 data = {
-"current_room_id": "library_2f",
-"entrance_node": "PassageDown"
+"current_room_id": "green_classroom",
+"entrance_node": "DoorDown"
 }

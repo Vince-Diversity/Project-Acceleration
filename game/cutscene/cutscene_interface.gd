@@ -19,15 +19,12 @@ func make():
 	pass
 
 
-func make_dialogue_act():
-	var dialogue_act: Act = dialogue_act_scr.new()
-	dialogue_act.init_act(
-		owner.textbox_started_target,
-		cutscenes.current_dialogue_id,
-		cutscenes.current_dialogue_node,
-		owner.textbox_focused_target,
-		self)
-	actm.add_act(dialogue_act)
+func make_animate_act(anim_sprite: AnimatedSprite2D, anim_name: String):
+	var animate_act = animate_act_scr.new()
+	animate_act.init_act(
+		anim_sprite,
+		anim_name)
+	actm.add_act(animate_act)
 
 
 func begin_cutscene():
@@ -35,7 +32,7 @@ func begin_cutscene():
 
 
 func end_cutscene():
-	cutscene_ended.emit("default_state")
+	owner.end_interaction.emit()
 
 
 func update_cutscene(delta: float):

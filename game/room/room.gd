@@ -18,6 +18,7 @@ var textbox_focused_target: Callable
 
 signal room_changed(next_room_id: String, next_room_entrance_node: String)
 signal player_interacted(interactable: Node2D)
+signal end_interaction()
 
 
 func _ready():
@@ -112,8 +113,10 @@ func _on_thing_begin_interaction(thing: Thing):
 	if cutscenes.has_node(thing.interaction_node):
 		cutscenes.change_cutscene(thing.interaction_node)
 		cutscenes.change_dialogue(thing.dialogue_id, thing.dialogue_node)
+		cutscenes.change_source_node(thing.name)
 		cutscenes.current_cutscene.cutscene_started.emit()
 		stm.change_state(cutscene_state.state_id)
+		end_interaction.connect(thing._on_thing_end_interaction, CONNECT_ONE_SHOT)
 	else:
 		var dlg_cutscene: Cutscene = dialogue_cutscene_scn.instantiate()
 		cutscenes.add_child(dlg_cutscene)

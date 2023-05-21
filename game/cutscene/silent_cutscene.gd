@@ -1,4 +1,9 @@
-extends Cutscene
+class_name SilentCutscene extends Cutscene
+
+
+func make():
+	pass
+
 
 func begin_cutscene():
 	super()
@@ -6,6 +11,7 @@ func begin_cutscene():
 
 func end_cutscene():
 	super()
+	cutscene_ended.emit("party_roam_state")
 
 
 func update_cutscene(delta: float):

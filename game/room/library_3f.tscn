@@ -36,4 +36,8 @@ position = Vector2(352, 192)
 [node name="MentorMark" parent="RoomCutscenes/ImaginarySpace" index="0"]
 target_direction_id = 2
 
+[node name="StudentMark" parent="RoomCutscenes/ImaginarySpace" index="1"]
+position = Vector2(0, 64)
+target_direction_id = 2
+
 [editable path="RoomCutscenes/ImaginarySpace"]
