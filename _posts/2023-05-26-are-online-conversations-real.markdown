@@ -1,0 +1,18 @@
+---
+layout: post
+title: "Are online conversations real?"
+date: 2023-05-26 12:00:00 +0100
+categories: other
+---
+
+This is a discussion post. It is not about mobile communication, because you need private information to call someone. Also, mobile conversations are usually about private life in some way. A good and simple conversation starter is, "how are you?" But somehow, that question is also being asked in anonymous chats. Somehow, friendships are built across anonymity. Is that really friendship?
+
+Most people still build friendships in real life, aided by communication media to chat anywhere. There seems to be a category of people who have an easier time finding friends in anonymous media. Reasons could be that the person is too different, has unusual interests, or is surrounded by an intolerant, overly conservative, territorial monkey community. There are also unfortunate cases where someone is, for any reason, is greatly limited in their options of meeting people in real life. It makes sense why some people would rather say "hello" in shallow anonymous chats.
+
+Actually, those conversations are not always so shallow. Mutual understanding seems to overcome the fact that everyone is anonymous. People are also more willing to talk personally because there are no real life social consequences. Relying on anonymous conversations is dangerous. Many people seem to experience a sense of emptiness in online communities. It could be because there is no power to make sure that friends will stick around. If someone feels accepted in real life, it is likely because they shared a vulnerability that becomes accepted. But anonymity removes this form of vulnerability. Sometimes, people just fake their personality online, but that definitely happens in real life too.
+
+It seems that shallow friendships are possible, but not deep ones. It does not feel real. But those who seek friendships online often do so because their lives are being alienated by the norms of the society they live in. They try to express their real selves, but are only asked to change. Of course those kinds of relationships do not feel real either. It is well known that even if one spends much time together with others, one can still feel alone.
+
+This project attempts to capture the many ways in which life feels fake. But it also attempts to find solutions to it. Ideally, one would be lucky enough to find open-minded people in real life who share common interests. Some people even try to meet online friends in real life. It is incredible how difficult it can be to find mutual understanding locally.
+
+There is much evidence that lack of belonging is a major health issue. Endless questioning may lead to that people blame themselves for being different, feeling that there is no real self anymore. It could come after certain life events. It could be a long-lasting feeling. Dauntingly many people expect that changing oneself to become less different will eventually solve all problems. Only in extraordinary circumstances would that work, in many cases it only seems to worsen the health of the person they tried to help. The health issues are not a matter of being weak either. Many people grow stronger than those who are incapable of understanding the problem. Willpower is likely the most important tool, but there could be more strategies to explore. If this project aims to deal with the alienation that still persists in a presumably developed society, the first focus should be on addressing the real self.
