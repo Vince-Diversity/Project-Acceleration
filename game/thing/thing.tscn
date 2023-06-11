@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="1"]
 radius = 20.0
 
-[node name="Thing" type="StaticBody2D"]
+[node name="Thing" type="StaticBody2D" groups=["Preserved"]]
 collision_layer = 4
 script = ExtResource("1")
 

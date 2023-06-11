@@ -21,3 +21,10 @@ func change_dialogue(
 func change_source_node(
 		source_node: String):
 	current_source_node = source_node
+
+
+func reset():
+	current_cutscene = null
+	current_dialogue_id = ""
+	current_dialogue_node = ""
+	current_source_node = ""

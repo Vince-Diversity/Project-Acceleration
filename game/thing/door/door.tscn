@@ -1,7 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqktwnq312s04"]
+[gd_scene load_steps=5 format=3 uid="uid://dqktwnq312s04"]
 
 [ext_resource type="PackedScene" uid="uid://nfl8ij5d7dfw" path="res://game/thing/thing.tscn" id="1_vpjhx"]
 [ext_resource type="Script" path="res://game/thing/door/door.gd" id="2_utemx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jseix"]
+animations = [{
+"frames": [],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wmfr8"]
 size = Vector2(64, 64)
@@ -13,6 +21,9 @@ next_room_entrance_node = ""
 entrance_direction = 0
 dialogue_id = "default_door"
 dialogue_node = "default"
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_jseix")
 
 [node name="CollisionShape2D" parent="InteractArea" index="0"]
 shape = SubResource("RectangleShape2D_wmfr8")

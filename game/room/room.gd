@@ -4,8 +4,8 @@ class_name Room extends Node2D
 @onready var cutscenes = $RoomCutscenes
 @onready var things = $YSort/Things
 @onready var doors = $Doors
-@onready var party_roam_state: PartyRoamState = preload("res://game/state/party_roam_state.gd").new("party_roam_state")
-@onready var cutscene_state: CutsceneState = preload("res://game/state/cutscene_state.gd").new("cutscene_state")
+@onready var party_roam_state: PartyRoamState = preload("res://game/game_state/party_roam_state.gd").new("party_roam_state")
+@onready var cutscene_state: CutsceneState = preload("res://game/game_state/cutscene_state.gd").new("cutscene_state")
 @onready var dialogue_cutscene_scn: PackedScene = preload("res://game/cutscene/dialogue_cutscene.tscn")
 var thing_rng: RandomNumberGenerator
 var room_id: String

@@ -2,10 +2,11 @@ class_name Game extends Node2D
 
 @onready var menu_scn = preload("res://game/pause_menu.tscn")
 @onready var save_res = preload("res://loader/save_game.gd")
-@onready var default_state: DefaultState = preload("res://game/state/default_state.gd").new("default_state")
-@onready var cutscene_state: CutsceneState = preload("res://game/state/cutscene_state.gd").new("cutscene_state")
-@onready var stm: StateMachine = preload("res://game/state/state_machine.gd").new(default_state)
+@onready var default_state: DefaultState = preload("res://game/game_state/default_state.gd").new("default_state")
+@onready var cutscene_state: CutsceneState = preload("res://game/game_state/cutscene_state.gd").new("cutscene_state")
+@onready var stm: StateMachine = preload("res://game/game_state/state_machine.gd").new(default_state)
 @onready var text_box_scn: PackedScene = preload("res://game/ui/textbox/textbox.tscn")
+var cache: SaveGame
 var loader: Loader
 var save_dir: String
 var menu: PauseMenu
@@ -32,11 +33,6 @@ func init_game(given_loader: Loader, given_save_dir: String):
 	save_dir = given_save_dir
 
 
-func make_save(save_game: SaveGame):
-	save_game.data["current_room_id"] = current_room.room_id
-	save_game.data["entrance_node"] = current_room.entrance_node
-
-
 func load_room(room_id: String, entrance_node: String):
 	var room_path = Utils.get_room_path(room_id)
 	current_room = load(room_path).instantiate()
@@ -53,21 +49,37 @@ func load_room(room_id: String, entrance_node: String):
 
 func change_room(room_id: String, entrance_node: String):
 	var room_path = Utils.get_room_path(room_id)
+	save_cache()
 	if FileAccess.file_exists(room_path):
 		current_room.queue_free()
 		load_room(room_id, entrance_node)
+		load_preserved(cache)
 	else:
 		load_room("main_entrance", "DefaultDoor")
 
 
-func save():
-	var save_game: SaveGame = save_res.new()
+func make_save_game(save_game: SaveGame):
 	save_game.game_version = ProjectSettings.get_setting("application/config/version")
-	make_save(save_game)
+	stm.save_state(self, save_game)
+
+
+func load_preserved(save_game: SaveGame):
+	for node in get_tree().get_nodes_in_group("Preserved"):
+		if not node.has_method("load_save"): continue
+		node.load_save(save_game)
+
+
+func save():
+	var save_game = cache.duplicate()
+	make_save_game(save_game)
 	var dir = DirAccess.open(save_dir)
 	if not dir:
 		DirAccess.make_dir_absolute(save_dir)
 	ResourceSaver.save(save_game, loader.save_path)
+
+
+func save_cache():
+	make_save_game(cache)
 
 
 func _pause():

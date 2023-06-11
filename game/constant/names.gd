@@ -11,6 +11,7 @@ const bookcase_anim := "default"
 const bookcase_taken_anim := "taken"
 const read_anim := "read"
 const reading_anim := "reading"
+const focus_anim := "focus"
 const sprout_anim := "grow"
 const sprouting_anim := "bloom"
 

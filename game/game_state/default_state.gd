@@ -1,4 +1,4 @@
-class_name DefaultState extends State
+class_name DefaultState extends GameState
 
 
 func update(_delta: float):
@@ -18,4 +18,8 @@ func exit():
 
 
 func grab_focus():
+	pass
+
+
+func save(_game: Game, _save_game: SaveGame):
 	pass

@@ -1,4 +1,4 @@
-class_name State extends GDScript
+class_name GameState extends GDScript
 
 # The filename without extension is used as ID
 var state_id: String
@@ -26,3 +26,9 @@ func exit():
 
 func grab_focus():
 	pass
+
+
+func save(game: Game, save_game: SaveGame):
+	save_game.data["game"] = {}
+	save_game.data["game"]["current_room_id"] = game.current_room.room_id
+	save_game.data["game"]["entrance_node"] = game.current_room.entrance_node

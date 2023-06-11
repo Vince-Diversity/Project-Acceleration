@@ -1,4 +1,4 @@
-class_name PartyRoamState extends State
+class_name PartyRoamState extends GameState
 
 var party: Party
 
@@ -27,3 +27,10 @@ func exit():
 
 func grab_focus():
 	pass
+
+
+func save(game: Game, save_game: SaveGame):
+	super(game, save_game)
+	for node in game.get_tree().get_nodes_in_group("Preserved"):
+		if not node.has_method("make_save"): continue
+		node.make_save(save_game)

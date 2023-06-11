@@ -18,12 +18,22 @@ position = Vector2(576, 576)
 next_room_id = "green_hallway"
 next_room_entrance_node = "DoorUp"
 
-[node name="Sprout3" parent="YSort/Things" index="0" instance=ExtResource("4_homgw")]
+[node name="Sprout1" parent="YSort/Things" index="0" instance=ExtResource("4_homgw")]
+position = Vector2(192, 320)
+interaction_node = "SproutCutscene"
+is_oneshot = true
+
+[node name="Sprout2" parent="YSort/Things" index="1" instance=ExtResource("4_homgw")]
+position = Vector2(448, 448)
+interaction_node = "SproutCutscene"
+is_oneshot = true
+
+[node name="Sprout3" parent="YSort/Things" index="2" instance=ExtResource("4_homgw")]
 position = Vector2(704, 448)
 interaction_node = "SproutCutscene"
 is_oneshot = true
 
-[node name="Sprout4" parent="YSort/Things" index="1" instance=ExtResource("4_homgw")]
+[node name="Sprout4" parent="YSort/Things" index="3" instance=ExtResource("4_homgw")]
 position = Vector2(960, 320)
 interaction_node = "SproutCutscene"
 is_oneshot = true

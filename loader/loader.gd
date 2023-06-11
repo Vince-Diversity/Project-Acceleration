@@ -39,7 +39,9 @@ func new_game():
 func enter_game():
 	var save_game: Resource = load(save_path)
 	_change_to_game()
-	game.load_room(save_game.data["current_room_id"], save_game.data["entrance_node"])
+	game.cache = save_game
+	game.load_room(save_game.data["game"]["current_room_id"], save_game.data["game"]["entrance_node"])
+	game.load_preserved(save_game)
 
 
 func enter_main_menu():

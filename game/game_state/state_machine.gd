@@ -1,15 +1,16 @@
 class_name StateMachine extends GDScript
 
 var state_list: Dictionary
-var current_state: State
+var current_state: GameState
 
 
-func _init(given_current_state: State):
+func _init(given_current_state: GameState):
 	add_state(given_current_state)
 	current_state = given_current_state
+	current_state.enter()
 
 
-func add_state(state: State):
+func add_state(state: GameState):
 	state_list[state.state_id] = state
 
 
@@ -29,3 +30,7 @@ func change_state(state_id: String):
 
 func grab_state_focus():
 	current_state.grab_focus()
+
+
+func save_state(game: Game, save_game: SaveGame):
+	current_state.save(game, save_game)
