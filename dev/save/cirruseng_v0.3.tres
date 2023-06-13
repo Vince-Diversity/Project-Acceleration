@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="SaveGame" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://loader/save_game.gd" id="1_sri65"]
+[ext_resource type="Script" path="res://loader/save_game.gd" id="1_iqasw"]
 
 [resource]
-script = ExtResource("1_sri65")
+script = ExtResource("1_iqasw")
 game_version = "0.3"
 data = {
 "game": {
@@ -13,6 +13,11 @@ data = {
 "rooms": {
 "green_classroom": {
 "things": {
+"BookcasePreserve": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
 "DoorDown": {
 "current_anim": &"default",
 "current_frame": 0,
@@ -48,6 +53,49 @@ data = {
 "current_state": "thing_interactable_state"
 },
 "PassageDown": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+}
+}
+},
+"main_entrance": {
+"things": {
+"Bookcase": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"Cat": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"DefaultDoor": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"PassageLeft": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"PassageUp": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+}
+}
+},
+"main_hallway": {
+"things": {
+"PassageDown": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"PassageGreen": {
 "current_anim": &"default",
 "current_frame": 0,
 "current_state": "thing_interactable_state"

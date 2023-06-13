@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_8"
+type="Resource"
+uid="uid://djidebrgjfuki"
+path="res://.godot/imported/book_preserve.dialogue-60a4cce8c84ed4c8e5574477850face8.tres"
+
+[deps]
+
+source_file="res://resources/dialogue/book_preserve.dialogue"
+dest_files=["res://.godot/imported/book_preserve.dialogue-60a4cce8c84ed4c8e5574477850face8.tres"]
+
+[params]
+

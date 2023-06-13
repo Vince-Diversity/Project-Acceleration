@@ -32,16 +32,17 @@ func _ready_main_menu():
 func new_game():
 	var room_path = Utils.get_room_path(new_game_room_id)
 	if FileAccess.file_exists(room_path):
-		_change_to_game()
+		var save_game = SaveGame.new()
+		save_game.game_version = ProjectSettings.get_setting("application/config/version")
+		_change_to_game(save_game)
 		game.load_room(new_game_room_id, new_game_entrance_node)
 
 
 func enter_game():
 	var save_game: Resource = load(save_path)
-	_change_to_game()
-	game.cache = save_game
-	game.load_room(save_game.data["game"]["current_room_id"], save_game.data["game"]["entrance_node"])
-	game.load_preserved(save_game)
+	_change_to_game(save_game)
+	game.load_room(game.cache.data["game"]["current_room_id"], game.cache.data["game"]["entrance_node"])
+	game.load_preserved(game.cache)
 
 
 func enter_main_menu():
@@ -51,10 +52,10 @@ func enter_main_menu():
 	_add_child_to_root(main_menu)
 
 
-func _change_to_game():
+func _change_to_game(save_game: SaveGame):
 	main_menu.queue_free()
 	game = game_scn.instantiate()
-	game.init_game(self, save_dir)
+	game.init_game(self, save_dir, save_game)
 	_add_child_to_root(game)
 
 

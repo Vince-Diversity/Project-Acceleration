@@ -28,9 +28,10 @@ func _unhandled_input(event):
 	stm.handle_input_state(event)
 
 
-func init_game(given_loader: Loader, given_save_dir: String):
+func init_game(given_loader: Loader, given_save_dir: String, save_game: SaveGame):
 	loader = given_loader
 	save_dir = given_save_dir
+	cache = save_game
 
 
 func load_room(room_id: String, entrance_node: String):
@@ -59,7 +60,6 @@ func change_room(room_id: String, entrance_node: String):
 
 
 func make_save_game(save_game: SaveGame):
-	save_game.game_version = ProjectSettings.get_setting("application/config/version")
 	stm.save_state(self, save_game)
 
 
