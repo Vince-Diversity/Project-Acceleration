@@ -61,6 +61,6 @@ func change_state(thing_state_id: String):
 	current_state.enter()
 
 
-func _on_thing_end_interaction():
+func _on_end_interaction():
 	if is_oneshot:
 		change_state("thing_static_state")

@@ -12,3 +12,4 @@ dest_files=["res://.godot/imported/default.dialogue-e9a8da2ba98aa9c5047db8517030
 
 [params]
 
+defaults=true

@@ -34,6 +34,8 @@ y_sort_enabled = true
 [node name="Things" type="Node2D" parent="YSort"]
 y_sort_enabled = true
 
+[node name="NPCs" type="Node2D" parent="YSort"]
+
 [node name="Party" parent="YSort" instance=ExtResource("3")]
 
 [node name="RoomCutscenes" type="Node2D" parent="."]

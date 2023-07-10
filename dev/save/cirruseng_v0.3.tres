@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="SaveGame" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://loader/save_game.gd" id="1_iqasw"]
+[ext_resource type="Script" path="res://loader/save_game.gd" id="1_7hdg4"]
 
 [resource]
-script = ExtResource("1_iqasw")
+script = ExtResource("1_7hdg4")
 game_version = "0.3"
 data = {
 "game": {
@@ -23,22 +23,32 @@ data = {
 "current_frame": 0,
 "current_state": "thing_interactable_state"
 },
+"GreenTeacherChair": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
 "Sprout1": {
 "current_anim": &"default",
 "current_frame": 0,
 "current_state": "thing_interactable_state"
 },
 "Sprout2": {
-"current_anim": &"bloom",
+"current_anim": &"default",
 "current_frame": 0,
-"current_state": "thing_static_state"
+"current_state": "thing_interactable_state"
 },
 "Sprout3": {
-"current_anim": &"bloom",
+"current_anim": &"default",
 "current_frame": 0,
-"current_state": "thing_static_state"
+"current_state": "thing_interactable_state"
 },
 "Sprout4": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"Table": {
 "current_anim": &"default",
 "current_frame": 0,
 "current_state": "thing_interactable_state"

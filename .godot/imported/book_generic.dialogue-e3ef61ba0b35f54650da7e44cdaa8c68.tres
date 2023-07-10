@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_vobwd"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_f0vkc"]
 
 [resource]
-script = ExtResource("1_vobwd")
+script = ExtResource("1_f0vkc")
 titles = {
 "AO": "3",
 "AT": "8",
@@ -354,4 +354,4 @@ lines = {
 "type": "goto"
 }
 }
-metadata/dialogue_manager_version = "2.15.5"
+metadata/dialogue_manager_version = "2.16.1"

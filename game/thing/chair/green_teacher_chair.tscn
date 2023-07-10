@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1vi7mcs6bvtf"]
+
+[ext_resource type="PackedScene" uid="uid://nfl8ij5d7dfw" path="res://game/thing/thing.tscn" id="1_tw0ps"]
+[ext_resource type="SpriteFrames" uid="uid://mu0hfrorvh46" path="res://resources/things/green_teacher_chair.tres" id="2_p6gtv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nx8bq"]
+size = Vector2(21, 27)
+
+[node name="GreenTeacherChair" instance=ExtResource("1_tw0ps")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = ExtResource("2_p6gtv")
+
+[node name="InteractArea" parent="." index="1"]
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" parent="InteractArea" index="0"]
+shape = null
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2(0.5, -2.5)
+shape = SubResource("RectangleShape2D_nx8bq")

@@ -61,7 +61,7 @@ func check_nearest_interactable():
 			var distance = area.global_position.distance_to(global_position)
 			if distance < shortest_distance:
 				shortest_distance = distance
-				next_nearest_interactable = area.get_thing()
+				next_nearest_interactable = area.owner
 		if next_nearest_interactable != nearest_interactable:
 			nearest_interactable = next_nearest_interactable
 
@@ -84,4 +84,4 @@ func set_nearest_interactable(new_interactable: Node2D):
 
 
 func _on_player_interacted(_interactable: Node2D):
-	nearest_interactable = null
+	set_deferred("nearest_interactable", null)

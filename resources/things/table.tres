@@ -1,0 +1,18 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://cjb5hxm3mc0j7"]
+
+[ext_resource type="Texture2D" uid="uid://ce7tihrjftcfp" path="res://assets/tiles/table_tiles.png" id="1_oefdc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_irk61"]
+atlas = ExtResource("1_oefdc")
+region = Rect2(0, 0, 128, 128)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_irk61")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]

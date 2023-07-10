@@ -3,6 +3,7 @@ class_name Room extends Node2D
 @onready var party = $YSort/Party
 @onready var cutscenes = $RoomCutscenes
 @onready var things = $YSort/Things
+@onready var npcs = $YSort/NPCs
 @onready var doors = $Doors
 @onready var party_roam_state: PartyRoamState = preload("res://game/game_state/party_roam_state.gd").new("party_roam_state")
 @onready var cutscene_state: CutsceneState = preload("res://game/game_state/cutscene_state.gd").new("cutscene_state")
@@ -26,6 +27,7 @@ func _ready():
 	_ready_entrance()
 	_ready_doors()
 	_ready_things()
+	_ready_npcs()
 	_ready_states()
 	_ready_cutscenes()
 	stm.change_state(party_roam_state.state_id)
@@ -63,8 +65,14 @@ func _ready_things():
 	thing_rng.set_seed(thing_seed)
 	for thing in things.get_children():
 		player_interacted.connect(thing.check_interaction)
-		thing.begin_interaction.connect(_on_thing_begin_interaction)
+		thing.begin_interaction.connect(_on_begin_interaction)
 		thing.set_rng(thing_rng)
+
+
+func _ready_npcs():
+	for npc in npcs.get_children():
+		player_interacted.connect(npc.check_interaction)
+		npc.begin_interaction.connect(_on_begin_interaction)
 
 
 func _ready_states():
@@ -109,14 +117,14 @@ func _on_player_interacted(interactable: Node2D):
 	player_interacted.emit(interactable)
 
 
-func _on_thing_begin_interaction(thing: Thing):
-	if cutscenes.has_node(thing.interaction_node):
-		cutscenes.change_cutscene(thing.interaction_node)
-		cutscenes.change_dialogue(thing.dialogue_id, thing.dialogue_node)
-		cutscenes.change_source_node(thing.name)
+func _on_begin_interaction(target: Node2D):
+	if cutscenes.has_node(target.interaction_node):
+		cutscenes.change_cutscene(target.interaction_node)
+		cutscenes.change_dialogue(target.dialogue_id, target.dialogue_node)
+		cutscenes.change_source_node(target.name)
 		cutscenes.current_cutscene.cutscene_started.emit()
 		stm.change_state(cutscene_state.state_id)
-		end_interaction.connect(thing._on_thing_end_interaction, CONNECT_ONE_SHOT)
+		end_interaction.connect(target._on_end_interaction, CONNECT_ONE_SHOT)
 	else:
 		var dlg_cutscene: Cutscene = dialogue_cutscene_scn.instantiate()
 		cutscenes.add_child(dlg_cutscene)
@@ -124,8 +132,8 @@ func _on_thing_begin_interaction(thing: Thing):
 		_ready_cutscene(dlg_cutscene)
 		var new_name = "Default%s" % cutscenes.get_children().size()
 		dlg_cutscene.name = new_name
-		thing.interaction_node = new_name
-		_on_thing_begin_interaction.call_deferred(thing)
+		target.interaction_node = new_name
+		_on_begin_interaction.call_deferred(target)
 
 
 func _on_door_begin_interaction(door: Thing):
@@ -133,7 +141,7 @@ func _on_door_begin_interaction(door: Thing):
 	if FileAccess.file_exists(room_path):
 		room_changed.emit(door.next_room_id, door.next_room_entrance_node)
 	else:
-		_on_thing_begin_interaction(door)
+		_on_begin_interaction(door)
 
 
 func _on_cutscene_started():

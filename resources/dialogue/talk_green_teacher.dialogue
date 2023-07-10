@@ -1,0 +1,7 @@
+~ cue
+do move("talk")
+=> END!
+
+~ talk
+
+=> END!

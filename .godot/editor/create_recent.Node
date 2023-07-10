@@ -1,12 +1,13 @@
+CollisionShape2D
+Area2D
+Node2D
 Marker2D
 MarginContainer
 ColorRect
 VBoxContainer
 VSplitContainer
 TextureRect
-Node2D
 CanvasLayer
-CollisionShape2D
 StaticBody2D
 AnimatedSprite2D
 CharacterBody2D

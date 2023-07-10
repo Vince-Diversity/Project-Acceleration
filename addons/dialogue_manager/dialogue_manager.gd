@@ -1,5 +1,7 @@
 extends Node
 
+
+signal passed_title(title)
 signal got_dialogue(line)
 signal mutated(mutation)
 signal dialogue_ended(resource)
@@ -10,6 +12,33 @@ const DialogueConstants = preload("res://addons/dialogue_manager/constants.gd")
 const DialogueSettings = preload("res://addons/dialogue_manager/components/settings.gd")
 const DialogueLine = preload("res://addons/dialogue_manager/dialogue_line.gd")
 const DialogueResponse = preload("res://addons/dialogue_manager/dialogue_response.gd")
+
+const SUPPORTED_ARRAY_METHODS = [
+	"assign",
+	"append",
+	"append_array",
+	"back",
+	"count",
+	"clear",
+	"erase",
+	"has",
+	"insert",
+	"is_empty",
+	"max",
+	"min",
+	"pick_random",
+	"pop_at",
+	"pop_back",
+	"pop_front",
+	"push_back",
+	"push_front",
+	"remove_at",
+	"reverse",
+	"shuffle",
+	"size",
+	"sort"
+]
+const SUPPORTED_DICTIONARY_METHODS = ["has", "has_all", "get", "keys", "values", "size"]
 
 
 enum MutationBehaviour {
@@ -49,8 +78,12 @@ func _ready() -> void:
 	# Add any autoloads to a generic state so we can refer to them by name
 	var autoloads: Dictionary = {}
 	for child in get_tree().root.get_children():
-		if not child.name in [StringName("DialogueManager"), get_tree().current_scene.name]:
-			autoloads[child.name] = child
+		# Ignore the dialogue manager
+		if child.name == StringName("DialogueManager"): continue
+		# Ignore the current main scene
+		if get_tree().current_scene and child.name == get_tree().current_scene.name: continue
+		# Add the node to our known autoloads
+		autoloads[child.name] = child
 	game_states = [autoloads]
 
 	# Add any other state shortcuts from settings
@@ -66,8 +99,8 @@ func _ready() -> void:
 ## Step through lines and run any mutations until we either hit some dialogue or the end of the conversation
 func get_next_dialogue_line(resource: DialogueResource, key: String = "0", extra_game_states: Array = [], mutation_behaviour: MutationBehaviour = MutationBehaviour.Wait) -> DialogueLine:
 	# You have to provide a valid dialogue resource
-	assert(resource != null, "No dialogue resource provided")
-	assert(resource.lines.size() > 0, "Dialogue file has no content.")
+	assert(resource != null, DialogueConstants.translate("runtime.no_resource"))
+	assert(resource.lines.size() > 0, DialogueConstants.translate("runtime.no_content").format({ file_path = resource.resource_path }))
 
 	var dialogue: DialogueLine = await get_line(resource, key, extra_game_states)
 
@@ -117,16 +150,19 @@ func get_resolved_text(text: String, replacements: Array, extra_game_states: Arr
 ## Generate a dialogue resource on the fly from some text
 func create_resource_from_text(text: String) -> Resource:
 	var parser: DialogueManagerParser = DialogueManagerParser.new()
-	parser.parse(text)
+	parser.parse(text, "")
 	var results: DialogueManagerParseResult = parser.get_data()
 	var errors: Array[Dictionary] = parser.get_errors()
 	parser.free()
 
 	if errors.size() > 0:
-		printerr("You have {count} errors in your dialogue text.".format({ count = errors.size() }))
+		printerr(DialogueConstants.translate("runtime.errors").format({ count = errors.size() }))
 		for error in errors:
-			printerr("Line %d: %s" % [error.line_number + 1, DialogueConstants.get_error_message(error.error)])
-		assert(false, "You have {count} errors in your dialogue text. See Output for details.".format({ count = errors.size() }))
+			printerr(DialogueConstants.translate("runtime.error_detail").format({
+				line = error.line_number + 1,
+				message = DialogueConstants.get_error_message(error.error)
+			}))
+		assert(false, DialogueConstants.translate("runtime.errors_see_details").format({ count = errors.size() }))
 
 	var resource: DialogueResource = DialogueResource.new()
 	resource.titles = results.titles
@@ -153,7 +189,7 @@ func show_example_dialogue_balloon(resource: DialogueResource, title: String = "
 func _bridge_get_next_dialogue_line(resource: DialogueResource, key: String, extra_game_states: Array = []) -> void:
 	# dotnet needs at least one await tick of the signal gets called too quickly
 	await get_tree().process_frame
-	
+
 	var line = await get_next_dialogue_line(resource, key, extra_game_states)
 	bridge_get_next_dialogue_line_completed.emit(line)
 
@@ -184,6 +220,9 @@ func get_line(resource: DialogueResource, key: String, extra_game_states: Array)
 		key = key.substr(2)
 	if resource.titles.has(key):
 		key = resource.titles.get(key)
+
+	if key in resource.titles.values():
+		passed_title.emit(resource.titles.find_key(key))
 
 	# Key not found, just use the first title
 	if not resource.lines.has(key):
@@ -219,6 +258,9 @@ func get_line(resource: DialogueResource, key: String, extra_game_states: Array)
 	# Set up a line object
 	var line: DialogueLine = await create_dialogue_line(data, extra_game_states)
 
+	# If the jump point somehow has no content then just end
+	if not line: return null
+
 	# If we are the first of a list of responses then get the other ones
 	if data.type == DialogueConstants.TYPE_RESPONSE:
 		line.responses = await get_responses(data.responses, resource, id_trail, extra_game_states)
@@ -242,16 +284,16 @@ func translate(data: Dictionary) -> String:
 	if data.translation_key == "" or data.translation_key == data.text:
 		return tr(data.text)
 	else:
-		# Line IDs work slightly differently depending on whether the translation came from a 
+		# Line IDs work slightly differently depending on whether the translation came from a
 		# CSV or a PO file. CSVs use the line ID (or the line itself) as the translatable string
 		# whereas POs use the ID as context and the line itself as the translatable string.
 		match translation_source:
 			TranslationSource.PO:
 				return tr(data.text, StringName(data.translation_key))
-			
+
 			TranslationSource.CSV:
 				return tr(data.translation_key)
-			
+
 			TranslationSource.Guess:
 				var translation_files: Array = ProjectSettings.get_setting("internationalization/locale/translations")
 				if translation_files.filter(func(f: String): return f.get_extension() == "po").size() > 0:
@@ -260,7 +302,7 @@ func translate(data: Dictionary) -> String:
 				else:
 					# Assume CSV
 					return tr(data.translation_key)
-	
+
 	return tr(data.translation_key)
 
 
@@ -373,10 +415,11 @@ func mutate(mutation: Dictionary, extra_game_states: Array, is_inline_mutation: 
 						return
 
 				# The signal hasn't been found anywhere
-				assert(false, "\"{signal_name}\" is not a signal on any game states ({states})".format({ signal_name = args[0], states = str(get_game_states(extra_game_states)) }))
+				assert(false, DialogueConstants.translate("runtime.signal_not_found").format({ signal_name = args[0], states = str(get_game_states(extra_game_states)) }))
 
 			"debug":
 				prints("Debug:", args)
+				await get_tree().process_frame
 
 	# Or pass through to the resolver
 	else:
@@ -421,7 +464,7 @@ func get_responses(ids: Array, resource: DialogueResource, id_trail: String, ext
 func get_state_value(property: String, extra_game_states: Array):
 	var expression = Expression.new()
 	if expression.parse(property) != OK:
-		assert(false, "\"{expression}\" is not a valid expression: {error}".format({ expression = property, error = expression.get_error_text() }))
+		assert(false, DialogueConstants.translate("runtime.invalid_expression").format({ expression = property, error = expression.get_error_text() }))
 
 	for state in get_game_states(extra_game_states):
 		if typeof(state) == TYPE_DICTIONARY:
@@ -431,11 +474,11 @@ func get_state_value(property: String, extra_game_states: Array):
 			var result = expression.execute([], state, false)
 			if not expression.has_execute_failed():
 				return result
-	
+
 	if include_singletons and Engine.has_singleton(property):
 		return Engine.get_singleton(property)
 
-	assert(false, "\"{property}\" is not a property on any game states ({states}).".format({ property = property, states = str(get_game_states(extra_game_states)) }))
+	assert(false, DialogueConstants.translate("runtime.property_not_found").format({ property = property, states = str(get_game_states(extra_game_states)) }))
 
 
 # Set a value on the current scene or game state
@@ -449,7 +492,7 @@ func set_state_value(property: String, value, extra_game_states: Array) -> void:
 			state.set(property, value)
 			return
 
-	assert(false, "\"{property}\" is not a property on any game states ({states}).".format({ property = property, states = str(get_game_states(extra_game_states)) }))
+	assert(false, DialogueConstants.translate("runtime.property_not_found").format({ property = property, states = str(get_game_states(extra_game_states)) }))
 
 
 # Collapse any expressions
@@ -464,111 +507,99 @@ func resolve(tokens: Array, extra_game_states: Array):
 	var i: int = 0
 	var limit: int = 0
 	while i < tokens.size() and limit < 1000:
+		limit += 1
 		var token: Dictionary = tokens[i]
 
 		if token.type == DialogueConstants.TOKEN_FUNCTION:
 			var function_name: String = token.function
 			var args = await resolve_each(token.value, extra_game_states)
-			if function_name == "str":
-				token["type"] = "value"
-				token["value"] = str(args[0])
-			elif tokens[i - 1].type == DialogueConstants.TOKEN_DOT:
-				# If we are calling a deeper function then we need to collapse the
-				# value into the thing we are calling the function on
-				var caller: Dictionary = tokens[i - 2]
-				if typeof(caller.value) == TYPE_DICTIONARY:
-					caller["type"] = "value"
-					match function_name:
-						"has":
-							caller["value"] = caller.value.has(args[0])
-						"get":
-							caller["value"] = caller.value.get(args[0])
-						"keys":
-							caller["value"] = caller.value.keys()
-						"values":
-							caller["value"] = caller.value.values()
-						"size":
-							caller["value"] = caller.value.size()
-						"clear":
-							caller["value"] = caller.value.clear()
-						_:
-							caller["value"] = null
-					tokens.remove_at(i)
-					tokens.remove_at(i-1)
-					i -= 2
-				elif typeof(caller.value) == TYPE_ARRAY:
-					caller["type"] = "value"
-					match function_name:
-						"append":
-							caller["value"] = caller.value.append(args[0])
-						"size":
-							caller["value"] = caller.value.size()
-						"clear":
-							caller["value"] = caller.value.clear()
-						_:
-							caller["value"] = null
-					tokens.remove_at(i)
-					tokens.remove_at(i-1)
-					i -= 2
-				elif thing_has_method(caller.value, function_name, args):
-					caller["type"] = "value"
-					caller["value"] = await caller.value.callv(function_name, args)
-					tokens.remove_at(i)
-					tokens.remove_at(i-1)
-					i -= 2
-				else:
-					assert(false, "\"{method}\" is not a callable method on \"{object}\"".format({ method = function_name, object = str(caller) }))
-			else:
-				var found: bool = false
-				for state in get_game_states(extra_game_states):
-					if typeof(state) == TYPE_DICTIONARY:
-						match function_name:
-							"has":
+			match function_name:
+				"str":
+					token["type"] = "value"
+					token["value"] = str(args[0])
+				"Vector2":
+					token["type"] = "value"
+					token["value"] = Vector2(args[0], args[1])
+				"Vector2i":
+					token["type"] = "value"
+					token["value"] = Vector2i(args[0], args[1])
+				"Vector3":
+					token["type"] = "value"
+					token["value"] = Vector3(args[0], args[1], args[2])
+				"Vector3i":
+					token["type"] = "value"
+					token["value"] = Vector3i(args[0], args[1], args[2])
+				"Vector4":
+					token["type"] = "value"
+					token["value"] = Vector4(args[0], args[1], args[2], args[3])
+				"Vector4i":
+					token["type"] = "value"
+					token["value"] = Vector4i(args[0], args[1], args[2], args[3])
+				_:
+					if tokens[i - 1].type == DialogueConstants.TOKEN_DOT:
+						# If we are calling a deeper function then we need to collapse the
+						# value into the thing we are calling the function on
+						var caller: Dictionary = tokens[i - 2]
+						if typeof(caller.value) == TYPE_DICTIONARY:
+							caller["type"] = "value"
+							caller["value"] = resolve_dictionary_method(caller.value, function_name, args)
+							tokens.remove_at(i)
+							tokens.remove_at(i-1)
+							i -= 2
+						elif typeof(caller.value) == TYPE_ARRAY:
+							caller["type"] = "value"
+							caller["value"] = resolve_array_method(caller.value, function_name, args)
+							tokens.remove_at(i)
+							tokens.remove_at(i-1)
+							i -= 2
+						elif thing_has_method(caller.value, function_name, args):
+							caller["type"] = "value"
+							caller["value"] = await caller.value.callv(function_name, args)
+							tokens.remove_at(i)
+							tokens.remove_at(i-1)
+							i -= 2
+						else:
+							assert(false, DialogueConstants.translate("runtime.method_not_callable").format({ method = function_name, object = str(caller) }))
+					else:
+						var found: bool = false
+						for state in get_game_states(extra_game_states):
+							if typeof(state) == TYPE_DICTIONARY and function_name in SUPPORTED_DICTIONARY_METHODS:
 								token["type"] = "value"
-								token["value"] = state.has(args[0])
+								token["value"] = resolve_dictionary_method(state, function_name, args)
 								found = true
-							"get":
+							elif typeof(state) == TYPE_ARRAY and function_name in SUPPORTED_ARRAY_METHODS:
 								token["type"] = "value"
-								token["value"] = state.get(args[0])
+								token["value"] = resolve_array_method(state, function_name, args)
 								found = true
-							"keys":
+							elif thing_has_method(state, function_name, args):
 								token["type"] = "value"
-								token["value"] = state.keys()
+								token["value"] = await state.callv(function_name, args)
 								found = true
-							"values":
-								token["type"] = "value"
-								token["value"] = state.values()
-								found = true
-							"size":
-								token["type"] = "value"
-								token["value"] = state.size()
-								found = true
-					elif typeof(state) == TYPE_ARRAY:
-						match function_name:
-							"size":
-								token["type"] = "value"
-								token["value"] = state.size()
-								found = true
-					elif thing_has_method(state, function_name, args):
-						token["type"] = "value"
-						token["value"] = await state.callv(function_name, args)
-						found = true
-					
-					if found:
-						break
 
-				if not found:
-					assert(false, "\"{method}\" is not a method on any game states ({states})".format({ 
-						method = args[0] if function_name in ["call", "call_deferred"] else function_name, 
-						states = str(get_game_states(extra_game_states)) 
-					}))
+							if found:
+								break
+
+						assert(found, DialogueConstants.translate("runtime.method_not_found").format({
+							method = args[0] if function_name in ["call", "call_deferred"] else function_name,
+							states = str(get_game_states(extra_game_states))
+						}))
 
 		elif token.type == DialogueConstants.TOKEN_DICTIONARY_REFERENCE:
 			var value
 			if i > 0 and tokens[i - 1].type == DialogueConstants.TOKEN_DOT:
+				# If we are deep referencing then we need to get the parent object.
+				# `parent.value` is the actual object and `token.variable` is the name of
+				# the property within it.
 				value = tokens[i - 2].value[token.variable]
+				# Clean up the previous tokens
+				token.erase("variable")
+				tokens.remove_at(i - 1)
+				tokens.remove_at(i - 2)
+				i -= 2
 			else:
+				# Otherwise we can just get this variable as a normal state reference
 				value = get_state_value(token.variable, extra_game_states)
+
 			var index = await resolve(token.value, extra_game_states)
 			if typeof(value) == TYPE_DICTIONARY:
 				if tokens.size() > i + 1 and tokens[i + 1].type == DialogueConstants.TOKEN_ASSIGNMENT:
@@ -582,7 +613,7 @@ func resolve(tokens: Array, extra_game_states: Array):
 						token["type"] = "value"
 						token["value"] = value[index]
 					else:
-						assert(false, "Key \"{key}\" not found in dictionary \"{dictionary}\"".format({ key = str(index), dictionary = token.variable }))
+						assert(false, DialogueConstants.translate("runtime.key_not_found").format({ key = str(index), dictionary = token.variable }))
 			elif typeof(value) == TYPE_ARRAY:
 				if tokens.size() > i + 1 and tokens[i + 1].type == DialogueConstants.TOKEN_ASSIGNMENT:
 					# If the next token is an assignment then we need to leave this as a reference
@@ -595,7 +626,7 @@ func resolve(tokens: Array, extra_game_states: Array):
 						token["type"] = "value"
 						token["value"] = value[index]
 					else:
-						assert(false, "Index {index} out of bounds of array \"{array}\"".format({ index = index, array = token.variable }))
+						assert(false, DialogueConstants.translate("runtime.array_index_out_of_bounds").format({ index = index, array = token.variable }))
 
 		elif token.type == DialogueConstants.TOKEN_DICTIONARY_NESTED_REFERENCE:
 			var dictionary: Dictionary = tokens[i - 1]
@@ -616,7 +647,7 @@ func resolve(tokens: Array, extra_game_states: Array):
 						tokens.remove_at(i)
 						i -= 1
 					else:
-						assert(false, "Key \"{key}\" not found in dictionary \"{dictionary}\"".format({ key = str(index), dictionary = value }))
+						assert(false, DialogueConstants.translate("runtime.key_not_found").format({ key = str(index), dictionary = value }))
 			elif typeof(value) == TYPE_ARRAY:
 				if tokens.size() > i + 1 and tokens[i + 1].type == DialogueConstants.TOKEN_ASSIGNMENT:
 					# If the next token is an assignment then we need to leave this as a reference
@@ -632,7 +663,7 @@ func resolve(tokens: Array, extra_game_states: Array):
 						tokens.remove_at(i)
 						i -= 1
 					else:
-						assert(false, "Index {index} out of bounds of array \"{array}\"".format({ index = index, array = value }))
+						assert(false, DialogueConstants.translate("runtime.array_index_out_of_bounds").format({ index = index, array = value }))
 
 		elif token.type == DialogueConstants.TOKEN_ARRAY:
 			token["type"] = "value"
@@ -647,8 +678,8 @@ func resolve(tokens: Array, extra_game_states: Array):
 				dictionary[resolved_key] = resolved_value
 			token["value"] = dictionary
 
-		elif token.type == DialogueConstants.TOKEN_VARIABLE:
-			if token.value == "null":
+		elif token.type == DialogueConstants.TOKEN_VARIABLE or token.type == DialogueConstants.TOKEN_NUMBER:
+			if str(token.value) == "null":
 				token["type"] = "value"
 				token["value"] = null
 			elif tokens[i - 1].type == DialogueConstants.TOKEN_DOT:
@@ -663,7 +694,10 @@ func resolve(tokens: Array, extra_game_states: Array):
 					# If we are requesting a deeper property then we need to collapse the
 					# value into the thing we are referencing from
 					caller["type"] = "value"
-					caller["value"] = caller.value.get(property)
+					if typeof(caller.value) == TYPE_ARRAY:
+						caller["value"] = caller.value[property]
+					else:
+						caller["value"] = caller.value.get(property)
 				tokens.remove_at(i)
 				tokens.remove_at(i-1)
 				i -= 2
@@ -673,7 +707,7 @@ func resolve(tokens: Array, extra_game_states: Array):
 				token["type"] = "variable"
 			else:
 				token["type"] = "value"
-				token["value"] = get_state_value(token.value, extra_game_states)
+				token["value"] = get_state_value(str(token.value), extra_game_states)
 
 		i += 1
 
@@ -691,8 +725,7 @@ func resolve(tokens: Array, extra_game_states: Array):
 			i -= 1
 		i += 1
 
-	if limit >= 1000:
-		assert(false, "Something went wrong")
+	assert(limit < 1000, DialogueConstants.translate("runtime.something_went_wrong"))
 
 	# Then addition and subtraction
 	i = 0
@@ -708,8 +741,7 @@ func resolve(tokens: Array, extra_game_states: Array):
 			i -= 1
 		i += 1
 
-	if limit >= 1000:
-		assert(false, "Something went wrong")
+	assert(limit < 1000, DialogueConstants.translate("runtime.something_went_wrong"))
 
 	# Then negations
 	i = 0
@@ -724,8 +756,7 @@ func resolve(tokens: Array, extra_game_states: Array):
 			i -= 1
 		i += 1
 
-	if limit >= 1000:
-		assert(false, "Something went wrong")
+	assert(limit < 1000, DialogueConstants.translate("runtime.something_went_wrong"))
 
 	# Then comparisons
 	i = 0
@@ -741,8 +772,7 @@ func resolve(tokens: Array, extra_game_states: Array):
 			i -= 1
 		i += 1
 
-	if limit >= 1000:
-		assert(false, "Something went wrong")
+	assert(limit < 1000, DialogueConstants.translate("runtime.something_went_wrong"))
 
 	# Then and/or
 	i = 0
@@ -758,8 +788,7 @@ func resolve(tokens: Array, extra_game_states: Array):
 			i -= 1
 		i += 1
 
-	if limit >= 1000:
-		assert(false, "Something went wrong")
+	assert(limit < 1000, DialogueConstants.translate("runtime.something_went_wrong"))
 
 	# Lastly, resolve any assignments
 	i = 0
@@ -785,11 +814,11 @@ func resolve(tokens: Array, extra_game_states: Array):
 					value = apply_operation(token.value, lhs.value.get(lhs.key, null), tokens[i+1].value)
 					lhs.value[lhs.key] = value
 				"array":
-					assert(lhs.key < lhs.value.size(), "Array index is out of bounds.")
+					assert(lhs.key < lhs.value.size(), DialogueConstants.translate("runtime.array_index_out_of_bounds").format({ index = lhs.key, array = lhs.value }))
 					value = apply_operation(token.value, lhs.value[lhs.key], tokens[i+1].value)
 					lhs.value[lhs.key] = value
 				_:
-					assert(false, "Left hand side of expression cannot be assigned to.")
+					assert(false, DialogueConstants.translate("runtime.left_hand_size_cannot_be_assigned_to"))
 
 			token["type"] = "value"
 			token["value"] = value
@@ -798,8 +827,7 @@ func resolve(tokens: Array, extra_game_states: Array):
 			i -= 1
 		i += 1
 
-	if limit >= 1000:
-		assert(false, "Something went wrong")
+	assert(limit < 1000, DialogueConstants.translate("runtime.something_went_wrong"))
 
 	return tokens[0].value
 
@@ -878,7 +906,7 @@ func apply_operation(operator: String, first_value, second_value):
 		"or":
 			return first_value or second_value
 
-	assert(false, "Unknown operator")
+	assert(false, DialogueConstants.translate("runtime.unknown_operator"))
 
 
 # Check if a dialogue line contains meaningful information
@@ -892,12 +920,18 @@ func is_valid(line: DialogueLine) -> bool:
 	return true
 
 
-func thing_has_method(thing: Object, method: String, args: Array) -> bool:
+func thing_has_method(thing, method: String, args: Array) -> bool:
+	match typeof(thing):
+		TYPE_DICTIONARY:
+			return method in SUPPORTED_DICTIONARY_METHODS
+		TYPE_ARRAY:
+			return method in SUPPORTED_ARRAY_METHODS
+
 	if method in ["call", "call_deferred"]:
 		return thing.has_method(args[0])
 	else:
 		return thing.has_method(method)
-	
+
 
 # Check if a given property exists
 func thing_has_property(thing: Object, property: String) -> bool:
@@ -912,3 +946,83 @@ func thing_has_property(thing: Object, property: String) -> bool:
 			return true
 
 	return false
+
+
+func resolve_array_method(array: Array, method_name: String, args: Array):
+	match method_name:
+		"assign":
+			array.assign(args[0])
+			return null
+		"append":
+			array.append(args[0])
+			return null
+		"append_array":
+			array.append_array(args[0])
+			return null
+		"back":
+			return array.back()
+		"count":
+			return array.count(args[0])
+		"clear":
+			array.clear()
+			return null
+		"erase":
+			array.erase(args[0])
+		"has":
+			return array.has(args[0])
+		"insert":
+			return array.insert(args[0], args[1])
+		"is_empty":
+			return array.is_empty()
+		"max":
+			return array.max()
+		"min":
+			return array.min()
+		"pick_random":
+			return array.pick_random()
+		"pop_at":
+			return array.pop_at(args[0])
+		"pop_back":
+			return array.pop_back()
+		"pop_front":
+			return array.pop_front()
+		"push_back":
+			array.push_back(args[0])
+			return null
+		"push_front":
+			array.push_front(args[0])
+			return null
+		"remove_at":
+			array.remove_at(args[0])
+			return null
+		"reverse":
+			array.reverse()
+			return null
+		"shuffle":
+			array.shuffle()
+			return null
+		"size":
+			return array.size()
+		"sort":
+			array.sort()
+			return null
+
+	assert(false, DialogueConstants.translate("runtime.unsupported_array_method").format({ method_name = method_name }))
+
+
+func resolve_dictionary_method(dictionary: Dictionary, method_name: String, args: Array):
+	match method_name:
+		"has":
+			return dictionary.has(args[0])
+		"has_all":
+			return dictionary.has_all(args[0])
+		"get":
+			return dictionary.get(args[0])
+		"keys":
+			return dictionary.keys()
+		"values":
+			return dictionary.values()
+		"size":
+			return dictionary.size()
+
+	assert(false, DialogueConstants.translate("runtime.unsupported_dictionary_method").format({ method_name = method_name }))

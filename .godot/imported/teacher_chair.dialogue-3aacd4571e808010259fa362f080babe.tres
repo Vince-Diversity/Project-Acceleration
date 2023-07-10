@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_kketg"]
+
+[resource]
+script = ExtResource("1_kketg")
+titles = {
+"ponder": "3"
+}
+character_names = PackedStringArray("{{green}}")
+first_title = "3"
+lines = {
+"1": {
+"next_id": "3",
+"text": "ponder",
+"type": "title"
+},
+"3": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"next_id": "",
+"text": "(Seems a little rude not to talk to the teacher in front of their desk.)",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "(Seems a little rude not to talk to the teacher in front of their desk.)",
+"type": "dialogue"
+}
+}
+metadata/dialogue_manager_version = "2.16.1"

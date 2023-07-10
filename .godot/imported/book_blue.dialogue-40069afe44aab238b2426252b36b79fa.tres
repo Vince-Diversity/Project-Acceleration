@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_7223o"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_dmjjq"]
 
 [resource]
-script = ExtResource("1_7223o")
+script = ExtResource("1_dmjjq")
 titles = {
 "check": "2",
 "open_book": "7",
@@ -191,4 +191,4 @@ lines = {
 "type": "goto"
 }
 }
-metadata/dialogue_manager_version = "2.15.5"
+metadata/dialogue_manager_version = "2.16.1"
