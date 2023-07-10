@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ds36i8l6a4epu"]
+[gd_scene load_steps=11 format=3 uid="uid://ds36i8l6a4epu"]
 
 [ext_resource type="PackedScene" uid="uid://c1go3780g6ead" path="res://game/room/room.tscn" id="1_w8x7q"]
 [ext_resource type="TileSet" uid="uid://cvo2pdotfacvp" path="res://resources/tilesets/green_interior.tres" id="2_vypme"]
@@ -6,12 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://dopivkfksretw" path="res://game/thing/sprout/sprout.tscn" id="4_homgw"]
 [ext_resource type="PackedScene" uid="uid://cbqllvvoulkny" path="res://game/cutscene/silent_cutscene/sprout_cutscene/sprout_cutscene.tscn" id="5_30x1x"]
 [ext_resource type="PackedScene" uid="uid://f62lyhp5kra6" path="res://game/thing/bookcase/bookcase.tscn" id="5_4731s"]
-[ext_resource type="PackedScene" uid="uid://b1vi7mcs6bvtf" path="res://game/thing/chair/green_teacher_chair.tscn" id="6_5tvfd"]
+[ext_resource type="PackedScene" uid="uid://b1vi7mcs6bvtf" path="res://game/thing/chair/teacher_chair.tscn" id="6_5tvfd"]
 [ext_resource type="PackedScene" uid="uid://dupbg42hwtmve" path="res://game/thing/table/table.tscn" id="7_3h84b"]
 [ext_resource type="PackedScene" uid="uid://bqlmbt878hrxk" path="res://game/cutscene/dialogue_cutscene.tscn" id="7_anbct"]
 [ext_resource type="PackedScene" uid="uid://4514c46hbp0d" path="res://game/character/npc.tscn" id="7_dyagn"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_l3nb0"]
 
 [node name="GreenClassroom" instance=ExtResource("1_w8x7q")]
 
@@ -51,20 +49,13 @@ interaction_node = "Preserve"
 dialogue_id = "book_preserve"
 dialogue_node = "cue"
 
-[node name="GreenTeacherChair" parent="YSort/Things" index="5" instance=ExtResource("6_5tvfd")]
+[node name="Table" parent="YSort/Things" index="5" instance=ExtResource("7_3h84b")]
+position = Vector2(577, 196)
+
+[node name="GreenTeacherChair" parent="YSort/Things" index="6" instance=ExtResource("6_5tvfd")]
 position = Vector2(576, 177)
 dialogue_id = "teacher_chair"
 dialogue_node = "ponder"
-
-[node name="InteractArea" parent="YSort/Things/GreenTeacherChair" index="1"]
-monitoring = true
-monitorable = true
-
-[node name="CollisionShape2D" parent="YSort/Things/GreenTeacherChair/InteractArea" index="0"]
-shape = SubResource("CircleShape2D_l3nb0")
-
-[node name="Table" parent="YSort/Things" index="6" instance=ExtResource("7_3h84b")]
-position = Vector2(577, 196)
 
 [node name="NPCs" parent="YSort" index="1"]
 y_sort_enabled = true
@@ -96,6 +87,5 @@ target_direction_id = 2
 position = Vector2(30, 58)
 target_direction_id = 2
 
-[editable path="YSort/Things/GreenTeacherChair"]
 [editable path="RoomCutscenes/Preserve"]
 [editable path="RoomCutscenes/Teacher"]

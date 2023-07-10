@@ -14,8 +14,6 @@ class_name Thing extends StaticBody2D
 var state_list: Dictionary
 var current_state: ThingState
 
-signal begin_interaction(thing: Thing)
-
 
 func _ready():
 	state_list[interactable_state.state_id] = interactable_state
@@ -51,16 +49,7 @@ func set_rng(_thing_rng: RandomNumberGenerator):
 	pass
 
 
-func check_interaction(given_interactable: Node2D):
-	current_state.check_interaction(given_interactable)
-
-
 func change_state(thing_state_id: String):
 	current_state.exit()
 	current_state = state_list[thing_state_id]
 	current_state.enter()
-
-
-func _on_end_interaction():
-	if is_oneshot:
-		change_state("thing_static_state")

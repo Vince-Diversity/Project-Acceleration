@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://4514c46hbp0d"]
+[gd_scene load_steps=7 format=3 uid="uid://4514c46hbp0d"]
 
 [ext_resource type="PackedScene" uid="uid://bk16wp1xkfq2e" path="res://game/character/character.tscn" id="1_sq2pm"]
 [ext_resource type="SpriteFrames" uid="uid://cvjyjjje5g2bm" path="res://resources/characters/green_teacher.tres" id="2_1pq5w"]
 [ext_resource type="Script" path="res://game/character/npc.gd" id="2_n6ygt"]
+[ext_resource type="Script" path="res://game/interactable/npc_interactable.gd" id="5_b0ehn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v3p7s"]
 height = 20.0
@@ -12,7 +13,6 @@ height = 40.0
 
 [node name="NPC" instance=ExtResource("1_sq2pm")]
 collision_layer = 8
-collision_mask = 1
 script = ExtResource("2_n6ygt")
 interaction_node = ""
 dialogue_id = ""
@@ -32,6 +32,7 @@ shape = null
 [node name="InteractArea" type="Area2D" parent="." index="3"]
 collision_layer = 5
 collision_mask = 5
+script = ExtResource("5_b0ehn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea" index="0"]
 position = Vector2(0, 20)

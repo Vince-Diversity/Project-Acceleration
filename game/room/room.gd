@@ -55,8 +55,9 @@ func _ready_entrance():
 
 func _ready_doors():
 	for door in doors.get_children():
-		player_interacted.connect(door.check_interaction)
-		door.begin_interaction.connect(_on_door_begin_interaction)
+		var door_interactable = door.get_node("InteractArea")
+		player_interacted.connect(door_interactable.check_interaction)
+		door_interactable.begin_interaction.connect(_on_door_begin_interaction)
 
 
 func _ready_things():
@@ -64,15 +65,17 @@ func _ready_things():
 	var thing_seed = Utils.str_to_seed(name)
 	thing_rng.set_seed(thing_seed)
 	for thing in things.get_children():
-		player_interacted.connect(thing.check_interaction)
-		thing.begin_interaction.connect(_on_begin_interaction)
+		var thing_interactable = thing.get_node("InteractArea")
+		player_interacted.connect(thing_interactable.check_interaction)
+		thing_interactable.begin_interaction.connect(_on_begin_interaction)
 		thing.set_rng(thing_rng)
 
 
 func _ready_npcs():
 	for npc in npcs.get_children():
-		player_interacted.connect(npc.check_interaction)
-		npc.begin_interaction.connect(_on_begin_interaction)
+		var npc_interactable = npc.get_node("InteractArea")
+		player_interacted.connect(npc_interactable.check_interaction)
+		npc_interactable.begin_interaction.connect(_on_begin_interaction)
 
 
 func _ready_states():
@@ -117,11 +120,12 @@ func _on_player_interacted(interactable: Node2D):
 	player_interacted.emit(interactable)
 
 
-func _on_begin_interaction(target: Node2D):
-	if cutscenes.has_node(target.interaction_node):
-		cutscenes.change_cutscene(target.interaction_node)
-		cutscenes.change_dialogue(target.dialogue_id, target.dialogue_node)
-		cutscenes.change_source_node(target.name)
+func _on_begin_interaction(target_root: Node2D):
+	var target = target_root.get_node("InteractArea")
+	if cutscenes.has_node(target_root.interaction_node):
+		cutscenes.change_cutscene(target_root.interaction_node)
+		cutscenes.change_dialogue(target_root.dialogue_id, target_root.dialogue_node)
+		cutscenes.change_source_node(target_root.name)
 		cutscenes.current_cutscene.cutscene_started.emit()
 		stm.change_state(cutscene_state.state_id)
 		end_interaction.connect(target._on_end_interaction, CONNECT_ONE_SHOT)
@@ -132,8 +136,8 @@ func _on_begin_interaction(target: Node2D):
 		_ready_cutscene(dlg_cutscene)
 		var new_name = "Default%s" % cutscenes.get_children().size()
 		dlg_cutscene.name = new_name
-		target.interaction_node = new_name
-		_on_begin_interaction.call_deferred(target)
+		target_root.interaction_node = new_name
+		_on_begin_interaction.call_deferred(target_root)
 
 
 func _on_door_begin_interaction(door: Thing):
