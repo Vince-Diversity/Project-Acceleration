@@ -12,7 +12,7 @@ height = 10.0
 radius = 20.0
 
 [node name="Member" instance=ExtResource("1_wfmq8")]
-collision_layer = 8
+collision_layer = 2
 script = ExtResource("2_6ip4m")
 
 [node name="AnimatedSprite2D" parent="." index="0"]

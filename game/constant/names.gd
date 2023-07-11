@@ -2,6 +2,7 @@ extends Node
 
 const green := "Misa"
 const blue := "Ari"
+const green_teacher := "Professor Hilbert"
 
 const deepest_layer := "Cirruseng"
 const imaginary := "Imaginary Space"

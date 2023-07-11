@@ -61,7 +61,7 @@ dialogue_node = "ponder"
 y_sort_enabled = true
 position = Vector2(575, 174)
 
-[node name="NPC" parent="YSort/NPCs" index="0" instance=ExtResource("7_dyagn")]
+[node name="GreenTeacher" parent="YSort/NPCs" index="0" instance=ExtResource("7_dyagn")]
 position = Vector2(1, 3)
 interaction_node = "Teacher"
 dialogue_id = "talk_green_teacher"

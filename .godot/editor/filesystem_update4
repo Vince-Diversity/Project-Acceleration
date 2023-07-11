@@ -1,4 +1,4 @@
-res://game/room/green_classroom.tscn
+res://game/character/npc.tscn
 res://game/cutscene/act/act_manager.gd
 res://game/pause_menu.gd
 res://resources/tilesets/green_interior.tres
@@ -6,10 +6,11 @@ res://resources/things/door.tres
 res://resources/things/sprout.tres
 res://resources/things/table.tres
 res://resources/characters/green_teacher.tres
-res://game/interactable/interactable_interface.gd
-res://game/room/room.gd
-res://game/thing/thing_state/thing_interactable_state.gd
+res://game/room/green_classroom.tscn
 res://game/thing/thing.tscn
-res://game/character/npc.tscn
-res://game/thing/chair/green_teacher_chair.tscn
 res://game/thing/chair/teacher_chair.tscn
+res://game/character/player.tscn
+res://resources/characters/green.tres
+res://game/character/member.tscn
+res://resources/characters/blue.tres
+res://game/constant/names.gd

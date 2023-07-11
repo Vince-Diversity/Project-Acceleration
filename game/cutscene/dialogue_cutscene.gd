@@ -44,8 +44,17 @@ func animate_player(anim_name: String, next_dialogue_line: String):
 	make_next_dialogue(next_dialogue_line)
 
 
+func animate_npc(npc_node: String, anim_name: String, next_dialogue_line: String):
+	make_animate_act(owner.npcs.get_node(npc_node).anim, anim_name)
+	make_next_dialogue(next_dialogue_line)
+
+
 func set_player_anim(anim_name: String):
 	owner.party.player.set_animation(anim_name)
+
+
+func set_npc_anim(npc_node: String, anim_name: String):
+	owner.npcs.get_node(npc_node).set_animation(anim_name)
 
 
 func set_thing_anim(thing_node: String, anim_name: String):
