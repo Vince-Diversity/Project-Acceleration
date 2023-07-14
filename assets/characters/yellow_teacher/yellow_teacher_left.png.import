@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpdkif3j0hoh6"
-path="res://.godot/imported/green-read.png-d3a1f9d96e497c09ea442428ea16e9b6.ctex"
+uid="uid://bh28b0iw855fk"
+path="res://.godot/imported/yellow_teacher_left.png-56a6453d5484dc4c70979f07d2909ec6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/green/green-read.png"
-dest_files=["res://.godot/imported/green-read.png-d3a1f9d96e497c09ea442428ea16e9b6.ctex"]
+source_file="res://assets/characters/yellow_teacher/yellow_teacher_left.png"
+dest_files=["res://.godot/imported/yellow_teacher_left.png-56a6453d5484dc4c70979f07d2909ec6.ctex"]
 
 [params]
 

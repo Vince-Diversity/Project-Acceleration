@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cf7cqbslofiux"
-path="res://.godot/imported/reading-sitting.png-5c995ffb86a8ebb8ce6ef0b30122f339.ctex"
+uid="uid://bhckiv03kty2h"
+path="res://.godot/imported/yellow_classroom.png-3669f8bf83a75f671ec1ce11b62dac11.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/green_teacher/reading-sitting.png"
-dest_files=["res://.godot/imported/reading-sitting.png-5c995ffb86a8ebb8ce6ef0b30122f339.ctex"]
+source_file="res://assets/tiles/tilesets/yellow_classroom.png"
+dest_files=["res://.godot/imported/yellow_classroom.png-3669f8bf83a75f671ec1ce11b62dac11.ctex"]
 
 [params]
 

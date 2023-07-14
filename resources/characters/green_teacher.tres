@@ -1,29 +1,29 @@
 [gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://cvjyjjje5g2bm"]
 
-[ext_resource type="Texture2D" uid="uid://cf7cqbslofiux" path="res://assets/characters/green_teacher/reading-sitting.png" id="1_aaewo"]
-[ext_resource type="Texture2D" uid="uid://cc3a5uhc7nvvp" path="res://assets/characters/green_teacher/stop-reading-sitting.png" id="2_vt3el"]
+[ext_resource type="Texture2D" uid="uid://dokimk6qybiit" path="res://assets/characters/green_teacher/green_teacher_reading_sitting.png" id="2_8x7qt"]
+[ext_resource type="Texture2D" uid="uid://ctpkqbonwtqsb" path="res://assets/characters/green_teacher/green_teacher_stop_reading_sitting.png" id="3_epej3"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2ycyo"]
-atlas = ExtResource("2_vt3el")
+[sub_resource type="AtlasTexture" id="AtlasTexture_faxsb"]
+atlas = ExtResource("3_epej3")
 region = Rect2(126, 0, 63, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_64vr6"]
-atlas = ExtResource("2_vt3el")
+[sub_resource type="AtlasTexture" id="AtlasTexture_wja2r"]
+atlas = ExtResource("3_epej3")
 region = Rect2(0, 0, 63, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_whtmm"]
-atlas = ExtResource("2_vt3el")
+[sub_resource type="AtlasTexture" id="AtlasTexture_4x7e3"]
+atlas = ExtResource("3_epej3")
 region = Rect2(63, 0, 63, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_eh4ck"]
-atlas = ExtResource("2_vt3el")
+[sub_resource type="AtlasTexture" id="AtlasTexture_pwa0m"]
+atlas = ExtResource("3_epej3")
 region = Rect2(126, 0, 63, 64)
 
 [resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_aaewo")
+"texture": ExtResource("2_8x7qt")
 }],
 "loop": false,
 "name": &"default",
@@ -31,7 +31,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_aaewo")
+"texture": ExtResource("2_8x7qt")
 }],
 "loop": false,
 "name": &"reading_sitting",
@@ -39,7 +39,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2ycyo")
+"texture": SubResource("AtlasTexture_faxsb")
 }],
 "loop": true,
 "name": &"sitting",
@@ -47,13 +47,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_64vr6")
+"texture": SubResource("AtlasTexture_wja2r")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_whtmm")
+"texture": SubResource("AtlasTexture_4x7e3")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_eh4ck")
+"texture": SubResource("AtlasTexture_pwa0m")
 }],
 "loop": false,
 "name": &"stop_reading_sitting",

@@ -35,6 +35,7 @@ y_sort_enabled = true
 y_sort_enabled = true
 
 [node name="NPCs" type="Node2D" parent="YSort"]
+y_sort_enabled = true
 
 [node name="Party" parent="YSort" instance=ExtResource("3")]
 

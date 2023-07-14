@@ -1,3 +1,4 @@
 SpriteFrames
+TileSet
 Shortcut
 InputEventAction

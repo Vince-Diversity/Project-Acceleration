@@ -1,38 +1,35 @@
 extends Act
 
-var party: Party
-var is_party_moving: Array[bool]
-var target_position: Array[Vector2]
-var target_direction: Array[Vector2]
+var character_list: Array
+var mark_list: Array
+var is_moving: Array[bool]
 
 
-func init_act(given_party: Party,
-		given_target_position: Array[Vector2],
-		given_target_direction: Array[Vector2]):
-	party = given_party
-	target_position = given_target_position
-	target_direction = given_target_direction
+func init_act(
+		given_character_list: Array,
+		given_mark_list: Array):
+	character_list = given_character_list
+	mark_list = given_mark_list
 
 
 func update(delta: float):
-	var member_list: Array = party.get_party_ordered()
-	if Utils.any(is_party_moving):
-		for member_i in member_list.size():
-			var character = member_list[member_i]
-			var direction = target_position[member_i] - character.global_position
+	if Utils.any(is_moving):
+		for char_i in character_list.size():
+			var character = character_list[char_i]
+			var direction = mark_list[char_i].global_position - character.global_position
 			if direction.length() > delta * character.speed:
 				character.set_direction(direction)
 				character.move()
 			else:
-				character.set_direction(target_direction[member_i])
+				character.set_direction(mark_list[char_i].get_target_direction())
 				character.update_direction()
-				is_party_moving[member_i] = false
+				is_moving[char_i] = false
 	else:
 		act_finished.emit()
 
 
 func enter():
-	is_party_moving = Utils.ones(party.get_party_ordered())
+	is_moving = Utils.ones(character_list)
 
 
 func exit():

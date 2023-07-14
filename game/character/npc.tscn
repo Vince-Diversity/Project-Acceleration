@@ -26,6 +26,10 @@ sprite_frames = ExtResource("2_1pq5w")
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_v3p7s")
 
+[node name="FollowingArea" parent="." index="2"]
+monitoring = false
+monitorable = false
+
 [node name="CollisionShape2D" parent="FollowingArea" index="0"]
 shape = null
 

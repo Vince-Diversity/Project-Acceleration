@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwngx03ih6leb"
-path="res://.godot/imported/green-focus.png-96fbc15cdf292bd027a0035d1d3ef7fc.ctex"
+uid="uid://c008mrnpkn1kb"
+path="res://.godot/imported/yellow_teacher_right.png-edaf6bf9491e5cb38985c55b7fd39ba3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/green/green-focus.png"
-dest_files=["res://.godot/imported/green-focus.png-96fbc15cdf292bd027a0035d1d3ef7fc.ctex"]
+source_file="res://assets/characters/yellow_teacher/yellow_teacher_right.png"
+dest_files=["res://.godot/imported/yellow_teacher_right.png-edaf6bf9491e5cb38985c55b7fd39ba3.ctex"]
 
 [params]
 

@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://ca2ugu27spl0c"]
+
+[ext_resource type="PackedScene" uid="uid://bqlmbt878hrxk" path="res://game/cutscene/dialogue_cutscene.tscn" id="1_jxer7"]
+[ext_resource type="PackedScene" uid="uid://dtkkkrcbtqu58" path="res://game/character/character_mark.tscn" id="2_36r3o"]
+[ext_resource type="Script" path="res://game/cutscene/dialogue_cutscene/yellow_teacher_cutscene/yellow_teacher_cutscene.gd" id="2_nhlb0"]
+
+[node name="YellowTeacherCutscene" instance=ExtResource("1_jxer7")]
+script = ExtResource("2_nhlb0")
+
+[node name="Mark1" parent="." index="2" instance=ExtResource("2_36r3o")]
+target_direction_id = 3
+
+[node name="Mark2" parent="." index="3" instance=ExtResource("2_36r3o")]
+target_direction_id = 1

@@ -1,0 +1,10 @@
+~ cue
+do move_npc("YellowTeacher", "Mark1", "react")
+=> END!
+
+~ react
+do move_npc("YellowTeacher", "Mark2", "talk")
+=> END!
+
+~ talk
+=> END!

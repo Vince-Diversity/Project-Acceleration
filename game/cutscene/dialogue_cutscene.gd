@@ -9,8 +9,15 @@ func make():
 
 
 func move(next_dialogue_node: String):
-	make_move_to_position_act()
+	make_move_party_to_position_act()
 	make_next_dialogue(next_dialogue_node)
+
+
+func move_npc(npc_node: String, mark_node: String, next_dlg_line: String):
+	make_move_to_position_act(
+		[owner.npcs.get_node(npc_node)],
+		[cutscenes.current_cutscene.get_node(mark_node)])
+	make_next_dialogue(next_dlg_line)
 
 
 func make_dialogue_act():
@@ -24,29 +31,30 @@ func make_dialogue_act():
 	actm.add_act(dialogue_act)
 
 
-func make_move_to_position_act():
+func make_move_to_position_act(
+		character_list: Array,
+		mark_list: Array):
 	var move_to_position_act: Act = move_to_position_act_scr.new()
-	var target_position: Array[Vector2] = [
-		mentor_mark.global_position,
-		student_mark.global_position]
-	var target_direction: Array[Vector2] = [
-		mentor_mark.get_target_direction(),
-		student_mark.get_target_direction()]
-	move_to_position_act.init_act(
-		owner.party,
-		target_position,
-		target_direction)
+	move_to_position_act.init_act(character_list, mark_list)
 	actm.add_act(move_to_position_act)
 
 
-func animate_player(anim_name: String, next_dialogue_line: String):
+func make_move_party_to_position_act():
+	var move_to_position_act: Act = move_to_position_act_scr.new()
+	move_to_position_act.init_act(
+		owner.party.get_party_ordered(),
+		[mentor_mark, student_mark])
+	actm.add_act(move_to_position_act)
+
+
+func animate_player(anim_name: String, next_dlg_line: String):
 	make_animate_act(owner.party.player.anim, anim_name)
-	make_next_dialogue(next_dialogue_line)
+	make_next_dialogue(next_dlg_line)
 
 
-func animate_npc(npc_node: String, anim_name: String, next_dialogue_line: String):
+func animate_npc(npc_node: String, anim_name: String, next_dlg_line: String):
 	make_animate_act(owner.npcs.get_node(npc_node).anim, anim_name)
-	make_next_dialogue(next_dialogue_line)
+	make_next_dialogue(next_dlg_line)
 
 
 func set_player_anim(anim_name: String):

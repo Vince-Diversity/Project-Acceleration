@@ -24,7 +24,7 @@ func roam():
 
 
 func get_party_ordered() -> Array:
-	var party_ordered = get_children()
+	var party_ordered := get_children()
 	party_ordered.reverse()
 	return party_ordered
 

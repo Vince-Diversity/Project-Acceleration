@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2osd4mx8kcrs"
-path="res://.godot/imported/green-down.png-3ffae237c4320515f6146434ad4915f9.ctex"
+uid="uid://dokimk6qybiit"
+path="res://.godot/imported/green_teacher_reading_sitting.png-182d4ea11ba1c1ea6649feef6b75f426.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/green/green-down.png"
-dest_files=["res://.godot/imported/green-down.png-3ffae237c4320515f6146434ad4915f9.ctex"]
+source_file="res://assets/characters/green_teacher/green_teacher_reading_sitting.png"
+dest_files=["res://.godot/imported/green_teacher_reading_sitting.png-182d4ea11ba1c1ea6649feef6b75f426.ctex"]
 
 [params]
 

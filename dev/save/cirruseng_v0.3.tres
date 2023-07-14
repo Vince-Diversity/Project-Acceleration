@@ -1,14 +1,14 @@
-[gd_resource type="Resource" script_class="SaveGame" load_steps=2 format=3 uid="uid://bv1hchlgfnlc"]
+[gd_resource type="Resource" script_class="SaveGame" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://loader/save_game.gd" id="1_7hdg4"]
+[ext_resource type="Script" path="res://loader/save_game.gd" id="1_7eddq"]
 
 [resource]
-script = ExtResource("1_7hdg4")
+script = ExtResource("1_7eddq")
 game_version = "0.3"
 data = {
 "game": {
-"current_room_id": "green_classroom",
-"entrance_node": "DoorDown"
+"current_room_id": "yellow_hallway",
+"entrance_node": "DoorUp"
 },
 "rooms": {
 "green_classroom": {
@@ -106,6 +106,34 @@ data = {
 "current_state": "thing_interactable_state"
 },
 "PassageGreen": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"PassageLeft": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+}
+}
+},
+"yellow_classroom": {
+"things": {
+"DoorDown": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+}
+}
+},
+"yellow_hallway": {
+"things": {
+"DoorUp": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"PassageRight": {
 "current_anim": &"default",
 "current_frame": 0,
 "current_state": "thing_interactable_state"

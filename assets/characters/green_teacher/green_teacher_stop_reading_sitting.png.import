@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cc3a5uhc7nvvp"
-path="res://.godot/imported/stop-reading-sitting.png-ae32631217451ec44919a6554d59c162.ctex"
+uid="uid://ctpkqbonwtqsb"
+path="res://.godot/imported/green_teacher_stop_reading_sitting.png-be46d948c827221533932a20011828fb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/green_teacher/stop-reading-sitting.png"
-dest_files=["res://.godot/imported/stop-reading-sitting.png-ae32631217451ec44919a6554d59c162.ctex"]
+source_file="res://assets/characters/green_teacher/green_teacher_stop_reading_sitting.png"
+dest_files=["res://.godot/imported/green_teacher_stop_reading_sitting.png-be46d948c827221533932a20011828fb.ctex"]
 
 [params]
 

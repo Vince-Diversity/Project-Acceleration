@@ -1,6 +1,7 @@
 class_name Character extends CharacterBody2D
 
 @export var speed: float = 150
+@export var is_symmetric: bool = true
 @onready var anim = $AnimatedSprite2D
 @onready var following_area = $FollowingArea
 var inputted_direction := Vector2(0, 1)
@@ -50,7 +51,7 @@ func set_animation(anim_name: String):
 func get_anim_name() -> String:
 	var snapped_direction: Vector2 = Utils.snap_to_compass(inputted_direction)
 	var anim_id: int = Utils.anim_direction[snapped_direction]
-	if anim_id == Utils.AnimID.RIGHT:
+	if anim_id == Utils.AnimID.RIGHT and is_symmetric:
 		anim_id = Utils.AnimID.LEFT
 		anim.set_flip_h(true)
 	else:
