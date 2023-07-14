@@ -58,7 +58,6 @@ dialogue_id = "teacher_chair"
 dialogue_node = "ponder"
 
 [node name="NPCs" parent="YSort" index="1"]
-y_sort_enabled = true
 position = Vector2(575, 174)
 
 [node name="GreenTeacher" parent="YSort/NPCs" index="0" instance=ExtResource("7_dyagn")]

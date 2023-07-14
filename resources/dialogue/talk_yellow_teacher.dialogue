@@ -4,6 +4,7 @@ do move_npc("YellowTeacher", "Mark1", "react")
 
 ~ react
 do move_npc("YellowTeacher", "Mark2", "talk")
+{{yellow_teacher}}: nvm!
 => END!
 
 ~ talk

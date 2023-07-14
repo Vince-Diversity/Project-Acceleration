@@ -1,15 +1,15 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_ebs8o"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_2ussa"]
 
 [resource]
-script = ExtResource("1_ebs8o")
+script = ExtResource("1_2ussa")
 titles = {
 "cue": "2",
 "react": "6",
-"talk": "10"
+"talk": "11"
 }
-character_names = PackedStringArray()
+character_names = PackedStringArray("{{yellow_teacher}}")
 first_title = "2"
 lines = {
 "1": {
@@ -18,6 +18,11 @@ lines = {
 "type": "title"
 },
 "10": {
+"next_id": "11",
+"text": "talk",
+"type": "title"
+},
+"11": {
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
@@ -73,14 +78,24 @@ lines = {
 "type": "mutation"
 },
 "7": {
+"character": "{{yellow_teacher}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "yellow_teacher"
+}]),
+"value_in_text": "{{yellow_teacher}}"
+}]),
+"next_id": "8",
+"text": "nvm!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "nvm!",
+"type": "dialogue"
+},
+"8": {
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
-},
-"9": {
-"next_id": "10",
-"text": "talk",
-"type": "title"
 }
 }
 metadata/dialogue_manager_version = "2.16.1"

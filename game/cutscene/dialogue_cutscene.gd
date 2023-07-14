@@ -14,10 +14,11 @@ func move(next_dialogue_node: String):
 
 
 func move_npc(npc_node: String, mark_node: String, next_dlg_line: String):
-	make_move_to_position_act(
-		[owner.npcs.get_node(npc_node)],
-		[cutscenes.current_cutscene.get_node(mark_node)])
-	make_next_dialogue(next_dlg_line)
+	if owner.npcs.has_node(npc_node) and cutscenes.current_cutscene.has_node(mark_node):
+		make_move_to_position_act(
+			[owner.npcs.get_node(npc_node)],
+			[cutscenes.current_cutscene.get_node(mark_node)])
+		make_next_dialogue(next_dlg_line)
 
 
 func make_dialogue_act():
@@ -53,8 +54,9 @@ func animate_player(anim_name: String, next_dlg_line: String):
 
 
 func animate_npc(npc_node: String, anim_name: String, next_dlg_line: String):
-	make_animate_act(owner.npcs.get_node(npc_node).anim, anim_name)
-	make_next_dialogue(next_dlg_line)
+	if owner.npcs.has_node(npc_node):
+		make_animate_act(owner.npcs.get_node(npc_node).anim, anim_name)
+		make_next_dialogue(next_dlg_line)
 
 
 func set_player_anim(anim_name: String):
@@ -62,7 +64,8 @@ func set_player_anim(anim_name: String):
 
 
 func set_npc_anim(npc_node: String, anim_name: String):
-	owner.npcs.get_node(npc_node).set_animation(anim_name)
+	if owner.npcs.has_node(npc_node):
+		owner.npcs.get_node(npc_node).set_animation(anim_name)
 
 
 func set_thing_anim(thing_node: String, anim_name: String):
