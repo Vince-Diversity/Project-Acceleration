@@ -41,6 +41,7 @@ func load_room(room_id: String, entrance_node: String):
 		room_id,
 		entrance_node,
 		stm,
+		loader.screen,
 		change_room,
 		_on_textbox_started,
 		_on_cutscene_ended,

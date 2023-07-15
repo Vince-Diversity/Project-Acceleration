@@ -1,9 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://d3bekw7wnfp37"]
 
-[ext_resource type="Script" path="res://game/pause_menu.gd" id="1"]
+[ext_resource type="Script" path="res://game/pause_menu.gd" id="1_u14ep"]
 
 [node name="PauseMenu" type="CanvasLayer"]
-script = ExtResource("1")
+layer = 2
+script = ExtResource("1_u14ep")
 
 [node name="Margin" type="CenterContainer" parent="."]
 anchors_preset = 15

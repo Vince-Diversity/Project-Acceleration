@@ -1,13 +1,14 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_2ussa"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_qmkq4"]
 
 [resource]
-script = ExtResource("1_2ussa")
+script = ExtResource("1_qmkq4")
 titles = {
 "cue": "2",
-"react": "6",
-"talk": "11"
+"flash": "7",
+"react": "12",
+"talk": "18"
 }
 character_names = PackedStringArray("{{yellow_teacher}}")
 first_title = "2"
@@ -17,12 +18,57 @@ lines = {
 "text": "cue",
 "type": "title"
 },
-"10": {
-"next_id": "11",
+"11": {
+"next_id": "12",
+"text": "react",
+"type": "title"
+},
+"12": {
+"character": "{{yellow_teacher}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "yellow_teacher"
+}]),
+"value_in_text": "{{yellow_teacher}}"
+}]),
+"next_id": "13",
+"text": "oops!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "oops!",
+"type": "dialogue"
+},
+"13": {
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "move_npc",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "YellowTeacher"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "Mark2"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "talk"
+}])])
+}])
+},
+"next_id": "14",
+"type": "mutation"
+},
+"14": {
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"17": {
+"next_id": "18",
 "text": "talk",
 "type": "title"
 },
-"11": {
+"18": {
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
@@ -40,7 +86,7 @@ lines = {
 "value": "Mark1"
 }]), Array[Dictionary]([{
 "type": "string",
-"value": "react"
+"value": "flash"
 }])])
 }])
 },
@@ -52,45 +98,24 @@ lines = {
 "next_id": "end!",
 "type": "goto"
 },
-"5": {
-"next_id": "6",
-"text": "react",
+"6": {
+"next_id": "7",
+"text": "flash",
 "type": "title"
 },
-"6": {
+"7": {
 "mutation": {
 "expression": Array[Dictionary]([{
-"function": "move_npc",
+"function": "flash",
 "type": "function",
 "value": Array[Array]([Array[Dictionary]([{
 "type": "string",
-"value": "YellowTeacher"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "Mark2"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "talk"
+"value": "react"
 }])])
 }])
 },
-"next_id": "7",
-"type": "mutation"
-},
-"7": {
-"character": "{{yellow_teacher}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "yellow_teacher"
-}]),
-"value_in_text": "{{yellow_teacher}}"
-}]),
 "next_id": "8",
-"text": "nvm!",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "nvm!",
-"type": "dialogue"
+"type": "mutation"
 },
 "8": {
 "is_snippet": false,

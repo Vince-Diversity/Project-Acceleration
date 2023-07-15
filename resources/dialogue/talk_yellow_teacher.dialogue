@@ -1,11 +1,18 @@
 ~ cue
-do move_npc("YellowTeacher", "Mark1", "react")
+do move_npc("YellowTeacher", "Mark1", "flash")
 => END!
 
-~ react
-do move_npc("YellowTeacher", "Mark2", "talk")
-{{yellow_teacher}}: nvm!
+
+~ flash
+do flash("react")
 => END!
+
+
+~ react
+{{yellow_teacher}}: oops!
+do move_npc("YellowTeacher", "Mark2", "talk")
+=> END!
+
 
 ~ talk
 => END!

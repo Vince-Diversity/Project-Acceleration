@@ -13,14 +13,22 @@ const main_menu_path := "res://loader/main_menu/main_menu.tscn"
 const game_path := "res://game/game.tscn"
 @onready var main_menu_scn: PackedScene = preload(main_menu_path)
 @onready var game_scn: PackedScene = preload(game_path)
+@onready var screen_scn: PackedScene = preload("res://loader/screen.tscn")
 var save_filename: String = "cirruseng_v%s.tres" % ProjectSettings.get_setting("application/config/version")
 var save_path: String = save_dir.path_join(save_filename)
 var game: Game
 var main_menu: MainMenu
+var screen: Screen
 
 
 func _ready():
+	_ready_screen()
 	_ready_main_menu()
+
+
+func _ready_screen():
+	screen = screen_scn.instantiate()
+	get_tree().get_root().call_deferred("add_child", screen)
 
 
 func _ready_main_menu():

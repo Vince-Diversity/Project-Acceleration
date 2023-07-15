@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpd52yfxhpduc"]
+
+[ext_resource type="Script" path="res://loader/screen.gd" id="1_o40ru"]
+
+[node name="Screen" type="CanvasLayer"]
+script = ExtResource("1_o40ru")
+
+[node name="Overcast" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
