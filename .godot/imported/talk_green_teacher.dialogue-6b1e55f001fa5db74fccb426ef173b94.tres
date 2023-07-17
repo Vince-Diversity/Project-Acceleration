@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_ncygv"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_110o5"]
 
 [resource]
-script = ExtResource("1_ncygv")
+script = ExtResource("1_110o5")
 titles = {
 "cue": "2",
 "react": "6",
@@ -44,7 +44,7 @@ lines = {
 "value_in_text": "{{green}}"
 }]),
 "next_id": "12",
-"text": "[do express(cheerful)] Good day {{green_teacher}}! I am showing {{blue}} around.",
+"text": "[do express(cheerful)] Good morning {{green_teacher}}! I am showing {{blue}} around.",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
 "type": "variable",
@@ -58,7 +58,7 @@ lines = {
 }]),
 "value_in_text": "{{blue}}"
 }]),
-"translation_key": "[do express(cheerful)] Good day {{green_teacher}}! I am showing {{blue}} around.",
+"translation_key": "[do express(cheerful)] Good morning {{green_teacher}}! I am showing {{blue}} around.",
 "type": "dialogue"
 },
 "12": {

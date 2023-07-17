@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b1vi7mcs6bvtf" path="res://game/thing/chair/teacher_chair.tscn" id="6_5tvfd"]
 [ext_resource type="PackedScene" uid="uid://dupbg42hwtmve" path="res://game/thing/table/table.tscn" id="7_3h84b"]
 [ext_resource type="PackedScene" uid="uid://bqlmbt878hrxk" path="res://game/cutscene/dialogue_cutscene.tscn" id="7_anbct"]
-[ext_resource type="PackedScene" uid="uid://4514c46hbp0d" path="res://game/character/npc.tscn" id="7_dyagn"]
+[ext_resource type="PackedScene" uid="uid://cfipqchnej33m" path="res://game/character/npcs/green_teacher.tscn" id="8_sgips"]
 
 [node name="GreenClassroom" instance=ExtResource("1_w8x7q")]
 
@@ -60,8 +60,8 @@ dialogue_node = "ponder"
 [node name="NPCs" parent="YSort" index="1"]
 position = Vector2(575, 174)
 
-[node name="GreenTeacher" parent="YSort/NPCs" index="0" instance=ExtResource("7_dyagn")]
-position = Vector2(1, 3)
+[node name="GreenTeacher" parent="YSort/NPCs" index="0" instance=ExtResource("8_sgips")]
+position = Vector2(1, 4)
 interaction_node = "Teacher"
 dialogue_id = "talk_green_teacher"
 dialogue_node = "cue"

@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_8"
+type="Resource"
+uid="uid://chcvmyax8quyi"
+path="res://.godot/imported/talk_cyan_ai.dialogue-762bd5a35b3e7ac37834349da0143e64.tres"
+
+[deps]
+
+source_file="res://resources/dialogue/talk_cyan_ai.dialogue"
+dest_files=["res://.godot/imported/talk_cyan_ai.dialogue-762bd5a35b3e7ac37834349da0143e64.tres"]
+
+[params]
+
+defaults=true

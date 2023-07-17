@@ -1,16 +1,21 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_qmkq4"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_ay51p"]
 
 [resource]
-script = ExtResource("1_qmkq4")
+script = ExtResource("1_ay51p")
 titles = {
 "cue": "2",
-"flash": "7",
-"react": "12",
-"talk": "18"
+"darken": "24",
+"end": "56",
+"flash": "18",
+"prepare_1": "9",
+"prepare_2": "14",
+"question": "35",
+"react": "29",
+"talk": "46"
 }
-character_names = PackedStringArray("{{yellow_teacher}}")
+character_names = PackedStringArray("{{green}}", "{{yellow_teacher}}", "{{cyan_ai}}", "{{blue}}")
 first_title = "2"
 lines = {
 "1": {
@@ -18,12 +23,47 @@ lines = {
 "text": "cue",
 "type": "title"
 },
-"11": {
-"next_id": "12",
-"text": "react",
+"10": {
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"13": {
+"next_id": "14",
+"text": "prepare_2",
 "type": "title"
 },
-"12": {
+"14": {
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "move_npc",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "YellowTeacher"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "TeacherMark"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "flash"
+}])])
+}])
+},
+"next_id": "15",
+"type": "mutation"
+},
+"15": {
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"17": {
+"next_id": "18",
+"text": "flash",
+"type": "title"
+},
+"18": {
 "character": "{{yellow_teacher}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -32,81 +72,61 @@ lines = {
 }]),
 "value_in_text": "{{yellow_teacher}}"
 }]),
-"next_id": "13",
-"text": "oops!",
+"next_id": "19",
+"text": "[speed=0.5] 3... 2... 1... Start!",
 "text_replacements": Array[Dictionary]([]),
-"translation_key": "oops!",
+"translation_key": "[speed=0.5] 3... 2... 1... Start!",
 "type": "dialogue"
 },
-"13": {
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "move_npc",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "YellowTeacher"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "Mark2"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "talk"
-}])])
-}])
-},
-"next_id": "14",
-"type": "mutation"
-},
-"14": {
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
-},
-"17": {
-"next_id": "18",
-"text": "talk",
-"type": "title"
-},
-"18": {
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
-},
-"2": {
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "move_npc",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "YellowTeacher"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "Mark1"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "flash"
-}])])
-}])
-},
-"next_id": "3",
-"type": "mutation"
-},
-"3": {
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
-},
-"6": {
-"next_id": "7",
-"text": "flash",
-"type": "title"
-},
-"7": {
+"19": {
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "flash",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "darken"
+}])])
+}])
+},
+"next_id": "20",
+"type": "mutation"
+},
+"2": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"next_id": "3",
+"text": "[do express(cheerful)] Good morning {{yellow_teacher_formally}}!",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "yellow_teacher_formally"
+}]),
+"value_in_text": "{{yellow_teacher_formally}}"
+}]),
+"translation_key": "[do express(cheerful)] Good morning {{yellow_teacher_formally}}!",
+"type": "dialogue"
+},
+"20": {
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"23": {
+"next_id": "24",
+"text": "darken",
+"type": "title"
+},
+"24": {
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "darken",
 "type": "function",
 "value": Array[Array]([Array[Dictionary]([{
 "type": "string",
@@ -114,13 +134,383 @@ lines = {
 }])])
 }])
 },
-"next_id": "8",
+"next_id": "25",
 "type": "mutation"
 },
-"8": {
+"25": {
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
+},
+"28": {
+"next_id": "29",
+"text": "react",
+"type": "title"
+},
+"29": {
+"character": "{{yellow_teacher}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "yellow_teacher"
+}]),
+"value_in_text": "{{yellow_teacher}}"
+}]),
+"next_id": "30",
+"text": "[do express(shocked)] oops.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "[do express(shocked)] oops.",
+"type": "dialogue"
+},
+"3": {
+"character": "{{yellow_teacher}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "yellow_teacher"
+}]),
+"value_in_text": "{{yellow_teacher}}"
+}]),
+"next_id": "4",
+"text": "Students! Stand aside, please. The demonstration is about to begin.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Students! Stand aside, please. The demonstration is about to begin.",
+"type": "dialogue"
+},
+"30": {
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "animate_thing",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Computer"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "boot"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "question"
+}])])
+}])
+},
+"next_id": "31",
+"type": "mutation"
+},
+"31": {
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"34": {
+"next_id": "35",
+"text": "question",
+"type": "title"
+},
+"35": {
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_thing_anim",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Computer"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "running"
+}])])
+}])
+},
+"next_id": "36",
+"type": "mutation"
+},
+"36": {
+"character": "{{cyan_ai}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "cyan_ai"
+}]),
+"value_in_text": "{{cyan_ai}}"
+}]),
+"next_id": "37",
+"text": "Did you short-ciruit the network again, {{yellow_teacher}}?",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "yellow_teacher"
+}]),
+"value_in_text": "{{yellow_teacher}}"
+}]),
+"translation_key": "Did you short-ciruit the network again, {{yellow_teacher}}?",
+"type": "dialogue"
+},
+"37": {
+"character": "{{yellow_teacher}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "yellow_teacher"
+}]),
+"value_in_text": "{{yellow_teacher}}"
+}]),
+"next_id": "38",
+"text": "Maybe.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Maybe.",
+"type": "dialogue"
+},
+"38": {
+"character": "{{cyan_ai}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "cyan_ai"
+}]),
+"value_in_text": "{{cyan_ai}}"
+}]),
+"next_id": "39",
+"text": "I'll just switch on again.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "I'll just switch on again.",
+"type": "dialogue"
+},
+"39": {
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "reset_lightning",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "end"
+}])])
+}])
+},
+"next_id": "40",
+"type": "mutation"
+},
+"4": {
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "move",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "prepare_1"
+}])])
+}])
+},
+"next_id": "5",
+"type": "mutation"
+},
+"40": {
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_thing_state",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Computer"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "thing_interactable_state"
+}])])
+}])
+},
+"next_id": "41",
+"type": "mutation"
+},
+"41": {
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_npc_dialogue_node",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "YellowTeacher"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "talk"
+}])])
+}])
+},
+"next_id": "42",
+"type": "mutation"
+},
+"42": {
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"45": {
+"next_id": "46",
+"text": "talk",
+"type": "title"
+},
+"46": {
+"character": "{{yellow_teacher}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "yellow_teacher"
+}]),
+"value_in_text": "{{yellow_teacher}}"
+}]),
+"next_id": "47",
+"text": "[do express(shocked)] Let's pretend we just met, ok?",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "[do express(shocked)] Let's pretend we just met, ok?",
+"type": "dialogue"
+},
+"47": {
+"character": "{{yellow_teacher}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "yellow_teacher"
+}]),
+"value_in_text": "{{yellow_teacher}}"
+}]),
+"next_id": "48",
+"text": "Hi, {{green}}! Already in class before term start?",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"translation_key": "Hi, {{green}}! Already in class before term start?",
+"type": "dialogue"
+},
+"48": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"next_id": "49",
+"text": "Good morning {{yellow_teacher_formally}}. This is {{blue}}, I am his mentor and just showing him around the school.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "yellow_teacher_formally"
+}]),
+"value_in_text": "{{yellow_teacher_formally}}"
+}, {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "blue"
+}]),
+"value_in_text": "{{blue}}"
+}]),
+"translation_key": "Good morning {{yellow_teacher_formally}}. This is {{blue}}, I am his mentor and just showing him around the school.",
+"type": "dialogue"
+},
+"49": {
+"character": "{{blue}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "blue"
+}]),
+"value_in_text": "{{blue}}"
+}]),
+"next_id": "50",
+"text": "Hello, {{yellow_teacher_formally}}.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "yellow_teacher_formally"
+}]),
+"value_in_text": "{{yellow_teacher_formally}}"
+}]),
+"translation_key": "Hello, {{yellow_teacher_formally}}.",
+"type": "dialogue"
+},
+"5": {
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"50": {
+"character": "{{yellow_teacher}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "yellow_teacher"
+}]),
+"value_in_text": "{{yellow_teacher}}"
+}]),
+"next_id": "51",
+"text": "[do express(shocked)] Just call me {{yellow_teacher}}, please.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "yellow_teacher"
+}]),
+"value_in_text": "{{yellow_teacher}}"
+}]),
+"translation_key": "[do express(shocked)] Just call me {{yellow_teacher}}, please.",
+"type": "dialogue"
+},
+"51": {
+"character": "{{yellow_teacher}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "yellow_teacher"
+}]),
+"value_in_text": "{{yellow_teacher}}"
+}]),
+"next_id": "52",
+"text": "Well, I better get back to class prep, see you!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Well, I better get back to class prep, see you!",
+"type": "dialogue"
+},
+"52": {
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"55": {
+"next_id": "56",
+"text": "end",
+"type": "title"
+},
+"56": {
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"8": {
+"next_id": "9",
+"text": "prepare_1",
+"type": "title"
+},
+"9": {
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "animate_npc",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "YellowTeacher"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "left"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "prepare_2"
+}])])
+}])
+},
+"next_id": "10",
+"type": "mutation"
 }
 }
 metadata/dialogue_manager_version = "2.16.1"

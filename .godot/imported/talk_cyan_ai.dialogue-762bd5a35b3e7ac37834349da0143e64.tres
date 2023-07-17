@@ -1,0 +1,168 @@
+[gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_t8axs"]
+
+[resource]
+script = ExtResource("1_t8axs")
+titles = {
+"about": "13",
+"cue": "2",
+"talk": "7"
+}
+character_names = PackedStringArray("{{cyan_ai}}")
+first_title = "2"
+lines = {
+"1": {
+"next_id": "2",
+"text": "cue",
+"type": "title"
+},
+"11": {
+"next_id": "13",
+"text": "about",
+"type": "title"
+},
+"13": {
+"character": "{{cyan_ai}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "cyan_ai"
+}]),
+"value_in_text": "{{cyan_ai}}"
+}]),
+"next_id": "14",
+"text": "About myself? I am not sure what you mean... I am definitely not that interesting.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "About myself? I am not sure what you mean... I am definitely not that interesting.",
+"type": "dialogue"
+},
+"14": {
+"character": "{{cyan_ai}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "cyan_ai"
+}]),
+"value_in_text": "{{cyan_ai}}"
+}]),
+"next_id": "15",
+"text": "Oh, did you mean that I should tell about my professional identity?",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Oh, did you mean that I should tell about my professional identity?",
+"type": "dialogue"
+},
+"15": {
+"character": "{{cyan_ai}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "cyan_ai"
+}]),
+"value_in_text": "{{cyan_ai}}"
+}]),
+"next_id": "16",
+"text": "Sorry! I am not very good at interpreting ambiguous messages.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Sorry! I am not very good at interpreting ambiguous messages.",
+"type": "dialogue"
+},
+"16": {
+"character": "{{cyan_ai}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "cyan_ai"
+}]),
+"value_in_text": "{{cyan_ai}}"
+}]),
+"next_id": "17",
+"text": "Anyways, my name is {{cyan_ai}}. I am an AI, although not the most functional kind, as you might have just noticed...",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "cyan_ai"
+}]),
+"value_in_text": "{{cyan_ai}}"
+}]),
+"translation_key": "Anyways, my name is {{cyan_ai}}. I am an AI, although not the most functional kind, as you might have just noticed...",
+"type": "dialogue"
+},
+"17": {
+"character": "{{cyan_ai}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "cyan_ai"
+}]),
+"value_in_text": "{{cyan_ai}}"
+}]),
+"next_id": "18",
+"text": "My role is to support the school network on pretty much all ends, so everything runs smoothly for the staff and students.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "My role is to support the school network on pretty much all ends, so everything runs smoothly for the staff and students.",
+"type": "dialogue"
+},
+"18": {
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"2": {
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "move",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "talk"
+}])])
+}])
+},
+"next_id": "3",
+"type": "mutation"
+},
+"3": {
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"5": {
+"next_id": "7",
+"text": "talk",
+"type": "title"
+},
+"7": {
+"character": "{{cyan_ai}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "cyan_ai"
+}]),
+"value_in_text": "{{cyan_ai}}"
+}]),
+"next_id": "8",
+"text": "Hello, need help with anything?",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Hello, need help with anything?",
+"type": "dialogue"
+},
+"8": {
+"next_id": "13",
+"next_id_after": "13",
+"responses": PackedStringArray("8", "9"),
+"text": "Tell us about yourself.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Tell us about yourself.",
+"type": "response"
+},
+"9": {
+"next_id": "end!",
+"next_id_after": "13",
+"text": "Nevermind.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Nevermind.",
+"type": "response"
+}
+}
+metadata/dialogue_manager_version = "2.16.1"

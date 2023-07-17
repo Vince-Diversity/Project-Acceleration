@@ -1,18 +1,56 @@
 ~ cue
-do move_npc("YellowTeacher", "Mark1", "flash")
+{{green}}: [do express(cheerful)] Good morning {{yellow_teacher_formally}}!
+{{yellow_teacher}}: Students! Stand aside, please. The demonstration is about to begin.
+do move("prepare_1")
 => END!
 
 
+~ prepare_1
+do animate_npc("YellowTeacher", "left", "prepare_2")
+=> END!
+
+
+~ prepare_2
+do move_npc("YellowTeacher", "TeacherMark", "flash")
+=> END!
+
 ~ flash
-do flash("react")
+{{yellow_teacher}}: [speed=0.5] 3... 2... 1... Start!
+do flash("darken")
+=> END!
+
+
+~ darken
+do darken("react")
 => END!
 
 
 ~ react
-{{yellow_teacher}}: oops!
-do move_npc("YellowTeacher", "Mark2", "talk")
+{{yellow_teacher}}: [do express(shocked)] oops.
+do animate_thing("Computer", "boot", "question")
+=> END!
+
+
+~ question
+do set_thing_anim("Computer", "running")
+{{cyan_ai}}: Did you short-ciruit the network again, {{yellow_teacher}}?
+{{yellow_teacher}}: Maybe.
+{{cyan_ai}}: I'll just switch on again.
+do reset_lightning("end")
+do set_thing_state("Computer", "thing_interactable_state")
+do set_npc_dialogue_node("YellowTeacher", "talk")
 => END!
 
 
 ~ talk
+{{yellow_teacher}}: [do express(shocked)] Let's pretend we just met, ok?
+{{yellow_teacher}}: Hi, {{green}}! Already in class before term start?
+{{green}}: Good morning {{yellow_teacher_formally}}. This is {{blue}}, I am his mentor and just showing him around the school.
+{{blue}}: Hello, {{yellow_teacher_formally}}.
+{{yellow_teacher}}: [do express(shocked)] Just call me {{yellow_teacher}}, please.
+{{yellow_teacher}}: Well, I better get back to class prep, see you!
+=> END!
+
+
+~ end
 => END!

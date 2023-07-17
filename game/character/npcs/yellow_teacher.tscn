@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://wt1m1uwjn41"]
+[gd_scene load_steps=3 format=3 uid="uid://wt1m1uwjn41"]
 
 [ext_resource type="PackedScene" uid="uid://4514c46hbp0d" path="res://game/character/npc.tscn" id="1_2aics"]
-[ext_resource type="SpriteFrames" uid="uid://c4yjelbi7walk" path="res://resources/characters/yellow_teacher.tres" id="2_3g34p"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rrv5r"]
 radius = 5.0
@@ -10,9 +9,6 @@ height = 10.0
 [node name="YellowTeacher" instance=ExtResource("1_2aics")]
 is_symmetric = false
 
-[node name="AnimatedSprite2D" parent="." index="0"]
-sprite_frames = ExtResource("2_3g34p")
-
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(0, 7)
+position = Vector2(0, 4)
 shape = SubResource("CapsuleShape2D_rrv5r")

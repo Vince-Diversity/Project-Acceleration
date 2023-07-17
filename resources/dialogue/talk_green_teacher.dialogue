@@ -8,7 +8,7 @@ do animate_npc("GreenTeacher", "stop_reading_sitting", "talk")
 
 ~ talk
 do set_npc_anim("GreenTeacher", "sitting")
-{{green}}: [do express(cheerful)] Good day {{green_teacher}}! I am showing {{blue}} around.
+{{green}}: [do express(cheerful)] Good morning {{green_teacher}}! I am showing {{blue}} around.
 {{blue}}: Good day {{green_teacher}}.
 {{green_teacher}}: Nice to meet you {{blue}}, and thank you, {{green}}, for agreeing to be out new student's mentor.
 do set_npc_anim("GreenTeacher", "reading_sitting")

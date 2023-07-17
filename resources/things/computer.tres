@@ -1,18 +1,56 @@
-[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://bruxgsnlet007"]
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://bruxgsnlet007"]
 
 [ext_resource type="Texture2D" uid="uid://b3l6cx6qjlv0y" path="res://assets/things/computer.png" id="1_anjl0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5t3k6"]
+atlas = ExtResource("1_anjl0")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvtad"]
+atlas = ExtResource("1_anjl0")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vqnt"]
+atlas = ExtResource("1_anjl0")
+region = Rect2(384, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_js75u"]
 atlas = ExtResource("1_anjl0")
 region = Rect2(0, 0, 128, 128)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_uyhnu"]
+atlas = ExtResource("1_anjl0")
+region = Rect2(384, 0, 128, 128)
+
 [resource]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5t3k6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wvtad")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1vqnt")
+}],
+"loop": false,
+"name": &"boot",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_js75u")
 }],
 "loop": false,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uyhnu")
+}],
+"loop": false,
+"name": &"running",
 "speed": 5.0
 }]

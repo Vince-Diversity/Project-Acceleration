@@ -5,6 +5,9 @@ class_name Thing extends StaticBody2D
 @export var dialogue_node: String
 @export var is_oneshot: bool = false
 @export var bubble_content: Bubble.Content
+@export_enum(
+	"thing_interactable_state",
+	"thing_static_state") var spawn_state: String = "thing_interactable_state"
 @onready var anim_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var interact_area: CollisionShape2D = $InteractArea/CollisionShape2D
 @onready var interactable_state: ThingInteractableState = \
@@ -18,8 +21,8 @@ var current_state: ThingState
 func _ready():
 	state_list[interactable_state.state_id] = interactable_state
 	state_list[static_state.state_id] = static_state
-	current_state = interactable_state
-	interactable_state.enter()
+	current_state = state_list[spawn_state]
+	current_state.enter()
 
 
 func make_save(save_game: SaveGame):

@@ -7,8 +7,5 @@
 [node name="YellowTeacherCutscene" instance=ExtResource("1_jxer7")]
 script = ExtResource("2_nhlb0")
 
-[node name="Mark1" parent="." index="2" instance=ExtResource("2_36r3o")]
+[node name="TeacherMark" parent="." index="2" instance=ExtResource("2_36r3o")]
 target_direction_id = 3
-
-[node name="Mark2" parent="." index="3" instance=ExtResource("2_36r3o")]
-target_direction_id = 1

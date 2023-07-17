@@ -1,0 +1,18 @@
+~ cue
+do move("talk")
+=> END!
+
+~ talk
+
+{{cyan_ai}}: Hello, need help with anything?
+- Tell us about yourself. => about
+- Nevermind. => END!
+
+~ about
+
+{{cyan_ai}}: About myself? I am not sure what you mean... I am definitely not that interesting.
+{{cyan_ai}}: Oh, did you mean that I should tell about my professional identity?
+{{cyan_ai}}: Sorry! I am not very good at interpreting ambiguous messages.
+{{cyan_ai}}: Anyways, my name is {{cyan_ai}}. I am an AI, although not the most functional kind, as you might have just noticed...
+{{cyan_ai}}: My role is to support the school network on pretty much all ends, so everything runs smoothly for the staff and students.
+=> END!

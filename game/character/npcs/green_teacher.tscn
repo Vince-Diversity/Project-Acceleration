@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://cfipqchnej33m"]
+
+[ext_resource type="PackedScene" uid="uid://4514c46hbp0d" path="res://game/character/npc.tscn" id="1_50l6i"]
+[ext_resource type="SpriteFrames" uid="uid://cvjyjjje5g2bm" path="res://resources/characters/green_teacher.tres" id="2_sp4bm"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jcqu3"]
+height = 20.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_woj1m"]
+height = 40.0
+
+[node name="GreenTeacher" instance=ExtResource("1_50l6i")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = ExtResource("2_sp4bm")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CapsuleShape2D_jcqu3")
+
+[node name="CollisionShape2D" parent="InteractArea" index="0"]
+shape = SubResource("CapsuleShape2D_woj1m")
