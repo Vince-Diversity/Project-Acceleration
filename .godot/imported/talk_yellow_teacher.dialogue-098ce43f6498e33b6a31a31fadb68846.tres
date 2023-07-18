@@ -1,19 +1,19 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_ay51p"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_seg1q"]
 
 [resource]
-script = ExtResource("1_ay51p")
+script = ExtResource("1_seg1q")
 titles = {
 "cue": "2",
 "darken": "24",
-"end": "56",
 "flash": "18",
 "prepare_1": "9",
 "prepare_2": "14",
 "question": "35",
 "react": "29",
-"talk": "46"
+"setters": "54",
+"talk": "44"
 }
 character_names = PackedStringArray("{{green}}", "{{yellow_teacher}}", "{{cyan_ai}}", "{{blue}}")
 first_title = "2"
@@ -234,15 +234,9 @@ lines = {
 "value_in_text": "{{cyan_ai}}"
 }]),
 "next_id": "37",
-"text": "Did you short-ciruit the network again, {{yellow_teacher}}?",
-"text_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "yellow_teacher"
-}]),
-"value_in_text": "{{yellow_teacher}}"
-}]),
-"translation_key": "Did you short-ciruit the network again, {{yellow_teacher}}?",
+"text": "Did you short-ciruit the network again?",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Did you short-ciruit the network again?",
 "type": "dialogue"
 },
 "37": {
@@ -282,7 +276,7 @@ lines = {
 "type": "function",
 "value": Array[Array]([Array[Dictionary]([{
 "type": "string",
-"value": "end"
+"value": "setters"
 }])])
 }])
 },
@@ -304,23 +298,145 @@ lines = {
 "type": "mutation"
 },
 "40": {
-"mutation": {
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"43": {
+"next_id": "44",
+"text": "talk",
+"type": "title"
+},
+"44": {
+"character": "{{yellow_teacher}}",
+"character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
-"function": "set_thing_state",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "Computer"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "thing_interactable_state"
-}])])
-}])
+"type": "variable",
+"value": "yellow_teacher"
+}]),
+"value_in_text": "{{yellow_teacher}}"
+}]),
+"next_id": "45",
+"text": "[do express(shocked)] Let's pretend we just met, ok?",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "[do express(shocked)] Let's pretend we just met, ok?",
+"type": "dialogue"
 },
-"next_id": "41",
-"type": "mutation"
+"45": {
+"character": "{{yellow_teacher}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "yellow_teacher"
+}]),
+"value_in_text": "{{yellow_teacher}}"
+}]),
+"next_id": "46",
+"text": "Hi, {{green}}! Already in class before term start?",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"translation_key": "Hi, {{green}}! Already in class before term start?",
+"type": "dialogue"
 },
-"41": {
+"46": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"next_id": "47",
+"text": "Yes. I am showing {{blue}}, our new student, around the school.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "blue"
+}]),
+"value_in_text": "{{blue}}"
+}]),
+"translation_key": "Yes. I am showing {{blue}}, our new student, around the school.",
+"type": "dialogue"
+},
+"47": {
+"character": "{{blue}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "blue"
+}]),
+"value_in_text": "{{blue}}"
+}]),
+"next_id": "48",
+"text": "Hello, {{yellow_teacher_formally}}.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "yellow_teacher_formally"
+}]),
+"value_in_text": "{{yellow_teacher_formally}}"
+}]),
+"translation_key": "Hello, {{yellow_teacher_formally}}.",
+"type": "dialogue"
+},
+"48": {
+"character": "{{yellow_teacher}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "yellow_teacher"
+}]),
+"value_in_text": "{{yellow_teacher}}"
+}]),
+"next_id": "49",
+"text": "[do express(shocked)] Just call me {{yellow_teacher}}, please.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "yellow_teacher"
+}]),
+"value_in_text": "{{yellow_teacher}}"
+}]),
+"translation_key": "[do express(shocked)] Just call me {{yellow_teacher}}, please.",
+"type": "dialogue"
+},
+"49": {
+"character": "{{yellow_teacher}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "yellow_teacher"
+}]),
+"value_in_text": "{{yellow_teacher}}"
+}]),
+"next_id": "50",
+"text": "Well, I better get back to class prep, see you!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Well, I better get back to class prep, see you!",
+"type": "dialogue"
+},
+"5": {
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"50": {
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"53": {
+"next_id": "54",
+"text": "setters",
+"type": "title"
+},
+"54": {
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_npc_dialogue_node",
@@ -334,153 +450,25 @@ lines = {
 }])])
 }])
 },
-"next_id": "42",
+"next_id": "55",
 "type": "mutation"
 },
-"42": {
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
-},
-"45": {
-"next_id": "46",
-"text": "talk",
-"type": "title"
-},
-"46": {
-"character": "{{yellow_teacher}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "yellow_teacher"
-}]),
-"value_in_text": "{{yellow_teacher}}"
-}]),
-"next_id": "47",
-"text": "[do express(shocked)] Let's pretend we just met, ok?",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "[do express(shocked)] Let's pretend we just met, ok?",
-"type": "dialogue"
-},
-"47": {
-"character": "{{yellow_teacher}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "yellow_teacher"
-}]),
-"value_in_text": "{{yellow_teacher}}"
-}]),
-"next_id": "48",
-"text": "Hi, {{green}}! Already in class before term start?",
-"text_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "green"
-}]),
-"value_in_text": "{{green}}"
-}]),
-"translation_key": "Hi, {{green}}! Already in class before term start?",
-"type": "dialogue"
-},
-"48": {
-"character": "{{green}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "green"
-}]),
-"value_in_text": "{{green}}"
-}]),
-"next_id": "49",
-"text": "Good morning {{yellow_teacher_formally}}. This is {{blue}}, I am his mentor and just showing him around the school.",
-"text_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "yellow_teacher_formally"
-}]),
-"value_in_text": "{{yellow_teacher_formally}}"
-}, {
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "blue"
-}]),
-"value_in_text": "{{blue}}"
-}]),
-"translation_key": "Good morning {{yellow_teacher_formally}}. This is {{blue}}, I am his mentor and just showing him around the school.",
-"type": "dialogue"
-},
-"49": {
-"character": "{{blue}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "blue"
-}]),
-"value_in_text": "{{blue}}"
-}]),
-"next_id": "50",
-"text": "Hello, {{yellow_teacher_formally}}.",
-"text_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "yellow_teacher_formally"
-}]),
-"value_in_text": "{{yellow_teacher_formally}}"
-}]),
-"translation_key": "Hello, {{yellow_teacher_formally}}.",
-"type": "dialogue"
-},
-"5": {
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
-},
-"50": {
-"character": "{{yellow_teacher}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "yellow_teacher"
-}]),
-"value_in_text": "{{yellow_teacher}}"
-}]),
-"next_id": "51",
-"text": "[do express(shocked)] Just call me {{yellow_teacher}}, please.",
-"text_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "yellow_teacher"
-}]),
-"value_in_text": "{{yellow_teacher}}"
-}]),
-"translation_key": "[do express(shocked)] Just call me {{yellow_teacher}}, please.",
-"type": "dialogue"
-},
-"51": {
-"character": "{{yellow_teacher}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "yellow_teacher"
-}]),
-"value_in_text": "{{yellow_teacher}}"
-}]),
-"next_id": "52",
-"text": "Well, I better get back to class prep, see you!",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "Well, I better get back to class prep, see you!",
-"type": "dialogue"
-},
-"52": {
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
-},
 "55": {
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_thing_state",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Computer"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "thing_interactable_state"
+}])])
+}])
+},
 "next_id": "56",
-"text": "end",
-"type": "title"
+"type": "mutation"
 },
 "56": {
 "is_snippet": false,

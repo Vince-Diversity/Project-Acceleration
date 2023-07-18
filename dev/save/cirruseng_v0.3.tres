@@ -1,17 +1,18 @@
-[gd_resource type="Resource" script_class="SaveGame" load_steps=2 format=3 uid="uid://dalb0tux1of02"]
+[gd_resource type="Resource" script_class="SaveGame" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://loader/save_game.gd" id="1_b1aih"]
+[ext_resource type="Script" path="res://loader/save_game.gd" id="1_y1wq5"]
 
 [resource]
-script = ExtResource("1_b1aih")
+script = ExtResource("1_y1wq5")
 game_version = "0.3"
 data = {
 "game": {
-"current_room_id": "yellow_hallway",
-"entrance_node": "PassageRight"
+"current_room_id": "yellow_classroom",
+"entrance_node": "DoorDown"
 },
 "rooms": {
 "main_entrance": {
+"npcs": {},
 "things": {
 "Bookcase": {
 "current_anim": &"default",
@@ -41,6 +42,7 @@ data = {
 }
 },
 "main_hallway": {
+"npcs": {},
 "things": {
 "PassageDown": {
 "current_anim": &"default",
@@ -59,7 +61,31 @@ data = {
 }
 }
 },
+"yellow_classroom": {
+"npcs": {
+"YellowTeacher": {
+"dialogue_id": "talk_yellow_teacher",
+"dialogue_node": "cue",
+"direction": Vector2(-1, 0),
+"interaction_node": "YellowTeacherIntroCutscene",
+"position": Vector2(224, 480)
+}
+},
+"things": {
+"Computer": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_static_state"
+},
+"DoorDown": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+}
+}
+},
 "yellow_hallway": {
+"npcs": {},
 "things": {
 "DoorUp": {
 "current_anim": &"default",

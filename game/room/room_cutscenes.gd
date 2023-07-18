@@ -3,7 +3,7 @@ class_name RoomCutscenes extends Node2D
 var current_cutscene: Cutscene
 var current_dialogue_id: String
 var current_dialogue_node: String
-var current_source_node: String
+var current_source_node: Node2D
 
 
 func change_cutscene(
@@ -19,7 +19,7 @@ func change_dialogue(
 
 
 func change_source_node(
-		source_node: String):
+		source_node: Node2D):
 	current_source_node = source_node
 
 
@@ -27,4 +27,4 @@ func reset():
 	current_cutscene = null
 	current_dialogue_id = ""
 	current_dialogue_node = ""
-	current_source_node = ""
+	current_source_node = null

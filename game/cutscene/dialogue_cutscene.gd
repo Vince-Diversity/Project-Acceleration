@@ -4,7 +4,6 @@ class_name DialogueCutscene extends Cutscene
 @onready var student_mark = $StudentMark
 @onready var dialogue_act_scr: GDScript = preload("res://game/cutscene/act/dialogue_act.gd")
 @onready var lightning_act_scr: GDScript = preload("res://game/cutscene/act/lightning_act.gd")
-var instant := 0.1
 
 func make():
 	make_dialogue_act()
@@ -45,13 +44,13 @@ func make_flash_act():
 
 func make_darken_act():
 	var darken_act: Act = lightning_act_scr.new()
-	darken_act.init_act(screen, Color(Color.BLACK, 0.5), instant)
+	darken_act.init_act(screen, Color(Color.BLACK, 0.5), screen.instant)
 	actm.add_act(darken_act)
 
 
 func make_reset_ligtning_act():
 	var reset_lightning_act: Act = lightning_act_scr.new()
-	reset_lightning_act.init_act(screen, Color.TRANSPARENT, instant)
+	reset_lightning_act.init_act(screen, Color.TRANSPARENT, screen.instant)
 	actm.add_act(reset_lightning_act)
 
 

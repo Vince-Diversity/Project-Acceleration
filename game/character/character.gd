@@ -35,9 +35,10 @@ func set_direction(direction: Vector2):
 
 
 func update_direction():
-	anim.play(get_anim_name())
-	anim.set_frame(0)
-	anim.stop()
+	if anim.sprite_frames.has_animation(get_anim_name()):
+		anim.play(get_anim_name())
+		anim.set_frame(0)
+		anim.stop()
 
 
 func update_angle():

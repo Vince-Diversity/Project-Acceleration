@@ -7,13 +7,10 @@
 size = Vector2(83, 33)
 
 [node name="Table" instance=ExtResource("1_2lh3q")]
+spawn_state = "thing_static_state"
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = ExtResource("2_c1o1y")
-
-[node name="InteractArea" parent="." index="1"]
-monitoring = false
-monitorable = false
 
 [node name="CollisionShape2D" parent="InteractArea" index="0"]
 shape = null

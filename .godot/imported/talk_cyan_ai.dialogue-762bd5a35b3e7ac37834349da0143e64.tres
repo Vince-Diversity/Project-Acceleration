@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_t8axs"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_6jj43"]
 
 [resource]
-script = ExtResource("1_t8axs")
+script = ExtResource("1_6jj43")
 titles = {
 "about": "13",
 "cue": "2",
@@ -47,9 +47,15 @@ lines = {
 "value_in_text": "{{cyan_ai}}"
 }]),
 "next_id": "15",
-"text": "Oh, did you mean that I should tell about my professional identity?",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "Oh, did you mean that I should tell about my professional identity?",
+"text": "Anyways, my name is {{cyan_ai}}. I am an AI, although not the most functional kind, as you might have just noticed...",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "cyan_ai"
+}]),
+"value_in_text": "{{cyan_ai}}"
+}]),
+"translation_key": "Anyways, my name is {{cyan_ai}}. I am an AI, although not the most functional kind, as you might have just noticed...",
 "type": "dialogue"
 },
 "15": {
@@ -62,48 +68,12 @@ lines = {
 "value_in_text": "{{cyan_ai}}"
 }]),
 "next_id": "16",
-"text": "Sorry! I am not very good at interpreting ambiguous messages.",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "Sorry! I am not very good at interpreting ambiguous messages.",
-"type": "dialogue"
-},
-"16": {
-"character": "{{cyan_ai}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "cyan_ai"
-}]),
-"value_in_text": "{{cyan_ai}}"
-}]),
-"next_id": "17",
-"text": "Anyways, my name is {{cyan_ai}}. I am an AI, although not the most functional kind, as you might have just noticed...",
-"text_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "cyan_ai"
-}]),
-"value_in_text": "{{cyan_ai}}"
-}]),
-"translation_key": "Anyways, my name is {{cyan_ai}}. I am an AI, although not the most functional kind, as you might have just noticed...",
-"type": "dialogue"
-},
-"17": {
-"character": "{{cyan_ai}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "cyan_ai"
-}]),
-"value_in_text": "{{cyan_ai}}"
-}]),
-"next_id": "18",
 "text": "My role is to support the school network on pretty much all ends, so everything runs smoothly for the staff and students.",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "My role is to support the school network on pretty much all ends, so everything runs smoothly for the staff and students.",
 "type": "dialogue"
 },
-"18": {
+"16": {
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"

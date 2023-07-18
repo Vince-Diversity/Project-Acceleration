@@ -31,7 +31,7 @@ position = Vector2(224, 480)
 interaction_node = "YellowTeacherIntroCutscene"
 dialogue_id = "talk_yellow_teacher"
 dialogue_node = "cue"
-spawn_direction = 1
+preserved_direction = 1
 
 [node name="YellowTeacherIntroCutscene" parent="RoomCutscenes" index="0" instance=ExtResource("5_3l17c")]
 position = Vector2(256, 512)

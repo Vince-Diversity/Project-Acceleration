@@ -128,7 +128,7 @@ func _on_begin_interaction(target_root: Node2D):
 	if cutscenes.has_node(target_root.interaction_node):
 		cutscenes.change_cutscene(target_root.interaction_node)
 		cutscenes.change_dialogue(target_root.dialogue_id, target_root.dialogue_node)
-		cutscenes.change_source_node(target_root.name)
+		cutscenes.change_source_node(target_root)
 		cutscenes.current_cutscene.cutscene_started.emit()
 		stm.change_state(cutscene_state.state_id)
 		end_interaction.connect(target._on_end_interaction, CONNECT_ONE_SHOT)

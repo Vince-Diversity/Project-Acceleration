@@ -27,4 +27,4 @@ func get_player_anim_sprite() -> AnimatedSprite2D:
 
 
 func get_thing_anim_sprite() -> AnimatedSprite2D:
-	return owner.things.get_node(owner.cutscenes.current_source_node).anim_sprite
+	return cutscenes.current_source_node.anim_sprite

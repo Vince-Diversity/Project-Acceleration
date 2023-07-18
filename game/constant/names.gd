@@ -5,7 +5,7 @@ const blue := "Ari"
 const green_teacher := "Professor Hilbert"
 const yellow_teacher := "Olivia"
 const yellow_teacher_formally := "Dr. Franklin"
-const cyan_ai := "Moon"
+const cyan_ai := "Luna"
 
 const deepest_layer := "Cirruseng"
 const imaginary := "Imaginary Space"

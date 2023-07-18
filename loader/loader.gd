@@ -55,6 +55,7 @@ func enter_game():
 
 func enter_main_menu():
 	game.queue_free()
+	screen.reset_fade()
 	main_menu = main_menu_scn.instantiate()
 	main_menu.init_main_menu(self)
 	_add_child_to_root(main_menu)

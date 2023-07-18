@@ -28,7 +28,7 @@ func grab_focus():
 	pass
 
 
-func save(game: Game, save_game: SaveGame):
-	save_game.data["game"] = {}
-	save_game.data["game"]["current_room_id"] = game.current_room.room_id
-	save_game.data["game"]["entrance_node"] = game.current_room.entrance_node
+func save(game: Game, sg: SaveGame):
+	sg.data[sg.game_key] = {}
+	sg.data[sg.game_key][sg.room_key] = game.current_room.room_id
+	sg.data[sg.game_key][sg.entrance_key] = game.current_room.entrance_node

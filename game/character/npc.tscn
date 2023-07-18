@@ -11,14 +11,14 @@ height = 10.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nojnn"]
 
-[node name="NPC" instance=ExtResource("1_sq2pm")]
+[node name="NPC" groups=["Preserved"] instance=ExtResource("1_sq2pm")]
 collision_layer = 8
 script = ExtResource("2_n6ygt")
 interaction_node = ""
 dialogue_id = ""
 dialogue_node = ""
 bubble_content = 0
-spawn_direction = 0
+preserved_direction = 0
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = ExtResource("3_hb5r7")

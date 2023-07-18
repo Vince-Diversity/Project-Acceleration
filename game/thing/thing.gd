@@ -25,26 +25,29 @@ func _ready():
 	current_state.enter()
 
 
-func make_save(save_game: SaveGame):
-	if not save_game.data.has("rooms"):
-		save_game.data["rooms"] = {}
-	if not save_game.data["rooms"].has(owner.room_id):
-		save_game.data["rooms"][owner.room_id] = {}
-		save_game.data["rooms"][owner.room_id]["things"] = {}
-	save_game.data["rooms"][owner.room_id]["things"][name] = {}
-
-	save_game.data["rooms"][owner.room_id]["things"][name]["current_state"] = current_state.state_id
-	var thing_dict = save_game.data["rooms"][owner.room_id]["things"][name]
-	thing_dict["current_anim"] = anim_sprite.animation
-	thing_dict["current_frame"] = anim_sprite.frame
+func make_save(sg: SaveGame):
+	sg.update_room_keys(owner.room_id)
+	var thing_dict = {}
+	sg.data[sg.rooms_key][owner.room_id][sg.things_key][name] = thing_dict
+	thing_dict[sg.state_key] = current_state.state_id
+	thing_dict[sg.anim_key] = anim_sprite.animation
+	thing_dict[sg.frame_key] = anim_sprite.frame
 
 
-func load_save(save_game: SaveGame):
-	if save_game.data["rooms"].has(owner.room_id):
-		var thing_dict = save_game.data["rooms"][owner.room_id]["things"][name]
-		change_state(thing_dict["current_state"])
-		anim_sprite.set_animation(thing_dict["current_anim"])
-		anim_sprite.set_frame(thing_dict["current_frame"])
+func make_preserved_save(sg: SaveGame):
+		var thing_dict = {}
+		sg.data[sg.rooms_key][owner.room_id][sg.things_key][name] = thing_dict
+		thing_dict[sg.state_key] = current_state.state_id
+		thing_dict[sg.anim_key] = "default"
+		thing_dict[sg.frame_key] = 0
+
+
+func load_save(sg: SaveGame):
+	if sg.data[sg.rooms_key].has(owner.room_id):
+		var thing_dict = sg.data[sg.rooms_key][owner.room_id][sg.things_key][name]
+		change_state(thing_dict[sg.state_key])
+		anim_sprite.set_animation(thing_dict[sg.anim_key])
+		anim_sprite.set_frame(thing_dict[sg.frame_key])
 		anim_sprite.play()
 
 

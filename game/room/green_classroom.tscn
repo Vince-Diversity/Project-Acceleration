@@ -51,6 +51,7 @@ dialogue_node = "cue"
 
 [node name="Table" parent="YSort/Things" index="5" instance=ExtResource("7_3h84b")]
 position = Vector2(577, 196)
+spawn_state = "thing_static_state"
 
 [node name="GreenTeacherChair" parent="YSort/Things" index="6" instance=ExtResource("6_5tvfd")]
 position = Vector2(576, 177)

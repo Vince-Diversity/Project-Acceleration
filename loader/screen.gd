@@ -1,9 +1,10 @@
 class_name Screen extends CanvasLayer
 
 @onready var overcast = $Overcast
-var default_duration = 0.5
-var default_ease_type = Tween.EASE_IN_OUT
-var default_trans_type = Tween.TRANS_LINEAR
+const default_duration := 0.5
+const instant := 0.1
+var default_ease_type := Tween.EASE_IN_OUT
+var default_trans_type := Tween.TRANS_LINEAR
 
 signal fade_finished
 
@@ -26,6 +27,10 @@ func fade_in(duration = default_duration):
 
 func fade_out(duration = default_duration):
 	fade(Color.TRANSPARENT, duration)
+
+
+func reset_fade():
+	fade(Color.TRANSPARENT, instant)
 
 
 func _on_tween_finished():
