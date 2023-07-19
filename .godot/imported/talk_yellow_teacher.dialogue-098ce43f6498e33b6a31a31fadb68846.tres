@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_seg1q"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_xuudo"]
 
 [resource]
-script = ExtResource("1_seg1q")
+script = ExtResource("1_xuudo")
 titles = {
 "cue": "2",
 "darken": "24",
@@ -12,7 +12,7 @@ titles = {
 "prepare_2": "14",
 "question": "35",
 "react": "29",
-"setters": "54",
+"setters": "56",
 "talk": "44"
 }
 character_names = PackedStringArray("{{green}}", "{{yellow_teacher}}", "{{cyan_ai}}", "{{blue}}")
@@ -308,19 +308,18 @@ lines = {
 "type": "title"
 },
 "44": {
-"character": "{{yellow_teacher}}",
-"character_replacements": Array[Dictionary]([{
+"mutation": {
 "expression": Array[Dictionary]([{
-"type": "variable",
-"value": "yellow_teacher"
-}]),
-"value_in_text": "{{yellow_teacher}}"
-}]),
+"function": "turn_npc_to_player",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "YellowTeacher"
+}])])
+}])
+},
 "next_id": "45",
-"text": "[do express(shocked)] Let's pretend we just met, ok?",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "[do express(shocked)] Let's pretend we just met, ok?",
-"type": "dialogue"
+"type": "mutation"
 },
 "45": {
 "character": "{{yellow_teacher}}",
@@ -332,6 +331,21 @@ lines = {
 "value_in_text": "{{yellow_teacher}}"
 }]),
 "next_id": "46",
+"text": "[do express(shocked)] Let's pretend we just met, ok?",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "[do express(shocked)] Let's pretend we just met, ok?",
+"type": "dialogue"
+},
+"46": {
+"character": "{{yellow_teacher}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "yellow_teacher"
+}]),
+"value_in_text": "{{yellow_teacher}}"
+}]),
+"next_id": "47",
 "text": "Hi, {{green}}! Already in class before term start?",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -343,7 +357,7 @@ lines = {
 "translation_key": "Hi, {{green}}! Already in class before term start?",
 "type": "dialogue"
 },
-"46": {
+"47": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -352,7 +366,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
-"next_id": "47",
+"next_id": "48",
 "text": "Yes. I am showing {{blue}}, our new student, around the school.",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -364,7 +378,7 @@ lines = {
 "translation_key": "Yes. I am showing {{blue}}, our new student, around the school.",
 "type": "dialogue"
 },
-"47": {
+"48": {
 "character": "{{blue}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -373,7 +387,7 @@ lines = {
 }]),
 "value_in_text": "{{blue}}"
 }]),
-"next_id": "48",
+"next_id": "49",
 "text": "Hello, {{yellow_teacher_formally}}.",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -383,27 +397,6 @@ lines = {
 "value_in_text": "{{yellow_teacher_formally}}"
 }]),
 "translation_key": "Hello, {{yellow_teacher_formally}}.",
-"type": "dialogue"
-},
-"48": {
-"character": "{{yellow_teacher}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "yellow_teacher"
-}]),
-"value_in_text": "{{yellow_teacher}}"
-}]),
-"next_id": "49",
-"text": "[do express(shocked)] Just call me {{yellow_teacher}}, please.",
-"text_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "yellow_teacher"
-}]),
-"value_in_text": "{{yellow_teacher}}"
-}]),
-"translation_key": "[do express(shocked)] Just call me {{yellow_teacher}}, please.",
 "type": "dialogue"
 },
 "49": {
@@ -416,9 +409,15 @@ lines = {
 "value_in_text": "{{yellow_teacher}}"
 }]),
 "next_id": "50",
-"text": "Well, I better get back to class prep, see you!",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "Well, I better get back to class prep, see you!",
+"text": "[do express(shocked)] Just call me {{yellow_teacher}}, please.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "yellow_teacher"
+}]),
+"value_in_text": "{{yellow_teacher}}"
+}]),
+"translation_key": "[do express(shocked)] Just call me {{yellow_teacher}}, please.",
 "type": "dialogue"
 },
 "5": {
@@ -427,16 +426,48 @@ lines = {
 "type": "goto"
 },
 "50": {
+"character": "{{yellow_teacher}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "yellow_teacher"
+}]),
+"value_in_text": "{{yellow_teacher}}"
+}]),
+"next_id": "51",
+"text": "Well, I better get back to class prep, see you!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Well, I better get back to class prep, see you!",
+"type": "dialogue"
+},
+"51": {
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_npc_direction",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "YellowTeacher"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "down"
+}])])
+}])
+},
+"next_id": "52",
+"type": "mutation"
+},
+"52": {
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 },
-"53": {
-"next_id": "54",
+"55": {
+"next_id": "56",
 "text": "setters",
 "type": "title"
 },
-"54": {
+"56": {
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_npc_dialogue_node",
@@ -450,10 +481,10 @@ lines = {
 }])])
 }])
 },
-"next_id": "55",
+"next_id": "57",
 "type": "mutation"
 },
-"55": {
+"57": {
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_thing_state",
@@ -467,10 +498,10 @@ lines = {
 }])])
 }])
 },
-"next_id": "56",
+"next_id": "58",
 "type": "mutation"
 },
-"56": {
+"58": {
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"

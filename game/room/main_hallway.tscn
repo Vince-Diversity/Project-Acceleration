@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b1hqu1aa5x0ff"]
+[gd_scene load_steps=7 format=3 uid="uid://b1hqu1aa5x0ff"]
 
 [ext_resource type="PackedScene" uid="uid://c1go3780g6ead" path="res://game/room/room.tscn" id="1_g217f"]
 [ext_resource type="TileSet" uid="uid://dmf7r6bjkitf" path="res://resources/tilesets/real_interior.tres" id="2_uv67q"]
 [ext_resource type="PackedScene" uid="uid://dsfvepwkk4y7l" path="res://game/thing/door/passage_down.tscn" id="3_0b48d"]
 [ext_resource type="PackedScene" uid="uid://paluwp5ftjo0" path="res://game/thing/door/passage_up.tscn" id="4_qey6d"]
 [ext_resource type="PackedScene" uid="uid://bypwfk54tvx6l" path="res://game/thing/door/passage_left.tscn" id="5_hh4av"]
+[ext_resource type="PackedScene" uid="uid://m70p5l8u2p8r" path="res://game/thing/door/passage_right.tscn" id="6_w5vvs"]
 
 [node name="MainHallway" instance=ExtResource("1_g217f")]
 
@@ -27,3 +28,8 @@ next_room_entrance_node = "PassageDown"
 position = Vector2(64, 320)
 next_room_id = "yellow_hallway"
 next_room_entrance_node = "PassageRight"
+
+[node name="PassageRight" parent="Doors" index="3" instance=ExtResource("6_w5vvs")]
+position = Vector2(1088, 320)
+next_room_id = "red_hallway"
+next_room_entrance_node = "PassageLeft"

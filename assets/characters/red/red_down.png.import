@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c81rcdiwe8go0"
-path="res://.godot/imported/green_teacher_chair.png-b5c251c411c2617ea514a9c0aa04cb6a.ctex"
+uid="uid://b11ujgf7sqei6"
+path="res://.godot/imported/red_down.png-2a96f6a99d04bf15add07a946aef75e5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/things/green_teacher_chair.png"
-dest_files=["res://.godot/imported/green_teacher_chair.png-b5c251c411c2617ea514a9c0aa04cb6a.ctex"]
+source_file="res://assets/characters/red/red_down.png"
+dest_files=["res://.godot/imported/red_down.png-2a96f6a99d04bf15add07a946aef75e5.ctex"]
 
 [params]
 

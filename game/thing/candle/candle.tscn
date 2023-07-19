@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dd1fh5wb2qodd"]
+
+[ext_resource type="PackedScene" uid="uid://nfl8ij5d7dfw" path="res://game/thing/thing.tscn" id="1_ed4h8"]
+[ext_resource type="SpriteFrames" uid="uid://bwn37qdkcu33m" path="res://resources/things/candle.tres" id="2_vqtrt"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4c2ww"]
+radius = 12.0
+height = 32.0
+
+[node name="Candle" instance=ExtResource("1_ed4h8")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = ExtResource("2_vqtrt")
+
+[node name="CollisionShape2D" parent="InteractArea" index="0"]
+disabled = true
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2(0, 10)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_4c2ww")

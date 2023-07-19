@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3tq4s4y81a6b"
-path="res://.godot/imported/things_yellow_classroom.png-42daab32b59fb640ac1053b2bcbf3e51.ctex"
+uid="uid://vyvb8p85ennb"
+path="res://.godot/imported/red_up.png-28e6cca84a793e69959ae291b3895eef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/things/things_yellow_classroom.png"
-dest_files=["res://.godot/imported/things_yellow_classroom.png-42daab32b59fb640ac1053b2bcbf3e51.ctex"]
+source_file="res://assets/characters/red/red_up.png"
+dest_files=["res://.godot/imported/red_up.png-28e6cca84a793e69959ae291b3895eef.ctex"]
 
 [params]
 

@@ -116,6 +116,15 @@ func set_npc_anim(npc_node: String, anim_name: String):
 		owner.npcs.get_node(npc_node).set_animation(anim_name)
 
 
+func set_npc_direction(npc_node: String, direction: String):
+	if owner.npcs.has_node(npc_node):
+		var anim_id = Utils.get_anim_id(direction)
+		if anim_id == null: return
+		var npc = owner.npcs.get_node(npc_node)
+		npc.set_direction(Utils.get_anim_direction(anim_id))
+		npc.update_direction()
+
+
 func set_npc_dialogue_node(npc_node: String, dialogue_node: String):
 	if owner.npcs.has_node(npc_node):
 		owner.npcs.get_node(npc_node).dialogue_node = dialogue_node
@@ -129,6 +138,15 @@ func set_thing_anim(thing_node: String, anim_name: String):
 func set_thing_state(thing_node: String, thing_state_id: String):
 	if owner.things.has_node(thing_node):
 		owner.things.get_node(thing_node).change_state(thing_state_id)
+
+
+func turn_npc_to_player(npc_node: String):
+	if owner.npcs.has_node(npc_node):
+		var npc = owner.npcs.get_node(npc_node)
+		var direction: Vector2 =\
+			owner.party.player.global_position - npc.global_position
+		npc.set_direction(direction)
+		npc.update_direction()
 
 
 func begin_cutscene():

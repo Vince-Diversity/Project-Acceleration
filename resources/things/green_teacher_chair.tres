@@ -1,6 +1,6 @@
 [gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://mu0hfrorvh46"]
 
-[ext_resource type="Texture2D" uid="uid://c81rcdiwe8go0" path="res://assets/things/green_teacher_chair.png" id="1_k0csy"]
+[ext_resource type="Texture2D" uid="uid://c81rcdiwe8go0" path="res://assets/things/chair.png" id="1_k0csy"]
 
 [resource]
 animations = [{

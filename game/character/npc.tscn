@@ -33,6 +33,7 @@ monitorable = false
 
 [node name="CollisionShape2D" parent="FollowingArea" index="0"]
 shape = null
+disabled = true
 
 [node name="InteractArea" type="Area2D" parent="." index="3"]
 collision_layer = 5
