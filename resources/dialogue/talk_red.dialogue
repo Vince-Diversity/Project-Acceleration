@@ -1,0 +1,18 @@
+~ cue
+do move_npc("Red", "RedMark", "move")
+=> END!
+
+~ move
+do move("act")
+=> END!
+
+~ act
+do set_npc_anim("Red", "focus")
+do act_async([[animate_thing_async, ["Candle1", "flaring"]], [animate_thing_async, ["Candle2", "flaring"]]], "finish")
+=> END!
+
+~ finish
+do set_thing_anim("Candle1", "burning")
+do set_thing_anim("Candle2", "burning")
+do set_npc_anim("Red", "down")
+=> END!

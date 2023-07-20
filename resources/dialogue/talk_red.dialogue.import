@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_8"
+type="Resource"
+uid="uid://ce7fj12do1rsy"
+path="res://.godot/imported/talk_red.dialogue-e57734e77ab087f50f541b5d8f290cac.tres"
+
+[deps]
+
+source_file="res://resources/dialogue/talk_red.dialogue"
+dest_files=["res://.godot/imported/talk_red.dialogue-e57734e77ab087f50f541b5d8f290cac.tres"]
+
+[params]
+
+defaults=true

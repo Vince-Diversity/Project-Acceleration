@@ -1,0 +1,206 @@
+[gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_nq1hs"]
+
+[resource]
+script = ExtResource("1_nq1hs")
+titles = {
+"act": "10",
+"cue": "2",
+"finish": "15",
+"move": "6"
+}
+character_names = PackedStringArray()
+first_title = "2"
+lines = {
+"1": {
+"next_id": "2",
+"text": "cue",
+"type": "title"
+},
+"10": {
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_npc_anim",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Red"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "focus"
+}])])
+}])
+},
+"next_id": "11",
+"type": "mutation"
+},
+"11": {
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "act_async",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "array",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "array",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "variable",
+"value": "animate_thing_async"
+}]), Array[Dictionary]([{
+"type": "array",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Candle1"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "flaring"
+}])])
+}])])
+}]), Array[Dictionary]([{
+"type": "array",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "variable",
+"value": "animate_thing_async"
+}]), Array[Dictionary]([{
+"type": "array",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Candle2"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "flaring"
+}])])
+}])])
+}])])
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "finish"
+}])])
+}])
+},
+"next_id": "12",
+"type": "mutation"
+},
+"12": {
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"14": {
+"next_id": "15",
+"text": "finish",
+"type": "title"
+},
+"15": {
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_thing_anim",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Candle1"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "burning"
+}])])
+}])
+},
+"next_id": "16",
+"type": "mutation"
+},
+"16": {
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_thing_anim",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Candle2"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "burning"
+}])])
+}])
+},
+"next_id": "17",
+"type": "mutation"
+},
+"17": {
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_npc_anim",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Red"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "down"
+}])])
+}])
+},
+"next_id": "18",
+"type": "mutation"
+},
+"18": {
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"2": {
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "move_npc",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Red"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "RedMark"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "move"
+}])])
+}])
+},
+"next_id": "3",
+"type": "mutation"
+},
+"3": {
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"5": {
+"next_id": "6",
+"text": "move",
+"type": "title"
+},
+"6": {
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "move",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "act"
+}])])
+}])
+},
+"next_id": "7",
+"type": "mutation"
+},
+"7": {
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"9": {
+"next_id": "10",
+"text": "act",
+"type": "title"
+}
+}
+metadata/dialogue_manager_version = "2.16.1"

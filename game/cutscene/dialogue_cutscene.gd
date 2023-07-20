@@ -4,6 +4,7 @@ class_name DialogueCutscene extends Cutscene
 @onready var student_mark = $StudentMark
 @onready var dialogue_act_scr: GDScript = preload("res://game/cutscene/act/dialogue_act.gd")
 @onready var lightning_act_scr: GDScript = preload("res://game/cutscene/act/lightning_act.gd")
+@onready var async_act_scr: GDScript = preload("res://game/cutscene/act/async_act.gd")
 
 func make():
 	make_dialogue_act()
@@ -75,13 +76,13 @@ func move_npc(npc_node: String, mark_node: String, next_dlg_line: String):
 
 
 func animate_player(anim_name: String, next_dlg_line: String):
-	make_animate_act(owner.party.player.anim, anim_name)
+	make_animate_act(owner.party.player.anim_sprite, anim_name)
 	make_next_dialogue(next_dlg_line)
 
 
 func animate_npc(npc_node: String, anim_name: String, next_dlg_line: String):
 	if owner.npcs.has_node(npc_node):
-		make_animate_act(owner.npcs.get_node(npc_node).anim, anim_name)
+		make_animate_act(owner.npcs.get_node(npc_node).anim_sprite, anim_name)
 		make_next_dialogue(next_dlg_line)
 
 
@@ -147,6 +148,26 @@ func turn_npc_to_player(npc_node: String):
 			owner.party.player.global_position - npc.global_position
 		npc.set_direction(direction)
 		npc.update_direction()
+
+
+func act_async(arr: Array, next_dlg_node: String):
+	var async_act = async_act_scr.new()
+	var act_matrix: Array = [[]]
+	for c in arr:
+		act_matrix[0].append(c[0].callv(c[1]))
+	async_act.init_act(act_matrix)
+	actm.add_act(async_act)
+	make_next_dialogue(next_dlg_node)
+
+
+func animate_thing_async(thing_node: String, anim_name: String) -> Act:
+	if owner.things.has_node(thing_node):
+		var animate_act = animate_act_scr.new()
+		animate_act.init_act(
+			owner.things.get_node(thing_node).anim_sprite,
+			anim_name)
+		return animate_act
+	return null
 
 
 func begin_cutscene():

@@ -23,7 +23,7 @@ func grab_cutscene_focus():
 
 
 func get_player_anim_sprite() -> AnimatedSprite2D:
-	return owner.party.player.anim
+	return owner.party.player.anim_sprite
 
 
 func get_thing_anim_sprite() -> AnimatedSprite2D:

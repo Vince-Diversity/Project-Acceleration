@@ -9,7 +9,7 @@ var preserved_position: Vector2
 
 
 func _ready():
-	if anim.sprite_frames.has_animation(
+	if anim_sprite.sprite_frames.has_animation(
 			Utils.anim_name[preserved_direction]):
 		set_direction(
 			Utils.get_anim_direction(preserved_direction))

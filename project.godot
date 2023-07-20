@@ -52,7 +52,7 @@ version=""
 
 ui_accept={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":88,"key_label":0,"unicode":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":88,"physical_keycode":88,"key_label":88,"unicode":0,"echo":false,"script":null)
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":0,"pressure":0.0,"pressed":false,"script":null)
 ]
 }
@@ -69,7 +69,7 @@ ui_exit={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://game/dialogue/default.dialogue", "res://resources/dialogue/default.dialogue", "res://resources/dialogue/default_bookcase_book.dialogue", "res://resources/dialogue/default_door.dialogue", "res://resources/dialogue/book_imaginary_space.dialogue", "res://resources/dialogue/book_duality.dialogue", "res://resources/dialogue/book_dualism.dialogue", "res://resources/dialogue/book_fiction.dialogue", "res://resources/dialogue/book_yellow.dialogue", "res://resources/dialogue/book_green.dialogue", "res://resources/dialogue/book_red.dialogue", "res://resources/dialogue/book_blue.dialogue", "res://resources/dialogue/book_generic.dialogue", "res://resources/dialogue/book_preserve.dialogue", "res://resources/dialogue/talk_green_teacher.dialogue", "res://resources/dialogue/teacher_chair.dialogue", "res://resources/dialogue/talk_yellow_teacher.dialogue", "res://talk_cyan_ai.dialogue", "res://resources/dialogue/talk_cyan_ai.dialogue")
+locale/translations_pot_files=PackedStringArray("res://game/dialogue/default.dialogue", "res://resources/dialogue/default.dialogue", "res://resources/dialogue/default_bookcase_book.dialogue", "res://resources/dialogue/default_door.dialogue", "res://resources/dialogue/book_imaginary_space.dialogue", "res://resources/dialogue/book_duality.dialogue", "res://resources/dialogue/book_dualism.dialogue", "res://resources/dialogue/book_fiction.dialogue", "res://resources/dialogue/book_yellow.dialogue", "res://resources/dialogue/book_green.dialogue", "res://resources/dialogue/book_red.dialogue", "res://resources/dialogue/book_blue.dialogue", "res://resources/dialogue/book_generic.dialogue", "res://resources/dialogue/book_preserve.dialogue", "res://resources/dialogue/talk_green_teacher.dialogue", "res://resources/dialogue/teacher_chair.dialogue", "res://resources/dialogue/talk_yellow_teacher.dialogue", "res://talk_cyan_ai.dialogue", "res://resources/dialogue/talk_cyan_ai.dialogue", "res://resources/dialogue/talk_red.dialogue")
 
 [layer_names]
 
