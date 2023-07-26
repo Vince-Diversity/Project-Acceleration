@@ -48,7 +48,7 @@ func update_angle():
 func set_animation(anim_name: String):
 	anim_sprite.set_animation(anim_name)
 	var anim_id = Utils.get_anim_id(anim_name)
-	if anim_id != null:
+	if is_instance_valid(anim_id):
 		set_direction(Utils.get_anim_direction(anim_id))
 		update_direction()
 

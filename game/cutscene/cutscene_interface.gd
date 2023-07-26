@@ -24,7 +24,31 @@ func make_animate_act(anim_sprite: AnimatedSprite2D, anim_name: String):
 	animate_act.init_act(
 		anim_sprite,
 		anim_name)
-	actm.add_act(animate_act)
+	return animate_act
+
+
+func make_animate_player_act(anim_name: String) -> Act:
+	if is_instance_valid(owner.party.player):
+		return make_animate_act(
+			owner.party.player.anim_sprite,
+			anim_name)
+	else: return null
+
+
+func make_animate_npc_act(npc_node: String, anim_name: String) -> Act:
+	if owner.npcs.has_node(npc_node):
+		return make_animate_act(
+			owner.npcs.get_node(npc_node).anim_sprite,
+			anim_name)
+	else: return null
+
+
+func make_animate_thing_act(thing_node: String, anim_name: String) -> Act:
+	if owner.things.has_node(thing_node):
+		return make_animate_act(
+			owner.things.get_node(thing_node).anim_sprite,
+			anim_name)
+	else: return null
 
 
 func begin_cutscene():

@@ -5,12 +5,13 @@ class_name DialogueCutscene extends Cutscene
 @onready var dialogue_act_scr: GDScript = preload("res://game/cutscene/act/dialogue_act.gd")
 @onready var lightning_act_scr: GDScript = preload("res://game/cutscene/act/lightning_act.gd")
 @onready var async_act_scr: GDScript = preload("res://game/cutscene/act/async_act.gd")
+var async_act_matrix: Array
 
 func make():
-	make_dialogue_act()
+	actm.add_act(make_dialogue_act())
 
 
-func make_dialogue_act():
+func make_dialogue_act() -> Act:
 	var dialogue_act: Act = dialogue_act_scr.new()
 	dialogue_act.init_act(
 		owner.textbox_started_target,
@@ -18,94 +19,97 @@ func make_dialogue_act():
 		cutscenes.current_dialogue_node,
 		owner.textbox_focused_target,
 		self)
-	actm.add_act(dialogue_act)
+	return dialogue_act
 
 
 func make_move_to_position_act(
 		character_list: Array,
-		mark_list: Array):
+		mark_list: Array) -> Act:
 	var move_to_position_act: Act = move_to_position_act_scr.new()
 	move_to_position_act.init_act(character_list, mark_list)
-	actm.add_act(move_to_position_act)
+	return move_to_position_act
 
 
-func make_move_party_to_position_act():
-	var move_to_position_act: Act = move_to_position_act_scr.new()
-	move_to_position_act.init_act(
+func make_move_npc_to_position_act(
+		npc_node: String,
+		mark_node: String) -> Act:
+	if owner.npcs.has_node(npc_node) and cutscenes.current_cutscene.has_node(mark_node):
+		return make_move_to_position_act(
+			[owner.npcs.get_node(npc_node)],
+			[cutscenes.current_cutscene.get_node(mark_node)])
+	else: return null
+
+
+func make_move_party_to_position_act() -> Act:
+	return make_move_to_position_act(
 		owner.party.get_party_ordered(),
 		[mentor_mark, student_mark])
-	actm.add_act(move_to_position_act)
 
 
-func make_flash_act():
+func make_flash_act() -> Act:
 	var flash_in_act: Act = lightning_act_scr.new()
 	flash_in_act.init_act(screen, Color.WHITE, 0.2)
-	actm.add_act(flash_in_act)
+	return flash_in_act
 
 
-func make_darken_act():
+func make_darken_act() -> Act:
 	var darken_act: Act = lightning_act_scr.new()
 	darken_act.init_act(screen, Color(Color.BLACK, 0.5), screen.instant)
-	actm.add_act(darken_act)
+	return darken_act
 
 
-func make_reset_ligtning_act():
+func make_reset_ligtning_act() -> Act:
 	var reset_lightning_act: Act = lightning_act_scr.new()
 	reset_lightning_act.init_act(screen, Color.TRANSPARENT, screen.instant)
-	actm.add_act(reset_lightning_act)
+	return reset_lightning_act
 
 
-func make_next_dialogue(next_dialogue_node: String):
+func next_dialogue(next_dialogue_node: String):
 	cutscenes.change_dialogue(
 		cutscenes.current_dialogue_id,
 		next_dialogue_node)
-	make_dialogue_act()
+	actm.add_act(make_dialogue_act())
 
 
 func move(next_dialogue_node: String):
-	make_move_party_to_position_act()
-	make_next_dialogue(next_dialogue_node)
+	actm.add_act(make_move_party_to_position_act())
+	next_dialogue(next_dialogue_node)
 
 
 func move_npc(npc_node: String, mark_node: String, next_dlg_line: String):
-	if owner.npcs.has_node(npc_node) and cutscenes.current_cutscene.has_node(mark_node):
-		make_move_to_position_act(
-			[owner.npcs.get_node(npc_node)],
-			[cutscenes.current_cutscene.get_node(mark_node)])
-		make_next_dialogue(next_dlg_line)
+	var act = make_move_npc_to_position_act(npc_node, mark_node)
+	play(act, next_dlg_line)
 
 
 func animate_player(anim_name: String, next_dlg_line: String):
-	make_animate_act(owner.party.player.anim_sprite, anim_name)
-	make_next_dialogue(next_dlg_line)
+	var act = make_animate_player_act(anim_name)
+	play(act, next_dlg_line)
 
 
 func animate_npc(npc_node: String, anim_name: String, next_dlg_line: String):
-	if owner.npcs.has_node(npc_node):
-		make_animate_act(owner.npcs.get_node(npc_node).anim_sprite, anim_name)
-		make_next_dialogue(next_dlg_line)
+	var act = make_animate_npc_act(npc_node, anim_name)
+	play(act, next_dlg_line)
 
 
-func animate_thing(thing_node: String, anim_name: String, next_dlg_node: String):
-	if owner.things.has_node(thing_node):
-		make_animate_act(owner.things.get_node(thing_node).anim_sprite, anim_name)
-		make_next_dialogue(next_dlg_node)
+func animate_thing(thing_node: String, anim_name: String, next_dlg_line: String):
+	var act = make_animate_thing_act(thing_node, anim_name)
+	play(act, next_dlg_line)
 
 
 func flash(next_dlg_line: String):
-	make_flash_act()
-	make_reset_ligtning_act()
-	make_next_dialogue(next_dlg_line)
+	actm.add_act(make_flash_act())
+	actm.add_act(make_reset_ligtning_act())
+	next_dialogue(next_dlg_line)
 
 
 func darken(next_dlg_line: String):
-	make_darken_act()
-	make_next_dialogue(next_dlg_line)
+	actm.add_act(make_darken_act())
+	next_dialogue(next_dlg_line)
 
 
 func reset_lightning(next_dlg_line: String):
-	make_reset_ligtning_act()
-	make_next_dialogue(next_dlg_line)
+	actm.add_act(make_reset_ligtning_act())
+	next_dialogue(next_dlg_line)
 
 
 func set_player_anim(anim_name: String):
@@ -120,7 +124,7 @@ func set_npc_anim(npc_node: String, anim_name: String):
 func set_npc_direction(npc_node: String, direction: String):
 	if owner.npcs.has_node(npc_node):
 		var anim_id = Utils.get_anim_id(direction)
-		if anim_id == null: return
+		if not is_instance_valid(anim_id): return
 		var npc = owner.npcs.get_node(npc_node)
 		npc.set_direction(Utils.get_anim_direction(anim_id))
 		npc.update_direction()
@@ -150,24 +154,28 @@ func turn_npc_to_player(npc_node: String):
 		npc.update_direction()
 
 
-func act_async(arr: Array, next_dlg_node: String):
+func play(act: Act, next_dlg_line: String):
+	if is_instance_valid(act):
+		actm.add_act(act)
+		next_dialogue(next_dlg_line)
+
+
+func add_async(content: Array):
+	if not content.is_empty():
+		async_act_matrix.append([])
+		for c in content:
+			if c.size() == 2:
+				var act = c[0].callv(c[1])
+				if is_instance_valid(act):
+					async_act_matrix[-1].append(act)
+
+
+func play_async(next_dlg_line: String):
 	var async_act = async_act_scr.new()
-	var act_matrix: Array = [[]]
-	for c in arr:
-		act_matrix[0].append(c[0].callv(c[1]))
-	async_act.init_act(act_matrix)
+	async_act.init_act(async_act_matrix)
 	actm.add_act(async_act)
-	make_next_dialogue(next_dlg_node)
-
-
-func animate_thing_async(thing_node: String, anim_name: String) -> Act:
-	if owner.things.has_node(thing_node):
-		var animate_act = animate_act_scr.new()
-		animate_act.init_act(
-			owner.things.get_node(thing_node).anim_sprite,
-			anim_name)
-		return animate_act
-	return null
+	next_dialogue(next_dlg_line)
+	async_act_matrix = []
 
 
 func begin_cutscene():

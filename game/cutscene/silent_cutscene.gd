@@ -22,9 +22,5 @@ func grab_cutscene_focus():
 	super()
 
 
-func get_player_anim_sprite() -> AnimatedSprite2D:
-	return owner.party.player.anim_sprite
-
-
 func get_thing_anim_sprite() -> AnimatedSprite2D:
 	return cutscenes.current_source_node.anim_sprite

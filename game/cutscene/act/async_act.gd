@@ -6,10 +6,11 @@ var finish_counter: int = 0
 
 func init_act(act_matrix: Array):
 	for actm_i in act_matrix.size():
-		var actm: GDScript = ActManager.new(actm_finished)
-		actm_list.append(actm)
-		for act_j in act_matrix[actm_i]:
-			actm.add_act(act_j)
+		if not act_matrix[actm_i].is_empty():
+			var actm: GDScript = ActManager.new(actm_finished)
+			actm_list.append(actm)
+			for act_j in act_matrix[actm_i]:
+				actm.add_act(act_j)
 
 
 func actm_finished():

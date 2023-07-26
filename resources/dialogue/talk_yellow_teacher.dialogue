@@ -44,8 +44,7 @@ do reset_lightning("setters")
 do turn_npc_to_player("YellowTeacher")
 {{yellow_teacher}}: [do express(shocked)] Let's pretend we just met, ok?
 {{yellow_teacher}}: Hi, {{green}}! Already in class before term start?
-{{green}}: Yes. I am showing {{blue}}, our new student, around the school.
-{{blue}}: Hello, {{yellow_teacher_formally}}.
+{{green}}: Yes, {{yellow_teacher_formally}}. I am showing {{blue}}, our new student, around the school.
 {{yellow_teacher}}: [do express(shocked)] Just call me {{yellow_teacher}}, please.
 {{yellow_teacher}}: Well, I better get back to class prep, see you!
 do set_npc_direction("YellowTeacher", "down")

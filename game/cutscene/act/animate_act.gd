@@ -17,7 +17,10 @@ func update(_delta: float):
 
 func enter():
 	anim.animation_finished.connect(_on_animation_finished, CONNECT_ONE_SHOT)
-	anim.play(anim_name)
+	if anim.sprite_frames.has_animation(anim_name):
+		anim.play(anim_name)
+	else:
+		anim.play("default")
 
 
 func exit():

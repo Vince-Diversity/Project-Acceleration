@@ -2,8 +2,7 @@ extends SilentCutscene
 
 
 func make():
-	make_animate_act(get_player_anim_sprite(), Names.focus_anim)
-	make_animate_act(get_thing_anim_sprite(), Names.sprout_anim)
-	make_animate_act(get_thing_anim_sprite(), Names.sprouting_anim)
-	make_animate_act(get_player_anim_sprite(), "default")
-
+	actm.add_act(make_animate_player_act(Names.focus_anim))
+	actm.add_act(make_animate_act(get_thing_anim_sprite(), Names.sprout_anim))
+	actm.add_act(make_animate_act(get_thing_anim_sprite(), Names.sprouting_anim))
+	actm.add_act(make_animate_player_act("default"))
