@@ -8,10 +8,10 @@ class_name DialogueCutscene extends Cutscene
 var async_act_matrix: Array
 
 func make():
-	actm.add_act(make_dialogue_act())
+	actm.add_act(make_dialogue())
 
 
-func make_dialogue_act() -> Act:
+func make_dialogue() -> Act:
 	var dialogue_act: Act = dialogue_act_scr.new()
 	dialogue_act.init_act(
 		owner.textbox_started_target,
@@ -22,7 +22,7 @@ func make_dialogue_act() -> Act:
 	return dialogue_act
 
 
-func make_move_to_position_act(
+func make_move_to_position(
 		character_list: Array,
 		mark_list: Array) -> Act:
 	var move_to_position_act: Act = move_to_position_act_scr.new()
@@ -30,35 +30,35 @@ func make_move_to_position_act(
 	return move_to_position_act
 
 
-func make_move_npc_to_position_act(
+func make_move_npc_to_position(
 		npc_node: String,
 		mark_node: String) -> Act:
 	if owner.npcs.has_node(npc_node) and cutscenes.current_cutscene.has_node(mark_node):
-		return make_move_to_position_act(
+		return make_move_to_position(
 			[owner.npcs.get_node(npc_node)],
 			[cutscenes.current_cutscene.get_node(mark_node)])
 	else: return null
 
 
-func make_move_party_to_position_act() -> Act:
-	return make_move_to_position_act(
+func make_move_party_to_position() -> Act:
+	return make_move_to_position(
 		owner.party.get_party_ordered(),
 		[mentor_mark, student_mark])
 
 
-func make_flash_act() -> Act:
+func make_flash() -> Act:
 	var flash_in_act: Act = lightning_act_scr.new()
 	flash_in_act.init_act(screen, Color.WHITE, 0.2)
 	return flash_in_act
 
 
-func make_darken_act() -> Act:
+func make_darken() -> Act:
 	var darken_act: Act = lightning_act_scr.new()
 	darken_act.init_act(screen, Color(Color.BLACK, 0.5), screen.instant)
 	return darken_act
 
 
-func make_reset_ligtning_act() -> Act:
+func make_reset_ligtning() -> Act:
 	var reset_lightning_act: Act = lightning_act_scr.new()
 	reset_lightning_act.init_act(screen, Color.TRANSPARENT, screen.instant)
 	return reset_lightning_act
@@ -68,47 +68,47 @@ func next_dialogue(next_dialogue_node: String):
 	cutscenes.change_dialogue(
 		cutscenes.current_dialogue_id,
 		next_dialogue_node)
-	actm.add_act(make_dialogue_act())
+	actm.add_act(make_dialogue())
 
 
 func move(next_dialogue_node: String):
-	actm.add_act(make_move_party_to_position_act())
+	actm.add_act(make_move_party_to_position())
 	next_dialogue(next_dialogue_node)
 
 
 func move_npc(npc_node: String, mark_node: String, next_dlg_line: String):
-	var act = make_move_npc_to_position_act(npc_node, mark_node)
+	var act = make_move_npc_to_position(npc_node, mark_node)
 	play(act, next_dlg_line)
 
 
 func animate_player(anim_name: String, next_dlg_line: String):
-	var act = make_animate_player_act(anim_name)
+	var act = make_animate_player(anim_name)
 	play(act, next_dlg_line)
 
 
 func animate_npc(npc_node: String, anim_name: String, next_dlg_line: String):
-	var act = make_animate_npc_act(npc_node, anim_name)
+	var act = make_animate_npc(npc_node, anim_name)
 	play(act, next_dlg_line)
 
 
 func animate_thing(thing_node: String, anim_name: String, next_dlg_line: String):
-	var act = make_animate_thing_act(thing_node, anim_name)
+	var act = make_animate_thing(thing_node, anim_name)
 	play(act, next_dlg_line)
 
 
 func flash(next_dlg_line: String):
-	actm.add_act(make_flash_act())
-	actm.add_act(make_reset_ligtning_act())
+	actm.add_act(make_flash())
+	actm.add_act(make_reset_ligtning())
 	next_dialogue(next_dlg_line)
 
 
 func darken(next_dlg_line: String):
-	actm.add_act(make_darken_act())
+	actm.add_act(make_darken())
 	next_dialogue(next_dlg_line)
 
 
 func reset_lightning(next_dlg_line: String):
-	actm.add_act(make_reset_ligtning_act())
+	actm.add_act(make_reset_ligtning())
 	next_dialogue(next_dlg_line)
 
 

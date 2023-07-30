@@ -3,9 +3,9 @@ class_name Game extends Node2D
 @onready var menu_scn = preload("res://game/pause_menu.tscn")
 @onready var save_res = preload("res://loader/save_game.gd")
 @onready var default_state: DefaultState = preload("res://game/game_state/default_state.gd").new("default_state")
-@onready var cutscene_state: CutsceneState = preload("res://game/game_state/cutscene_state.gd").new("cutscene_state")
 @onready var stm: StateMachine = preload("res://game/game_state/state_machine.gd").new(default_state)
 @onready var text_box_scn: PackedScene = preload("res://game/ui/textbox/textbox.tscn")
+@onready var bgm: AudioStreamPlayer = $BGMPlayer
 var cache: SaveGame
 var loader: Loader
 var save_dir: String
@@ -41,6 +41,7 @@ func load_room(room_id: String, entrance_node: String):
 		room_id,
 		entrance_node,
 		stm,
+		bgm,
 		loader.screen,
 		change_room,
 		_on_textbox_started,

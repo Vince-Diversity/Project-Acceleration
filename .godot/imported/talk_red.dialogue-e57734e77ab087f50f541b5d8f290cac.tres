@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_6qbre"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_71m8g"]
 
 [resource]
-script = ExtResource("1_6qbre")
+script = ExtResource("1_71m8g")
 titles = {
 "cue": "2",
 "finish": "18",
@@ -28,7 +28,7 @@ lines = {
 "type": "array",
 "value": Array[Array]([Array[Dictionary]([{
 "type": "variable",
-"value": "make_animate_thing_act"
+"value": "make_animate_thing"
 }]), Array[Dictionary]([{
 "type": "array",
 "value": Array[Array]([Array[Dictionary]([{
@@ -57,7 +57,7 @@ lines = {
 "type": "array",
 "value": Array[Array]([Array[Dictionary]([{
 "type": "variable",
-"value": "make_animate_thing_act"
+"value": "make_animate_thing"
 }]), Array[Dictionary]([{
 "type": "array",
 "value": Array[Array]([Array[Dictionary]([{
@@ -86,7 +86,7 @@ lines = {
 "type": "array",
 "value": Array[Array]([Array[Dictionary]([{
 "type": "variable",
-"value": "make_animate_thing_act"
+"value": "make_animate_thing"
 }]), Array[Dictionary]([{
 "type": "array",
 "value": Array[Array]([Array[Dictionary]([{
@@ -115,7 +115,7 @@ lines = {
 "type": "array",
 "value": Array[Array]([Array[Dictionary]([{
 "type": "variable",
-"value": "make_animate_thing_act"
+"value": "make_animate_thing"
 }]), Array[Dictionary]([{
 "type": "array",
 "value": Array[Array]([Array[Dictionary]([{
@@ -202,7 +202,7 @@ lines = {
 "type": "array",
 "value": Array[Array]([Array[Dictionary]([{
 "type": "variable",
-"value": "make_move_npc_to_position_act"
+"value": "make_move_npc_to_position"
 }]), Array[Dictionary]([{
 "type": "array",
 "value": Array[Array]([Array[Dictionary]([{
@@ -304,7 +304,7 @@ lines = {
 "type": "array",
 "value": Array[Array]([Array[Dictionary]([{
 "type": "variable",
-"value": "make_move_party_to_position_act"
+"value": "make_move_party_to_position"
 }]), Array[Dictionary]([{
 "type": "array",
 "value": Array[Array]([])
@@ -368,7 +368,7 @@ lines = {
 "type": "array",
 "value": Array[Array]([Array[Dictionary]([{
 "type": "variable",
-"value": "make_animate_thing_act"
+"value": "make_animate_thing"
 }]), Array[Dictionary]([{
 "type": "array",
 "value": Array[Array]([Array[Dictionary]([{

@@ -1,5 +1,7 @@
 class_name Room extends Node2D
 
+@export_file var bgm_file: String
+
 @onready var party = $YSort/Party
 @onready var cutscenes = $RoomCutscenes
 @onready var things = $YSort/Things
@@ -13,6 +15,7 @@ var room_id: String
 var entrance_node: String
 var dlg_res: DialogueResource
 var stm: StateMachine
+var bgm: AudioStreamPlayer
 var screen: Screen
 var textbox_started_target: Callable
 var cutscene_ended_target: Callable
@@ -104,6 +107,7 @@ func init_room(
 		given_room_id: String,
 		given_entrance_node: String,
 		given_stm: StateMachine,
+		given_bgm: AudioStreamPlayer,
 		given_screen: Screen,
 		change_room_target: Callable,
 		given_textbox_started_target: Callable,
@@ -112,6 +116,8 @@ func init_room(
 	room_id = given_room_id
 	entrance_node = given_entrance_node
 	stm = given_stm
+	bgm = given_bgm
+	bgm.update_stream(bgm_file)
 	screen = given_screen
 	room_changed.connect(change_room_target, CONNECT_DEFERRED)
 	textbox_started_target = given_textbox_started_target

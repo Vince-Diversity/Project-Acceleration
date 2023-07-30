@@ -1,16 +1,16 @@
 ~ cue
-do add_async([[make_move_npc_to_position_act, ["Red", "RedMark"]]])
-do add_async([[make_move_party_to_position_act, []]])
+do add_async([[make_move_npc_to_position, ["Red", "RedMark"]]])
+do add_async([[make_move_party_to_position, []]])
 do play_async("ignite")
 => END!
 
 ~ ignite
 do set_npc_anim("Red", "focus")
-do add_async([[make_animate_thing_act, ["Candle1", "flaring"]]])
-do add_async([[make_animate_thing_act, ["Candle2", "flaring"]]])
-do add_async([[make_animate_thing_act, ["Candle3", "flaring"]]])
-do add_async([[make_animate_thing_act, ["Candle4", "flaring"]]])
-do add_async([[make_animate_thing_act, ["Candle5", "flaring"]]])
+do add_async([[make_animate_thing, ["Candle1", "flaring"]]])
+do add_async([[make_animate_thing, ["Candle2", "flaring"]]])
+do add_async([[make_animate_thing, ["Candle3", "flaring"]]])
+do add_async([[make_animate_thing, ["Candle4", "flaring"]]])
+do add_async([[make_animate_thing, ["Candle5", "flaring"]]])
 do play_async("finish")
 => END!
 

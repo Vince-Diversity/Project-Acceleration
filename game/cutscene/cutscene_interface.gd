@@ -19,7 +19,7 @@ func make():
 	pass
 
 
-func make_animate_act(anim_sprite: AnimatedSprite2D, anim_name: String):
+func make_animate(anim_sprite: AnimatedSprite2D, anim_name: String):
 	var animate_act = animate_act_scr.new()
 	animate_act.init_act(
 		anim_sprite,
@@ -27,25 +27,25 @@ func make_animate_act(anim_sprite: AnimatedSprite2D, anim_name: String):
 	return animate_act
 
 
-func make_animate_player_act(anim_name: String) -> Act:
+func make_animate_player(anim_name: String) -> Act:
 	if is_instance_valid(owner.party.player):
-		return make_animate_act(
+		return make_animate(
 			owner.party.player.anim_sprite,
 			anim_name)
 	else: return null
 
 
-func make_animate_npc_act(npc_node: String, anim_name: String) -> Act:
+func make_animate_npc(npc_node: String, anim_name: String) -> Act:
 	if owner.npcs.has_node(npc_node):
-		return make_animate_act(
+		return make_animate(
 			owner.npcs.get_node(npc_node).anim_sprite,
 			anim_name)
 	else: return null
 
 
-func make_animate_thing_act(thing_node: String, anim_name: String) -> Act:
+func make_animate_thing(thing_node: String, anim_name: String) -> Act:
 	if owner.things.has_node(thing_node):
-		return make_animate_act(
+		return make_animate(
 			owner.things.get_node(thing_node).anim_sprite,
 			anim_name)
 	else: return null

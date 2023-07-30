@@ -21,6 +21,7 @@ func actm_finished():
 
 func update(delta: float):
 	for actm in actm_list:
+		if actm.act_list.is_empty(): continue
 		actm.update_act(delta)
 
 

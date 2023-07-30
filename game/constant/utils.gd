@@ -5,6 +5,7 @@ enum AnimID {DOWN, LEFT, UP, RIGHT}
 const dlg_dir = "res://resources/dialogue/"
 const room_dir = "res://game/room/"
 const profile_dir = "res://assets/profiles/"
+const bgm_dir = "res://assets/sound/bgm/"
 
 const anim_direction = {
 	Vector2.DOWN: AnimID.DOWN,
@@ -67,7 +68,11 @@ static func get_profile_path(dlg_line: DialogueLine, expression: String) -> Stri
 		profile_id = name
 	else:
 		profile_id = "%s_%s" % [name, expression]
-	return profile_dir.path_join(name).path_join(profile_id + '.png')
+	return profile_dir.path_join(name).path_join(profile_id + ".png")
+
+
+static func get_bgm_path(bgm_name: String):
+	return bgm_dir.path_join(bgm_name + ".ogg")
 
 
 static func str_to_seed(name: String) -> int:

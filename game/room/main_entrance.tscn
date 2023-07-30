@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bqlmbt878hrxk" path="res://game/cutscene/dialogue_cutscene.tscn" id="7_hcn8u"]
 
 [node name="MainEntrance" instance=ExtResource("1_ysrto")]
+bgm_file = ""
 
 [node name="TileMap" parent="." index="0"]
 tile_set = ExtResource("2_nxr72")

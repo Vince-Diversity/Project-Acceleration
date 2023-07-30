@@ -1,3 +1,4 @@
+res://assets/sound/bgm
 res://game/cutscene/dialogue_cutscene/red_cutscene
 res://game/character/npcs
 res://assets/characters/red
@@ -19,4 +20,3 @@ res://game/thing/table
 res://game/character
 res://game/thing/chair
 res://assets/characters/green
-res://game/cutscene/silent_cutscene/sprout_cutscene
