@@ -3,7 +3,7 @@ class_name Utils extends Object
 enum AnimID {DOWN, LEFT, UP, RIGHT}
 
 const dlg_dir = "res://resources/dialogue/"
-const room_dir = "res://game/room/"
+const room_dir = "res://game/room/rooms/"
 const profile_dir = "res://assets/profiles/"
 const bgm_dir = "res://assets/sound/bgm/"
 

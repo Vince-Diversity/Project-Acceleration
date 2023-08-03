@@ -7,8 +7,8 @@ script = ExtResource("1_f3ktj")
 game_version = "0.3"
 data = {
 "game": {
-"current_room_id": "red_classroom",
-"entrance_node": "DoorDown"
+"current_room_id": "red_hallway",
+"entrance_node": "DoorUp"
 },
 "rooms": {
 "green_classroom": {
@@ -313,10 +313,10 @@ data = {
 "npcs": {
 "Red": {
 "dialogue_id": "talk_red",
-"dialogue_node": "cue",
-"direction": Vector2(0, 1),
+"dialogue_node": "revisit",
+"direction": Vector2(-0.782638, -0.622477),
 "interaction_node": "RedCutscene",
-"position": Vector2(544, 192)
+"position": Vector2(809.742, 516.975)
 }
 },
 "things": {

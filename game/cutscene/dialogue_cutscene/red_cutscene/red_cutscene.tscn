@@ -5,4 +5,14 @@
 
 [node name="RedCutscene" instance=ExtResource("1_84ika")]
 
-[node name="RedMark" parent="." index="2" instance=ExtResource("2_54h0n")]
+[node name="RedMark1" parent="." index="2" instance=ExtResource("2_54h0n")]
+
+[node name="RedMark2" parent="." index="3" instance=ExtResource("2_54h0n")]
+
+[node name="RedMark3" parent="." index="4" instance=ExtResource("2_54h0n")]
+
+[node name="RedMark4" parent="." index="5" instance=ExtResource("2_54h0n")]
+
+[node name="RedMark5" parent="." index="6" instance=ExtResource("2_54h0n")]
+
+[node name="RedMark" parent="." index="7" instance=ExtResource("2_54h0n")]

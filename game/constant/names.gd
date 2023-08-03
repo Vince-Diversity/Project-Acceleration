@@ -2,6 +2,7 @@ extends Node
 
 const green := "Misa"
 const blue := "Ari"
+const red := "Clara"
 const green_teacher := "Professor Hilbert"
 const yellow_teacher := "Olivia"
 const yellow_teacher_formally := "Dr. Franklin"

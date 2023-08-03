@@ -43,4 +43,4 @@ func clear_actm_list():
 # Whichever focusable act is added last gets the focus
 func grab_focus():
 	for actm in actm_list:
-		actm.grab_focus()
+		actm.grab_act_focus()

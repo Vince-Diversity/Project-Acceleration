@@ -48,7 +48,22 @@ position = Vector2(96, 96)
 [node name="StudentMark" parent="RoomCutscenes/RedCutscene" index="1"]
 position = Vector2(128, 96)
 
-[node name="RedMark" parent="RoomCutscenes/RedCutscene" index="2"]
-position = Vector2(160, 128)
+[node name="RedMark1" parent="RoomCutscenes/RedCutscene" index="2"]
+position = Vector2(53, 321)
+
+[node name="RedMark2" parent="RoomCutscenes/RedCutscene" index="3"]
+position = Vector2(267, 325)
+
+[node name="RedMark3" parent="RoomCutscenes/RedCutscene" index="4"]
+position = Vector2(365, 99)
+
+[node name="RedMark4" parent="RoomCutscenes/RedCutscene" index="5"]
+position = Vector2(142, -62)
+
+[node name="RedMark5" parent="RoomCutscenes/RedCutscene" index="6"]
+position = Vector2(-43, 96)
+
+[node name="RedMark" parent="RoomCutscenes/RedCutscene" index="7"]
+position = Vector2(167, 150)
 
 [editable path="RoomCutscenes/RedCutscene"]

@@ -8,10 +8,10 @@ class_name DialogueCutscene extends Cutscene
 var async_act_matrix: Array
 
 func make():
-	actm.add_act(make_dialogue())
+	actm.add_act(make_current_dialogue())
 
 
-func make_dialogue() -> Act:
+func make_current_dialogue() -> Act:
 	var dialogue_act: Act = dialogue_act_scr.new()
 	dialogue_act.init_act(
 		owner.textbox_started_target,
@@ -22,7 +22,18 @@ func make_dialogue() -> Act:
 	return dialogue_act
 
 
-func make_move_to_position(
+func make_dialogue(dialogue_id: String, dialogue_node: String) -> Act:
+	var dialogue_act: Act = dialogue_act_scr.new()
+	dialogue_act.init_act(
+		owner.textbox_started_target,
+		dialogue_id,
+		dialogue_node,
+		owner.textbox_focused_target,
+		self)
+	return dialogue_act
+
+
+func make_move(
 		character_list: Array,
 		mark_list: Array) -> Act:
 	var move_to_position_act: Act = move_to_position_act_scr.new()
@@ -30,18 +41,18 @@ func make_move_to_position(
 	return move_to_position_act
 
 
-func make_move_npc_to_position(
+func make_move_npc(
 		npc_node: String,
 		mark_node: String) -> Act:
 	if owner.npcs.has_node(npc_node) and cutscenes.current_cutscene.has_node(mark_node):
-		return make_move_to_position(
+		return make_move(
 			[owner.npcs.get_node(npc_node)],
 			[cutscenes.current_cutscene.get_node(mark_node)])
 	else: return null
 
 
-func make_move_party_to_position() -> Act:
-	return make_move_to_position(
+func make_move_party() -> Act:
+	return make_move(
 		owner.party.get_party_ordered(),
 		[mentor_mark, student_mark])
 
@@ -68,16 +79,16 @@ func next_dialogue(next_dialogue_node: String):
 	cutscenes.change_dialogue(
 		cutscenes.current_dialogue_id,
 		next_dialogue_node)
-	actm.add_act(make_dialogue())
+	actm.add_act(make_current_dialogue())
 
 
 func move(next_dialogue_node: String):
-	actm.add_act(make_move_party_to_position())
+	actm.add_act(make_move_party())
 	next_dialogue(next_dialogue_node)
 
 
 func move_npc(npc_node: String, mark_node: String, next_dlg_line: String):
-	var act = make_move_npc_to_position(npc_node, mark_node)
+	var act = make_move_npc(npc_node, mark_node)
 	play(act, next_dlg_line)
 
 

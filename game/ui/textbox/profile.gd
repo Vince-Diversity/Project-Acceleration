@@ -3,6 +3,7 @@ extends TextureRect
 const neutral := ""
 const cheerful := "cheerful"
 const shocked := "shocked"
+const sorry := "sorry"
 
 
 func express(expression: String):

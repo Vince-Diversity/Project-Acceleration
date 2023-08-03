@@ -1,24 +1,53 @@
 ~ cue
-do add_async([[make_move_npc_to_position, ["Red", "RedMark"]]])
-do add_async([[make_move_party_to_position, []]])
+do turn_npc_to_player("Red")
+{{green}}: Hi {{red}}! You have to show us one of your demos!
+{{red}}: Hi. Is this the new student you mentioned?
+{{blue}}: My name is {{blue}}.
+{{green}}: And this is {{red}}, my friend and amazing {{red_aspect}} mage.
+do add_async([[make_move_npc, ["Red", "RedMark"]]])
+do add_async([[make_move_party, []]])
 do play_async("ignite")
 => END!
 
 ~ ignite
 do set_npc_anim("Red", "focus")
+{{red}}: Watch out now.
 do add_async([[make_animate_thing, ["Candle1", "flaring"]]])
 do add_async([[make_animate_thing, ["Candle2", "flaring"]]])
 do add_async([[make_animate_thing, ["Candle3", "flaring"]]])
 do add_async([[make_animate_thing, ["Candle4", "flaring"]]])
 do add_async([[make_animate_thing, ["Candle5", "flaring"]]])
-do play_async("finish")
+do play_async("burn")
 => END!
 
-~ finish
+~ burn
 do set_thing_anim("Candle1", "burning")
 do set_thing_anim("Candle2", "burning")
 do set_thing_anim("Candle3", "burning")
 do set_thing_anim("Candle4", "burning")
 do set_thing_anim("Candle5", "burning")
 do set_npc_anim("Red", "down")
+{{green}}: Wow!
+do add_async([[make_dialogue, ["talk_red", "talk"]]])
+do add_async([[make_move_npc, ["Red", "RedMark5"]], [make_animate_npc, ["Red", "extinguish_left"]], [make_animate_thing, ["Candle5", "default"]], [make_move_npc, ["Red", "RedMark4"]], [make_animate_npc, ["Red", "extinguish_right"]], [make_animate_thing, ["Candle4", "default"]], [make_move_npc, ["Red", "RedMark3"]], [make_animate_npc, ["Red", "extinguish_right"]], [make_animate_thing, ["Candle3", "default"]], [make_move_npc, ["Red", "RedMark1"]], [make_animate_npc, ["Red", "extinguish_left"]], [make_animate_thing, ["Candle1", "default"]], [make_move_npc, ["Red", "RedMark2"]], [make_animate_npc, ["Red", "extinguish_right"]], [make_animate_thing, ["Candle2", "default"]]])
+do play_async("finish")
 => END!
+
+~ talk
+{{red}}: Our classmates seem to have difficulties igniting just a single candle.
+{{red}}: Maybe it is because most students do not know what they practice for.
+{{red}}: [do express(sorry)] Not that I know why I practice so much.
+{{red}}: I just always put in my best effort, isn't that the most natural thing to do?
+=> END!
+
+~ finish
+do set_npc_anim("Red", "down")
+{{red}}: [do express(sorry)] Sorry for venting on you again.
+{{green}}: [do express(cheerful)] No problem, thanks for the demo!
+do set_npc_dialogue_node("Red", "revisit")
+=> END!
+
+~ revisit
+do turn_npc_to_player("Red")
+{{green}}: [do express(cheerful)] Hi again! Can you show us another demo?
+{{red}}: [do express(sorry)] Please, let me recover first.
