@@ -1,0 +1,122 @@
+[gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_0hu5i"]
+
+[resource]
+script = ExtResource("1_0hu5i")
+titles = {
+"talk": "2"
+}
+character_names = PackedStringArray("{{red_teacher}}", "{{green}}")
+first_title = "2"
+lines = {
+"1": {
+"next_id": "2",
+"text": "talk",
+"type": "title"
+},
+"2": {
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "turn_npc_to_player",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "RedTeacher"
+}])])
+}])
+},
+"next_id": "3",
+"type": "mutation"
+},
+"3": {
+"character": "{{red_teacher}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "red_teacher"
+}]),
+"value_in_text": "{{red_teacher}}"
+}]),
+"next_id": "4",
+"text": "Hope you are fired up for some battle practice this term!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Hope you are fired up for some battle practice this term!",
+"type": "dialogue"
+},
+"4": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"next_id": "5",
+"text": "Actually, I'm not so fond of that.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Actually, I'm not so fond of that.",
+"type": "dialogue"
+},
+"5": {
+"character": "{{red_teacher}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "red_teacher"
+}]),
+"value_in_text": "{{red_teacher}}"
+}]),
+"next_id": "6",
+"text": "Think about it! Your friend {{red}} would need someone as dedicated as you to spar with.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "red"
+}]),
+"value_in_text": "{{red}}"
+}]),
+"translation_key": "Think about it! Your friend {{red}} would need someone as dedicated as you to spar with.",
+"type": "dialogue"
+},
+"6": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"next_id": "7",
+"text": "{{blue}}, this is {{red_teacher}}. She is the main teacher of {{red_aspect}} magic but she also manages magical martial arts training.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "blue"
+}]),
+"value_in_text": "{{blue}}"
+}, {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "red_teacher"
+}]),
+"value_in_text": "{{red_teacher}}"
+}, {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "red_aspect"
+}]),
+"value_in_text": "{{red_aspect}}"
+}]),
+"translation_key": "{{blue}}, this is {{red_teacher}}. She is the main teacher of {{red_aspect}} magic but she also manages magical martial arts training.",
+"type": "dialogue"
+},
+"7": {
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+}
+}
+metadata/dialogue_manager_version = "2.17.0"

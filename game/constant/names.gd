@@ -6,6 +6,7 @@ const red := "Clara"
 const green_teacher := "Professor Hilbert"
 const yellow_teacher := "Olivia"
 const yellow_teacher_formally := "Dr. Franklin"
+const red_teacher := "Ms. Phenia"
 const cyan_ai := "Luna"
 
 const deepest_layer := "Cirruseng"

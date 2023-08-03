@@ -1,253 +1,30 @@
 [gd_resource type="Resource" script_class="SaveGame" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://loader/save_game.gd" id="1_f3ktj"]
+[ext_resource type="Script" path="res://loader/save_game.gd" id="1_nbj3j"]
 
 [resource]
-script = ExtResource("1_f3ktj")
+script = ExtResource("1_nbj3j")
 game_version = "0.3"
 data = {
 "game": {
-"current_room_id": "red_hallway",
+"current_room_id": "training_grounds",
 "entrance_node": "DoorUp"
 },
 "rooms": {
-"green_classroom": {
-"npcs": {
-"GreenTeacher": {
-"dialogue_id": "talk_green_teacher",
-"dialogue_node": "cue",
-"direction": Vector2(0, 1),
-"interaction_node": "Teacher",
-"position": Vector2(576, 178)
-}
-},
+"knowledge_hallway": {
+"npcs": {},
 "things": {
-"BookcasePreserve": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
 "DoorDown": {
 "current_anim": &"default",
 "current_frame": 0,
 "current_state": "thing_interactable_state"
 },
-"GreenTeacherChair": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"Sprout1": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"Sprout2": {
-"current_anim": &"bloom",
-"current_frame": 0,
-"current_state": "thing_static_state"
-},
-"Sprout3": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"Sprout4": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"Table": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_static_state"
-}
-}
-},
-"green_hallway": {
-"npcs": {},
-"things": {
-"DoorUp": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"PassageDown": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-}
-}
-},
-"knowledge_hallway": {
-"npcs": {},
-"things": {
 "PassageRight": {
 "current_anim": &"default",
 "current_frame": 0,
 "current_state": "thing_interactable_state"
 },
 "PassageUp": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-}
-}
-},
-"library_1f": {
-"npcs": {},
-"things": {
-"BlueAspect": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"DoorDown": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"GreenAspect": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"PassageUp": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"PassageUp2": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"RedAspect": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"YellowAspect": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-}
-}
-},
-"library_2f": {
-"npcs": {},
-"things": {
-"BookcaseAO": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"BookcaseAT": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"BookcaseBM": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"BookcaseBP": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"BookcaseCF": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"BookcaseDA": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"BookcaseDuality": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"BookcaseEB": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"BookcaseFiction": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"BookcaseHM": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"BookcaseMH": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"BookcaseMM": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"BookcaseSD": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"BookcaseTM": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"BookcaseWP": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"PassageDown": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"PassageDown2": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"PassageUp": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"PassageUp2": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-}
-}
-},
-"library_3f": {
-"npcs": {},
-"things": {
-"BookcaseImaginarySpace": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"PassageDown": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"PassageDown2": {
 "current_anim": &"default",
 "current_frame": 0,
 "current_state": "thing_interactable_state"
@@ -284,121 +61,18 @@ data = {
 }
 }
 },
-"main_hallway": {
-"npcs": {},
-"things": {
-"PassageDown": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"PassageGreen": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"PassageLeft": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"PassageRight": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-}
-}
-},
-"red_classroom": {
+"training_grounds": {
 "npcs": {
-"Red": {
-"dialogue_id": "talk_red",
-"dialogue_node": "revisit",
-"direction": Vector2(-0.782638, -0.622477),
-"interaction_node": "RedCutscene",
-"position": Vector2(809.742, 516.975)
-}
-},
-"things": {
-"Candle1": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_static_state"
-},
-"Candle2": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_static_state"
-},
-"Candle3": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_static_state"
-},
-"Candle4": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_static_state"
-},
-"Candle5": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_static_state"
-},
-"DoorDown": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-}
-}
-},
-"red_hallway": {
-"npcs": {},
-"things": {
-"DoorUp": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"PassageLeft": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-}
-}
-},
-"yellow_classroom": {
-"npcs": {
-"YellowTeacher": {
-"dialogue_id": "talk_yellow_teacher",
+"RedTeacher": {
+"dialogue_id": "talk_red_teacher",
 "dialogue_node": "talk",
-"direction": Vector2(0.998036, 0.0626484),
-"interaction_node": "YellowTeacherIntroCutscene",
-"position": Vector2(224, 385)
+"direction": Vector2(0, 1),
+"interaction_node": "",
+"position": Vector2(768, 288)
 }
 },
-"things": {
-"Computer": {
-"current_anim": &"running",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"DoorDown": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-}
-}
-},
-"yellow_hallway": {
-"npcs": {},
 "things": {
 "DoorUp": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"PassageRight": {
 "current_anim": &"default",
 "current_frame": 0,
 "current_state": "thing_interactable_state"

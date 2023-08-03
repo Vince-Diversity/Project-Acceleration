@@ -1,9 +1,11 @@
+res://game/character/npcs
+res://assets/characters/red_teacher
+res://resources/characters
+res://game/room/rooms
 res://assets/characters/red
 res://assets/things
 res://assets/sound/bgm
 res://game/cutscene/dialogue_cutscene/red_cutscene
-res://game/character/npcs
-res://resources/characters
 res://game/thing/candle
 res://resources/things
 res://game/room
@@ -18,5 +20,3 @@ res://game/interactable
 res://assets/tiles
 res://game/thing/table
 res://game/character
-res://game/thing/chair
-res://assets/characters/green

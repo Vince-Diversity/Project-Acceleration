@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0qqtk18hatho"]
+[gd_scene load_steps=6 format=3 uid="uid://d0qqtk18hatho"]
 
 [ext_resource type="PackedScene" uid="uid://c1go3780g6ead" path="res://game/room/room.tscn" id="1_fma43"]
 [ext_resource type="TileSet" uid="uid://dmf7r6bjkitf" path="res://resources/tilesets/real_interior.tres" id="2_6laxt"]
 [ext_resource type="PackedScene" uid="uid://m70p5l8u2p8r" path="res://game/thing/door/passage_right.tscn" id="3_37qmc"]
 [ext_resource type="PackedScene" uid="uid://paluwp5ftjo0" path="res://game/thing/door/passage_up.tscn" id="4_hofts"]
+[ext_resource type="PackedScene" uid="uid://crgs75xh58fgm" path="res://game/thing/door/door_down.tscn" id="5_nvmty"]
 
 [node name="KnowledgeHallway" instance=ExtResource("1_fma43")]
 
@@ -21,3 +22,8 @@ next_room_entrance_node = "PassageLeft"
 position = Vector2(448, 64)
 next_room_id = "library_1f"
 next_room_entrance_node = "Entrance"
+
+[node name="DoorDown" parent="Doors" index="2" instance=ExtResource("5_nvmty")]
+position = Vector2(448, 576)
+next_room_id = "training_grounds"
+next_room_entrance_node = "DoorUp"

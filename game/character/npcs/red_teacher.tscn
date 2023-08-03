@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://brm3iaqm1nojd"]
+
+[ext_resource type="PackedScene" uid="uid://4514c46hbp0d" path="res://game/character/npc.tscn" id="1_tq818"]
+[ext_resource type="SpriteFrames" uid="uid://j7dhujtuqvl4" path="res://resources/characters/red_teacher.tres" id="2_ysqbc"]
+
+[node name="RedTeacher" instance=ExtResource("1_tq818")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = ExtResource("2_ysqbc")
+animation = &"down"
