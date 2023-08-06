@@ -1,13 +1,2 @@
-res://loader/loader.tscn
 res://game/cutscene/act/act_manager.gd
 res://game/pause_menu.gd
-res://game/room/rooms/training_grounds.tscn
-res://resources/tilesets/real_interior.tres
-res://resources/tilesets/training_interior.tres
-res://resources/tilesets/red_interior.tres
-res://game/room/rooms/knowledge_hallway.tscn
-res://resources/things/door.tres
-res://resources/characters/red_teacher.tres
-res://resources/characters/yellow_teacher.tres
-res://game/character/npcs/red_teacher.tscn
-res://game/constant/names.gd
