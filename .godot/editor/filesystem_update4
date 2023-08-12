@@ -1,2 +1,12 @@
+res://game/room/rooms/sacred_outdoor.tscn
 res://game/cutscene/act/act_manager.gd
 res://game/pause_menu.gd
+res://resources/tilesets/park.tres
+res://game/room/rooms/main_hallway.tscn
+res://resources/tilesets/real_interior.tres
+res://resources/characters/yellow_teacher.tres
+res://game/character/npcs/sacred.tscn
+res://loader/loader.tscn
+res://game/room/room.tscn
+res://game/game.tscn
+res://game/constant/names.gd

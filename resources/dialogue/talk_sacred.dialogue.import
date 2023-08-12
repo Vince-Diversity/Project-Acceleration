@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_8"
+type="Resource"
+uid="uid://b8hcm6dsey03r"
+path="res://.godot/imported/talk_sacred.dialogue-1cdee102b1616d2f36285d1170d542d7.tres"
+
+[deps]
+
+source_file="res://resources/dialogue/talk_sacred.dialogue"
+dest_files=["res://.godot/imported/talk_sacred.dialogue-1cdee102b1616d2f36285d1170d542d7.tres"]
+
+[params]
+
+defaults=true

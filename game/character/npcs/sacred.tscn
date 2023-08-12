@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cyx3iouistsep"]
+
+[ext_resource type="PackedScene" uid="uid://4514c46hbp0d" path="res://game/character/npc.tscn" id="1_0mxix"]
+[ext_resource type="SpriteFrames" uid="uid://bxx80verd0lya" path="res://resources/characters/sacred.tres" id="2_nkawa"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vkukf"]
+radius = 4.0
+height = 8.0
+
+[node name="Sacred" instance=ExtResource("1_0mxix")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = ExtResource("2_nkawa")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 8)
+shape = SubResource("CapsuleShape2D_vkukf")

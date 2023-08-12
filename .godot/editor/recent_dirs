@@ -1,8 +1,9 @@
-res://assets/sound/bgm
-res://game/character/npcs
-res://assets/characters/red_teacher
 res://resources/characters
+res://assets/characters/sacred
+res://game/character/npcs
 res://game/room/rooms
+res://assets/sound/bgm
+res://assets/characters/red_teacher
 res://assets/characters/red
 res://assets/things
 res://game/cutscene/dialogue_cutscene/red_cutscene
@@ -19,4 +20,3 @@ res://assets/characters/green_teacher
 res://game/interactable
 res://assets/tiles
 res://game/thing/table
-res://game/character

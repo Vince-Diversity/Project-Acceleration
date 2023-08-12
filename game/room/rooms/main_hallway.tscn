@@ -33,3 +33,8 @@ next_room_entrance_node = "PassageRight"
 position = Vector2(1088, 320)
 next_room_id = "red_hallway"
 next_room_entrance_node = "PassageLeft"
+
+[node name="PassageBlue" parent="Doors" index="4" instance=ExtResource("4_qey6d")]
+position = Vector2(832, 64)
+next_room_id = "sacred_outdoor"
+next_room_entrance_node = "PassageUp"

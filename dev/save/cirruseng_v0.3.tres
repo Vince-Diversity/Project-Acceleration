@@ -7,30 +7,10 @@ script = ExtResource("1_nbj3j")
 game_version = "0.3"
 data = {
 "game": {
-"current_room_id": "training_grounds",
-"entrance_node": "DoorUp"
+"current_room_id": "sacred_outdoor",
+"entrance_node": "PassageUp"
 },
 "rooms": {
-"knowledge_hallway": {
-"npcs": {},
-"things": {
-"DoorDown": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"PassageRight": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"PassageUp": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-}
-}
-},
 "main_entrance": {
 "npcs": {},
 "things": {
@@ -61,18 +41,48 @@ data = {
 }
 }
 },
-"training_grounds": {
+"main_hallway": {
+"npcs": {},
+"things": {
+"PassageBlue": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"PassageDown": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"PassageGreen": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"PassageLeft": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"PassageRight": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+}
+}
+},
+"sacred_outdoor": {
 "npcs": {
-"RedTeacher": {
-"dialogue_id": "talk_red_teacher",
+"Sacred": {
+"dialogue_id": "talk_sacred",
 "dialogue_node": "talk",
 "direction": Vector2(0, 1),
 "interaction_node": "",
-"position": Vector2(768, 288)
+"position": Vector2(2624, 160)
 }
 },
 "things": {
-"DoorUp": {
+"PassageUp": {
 "current_anim": &"default",
 "current_frame": 0,
 "current_state": "thing_interactable_state"
