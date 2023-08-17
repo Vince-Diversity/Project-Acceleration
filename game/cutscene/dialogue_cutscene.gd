@@ -135,7 +135,7 @@ func set_npc_anim(npc_node: String, anim_name: String):
 func set_npc_direction(npc_node: String, direction: String):
 	if owner.npcs.has_node(npc_node):
 		var anim_id = Utils.get_anim_id(direction)
-		if not is_instance_valid(anim_id): return
+		if anim_id == null: return
 		var npc = owner.npcs.get_node(npc_node)
 		npc.set_direction(Utils.get_anim_direction(anim_id))
 		npc.update_direction()

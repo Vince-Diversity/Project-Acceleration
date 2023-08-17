@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_8"
+type="Resource"
+uid="uid://b21wjr0oftuly"
+path="res://.godot/imported/talk_average.dialogue-d426b566762ce104403a2676bba3af38.tres"
+
+[deps]
+
+source_file="res://resources/dialogue/talk_average.dialogue"
+dest_files=["res://.godot/imported/talk_average.dialogue-d426b566762ce104403a2676bba3af38.tres"]
+
+[params]
+
+defaults=true

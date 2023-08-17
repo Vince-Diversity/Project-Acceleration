@@ -1,3 +1,8 @@
 ~ talk
 do turn_npc_to_player("Sacred")
-{{sacred}}: ... Where am I?
+{{green}}: Hi there. What's your name?
+{{sacred}}: ... {{sacred}}.
+{{green}}: [do express(cheerful)] What a cute name! My name is {{green}}.
+{{green}}: You probably shouldn't be on your own like this. Let me take you somewhere safe.
+{{sacred}}: ok.
+=> END!

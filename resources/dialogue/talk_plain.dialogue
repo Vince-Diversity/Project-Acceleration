@@ -1,0 +1,7 @@
+~ talk
+do turn_npc_to_player("Plain")
+{{plain}}: Have you seen anything sacred around here?
+{{green}}: No. Where could I found it?
+{{plain}}: Somewhere outside. Bring it here, pretty please!
+do set_npc_direction("Plain", "down")
+=> END!

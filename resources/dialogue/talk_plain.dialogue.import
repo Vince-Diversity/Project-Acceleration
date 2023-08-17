@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_8"
+type="Resource"
+uid="uid://b2gsxck15y66h"
+path="res://.godot/imported/talk_plain.dialogue-c5f342c43dcc0687e1c1797889279fe4.tres"
+
+[deps]
+
+source_file="res://resources/dialogue/talk_plain.dialogue"
+dest_files=["res://.godot/imported/talk_plain.dialogue-c5f342c43dcc0687e1c1797889279fe4.tres"]
+
+[params]
+
+defaults=true

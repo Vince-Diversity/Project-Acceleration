@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_p4ngd"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_jun3s"]
 
 [resource]
-script = ExtResource("1_p4ngd")
+script = ExtResource("1_jun3s")
 titles = {
 "talk": "2"
 }
-character_names = PackedStringArray("{{sacred}}")
+character_names = PackedStringArray("{{green}}", "{{sacred}}")
 first_title = "2"
 lines = {
 "1": {
@@ -30,6 +30,21 @@ lines = {
 "type": "mutation"
 },
 "3": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"next_id": "4",
+"text": "Hi there. What's your name?",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Hi there. What's your name?",
+"type": "dialogue"
+},
+"4": {
 "character": "{{sacred}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -38,11 +53,73 @@ lines = {
 }]),
 "value_in_text": "{{sacred}}"
 }]),
-"next_id": "",
-"text": "... Where am I?",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "... Where am I?",
+"next_id": "5",
+"text": "... {{sacred}}.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "sacred"
+}]),
+"value_in_text": "{{sacred}}"
+}]),
+"translation_key": "... {{sacred}}.",
 "type": "dialogue"
+},
+"5": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"next_id": "6",
+"text": "[do express(cheerful)] What a cute name! My name is {{green}}.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"translation_key": "[do express(cheerful)] What a cute name! My name is {{green}}.",
+"type": "dialogue"
+},
+"6": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"next_id": "7",
+"text": "You probably shouldn't be on your own like this. Let me take you somewhere safe.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "You probably shouldn't be on your own like this. Let me take you somewhere safe.",
+"type": "dialogue"
+},
+"7": {
+"character": "{{sacred}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "sacred"
+}]),
+"value_in_text": "{{sacred}}"
+}]),
+"next_id": "8",
+"text": "ok.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "ok.",
+"type": "dialogue"
+},
+"8": {
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
 }
 }
 metadata/dialogue_manager_version = "2.17.0"

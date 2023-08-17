@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_crkfx"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_rscn1"]
 
 [resource]
-script = ExtResource("1_crkfx")
+script = ExtResource("1_rscn1")
 titles = {
 "cue": "2",
 "darken": "24",
@@ -517,4 +517,4 @@ lines = {
 "type": "mutation"
 }
 }
-metadata/dialogue_manager_version = "2.16.1"
+metadata/dialogue_manager_version = "2.17.0"

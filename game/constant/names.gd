@@ -9,6 +9,8 @@ const yellow_teacher_formally := "Dr. Franklin"
 const red_teacher := "Ms. Phenia"
 const cyan_ai := "Luna"
 const sacred := "Life"
+const plain := "Jane"
+const average := "Joe"
 
 const deepest_layer := "Cirruseng"
 const imaginary := "Imaginary Space"
