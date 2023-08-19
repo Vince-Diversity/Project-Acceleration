@@ -38,7 +38,7 @@ func _ready():
 
 
 func _ready_party():
-	party.add_member("res://game/character/member.tscn")
+	party.add_member("res://game/character/npcs/blue.tscn")
 	party.add_player("res://game/character/player.tscn")
 	party.player.player_interacted.connect(_on_player_interacted)
 
@@ -77,6 +77,7 @@ func _ready_things():
 
 func _ready_npcs():
 	for npc in npcs.get_children():
+		npc.make_npc(null, "npc_still_state")
 		var npc_interactable = npc.get_node("InteractArea")
 		player_interacted.connect(npc_interactable.check_interaction)
 		npc_interactable.begin_interaction.connect(_on_begin_interaction)

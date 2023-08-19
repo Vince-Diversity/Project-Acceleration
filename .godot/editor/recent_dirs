@@ -1,6 +1,7 @@
+res://game/character/npcs
+res://game/character/npc_state
 res://assets/characters/plain
 res://assets/characters/average
-res://game/character/npcs
 res://game/room/rooms
 res://resources/characters
 res://assets/characters/sacred
@@ -19,4 +20,3 @@ res://game/cutscene
 res://game/cutscene/dialogue_cutscene/yellow_teacher_cutscene
 res://assets/characters/yellow_teacher
 res://assets/characters/green_teacher
-res://game/interactable

@@ -4,12 +4,9 @@ class_name Character extends CharacterBody2D
 @export var is_symmetric: bool = true
 @onready var anim_sprite = $AnimatedSprite2D
 @onready var following_area = $FollowingArea
+@onready var collosion = $CollisionShape2D
 var inputted_direction := Vector2(0, 1)
 var party: Party
-
-
-func init_character(given_party: Party):
-	party = given_party
 
 
 func roam():

@@ -25,11 +25,13 @@ next_room_entrance_node = "RightDoorUp"
 
 [node name="Average" parent="YSort/NPCs" index="0" instance=ExtResource("4_kboo5")]
 position = Vector2(320, 224)
+collision_layer = 8
 dialogue_id = "talk_average"
 dialogue_node = "talk"
 
 [node name="Plain" parent="YSort/NPCs" index="1" instance=ExtResource("5_iemo3")]
 position = Vector2(192, 224)
+collision_layer = 8
 dialogue_id = "talk_plain"
 dialogue_node = "talk"
 

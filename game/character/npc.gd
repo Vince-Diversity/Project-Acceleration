@@ -5,48 +5,68 @@ class_name NPC extends Character
 @export var dialogue_node: String
 @export var bubble_content: Bubble.Content
 @export var preserved_direction: Utils.AnimID
+@export_enum(
+	"npc_still_state",
+	"npc_joined_state") var spawn_state: String = "npc_still_state"
+@onready var still_state: NPCStillState = \
+	preload("res://game/character/npc_state/npc_still_state.gd").new("npc_still_state", self)
+@onready var joined_state: NPCJoinedState = \
+	preload("res://game/character/npc_state/npc_joined_state.gd").new("npc_joined_state", self)
+@onready var interact_area = $InteractArea
+var is_following: bool = false
 var preserved_position: Vector2
+var state_list: Dictionary
+var current_state: NPCState
 
 
 func _ready():
-	if anim_sprite.sprite_frames.has_animation(
-			Utils.anim_name[preserved_direction]):
-		set_direction(
-			Utils.get_anim_direction(preserved_direction))
-		update_direction()
-	preserved_position = global_position
+	state_list[still_state.state_id] = still_state
+	state_list[joined_state.state_id] = joined_state
+	current_state = state_list[spawn_state]
+	current_state.enter()
+
+
+func make_npc(given_party: Party, given_npc_state: String):
+	party = given_party
+	change_state(given_npc_state)
+
+
+func change_state(thing_state_id: String):
+	current_state.exit()
+	current_state = state_list[thing_state_id]
+	current_state.enter()
+
+
+func roam():
+	current_state.roam()
+
+
+func _set_following_direction():
+	var next_member: Character = party.get_next_member(self)
+	var direction: Vector2 = next_member.global_position - global_position
+	set_direction(direction)
+
+
+func _on_FollowingArea_area_entered(area: Area2D):
+	if area == party.get_next_member(self).following_area:
+		is_following = false
+
+
+func _on_FollowingArea_area_exited(area: Area2D):
+	if area == party.get_next_member(self).following_area:
+		is_following = true
 
 
 func make_save(sg: SaveGame):
-	sg.update_room_keys(owner.room_id)
-	var npc_dict = {}
-	sg.data[sg.rooms_key][owner.room_id][sg.npcs_key][name] = npc_dict
-	npc_dict[sg.interaction_key] = interaction_node
-	npc_dict[sg.dialogue_id_key] = dialogue_id
-	npc_dict[sg.dialogue_node_key] = dialogue_node
-	npc_dict[sg.position_key] = global_position
-	npc_dict[sg.direction_key] = inputted_direction
+	current_state.make_save(sg)
 
 
 func make_preserved_save(sg: SaveGame):
-		var npc_dict = {}
-		sg.data[sg.rooms_key][owner.room_id][sg.npcs_key][name] = npc_dict
-		npc_dict[sg.interaction_key] = interaction_node
-		npc_dict[sg.dialogue_id_key] = dialogue_id
-		npc_dict[sg.dialogue_node_key] = dialogue_node
-		npc_dict[sg.position_key] = preserved_position
-		npc_dict[sg.direction_key] = Utils.get_anim_direction(preserved_direction)
+	current_state.make_preserved_state(sg)
 
 
 func load_save(sg: SaveGame):
-	if sg.data[sg.rooms_key].has(owner.room_id):
-		var npc_dict = sg.data[sg.rooms_key][owner.room_id][sg.npcs_key][name]
-		interaction_node = npc_dict[sg.interaction_key]
-		dialogue_id = npc_dict[sg.dialogue_id_key]
-		dialogue_node = npc_dict[sg.dialogue_node_key]
-		global_position = npc_dict[sg.position_key]
-		set_direction(npc_dict[sg.direction_key])
-		update_direction()
+	current_state.load_state(sg)
 
 
 func exit_cutscene():

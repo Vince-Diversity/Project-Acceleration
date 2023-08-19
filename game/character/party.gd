@@ -4,16 +4,16 @@ var player: Player
 
 
 func add_member(path: String):
-	var member: Member = load(path).instantiate()
-	member.init_character(self)
+	var member: NPC = load(path).instantiate()
 	add_child(member)
+	member.make_npc(self, "npc_joined_state")
 	move_child(member, 0)
 	return member
 
 
 func add_player(path):
 	var member: Player = load(path).instantiate()
-	member.init_character(self)
+	member.init_player(self)
 	add_child(member)
 	player = member
 

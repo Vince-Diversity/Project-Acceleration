@@ -19,6 +19,10 @@ func _ready():
 	player_interacted.connect(_on_player_interacted)
 
 
+func init_player(given_party: Party):
+	party = given_party
+
+
 func hide_placeholders():
 	bubble_place.set_visible(false)
 
