@@ -18,6 +18,12 @@ func add_player(path):
 	player = member
 
 
+func remove_member(member_name):
+	var member = get_node(member_name)
+	if is_instance_valid(member):
+		remove_child(member)
+
+
 func roam():
 	for member in get_party_ordered():
 		member.roam()

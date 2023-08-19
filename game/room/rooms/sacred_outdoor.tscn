@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://cyx3iouistsep" path="res://game/character/npcs/sacred.tscn" id="4_hnhvt"]
 
 [node name="SacredOutdoor" instance=ExtResource("1_xc1dm")]
-bgm_file = ""
 
 [node name="TileMap" parent="." index="0"]
 y_sort_enabled = true

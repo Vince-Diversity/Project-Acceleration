@@ -1,19 +1,145 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_5mpy3"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_acu0f"]
 
 [resource]
-script = ExtResource("1_5mpy3")
+script = ExtResource("1_acu0f")
 titles = {
+"found": "11",
+"realise": "22",
 "talk": "2"
 }
-character_names = PackedStringArray("{{plain}}", "{{green}}")
+character_names = PackedStringArray("{{plain}}", "{{green}}", "{{average}}")
 first_title = "2"
 lines = {
 "1": {
 "next_id": "2",
 "text": "talk",
 "type": "title"
+},
+"10": {
+"next_id": "11",
+"text": "found",
+"type": "title"
+},
+"11": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"next_id": "12",
+"text": "Hi again. Could I ask if you know about this girl? Her name is {{sacred}}.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "sacred"
+}]),
+"value_in_text": "{{sacred}}"
+}]),
+"translation_key": "Hi again. Could I ask if you know about this girl? Her name is {{sacred}}.",
+"type": "dialogue"
+},
+"12": {
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "turn_npc_to_player",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Plain"
+}])])
+}])
+},
+"next_id": "13",
+"type": "mutation"
+},
+"13": {
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "turn_npc_to_player",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Average"
+}])])
+}])
+},
+"next_id": "14",
+"type": "mutation"
+},
+"14": {
+"character": "{{plain}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "plain"
+}]),
+"value_in_text": "{{plain}}"
+}]),
+"next_id": "15",
+"text": "{{sacred}}? What a wonderful thing!",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "sacred"
+}]),
+"value_in_text": "{{sacred}}"
+}]),
+"translation_key": "{{sacred}}? What a wonderful thing!",
+"type": "dialogue"
+},
+"15": {
+"character": "{{average}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "average"
+}]),
+"value_in_text": "{{average}}"
+}]),
+"next_id": "16",
+"text": "Yes, this is exactly the thing we were looking for!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Yes, this is exactly the thing we were looking for!",
+"type": "dialogue"
+},
+"16": {
+"character": "{{average}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "average"
+}]),
+"value_in_text": "{{average}}"
+}]),
+"next_id": "17",
+"text": "Now, let us stand together and cherish the moment.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Now, let us stand together and cherish the moment.",
+"type": "dialogue"
+},
+"17": {
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "move",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "realise"
+}])])
+}])
+},
+"next_id": "18",
+"type": "mutation"
+},
+"18": {
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
 },
 "2": {
 "mutation": {
@@ -28,6 +154,115 @@ lines = {
 },
 "next_id": "3",
 "type": "mutation"
+},
+"21": {
+"next_id": "22",
+"text": "realise",
+"type": "title"
+},
+"22": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"next_id": "23",
+"text": "[do express(sorry)] Excuse me, but I don't she is a sacred thing. She is just a girl and it is her name that is {{sacred}}.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "sacred"
+}]),
+"value_in_text": "{{sacred}}"
+}]),
+"translation_key": "[do express(sorry)] Excuse me, but I don't she is a sacred thing. She is just a girl and it is her name that is {{sacred}}.",
+"type": "dialogue"
+},
+"23": {
+"character": "{{plain}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "plain"
+}]),
+"value_in_text": "{{plain}}"
+}]),
+"next_id": "24",
+"text": "A girl? I don't see any girl around here, other than you.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "A girl? I don't see any girl around here, other than you.",
+"type": "dialogue"
+},
+"24": {
+"character": "{{average}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "average"
+}]),
+"value_in_text": "{{average}}"
+}]),
+"next_id": "25",
+"text": "Me neither. I just see that you brought us {{sacred}}, and {{sacred}} is truly a sacred thing!",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "sacred"
+}]),
+"value_in_text": "{{sacred}}"
+}, {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "sacred"
+}]),
+"value_in_text": "{{sacred}}"
+}]),
+"translation_key": "Me neither. I just see that you brought us {{sacred}}, and {{sacred}} is truly a sacred thing!",
+"type": "dialogue"
+},
+"25": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"next_id": "26",
+"text": "[do express(sorry)] (... How strange.)",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "[do express(sorry)] (... How strange.)",
+"type": "dialogue"
+},
+"26": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"next_id": "27",
+"text": "(Maybe I should look through the {{revealer}} again.)",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "revealer"
+}]),
+"value_in_text": "{{revealer}}"
+}]),
+"translation_key": "(Maybe I should look through the {{revealer}} again.)",
+"type": "dialogue"
+},
+"27": {
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
 },
 "3": {
 "character": "{{plain}}",

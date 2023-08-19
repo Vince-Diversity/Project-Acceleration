@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bhwbsf4x5yvu1"]
+[gd_scene load_steps=7 format=3 uid="uid://bhwbsf4x5yvu1"]
 
 [ext_resource type="PackedScene" uid="uid://c1go3780g6ead" path="res://game/room/room.tscn" id="1_ybmy1"]
 [ext_resource type="TileSet" uid="uid://66i7pu2rvr6j" path="res://resources/tilesets/park.tres" id="2_sqwy7"]
 [ext_resource type="PackedScene" uid="uid://dsfvepwkk4y7l" path="res://game/thing/door/passage_down.tscn" id="3_6puuh"]
 [ext_resource type="PackedScene" uid="uid://c1vykudqbyi8r" path="res://game/character/npcs/average.tscn" id="4_kboo5"]
 [ext_resource type="PackedScene" uid="uid://bto0x53jpw8v2" path="res://game/character/npcs/plain.tscn" id="5_iemo3"]
+[ext_resource type="PackedScene" uid="uid://bqlmbt878hrxk" path="res://game/cutscene/dialogue_cutscene.tscn" id="6_xo76v"]
 
 [node name="SacredIndoor" instance=ExtResource("1_ybmy1")]
 
@@ -31,3 +32,14 @@ dialogue_node = "talk"
 position = Vector2(192, 224)
 dialogue_id = "talk_plain"
 dialogue_node = "talk"
+
+[node name="SacredThing" parent="RoomCutscenes" index="0" instance=ExtResource("6_xo76v")]
+
+[node name="MentorMark" parent="RoomCutscenes/SacredThing" index="0"]
+position = Vector2(224, 256)
+target_direction_id = 3
+
+[node name="StudentMark" parent="RoomCutscenes/SacredThing" index="1"]
+position = Vector2(256, 224)
+
+[editable path="RoomCutscenes/SacredThing"]

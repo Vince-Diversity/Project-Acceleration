@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_jun3s"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_jfud8"]
 
 [resource]
-script = ExtResource("1_jun3s")
+script = ExtResource("1_jfud8")
 titles = {
 "talk": "2"
 }
@@ -117,6 +117,20 @@ lines = {
 "type": "dialogue"
 },
 "8": {
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "add_member",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Sacred"
+}])])
+}])
+},
+"next_id": "9",
+"type": "mutation"
+},
+"9": {
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"

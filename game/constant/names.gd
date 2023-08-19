@@ -29,6 +29,8 @@ const green_aspect := "Earth"
 const red_aspect := "Fire"
 const blue_aspect := "Immaterial"
 
+const revealer = "Revealing Eyepiece"
+
 var YELLOW = "Richy"
 var RED = "Clara"
 var BLUE_FATHER = "Lord Arwin"
@@ -55,7 +57,6 @@ var CIRRUSENG = "Cirruseng"
 
 var GREAT_HALL = "Great Hall"
 
-var REVEALER = "Revealing Eyepiece"
 var TRAVELLER = "Remembering"
 var IGNITER = "Burning"
 
@@ -63,20 +64,3 @@ var FUTURE = "Real Transcripts of Real Fortune Telling (TM)"
 var SHADOW = "Shadow"
 var CERTAINTY = "Certainty"
 
-var action_names = {
-	REVEALER: "Reveal",
-	TRAVELLER: "Remember",
-	IGNITER: "Burn"
-}
-
-var action_keys = {
-	REVEALER: "z",
-	TRAVELLER: "x",
-	IGNITER: "c",
-}
-
-var action_suffix = {
-	REVEALER: "revealed",
-	TRAVELLER: "remembered",
-	IGNITER: "burned"
-}

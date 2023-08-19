@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bk16wp1xkfq2e" path="res://game/character/character.tscn" id="1_wfmq8"]
 [ext_resource type="Script" path="res://game/character/member.gd" id="2_6ip4m"]
-[ext_resource type="SpriteFrames" uid="uid://can6wjqv1eybt" path="res://resources/characters/blue.tres" id="3_eu738"]
+[ext_resource type="SpriteFrames" uid="uid://bxx80verd0lya" path="res://resources/characters/sacred.tres" id="3_tt4lr"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kil8s"]
 radius = 5.0
@@ -16,7 +16,7 @@ collision_layer = 2
 script = ExtResource("2_6ip4m")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
-sprite_frames = ExtResource("3_eu738")
+sprite_frames = ExtResource("3_tt4lr")
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("CapsuleShape2D_kil8s")

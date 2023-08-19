@@ -5,3 +5,23 @@ do turn_npc_to_player("Plain")
 {{plain}}: Somewhere outside. Bring it here, pretty please!
 do set_npc_direction("Plain", "down")
 => END!
+
+
+~ found
+{{green}}: Hi again. Could I ask if you know about this girl? Her name is {{sacred}}.
+do turn_npc_to_player("Plain")
+do turn_npc_to_player("Average")
+{{plain}}: {{sacred}}? What a wonderful thing!
+{{average}}: Yes, this is exactly the thing we were looking for!
+{{average}}: Now, let us stand together and cherish the moment.
+do move("realise")
+=> END!
+
+
+~ realise
+{{green}}: [do express(sorry)] Excuse me, but I don't she is a sacred thing. She is just a girl and it is her name that is {{sacred}}.
+{{plain}}: A girl? I don't see any girl around here, other than you.
+{{average}}: Me neither. I just see that you brought us {{sacred}}, and {{sacred}} is truly a sacred thing!
+{{green}}: [do express(sorry)] (... How strange.)
+{{green}}: (Maybe I should look through the {{revealer}} again.)
+=> END!
