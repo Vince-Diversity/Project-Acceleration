@@ -2,6 +2,7 @@ class_name Room extends Node2D
 
 @export_file var bgm_file: String
 
+@onready var ysort = $YSort
 @onready var party = $YSort/Party
 @onready var cutscenes = $RoomCutscenes
 @onready var things = $YSort/Things
@@ -38,8 +39,6 @@ func _ready():
 
 
 func _ready_party():
-	party.add_member("res://game/character/npcs/blue.tscn")
-	party.add_player("res://game/character/player.tscn")
 	party.player.player_interacted.connect(_on_player_interacted)
 
 

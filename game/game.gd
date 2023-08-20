@@ -28,7 +28,8 @@ func _unhandled_input(event):
 	stm.handle_input_state(event)
 
 
-func init_game(given_loader: Loader, given_save_dir: String, save_game: SaveGame):
+func init_game(
+		given_loader: Loader, given_save_dir: String, save_game: SaveGame):
 	loader = given_loader
 	save_dir = given_save_dir
 	cache = save_game
@@ -77,6 +78,10 @@ func save():
 	var dir = DirAccess.open(save_dir)
 	if not dir:
 		DirAccess.make_dir_absolute(save_dir)
+#	ResourceSaver.save(save_game, loader.save_path)
+	save_game =  SaveGame.new()
+	save_game.data["game"]["current_room_id"] = "main_entrance"
+	save_game.data["game"]["entrance"] = "PassageLeft"
 	ResourceSaver.save(save_game, loader.save_path)
 
 

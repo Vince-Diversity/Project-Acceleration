@@ -66,7 +66,7 @@ func make_preserved_save(sg: SaveGame):
 
 
 func load_save(sg: SaveGame):
-	current_state.load_state(sg)
+	current_state.load_save(sg)
 
 
 func exit_cutscene():

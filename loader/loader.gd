@@ -3,9 +3,10 @@ class_name Loader extends Node
 ## Change this mode when releasing
 var save_dir: String = dev_mode_save_dir
 
-## New game spawn point used during dev
+## New game data
 var new_game_room_id: String = "main_entrance"
 var new_game_entrance_node: String = "DoorDown"
+var new_game_party_list: Array[String] = ["blue"]
 
 const dev_mode_save_dir := "res://dev/save/"
 const game_save_dir := "user://save/"
@@ -40,16 +41,20 @@ func _ready_main_menu():
 func new_game():
 	var room_path = Utils.get_room_path(new_game_room_id)
 	if FileAccess.file_exists(room_path):
-		var save_game = SaveGame.new()
-		save_game.game_version = ProjectSettings.get_setting("application/config/version")
-		_change_to_game(save_game)
+		var sg = SaveGame.new()
+		sg.game_version = ProjectSettings.get_setting("application/config/version")
+#		sg.data[sg.game_key][sg.party_key] = new_game_party_list
+		_change_to_game(sg)
 		game.load_room(new_game_room_id, new_game_entrance_node)
+#		game.load_preserved(game.cache)
 
 
 func enter_game():
-	var save_game: Resource = load(save_path)
-	_change_to_game(save_game)
-	game.load_room(game.cache.data["game"]["current_room_id"], game.cache.data["game"]["entrance_node"])
+	var sg: Resource = load(save_path)
+	_change_to_game(sg)
+	game.load_room(
+		game.cache.data[sg.game_key][sg.room_key],
+		game.cache.data[sg.game_key][sg.entrance_key])
 	game.load_preserved(game.cache)
 
 

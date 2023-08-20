@@ -3,6 +3,7 @@ class_name SaveGame extends Resource
 const game_key = "game"
 const room_key = "current_room_id"
 const entrance_key = "entrance_node"
+const party_key = "party_key"
 
 const rooms_key = "rooms"
 const things_key = "things"
@@ -18,11 +19,12 @@ const position_key = "position"
 const direction_key = "direction"
 
 
-@export var game_version := ""
-@export var data := {
+var game_version := ""
+var data := {
 	game_key: {},
 	rooms_key: {},
 }
+
 
 func update_room_keys(room_id: String):
 	if not data[rooms_key].has(room_id):

@@ -6,6 +6,7 @@ const dlg_dir = "res://resources/dialogue/"
 const room_dir = "res://game/room/rooms/"
 const profile_dir = "res://assets/profiles/"
 const bgm_dir = "res://assets/sound/bgm/"
+const npc_dir = "res://game/character/npcs/"
 
 const anim_direction = {
 	Vector2.DOWN: AnimID.DOWN,
@@ -73,6 +74,10 @@ static func get_profile_path(dlg_line: DialogueLine, expression: String) -> Stri
 
 static func get_bgm_path(bgm_name: String):
 	return bgm_dir.path_join(bgm_name + ".ogg")
+
+
+static func get_npc_path(npc_name: String):
+	return npc_dir.path_join(npc_name + ".tscn")
 
 
 static func str_to_seed(name: String) -> int:
