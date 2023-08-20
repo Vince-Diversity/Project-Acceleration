@@ -4,26 +4,46 @@ var player: Player
 var preserved_party_list: Array[String]
 
 
-func add_player():
+func create_player():
 	player = load("res://game/character/player.tscn").instantiate()
 	player.init_player(self)
 	add_child(player)
 	player.player_interacted.connect(owner._on_player_interacted)
 
 
-func add_member(path: String):
-	var member: NPC = load(path).instantiate()
-	add_child(member)
-	move_child(member, 0)
-	member.make_npc(self, "npc_joined_state")
-	set_deferred("preserved_party_list", get_party_list())
+func create_member(npc_id: String):
+	var member: NPC = load(Utils.get_npc_path(npc_id)).instantiate()
+	_add_member(member)
 	return member
 
 
-func remove_member(member_name):
-	var member = get_node(member_name)
+func remove_member(npc_name: String):
+	var member = get_node(npc_name)
 	if is_instance_valid(member):
 		remove_child(member)
+	set_deferred("preserved_party_list", get_party_list())
+
+
+func add_npc_as_member(npc: NPC):
+	owner.npcs.remove_child(npc)
+	_add_member(npc)
+	_reset_members()
+
+
+func _reset_members():
+	var member
+	for member_i in range(1, get_party_ordered().size()):
+		member = get_party_ordered()[member_i]
+		member.set_global_position(player.global_position)
+		member.set_direction(
+			Utils.get_anim_direction(Utils.AnimID.DOWN))
+		member.update_direction()
+
+
+func _add_member(member: NPC):
+	add_child(member)
+	move_child(member, 0)
+	member.make_npc(self, "npc_joined_state")
 	set_deferred("preserved_party_list", get_party_list())
 
 
@@ -43,8 +63,8 @@ func make_preserved_save(sg: SaveGame):
 func load_save(sg: SaveGame):
 	if sg.data[sg.game_key].has(sg.party_key):
 		for npc_name in sg.data[sg.game_key][sg.party_key]:
-			add_member(Utils.get_npc_path(npc_name))
-	add_player()
+			create_member(npc_name)
+	create_player()
 	for member in get_party_ordered():
 		owner.entrance.set_entrance_direction(member)
 
@@ -60,7 +80,7 @@ func get_party_ordered() -> Array:
 
 
 func get_next_member(member: Character) -> Character:
-	return get_children()[member.get_index() - 1]
+	return get_children()[member.get_index() + 1]
 
 
 func get_party_list() -> Array[String]:

@@ -21,7 +21,7 @@ layer_3/z_index = 1
 layer_3/tile_data = PackedInt32Array(65544, 0, 4, -196599, 65536, 0, -131063, 65536, 1, -65527, 65536, 2, 9, 65536, 3, 65545, 65536, 4, -196598, 131072, 0, -131062, 131072, 1, -65526, 131072, 2, 10, 131072, 3, 65546, 131072, 4, 65547, 196608, 4)
 
 [node name="PassageUp" parent="Doors" index="0" instance=ExtResource("3_gjx02")]
-position = Vector2(192, 128)
+position = Vector2(2528, 128)
 next_room_id = "main_hallway"
 next_room_entrance_node = "PassageBlue"
 

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SaveGame" load_steps=2 format=3 uid="uid://cntyxddytdapf"]
+[gd_resource type="Resource" script_class="SaveGame" load_steps=2 format=3]
 
 [ext_resource type="Script" path="res://loader/save_game.gd" id="1_axsvy"]
 
@@ -8,8 +8,8 @@ game_version = "0.3"
 data = {
 "game": {
 "current_room_id": "main_hallway",
-"entrance_node": "PassageRight",
-"party_key": Array[String](["blue"])
+"entrance_node": "PassageBlue",
+"party_key": Array[String](["blue", "sacred"])
 },
 "rooms": {
 "knowledge_hallway": {
@@ -101,6 +101,26 @@ data = {
 "current_state": "thing_interactable_state"
 },
 "PassageLeft": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+}
+}
+},
+"sacred_outdoor": {
+"npcs": {},
+"things": {
+"LeftDoorUp": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"PassageUp": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"RightDoorUp": {
 "current_anim": &"default",
 "current_frame": 0,
 "current_state": "thing_interactable_state"
