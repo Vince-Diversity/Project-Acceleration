@@ -19,8 +19,8 @@ const position_key = "position"
 const direction_key = "direction"
 
 
-var game_version := ""
-var data := {
+@export var game_version := ""
+@export var data := {
 	game_key: {},
 	rooms_key: {},
 }

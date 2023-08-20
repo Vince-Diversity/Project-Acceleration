@@ -168,7 +168,7 @@ func turn_npc_to_player(npc_node: String):
 func add_member(npc_node: String):
 	if owner.npcs.has_node(npc_node):
 		var npc = owner.npcs.get_node(npc_node)
-		owner.party.add_member(npc)
+		owner.party.add_member(npc.name.to_snake_case())
 
 
 func play(act: Act, next_dlg_line: String):

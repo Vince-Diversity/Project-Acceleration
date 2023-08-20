@@ -4,24 +4,20 @@ var player: Player
 var preserved_party_list: Array[String]
 
 
-func _ready():
-	add_player("res://game/character/player.tscn")
+func add_player():
+	player = load("res://game/character/player.tscn").instantiate()
+	player.init_player(self)
+	add_child(player)
+	player.player_interacted.connect(owner._on_player_interacted)
 
 
 func add_member(path: String):
 	var member: NPC = load(path).instantiate()
 	add_child(member)
-	member.make_npc(self, "npc_joined_state")
 	move_child(member, 0)
+	member.make_npc(self, "npc_joined_state")
 	set_deferred("preserved_party_list", get_party_list())
 	return member
-
-
-func add_player(path):
-	var member: Player = load(path).instantiate()
-	member.init_player(self)
-	add_child(member)
-	player = member
 
 
 func remove_member(member_name):
@@ -37,20 +33,20 @@ func roam():
 
 
 func make_save(sg: SaveGame):
-	pass
-#	sg.data[sg.game_key][sg.party_key] = get_party_list()
+	sg.data[sg.game_key][sg.party_key] = get_party_list()
 
 
 func make_preserved_save(sg: SaveGame):
-	pass
-#	sg.data[sg.game_key][sg.party_key] = preserved_party_list
+	sg.data[sg.game_key][sg.party_key] = preserved_party_list
 
 
 func load_save(sg: SaveGame):
-	pass
-#	if sg.data[sg.game_key].has(sg.party_key):
-#		for npc_name in sg.data[sg.game_key][sg.party_key]:
-#			add_member(Utils.get_npc_path(npc_name))
+	if sg.data[sg.game_key].has(sg.party_key):
+		for npc_name in sg.data[sg.game_key][sg.party_key]:
+			add_member(Utils.get_npc_path(npc_name))
+	add_player()
+	for member in get_party_ordered():
+		owner.entrance.set_entrance_direction(member)
 
 
 func exit_cutscene():
@@ -69,6 +65,6 @@ func get_next_member(member: Character) -> Character:
 
 func get_party_list() -> Array[String]:
 	var party_list: Array[String] = []
-	for member_i in range(1, get_party_ordered().size() - 1):
-		party_list.append(get_child(member_i).name.to_snake_case())
+	for member_i in range(1, get_party_ordered().size()):
+		party_list.append(get_party_ordered()[member_i].name.to_snake_case())
 	return party_list

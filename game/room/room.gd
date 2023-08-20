@@ -14,6 +14,7 @@ class_name Room extends Node2D
 var thing_rng: RandomNumberGenerator
 var room_id: String
 var entrance_node: String
+var entrance: Door
 var dlg_res: DialogueResource
 var stm: StateMachine
 var bgm: AudioStreamPlayer
@@ -28,7 +29,6 @@ signal end_interaction()
 
 
 func _ready():
-	_ready_party()
 	_ready_entrance()
 	_ready_doors()
 	_ready_things()
@@ -38,22 +38,15 @@ func _ready():
 	stm.change_state(party_roam_state.state_id)
 
 
-func _ready_party():
-	party.player.player_interacted.connect(_on_player_interacted)
-
-
 func _ready_entrance():
 	if doors.get_child_count() == 0:
 		room_changed.emit("main_entrance", "DefaultDoor")
 		return
-	var entrance
 	if doors.has_node(entrance_node):
 		entrance = doors.get_node(entrance_node)
 	else:
 		entrance = doors.get_children()[0]
 	party.global_position = entrance.spawn_point.global_position
-	for member in party.get_party_ordered():
-		entrance.set_entrance_direction(member)
 
 
 func _ready_doors():

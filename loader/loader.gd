@@ -43,10 +43,10 @@ func new_game():
 	if FileAccess.file_exists(room_path):
 		var sg = SaveGame.new()
 		sg.game_version = ProjectSettings.get_setting("application/config/version")
-#		sg.data[sg.game_key][sg.party_key] = new_game_party_list
+		sg.data[sg.game_key][sg.party_key] = new_game_party_list
 		_change_to_game(sg)
 		game.load_room(new_game_room_id, new_game_entrance_node)
-#		game.load_preserved(game.cache)
+		game.load_preserved(game.cache)
 
 
 func enter_game():

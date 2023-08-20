@@ -78,10 +78,6 @@ func save():
 	var dir = DirAccess.open(save_dir)
 	if not dir:
 		DirAccess.make_dir_absolute(save_dir)
-#	ResourceSaver.save(save_game, loader.save_path)
-	save_game =  SaveGame.new()
-	save_game.data["game"]["current_room_id"] = "main_entrance"
-	save_game.data["game"]["entrance"] = "PassageLeft"
 	ResourceSaver.save(save_game, loader.save_path)
 
 
