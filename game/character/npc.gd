@@ -5,6 +5,7 @@ class_name NPC extends Character
 @export var dialogue_node: String
 @export var bubble_content: Bubble.Content
 @export var preserved_direction: Utils.AnimID
+@export var is_imaginary: bool = false
 @export_enum(
 	"npc_still_state",
 	"npc_joined_state") var spawn_state: String = "npc_still_state"
@@ -17,6 +18,7 @@ var is_following: bool = false
 var preserved_position: Vector2
 var state_list: Dictionary
 var current_state: NPCState
+var room: Room
 
 
 func _ready():
@@ -26,9 +28,9 @@ func _ready():
 	current_state.enter()
 
 
-func make_npc(given_party: Party, given_npc_state: String):
-	party = given_party
+func make_npc(given_npc_state: String, given_room: Room):
 	change_state(given_npc_state)
+	room = given_room
 
 
 func change_state(thing_state_id: String):
@@ -42,18 +44,18 @@ func roam():
 
 
 func _set_following_direction():
-	var next_member: Character = party.get_next_member(self)
+	var next_member: Character = room.party.get_next_member(self)
 	var direction: Vector2 = next_member.global_position - global_position
 	set_direction(direction)
 
 
 func _on_FollowingArea_area_entered(area: Area2D):
-	if area == party.get_next_member(self).following_area:
+	if area == room.party.get_next_member(self).following_area:
 		is_following = false
 
 
 func _on_FollowingArea_area_exited(area: Area2D):
-	if area == party.get_next_member(self).following_area:
+	if area == room.party.get_next_member(self).following_area:
 		is_following = true
 
 
@@ -62,7 +64,7 @@ func make_save(sg: SaveGame):
 
 
 func make_preserved_save(sg: SaveGame):
-	current_state.make_preserved_state(sg)
+	current_state.make_preserved_save(sg)
 
 
 func load_save(sg: SaveGame):

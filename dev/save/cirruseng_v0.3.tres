@@ -1,37 +1,17 @@
-[gd_resource type="Resource" script_class="SaveGame" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="SaveGame" load_steps=2 format=3 uid="uid://b1mbpjwjlbo83"]
 
-[ext_resource type="Script" path="res://loader/save_game.gd" id="1_axsvy"]
+[ext_resource type="Script" path="res://loader/save_game.gd" id="1_eubp2"]
 
 [resource]
-script = ExtResource("1_axsvy")
+script = ExtResource("1_eubp2")
 game_version = "0.3"
 data = {
 "game": {
-"current_room_id": "main_hallway",
-"entrance_node": "PassageBlue",
+"current_room_id": "sacred_outdoor",
+"entrance_node": "PassageUp",
 "party_key": Array[String](["blue", "sacred"])
 },
 "rooms": {
-"knowledge_hallway": {
-"npcs": {},
-"things": {
-"DoorDown": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"PassageRight": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"PassageUp": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-}
-}
-},
 "main_entrance": {
 "npcs": {},
 "things": {
@@ -92,23 +72,16 @@ data = {
 }
 }
 },
-"red_hallway": {
-"npcs": {},
-"things": {
-"DoorUp": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"PassageLeft": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-}
-}
-},
 "sacred_outdoor": {
-"npcs": {},
+"npcs": {
+"Sacred": {
+"dialogue_id": "talk_sacred",
+"dialogue_node": "talk",
+"direction": Vector2(0, 1),
+"interaction_node": "Default1",
+"position": Vector2(2608.3, 195.303)
+}
+},
 "things": {
 "LeftDoorUp": {
 "current_anim": &"default",
@@ -121,44 +94,6 @@ data = {
 "current_state": "thing_interactable_state"
 },
 "RightDoorUp": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-}
-}
-},
-"yellow_classroom": {
-"npcs": {
-"YellowTeacher": {
-"dialogue_id": "talk_yellow_teacher",
-"dialogue_node": "cue",
-"direction": Vector2(-1, 0),
-"interaction_node": "YellowTeacherIntroCutscene",
-"position": Vector2(224, 480)
-}
-},
-"things": {
-"Computer": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_static_state"
-},
-"DoorDown": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-}
-}
-},
-"yellow_hallway": {
-"npcs": {},
-"things": {
-"DoorUp": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"PassageRight": {
 "current_anim": &"default",
 "current_frame": 0,
 "current_state": "thing_interactable_state"

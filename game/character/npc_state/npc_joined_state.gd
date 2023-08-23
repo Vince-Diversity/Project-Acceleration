@@ -22,13 +22,16 @@ func roam():
 
 
 
-func make_save(_sg: SaveGame):
-	pass
+func make_save(sg: SaveGame):
+	if npc.is_imaginary:
+		super(sg)
 
 
-func make_preserved_save(_sg: SaveGame):
-	pass
+func make_preserved_save(sg: SaveGame):
+	if npc.is_imaginary:
+		super(sg)
 
 
-func load_save(_sg: SaveGame):
-	pass
+func load_save(sg: SaveGame):
+	if npc.is_imaginary:
+		super(sg)

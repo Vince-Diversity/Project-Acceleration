@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_jfud8"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_7x8or"]
 
 [resource]
-script = ExtResource("1_jfud8")
+script = ExtResource("1_7x8or")
 titles = {
 "talk": "2"
 }
@@ -54,7 +54,7 @@ lines = {
 "value_in_text": "{{sacred}}"
 }]),
 "next_id": "5",
-"text": "... {{sacred}}.",
+"text": "{{sacred}}.",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
 "type": "variable",
@@ -62,7 +62,7 @@ lines = {
 }]),
 "value_in_text": "{{sacred}}"
 }]),
-"translation_key": "... {{sacred}}.",
+"translation_key": "{{sacred}}.",
 "type": "dialogue"
 },
 "5": {

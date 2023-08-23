@@ -8,6 +8,7 @@ radius = 4.0
 height = 8.0
 
 [node name="Sacred" instance=ExtResource("1_0mxix")]
+is_imaginary = true
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = ExtResource("2_nkawa")

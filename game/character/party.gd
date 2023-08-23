@@ -11,12 +11,6 @@ func create_player():
 	player.player_interacted.connect(owner._on_player_interacted)
 
 
-func create_member(npc_id: String):
-	var member: NPC = load(Utils.get_npc_path(npc_id)).instantiate()
-	_add_member(member)
-	return member
-
-
 func remove_member(npc_name: String):
 	var member = get_node(npc_name)
 	if is_instance_valid(member):
@@ -43,7 +37,7 @@ func _reset_members():
 func _add_member(member: NPC):
 	add_child(member)
 	move_child(member, 0)
-	member.make_npc(self, "npc_joined_state")
+	member.make_npc("npc_joined_state", owner)
 	set_deferred("preserved_party_list", get_party_list())
 
 
@@ -62,9 +56,15 @@ func make_preserved_save(sg: SaveGame):
 
 func load_save(sg: SaveGame):
 	if sg.data[sg.game_key].has(sg.party_key):
-		for npc_name in sg.data[sg.game_key][sg.party_key]:
-			create_member(npc_name)
-	create_player()
+		create_player.call_deferred()
+		for npc_id in sg.data[sg.game_key][sg.party_key]:
+			var npc = load(Utils.get_npc_path(npc_id)).instantiate()
+			var npc_name = npc_id.to_pascal_case()
+			if owner.npcs.has_node(npc_name):
+				npc = owner.npcs.get_node(npc_name)
+				add_npc_as_member.call_deferred(npc)
+			else:
+				_add_member.call_deferred(npc)
 	for member in get_party_ordered():
 		owner.entrance.set_entrance_direction(member)
 

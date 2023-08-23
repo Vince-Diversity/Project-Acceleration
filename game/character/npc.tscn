@@ -22,6 +22,7 @@ dialogue_id = ""
 dialogue_node = ""
 bubble_content = 0
 preserved_direction = 0
+is_imaginary = false
 spawn_state = "npc_still_state"
 
 [node name="AnimatedSprite2D" parent="." index="0"]
@@ -42,6 +43,8 @@ shape = SubResource("CircleShape2D_6orky")
 
 [node name="InteractArea" type="Area2D" parent="." index="3"]
 collision_layer = 8
+monitoring = false
+monitorable = false
 script = ExtResource("5_b0ehn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea" index="0"]
