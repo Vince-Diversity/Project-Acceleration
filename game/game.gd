@@ -55,9 +55,11 @@ func change_room(room_id: String, entrance_node: String):
 	var room_path = Utils.get_room_path(room_id)
 	save_cache()
 	if FileAccess.file_exists(room_path):
-		current_room.queue_free()
+		# Free the current room before loading cache
+		# Otherwise the cache will also be loaded on the old room
+		current_room.call_deferred("free")
 		load_room(room_id, entrance_node)
-		load_preserved(cache)
+		load_preserved.call_deferred(cache)
 	else:
 		load_room("main_entrance", "DefaultDoor")
 
@@ -73,12 +75,25 @@ func load_preserved(save_game: SaveGame):
 
 
 func save():
-	var save_game = cache.duplicate()
-	make_save_game(save_game)
+	var sg = cache.duplicate()
+	make_save_game(sg)
+	if current_room.entrance.is_gateway:
+		for npc in current_room.party.get_members_ordered():
+			if npc.is_imaginary:
+				var npc_dict = sg.data[sg.rooms_key][npc.room.room_id][sg.npcs_key][npc.name]
+#				npc_dict[sg.position_key] = npc.room.party.global_position
+#				npc_dict[sg.direction_key] = Utils.get_anim_direction(npc.room.entrance.entrance_direction)
+#				npc_dict[sg.was_joined_key] = true
+				npc_dict[sg.interaction_key] = ""
+				npc_dict[sg.position_key] = npc.preserved_position
+				npc_dict[sg.direction_key] = Utils.get_anim_direction(npc.preserved_direction)
+				npc_dict[sg.dialogue_id_key] = "default_join"
+				npc_dict[sg.dialogue_node_key] = "default"
+				npc_dict[sg.was_joined_key] = false
 	var dir = DirAccess.open(save_dir)
 	if not dir:
 		DirAccess.make_dir_absolute(save_dir)
-	ResourceSaver.save(save_game, loader.save_path)
+	ResourceSaver.save(sg, loader.save_path)
 
 
 func save_cache():

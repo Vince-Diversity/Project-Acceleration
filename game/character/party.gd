@@ -25,17 +25,6 @@ func add_npc_as_member(npc: NPC):
 	owner.npcs.remove_child(npc)
 	_add_member(npc)
 	npc.set_global_position(npc_position)
-	_reset_members()
-
-
-func _reset_members():
-	var member
-	for member_i in range(1, get_party_ordered().size()):
-		member = get_party_ordered()[member_i]
-		member.set_global_position(player.global_position)
-		member.set_direction(
-			Utils.get_anim_direction(Utils.AnimID.DOWN))
-		member.update_direction()
 
 
 func _add_member(member: NPC):
@@ -65,7 +54,9 @@ func load_save(sg: SaveGame):
 			var npc_name = npc_id.to_pascal_case()
 			if owner.npcs.has_node(npc_name):
 				npc = owner.npcs.get_node(npc_name)
-				add_npc_as_member(npc)
+				var npc_dict = sg.data[sg.rooms_key][npc.room.room_id][sg.npcs_key][npc.name]
+				if npc_dict[sg.was_joined_key]:
+					add_npc_as_member(npc)
 			else:
 				_add_member(npc)
 		create_player()

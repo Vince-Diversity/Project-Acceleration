@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_8"
+type="Resource"
+uid="uid://d2lslimuxf0tq"
+path="res://.godot/imported/default_join.dialogue-97123eebf3ecbddca2c37d2c5c4fb576.tres"
+
+[deps]
+
+source_file="res://resources/dialogue/default_join.dialogue"
+dest_files=["res://.godot/imported/default_join.dialogue-97123eebf3ecbddca2c37d2c5c4fb576.tres"]
+
+[params]
+
+defaults=true

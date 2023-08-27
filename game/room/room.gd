@@ -46,7 +46,7 @@ func _ready_entrance():
 		entrance = doors.get_node(entrance_node)
 	else:
 		entrance = doors.get_children()[0]
-	party.global_position = entrance.spawn_point.global_position
+	party.set_global_position(entrance.spawn_point.global_position)
 
 
 func _ready_doors():
@@ -146,7 +146,7 @@ func _on_door_begin_interaction(door: Thing):
 	var room_path = Utils.get_room_path(door.next_room_id)
 	if FileAccess.file_exists(room_path):
 		for member in party.get_members_ordered():
-			if member.is_imaginary:
+			if member.is_imaginary and door.is_gateway:
 				party.remove_member(member)
 		room_changed.emit(door.next_room_id, door.next_room_entrance_node)
 	else:

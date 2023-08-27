@@ -22,6 +22,7 @@ layer_2/tile_data = PackedInt32Array(196611, 2, 0, 196613, 2, 0, 131073, 2, 0, 1
 position = Vector2(576, 576)
 next_room_id = "green_hallway"
 next_room_entrance_node = "DoorUp"
+is_gateway = false
 
 [node name="Sprout1" parent="YSort/Things" index="0" instance=ExtResource("4_homgw")]
 position = Vector2(192, 320)
@@ -57,7 +58,7 @@ position = Vector2(576, 177)
 dialogue_id = "teacher_chair"
 dialogue_node = "ponder"
 
-[node name="NPCs" parent="YSort" index="1"]
+[node name="NPCs" parent="YSort" index="2"]
 position = Vector2(575, 174)
 
 [node name="GreenTeacher" parent="YSort/NPCs" index="0" instance=ExtResource("8_sgips")]

@@ -171,6 +171,11 @@ func add_member(npc_node: String):
 		owner.party.add_npc_as_member(npc)
 
 
+func add_source_as_member():
+	if cutscenes.current_source_node.is_class("CharacterBody2D"):
+		owner.party.add_npc_as_member(cutscenes.current_source_node)
+
+
 func play(act: Act, next_dlg_line: String):
 	if is_instance_valid(act):
 		actm.add_act(act)

@@ -36,4 +36,3 @@ func load_save(sg: SaveGame):
 		if npc_dict[sg.was_joined_key]:
 			npc.change_state("npc_joined_state")
 			npc.room.party.add_npc_as_member(npc)
-			npc.room.party._reset_members.call_deferred()

@@ -36,10 +36,10 @@ script = ExtResource("2_yn7hg")
 [node name="Things" type="Node2D" parent="YSort"]
 y_sort_enabled = true
 
+[node name="Party" parent="YSort" instance=ExtResource("3")]
+
 [node name="NPCs" type="Node2D" parent="YSort"]
 y_sort_enabled = true
-
-[node name="Party" parent="YSort" instance=ExtResource("3")]
 
 [node name="RoomCutscenes" type="Node2D" parent="."]
 script = ExtResource("5_lnlsj")

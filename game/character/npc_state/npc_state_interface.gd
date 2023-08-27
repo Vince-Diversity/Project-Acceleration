@@ -51,6 +51,6 @@ func load_save(sg: SaveGame):
 		npc.interaction_node = npc_dict[sg.interaction_key]
 		npc.dialogue_id = npc_dict[sg.dialogue_id_key]
 		npc.dialogue_node = npc_dict[sg.dialogue_node_key]
-		npc.global_position = npc_dict[sg.position_key]
+		npc.set_global_position(npc_dict[sg.position_key])
 		npc.set_direction(npc_dict[sg.direction_key])
 		npc.update_direction()

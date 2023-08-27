@@ -73,4 +73,3 @@ func load_save(sg: SaveGame):
 
 func exit_cutscene():
 	preserved_position = global_position
-	preserved_direction = Utils.anim_direction[Utils.snap_to_compass(inputted_direction)]

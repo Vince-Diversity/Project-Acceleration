@@ -18,16 +18,19 @@ layer_2/tile_data = PackedInt32Array(131074, 65539, 0, 131078, 65539, 0, 196611,
 position = Vector2(576, 576)
 next_room_id = "knowledge_hallway"
 next_room_entrance_node = "PassageUp"
+is_gateway = false
 
 [node name="PassageUp" parent="Doors" index="1" instance=ExtResource("4_ab8au")]
 position = Vector2(128, 64)
 next_room_id = "library_2f"
 next_room_entrance_node = "PassageDown"
+is_gateway = false
 
 [node name="PassageUp2" parent="Doors" index="2" instance=ExtResource("4_ab8au")]
 position = Vector2(1024, 64)
 next_room_id = "library_2f"
 next_room_entrance_node = "PassageDown2"
+is_gateway = false
 
 [node name="YellowAspect" parent="YSort/Things" index="0" instance=ExtResource("5_k5apl")]
 position = Vector2(416, -192)
