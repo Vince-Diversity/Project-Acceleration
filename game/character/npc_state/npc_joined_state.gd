@@ -25,6 +25,8 @@ func roam():
 func make_save(sg: SaveGame):
 	if npc.is_imaginary:
 		super(sg)
+		var npc_dict = sg.data[sg.rooms_key][npc.room.room_id][sg.npcs_key][npc.name]
+		npc_dict[sg.was_joined_key] = true
 
 
 func make_preserved_save(sg: SaveGame):

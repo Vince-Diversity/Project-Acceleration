@@ -17,7 +17,7 @@ const dialogue_id_key = "dialogue_id"
 const dialogue_node_key = "dialogue_node"
 const position_key = "position"
 const direction_key = "direction"
-const npc_state_key = "npc_state"
+const was_joined_key = "was_joined"
 
 
 @export var game_version := ""

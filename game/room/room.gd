@@ -145,6 +145,9 @@ func _on_begin_interaction(target_root: Node2D):
 func _on_door_begin_interaction(door: Thing):
 	var room_path = Utils.get_room_path(door.next_room_id)
 	if FileAccess.file_exists(room_path):
+		for member in party.get_members_ordered():
+			if member.is_imaginary:
+				party.remove_member(member)
 		room_changed.emit(door.next_room_id, door.next_room_entrance_node)
 	else:
 		_on_begin_interaction(door)

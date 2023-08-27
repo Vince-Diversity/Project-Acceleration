@@ -31,6 +31,7 @@ func make_save(sg: SaveGame):
 	npc_dict[sg.dialogue_node_key] = npc.dialogue_node
 	npc_dict[sg.position_key] = npc.global_position
 	npc_dict[sg.direction_key] = npc.inputted_direction
+	npc_dict[sg.was_joined_key] = false
 
 
 func make_preserved_save(sg: SaveGame):
@@ -41,6 +42,7 @@ func make_preserved_save(sg: SaveGame):
 	npc_dict[sg.dialogue_node_key] = npc.dialogue_node
 	npc_dict[sg.position_key] = npc.preserved_position
 	npc_dict[sg.direction_key] = Utils.get_anim_direction(npc.preserved_direction)
+	npc_dict[sg.was_joined_key] = false
 
 
 func load_save(sg: SaveGame):

@@ -24,16 +24,19 @@ layer_3/tile_data = PackedInt32Array(65544, 0, 4, -196599, 65536, 0, -131063, 65
 position = Vector2(2528, 128)
 next_room_id = "main_hallway"
 next_room_entrance_node = "PassageBlue"
+is_gateway = true
 
 [node name="LeftDoorUp" parent="Doors" index="1" instance=ExtResource("3_gjx02")]
 position = Vector2(1248, 640)
 next_room_id = "sacred_indoor"
 next_room_entrance_node = "LeftPassageDown"
+is_gateway = false
 
 [node name="RightDoorUp" parent="Doors" index="2" instance=ExtResource("3_gjx02")]
 position = Vector2(1312, 640)
 next_room_id = "sacred_indoor"
 next_room_entrance_node = "RightPassageDown"
+is_gateway = false
 
 [node name="Sacred" parent="YSort/NPCs" index="0" instance=ExtResource("4_hnhvt")]
 position = Vector2(2624, 160)

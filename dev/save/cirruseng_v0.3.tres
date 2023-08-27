@@ -1,15 +1,15 @@
 [gd_resource type="Resource" script_class="SaveGame" load_steps=2 format=3 uid="uid://b1mbpjwjlbo83"]
 
-[ext_resource type="Script" path="res://loader/save_game.gd" id="1_eubp2"]
+[ext_resource type="Script" path="res://loader/save_game.gd" id="1_akg1c"]
 
 [resource]
-script = ExtResource("1_eubp2")
+script = ExtResource("1_akg1c")
 game_version = "0.3"
 data = {
 "game": {
-"current_room_id": "sacred_outdoor",
-"entrance_node": "PassageUp",
-"party_key": Array[String](["blue", "sacred"])
+"current_room_id": "main_hallway",
+"entrance_node": "PassageRight",
+"party_key": Array[String](["blue"])
 },
 "rooms": {
 "main_entrance": {
@@ -72,28 +72,15 @@ data = {
 }
 }
 },
-"sacred_outdoor": {
-"npcs": {
-"Sacred": {
-"dialogue_id": "talk_sacred",
-"dialogue_node": "talk",
-"direction": Vector2(0, 1),
-"interaction_node": "Default1",
-"position": Vector2(2608.3, 195.303)
-}
-},
+"red_hallway": {
+"npcs": {},
 "things": {
-"LeftDoorUp": {
+"DoorUp": {
 "current_anim": &"default",
 "current_frame": 0,
 "current_state": "thing_interactable_state"
 },
-"PassageUp": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"RightDoorUp": {
+"PassageLeft": {
 "current_anim": &"default",
 "current_frame": 0,
 "current_state": "thing_interactable_state"

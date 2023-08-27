@@ -1,4 +1,4 @@
-res://game/character/npcs/sacred.tscn
+res://game/room/rooms/sacred_outdoor.tscn
 res://game/pause_menu.gd
 res://resources/tilesets/park.tres
 res://resources/characters/blue.tres
@@ -7,10 +7,12 @@ res://loader/loader.tscn
 res://game/room/room.tscn
 res://game/game.tscn
 res://game/character/party.tscn
-res://game/room/rooms/sacred_outdoor.tscn
 res://game/character/npc.tscn
-res://game/character/npc_state/npc_state_interface.gd
-res://game/character/npc_state/npc_joined_state.gd
-res://game/character/npc.gd
-res://game/character/party.gd
+res://game/character/npcs/sacred.tscn
 res://dev/save/cirruseng_v0.3.tres
+res://loader/save_game.gd
+res://game/character/npc_state/npc_joined_state.gd
+res://game/character/npc_state/npc_state_interface.gd
+res://game/character/npc_state/npc_still_state.gd
+res://game/character/party.gd
+res://game/game_state/party_roam_state.gd

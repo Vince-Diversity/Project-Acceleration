@@ -3,6 +3,7 @@ class_name Door extends Thing
 @export var next_room_id: String
 @export var next_room_entrance_node: String
 @export var entrance_direction: Utils.AnimID
+@export var is_gateway: bool = false
 @onready var spawn_point = $SpawnPoint
 
 func set_entrance_direction(character: Character):
