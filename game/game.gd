@@ -79,17 +79,14 @@ func save():
 	make_save_game(sg)
 	if current_room.entrance.is_gateway:
 		for npc in current_room.party.get_members_ordered():
-			if npc.is_imaginary:
-				var npc_dict = sg.data[sg.rooms_key][npc.room.room_id][sg.npcs_key][npc.name]
-#				npc_dict[sg.position_key] = npc.room.party.global_position
-#				npc_dict[sg.direction_key] = Utils.get_anim_direction(npc.room.entrance.entrance_direction)
-#				npc_dict[sg.was_joined_key] = true
+			var npc_dict = sg.data[sg.rooms_key][npc.room.room_id][sg.npcs_key][npc.name]
+			if npc.is_imaginary and npc_dict[sg.was_joined_key]:
+				npc_dict[sg.was_joined_key] = false
 				npc_dict[sg.interaction_key] = ""
 				npc_dict[sg.position_key] = npc.preserved_position
 				npc_dict[sg.direction_key] = Utils.get_anim_direction(npc.preserved_direction)
 				npc_dict[sg.dialogue_id_key] = "default_join"
 				npc_dict[sg.dialogue_node_key] = "default"
-				npc_dict[sg.was_joined_key] = false
 	var dir = DirAccess.open(save_dir)
 	if not dir:
 		DirAccess.make_dir_absolute(save_dir)

@@ -56,9 +56,9 @@ data = {
 "Blue": {
 "dialogue_id": "",
 "dialogue_node": "",
-"direction": Vector2(0.57591, -0.817513),
+"direction": Vector2(-0.000208795, -1),
 "interaction_node": "",
-"position": Vector2(812.826, 105.912),
+"position": Vector2(832, 96),
 "was_joined": false
 }
 },
@@ -96,32 +96,32 @@ data = {
 "dialogue_id": "talk_average",
 "dialogue_node": "talk",
 "direction": Vector2(0, 1),
-"interaction_node": "",
+"interaction_node": "Default2",
 "position": Vector2(320, 224),
 "was_joined": false
 },
 "Blue": {
 "dialogue_id": "",
 "dialogue_node": "",
-"direction": Vector2(-0.55084, 0.834611),
+"direction": Vector2(-0.00102613, 0.999999),
 "interaction_node": "",
-"position": Vector2(282.574, 459.221),
+"position": Vector2(202.83, 437.711),
 "was_joined": false
 },
 "Plain": {
 "dialogue_id": "talk_plain",
 "dialogue_node": "talk",
 "direction": Vector2(0, 1),
-"interaction_node": "",
+"interaction_node": "Default3",
 "position": Vector2(192, 224),
 "was_joined": false
 },
 "Sacred": {
 "dialogue_id": "",
 "dialogue_node": "",
-"direction": Vector2(-0.435342, 0.900265),
+"direction": Vector2(-0.0242633, 0.999706),
 "interaction_node": "",
-"position": Vector2(288, 448),
+"position": Vector2(203.828, 396.59),
 "was_joined": true
 }
 },
@@ -143,9 +143,9 @@ data = {
 "Blue": {
 "dialogue_id": "",
 "dialogue_node": "",
-"direction": Vector2(0.137341, 0.990524),
+"direction": Vector2(-0.676233, 0.736687),
 "interaction_node": "",
-"position": Vector2(2606.24, 236.74),
+"position": Vector2(2591.04, 249.746),
 "was_joined": false
 },
 "Sacred": {
