@@ -68,15 +68,36 @@ func make_save_game(save_game: SaveGame):
 	stm.save_state(self, save_game)
 
 
-func load_preserved(save_game: SaveGame):
+func load_preserved(sg: SaveGame):
+	create_preserved_npcs(sg)
 	for node in get_tree().get_nodes_in_group("Preserved"):
 		if not node.has_method("load_save"): continue
-		node.load_save(save_game)
+		node.load_save(sg)
+
+
+func create_preserved_npcs(sg: SaveGame):
+	# Assumes only one instance of idling_room_id exists
+	if sg.data[sg.rooms_key].has(current_room.room_id):
+		var room_dict = sg.data[sg.rooms_key][current_room.room_id]
+		for npc_name in room_dict[sg.npcs_key].keys():
+			var npc_dict = room_dict[sg.npcs_key][npc_name]
+			if npc_dict[sg.idling_room_key] == current_room.room_id:
+				var npc = load(Utils.get_npc_path(Utils.get_npc_id(npc_name))).instantiate()
+				current_room.npcs.add_child(npc)
+				npc.make_npc("npc_still_state", current_room)
 
 
 func save():
 	var sg = cache.duplicate()
 	make_save_game(sg)
+	var dir = DirAccess.open(save_dir)
+	save_imaginary_npcs(sg)
+	if not dir:
+		DirAccess.make_dir_absolute(save_dir)
+	ResourceSaver.save(sg, loader.save_path)
+
+
+func save_imaginary_npcs(sg: SaveGame):
 	if current_room.entrance.is_gateway:
 		for npc in current_room.party.get_members_ordered():
 			var npc_dict = sg.data[sg.rooms_key][npc.room.room_id][sg.npcs_key][npc.name]
@@ -87,10 +108,6 @@ func save():
 				npc_dict[sg.direction_key] = Utils.get_anim_direction(npc.preserved_direction)
 				npc_dict[sg.dialogue_id_key] = "default_join"
 				npc_dict[sg.dialogue_node_key] = "default"
-	var dir = DirAccess.open(save_dir)
-	if not dir:
-		DirAccess.make_dir_absolute(save_dir)
-	ResourceSaver.save(sg, loader.save_path)
 
 
 func save_cache():

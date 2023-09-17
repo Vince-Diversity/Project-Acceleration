@@ -1,27 +1,23 @@
+import "res://resources/dialogue/sacred_indoor_mystery.dialogue" as mystery
+
 ~ talk
+do check_sacred_joined()
+if is_sacred_joined
+	=> mystery/found
+else
+	=> request
+=> END!
+
+
+~ request
 do turn_npc_to_player("Plain")
 {{plain}}: Have you seen anything sacred around here?
-{{green}}: No. Where could I found it?
-{{plain}}: Somewhere outside. Bring it here, please!
+{{green}}: No. Actually I'm not sure what you mean.
+{{plain}}: You will know when you see it. Bring it here, please!
 do set_npc_direction("Plain", "down")
 => END!
 
 
-~ found
-{{green}}: Hi again. Could I ask if you know about this girl? Her name is {{sacred}}.
-do turn_npc_to_player("Plain")
-do turn_npc_to_player("Average")
-{{plain}}: {{sacred}}? What a wonderful thing!
-{{average}}: Yes, this is exactly the thing we were looking for!
-{{average}}: Now, let us stand together and cherish the moment.
-do move("realise")
-=> END!
-
-
-~ realise
-{{green}}: [do express(sorry)] Excuse me, but I don't she is a sacred thing. She is just a girl and it is her name that is {{sacred}}.
-{{plain}}: A girl? I don't see any girl around here, other than you.
-{{average}}: Me neither. I just see that you brought us {{sacred}}, and {{sacred}} is a sacred thing!
-{{green}}: [do express(sorry)] (... How strange.)
-{{green}}: (Maybe I should look through the {{revealer}} again.)
+~ revisit
+{{plain}}: Don't look so worried! Just life in the moment.
 => END!

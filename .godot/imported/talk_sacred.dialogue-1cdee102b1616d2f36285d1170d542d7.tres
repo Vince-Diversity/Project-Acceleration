@@ -1,10 +1,11 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_vfgi2"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_niew7"]
 
 [resource]
-script = ExtResource("1_vfgi2")
+script = ExtResource("1_niew7")
 titles = {
+"revisit": "13",
 "talk": "2"
 }
 character_names = PackedStringArray("{{green}}", "{{sacred}}")
@@ -14,6 +15,31 @@ lines = {
 "next_id": "2",
 "text": "talk",
 "type": "title"
+},
+"12": {
+"next_id": "13",
+"text": "revisit",
+"type": "title"
+},
+"13": {
+"character": "{{sacred}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "sacred"
+}]),
+"value_in_text": "{{sacred}}"
+}]),
+"next_id": "14",
+"text": "Am I safe now?",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Am I safe now?",
+"type": "dialogue"
+},
+"14": {
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
 },
 "2": {
 "mutation": {
@@ -133,4 +159,4 @@ lines = {
 "type": "goto"
 }
 }
-metadata/dialogue_manager_version = "2.17.0"
+metadata/dialogue_manager_version = "2.22.0"

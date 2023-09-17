@@ -7,3 +7,8 @@ do turn_npc_to_player("Sacred")
 {{sacred}}: ok.
 do add_source_as_member()
 => END!
+
+
+~ revisit
+{{sacred}}: Am I safe now?
+=> END!

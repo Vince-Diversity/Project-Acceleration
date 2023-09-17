@@ -123,6 +123,11 @@ func reset_lightning(next_dlg_line: String):
 	next_dialogue(next_dlg_line)
 
 
+func remove_member(member_node: String):
+	if owner.party.has_node(member_node):
+		owner.party.remove_member(owner.party.get_node(member_node))
+
+
 func set_player_anim(anim_name: String):
 	owner.party.player.set_animation(anim_name)
 
@@ -139,6 +144,11 @@ func set_npc_direction(npc_node: String, direction: String):
 		var npc = owner.npcs.get_node(npc_node)
 		npc.set_direction(Utils.get_anim_direction(anim_id))
 		npc.update_direction()
+
+
+func set_npc_dialogue_id(npc_node: String, dialogue_id: String):
+	if owner.npcs.has_node(npc_node):
+		owner.npcs.get_node(npc_node).dialogue_id = dialogue_id
 
 
 func set_npc_dialogue_node(npc_node: String, dialogue_node: String):

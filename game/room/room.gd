@@ -70,9 +70,6 @@ func _ready_things():
 func _ready_npcs():
 	for npc in npcs.get_children():
 		npc.make_npc("npc_still_state", self)
-		var npc_interactable = npc.get_node("InteractArea")
-		player_interacted.connect(npc_interactable.check_interaction)
-		npc_interactable.begin_interaction.connect(_on_begin_interaction)
 
 
 func _ready_states():

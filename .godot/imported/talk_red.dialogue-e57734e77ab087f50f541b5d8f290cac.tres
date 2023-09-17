@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_30imc"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_avklb"]
 
 [resource]
-script = ExtResource("1_30imc")
+script = ExtResource("1_avklb")
 titles = {
 "burn": "24",
 "cue": "2",
@@ -893,11 +893,16 @@ lines = {
 }]),
 "value_in_text": "{{red}}"
 }]),
-"next_id": "",
+"next_id": "54",
 "text": "[do express(sorry)] Please, let me recover first.",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "[do express(sorry)] Please, let me recover first.",
 "type": "dialogue"
+},
+"54": {
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
 },
 "6": {
 "character": "{{green}}",
@@ -993,4 +998,4 @@ lines = {
 "type": "mutation"
 }
 }
-metadata/dialogue_manager_version = "2.17.0"
+metadata/dialogue_manager_version = "2.22.0"

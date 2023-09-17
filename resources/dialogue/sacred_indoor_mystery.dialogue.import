@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_8"
+type="Resource"
+uid="uid://xbdftsroti4k"
+path="res://.godot/imported/sacred_indoor_mystery.dialogue-37d235887e058c57c70bc78b89b4f170.tres"
+
+[deps]
+
+source_file="res://resources/dialogue/sacred_indoor_mystery.dialogue"
+dest_files=["res://.godot/imported/sacred_indoor_mystery.dialogue-37d235887e058c57c70bc78b89b4f170.tres"]
+
+[params]
+
+defaults=true

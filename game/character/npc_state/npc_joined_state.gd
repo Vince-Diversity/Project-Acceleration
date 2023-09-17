@@ -41,9 +41,11 @@ func load_save(sg: SaveGame):
 		if npc.room.entrance.is_gateway:
 			super(sg)
 		else:
-			var npc_dict = sg.data[sg.rooms_key][npc.room.room_id][sg.npcs_key][npc.name]
-			npc.interaction_node = npc_dict[sg.interaction_key]
-			npc.dialogue_id = npc_dict[sg.dialogue_id_key]
-			npc.dialogue_node = npc_dict[sg.dialogue_node_key]
-			npc.set_global_position(npc.room.party.global_position)
-			npc.room.entrance.set_entrance_direction(npc)
+			if sg.data[sg.rooms_key].has(npc.room.room_id):
+				var npc_dict = sg.data[sg.rooms_key][npc.room.room_id][sg.npcs_key][npc.name]
+				npc.interaction_node = npc_dict[sg.interaction_key]
+				npc.dialogue_id = npc_dict[sg.dialogue_id_key]
+				npc.dialogue_node = npc_dict[sg.dialogue_node_key]
+				npc.set_global_position(npc.room.party.global_position)
+				npc.room.entrance.set_entrance_direction(npc)
+				npc.idling_room_id = npc_dict[sg.idling_room_key]

@@ -1,32 +1,37 @@
-[gd_scene load_steps=2 format=3 uid="uid://b83dh2aupojvq"]
+[gd_scene load_steps=2 format=3 uid="uid://bi2ykc6srhvrc"]
 
-[ext_resource type="Script" path="res://game/pause_menu.gd" id="1_ba2cp"]
+[ext_resource type="Script" path="res://game/pause_menu.gd" id="1_rlnfb"]
 
 [node name="PauseMenu" type="CanvasLayer"]
-script = ExtResource("1_ba2cp")
+layer = 2
+script = ExtResource("1_rlnfb")
 
 [node name="Margin" type="CenterContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="MenuContainer" type="VBoxContainer" parent="Margin"]
 layout_mode = 2
 
 [node name="Title" type="RichTextLabel" parent="Margin/MenuContainer"]
+unique_name_in_owner = true
 layout_mode = 2
+bbcode_enabled = true
+text = "Paused"
 fit_content = true
 
 [node name="Resume" type="Button" parent="Margin/MenuContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Resume"
 
 [node name="Save" type="Button" parent="Margin/MenuContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Save"
 
 [node name="MainMenu" type="Button" parent="Margin/MenuContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Main Menu"

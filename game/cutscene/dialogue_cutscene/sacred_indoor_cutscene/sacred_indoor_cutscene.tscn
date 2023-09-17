@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjl2k08srsmom"]
+
+[ext_resource type="PackedScene" uid="uid://bqlmbt878hrxk" path="res://game/cutscene/dialogue_cutscene.tscn" id="1_p50q0"]
+[ext_resource type="Script" path="res://game/cutscene/dialogue_cutscene/sacred_indoor_cutscene/sacred_indoor_cutscene.gd" id="2_sv0g6"]
+[ext_resource type="Script" path="res://game/cutscene/character_mark.gd" id="3_e6lyg"]
+
+[node name="SacredIndoorCutscene" instance=ExtResource("1_p50q0")]
+script = ExtResource("2_sv0g6")
+
+[node name="MentorMark" parent="." index="0"]
+target_direction_id = 2
+
+[node name="StudentMark" parent="." index="1"]
+target_direction_id = 2
+
+[node name="SacredMark1" type="Marker2D" parent="." index="2"]
+script = ExtResource("3_e6lyg")
+target_direction_id = 2
+
+[node name="SacredMark2" type="Marker2D" parent="." index="3"]
+script = ExtResource("3_e6lyg")

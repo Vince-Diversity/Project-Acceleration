@@ -16,7 +16,9 @@ func remove_member(member: NPC):
 		var member_position = member.global_position
 		remove_child(member)
 		owner.npcs.add_child(member)
+		member.change_state("npc_still_state")
 		member.set_global_position(member_position)
+		member.idling_room_id = owner.room_id
 	set_deferred("preserved_party_list", get_party_list())
 
 
@@ -31,6 +33,7 @@ func _add_member(member: NPC):
 	add_child(member)
 	move_child(member, 0)
 	member.make_npc("npc_joined_state", owner)
+	member.idling_room_id = ""
 	set_deferred("preserved_party_list", get_party_list())
 
 
@@ -50,14 +53,15 @@ func make_preserved_save(sg: SaveGame):
 func load_save(sg: SaveGame):
 	if sg.data[sg.game_key].has(sg.party_key):
 		for npc_id in sg.data[sg.game_key][sg.party_key]:
-			var npc = load(Utils.get_npc_path(npc_id)).instantiate()
-			var npc_name = npc_id.to_pascal_case()
+			var npc_name = Utils.get_npc_name(npc_id)
+			var npc: NPC
 			if owner.npcs.has_node(npc_name):
 				npc = owner.npcs.get_node(npc_name)
 				var npc_dict = sg.data[sg.rooms_key][npc.room.room_id][sg.npcs_key][npc.name]
 				if npc_dict[sg.was_joined_key]:
 					add_npc_as_member(npc)
 			else:
+				npc = load(Utils.get_npc_path(npc_id)).instantiate()
 				_add_member(npc)
 		create_player()
 	for member in get_party_ordered():
@@ -88,5 +92,5 @@ func get_next_member(member: Character) -> Character:
 func get_party_list() -> Array[String]:
 	var party_list: Array[String] = []
 	for member in get_members_ordered():
-		party_list.append(member.name.to_snake_case())
+		party_list.append(Utils.get_npc_id(member.name))
 	return party_list

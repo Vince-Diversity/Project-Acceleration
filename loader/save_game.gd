@@ -18,6 +18,7 @@ const dialogue_node_key = "dialogue_node"
 const position_key = "position"
 const direction_key = "direction"
 const was_joined_key = "was_joined"
+const idling_room_key = "idling_room"
 
 
 @export var game_version := ""

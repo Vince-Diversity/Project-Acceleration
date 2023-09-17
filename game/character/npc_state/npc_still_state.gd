@@ -30,9 +30,22 @@ func make_preserved_save(sg: SaveGame):
 
 
 func load_save(sg: SaveGame):
+	if _remove_moved_npc(sg): return
 	super(sg)
 	if sg.data[sg.rooms_key].has(npc.room.room_id):
 		var npc_dict = sg.data[sg.rooms_key][npc.room.room_id][sg.npcs_key][npc.name]
-		if npc_dict[sg.was_joined_key]:
+		if npc.room.party.has_node(NodePath(npc.name)) and npc_dict[sg.was_joined_key]:
 			npc.change_state("npc_joined_state")
 			npc.room.party.add_npc_as_member(npc)
+
+
+func _remove_moved_npc(sg: SaveGame) -> bool:
+	for room_id in sg.data[sg.rooms_key]:
+		var room_dict = sg.data[sg.rooms_key][room_id]
+		for npc_name in room_dict[sg.npcs_key].keys():
+			var npc_dict = room_dict[sg.npcs_key][npc_name]
+			if not npc_dict[sg.idling_room_key].is_empty():
+				if npc_dict[sg.idling_room_key] != npc.room.room_id:
+					npc.queue_free()
+					return true
+	return false

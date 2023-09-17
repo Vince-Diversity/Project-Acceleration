@@ -19,6 +19,7 @@ var preserved_position: Vector2
 var state_list: Dictionary
 var current_state: NPCState
 var room: Room
+var idling_room_id: String
 
 
 func _ready():
@@ -28,9 +29,15 @@ func _ready():
 	current_state.enter()
 
 
-func make_npc(given_npc_state: String, given_room: Room):
+func make_npc(
+		given_npc_state: String,
+		given_room: Room):
 	change_state(given_npc_state)
 	room = given_room
+	if not room.player_interacted.is_connected(interact_area.check_interaction):
+		room.player_interacted.connect(interact_area.check_interaction)
+	if not interact_area.begin_interaction.is_connected(room._on_begin_interaction):
+		interact_area.begin_interaction.connect(room._on_begin_interaction)
 
 
 func change_state(thing_state_id: String):

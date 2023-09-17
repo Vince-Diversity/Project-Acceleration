@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dsfvepwkk4y7l" path="res://game/thing/door/passage_down.tscn" id="3_6puuh"]
 [ext_resource type="PackedScene" uid="uid://c1vykudqbyi8r" path="res://game/character/npcs/average.tscn" id="4_kboo5"]
 [ext_resource type="PackedScene" uid="uid://bto0x53jpw8v2" path="res://game/character/npcs/plain.tscn" id="5_iemo3"]
-[ext_resource type="PackedScene" uid="uid://bqlmbt878hrxk" path="res://game/cutscene/dialogue_cutscene.tscn" id="6_xo76v"]
+[ext_resource type="PackedScene" uid="uid://bjl2k08srsmom" path="res://game/cutscene/dialogue_cutscene/sacred_indoor_cutscene/sacred_indoor_cutscene.tscn" id="6_1kiil"]
 
 [node name="SacredIndoor" instance=ExtResource("1_ybmy1")]
 
@@ -17,31 +17,35 @@ layer_0/tile_data = PackedInt32Array(3, 196611, 4, 65540, 3, 0, 65539, 196611, 5
 position = Vector2(224, 480)
 next_room_id = "sacred_outdoor"
 next_room_entrance_node = "LeftDoorUp"
+is_gateway = false
 
 [node name="RightPassageDown" parent="Doors" index="1" instance=ExtResource("3_6puuh")]
 position = Vector2(288, 480)
 next_room_id = "sacred_outdoor"
 next_room_entrance_node = "RightDoorUp"
+is_gateway = false
 
 [node name="Average" parent="YSort/NPCs" index="0" instance=ExtResource("4_kboo5")]
 position = Vector2(320, 224)
 collision_layer = 8
+interaction_node = "SacredIndoorCutscene"
 dialogue_id = "talk_average"
 dialogue_node = "talk"
 
 [node name="Plain" parent="YSort/NPCs" index="1" instance=ExtResource("5_iemo3")]
 position = Vector2(192, 224)
 collision_layer = 8
+interaction_node = "SacredIndoorCutscene"
 dialogue_id = "talk_plain"
 dialogue_node = "talk"
 
-[node name="SacredThing" parent="RoomCutscenes" index="0" instance=ExtResource("6_xo76v")]
+[node name="SacredIndoorCutscene" parent="RoomCutscenes" index="0" instance=ExtResource("6_1kiil")]
+position = Vector2(256, 288)
 
-[node name="MentorMark" parent="RoomCutscenes/SacredThing" index="0"]
-position = Vector2(224, 256)
-target_direction_id = 3
+[node name="SacredMark1" parent="RoomCutscenes/SacredIndoorCutscene" index="2"]
+position = Vector2(32, 32)
 
-[node name="StudentMark" parent="RoomCutscenes/SacredThing" index="1"]
-position = Vector2(256, 224)
+[node name="SacredMark2" parent="RoomCutscenes/SacredIndoorCutscene" index="3"]
+position = Vector2(0, -64)
 
-[editable path="RoomCutscenes/SacredThing"]
+[editable path="RoomCutscenes/SacredIndoorCutscene"]

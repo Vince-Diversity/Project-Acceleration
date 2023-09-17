@@ -1,6 +1,21 @@
+import "res://resources/dialogue/sacred_indoor_mystery.dialogue" as mystery
+
 ~ talk
+do check_sacred_joined()
+if is_sacred_joined
+	=> mystery/found
+else
+	=> request
+=> END!
+
+~ request
 do turn_npc_to_player("Average")
 {{average}}: Don't get us wrong, we're simple, secularized civilians. But we'd appreciate if you could find something sacred for us.
 {{green}}: [do express(sorry)] I will try...
 do set_npc_direction("Average", "down")
+=> END!
+
+
+~ revisit
+{{average}}: Everyone needs something to cherish, otherwise we're not human!
 => END!

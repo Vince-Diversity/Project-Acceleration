@@ -1,0 +1,29 @@
+~ found
+do move("mystery/present")
+=> END!
+
+~ present
+{{green}}: Hi again. Could I ask if you know about this girl? Her name is {{sacred}}.
+do turn_npc_to_player("Plain")
+do turn_npc_to_player("Average")
+{{plain}}: {{sacred}}? What a wonderful thing!
+{{average}}: Yes, this is exactly the thing we were looking for!
+{{average}}: Now, let us stand together and cherish the moment.
+do remove_member("Sacred")
+do move_npc("Sacred", "SacredMark2", "mystery/realise")
+=> END!
+
+
+~ realise
+do set_npc_direction("Plain", "down")
+do set_npc_direction("Average", "down")
+{{green}}: [do express(sorry)] Excuse me, but I don't she is a sacred thing. She is just a girl and it is her name that is {{sacred}}.
+{{plain}}: A girl? I don't see any girl around here, other than yourself.
+{{average}}: Me neither. I just see that you brought us {{sacred}}, and {{sacred}} is a sacred thing!
+{{green}}: [do express(sorry)] (... How strange.)
+{{green}}: (Maybe I should look through the {{revealer}} again.)
+do set_npc_dialogue_id("Sacred", "talk_sacred")
+do set_npc_dialogue_node("Sacred", "revisit")
+do set_npc_dialogue_node("Plain", "revisit")
+do set_npc_dialogue_node("Average", "revisit")
+=> END!

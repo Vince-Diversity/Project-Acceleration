@@ -31,6 +31,14 @@ static func get_anim_id(name: String) -> Variant:
 	return anim_name.find_key(name)
 
 
+static func get_npc_id(npc_name: String) -> String:
+	return npc_name.to_snake_case()
+
+
+static func get_npc_name(npc_id: String) -> String:
+	return npc_id.to_pascal_case()
+
+
 static func connect_neighbouring_elems(arr: Array):
 	if arr.size() > 1:
 		arr[0].focus_neighbour_bottom = arr[1].get_path()
