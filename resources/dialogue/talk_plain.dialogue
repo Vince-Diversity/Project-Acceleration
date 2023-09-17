@@ -2,7 +2,7 @@
 do turn_npc_to_player("Plain")
 {{plain}}: Have you seen anything sacred around here?
 {{green}}: No. Where could I found it?
-{{plain}}: Somewhere outside. Bring it here, pretty please!
+{{plain}}: Somewhere outside. Bring it here, please!
 do set_npc_direction("Plain", "down")
 => END!
 
@@ -21,7 +21,7 @@ do move("realise")
 ~ realise
 {{green}}: [do express(sorry)] Excuse me, but I don't she is a sacred thing. She is just a girl and it is her name that is {{sacred}}.
 {{plain}}: A girl? I don't see any girl around here, other than you.
-{{average}}: Me neither. I just see that you brought us {{sacred}}, and {{sacred}} is truly a sacred thing!
+{{average}}: Me neither. I just see that you brought us {{sacred}}, and {{sacred}} is a sacred thing!
 {{green}}: [do express(sorry)] (... How strange.)
 {{green}}: (Maybe I should look through the {{revealer}} again.)
 => END!

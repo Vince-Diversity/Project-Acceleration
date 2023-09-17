@@ -1,2 +1,4 @@
-res://game/pause_menu.tscn
+res://game/game_original.tscn
 res://game/pause_menu.gd
+res://loader/loader.tscn
+res://game/pause_menu.tscn

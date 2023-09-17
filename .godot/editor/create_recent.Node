@@ -1,12 +1,15 @@
+RichTextLabel
+Button
+VBoxContainer
+CenterContainer
+CanvasLayer
 AudioStreamPlayer
 ColorRect
-CanvasLayer
 Marker2D
 CollisionShape2D
 Area2D
 Node2D
 MarginContainer
-VBoxContainer
 VSplitContainer
 TextureRect
 StaticBody2D

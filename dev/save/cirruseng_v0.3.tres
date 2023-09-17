@@ -1,15 +1,15 @@
 [gd_resource type="Resource" script_class="SaveGame" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://loader/save_game.gd" id="1_t3lhx"]
+[ext_resource type="Script" path="res://loader/save_game.gd" id="1_ex2wv"]
 
 [resource]
-script = ExtResource("1_t3lhx")
+script = ExtResource("1_ex2wv")
 game_version = "0.3"
 data = {
 "game": {
-"current_room_id": "sacred_outdoor",
-"entrance_node": "PassageUp",
-"party_key": Array[String](["blue", "sacred"])
+"current_room_id": "sacred_indoor",
+"entrance_node": "RightPassageDown",
+"party_key": Array[String](["blue"])
 },
 "rooms": {
 "main_entrance": {
@@ -17,9 +17,9 @@ data = {
 "Blue": {
 "dialogue_id": "",
 "dialogue_node": "",
-"direction": Vector2(0.41209, -0.911143),
+"direction": Vector2(0.57888, -0.815413),
 "interaction_node": "",
-"position": Vector2(522.378, 105.215),
+"position": Vector2(515.584, 93.1197),
 "was_joined": false
 }
 },
@@ -56,9 +56,9 @@ data = {
 "Blue": {
 "dialogue_id": "",
 "dialogue_node": "",
-"direction": Vector2(-0.000208795, -1),
+"direction": Vector2(0.742661, -0.669667),
 "interaction_node": "",
-"position": Vector2(832, 96),
+"position": Vector2(815.118, 89.9944),
 "was_joined": false
 }
 },
@@ -96,32 +96,32 @@ data = {
 "dialogue_id": "talk_average",
 "dialogue_node": "talk",
 "direction": Vector2(0, 1),
-"interaction_node": "Default2",
+"interaction_node": "",
 "position": Vector2(320, 224),
 "was_joined": false
 },
 "Blue": {
 "dialogue_id": "",
 "dialogue_node": "",
-"direction": Vector2(-0.00102613, 0.999999),
+"direction": Vector2(0, 0),
 "interaction_node": "",
-"position": Vector2(202.83, 437.711),
+"position": Vector2(288, 448),
 "was_joined": false
 },
 "Plain": {
 "dialogue_id": "talk_plain",
 "dialogue_node": "talk",
 "direction": Vector2(0, 1),
-"interaction_node": "Default3",
+"interaction_node": "",
 "position": Vector2(192, 224),
 "was_joined": false
 },
 "Sacred": {
 "dialogue_id": "",
 "dialogue_node": "",
-"direction": Vector2(-0.0242633, 0.999706),
+"direction": Vector2(0, 0),
 "interaction_node": "",
-"position": Vector2(203.828, 396.59),
+"position": Vector2(288, 448),
 "was_joined": true
 }
 },
@@ -143,9 +143,9 @@ data = {
 "Blue": {
 "dialogue_id": "",
 "dialogue_node": "",
-"direction": Vector2(-0.676233, 0.736687),
+"direction": Vector2(-0.412839, -0.910804),
 "interaction_node": "",
-"position": Vector2(2591.04, 249.746),
+"position": Vector2(1348.63, 649.961),
 "was_joined": false
 },
 "Sacred": {

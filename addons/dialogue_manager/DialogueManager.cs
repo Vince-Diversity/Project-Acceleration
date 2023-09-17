@@ -1,12 +1,44 @@
 using Godot;
 using Godot.Collections;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace DialogueManagerRuntime
 {
   public partial class DialogueManager : Node
   {
-    public static async Task<DialogueLine> GetNextDialogueLine(Resource dialogueResource, string key = "0", Array<Variant> extraGameStates = null)
+    [Signal]
+    public delegate void ResolvedEventHandler(Variant value);
+
+
+    private static GodotObject? singleton;
+
+    public static async Task<GodotObject> GetSingleton()
+    {
+      if (singleton != null) return singleton;
+
+      var tree = Engine.GetMainLoop();
+      int x = 0;
+
+      // Try and find the singleton for a few seconds
+      while (!Engine.HasSingleton("DialogueManager") && x < 300)
+      {
+        await tree.ToSignal(tree, SceneTree.SignalName.ProcessFrame);
+        x++;
+      }
+
+      // If it times out something is wrong
+      if (x >= 300)
+      {
+        throw new System.Exception("The DialogueManager singleton is missing.");
+      }
+
+      singleton = Engine.GetSingleton("DialogueManager");
+      return singleton;
+    }
+
+
+    public static async Task<DialogueLine?> GetNextDialogueLine(Resource dialogueResource, string key = "", Array<Variant>? extraGameStates = null)
     {
       var dialogueManager = Engine.GetSingleton("DialogueManager");
       dialogueManager.Call("_bridge_get_next_dialogue_line", dialogueResource, key, extraGameStates ?? new Array<Variant>());
@@ -18,9 +50,40 @@ namespace DialogueManagerRuntime
     }
 
 
-    public static void ShowExampleDialogueBalloon(Resource dialogueResource, string key = "0", Array<Variant> extraGameStates = null)
+    public static void ShowExampleDialogueBalloon(Resource dialogueResource, string key = "", Array<Variant>? extraGameStates = null)
     {
       Engine.GetSingleton("DialogueManager").Call("show_example_dialogue_balloon", dialogueResource, key, extraGameStates ?? new Array<Variant>());
+    }
+
+
+    public bool ThingHasMethod(GodotObject thing, string method)
+    {
+      MethodInfo info = thing.GetType().GetMethod(method, BindingFlags.Instance | BindingFlags.Public | BindingFlags.DeclaredOnly);
+      return info != null;
+    }
+
+
+    public async void ResolveThingMethod(GodotObject thing, string method, Array<Variant> args)
+    {
+      // Convert the method args to something reflection can handle
+      object[] _args = new object[args.Count];
+      for (int i = 0; i < args.Count; i++)
+      {
+        _args[i] = args[i];
+      }
+
+      // Call the method
+      MethodInfo info = thing.GetType().GetMethod(method, BindingFlags.Instance | BindingFlags.Public | BindingFlags.DeclaredOnly);
+      if (info.ReturnType == typeof(Task))
+      {
+        await (Task)info.Invoke(thing, _args);
+        EmitSignal(SignalName.Resolved, null);
+      }
+      else
+      {
+        var value = (Variant)info.Invoke(thing, _args);
+        EmitSignal(SignalName.Resolved, value);
+      }
     }
   }
 
@@ -68,8 +131,8 @@ namespace DialogueManagerRuntime
       get => responses;
     }
 
-    private string time = null;
-    public string Time
+    private string? time = null;
+    public string? Time
     {
       get => time;
     }
@@ -142,3 +205,4 @@ namespace DialogueManagerRuntime
     }
   }
 }
+

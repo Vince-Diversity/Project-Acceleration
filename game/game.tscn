@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dbiir8uq8o4sw"]
+[gd_scene load_steps=3 format=3 uid="uid://byp03chml6uqm"]
 
-[ext_resource type="Script" path="res://game/game.gd" id="1_drp6s"]
-[ext_resource type="PackedScene" uid="uid://bl3qn6xvcdtfw" path="res://loader/sound/bgm_player.tscn" id="2_q3rd8"]
+[ext_resource type="Script" path="res://game/game.gd" id="1_u57ma"]
+[ext_resource type="PackedScene" uid="uid://bl3qn6xvcdtfw" path="res://loader/sound/bgm_player.tscn" id="2_cyebn"]
 
 [node name="Game" type="Node2D"]
-script = ExtResource("1_drp6s")
+script = ExtResource("1_u57ma")
 
-[node name="BGMPlayer" parent="." instance=ExtResource("2_q3rd8")]
+[node name="BGMPlayer" parent="." instance=ExtResource("2_cyebn")]
