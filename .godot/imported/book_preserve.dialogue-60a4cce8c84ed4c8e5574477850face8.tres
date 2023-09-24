@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_6uhbl"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_h2c2q"]
 
 [resource]
-script = ExtResource("1_6uhbl")
+script = ExtResource("1_h2c2q")
 titles = {
 "cue": "2",
 "open_book": "6",
@@ -13,16 +13,19 @@ character_names = PackedStringArray("{{green}}")
 first_title = "2"
 lines = {
 "1": {
+"id": "1",
 "next_id": "2",
 "text": "cue",
 "type": "title"
 },
 "11": {
+"id": "11",
 "next_id": "12",
 "text": "read",
 "type": "title"
 },
 "12": {
+"id": "12",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_player_anim",
@@ -45,6 +48,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
+"id": "13",
 "next_id": "14",
 "text": "\"In two words, {{green_aspect}} magic is to 'enhance' and to 'preserve'.\"",
 "text_replacements": Array[Dictionary]([{
@@ -66,6 +70,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
+"id": "14",
 "next_id": "15",
 "text": "\"The magic manifests by enhancing existing traits to a subject.\"",
 "text_replacements": Array[Dictionary]([]),
@@ -81,6 +86,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
+"id": "15",
 "next_id": "16",
 "text": "\"Even when the practitioner ends their spell, the magic remains in the form of a more complete subject.\"",
 "text_replacements": Array[Dictionary]([]),
@@ -96,6 +102,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
+"id": "16",
 "next_id": "17",
 "text": "\"Changes made with {{green_aspect}} magic are therefore always preserved.\"",
 "text_replacements": Array[Dictionary]([{
@@ -109,6 +116,7 @@ lines = {
 "type": "dialogue"
 },
 "17": {
+"id": "17",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_thing_anim",
@@ -126,6 +134,7 @@ lines = {
 "type": "mutation"
 },
 "18": {
+"id": "18",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_player_anim",
@@ -140,11 +149,13 @@ lines = {
 "type": "mutation"
 },
 "19": {
+"id": "19",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 },
 "2": {
+"id": "2",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "move",
@@ -159,11 +170,13 @@ lines = {
 "type": "mutation"
 },
 "3": {
+"id": "3",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 },
 "5": {
+"id": "5",
 "next_id": "6",
 "text": "open_book",
 "type": "title"
@@ -177,6 +190,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
+"id": "6",
 "next_id": "7",
 "text": "Plants are life too. By understanding them, we can help them grow.",
 "text_replacements": Array[Dictionary]([]),
@@ -184,6 +198,7 @@ lines = {
 "type": "dialogue"
 },
 "7": {
+"id": "7",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_thing_anim",
@@ -201,6 +216,7 @@ lines = {
 "type": "mutation"
 },
 "8": {
+"id": "8",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "animate_player",
@@ -218,9 +234,10 @@ lines = {
 "type": "mutation"
 },
 "9": {
+"id": "9",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 }
 }
-metadata/dialogue_manager_version = "2.16.1"
+metadata/dialogue_manager_version = "2.24.2"

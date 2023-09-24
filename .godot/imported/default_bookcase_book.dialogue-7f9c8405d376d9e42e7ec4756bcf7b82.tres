@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_epbxs"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_pm1bd"]
 
 [resource]
-script = ExtResource("1_epbxs")
+script = ExtResource("1_pm1bd")
 titles = {
 "default": "3"
 }
@@ -11,6 +11,7 @@ character_names = PackedStringArray("{{green}}")
 first_title = "3"
 lines = {
 "1": {
+"id": "1",
 "next_id": "3",
 "text": "default",
 "type": "title"
@@ -24,6 +25,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
+"id": "3",
 "next_id": "",
 "text": "(It would feel weird to start reading a book [i]just[/i] because it sticks out a little...)",
 "text_replacements": Array[Dictionary]([]),
@@ -31,4 +33,4 @@ lines = {
 "type": "dialogue"
 }
 }
-metadata/dialogue_manager_version = "2.16.1"
+metadata/dialogue_manager_version = "2.24.2"

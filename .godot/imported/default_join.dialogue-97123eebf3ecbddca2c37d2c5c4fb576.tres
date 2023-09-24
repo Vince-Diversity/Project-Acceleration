@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_amq8x"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_4c4fo"]
 
 [resource]
-script = ExtResource("1_amq8x")
+script = ExtResource("1_4c4fo")
 titles = {
 "default": "2"
 }
@@ -11,11 +11,13 @@ character_names = PackedStringArray()
 first_title = "2"
 lines = {
 "1": {
+"id": "1",
 "next_id": "2",
 "text": "default",
 "type": "title"
 },
 "2": {
+"id": "2",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "add_source_as_member",
@@ -27,9 +29,10 @@ lines = {
 "type": "mutation"
 },
 "3": {
+"id": "3",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 }
 }
-metadata/dialogue_manager_version = "2.17.0"
+metadata/dialogue_manager_version = "2.24.2"

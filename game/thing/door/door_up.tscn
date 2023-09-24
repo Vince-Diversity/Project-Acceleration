@@ -4,6 +4,7 @@
 [ext_resource type="SpriteFrames" uid="uid://d2gasqmip3odt" path="res://resources/things/door.tres" id="2_thih7"]
 
 [node name="DoorUp" instance=ExtResource("1_s00ab")]
+is_gateway = false
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 position = Vector2(0, -32)

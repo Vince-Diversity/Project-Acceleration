@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_rscn1"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_cwpv3"]
 
 [resource]
-script = ExtResource("1_rscn1")
+script = ExtResource("1_cwpv3")
 titles = {
 "cue": "2",
 "darken": "24",
@@ -19,21 +19,25 @@ character_names = PackedStringArray("{{green}}", "{{yellow_teacher}}", "{{cyan_a
 first_title = "2"
 lines = {
 "1": {
+"id": "1",
 "next_id": "2",
 "text": "cue",
 "type": "title"
 },
 "10": {
+"id": "10",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 },
 "13": {
+"id": "13",
 "next_id": "14",
 "text": "prepare_2",
 "type": "title"
 },
 "14": {
+"id": "14",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "move_npc",
@@ -54,11 +58,13 @@ lines = {
 "type": "mutation"
 },
 "15": {
+"id": "15",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 },
 "17": {
+"id": "17",
 "next_id": "18",
 "text": "flash",
 "type": "title"
@@ -72,6 +78,7 @@ lines = {
 }]),
 "value_in_text": "{{yellow_teacher}}"
 }]),
+"id": "18",
 "next_id": "19",
 "text": "[speed=0.5] 3... 2... 1... Start!",
 "text_replacements": Array[Dictionary]([]),
@@ -79,6 +86,7 @@ lines = {
 "type": "dialogue"
 },
 "19": {
+"id": "19",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "flash",
@@ -101,6 +109,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
+"id": "2",
 "next_id": "3",
 "text": "[do express(cheerful)] Good morning {{yellow_teacher_formally}}!",
 "text_replacements": Array[Dictionary]([{
@@ -114,16 +123,19 @@ lines = {
 "type": "dialogue"
 },
 "20": {
+"id": "20",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 },
 "23": {
+"id": "23",
 "next_id": "24",
 "text": "darken",
 "type": "title"
 },
 "24": {
+"id": "24",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "darken",
@@ -138,11 +150,13 @@ lines = {
 "type": "mutation"
 },
 "25": {
+"id": "25",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 },
 "28": {
+"id": "28",
 "next_id": "29",
 "text": "react",
 "type": "title"
@@ -156,6 +170,7 @@ lines = {
 }]),
 "value_in_text": "{{yellow_teacher}}"
 }]),
+"id": "29",
 "next_id": "30",
 "text": "[do express(shocked)] oops.",
 "text_replacements": Array[Dictionary]([]),
@@ -171,6 +186,7 @@ lines = {
 }]),
 "value_in_text": "{{yellow_teacher}}"
 }]),
+"id": "3",
 "next_id": "4",
 "text": "Students! Stand aside, please. The demonstration is about to begin.",
 "text_replacements": Array[Dictionary]([]),
@@ -178,6 +194,7 @@ lines = {
 "type": "dialogue"
 },
 "30": {
+"id": "30",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "animate_thing",
@@ -198,16 +215,19 @@ lines = {
 "type": "mutation"
 },
 "31": {
+"id": "31",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 },
 "34": {
+"id": "34",
 "next_id": "35",
 "text": "question",
 "type": "title"
 },
 "35": {
+"id": "35",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_thing_anim",
@@ -233,6 +253,7 @@ lines = {
 }]),
 "value_in_text": "{{cyan_ai}}"
 }]),
+"id": "36",
 "next_id": "37",
 "text": "Did you short-ciruit the network again?",
 "text_replacements": Array[Dictionary]([]),
@@ -248,6 +269,7 @@ lines = {
 }]),
 "value_in_text": "{{yellow_teacher}}"
 }]),
+"id": "37",
 "next_id": "38",
 "text": "Maybe.",
 "text_replacements": Array[Dictionary]([]),
@@ -263,6 +285,7 @@ lines = {
 }]),
 "value_in_text": "{{cyan_ai}}"
 }]),
+"id": "38",
 "next_id": "39",
 "text": "I'll just switch on again.",
 "text_replacements": Array[Dictionary]([]),
@@ -270,6 +293,7 @@ lines = {
 "type": "dialogue"
 },
 "39": {
+"id": "39",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "reset_lightning",
@@ -284,6 +308,7 @@ lines = {
 "type": "mutation"
 },
 "4": {
+"id": "4",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "move",
@@ -298,16 +323,19 @@ lines = {
 "type": "mutation"
 },
 "40": {
+"id": "40",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 },
 "43": {
+"id": "43",
 "next_id": "44",
 "text": "talk",
 "type": "title"
 },
 "44": {
+"id": "44",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "turn_npc_to_player",
@@ -330,6 +358,7 @@ lines = {
 }]),
 "value_in_text": "{{yellow_teacher}}"
 }]),
+"id": "45",
 "next_id": "46",
 "text": "[do express(shocked)] Let's pretend we just met, ok?",
 "text_replacements": Array[Dictionary]([]),
@@ -345,6 +374,7 @@ lines = {
 }]),
 "value_in_text": "{{yellow_teacher}}"
 }]),
+"id": "46",
 "next_id": "47",
 "text": "Hi, {{green}}! Already in class before term start?",
 "text_replacements": Array[Dictionary]([{
@@ -366,6 +396,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
+"id": "47",
 "next_id": "48",
 "text": "Yes, {{yellow_teacher_formally}}. I am showing {{blue}}, our new student, around the school.",
 "text_replacements": Array[Dictionary]([{
@@ -393,6 +424,7 @@ lines = {
 }]),
 "value_in_text": "{{yellow_teacher}}"
 }]),
+"id": "48",
 "next_id": "49",
 "text": "[do express(shocked)] Just call me {{yellow_teacher}}, please.",
 "text_replacements": Array[Dictionary]([{
@@ -414,6 +446,7 @@ lines = {
 }]),
 "value_in_text": "{{yellow_teacher}}"
 }]),
+"id": "49",
 "next_id": "50",
 "text": "Well, I better get back to class prep, see you!",
 "text_replacements": Array[Dictionary]([]),
@@ -421,11 +454,13 @@ lines = {
 "type": "dialogue"
 },
 "5": {
+"id": "5",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 },
 "50": {
+"id": "50",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_npc_direction",
@@ -443,16 +478,19 @@ lines = {
 "type": "mutation"
 },
 "51": {
+"id": "51",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 },
 "54": {
+"id": "54",
 "next_id": "55",
 "text": "setters",
 "type": "title"
 },
 "55": {
+"id": "55",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_npc_dialogue_node",
@@ -470,6 +508,7 @@ lines = {
 "type": "mutation"
 },
 "56": {
+"id": "56",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_thing_state",
@@ -487,16 +526,19 @@ lines = {
 "type": "mutation"
 },
 "57": {
+"id": "57",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 },
 "8": {
+"id": "8",
 "next_id": "9",
 "text": "prepare_1",
 "type": "title"
 },
 "9": {
+"id": "9",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "animate_npc",
@@ -517,4 +559,4 @@ lines = {
 "type": "mutation"
 }
 }
-metadata/dialogue_manager_version = "2.17.0"
+metadata/dialogue_manager_version = "2.24.2"

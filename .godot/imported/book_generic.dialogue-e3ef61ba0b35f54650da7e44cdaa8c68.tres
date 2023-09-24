@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_f0vkc"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_wa1k2"]
 
 [resource]
-script = ExtResource("1_f0vkc")
+script = ExtResource("1_wa1k2")
 titles = {
 "AO": "3",
 "AT": "8",
@@ -23,11 +23,13 @@ character_names = PackedStringArray("{{green}}")
 first_title = "3"
 lines = {
 "1": {
+"id": "1",
 "next_id": "3",
 "text": "AO",
 "type": "title"
 },
 "11": {
+"id": "11",
 "next_id": "13",
 "text": "BP",
 "type": "title"
@@ -41,6 +43,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
+"id": "13",
 "next_id": "14",
 "text": "\"Botanics and Potions\"",
 "text_replacements": Array[Dictionary]([]),
@@ -48,11 +51,13 @@ lines = {
 "type": "dialogue"
 },
 "14": {
+"id": "14",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 },
 "16": {
+"id": "16",
 "next_id": "18",
 "text": "CF",
 "type": "title"
@@ -66,6 +71,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
+"id": "18",
 "next_id": "19",
 "text": "\"Chaos Theory and Foresight\"",
 "text_replacements": Array[Dictionary]([]),
@@ -73,11 +79,13 @@ lines = {
 "type": "dialogue"
 },
 "19": {
+"id": "19",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 },
 "21": {
+"id": "21",
 "next_id": "23",
 "text": "DA",
 "type": "title"
@@ -91,6 +99,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
+"id": "23",
 "next_id": "24",
 "text": "\"Defense against Magic\"",
 "text_replacements": Array[Dictionary]([]),
@@ -98,11 +107,13 @@ lines = {
 "type": "dialogue"
 },
 "24": {
+"id": "24",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 },
 "26": {
+"id": "26",
 "next_id": "28",
 "text": "BM",
 "type": "title"
@@ -116,6 +127,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
+"id": "28",
 "next_id": "29",
 "text": "\"Beliefs of Mythical Beings\"",
 "text_replacements": Array[Dictionary]([]),
@@ -123,6 +135,7 @@ lines = {
 "type": "dialogue"
 },
 "29": {
+"id": "29",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
@@ -136,6 +149,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
+"id": "3",
 "next_id": "4",
 "text": "\"Apparations and Optics\"",
 "text_replacements": Array[Dictionary]([]),
@@ -143,6 +157,7 @@ lines = {
 "type": "dialogue"
 },
 "31": {
+"id": "31",
 "next_id": "33",
 "text": "SD",
 "type": "title"
@@ -156,6 +171,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
+"id": "33",
 "next_id": "34",
 "text": "\"Statistics and Other Delusive Magic\"",
 "text_replacements": Array[Dictionary]([]),
@@ -163,11 +179,13 @@ lines = {
 "type": "dialogue"
 },
 "34": {
+"id": "34",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 },
 "36": {
+"id": "36",
 "next_id": "38",
 "text": "HM",
 "type": "title"
@@ -181,6 +199,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
+"id": "38",
 "next_id": "39",
 "text": "\"History of Magiscience\"",
 "text_replacements": Array[Dictionary]([]),
@@ -188,16 +207,19 @@ lines = {
 "type": "dialogue"
 },
 "39": {
+"id": "39",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 },
 "4": {
+"id": "4",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 },
 "41": {
+"id": "41",
 "next_id": "43",
 "text": "WP",
 "type": "title"
@@ -211,6 +233,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
+"id": "43",
 "next_id": "44",
 "text": "\"Explaining Warping - The Endless Entanglement Debate\"",
 "text_replacements": Array[Dictionary]([]),
@@ -218,11 +241,13 @@ lines = {
 "type": "dialogue"
 },
 "44": {
+"id": "44",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 },
 "46": {
+"id": "46",
 "next_id": "48",
 "text": "EB",
 "type": "title"
@@ -236,6 +261,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
+"id": "48",
 "next_id": "49",
 "text": "\"Electronic Beings - Sentient AI or Just Magic?\"",
 "text_replacements": Array[Dictionary]([]),
@@ -243,11 +269,13 @@ lines = {
 "type": "dialogue"
 },
 "49": {
+"id": "49",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 },
 "51": {
+"id": "51",
 "next_id": "53",
 "text": "MM",
 "type": "title"
@@ -261,6 +289,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
+"id": "53",
 "next_id": "54",
 "text": "\"Mathematics of Magiscience\"",
 "text_replacements": Array[Dictionary]([]),
@@ -268,11 +297,13 @@ lines = {
 "type": "dialogue"
 },
 "54": {
+"id": "54",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 },
 "56": {
+"id": "56",
 "next_id": "58",
 "text": "MH",
 "type": "title"
@@ -286,6 +317,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
+"id": "58",
 "next_id": "59",
 "text": "\"Medicine and Healing Magic\"",
 "text_replacements": Array[Dictionary]([]),
@@ -293,16 +325,19 @@ lines = {
 "type": "dialogue"
 },
 "59": {
+"id": "59",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 },
 "6": {
+"id": "6",
 "next_id": "8",
 "text": "AT",
 "type": "title"
 },
 "61": {
+"id": "61",
 "next_id": "63",
 "text": "TM",
 "type": "title"
@@ -316,6 +351,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
+"id": "63",
 "next_id": "64",
 "text": "\"Unified Theory for Thermodynamics and {{red_aspect}} Magic?\"",
 "text_replacements": Array[Dictionary]([{
@@ -329,6 +365,7 @@ lines = {
 "type": "dialogue"
 },
 "64": {
+"id": "64",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
@@ -342,6 +379,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
+"id": "8",
 "next_id": "9",
 "text": "\"Anatomy and Transformations\"",
 "text_replacements": Array[Dictionary]([]),
@@ -349,9 +387,10 @@ lines = {
 "type": "dialogue"
 },
 "9": {
+"id": "9",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 }
 }
-metadata/dialogue_manager_version = "2.16.1"
+metadata/dialogue_manager_version = "2.24.2"

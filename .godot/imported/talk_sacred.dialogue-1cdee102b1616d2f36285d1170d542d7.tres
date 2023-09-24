@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_niew7"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_kk21h"]
 
 [resource]
-script = ExtResource("1_niew7")
+script = ExtResource("1_kk21h")
 titles = {
 "revisit": "13",
 "talk": "2"
@@ -12,11 +12,13 @@ character_names = PackedStringArray("{{green}}", "{{sacred}}")
 first_title = "2"
 lines = {
 "1": {
+"id": "1",
 "next_id": "2",
 "text": "talk",
 "type": "title"
 },
 "12": {
+"id": "12",
 "next_id": "13",
 "text": "revisit",
 "type": "title"
@@ -30,6 +32,7 @@ lines = {
 }]),
 "value_in_text": "{{sacred}}"
 }]),
+"id": "13",
 "next_id": "14",
 "text": "Am I safe now?",
 "text_replacements": Array[Dictionary]([]),
@@ -37,11 +40,13 @@ lines = {
 "type": "dialogue"
 },
 "14": {
+"id": "14",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 },
 "2": {
+"id": "2",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "turn_npc_to_player",
@@ -64,6 +69,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
+"id": "3",
 "next_id": "4",
 "text": "Hi there. What's your name?",
 "text_replacements": Array[Dictionary]([]),
@@ -79,6 +85,7 @@ lines = {
 }]),
 "value_in_text": "{{sacred}}"
 }]),
+"id": "4",
 "next_id": "5",
 "text": "{{sacred}}.",
 "text_replacements": Array[Dictionary]([{
@@ -100,6 +107,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
+"id": "5",
 "next_id": "6",
 "text": "[do express(cheerful)] What a cute name! My name is {{green}}.",
 "text_replacements": Array[Dictionary]([{
@@ -121,6 +129,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
+"id": "6",
 "next_id": "7",
 "text": "You probably shouldn't be on your own like this. Let me take you somewhere safe.",
 "text_replacements": Array[Dictionary]([]),
@@ -136,6 +145,7 @@ lines = {
 }]),
 "value_in_text": "{{sacred}}"
 }]),
+"id": "7",
 "next_id": "8",
 "text": "ok.",
 "text_replacements": Array[Dictionary]([]),
@@ -143,6 +153,7 @@ lines = {
 "type": "dialogue"
 },
 "8": {
+"id": "8",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "add_source_as_member",
@@ -154,9 +165,10 @@ lines = {
 "type": "mutation"
 },
 "9": {
+"id": "9",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 }
 }
-metadata/dialogue_manager_version = "2.22.0"
+metadata/dialogue_manager_version = "2.24.2"

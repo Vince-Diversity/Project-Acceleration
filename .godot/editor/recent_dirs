@@ -1,16 +1,17 @@
+res://assets/things
+res://resources/tilesets
+res://game/room/rooms
 res://game/cutscene
 res://game/cutscene/dialogue_cutscene/sacred_indoor_cutscene
 res://game/character/npcs
 res://game/character/npc_state
 res://assets/characters/plain
 res://assets/characters/average
-res://game/room/rooms
 res://resources/characters
 res://assets/characters/sacred
 res://assets/sound/bgm
 res://assets/characters/red_teacher
 res://assets/characters/red
-res://assets/things
 res://game/cutscene/dialogue_cutscene/red_cutscene
 res://game/thing/candle
 res://resources/things
@@ -19,4 +20,3 @@ res://loader
 res://game/thing/computer
 res://resources/things/
 res://game/cutscene/dialogue_cutscene/yellow_teacher_cutscene
-res://assets/characters/yellow_teacher

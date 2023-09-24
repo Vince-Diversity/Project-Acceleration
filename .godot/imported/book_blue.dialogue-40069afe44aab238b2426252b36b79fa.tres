@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_dmjjq"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_oj7m4"]
 
 [resource]
-script = ExtResource("1_dmjjq")
+script = ExtResource("1_oj7m4")
 titles = {
 "check": "2",
 "open_book": "7",
@@ -13,16 +13,19 @@ character_names = PackedStringArray("{{green}}")
 first_title = "2"
 lines = {
 "1": {
+"id": "1",
 "next_id": "2",
 "text": "check",
 "type": "title"
 },
 "11": {
+"id": "11",
 "next_id": "12",
 "text": "read",
 "type": "title"
 },
 "12": {
+"id": "12",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_player_anim",
@@ -45,6 +48,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
+"id": "13",
 "next_id": "14",
 "text": "\"All other magical elements affect reality in some way. But the {{blue_aspect}} magic appears to go beyond that reality.\"",
 "text_replacements": Array[Dictionary]([{
@@ -66,6 +70,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
+"id": "14",
 "next_id": "15",
 "text": "\"Practitioners are able to vanish, becoming invicible and undetectable.\"",
 "text_replacements": Array[Dictionary]([]),
@@ -73,6 +78,7 @@ lines = {
 "type": "dialogue"
 },
 "15": {
+"id": "15",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_thing_anim",
@@ -90,6 +96,7 @@ lines = {
 "type": "mutation"
 },
 "16": {
+"id": "16",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_player_anim",
@@ -104,6 +111,7 @@ lines = {
 "type": "mutation"
 },
 "17": {
+"id": "17",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
@@ -117,6 +125,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
+"id": "2",
 "next_id": "3",
 "text": "\"{{blue_aspect}} Magic\". (Read this one?)",
 "text_replacements": Array[Dictionary]([{
@@ -130,6 +139,7 @@ lines = {
 "type": "dialogue"
 },
 "3": {
+"id": "3",
 "next_id": "7",
 "next_id_after": "7",
 "responses": PackedStringArray("3", "4"),
@@ -139,6 +149,7 @@ lines = {
 "type": "response"
 },
 "4": {
+"id": "4",
 "next_id": "end!",
 "next_id_after": "7",
 "text": "Leave",
@@ -147,11 +158,13 @@ lines = {
 "type": "response"
 },
 "6": {
+"id": "6",
 "next_id": "7",
 "text": "open_book",
 "type": "title"
 },
 "7": {
+"id": "7",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_thing_anim",
@@ -169,6 +182,7 @@ lines = {
 "type": "mutation"
 },
 "8": {
+"id": "8",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "animate_player",
@@ -186,9 +200,10 @@ lines = {
 "type": "mutation"
 },
 "9": {
+"id": "9",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 }
 }
-metadata/dialogue_manager_version = "2.16.1"
+metadata/dialogue_manager_version = "2.24.2"

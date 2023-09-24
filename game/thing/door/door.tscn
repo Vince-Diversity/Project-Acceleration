@@ -19,6 +19,7 @@ script = ExtResource("2_utemx")
 next_room_id = ""
 next_room_entrance_node = ""
 entrance_direction = 0
+is_gateway = false
 dialogue_id = "default_door"
 dialogue_node = "default"
 

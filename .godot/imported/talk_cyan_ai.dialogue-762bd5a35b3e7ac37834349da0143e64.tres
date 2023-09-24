@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_6jj43"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_gc26d"]
 
 [resource]
-script = ExtResource("1_6jj43")
+script = ExtResource("1_gc26d")
 titles = {
 "about": "13",
 "cue": "2",
@@ -13,11 +13,13 @@ character_names = PackedStringArray("{{cyan_ai}}")
 first_title = "2"
 lines = {
 "1": {
+"id": "1",
 "next_id": "2",
 "text": "cue",
 "type": "title"
 },
 "11": {
+"id": "11",
 "next_id": "13",
 "text": "about",
 "type": "title"
@@ -31,6 +33,7 @@ lines = {
 }]),
 "value_in_text": "{{cyan_ai}}"
 }]),
+"id": "13",
 "next_id": "14",
 "text": "About myself? I am not sure what you mean... I am definitely not that interesting.",
 "text_replacements": Array[Dictionary]([]),
@@ -46,6 +49,7 @@ lines = {
 }]),
 "value_in_text": "{{cyan_ai}}"
 }]),
+"id": "14",
 "next_id": "15",
 "text": "Anyways, my name is {{cyan_ai}}. I am an AI, although not the most functional kind, as you might have just noticed...",
 "text_replacements": Array[Dictionary]([{
@@ -67,6 +71,7 @@ lines = {
 }]),
 "value_in_text": "{{cyan_ai}}"
 }]),
+"id": "15",
 "next_id": "16",
 "text": "My role is to support the school network on pretty much all ends, so everything runs smoothly for the staff and students.",
 "text_replacements": Array[Dictionary]([]),
@@ -74,11 +79,13 @@ lines = {
 "type": "dialogue"
 },
 "16": {
+"id": "16",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 },
 "2": {
+"id": "2",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "move",
@@ -93,11 +100,13 @@ lines = {
 "type": "mutation"
 },
 "3": {
+"id": "3",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 },
 "5": {
+"id": "5",
 "next_id": "7",
 "text": "talk",
 "type": "title"
@@ -111,6 +120,7 @@ lines = {
 }]),
 "value_in_text": "{{cyan_ai}}"
 }]),
+"id": "7",
 "next_id": "8",
 "text": "Hello, need help with anything?",
 "text_replacements": Array[Dictionary]([]),
@@ -118,6 +128,7 @@ lines = {
 "type": "dialogue"
 },
 "8": {
+"id": "8",
 "next_id": "13",
 "next_id_after": "13",
 "responses": PackedStringArray("8", "9"),
@@ -127,6 +138,7 @@ lines = {
 "type": "response"
 },
 "9": {
+"id": "9",
 "next_id": "end!",
 "next_id_after": "13",
 "text": "Nevermind.",
@@ -135,4 +147,4 @@ lines = {
 "type": "response"
 }
 }
-metadata/dialogue_manager_version = "2.16.1"
+metadata/dialogue_manager_version = "2.24.2"

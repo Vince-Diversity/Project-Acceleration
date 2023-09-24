@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_9"
+type="Resource"
+uid="uid://c74jlj0i01mw5"
+path="res://.godot/imported/kitchen_door.dialogue-0fb734736dd1c16500b6114cfdf8d6e2.tres"
+
+[deps]
+
+source_file="res://resources/dialogue/kitchen_door.dialogue"
+dest_files=["res://.godot/imported/kitchen_door.dialogue-0fb734736dd1c16500b6114cfdf8d6e2.tres"]
+
+[params]
+
+defaults=true

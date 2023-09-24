@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_avklb"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_pjodw"]
 
 [resource]
-script = ExtResource("1_avklb")
+script = ExtResource("1_pjodw")
 titles = {
 "burn": "24",
 "cue": "2",
@@ -16,21 +16,25 @@ character_names = PackedStringArray("{{green}}", "{{red}}", "{{blue}}")
 first_title = "2"
 lines = {
 "1": {
+"id": "1",
 "next_id": "2",
 "text": "cue",
 "type": "title"
 },
 "10": {
+"id": "10",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 },
 "12": {
+"id": "12",
 "next_id": "13",
 "text": "ignite",
 "type": "title"
 },
 "13": {
+"id": "13",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_npc_anim",
@@ -56,6 +60,7 @@ lines = {
 }]),
 "value_in_text": "{{red}}"
 }]),
+"id": "14",
 "next_id": "15",
 "text": "Watch out now.",
 "text_replacements": Array[Dictionary]([]),
@@ -63,6 +68,7 @@ lines = {
 "type": "dialogue"
 },
 "15": {
+"id": "15",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "add_async",
@@ -92,6 +98,7 @@ lines = {
 "type": "mutation"
 },
 "16": {
+"id": "16",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "add_async",
@@ -121,6 +128,7 @@ lines = {
 "type": "mutation"
 },
 "17": {
+"id": "17",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "add_async",
@@ -150,6 +158,7 @@ lines = {
 "type": "mutation"
 },
 "18": {
+"id": "18",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "add_async",
@@ -179,6 +188,7 @@ lines = {
 "type": "mutation"
 },
 "19": {
+"id": "19",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "add_async",
@@ -208,6 +218,7 @@ lines = {
 "type": "mutation"
 },
 "2": {
+"id": "2",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "turn_npc_to_player",
@@ -222,6 +233,7 @@ lines = {
 "type": "mutation"
 },
 "20": {
+"id": "20",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "play_async",
@@ -236,16 +248,19 @@ lines = {
 "type": "mutation"
 },
 "21": {
+"id": "21",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 },
 "23": {
+"id": "23",
 "next_id": "24",
 "text": "burn",
 "type": "title"
 },
 "24": {
+"id": "24",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_thing_anim",
@@ -263,6 +278,7 @@ lines = {
 "type": "mutation"
 },
 "25": {
+"id": "25",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_thing_anim",
@@ -280,6 +296,7 @@ lines = {
 "type": "mutation"
 },
 "26": {
+"id": "26",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_thing_anim",
@@ -297,6 +314,7 @@ lines = {
 "type": "mutation"
 },
 "27": {
+"id": "27",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_thing_anim",
@@ -314,6 +332,7 @@ lines = {
 "type": "mutation"
 },
 "28": {
+"id": "28",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_thing_anim",
@@ -331,6 +350,7 @@ lines = {
 "type": "mutation"
 },
 "29": {
+"id": "29",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_npc_anim",
@@ -356,6 +376,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
+"id": "3",
 "next_id": "4",
 "text": "Hi {{red}}! You have to show us one of your demos!",
 "text_replacements": Array[Dictionary]([{
@@ -377,6 +398,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
+"id": "30",
 "next_id": "31",
 "text": "Wow!",
 "text_replacements": Array[Dictionary]([]),
@@ -384,6 +406,7 @@ lines = {
 "type": "dialogue"
 },
 "31": {
+"id": "31",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "add_async",
@@ -413,6 +436,7 @@ lines = {
 "type": "mutation"
 },
 "32": {
+"id": "32",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "add_async",
@@ -652,6 +676,7 @@ lines = {
 "type": "mutation"
 },
 "33": {
+"id": "33",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "play_async",
@@ -666,11 +691,13 @@ lines = {
 "type": "mutation"
 },
 "34": {
+"id": "34",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 },
 "36": {
+"id": "36",
 "next_id": "37",
 "text": "talk",
 "type": "title"
@@ -684,6 +711,7 @@ lines = {
 }]),
 "value_in_text": "{{red}}"
 }]),
+"id": "37",
 "next_id": "38",
 "text": "Our classmates seem to have difficulties igniting just a single candle.",
 "text_replacements": Array[Dictionary]([]),
@@ -699,6 +727,7 @@ lines = {
 }]),
 "value_in_text": "{{red}}"
 }]),
+"id": "38",
 "next_id": "39",
 "text": "Maybe it is because most students do not know what they practice for.",
 "text_replacements": Array[Dictionary]([]),
@@ -714,6 +743,7 @@ lines = {
 }]),
 "value_in_text": "{{red}}"
 }]),
+"id": "39",
 "next_id": "40",
 "text": "[do express(sorry)] Not that I know why I practice so much.",
 "text_replacements": Array[Dictionary]([]),
@@ -729,6 +759,7 @@ lines = {
 }]),
 "value_in_text": "{{red}}"
 }]),
+"id": "4",
 "next_id": "5",
 "text": "Hi. Is this the new student you mentioned?",
 "text_replacements": Array[Dictionary]([]),
@@ -744,6 +775,7 @@ lines = {
 }]),
 "value_in_text": "{{red}}"
 }]),
+"id": "40",
 "next_id": "41",
 "text": "I just always put in my best effort, isn't that the most natural thing to do?",
 "text_replacements": Array[Dictionary]([]),
@@ -751,16 +783,19 @@ lines = {
 "type": "dialogue"
 },
 "41": {
+"id": "41",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 },
 "43": {
+"id": "43",
 "next_id": "44",
 "text": "finish",
 "type": "title"
 },
 "44": {
+"id": "44",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_npc_anim",
@@ -786,6 +821,7 @@ lines = {
 }]),
 "value_in_text": "{{red}}"
 }]),
+"id": "45",
 "next_id": "46",
 "text": "[do express(sorry)] Sorry for venting on you again.",
 "text_replacements": Array[Dictionary]([]),
@@ -801,6 +837,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
+"id": "46",
 "next_id": "47",
 "text": "[do express(cheerful)] No problem, thanks for the demo!",
 "text_replacements": Array[Dictionary]([]),
@@ -808,6 +845,7 @@ lines = {
 "type": "dialogue"
 },
 "47": {
+"id": "47",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_npc_dialogue_node",
@@ -825,6 +863,7 @@ lines = {
 "type": "mutation"
 },
 "48": {
+"id": "48",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
@@ -838,6 +877,7 @@ lines = {
 }]),
 "value_in_text": "{{blue}}"
 }]),
+"id": "5",
 "next_id": "6",
 "text": "My name is {{blue}}.",
 "text_replacements": Array[Dictionary]([{
@@ -851,11 +891,13 @@ lines = {
 "type": "dialogue"
 },
 "50": {
+"id": "50",
 "next_id": "51",
 "text": "revisit",
 "type": "title"
 },
 "51": {
+"id": "51",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "turn_npc_to_player",
@@ -878,6 +920,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
+"id": "52",
 "next_id": "53",
 "text": "[do express(cheerful)] Hi again! Can you show us another demo?",
 "text_replacements": Array[Dictionary]([]),
@@ -893,6 +936,7 @@ lines = {
 }]),
 "value_in_text": "{{red}}"
 }]),
+"id": "53",
 "next_id": "54",
 "text": "[do express(sorry)] Please, let me recover first.",
 "text_replacements": Array[Dictionary]([]),
@@ -900,6 +944,7 @@ lines = {
 "type": "dialogue"
 },
 "54": {
+"id": "54",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
@@ -913,6 +958,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
+"id": "6",
 "next_id": "7",
 "text": "And this is {{red}}, my friend and amazing {{red_aspect}} mage.",
 "text_replacements": Array[Dictionary]([{
@@ -932,6 +978,7 @@ lines = {
 "type": "dialogue"
 },
 "7": {
+"id": "7",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "add_async",
@@ -961,6 +1008,7 @@ lines = {
 "type": "mutation"
 },
 "8": {
+"id": "8",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "add_async",
@@ -984,6 +1032,7 @@ lines = {
 "type": "mutation"
 },
 "9": {
+"id": "9",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "play_async",
@@ -998,4 +1047,4 @@ lines = {
 "type": "mutation"
 }
 }
-metadata/dialogue_manager_version = "2.22.0"
+metadata/dialogue_manager_version = "2.24.2"

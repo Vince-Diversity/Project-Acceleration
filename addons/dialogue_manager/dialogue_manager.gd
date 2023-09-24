@@ -280,6 +280,10 @@ func get_line(resource: DialogueResource, key: String, extra_game_states: Array)
 			id_trail = "|" + data.next_id_after + id_trail
 		return await get_line(resource, data.next_id + id_trail, extra_game_states)
 
+	elif data.type == DialogueConstants.TYPE_DIALOGUE:
+		if not data.has("id"):
+			data.id = key
+
 	# Set up a line object
 	var line: DialogueLine = await create_dialogue_line(data, extra_game_states)
 
@@ -349,6 +353,7 @@ func create_dialogue_line(data: Dictionary, extra_game_states: Array) -> Dialogu
 		DialogueConstants.TYPE_DIALOGUE:
 			var resolved_data: ResolvedLineData = await get_resolved_line_data(data, extra_game_states)
 			return DialogueLine.new({
+				id = data.id,
 				type = DialogueConstants.TYPE_DIALOGUE,
 				next_id = data.next_id,
 				character = await get_resolved_character(data, extra_game_states),
@@ -366,6 +371,7 @@ func create_dialogue_line(data: Dictionary, extra_game_states: Array) -> Dialogu
 
 		DialogueConstants.TYPE_RESPONSE:
 			return DialogueLine.new({
+				id = data.id,
 				type = DialogueConstants.TYPE_RESPONSE,
 				next_id = data.next_id,
 				extra_game_states = extra_game_states
@@ -373,6 +379,7 @@ func create_dialogue_line(data: Dictionary, extra_game_states: Array) -> Dialogu
 
 		DialogueConstants.TYPE_MUTATION:
 			return DialogueLine.new({
+				id = data.id,
 				type = DialogueConstants.TYPE_MUTATION,
 				next_id = data.next_id,
 				mutation = data.mutation,
@@ -386,6 +393,7 @@ func create_dialogue_line(data: Dictionary, extra_game_states: Array) -> Dialogu
 func create_response(data: Dictionary, extra_game_states: Array) -> DialogueResponse:
 	var resolved_data: ResolvedLineData = await get_resolved_line_data(data, extra_game_states)
 	return DialogueResponse.new({
+		id = data.id,
 		type = DialogueConstants.TYPE_RESPONSE,
 		next_id = data.next_id,
 		is_allowed = await check_condition(data, extra_game_states),
@@ -1005,12 +1013,16 @@ func thing_has_method(thing, method: String, args: Array) -> bool:
 
 	if method in ["call", "call_deferred"]:
 		return thing.has_method(args[0])
-	elif method.to_snake_case() == method:
-		return thing.has_method(method)
 
-	# If we get this far then the method might be a C# method with a Task return type
-	var dotnet_dialogue_manager = load("res://addons/dialogue_manager/DialogueManager.cs").new()
-	return dotnet_dialogue_manager.ThingHasMethod(thing, method)
+	if thing.has_method(method):
+		return true
+
+	if method.to_snake_case() != method and ResourceLoader.exists("res://addons/dialogue_manager/DialogueManager.cs"):
+		# If we get this far then the method might be a C# method with a Task return type
+		var dotnet_dialogue_manager = load("res://addons/dialogue_manager/DialogueManager.cs").new()
+		return dotnet_dialogue_manager.ThingHasMethod(thing, method)
+
+	return false
 
 
 # Check if a given property exists

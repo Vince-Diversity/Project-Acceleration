@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_hbmp2"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_1gwii"]
 
 [resource]
-script = ExtResource("1_hbmp2")
+script = ExtResource("1_1gwii")
 titles = {
 "cue": "2",
 "open_book": "7",
@@ -13,11 +13,13 @@ character_names = PackedStringArray("{{green}}")
 first_title = "2"
 lines = {
 "1": {
+"id": "1",
 "next_id": "2",
 "text": "cue",
 "type": "title"
 },
 "10": {
+"id": "10",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "animate_player",
@@ -35,16 +37,19 @@ lines = {
 "type": "mutation"
 },
 "11": {
+"id": "11",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 },
 "13": {
+"id": "13",
 "next_id": "14",
 "text": "read",
 "type": "title"
 },
 "14": {
+"id": "14",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_player_anim",
@@ -67,6 +72,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
+"id": "15",
 "next_id": "16",
 "text": "\"Reality is merely the top layer of the onion which represents our world. The imaginary are its layers.\"",
 "text_replacements": Array[Dictionary]([]),
@@ -82,6 +88,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
+"id": "16",
 "next_id": "17",
 "text": "\"By peeling its many layers, one may travel deeper into the imaginary.\"",
 "text_replacements": Array[Dictionary]([]),
@@ -97,6 +104,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
+"id": "17",
 "next_id": "18",
 "text": "\"But, just like an onion, our most trusted theory predicts that the imaginary has a core, a deepest layer.\"",
 "text_replacements": Array[Dictionary]([]),
@@ -112,6 +120,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
+"id": "18",
 "next_id": "19",
 "text": "\"Yet, despite all efforts, there is no consensus on the scientific validity of alledged evidence for its existence.\"",
 "text_replacements": Array[Dictionary]([]),
@@ -127,6 +136,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
+"id": "19",
 "next_id": "20",
 "text": "\"Researchers have merely been able to state that this mystery is yet enshrouded in an incomprehensible mist.\"",
 "text_replacements": Array[Dictionary]([]),
@@ -142,6 +152,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
+"id": "2",
 "next_id": "3",
 "text": "Look over here, {{blue}}!",
 "text_replacements": Array[Dictionary]([{
@@ -163,6 +174,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
+"id": "20",
 "next_id": "21",
 "text": "\"Hence, this deepest layer became recognised by the name: {{deepest_layer}}.\"",
 "text_replacements": Array[Dictionary]([{
@@ -184,6 +196,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
+"id": "21",
 "next_id": "22",
 "text": "[do express(cheerful)] Hmm... I believe we should try look for this place called {{deepest_layer}} sometime.",
 "text_replacements": Array[Dictionary]([{
@@ -197,6 +210,7 @@ lines = {
 "type": "dialogue"
 },
 "22": {
+"id": "22",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_thing_anim",
@@ -214,6 +228,7 @@ lines = {
 "type": "mutation"
 },
 "23": {
+"id": "23",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_player_anim",
@@ -228,11 +243,13 @@ lines = {
 "type": "mutation"
 },
 "24": {
+"id": "24",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 },
 "3": {
+"id": "3",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "move",
@@ -247,11 +264,13 @@ lines = {
 "type": "mutation"
 },
 "4": {
+"id": "4",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 },
 "6": {
+"id": "6",
 "next_id": "7",
 "text": "open_book",
 "type": "title"
@@ -265,6 +284,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
+"id": "7",
 "next_id": "8",
 "text": "\"The Myth of {{deepest_layer}}\".",
 "text_replacements": Array[Dictionary]([{
@@ -286,6 +306,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
+"id": "8",
 "next_id": "9",
 "text": "[do express(cheerful)] This might be of help to you!",
 "text_replacements": Array[Dictionary]([]),
@@ -293,6 +314,7 @@ lines = {
 "type": "dialogue"
 },
 "9": {
+"id": "9",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_thing_anim",
@@ -310,4 +332,4 @@ lines = {
 "type": "mutation"
 }
 }
-metadata/dialogue_manager_version = "2.16.1"
+metadata/dialogue_manager_version = "2.24.2"

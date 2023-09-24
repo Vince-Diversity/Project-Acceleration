@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_5g6ap"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_bj714"]
 
 [resource]
-script = ExtResource("1_5g6ap")
+script = ExtResource("1_bj714")
 titles = {
 "found": "2",
 "present": "6",
@@ -13,6 +13,7 @@ character_names = PackedStringArray("{{green}}", "{{plain}}", "{{average}}")
 first_title = "2"
 lines = {
 "1": {
+"id": "1",
 "next_id": "2",
 "text": "found",
 "type": "title"
@@ -26,6 +27,7 @@ lines = {
 }]),
 "value_in_text": "{{average}}"
 }]),
+"id": "10",
 "next_id": "11",
 "text": "Yes, this is exactly the thing we were looking for!",
 "text_replacements": Array[Dictionary]([]),
@@ -41,6 +43,7 @@ lines = {
 }]),
 "value_in_text": "{{average}}"
 }]),
+"id": "11",
 "next_id": "12",
 "text": "Now, let us stand together and cherish the moment.",
 "text_replacements": Array[Dictionary]([]),
@@ -48,6 +51,7 @@ lines = {
 "type": "dialogue"
 },
 "12": {
+"id": "12",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "remove_member",
@@ -62,6 +66,7 @@ lines = {
 "type": "mutation"
 },
 "13": {
+"id": "13",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "move_npc",
@@ -82,16 +87,19 @@ lines = {
 "type": "mutation"
 },
 "14": {
+"id": "14",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 },
 "17": {
+"id": "17",
 "next_id": "18",
 "text": "realise",
 "type": "title"
 },
 "18": {
+"id": "18",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_npc_direction",
@@ -109,6 +117,7 @@ lines = {
 "type": "mutation"
 },
 "19": {
+"id": "19",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_npc_direction",
@@ -126,6 +135,7 @@ lines = {
 "type": "mutation"
 },
 "2": {
+"id": "2",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "move",
@@ -148,6 +158,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
+"id": "20",
 "next_id": "21",
 "text": "[do express(sorry)] Excuse me, but I don't she is a sacred thing. She is just a girl and it is her name that is {{sacred}}.",
 "text_replacements": Array[Dictionary]([{
@@ -169,6 +180,7 @@ lines = {
 }]),
 "value_in_text": "{{plain}}"
 }]),
+"id": "21",
 "next_id": "22",
 "text": "A girl? I don't see any girl around here, other than yourself.",
 "text_replacements": Array[Dictionary]([]),
@@ -184,6 +196,7 @@ lines = {
 }]),
 "value_in_text": "{{average}}"
 }]),
+"id": "22",
 "next_id": "23",
 "text": "Me neither. I just see that you brought us {{sacred}}, and {{sacred}} is a sacred thing!",
 "text_replacements": Array[Dictionary]([{
@@ -211,6 +224,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
+"id": "23",
 "next_id": "24",
 "text": "[do express(sorry)] (... How strange.)",
 "text_replacements": Array[Dictionary]([]),
@@ -226,6 +240,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
+"id": "24",
 "next_id": "25",
 "text": "(Maybe I should look through the {{revealer}} again.)",
 "text_replacements": Array[Dictionary]([{
@@ -239,6 +254,7 @@ lines = {
 "type": "dialogue"
 },
 "25": {
+"id": "25",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_npc_dialogue_id",
@@ -256,6 +272,7 @@ lines = {
 "type": "mutation"
 },
 "26": {
+"id": "26",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_npc_dialogue_node",
@@ -273,6 +290,7 @@ lines = {
 "type": "mutation"
 },
 "27": {
+"id": "27",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_npc_dialogue_node",
@@ -290,6 +308,7 @@ lines = {
 "type": "mutation"
 },
 "28": {
+"id": "28",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_npc_dialogue_node",
@@ -307,16 +326,19 @@ lines = {
 "type": "mutation"
 },
 "29": {
+"id": "29",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 },
 "3": {
+"id": "3",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 },
 "5": {
+"id": "5",
 "next_id": "6",
 "text": "present",
 "type": "title"
@@ -330,6 +352,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
+"id": "6",
 "next_id": "7",
 "text": "Hi again. Could I ask if you know about this girl? Her name is {{sacred}}.",
 "text_replacements": Array[Dictionary]([{
@@ -343,6 +366,7 @@ lines = {
 "type": "dialogue"
 },
 "7": {
+"id": "7",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "turn_npc_to_player",
@@ -357,6 +381,7 @@ lines = {
 "type": "mutation"
 },
 "8": {
+"id": "8",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "turn_npc_to_player",
@@ -379,6 +404,7 @@ lines = {
 }]),
 "value_in_text": "{{plain}}"
 }]),
+"id": "9",
 "next_id": "10",
 "text": "{{sacred}}? What a wonderful thing!",
 "text_replacements": Array[Dictionary]([{
@@ -392,4 +418,4 @@ lines = {
 "type": "dialogue"
 }
 }
-metadata/dialogue_manager_version = "2.22.0"
+metadata/dialogue_manager_version = "2.24.2"

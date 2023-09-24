@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_gs6wu"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_78hnv"]
 
 [resource]
-script = ExtResource("1_gs6wu")
+script = ExtResource("1_78hnv")
 titles = {
 "check": "2",
 "open_book": "8",
@@ -13,21 +13,25 @@ character_names = PackedStringArray("{{green}}")
 first_title = "2"
 lines = {
 "1": {
+"id": "1",
 "next_id": "2",
 "text": "check",
 "type": "title"
 },
 "10": {
+"id": "10",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 },
 "12": {
+"id": "12",
 "next_id": "13",
 "text": "read",
 "type": "title"
 },
 "13": {
+"id": "13",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_player_anim",
@@ -50,6 +54,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
+"id": "14",
 "next_id": "15",
 "text": "\"{{green_aspect}} is a traditional name, originating from when practitioners able to make plants sprout in a matter of seconds.\"",
 "text_replacements": Array[Dictionary]([{
@@ -71,6 +76,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
+"id": "15",
 "next_id": "16",
 "text": "\"The better knowledge a {{green_aspect}} magic practitioner has of their working substances and the nature of the material world, the more freely they seem to be able to make things.\"",
 "text_replacements": Array[Dictionary]([{
@@ -84,6 +90,7 @@ lines = {
 "type": "dialogue"
 },
 "16": {
+"id": "16",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_thing_anim",
@@ -101,6 +108,7 @@ lines = {
 "type": "mutation"
 },
 "17": {
+"id": "17",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_player_anim",
@@ -115,6 +123,7 @@ lines = {
 "type": "mutation"
 },
 "18": {
+"id": "18",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
@@ -128,6 +137,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
+"id": "2",
 "next_id": "3",
 "text": "\"{{green_aspect}} Magic\"",
 "text_replacements": Array[Dictionary]([{
@@ -149,6 +159,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
+"id": "3",
 "next_id": "4",
 "text": "[do express(cheerful)] This is my magics major, by the way!",
 "text_replacements": Array[Dictionary]([]),
@@ -156,6 +167,7 @@ lines = {
 "type": "dialogue"
 },
 "4": {
+"id": "4",
 "next_id": "8",
 "next_id_after": "8",
 "responses": PackedStringArray("4", "5"),
@@ -165,6 +177,7 @@ lines = {
 "type": "response"
 },
 "5": {
+"id": "5",
 "next_id": "end!",
 "next_id_after": "8",
 "text": "Leave",
@@ -173,11 +186,13 @@ lines = {
 "type": "response"
 },
 "7": {
+"id": "7",
 "next_id": "8",
 "text": "open_book",
 "type": "title"
 },
 "8": {
+"id": "8",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_thing_anim",
@@ -195,6 +210,7 @@ lines = {
 "type": "mutation"
 },
 "9": {
+"id": "9",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "animate_player",
@@ -212,4 +228,4 @@ lines = {
 "type": "mutation"
 }
 }
-metadata/dialogue_manager_version = "2.16.1"
+metadata/dialogue_manager_version = "2.24.2"
