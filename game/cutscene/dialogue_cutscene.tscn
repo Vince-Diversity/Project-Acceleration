@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bqlmbt878hrxk"]
 
 [ext_resource type="Script" path="res://game/cutscene/dialogue_cutscene.gd" id="1_hl2ci"]
-[ext_resource type="PackedScene" uid="uid://dtkkkrcbtqu58" path="res://game/character/character_mark.tscn" id="2_xqrh6"]
+[ext_resource type="PackedScene" uid="uid://dtkkkrcbtqu58" path="res://game/cutscene/character_mark.tscn" id="2_xqrh6"]
 
 [node name="DialogueCutscene" type="Node2D"]
 script = ExtResource("1_hl2ci")

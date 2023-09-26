@@ -19,6 +19,14 @@ func make():
 	pass
 
 
+func make_move(
+		character_list: Array,
+		mark_list: Array) -> Act:
+	var move_to_position_act: Act = move_to_position_act_scr.new()
+	move_to_position_act.init_act(character_list, mark_list)
+	return move_to_position_act
+
+
 func make_animate(anim_sprite: AnimatedSprite2D, anim_name: String):
 	var animate_act = animate_act_scr.new()
 	animate_act.init_act(
@@ -49,6 +57,11 @@ func make_animate_thing(thing_node: String, anim_name: String) -> Act:
 			owner.things.get_node(thing_node).anim_sprite,
 			anim_name)
 	else: return null
+
+
+func set_thing_state(thing_node: String, thing_state_id: String):
+	if owner.things.has_node(thing_node):
+		owner.things.get_node(thing_node).change_state(thing_state_id)
 
 
 func begin_cutscene():

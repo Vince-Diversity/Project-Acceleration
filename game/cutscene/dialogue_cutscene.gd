@@ -33,14 +33,6 @@ func make_dialogue(dialogue_id: String, dialogue_node: String) -> Act:
 	return dialogue_act
 
 
-func make_move(
-		character_list: Array,
-		mark_list: Array) -> Act:
-	var move_to_position_act: Act = move_to_position_act_scr.new()
-	move_to_position_act.init_act(character_list, mark_list)
-	return move_to_position_act
-
-
 func make_move_npc(
 		npc_node: String,
 		mark_node: String) -> Act:
@@ -159,11 +151,6 @@ func set_npc_dialogue_node(npc_node: String, dialogue_node: String):
 func set_thing_anim(thing_node: String, anim_name: String):
 	if owner.things.has_node(thing_node):
 		owner.things.get_node(thing_node).anim_sprite.play(anim_name)
-
-
-func set_thing_state(thing_node: String, thing_state_id: String):
-	if owner.things.has_node(thing_node):
-		owner.things.get_node(thing_node).change_state(thing_state_id)
 
 
 func turn_npc_to_player(npc_node: String):

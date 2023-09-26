@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0x31r3ry61jv"]
+
+[ext_resource type="PackedScene" uid="uid://xmpy30huxt0r" path="res://game/thing/table/table.tscn" id="1_p7tjv"]
+[ext_resource type="PackedScene" uid="uid://cwv24ijsyj7bp" path="res://game/thing/table/chair.tscn" id="2_0yt7e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e7rq8"]
+size = Vector2(84, 33)
+
+[node name="TwoChairTable" instance=ExtResource("1_p7tjv")]
+y_sort_enabled = true
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_e7rq8")
+
+[node name="UpChair" parent="." index="3" instance=ExtResource("2_0yt7e")]
+position = Vector2(0, -21)
+
+[node name="DownChair" parent="." index="4" instance=ExtResource("2_0yt7e")]
+position = Vector2(0, 19)

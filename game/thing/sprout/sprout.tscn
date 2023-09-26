@@ -9,6 +9,7 @@ radius = 15.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_jivws"]
 
 [node name="Sprout" instance=ExtResource("1_rvbcn")]
+interaction_node = "SproutCutscene"
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = ExtResource("2_wf4mp")

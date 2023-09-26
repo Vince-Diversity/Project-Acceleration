@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dopivkfksretw" path="res://game/thing/sprout/sprout.tscn" id="4_homgw"]
 [ext_resource type="PackedScene" uid="uid://cbqllvvoulkny" path="res://game/cutscene/silent_cutscene/sprout_cutscene/sprout_cutscene.tscn" id="5_30x1x"]
 [ext_resource type="PackedScene" uid="uid://f62lyhp5kra6" path="res://game/thing/bookcase/bookcase.tscn" id="5_4731s"]
-[ext_resource type="PackedScene" uid="uid://b1vi7mcs6bvtf" path="res://game/thing/chair/teacher_chair.tscn" id="6_5tvfd"]
-[ext_resource type="PackedScene" uid="uid://dupbg42hwtmve" path="res://game/thing/table/table.tscn" id="7_3h84b"]
+[ext_resource type="PackedScene" uid="uid://b1vi7mcs6bvtf" path="res://game/thing/teacher_chair/teacher_chair.tscn" id="6_5tvfd"]
+[ext_resource type="PackedScene" uid="uid://dupbg42hwtmve" path="res://game/thing/teacher_table/table.tscn" id="7_3h84b"]
 [ext_resource type="PackedScene" uid="uid://bqlmbt878hrxk" path="res://game/cutscene/dialogue_cutscene.tscn" id="7_anbct"]
 [ext_resource type="PackedScene" uid="uid://cfipqchnej33m" path="res://game/character/npcs/green_teacher.tscn" id="8_sgips"]
 
@@ -22,26 +22,21 @@ layer_2/tile_data = PackedInt32Array(196611, 2, 0, 196613, 2, 0, 131073, 2, 0, 1
 position = Vector2(576, 576)
 next_room_id = "green_hallway"
 next_room_entrance_node = "DoorUp"
-is_gateway = false
 
 [node name="Sprout1" parent="YSort/Things" index="0" instance=ExtResource("4_homgw")]
 position = Vector2(192, 320)
-interaction_node = "SproutCutscene"
 is_oneshot = true
 
 [node name="Sprout2" parent="YSort/Things" index="1" instance=ExtResource("4_homgw")]
 position = Vector2(448, 448)
-interaction_node = "SproutCutscene"
 is_oneshot = true
 
 [node name="Sprout3" parent="YSort/Things" index="2" instance=ExtResource("4_homgw")]
 position = Vector2(704, 448)
-interaction_node = "SproutCutscene"
 is_oneshot = true
 
 [node name="Sprout4" parent="YSort/Things" index="3" instance=ExtResource("4_homgw")]
 position = Vector2(960, 320)
-interaction_node = "SproutCutscene"
 is_oneshot = true
 
 [node name="BookcasePreserve" parent="YSort/Things" index="4" instance=ExtResource("5_4731s")]

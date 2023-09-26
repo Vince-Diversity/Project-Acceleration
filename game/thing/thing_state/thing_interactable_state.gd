@@ -3,6 +3,7 @@ class_name ThingInteractableState extends ThingState
 
 func enter():
 	thing.interact_area.set_disabled(false)
+	thing.collision.set_deferred("disabled", false)
 
 
 func exit():

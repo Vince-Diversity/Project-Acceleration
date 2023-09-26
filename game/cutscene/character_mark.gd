@@ -1,4 +1,4 @@
-extends Marker2D
+class_name CharacterMark extends Marker2D
 
 @export var target_direction_id: Utils.AnimID
 

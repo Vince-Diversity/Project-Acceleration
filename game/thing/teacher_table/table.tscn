@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dupbg42hwtmve"]
+
+[ext_resource type="PackedScene" uid="uid://nfl8ij5d7dfw" path="res://game/thing/thing.tscn" id="1_2lh3q"]
+[ext_resource type="SpriteFrames" uid="uid://cjb5hxm3mc0j7" path="res://resources/things/table.tres" id="2_c1o1y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nw6sq"]
+size = Vector2(83, 33)
+
+[node name="Table" instance=ExtResource("1_2lh3q")]
+spawn_state = "thing_static_state"
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = ExtResource("2_c1o1y")
+
+[node name="CollisionShape2D" parent="InteractArea" index="0"]
+shape = null
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_nw6sq")

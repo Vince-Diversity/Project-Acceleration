@@ -10,10 +10,13 @@ class_name Thing extends StaticBody2D
 	"thing_static_state") var spawn_state: String = "thing_interactable_state"
 @onready var anim_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var interact_area: CollisionShape2D = $InteractArea/CollisionShape2D
+@onready var collision: CollisionShape2D = $CollisionShape2D
 @onready var interactable_state: ThingInteractableState = \
 	preload("res://game/thing/thing_state/thing_interactable_state.gd").new("thing_interactable_state", self)
 @onready var static_state: ThingStaticState = \
 	preload("res://game/thing/thing_state/thing_static_state.gd").new("thing_static_state", self)
+@onready var permeable_state: ThingPermeableState = \
+	preload("res://game/thing/thing_state/thing_permeable_state.gd").new("thing_permeable_state", self)
 var state_list: Dictionary
 var current_state: ThingState
 
@@ -21,6 +24,7 @@ var current_state: ThingState
 func _ready():
 	state_list[interactable_state.state_id] = interactable_state
 	state_list[static_state.state_id] = static_state
+	state_list[permeable_state.state_id] = permeable_state
 	current_state = state_list[spawn_state]
 	current_state.enter()
 

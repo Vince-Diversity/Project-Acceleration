@@ -1,6 +1,11 @@
-res://assets/things
-res://resources/tilesets
+res://assets/characters/green
+res://game/cutscene/silent_cutscene/chair_cutscene
+res://game/thing/table
 res://game/room/rooms
+res://assets/things
+res://resources/things
+res://assets/tiles
+res://resources/tilesets
 res://game/cutscene
 res://game/cutscene/dialogue_cutscene/sacred_indoor_cutscene
 res://game/character/npcs
@@ -14,9 +19,4 @@ res://assets/characters/red_teacher
 res://assets/characters/red
 res://game/cutscene/dialogue_cutscene/red_cutscene
 res://game/thing/candle
-res://resources/things
 res://game/room
-res://loader
-res://game/thing/computer
-res://resources/things/
-res://game/cutscene/dialogue_cutscene/yellow_teacher_cutscene
