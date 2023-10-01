@@ -8,8 +8,9 @@ class_name Room extends Node2D
 @onready var things = $YSort/Things
 @onready var npcs = $YSort/NPCs
 @onready var doors = $Doors
-@onready var party_roam_state: PartyRoamState = preload("res://game/game_state/party_roam_state.gd").new("party_roam_state")
+@onready var roam_state: RoamState = preload("res://game/game_state/roam_state.gd").new("roam_state")
 @onready var cutscene_state: CutsceneState = preload("res://game/game_state/cutscene_state.gd").new("cutscene_state")
+@onready var rest_state: RestState = preload("res://game/game_state/rest_state.gd").new("rest_state")
 @onready var dialogue_cutscene_scn: PackedScene = preload("res://game/cutscene/dialogue_cutscene.tscn")
 var thing_rng: RandomNumberGenerator
 var room_id: String
@@ -35,7 +36,7 @@ func _ready():
 	_ready_npcs()
 	_ready_states()
 	_ready_cutscenes()
-	stm.change_state(party_roam_state.state_id)
+	stm.change_state(roam_state.state_id)
 
 
 func _ready_entrance():
@@ -73,20 +74,20 @@ func _ready_npcs():
 
 
 func _ready_states():
-	party_roam_state.init_state(
-		party)
-	stm.add_state(party_roam_state)
-	cutscene_state.init_state(
-		cutscenes)
+	roam_state.init_state(party)
+	stm.add_state(roam_state)
+	cutscene_state.init_state(cutscenes)
 	stm.add_state(cutscene_state)
+	rest_state.init_state(start_cutscene)
+	stm.add_state(rest_state)
 
 
 func _ready_cutscenes():
 	for cutscene in cutscenes.get_children():
-		_ready_cutscene(cutscene)
+		make_cutscene(cutscene)
 
 
-func _ready_cutscene(cutscene: Cutscene):
+func make_cutscene(cutscene: Cutscene):
 	cutscene.init_cutscene(cutscenes, screen)
 	cutscene.cutscene_started.connect(
 		_on_cutscene_started)
@@ -115,27 +116,42 @@ func init_room(
 	textbox_focused_target = given_textbox_focused_target
 
 
+func start_cutscene(
+		interaction_node: String,
+		dialogue_id: String,
+		dialogue_node: String,
+		source_node: Node2D):
+	cutscenes.change_cutscene(interaction_node)
+	cutscenes.change_dialogue(dialogue_id, dialogue_node)
+	cutscenes.change_source_node(source_node)
+	cutscenes.current_cutscene.cutscene_started.emit()
+	stm.change_state(cutscene_state.state_id)
+	end_interaction.connect(source_node.get_node("InteractArea")._on_end_interaction, CONNECT_ONE_SHOT)
+
+
+func add_cutscene(cutscene: Cutscene, node_name: String):
+		cutscenes.add_child(cutscene)
+		cutscene.owner = self
+		make_cutscene(cutscene)
+		cutscene.name = node_name
+
+
 func _on_player_interacted(interactable: Node2D):
 	player_interacted.emit(interactable)
 
 
 func _on_begin_interaction(target_root: Node2D):
-	var target = target_root.get_node("InteractArea")
 	if cutscenes.has_node(target_root.interaction_node):
-		cutscenes.change_cutscene(target_root.interaction_node)
-		cutscenes.change_dialogue(target_root.dialogue_id, target_root.dialogue_node)
-		cutscenes.change_source_node(target_root)
-		cutscenes.current_cutscene.cutscene_started.emit()
-		stm.change_state(cutscene_state.state_id)
-		end_interaction.connect(target._on_end_interaction, CONNECT_ONE_SHOT)
+		start_cutscene(
+			target_root.interaction_node,
+			target_root.dialogue_id,
+			target_root.dialogue_node,
+			target_root)
 	else:
-		var dlg_cutscene: Cutscene = dialogue_cutscene_scn.instantiate()
-		cutscenes.add_child(dlg_cutscene)
-		dlg_cutscene.owner = self
-		_ready_cutscene(dlg_cutscene)
-		var new_name = "Default%s" % cutscenes.get_children().size()
-		dlg_cutscene.name = new_name
-		target_root.interaction_node = new_name
+		var node_name = "Default%s" % cutscenes.get_children().size()
+		var dlg_cutscene: DialogueCutscene = dialogue_cutscene_scn.instantiate()
+		add_cutscene(dlg_cutscene, node_name)
+		target_root.interaction_node = node_name
 		_on_begin_interaction.call_deferred(target_root)
 
 

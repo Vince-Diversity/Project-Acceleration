@@ -1,4 +1,4 @@
-class_name PartyRoamState extends GameState
+class_name RoamState extends GameState
 
 var party: Party
 

@@ -1,4 +1,4 @@
-extends Interactable
+class_name ThingInteractable extends Interactable
 
 
 func check_interaction(given_interactable: Node2D):

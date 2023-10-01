@@ -2,7 +2,6 @@ class_name Interactable extends Node2D
 
 ## Instance this to scenes that can be interacted with
 # Uses get_node("InteractArea") to refer to instances of this scene
-# and "owner" to refer to the scene that can be interacted with
 
 
 # Just copying pasting these exports so the UI becomes convenient
@@ -15,9 +14,8 @@ class_name Interactable extends Node2D
 signal begin_interaction(interactable_scene: Node2D)
 
 
-func check_interaction(given_interactable: Node2D):
-	if given_interactable == owner:
-		begin_interaction.emit(owner)
+func check_interaction(_given_interactable: Node2D):
+	pass
 
 
 func _on_end_interaction():

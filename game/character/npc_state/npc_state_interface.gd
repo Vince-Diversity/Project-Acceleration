@@ -18,6 +18,10 @@ func exit():
 	pass
 
 
+func check_interaction(_given_interactable: Node2D):
+	pass
+
+
 func roam():
 	pass
 

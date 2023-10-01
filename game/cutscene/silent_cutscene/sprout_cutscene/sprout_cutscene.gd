@@ -6,3 +6,8 @@ func make():
 	actm.add_act(make_animate(get_thing_anim_sprite(), Names.sprout_anim))
 	actm.add_act(make_animate(get_thing_anim_sprite(), Names.sprouting_anim))
 	actm.add_act(make_animate_player("default"))
+
+
+func end_cutscene():
+	super()
+	cutscene_ended.emit("roam_state")

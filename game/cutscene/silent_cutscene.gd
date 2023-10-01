@@ -11,7 +11,6 @@ func begin_cutscene():
 
 func end_cutscene():
 	super()
-	cutscene_ended.emit("party_roam_state")
 
 
 func update_cutscene(delta: float):
@@ -20,6 +19,11 @@ func update_cutscene(delta: float):
 
 func grab_cutscene_focus():
 	super()
+
+
+func set_thing_state(thing_node: String, thing_state_id: String):
+	if owner.things.has_node(thing_node):
+		owner.things.get_node(thing_node).change_state(thing_state_id)
 
 
 func get_thing() -> Thing:

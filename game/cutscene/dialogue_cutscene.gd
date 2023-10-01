@@ -203,7 +203,7 @@ func begin_cutscene():
 
 func end_cutscene():
 	super()
-	cutscene_ended.emit("party_roam_state")
+	cutscene_ended.emit("roam_state")
 
 
 func update_cutscene(delta: float):

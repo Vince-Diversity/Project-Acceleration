@@ -17,6 +17,11 @@ func exit():
 	npc.following_area.set_monitorable(true)
 
 
+func check_interaction(given_interactable: Node2D):
+	if given_interactable == npc:
+		npc.get_node("InteractArea").begin_interaction.emit(npc)
+
+
 func roam():
 	pass
 

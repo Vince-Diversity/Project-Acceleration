@@ -15,6 +15,10 @@ func exit():
 	npc.is_following = false
 
 
+func check_interaction(_given_interactable: Node2D):
+	pass
+
+
 func roam():
 	npc._set_following_direction()
 	if npc.is_following:

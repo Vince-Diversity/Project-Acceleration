@@ -1,5 +1,6 @@
-res://assets/characters/green
+res://game/interactable
 res://game/cutscene/silent_cutscene/chair_cutscene
+res://assets/characters/green
 res://game/thing/table
 res://game/room/rooms
 res://assets/things
@@ -19,4 +20,3 @@ res://assets/characters/red_teacher
 res://assets/characters/red
 res://game/cutscene/dialogue_cutscene/red_cutscene
 res://game/thing/candle
-res://game/room

@@ -20,4 +20,7 @@ position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_o4h1x")
 
 [node name="CharacterMark" parent="." index="3" instance=ExtResource("4_27abq")]
-position = Vector2(1, 0)
+position = Vector2(1, 1)
+
+[node name="StandUpMark" parent="." index="4" instance=ExtResource("4_27abq")]
+position = Vector2(32, 0)
