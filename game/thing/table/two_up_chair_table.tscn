@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://bm4xh8yi8neja"]
+
+[ext_resource type="PackedScene" uid="uid://xmpy30huxt0r" path="res://game/thing/table/table.tscn" id="1_634vg"]
+[ext_resource type="Script" path="res://game/thing/table/two_up_chair_table.gd" id="2_3bec4"]
+[ext_resource type="SpriteFrames" uid="uid://1mpiq865tvpj" path="res://resources/things/table/two_up_chair_table.tres" id="2_cpm2a"]
+[ext_resource type="PackedScene" uid="uid://dtkkkrcbtqu58" path="res://game/cutscene/character_mark.tscn" id="3_vdb24"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kgfal"]
+radius = 20.0
+height = 66.0
+
+[node name="TwoUpChairTable" instance=ExtResource("1_634vg")]
+script = ExtResource("2_3bec4")
+interaction_node = "TwoUpChairCutscene"
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = ExtResource("2_cpm2a")
+
+[node name="CollisionShape2D" parent="InteractArea" index="0"]
+position = Vector2(0, -19)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_kgfal")
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2(0, -1)
+
+[node name="MentorChairMark" parent="." index="3" instance=ExtResource("3_vdb24")]
+position = Vector2(-16, -15)
+
+[node name="StudentChairMark" parent="." index="4" instance=ExtResource("3_vdb24")]
+position = Vector2(19, -15)
+
+[node name="MentorStandUpMark" parent="." index="5" instance=ExtResource("3_vdb24")]
+position = Vector2(0, -48)

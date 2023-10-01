@@ -1,3 +1,4 @@
+Node2D
 Marker2D
 RichTextLabel
 Button
@@ -8,7 +9,6 @@ AudioStreamPlayer
 ColorRect
 CollisionShape2D
 Area2D
-Node2D
 MarginContainer
 VSplitContainer
 TextureRect

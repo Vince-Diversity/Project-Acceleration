@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bthq23kx2q8m3"]
+[gd_scene load_steps=13 format=3 uid="uid://bthq23kx2q8m3"]
 
 [ext_resource type="PackedScene" uid="uid://c1go3780g6ead" path="res://game/room/room.tscn" id="1_ysrto"]
 [ext_resource type="PackedScene" uid="uid://bypwfk54tvx6l" path="res://game/thing/door/passage_left.tscn" id="2_fkubj"]
@@ -9,6 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://f62lyhp5kra6" path="res://game/thing/bookcase/bookcase.tscn" id="6_l2h0y"]
 [ext_resource type="PackedScene" uid="uid://cwv24ijsyj7bp" path="res://game/thing/table/chair.tscn" id="8_fnaul"]
 [ext_resource type="PackedScene" uid="uid://c1dqban1i65o7" path="res://game/cutscene/silent_cutscene/chair_cutscene/chair_cutscene.tscn" id="9_mbxr3"]
+[ext_resource type="PackedScene" uid="uid://xmpy30huxt0r" path="res://game/thing/table/table.tscn" id="9_mj25k"]
+[ext_resource type="PackedScene" uid="uid://bm4xh8yi8neja" path="res://game/thing/table/two_up_chair_table.tscn" id="10_ycmfu"]
+[ext_resource type="PackedScene" uid="uid://bb6f8uvru2yol" path="res://game/cutscene/silent_cutscene/chair_cutscene/two_up_chair_cutscene.tscn" id="12_23l8m"]
 
 [node name="MainEntrance" instance=ExtResource("1_ysrto")]
 
@@ -42,4 +45,12 @@ position = Vector2(384, 192)
 [node name="Chair" parent="YSort/Things" index="1" instance=ExtResource("8_fnaul")]
 position = Vector2(512, 192)
 
+[node name="Table" parent="YSort/Things" index="2" instance=ExtResource("9_mj25k")]
+position = Vector2(640, 192)
+
+[node name="TwoUpChairTable" parent="YSort/Things" index="3" instance=ExtResource("10_ycmfu")]
+position = Vector2(576, 320)
+
 [node name="ChairCutscene" parent="RoomCutscenes" index="0" instance=ExtResource("9_mbxr3")]
+
+[node name="TwoUpChairCutscene" parent="RoomCutscenes" index="1" instance=ExtResource("12_23l8m")]
