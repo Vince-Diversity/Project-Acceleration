@@ -45,5 +45,12 @@ func grab_focus():
 	pass
 
 
-func save(_game: Game, _sg: SaveGame):
-	pass
+func save(game: Game, sg: SaveGame):
+	super(game, sg)
+	for node in stand_up_source_node.owner.cutscenes.get_tree().get_nodes_in_group("Preserved"):
+		if node == stand_up_source_node:
+			if not node.has_method("make_preserved_save"): continue
+			node.make_preserved_save(sg)
+		else:
+			if not node.has_method("make_save"): continue
+			node.make_save(sg)

@@ -13,3 +13,7 @@ func exit():
 func check_interaction(given_interactable: Node2D):
 	if given_interactable == thing:
 		thing.get_node("InteractArea").begin_interaction.emit(thing)
+
+
+func make_preserved_save(sg: SaveGame):
+	super(sg)

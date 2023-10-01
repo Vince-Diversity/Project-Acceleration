@@ -12,3 +12,7 @@ func exit():
 
 func check_interaction(_given_interactable: Node2D):
 	pass
+
+
+func make_preserved_save(sg: SaveGame):
+	super(sg)

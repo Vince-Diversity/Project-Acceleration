@@ -40,6 +40,6 @@ next_room_entrance_node = "PassageLeft"
 position = Vector2(384, 192)
 
 [node name="Chair" parent="YSort/Things" index="1" instance=ExtResource("8_fnaul")]
-position = Vector2(576, 256)
+position = Vector2(512, 192)
 
 [node name="ChairCutscene" parent="RoomCutscenes" index="0" instance=ExtResource("9_mbxr3")]

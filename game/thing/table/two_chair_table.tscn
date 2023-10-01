@@ -15,16 +15,6 @@ shape = SubResource("RectangleShape2D_e7rq8")
 
 [node name="UpChair" parent="." index="3" instance=ExtResource("2_0yt7e")]
 position = Vector2(0, -21)
-dialogue_id = ""
-dialogue_node = ""
-is_oneshot = false
-bubble_content = 0
-spawn_state = "thing_interactable_state"
 
 [node name="DownChair" parent="." index="4" instance=ExtResource("2_0yt7e")]
 position = Vector2(0, 19)
-dialogue_id = ""
-dialogue_node = ""
-is_oneshot = false
-bubble_content = 0
-spawn_state = "thing_interactable_state"

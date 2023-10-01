@@ -39,11 +39,7 @@ func make_save(sg: SaveGame):
 
 
 func make_preserved_save(sg: SaveGame):
-		var thing_dict = {}
-		sg.data[sg.rooms_key][owner.room_id][sg.things_key][name] = thing_dict
-		thing_dict[sg.state_key] = current_state.state_id
-		thing_dict[sg.anim_key] = "default"
-		thing_dict[sg.frame_key] = 0
+	current_state.make_preserved_save(sg)
 
 
 func load_save(sg: SaveGame):
