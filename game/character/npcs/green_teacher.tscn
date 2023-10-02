@@ -18,4 +18,5 @@ sprite_frames = ExtResource("2_sp4bm")
 shape = SubResource("CapsuleShape2D_jcqu3")
 
 [node name="CollisionShape2D" parent="InteractArea" index="0"]
+position = Vector2(0, 22)
 shape = SubResource("CapsuleShape2D_woj1m")

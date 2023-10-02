@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://coa8dmvvos8a5"]
+[gd_scene load_steps=9 format=3 uid="uid://coa8dmvvos8a5"]
 
 [ext_resource type="PackedScene" uid="uid://c1go3780g6ead" path="res://game/room/room.tscn" id="1_dqmem"]
 [ext_resource type="TileSet" uid="uid://dhmtx2d8j5rgp" path="res://resources/tilesets/dining_hall.tres" id="2_bdu67"]
 [ext_resource type="PackedScene" uid="uid://yn8jo1jenttp" path="res://game/thing/door/door_up.tscn" id="3_t4g4m"]
 [ext_resource type="Texture2D" uid="uid://cmo0sug7yc43m" path="res://assets/things/door.png" id="4_qgx62"]
+[ext_resource type="PackedScene" uid="uid://bm4xh8yi8neja" path="res://game/thing/table/two_up_chair_table.tscn" id="5_ra7xb"]
+[ext_resource type="PackedScene" uid="uid://bb6f8uvru2yol" path="res://game/cutscene/silent_cutscene/chair_cutscene/two_up_chair_cutscene.tscn" id="6_lwvfg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_txue4"]
 atlas = ExtResource("4_qgx62")
@@ -29,8 +31,8 @@ layer_2/tile_data = PackedInt32Array(6, 4, 0, 7, 4, 0, 5, 4, 0, 4, 65540, 0)
 
 [node name="DoorUp" parent="Doors" index="0" instance=ExtResource("3_t4g4m")]
 position = Vector2(192, 64)
-next_room_id = "DoorDown"
-next_room_entrance_node = "recreation_hallway"
+next_room_id = "recreation_hallway"
+next_room_entrance_node = "DoorDown"
 
 [node name="KitchenDoor" parent="Doors" index="1" instance=ExtResource("3_t4g4m")]
 position = Vector2(928, 64)
@@ -38,5 +40,10 @@ dialogue_id = "kitchen_door"
 
 [node name="AnimatedSprite2D" parent="Doors/KitchenDoor" index="0"]
 sprite_frames = SubResource("SpriteFrames_3q5ml")
+
+[node name="TwoUpChairTable" parent="YSort/Things" index="0" instance=ExtResource("5_ra7xb")]
+position = Vector2(544, 160)
+
+[node name="TwoUpChairCutscene" parent="RoomCutscenes" index="0" instance=ExtResource("6_lwvfg")]
 
 [editable path="Doors/KitchenDoor"]

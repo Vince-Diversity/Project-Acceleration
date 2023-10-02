@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://cwv24ijsyj7bp"]
+[gd_scene load_steps=7 format=3 uid="uid://cwv24ijsyj7bp"]
 
 [ext_resource type="PackedScene" uid="uid://nfl8ij5d7dfw" path="res://game/thing/thing.tscn" id="1_hi1a4"]
 [ext_resource type="Script" path="res://game/thing/table/chair.gd" id="2_f8som"]
 [ext_resource type="SpriteFrames" uid="uid://mu0hfrorvh46" path="res://resources/things/chair.tres" id="2_s08kc"]
 [ext_resource type="PackedScene" uid="uid://dtkkkrcbtqu58" path="res://game/cutscene/character_mark.tscn" id="4_27abq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ba7qr"]
+radius = 8.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o4h1x"]
 size = Vector2(22, 27)
@@ -15,12 +18,16 @@ interaction_node = "ChairCutscene"
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = ExtResource("2_s08kc")
 
+[node name="CollisionShape2D" parent="InteractArea" index="0"]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_ba7qr")
+
 [node name="CollisionShape2D" parent="." index="2"]
 position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_o4h1x")
 
 [node name="CharacterMark" parent="." index="3" instance=ExtResource("4_27abq")]
-position = Vector2(1, 1)
+position = Vector2(1, 3)
 
 [node name="StandUpMark" parent="." index="4" instance=ExtResource("4_27abq")]
 position = Vector2(32, 0)
