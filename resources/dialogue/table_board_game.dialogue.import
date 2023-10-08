@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_9"
+type="Resource"
+uid="uid://du2gkccup1q3j"
+path="res://.godot/imported/table_board_game.dialogue-43d0913f3c77c7c9327152651ea68966.tres"
+
+[deps]
+
+source_file="res://resources/dialogue/table_board_game.dialogue"
+dest_files=["res://.godot/imported/table_board_game.dialogue-43d0913f3c77c7c9327152651ea68966.tres"]
+
+[params]
+
+defaults=true

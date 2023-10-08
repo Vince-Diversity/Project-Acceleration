@@ -8,6 +8,7 @@ class_name Room extends Node2D
 @onready var things = $YSort/Things
 @onready var npcs = $YSort/NPCs
 @onready var doors = $Doors
+@onready var tile_map = $TileMap
 @onready var roam_state: RoamState = preload("res://game/game_state/roam_state.gd").new("roam_state")
 @onready var cutscene_state: CutsceneState = preload("res://game/game_state/cutscene_state.gd").new("cutscene_state")
 @onready var rest_state: RestState = preload("res://game/game_state/rest_state.gd").new("rest_state")
@@ -52,6 +53,7 @@ func _ready_entrance():
 
 func _ready_doors():
 	for door in doors.get_children():
+		door.make_thing(self)
 		var door_interactable = door.get_node("InteractArea")
 		player_interacted.connect(door_interactable.check_interaction)
 		door_interactable.begin_interaction.connect(_on_door_begin_interaction)
@@ -62,6 +64,7 @@ func _ready_things():
 	var thing_seed = Utils.str_to_seed(name)
 	thing_rng.set_seed(thing_seed)
 	for thing in things.get_children():
+		thing.make_thing(self)
 		var thing_interactable = thing.get_node("InteractArea")
 		player_interacted.connect(thing_interactable.check_interaction)
 		thing_interactable.begin_interaction.connect(_on_begin_interaction)

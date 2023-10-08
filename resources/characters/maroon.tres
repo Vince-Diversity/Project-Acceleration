@@ -1,0 +1,18 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://d3a4bs6q2q4xp"]
+
+[ext_resource type="Texture2D" uid="uid://b7dfokhhkb0il" path="res://assets/characters/maroon/maroon_sit_left.png" id="1_rkxqu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tuwtp"]
+atlas = ExtResource("1_rkxqu")
+region = Rect2(0, 0, 63, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tuwtp")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]

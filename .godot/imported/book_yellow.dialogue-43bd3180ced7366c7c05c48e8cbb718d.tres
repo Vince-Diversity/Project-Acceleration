@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_bveog"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_tyxss"]
 
 [resource]
-script = ExtResource("1_bveog")
+script = ExtResource("1_tyxss")
 titles = {
 "check": "3",
 "open_book": "8",
@@ -72,9 +72,9 @@ lines = {
 }]),
 "id": "15",
 "next_id": "16",
-"text": "\"The magic of electricity and light is a very practical ability to have. Tons of techno-magical inventions have been possible thanks to it, and techno-magical development is nowadays the biggest source of potency for this power.",
+"text": "\"The magic of electricity and light is a very practical ability to have. Most of the techno-magical inventions have been possible thanks to it, and techno-magical development is nowadays the biggest source of potency for this power.",
 "text_replacements": Array[Dictionary]([]),
-"translation_key": "\"The magic of electricity and light is a very practical ability to have. Tons of techno-magical inventions have been possible thanks to it, and techno-magical development is nowadays the biggest source of potency for this power.",
+"translation_key": "\"The magic of electricity and light is a very practical ability to have. Most of the techno-magical inventions have been possible thanks to it, and techno-magical development is nowadays the biggest source of potency for this power.",
 "type": "dialogue"
 },
 "16": {

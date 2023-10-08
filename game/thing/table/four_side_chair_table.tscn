@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://bq7xmnc16evkb"]
+
+[ext_resource type="PackedScene" uid="uid://xmpy30huxt0r" path="res://game/thing/table/table.tscn" id="1_8lw88"]
+[ext_resource type="SpriteFrames" uid="uid://fydx3poviwwo" path="res://resources/things/table/dining_table.tres" id="2_41mju"]
+[ext_resource type="SpriteFrames" uid="uid://blegvkqeyblkv" path="res://resources/things/chair/dining_chair.tres" id="4_tomgs"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gsgfg"]
+radius = 31.0
+height = 70.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f2vjr"]
+size = Vector2(31, 83)
+
+[node name="FourSideChairTable" instance=ExtResource("1_8lw88")]
+dialogue_id = "table_board_game"
+dialogue_node = "introduce"
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = ExtResource("2_41mju")
+animation = &"board"
+
+[node name="CollisionShape2D" parent="InteractArea" index="0"]
+position = Vector2(0, -10)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_gsgfg")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="CollisionShape2D" parent="." index="2"]
+shape = SubResource("RectangleShape2D_f2vjr")
+
+[node name="TopLeft" type="AnimatedSprite2D" parent="Chairs" index="0"]
+position = Vector2(-27, -20)
+sprite_frames = ExtResource("4_tomgs")
+animation = &"left"
+flip_h = true
+
+[node name="BottomLeft" type="AnimatedSprite2D" parent="Chairs" index="1"]
+position = Vector2(-29, 10)
+sprite_frames = ExtResource("4_tomgs")
+animation = &"left"
+flip_h = true
+
+[node name="TopRight" type="AnimatedSprite2D" parent="Chairs" index="2"]
+position = Vector2(28, -19)
+sprite_frames = ExtResource("4_tomgs")
+animation = &"left"
+
+[node name="BottomRight" type="AnimatedSprite2D" parent="Chairs" index="3"]
+position = Vector2(32, 11)
+sprite_frames = ExtResource("4_tomgs")
+animation = &"left"

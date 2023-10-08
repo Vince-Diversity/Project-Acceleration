@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_mx61s"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_colpb"]
 
 [resource]
-script = ExtResource("1_mx61s")
+script = ExtResource("1_colpb")
 titles = {
 "default": "2"
 }
@@ -27,9 +27,9 @@ lines = {
 }]),
 "id": "2",
 "next_id": "3",
-"text": "(This door leads to the staff kitchen. Probably shouldn't go there.)",
+"text": "(This door leads to the school kitchen. Probably shouldn't go there.)",
 "text_replacements": Array[Dictionary]([]),
-"translation_key": "(This door leads to the staff kitchen. Probably shouldn't go there.)",
+"translation_key": "(This door leads to the school kitchen. Probably shouldn't go there.)",
 "type": "dialogue"
 },
 "3": {

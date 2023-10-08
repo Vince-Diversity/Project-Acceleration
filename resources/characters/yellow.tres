@@ -1,0 +1,18 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://fvwww2y0mjlm"]
+
+[ext_resource type="Texture2D" uid="uid://b6vt3p51kw7ow" path="res://assets/characters/yellow/yellow_sit_left.png" id="1_2sj7u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqvq2"]
+atlas = ExtResource("1_2sj7u")
+region = Rect2(0, 0, 63, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gqvq2")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]

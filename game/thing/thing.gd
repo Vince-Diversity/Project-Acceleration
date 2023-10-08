@@ -19,6 +19,7 @@ class_name Thing extends StaticBody2D
 	preload("res://game/thing/thing_state/thing_permeable_state.gd").new("thing_permeable_state", self)
 var state_list: Dictionary
 var current_state: ThingState
+var room: Room = owner
 
 
 func _ready():
@@ -29,10 +30,14 @@ func _ready():
 	current_state.enter()
 
 
+func make_thing(given_room: Room):
+	room = given_room
+
+
 func make_save(sg: SaveGame):
-	sg.update_room_keys(owner.room_id)
+	sg.update_room_keys(room.room_id)
 	var thing_dict = {}
-	sg.data[sg.rooms_key][owner.room_id][sg.things_key][name] = thing_dict
+	sg.data[sg.rooms_key][room.room_id][sg.things_key][name] = thing_dict
 	thing_dict[sg.state_key] = current_state.state_id
 	thing_dict[sg.anim_key] = anim_sprite.animation
 	thing_dict[sg.frame_key] = anim_sprite.frame
@@ -43,8 +48,8 @@ func make_preserved_save(sg: SaveGame):
 
 
 func load_save(sg: SaveGame):
-	if sg.data[sg.rooms_key].has(owner.room_id):
-		var thing_dict = sg.data[sg.rooms_key][owner.room_id][sg.things_key][name]
+	if sg.data[sg.rooms_key].has(room.room_id):
+		var thing_dict = sg.data[sg.rooms_key][room.room_id][sg.things_key][name]
 		change_state(thing_dict[sg.state_key])
 		anim_sprite.set_animation(thing_dict[sg.anim_key])
 		anim_sprite.set_frame(thing_dict[sg.frame_key])

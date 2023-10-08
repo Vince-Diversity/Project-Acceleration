@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_9"
+type="Resource"
+uid="uid://n8s5gotsjia7"
+path="res://.godot/imported/talk_yellow.dialogue-2bf6655ebae70f8d39bcc82c21b88097.tres"
+
+[deps]
+
+source_file="res://resources/dialogue/talk_yellow.dialogue"
+dest_files=["res://.godot/imported/talk_yellow.dialogue-2bf6655ebae70f8d39bcc82c21b88097.tres"]
+
+[params]
+
+defaults=true

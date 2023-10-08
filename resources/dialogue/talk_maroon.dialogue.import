@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_9"
+type="Resource"
+uid="uid://qhr8uhbo5alt"
+path="res://.godot/imported/talk_maroon.dialogue-5960b5bec0ceaeec9bfa14474f646974.tres"
+
+[deps]
+
+source_file="res://resources/dialogue/talk_maroon.dialogue"
+dest_files=["res://.godot/imported/talk_maroon.dialogue-5960b5bec0ceaeec9bfa14474f646974.tres"]
+
+[params]
+
+defaults=true

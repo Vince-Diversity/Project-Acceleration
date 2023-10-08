@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="SaveGame" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://loader/save_game.gd" id="1_tp7tb"]
+[ext_resource type="Script" path="res://loader/save_game.gd" id="1_vs7lq"]
 
 [resource]
-script = ExtResource("1_tp7tb")
+script = ExtResource("1_vs7lq")
 game_version = "0.3"
 data = {
 "game": {
@@ -14,6 +14,15 @@ data = {
 "rooms": {
 "dining_hall": {
 "npcs": {
+"Amber": {
+"dialogue_id": "talk_amber",
+"dialogue_node": "talk",
+"direction": Vector2(0, 1),
+"idling_room": "",
+"interaction_node": "",
+"position": Vector2(224, 331),
+"was_joined": false
+},
 "Blue": {
 "dialogue_id": "",
 "dialogue_node": "",
@@ -21,6 +30,33 @@ data = {
 "idling_room": "",
 "interaction_node": "",
 "position": Vector2(192, 96),
+"was_joined": false
+},
+"Lime": {
+"dialogue_id": "talk_lime",
+"dialogue_node": "talk",
+"direction": Vector2(0, 1),
+"idling_room": "",
+"interaction_node": "",
+"position": Vector2(164, 330),
+"was_joined": false
+},
+"Maroon": {
+"dialogue_id": "talk_maroon",
+"dialogue_node": "talk",
+"direction": Vector2(0, 1),
+"idling_room": "",
+"interaction_node": "",
+"position": Vector2(166, 300),
+"was_joined": false
+},
+"Yellow": {
+"dialogue_id": "talk_yellow",
+"dialogue_node": "talk",
+"direction": Vector2(0, 1),
+"idling_room": "",
+"interaction_node": "",
+"position": Vector2(220, 302),
 "was_joined": false
 }
 },
@@ -30,12 +66,177 @@ data = {
 "current_frame": 0,
 "current_state": "thing_interactable_state"
 },
+"FourSideChairTable": {
+"current_anim": &"board",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
 "KitchenDoor": {
 "current_anim": &"default",
 "current_frame": 0,
 "current_state": "thing_interactable_state"
+}
+}
 },
-"TwoUpChairTable": {
+"dorm_1f": {
+"npcs": {
+"Blue": {
+"dialogue_id": "",
+"dialogue_node": "",
+"direction": Vector2(-0.999786, 0.0206693),
+"idling_room": "",
+"interaction_node": "",
+"position": Vector2(620.283, 554.269),
+"was_joined": false
+}
+},
+"things": {
+"DoorDown": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"DormDoor1": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"DormDoor2": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"DormDoor3": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"DormDoor4": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"DormDoor5": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"DormDoor6": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"DormDoor7": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"DormDoor8": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"PassageUp1": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"PassageUp2": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+}
+}
+},
+"dorm_2f": {
+"npcs": {
+"Blue": {
+"dialogue_id": "",
+"dialogue_node": "",
+"direction": Vector2(0.0132287, 0.999913),
+"idling_room": "",
+"interaction_node": "",
+"position": Vector2(1220.25, 387.346),
+"was_joined": false
+}
+},
+"things": {
+"DormDoor1": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"DormDoor2": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"DormDoor3": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"DormDoor4": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"DormDoor5": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"DormDoor6": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"DormDoor7": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"DormDoor8": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"PassageDown1": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"PassageDown2": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"PassageUp": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+}
+}
+},
+"dorm_hallway": {
+"npcs": {
+"Blue": {
+"dialogue_id": "",
+"dialogue_node": "",
+"direction": Vector2(0.000513407, 1),
+"idling_room": "",
+"interaction_node": "",
+"position": Vector2(576, 516),
+"was_joined": false
+}
+},
+"things": {
+"DoorUp": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"PassageDown": {
 "current_anim": &"default",
 "current_frame": 0,
 "current_state": "thing_interactable_state"
@@ -47,10 +248,10 @@ data = {
 "Blue": {
 "dialogue_id": "",
 "dialogue_node": "",
-"direction": Vector2(0.956367, -0.292169),
+"direction": Vector2(0.981032, 0.193847),
 "idling_room": "",
 "interaction_node": "",
-"position": Vector2(787.984, 348.843),
+"position": Vector2(786.446, 303.746),
 "was_joined": false
 }
 },
@@ -97,10 +298,10 @@ data = {
 "Blue": {
 "dialogue_id": "",
 "dialogue_node": "",
-"direction": Vector2(0.900623, 0.434601),
+"direction": Vector2(0.000292706, 1),
 "idling_room": "",
 "interaction_node": "",
-"position": Vector2(662.422, 537.89),
+"position": Vector2(704, 516),
 "was_joined": false
 }
 },
@@ -111,6 +312,11 @@ data = {
 "current_state": "thing_interactable_state"
 },
 "PassageLeft": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"PassageUp": {
 "current_anim": &"default",
 "current_frame": 0,
 "current_state": "thing_interactable_state"

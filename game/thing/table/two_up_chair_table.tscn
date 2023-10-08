@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://xmpy30huxt0r" path="res://game/thing/table/table.tscn" id="1_634vg"]
 [ext_resource type="Script" path="res://game/thing/table/two_up_chair_table.gd" id="2_3bec4"]
 [ext_resource type="PackedScene" uid="uid://dtkkkrcbtqu58" path="res://game/cutscene/character_mark.tscn" id="3_vdb24"]
-[ext_resource type="SpriteFrames" uid="uid://mu0hfrorvh46" path="res://resources/things/chair.tres" id="4_tdd1q"]
+[ext_resource type="SpriteFrames" uid="uid://mu0hfrorvh46" path="res://resources/things/chair/default_chair.tres" id="4_hyebt"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kgfal"]
 radius = 8.0
@@ -29,8 +29,8 @@ position = Vector2(0, -48)
 
 [node name="Chair1" type="AnimatedSprite2D" parent="Chairs" index="0"]
 position = Vector2(-17, -24)
-sprite_frames = ExtResource("4_tdd1q")
+sprite_frames = ExtResource("4_hyebt")
 
 [node name="Chair2" type="AnimatedSprite2D" parent="Chairs" index="1"]
 position = Vector2(17, -24)
-sprite_frames = ExtResource("4_tdd1q")
+sprite_frames = ExtResource("4_hyebt")

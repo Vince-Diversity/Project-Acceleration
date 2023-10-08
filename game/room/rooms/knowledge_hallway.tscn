@@ -17,16 +17,13 @@ layer_1/tile_data = PackedInt32Array(196614, 131073, 1, 3, 131073, 1)
 position = Vector2(832, 448)
 next_room_id = "main_entrance"
 next_room_entrance_node = "PassageLeft"
-is_gateway = false
 
 [node name="PassageUp" parent="Doors" index="1" instance=ExtResource("4_hofts")]
 position = Vector2(448, 64)
-next_room_id = "library_1f"
-next_room_entrance_node = "Entrance"
-is_gateway = false
+next_room_id = "library_hallway"
+next_room_entrance_node = "PassageDown"
 
 [node name="DoorDown" parent="Doors" index="2" instance=ExtResource("5_nvmty")]
 position = Vector2(448, 576)
 next_room_id = "training_grounds"
 next_room_entrance_node = "DoorUp"
-is_gateway = false

@@ -76,7 +76,7 @@ func load_preserved(sg: SaveGame):
 
 
 func create_preserved_npcs(sg: SaveGame):
-	# Assumes only one instance of idling_room_id exists
+	# Assumes only one instance of idling room id exists
 	if sg.data[sg.rooms_key].has(current_room.room_id):
 		var room_dict = sg.data[sg.rooms_key][current_room.room_id]
 		for npc_name in room_dict[sg.npcs_key].keys():

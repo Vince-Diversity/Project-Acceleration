@@ -1,0 +1,18 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://d056tgt8nx4tg"]
+
+[ext_resource type="Texture2D" uid="uid://b5wlbqk7s0uou" path="res://assets/characters/lime/lime_sit_left.png" id="1_ewdeg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5t06"]
+atlas = ExtResource("1_ewdeg")
+region = Rect2(0, 0, 63, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m5t06")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]

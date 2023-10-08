@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://nfl8ij5d7dfw" path="res://game/thing/thing.tscn" id="1_hi1a4"]
 [ext_resource type="Script" path="res://game/thing/table/chair.gd" id="2_f8som"]
-[ext_resource type="SpriteFrames" uid="uid://mu0hfrorvh46" path="res://resources/things/chair.tres" id="2_s08kc"]
+[ext_resource type="SpriteFrames" uid="uid://mu0hfrorvh46" path="res://resources/things/chair/default_chair.tres" id="3_er508"]
 [ext_resource type="PackedScene" uid="uid://dtkkkrcbtqu58" path="res://game/cutscene/character_mark.tscn" id="4_27abq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ba7qr"]
@@ -16,7 +16,7 @@ script = ExtResource("2_f8som")
 interaction_node = "ChairCutscene"
 
 [node name="AnimatedSprite2D" parent="." index="0"]
-sprite_frames = ExtResource("2_s08kc")
+sprite_frames = ExtResource("3_er508")
 
 [node name="CollisionShape2D" parent="InteractArea" index="0"]
 position = Vector2(0, -3)

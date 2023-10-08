@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1nsacscsvvjl"]
+
+[ext_resource type="PackedScene" uid="uid://4514c46hbp0d" path="res://game/character/npc.tscn" id="1_qdhaf"]
+[ext_resource type="SpriteFrames" uid="uid://d3a4bs6q2q4xp" path="res://resources/characters/maroon.tres" id="2_lu4dg"]
+
+[node name="Maroon" instance=ExtResource("1_qdhaf")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = ExtResource("2_lu4dg")

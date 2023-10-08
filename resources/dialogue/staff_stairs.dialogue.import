@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_9"
+type="Resource"
+uid="uid://0w843acd241"
+path="res://.godot/imported/staff_stairs.dialogue-64eebe906d13264166342dcccfe24389.tres"
+
+[deps]
+
+source_file="res://resources/dialogue/staff_stairs.dialogue"
+dest_files=["res://.godot/imported/staff_stairs.dialogue-64eebe906d13264166342dcccfe24389.tres"]
+
+[params]
+
+defaults=true

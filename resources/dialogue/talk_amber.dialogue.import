@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_9"
+type="Resource"
+uid="uid://chlcjoybdnmwx"
+path="res://.godot/imported/talk_amber.dialogue-65af955a275747316ff9e0a00ec23522.tres"
+
+[deps]
+
+source_file="res://resources/dialogue/talk_amber.dialogue"
+dest_files=["res://.godot/imported/talk_amber.dialogue-65af955a275747316ff9e0a00ec23522.tres"]
+
+[params]
+
+defaults=true
