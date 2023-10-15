@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_gwb7p"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_cesm7"]
 
 [resource]
-script = ExtResource("1_gwb7p")
+script = ExtResource("1_cesm7")
 titles = {
 "talk": "2"
 }
-character_names = PackedStringArray()
+character_names = PackedStringArray("{{maroon}}")
 first_title = "2"
 lines = {
 "1": {
@@ -17,7 +17,23 @@ lines = {
 "type": "title"
 },
 "2": {
+"character": "{{maroon}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "maroon"
+}]),
+"value_in_text": "{{maroon}}"
+}]),
 "id": "2",
+"next_id": "3",
+"text": "I'm way too behind already. I'm just going to hinder whoever is in the lead.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "I'm way too behind already. I'm just going to hinder whoever is in the lead.",
+"type": "dialogue"
+},
+"3": {
+"id": "3",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"

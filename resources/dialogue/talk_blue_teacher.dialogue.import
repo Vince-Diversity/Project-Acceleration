@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_9"
+type="Resource"
+uid="uid://it63jt2fa1tm"
+path="res://.godot/imported/talk_blue_teacher.dialogue-3fde22644760b148f3a30f1008188428.tres"
+
+[deps]
+
+source_file="res://resources/dialogue/talk_blue_teacher.dialogue"
+dest_files=["res://.godot/imported/talk_blue_teacher.dialogue-3fde22644760b148f3a30f1008188428.tres"]
+
+[params]
+
+defaults=true

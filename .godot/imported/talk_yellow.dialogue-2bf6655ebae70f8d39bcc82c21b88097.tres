@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_ofass"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_gy03u"]
 
 [resource]
-script = ExtResource("1_ofass")
+script = ExtResource("1_gy03u")
 titles = {
 "talk": "2"
 }
-character_names = PackedStringArray()
+character_names = PackedStringArray("{{yellow}}")
 first_title = "2"
 lines = {
 "1": {
@@ -17,7 +17,45 @@ lines = {
 "type": "title"
 },
 "2": {
+"character": "{{yellow}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "yellow"
+}]),
+"value_in_text": "{{yellow}}"
+}]),
 "id": "2",
+"next_id": "3",
+"text": "I'm getting ganged up on by everyone just because I'm in the lead!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "I'm getting ganged up on by everyone just because I'm in the lead!",
+"type": "dialogue"
+},
+"3": {
+"character": "{{yellow}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "yellow"
+}]),
+"value_in_text": "{{yellow}}"
+}]),
+"id": "3",
+"next_id": "4",
+"text": "Besides, where did {{red}} go? Winning is more fun with proper competition.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "red"
+}]),
+"value_in_text": "{{red}}"
+}]),
+"translation_key": "Besides, where did {{red}} go? Winning is more fun with proper competition.",
+"type": "dialogue"
+},
+"4": {
+"id": "4",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"

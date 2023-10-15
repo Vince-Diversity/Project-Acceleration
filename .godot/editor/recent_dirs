@@ -1,5 +1,8 @@
-res://game/cutscene/dialogue_cutscene/dorm_door_cutscene
+res://resources/characters
+res://assets/characters/blue_teacher
+res://game/character/npcs
 res://game/room/rooms
+res://game/cutscene/dialogue_cutscene/dorm_door_cutscene
 res://assets/things
 res://game/thing/door
 res://resources/things
@@ -9,7 +12,6 @@ res://resources/characters/
 res://assets/characters/amber
 res://assets/characters/maroon
 res://assets/characters/lime
-res://game/character/npcs
 res://game/thing/table
 res://assets/characters/blue
 res://game/thing
@@ -18,5 +20,3 @@ res://game/interactable
 res://assets/characters/green
 res://assets/tiles
 res://resources/tilesets
-res://game/cutscene
-res://game/cutscene/dialogue_cutscene/sacred_indoor_cutscene

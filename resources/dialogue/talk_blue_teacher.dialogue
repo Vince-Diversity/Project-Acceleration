@@ -1,0 +1,37 @@
+~ cue
+do move("talk")
+=> END!
+
+
+~ talk
+{{green}}: [do express(cheerful)] Good morning {{blue_teacher}}!
+do turn_npc_to_player("BlueTeacher")
+{{blue_teacher}}: [do express(cheerful)] Hello {{green}}! And this new face is our new student?
+{{blue}}: Hi. I'm {{blue}}.
+{{blue_teacher}}: [do express(cheerful)] I have heard of your extraordinary abilities and will greatly look forward to be your main teacher.
+{{blue_teacher}}: When you two are ready, [color=yellow]please return here so I can introduce {{blue}} to our study of the {{blue_aspect}}[/color].
+do set_npc_dialogue_node("BlueTeacher", "query")
+=> END!
+
+
+~ query
+{{green}}: [color=yellow](Should I leave {{blue}} to his new teacher now?)[/color]
+- No => END!
+- Yes => yes
+
+
+~ yes
+do remove_member("Blue")
+do move_npc("Blue", "BlueMark", "proceed")
+=> END!
+
+
+~ proceed
+do set_npc_direction("BlueTeacher", "left")
+do set_npc_interaction_node("BlueTeacher", "")
+do set_npc_dialogue_id("BlueTeacher", "default_talk")
+do set_npc_dialogue_node("BlueTeacher", "default")
+do set_npc_interaction_node("Blue", "")
+do set_npc_dialogue_id("Blue", "default_talk")
+do set_npc_dialogue_node("Blue", "default")
+=> END!

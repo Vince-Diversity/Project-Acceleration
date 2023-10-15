@@ -17,13 +17,11 @@ layer_0/tile_data = PackedInt32Array(3, 196611, 4, 65540, 3, 0, 65539, 196611, 5
 position = Vector2(224, 480)
 next_room_id = "sacred_outdoor"
 next_room_entrance_node = "LeftDoorUp"
-is_gateway = false
 
 [node name="RightPassageDown" parent="Doors" index="1" instance=ExtResource("3_6puuh")]
 position = Vector2(288, 480)
 next_room_id = "sacred_outdoor"
 next_room_entrance_node = "RightDoorUp"
-is_gateway = false
 
 [node name="Average" parent="YSort/NPCs" index="0" instance=ExtResource("4_kboo5")]
 position = Vector2(320, 224)

@@ -21,8 +21,7 @@ func update(_delta: float):
 
 
 func handle_input(event: InputEvent):
-	if event.is_action_pressed("ui_accept") \
-	or event.is_action_pressed("ui_down") \
+	if event.is_action_pressed("ui_down") \
 	or event.is_action_pressed("ui_right") \
 	or event.is_action_pressed("ui_up") \
 	or event.is_action_pressed("ui_left"):

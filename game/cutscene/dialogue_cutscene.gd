@@ -4,8 +4,6 @@ class_name DialogueCutscene extends Cutscene
 @onready var student_mark = $StudentMark
 @onready var dialogue_act_scr: GDScript = preload("res://game/cutscene/act/dialogue_act.gd")
 @onready var lightning_act_scr: GDScript = preload("res://game/cutscene/act/lightning_act.gd")
-@onready var async_act_scr: GDScript = preload("res://game/cutscene/act/async_act.gd")
-var async_act_matrix: Array
 
 func make():
 	actm.add_act(make_current_dialogue())
@@ -138,6 +136,11 @@ func set_npc_direction(npc_node: String, direction: String):
 		npc.update_direction()
 
 
+func set_npc_interaction_node(npc_node: String, interaction_node: String):
+	if owner.npcs.has_node(npc_node):
+		owner.npcs.get_node(npc_node).interaction_node = interaction_node
+
+
 func set_npc_dialogue_id(npc_node: String, dialogue_id: String):
 	if owner.npcs.has_node(npc_node):
 		owner.npcs.get_node(npc_node).dialogue_id = dialogue_id
@@ -173,28 +176,14 @@ func add_source_as_member():
 		owner.party.add_npc_as_member(cutscenes.current_source_node)
 
 
+func play_async(next_dlg_line: String):
+	play(make_async(), next_dlg_line)
+
+
 func play(act: Act, next_dlg_line: String):
 	if is_instance_valid(act):
 		actm.add_act(act)
 		next_dialogue(next_dlg_line)
-
-
-func add_async(content: Array):
-	if not content.is_empty():
-		async_act_matrix.append([])
-		for c in content:
-			if c.size() == 2:
-				var act = c[0].callv(c[1])
-				if is_instance_valid(act):
-					async_act_matrix[-1].append(act)
-
-
-func play_async(next_dlg_line: String):
-	var async_act = async_act_scr.new()
-	async_act.init_act(async_act_matrix)
-	actm.add_act(async_act)
-	next_dialogue(next_dlg_line)
-	async_act_matrix = []
 
 
 func begin_cutscene():

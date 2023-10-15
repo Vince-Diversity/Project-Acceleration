@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_boxqp"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_dqjfo"]
 
 [resource]
-script = ExtResource("1_boxqp")
+script = ExtResource("1_dqjfo")
 titles = {
 "cue": "2",
 "react": "6",
@@ -47,7 +47,7 @@ lines = {
 }]),
 "id": "11",
 "next_id": "12",
-"text": "[do express(cheerful)] Good morning {{green_teacher}}! I am showing {{blue}} around.",
+"text": "[do express(cheerful)] Good morning {{green_teacher}}! I'm just showing {{blue}} around.",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
 "type": "variable",
@@ -61,7 +61,7 @@ lines = {
 }]),
 "value_in_text": "{{blue}}"
 }]),
-"translation_key": "[do express(cheerful)] Good morning {{green_teacher}}! I am showing {{blue}} around.",
+"translation_key": "[do express(cheerful)] Good morning {{green_teacher}}! I'm just showing {{blue}} around.",
 "type": "dialogue"
 },
 "12": {
@@ -75,7 +75,7 @@ lines = {
 }]),
 "id": "12",
 "next_id": "13",
-"text": "Nice to meet you {{blue}}, and thank you, {{green}}, for agreeing to be out new student's mentor.",
+"text": "Nice to meet you {{blue}}, and thank you, {{green}}, for attending to our new student.",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
 "type": "variable",
@@ -89,7 +89,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
-"translation_key": "Nice to meet you {{blue}}, and thank you, {{green}}, for agreeing to be out new student's mentor.",
+"translation_key": "Nice to meet you {{blue}}, and thank you, {{green}}, for attending to our new student.",
 "type": "dialogue"
 },
 "13": {

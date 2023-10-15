@@ -10,21 +10,25 @@ func make():
 		get_thing().name,
 		"thing_permeable_state")
 	if owner.party.has_node(npc_node):
-		actm.add_act(
-			make_move(
-				[owner.party.player, owner.party.get_node(npc_node)],
-				[cutscenes.current_source_node.mentor_chair_mark,
-					cutscenes.current_source_node.student_chair_mark]))
-		actm.add_act(
-			make_animate(
+		add_async([
+			[make_move, [
+				[owner.party.player],
+				[cutscenes.current_source_node.get_node("MentorChairMark")]]],
+			[make_animate_player, ["sit_down"]]])
+		add_async([
+			[make_move, [
+				[owner.party.get_node(npc_node)],
+				[cutscenes.current_source_node.get_node("StudentChairMark")]]],
+			[make_animate, [
 				owner.party.get_node(npc_node).anim_sprite,
-				"sit_down"))
+				"sit_down"]]])
+		actm.add_act(make_async())
 	else:
 		actm.add_act(
 			make_move(
 				[owner.party.player],
-				[cutscenes.current_source_node.mentor_chair_mark]))
-	actm.add_act(make_animate_player("sit_down"))
+				[cutscenes.current_source_node.get_node("MentorChairMark")]))
+		actm.add_act(make_animate_player("sit_down"))
 	_make_rest_state()
 
 

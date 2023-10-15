@@ -1,0 +1,433 @@
+[gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_b44f8"]
+
+[resource]
+script = ExtResource("1_b44f8")
+titles = {
+"cue": "2",
+"proceed": "30",
+"query": "18",
+"talk": "7",
+"yes": "24"
+}
+character_names = PackedStringArray("{{green}}", "{{blue_teacher}}", "{{blue}}")
+first_title = "2"
+lines = {
+"1": {
+"id": "1",
+"next_id": "2",
+"text": "cue",
+"type": "title"
+},
+"10": {
+"character": "{{blue}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "blue"
+}]),
+"value_in_text": "{{blue}}"
+}]),
+"id": "10",
+"next_id": "11",
+"text": "Hi. I'm {{blue}}.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "blue"
+}]),
+"value_in_text": "{{blue}}"
+}]),
+"translation_key": "Hi. I'm {{blue}}.",
+"type": "dialogue"
+},
+"11": {
+"character": "{{blue_teacher}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "blue_teacher"
+}]),
+"value_in_text": "{{blue_teacher}}"
+}]),
+"id": "11",
+"next_id": "12",
+"text": "[do express(cheerful)] I have heard of your extraordinary abilities and will greatly look forward to be your main teacher.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "[do express(cheerful)] I have heard of your extraordinary abilities and will greatly look forward to be your main teacher.",
+"type": "dialogue"
+},
+"12": {
+"character": "{{blue_teacher}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "blue_teacher"
+}]),
+"value_in_text": "{{blue_teacher}}"
+}]),
+"id": "12",
+"next_id": "13",
+"text": "When you two are ready, [color=yellow]please return here so I can introduce {{blue}} to our study of the {{blue_aspect}}[/color].",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "blue"
+}]),
+"value_in_text": "{{blue}}"
+}, {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "blue_aspect"
+}]),
+"value_in_text": "{{blue_aspect}}"
+}]),
+"translation_key": "When you two are ready, [color=yellow]please return here so I can introduce {{blue}} to our study of the {{blue_aspect}}[/color].",
+"type": "dialogue"
+},
+"13": {
+"id": "13",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_npc_dialogue_node",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "BlueTeacher"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "query"
+}])])
+}])
+},
+"next_id": "14",
+"type": "mutation"
+},
+"14": {
+"id": "14",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"17": {
+"id": "17",
+"next_id": "18",
+"text": "query",
+"type": "title"
+},
+"18": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"id": "18",
+"next_id": "19",
+"text": "[color=yellow](Should I leave {{blue}} to his new teacher now?)[/color]",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "blue"
+}]),
+"value_in_text": "{{blue}}"
+}]),
+"translation_key": "[color=yellow](Should I leave {{blue}} to his new teacher now?)[/color]",
+"type": "dialogue"
+},
+"19": {
+"id": "19",
+"next_id": "end!",
+"next_id_after": "24",
+"responses": PackedStringArray("19", "20"),
+"text": "No",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "No",
+"type": "response"
+},
+"2": {
+"id": "2",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "move",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "talk"
+}])])
+}])
+},
+"next_id": "3",
+"type": "mutation"
+},
+"20": {
+"id": "20",
+"next_id": "24",
+"next_id_after": "24",
+"text": "Yes",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Yes",
+"type": "response"
+},
+"23": {
+"id": "23",
+"next_id": "24",
+"text": "yes",
+"type": "title"
+},
+"24": {
+"id": "24",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "remove_member",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Blue"
+}])])
+}])
+},
+"next_id": "25",
+"type": "mutation"
+},
+"25": {
+"id": "25",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "move_npc",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Blue"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "BlueMark"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "proceed"
+}])])
+}])
+},
+"next_id": "26",
+"type": "mutation"
+},
+"26": {
+"id": "26",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"29": {
+"id": "29",
+"next_id": "30",
+"text": "proceed",
+"type": "title"
+},
+"3": {
+"id": "3",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"30": {
+"id": "30",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_npc_direction",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "BlueTeacher"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "left"
+}])])
+}])
+},
+"next_id": "31",
+"type": "mutation"
+},
+"31": {
+"id": "31",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_npc_interaction_node",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "BlueTeacher"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": ""
+}])])
+}])
+},
+"next_id": "32",
+"type": "mutation"
+},
+"32": {
+"id": "32",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_npc_dialogue_id",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "BlueTeacher"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "default_talk"
+}])])
+}])
+},
+"next_id": "33",
+"type": "mutation"
+},
+"33": {
+"id": "33",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_npc_dialogue_node",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "BlueTeacher"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "default"
+}])])
+}])
+},
+"next_id": "34",
+"type": "mutation"
+},
+"34": {
+"id": "34",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_npc_interaction_node",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Blue"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": ""
+}])])
+}])
+},
+"next_id": "35",
+"type": "mutation"
+},
+"35": {
+"id": "35",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_npc_dialogue_id",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Blue"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "default_talk"
+}])])
+}])
+},
+"next_id": "36",
+"type": "mutation"
+},
+"36": {
+"id": "36",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_npc_dialogue_node",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Blue"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "default"
+}])])
+}])
+},
+"next_id": "37",
+"type": "mutation"
+},
+"37": {
+"id": "37",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"6": {
+"id": "6",
+"next_id": "7",
+"text": "talk",
+"type": "title"
+},
+"7": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"id": "7",
+"next_id": "8",
+"text": "[do express(cheerful)] Good morning {{blue_teacher}}!",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "blue_teacher"
+}]),
+"value_in_text": "{{blue_teacher}}"
+}]),
+"translation_key": "[do express(cheerful)] Good morning {{blue_teacher}}!",
+"type": "dialogue"
+},
+"8": {
+"id": "8",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "turn_npc_to_player",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "BlueTeacher"
+}])])
+}])
+},
+"next_id": "9",
+"type": "mutation"
+},
+"9": {
+"character": "{{blue_teacher}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "blue_teacher"
+}]),
+"value_in_text": "{{blue_teacher}}"
+}]),
+"id": "9",
+"next_id": "10",
+"text": "[do express(cheerful)] Hello {{green}}! And this new face is our new student?",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"translation_key": "[do express(cheerful)] Hello {{green}}! And this new face is our new student?",
+"type": "dialogue"
+}
+}
+metadata/dialogue_manager_version = "2.24.2"

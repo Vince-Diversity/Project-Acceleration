@@ -3,8 +3,10 @@ class_name Cutscene extends Node2D
 @onready var actm: GDScript = ActManager.new(end_cutscene)
 @onready var move_to_position_act_scr: GDScript = preload("res://game/cutscene/act/move_to_position_act.gd")
 @onready var animate_act_scr: GDScript = preload("res://game/cutscene/act/animate_act.gd")
+@onready var async_act_scr: GDScript = preload("res://game/cutscene/act/async_act.gd")
 var cutscenes: RoomCutscenes
 var screen: Screen
+var async_act_matrix: Array
 
 signal cutscene_started
 signal cutscene_ended(next_state_id: String)
@@ -27,7 +29,7 @@ func make_move(
 	return move_to_position_act
 
 
-func make_animate(anim_sprite: AnimatedSprite2D, anim_name: String):
+func make_animate(anim_sprite: AnimatedSprite2D, anim_name: String) -> Act:
 	var animate_act = animate_act_scr.new()
 	animate_act.init_act(
 		anim_sprite,
@@ -57,6 +59,23 @@ func make_animate_thing(thing_node: String, anim_name: String) -> Act:
 			owner.things.get_node(thing_node).anim_sprite,
 			anim_name)
 	else: return null
+
+
+func add_async(content: Array):
+	if not content.is_empty():
+		async_act_matrix.append([])
+		for c in content:
+			if c.size() == 2:
+				var act = c[0].callv(c[1])
+				if is_instance_valid(act):
+					async_act_matrix[-1].append(act)
+
+
+func make_async() -> Act:
+	var async_act = async_act_scr.new()
+	async_act.init_act(async_act_matrix)
+	async_act_matrix = []
+	return async_act
 
 
 func begin_cutscene():

@@ -5,7 +5,7 @@ func make():
 	actm.add_act(
 		make_move(
 			[owner.party.player],
-			[cutscenes.current_source_node.mentor_stand_up_mark]))
+			[cutscenes.current_source_node.get_node("MentorStandUpMark")]))
 	actm.add_act(make_animate_player("default"))
 
 

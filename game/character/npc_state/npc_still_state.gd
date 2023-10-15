@@ -50,7 +50,8 @@ func _remove_moved_npc(sg: SaveGame) -> bool:
 		for npc_name in room_dict[sg.npcs_key].keys():
 			var npc_dict = room_dict[sg.npcs_key][npc_name]
 			if not npc_dict[sg.idling_room_key].is_empty():
-				if npc_dict[sg.idling_room_key] != npc.room.room_id:
+				if npc_name == npc.name \
+				and npc_dict[sg.idling_room_key] != npc.room.room_id:
 					npc.queue_free()
 					return true
 	return false

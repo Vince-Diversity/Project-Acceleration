@@ -1,9 +1,10 @@
-[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://cxb2ylaabf0t5"]
+[gd_resource type="TileSet" load_steps=11 format=3 uid="uid://cxb2ylaabf0t5"]
 
 [ext_resource type="Texture2D" uid="uid://bm8koxrkfy2km" path="res://assets/tiles/bookcase_tiles.png" id="1_pbqax"]
 [ext_resource type="Texture2D" uid="uid://bd0ds4vcpehnf" path="res://assets/tiles/tilesets/library.png" id="2_qy6c7"]
 [ext_resource type="Texture2D" uid="uid://c7dyssuaaw00e" path="res://assets/tiles/stairs.png" id="3_hohiq"]
 [ext_resource type="Texture2D" uid="uid://ce7tihrjftcfp" path="res://assets/tiles/table_tiles.png" id="4_xxjmp"]
+[ext_resource type="Texture2D" uid="uid://d1qxdbdflidbc" path="res://assets/tiles/classroom_tiles.png" id="5_eckwv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yurm6"]
 texture = ExtResource("1_pbqax")
@@ -269,7 +270,25 @@ texture_region_size = Vector2i(128, 128)
 3:0/0 = 0
 3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:0/0/physics_layer_0/angular_velocity = 0.0
-3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-41, -16, 43, -16, 44, 24, 10, 25, 11, 41, -11, 40, -10, 24, -41, 24)
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-41, -16, 43, -16, 44, 24, 10, 25, -10, 24, -41, 24)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_urita"]
+texture = ExtResource("5_eckwv")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(64, 21, 39, 21, 39, 53, 64, 53)
+3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, 21, -39, 21, -38, 51, -64, 54)
 
 [resource]
 tile_size = Vector2i(128, 128)
@@ -283,3 +302,4 @@ sources/1 = SubResource("TileSetAtlasSource_jj31j")
 sources/0 = SubResource("TileSetAtlasSource_yurm6")
 sources/2 = SubResource("TileSetAtlasSource_wvlr6")
 sources/3 = SubResource("TileSetAtlasSource_reunj")
+sources/4 = SubResource("TileSetAtlasSource_urita")
