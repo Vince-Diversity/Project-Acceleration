@@ -37,6 +37,11 @@ func _add_member(member: NPC):
 	set_deferred("preserved_party_list", get_party_list())
 
 
+func has_member(npc_name: String) -> bool:
+	if get_party_list().has(npc_name): return true
+	return false
+
+
 func roam():
 	for member in get_party_ordered():
 		member.roam()
@@ -52,8 +57,8 @@ func make_preserved_save(sg: SaveGame):
 
 func load_save(sg: SaveGame):
 	if sg.data[sg.game_key].has(sg.party_key):
-		for npc_id in sg.data[sg.game_key][sg.party_key]:
-			var npc_name = Utils.get_npc_name(npc_id)
+		for npc_name in sg.data[sg.game_key][sg.party_key]:
+			var npc_id = Utils.get_npc_id(npc_name)
 			var npc: NPC
 			if owner.npcs.has_node(npc_name):
 				npc = owner.npcs.get_node(npc_name)
@@ -92,5 +97,5 @@ func get_next_member(member: Character) -> Character:
 func get_party_list() -> Array[String]:
 	var party_list: Array[String] = []
 	for member in get_members_ordered():
-		party_list.append(Utils.get_npc_id(member.name))
+		party_list.append(member.name)
 	return party_list

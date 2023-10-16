@@ -6,7 +6,7 @@ var save_dir: String = dev_mode_save_dir
 ## New game data
 var new_game_room_id: String = "main_entrance"
 var new_game_entrance_node: String = "DoorDown"
-var new_game_party_list: Array[String] = ["blue"]
+var new_game_party_list: Array[String] = ["Blue"]
 
 const dev_mode_save_dir := "res://dev/save/"
 const game_save_dir := "user://save/"

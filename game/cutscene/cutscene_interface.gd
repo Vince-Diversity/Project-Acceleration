@@ -78,6 +78,14 @@ func make_async() -> Act:
 	return async_act
 
 
+func change_room(room_id: String, entrance_node: String):
+	owner.change_room(room_id, entrance_node)
+
+
+func is_joined(npc_name: String) -> bool:
+	return owner.party.has_member(npc_name)
+
+
 func begin_cutscene():
 	actm.enter_next_act()
 

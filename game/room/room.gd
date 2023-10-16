@@ -139,6 +139,16 @@ func add_cutscene(cutscene: Cutscene, node_name: String):
 		cutscene.name = node_name
 
 
+func remove_members_at_gateway(door: Door):
+	for member in party.get_members_ordered():
+		if member.is_imaginary and door.is_gateway:
+			party.remove_member(member)
+
+
+func change_room(next_room_id: String, next_room_entrance_node: String):
+	room_changed.emit(next_room_id, next_room_entrance_node)
+
+
 func _on_player_interacted(interactable: Node2D):
 	player_interacted.emit(interactable)
 
@@ -158,13 +168,11 @@ func _on_begin_interaction(target_root: Node2D):
 		_on_begin_interaction.call_deferred(target_root)
 
 
-func _on_door_begin_interaction(door: Thing):
+func _on_door_begin_interaction(door: Door):
 	var room_path = Utils.get_room_path(door.next_room_id)
 	if FileAccess.file_exists(room_path):
-		for member in party.get_members_ordered():
-			if member.is_imaginary and door.is_gateway:
-				party.remove_member(member)
-		room_changed.emit(door.next_room_id, door.next_room_entrance_node)
+		remove_members_at_gateway(door)
+		change_room(door.next_room_id, door.next_room_entrance_node)
 	else:
 		_on_begin_interaction(door)
 

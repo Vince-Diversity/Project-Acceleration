@@ -1,11 +1,12 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_kawuo"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_lqlia"]
 
 [resource]
-script = ExtResource("1_kawuo")
+script = ExtResource("1_lqlia")
 titles = {
-"default": "2"
+"default": "2",
+"green_dorm_door": "7"
 }
 character_names = PackedStringArray("{{green}}")
 first_title = "2"
@@ -15,6 +16,31 @@ lines = {
 "next_id": "2",
 "text": "default",
 "type": "title"
+},
+"10": {
+"id": "10",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "change_room",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "green_dorm"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "DormDoor"
+}])])
+}])
+},
+"next_id": "11",
+"parent_id": "9",
+"type": "mutation"
+},
+"11": {
+"id": "11",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
 },
 "2": {
 "character": "{{green}}",
@@ -43,6 +69,59 @@ lines = {
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
+},
+"6": {
+"id": "6",
+"next_id": "7",
+"text": "green_dorm_door",
+"type": "title"
+},
+"7": {
+"condition": {
+"expression": Array[Dictionary]([{
+"function": "is_joined",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Blue"
+}])])
+}])
+},
+"id": "7",
+"next_conditional_id": "9",
+"next_id": "8",
+"next_id_after": "11",
+"type": "condition"
+},
+"8": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"id": "8",
+"next_id": "11",
+"parent_id": "7",
+"text": "(Dorm {{door_number}}. That's my dorm!)",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "door_number"
+}]),
+"value_in_text": "{{door_number}}"
+}]),
+"translation_key": "(Dorm {{door_number}}. That's my dorm!)",
+"type": "dialogue"
+},
+"9": {
+"id": "9",
+"next_conditional_id": "11",
+"next_id": "10",
+"next_id_after": "11",
+"type": "condition"
 }
 }
 metadata/dialogue_manager_version = "2.24.2"

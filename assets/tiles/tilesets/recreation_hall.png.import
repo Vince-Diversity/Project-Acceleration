@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://csfgv8igdmiwr"
-path="res://.godot/imported/recreation_hall.png-0382870b9675163a314288fb3fb90cd1.ctex"
+path="res://.godot/imported/recreation_hall.png-daded8d0b3112eb75a9bf6050a72479a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tiles/recreation_hall/recreation_hall.png"
-dest_files=["res://.godot/imported/recreation_hall.png-0382870b9675163a314288fb3fb90cd1.ctex"]
+source_file="res://assets/tiles/tilesets/recreation_hall.png"
+dest_files=["res://.godot/imported/recreation_hall.png-daded8d0b3112eb75a9bf6050a72479a.ctex"]
 
 [params]
 

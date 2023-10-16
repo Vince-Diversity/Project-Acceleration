@@ -19,6 +19,10 @@ position = Vector2(-64, 160)
 
 [node name="DormDoor2" parent="Doors" index="1" instance=ExtResource("3_mgb2g")]
 position = Vector2(192, 160)
+dialogue_node = "green_dorm_door"
+
+[node name="SpawnPoint" parent="Doors/DormDoor2" index="2"]
+position = Vector2(0, 64)
 
 [node name="DormDoor3" parent="Doors" index="2" instance=ExtResource("3_mgb2g")]
 position = Vector2(992, 160)
@@ -53,3 +57,5 @@ position = Vector2(576, 192)
 dialogue_id = "staff_stairs"
 
 [node name="DormDoorCutscene" parent="RoomCutscenes" index="0" instance=ExtResource("6_vnhke")]
+
+[editable path="Doors/DormDoor2"]

@@ -1,7 +1,7 @@
 [gd_resource type="TileSet" load_steps=9 format=3 uid="uid://dhmtx2d8j5rgp"]
 
 [ext_resource type="Texture2D" uid="uid://c7dyssuaaw00e" path="res://assets/tiles/stairs.png" id="1_5osfn"]
-[ext_resource type="Texture2D" uid="uid://csfgv8igdmiwr" path="res://assets/tiles/recreation_hall/recreation_hall.png" id="1_s52r1"]
+[ext_resource type="Texture2D" uid="uid://csfgv8igdmiwr" path="res://assets/tiles/tilesets/recreation_hall.png" id="1_s52r1"]
 [ext_resource type="Texture2D" uid="uid://dvlj64tqy1m86" path="res://assets/tiles/recreation_hall/stand.png" id="2_s5cb5"]
 [ext_resource type="Texture2D" uid="uid://drfdbg8v2rjm4" path="res://assets/tiles/dining_table_tiles.png" id="3_3p8s1"]
 
