@@ -4,12 +4,12 @@
 [ext_resource type="TileSet" uid="uid://dhmtx2d8j5rgp" path="res://resources/tilesets/recreation_hall.tres" id="2_012av"]
 [ext_resource type="PackedScene" uid="uid://yn8jo1jenttp" path="res://game/thing/door/door_up.tscn" id="3_t4g4m"]
 [ext_resource type="PackedScene" uid="uid://kxia8fwohqsn" path="res://game/thing/door/kitchen_door.tscn" id="4_m88gj"]
-[ext_resource type="PackedScene" uid="uid://bq7xmnc16evkb" path="res://game/thing/table/four_side_chair_table.tscn" id="6_1awoa"]
+[ext_resource type="PackedScene" uid="uid://bq7xmnc16evkb" path="res://game/thing/table/side_chair_board_game_table.tscn" id="6_1awoa"]
 [ext_resource type="PackedScene" uid="uid://wwl0smgg71gh" path="res://game/character/npcs/amber.tscn" id="6_prodc"]
 [ext_resource type="PackedScene" uid="uid://b7ltrvnvs4ll0" path="res://game/character/npcs/lime.tscn" id="7_m210d"]
 [ext_resource type="PackedScene" uid="uid://d1nsacscsvvjl" path="res://game/character/npcs/maroon.tscn" id="8_4u2ao"]
 [ext_resource type="PackedScene" uid="uid://b8llbyadkffk7" path="res://game/character/npcs/yellow.tscn" id="9_5ung8"]
-[ext_resource type="PackedScene" uid="uid://bb6f8uvru2yol" path="res://game/cutscene/silent_cutscene/chair_cutscene/two_up_chair_cutscene.tscn" id="10_xnr6p"]
+[ext_resource type="PackedScene" uid="uid://bb6f8uvru2yol" path="res://game/cutscene/silent_cutscene/rest_cutscene/party_rest_cutscene.tscn" id="10_xnr6p"]
 
 [node name="DiningHall" instance=ExtResource("1_dqmem")]
 
@@ -26,9 +26,9 @@ next_room_entrance_node = "DoorDown"
 [node name="KitchenDoor" parent="Doors" index="1" instance=ExtResource("4_m88gj")]
 position = Vector2(960, 32)
 
-[node name="FourSideChairTable" parent="YSort/Things" index="0" instance=ExtResource("6_1awoa")]
+[node name="SideChairBoardGameTable" parent="YSort/Things" index="0" instance=ExtResource("6_1awoa")]
 position = Vector2(194, 455)
-interaction_node = "TwoUpChairCutscene"
+interaction_node = "PartyRestCutscene"
 dialogue_id = ""
 dialogue_node = ""
 
@@ -54,4 +54,4 @@ position = Vector2(222, 437)
 dialogue_id = "talk_yellow"
 dialogue_node = "talk"
 
-[node name="TwoUpChairCutscene" parent="RoomCutscenes" index="0" instance=ExtResource("10_xnr6p")]
+[node name="PartyRestCutscene" parent="RoomCutscenes" index="0" instance=ExtResource("10_xnr6p")]

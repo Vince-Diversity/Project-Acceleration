@@ -7,6 +7,7 @@
 radius = 20.0
 
 [node name="Thing" type="StaticBody2D" groups=["Preserved"]]
+y_sort_enabled = true
 collision_layer = 4
 script = ExtResource("1")
 

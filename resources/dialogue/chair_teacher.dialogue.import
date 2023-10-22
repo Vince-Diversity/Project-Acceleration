@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_9"
+type="Resource"
+uid="uid://byij57geydl8w"
+path="res://.godot/imported/chair_teacher.dialogue-ff32230c6ebfe9a2874b2dca9878fc9b.tres"
+
+[deps]
+
+source_file="res://resources/dialogue/chair_teacher.dialogue"
+dest_files=["res://.godot/imported/chair_teacher.dialogue-ff32230c6ebfe9a2874b2dca9878fc9b.tres"]
+
+[params]
+
+defaults=true

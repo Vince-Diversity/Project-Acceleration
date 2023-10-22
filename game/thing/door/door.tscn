@@ -12,7 +12,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wmfr8"]
-size = Vector2(64, 64)
+size = Vector2(32, 64)
 
 [node name="Door" instance=ExtResource("1_vpjhx")]
 script = ExtResource("2_utemx")

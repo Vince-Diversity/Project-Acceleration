@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://s1p35h1esehl"]
+
+[ext_resource type="PackedScene" uid="uid://xmpy30huxt0r" path="res://game/thing/table/table.tscn" id="1_4qx7v"]
+[ext_resource type="SpriteFrames" uid="uid://mu0hfrorvh46" path="res://resources/things/chair/default_chair.tres" id="2_i7657"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7rqvp"]
+radius = 8.0
+
+[node name="DownChairTable" instance=ExtResource("1_4qx7v")]
+
+[node name="CollisionShape2D" parent="InteractArea" index="0"]
+position = Vector2(0, -20)
+shape = SubResource("CircleShape2D_7rqvp")
+
+[node name="DownChair" type="AnimatedSprite2D" parent="Chairs" index="0"]
+position = Vector2(0, -17)
+sprite_frames = ExtResource("2_i7657")

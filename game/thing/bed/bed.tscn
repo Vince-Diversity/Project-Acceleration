@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://1sj2uxtvkjet"]
+
+[ext_resource type="PackedScene" uid="uid://nfl8ij5d7dfw" path="res://game/thing/thing.tscn" id="1_kcgl6"]
+[ext_resource type="SpriteFrames" uid="uid://lobqr8g66bw0" path="res://resources/things/bed.tres" id="2_7pjow"]
+[ext_resource type="PackedScene" uid="uid://dtkkkrcbtqu58" path="res://game/cutscene/character_mark.tscn" id="3_vdh1x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rdp5x"]
+size = Vector2(20, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ov52b"]
+size = Vector2(32, 48)
+
+[node name="Bed" instance=ExtResource("1_kcgl6")]
+rest_animation = "nap_down"
+elevate_characters = true
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = ExtResource("2_7pjow")
+
+[node name="CollisionShape2D" parent="InteractArea" index="0"]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_rdp5x")
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_ov52b")
+
+[node name="MentorRestMark" parent="." index="3" instance=ExtResource("3_vdh1x")]
+position = Vector2(0, -16)
+
+[node name="MentorStandUpMark" parent="." index="4" instance=ExtResource("3_vdh1x")]
+position = Vector2(32, -16)

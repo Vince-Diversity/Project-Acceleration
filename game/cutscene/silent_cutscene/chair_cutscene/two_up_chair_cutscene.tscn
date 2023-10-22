@@ -1,7 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://bb6f8uvru2yol"]
-
-[ext_resource type="PackedScene" uid="uid://brcoy56hf7tyi" path="res://game/cutscene/silent_cutscene.tscn" id="1_xg0g0"]
-[ext_resource type="Script" path="res://game/cutscene/silent_cutscene/chair_cutscene/two_up_chair_cutscene.gd" id="2_uhnuh"]
-
-[node name="TwoUpChairCutscene" instance=ExtResource("1_xg0g0")]
-script = ExtResource("2_uhnuh")

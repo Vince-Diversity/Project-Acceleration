@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bb6f8uvru2yol"]
+
+[ext_resource type="PackedScene" uid="uid://brcoy56hf7tyi" path="res://game/cutscene/silent_cutscene.tscn" id="1_xg0g0"]
+[ext_resource type="Script" path="res://game/cutscene/silent_cutscene/rest_cutscene/party_rest_cutscene.gd" id="2_l1ts8"]
+
+[node name="PartyRestCutscene" instance=ExtResource("1_xg0g0")]
+script = ExtResource("2_l1ts8")
+rest_animation = "sit_down"
+stand_up_node_name = "StandUpCutscene"
+member_name = "Blue"

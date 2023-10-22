@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dopivkfksretw" path="res://game/thing/sprout/sprout.tscn" id="4_homgw"]
 [ext_resource type="PackedScene" uid="uid://cbqllvvoulkny" path="res://game/cutscene/silent_cutscene/sprout_cutscene/sprout_cutscene.tscn" id="5_30x1x"]
 [ext_resource type="PackedScene" uid="uid://f62lyhp5kra6" path="res://game/thing/bookcase/bookcase.tscn" id="5_4731s"]
+[ext_resource type="PackedScene" uid="uid://s1p35h1esehl" path="res://game/thing/table/down_chair_table.tscn" id="6_nt1iw"]
 [ext_resource type="PackedScene" uid="uid://bqlmbt878hrxk" path="res://game/cutscene/dialogue_cutscene.tscn" id="7_anbct"]
-[ext_resource type="PackedScene" uid="uid://dbrigoe0mu4gf" path="res://game/thing/table/up_chair_table.tscn" id="7_whvk0"]
 [ext_resource type="PackedScene" uid="uid://cfipqchnej33m" path="res://game/character/npcs/green_teacher.tscn" id="8_sgips"]
 
 [node name="GreenClassroom" instance=ExtResource("1_w8x7q")]
@@ -44,16 +44,13 @@ interaction_node = "Preserve"
 dialogue_id = "book_preserve"
 dialogue_node = "cue"
 
-[node name="UpChairTable" parent="YSort/Things" index="5" instance=ExtResource("7_whvk0")]
-position = Vector2(573, 207)
-dialogue_id = "teacher_chair"
-dialogue_node = "ponder"
-
-[node name="NPCs" parent="YSort" index="2"]
-position = Vector2(500, 174)
+[node name="DownChairTable" parent="YSort/Things" index="5" instance=ExtResource("6_nt1iw")]
+position = Vector2(573, 199)
+dialogue_id = "chair_teacher"
+dialogue_node = "default"
 
 [node name="GreenTeacher" parent="YSort/NPCs" index="0" instance=ExtResource("8_sgips")]
-position = Vector2(73, 10)
+position = Vector2(572, 183)
 interaction_node = "Teacher"
 dialogue_id = "talk_green_teacher"
 dialogue_node = "cue"

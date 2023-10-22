@@ -1,9 +1,14 @@
+res://game/thing/bed
+res://assets/things
+res://assets/characters/green
+res://game/thing
 res://game/room/rooms
+res://game/thing/table
+res://resources/tilesets
 res://resources/characters
 res://assets/characters/blue_teacher
 res://game/character/npcs
 res://game/cutscene/dialogue_cutscene/dorm_door_cutscene
-res://assets/things
 res://game/thing/door
 res://resources/things
 res://game/character/npcs/
@@ -12,11 +17,6 @@ res://resources/characters/
 res://assets/characters/amber
 res://assets/characters/maroon
 res://assets/characters/lime
-res://game/thing/table
 res://assets/characters/blue
-res://game/thing
-res://game/cutscene/silent_cutscene/chair_cutscene
 res://game/interactable
-res://assets/characters/green
 res://assets/tiles
-res://resources/tilesets

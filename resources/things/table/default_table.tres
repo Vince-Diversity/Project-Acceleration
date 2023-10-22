@@ -1,10 +1,14 @@
-[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://cjb5hxm3mc0j7"]
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://cjb5hxm3mc0j7"]
 
 [ext_resource type="Texture2D" uid="uid://dcm3qdt3l5n7v" path="res://assets/things/table.png" id="1_tphpe"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_60eub"]
 atlas = ExtResource("1_tphpe")
 region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11koi"]
+atlas = ExtResource("1_tphpe")
+region = Rect2(256, 0, 128, 128)
 
 [resource]
 animations = [{
@@ -14,5 +18,13 @@ animations = [{
 }],
 "loop": false,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_11koi")
+}],
+"loop": false,
+"name": &"office",
 "speed": 5.0
 }]

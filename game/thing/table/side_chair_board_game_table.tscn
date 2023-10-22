@@ -12,13 +12,12 @@ height = 36.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f2vjr"]
 size = Vector2(31, 83)
 
-[node name="FourSideChairTable" instance=ExtResource("1_8lw88")]
-dialogue_id = "table_board_game"
-dialogue_node = "introduce"
+[node name="SideChairBoardGameTable" instance=ExtResource("1_8lw88")]
+rest_animation = "sit_down"
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = ExtResource("2_41mju")
-animation = &"board"
+animation = &"board_game"
 
 [node name="CollisionShape2D" parent="InteractArea" index="0"]
 position = Vector2(0, -53)
@@ -59,10 +58,10 @@ sprite_frames = ExtResource("4_tomgs")
 position = Vector2(14, -57)
 sprite_frames = ExtResource("4_tomgs")
 
-[node name="MentorChairMark" parent="." index="4" instance=ExtResource("4_df3e6")]
+[node name="MentorRestMark" parent="." index="4" instance=ExtResource("4_df3e6")]
 position = Vector2(15, -54)
 
-[node name="StudentChairMark" parent="." index="5" instance=ExtResource("4_df3e6")]
+[node name="StudentRestMark" parent="." index="5" instance=ExtResource("4_df3e6")]
 position = Vector2(-15, -54)
 
 [node name="MentorStandUpMark" parent="." index="6" instance=ExtResource("4_df3e6")]

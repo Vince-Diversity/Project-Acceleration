@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://paluwp5ftjo0" path="res://game/thing/door/passage_up.tscn" id="5_kdebp"]
 [ext_resource type="PackedScene" uid="uid://m70p5l8u2p8r" path="res://game/thing/door/passage_right.tscn" id="6_d1555"]
 [ext_resource type="PackedScene" uid="uid://f62lyhp5kra6" path="res://game/thing/bookcase/bookcase.tscn" id="6_l2h0y"]
-[ext_resource type="PackedScene" uid="uid://c1dqban1i65o7" path="res://game/cutscene/silent_cutscene/chair_cutscene/chair_cutscene.tscn" id="9_mbxr3"]
+[ext_resource type="PackedScene" uid="uid://c1dqban1i65o7" path="res://game/cutscene/silent_cutscene/rest_cutscene/chair_cutscene.tscn" id="9_mbxr3"]
 
 [node name="MainEntrance" instance=ExtResource("1_ysrto")]
 

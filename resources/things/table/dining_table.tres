@@ -17,7 +17,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_h2b5y")
 }],
 "loop": false,
-"name": &"board",
+"name": &"board_game",
 "speed": 5.0
 }, {
 "frames": [{
