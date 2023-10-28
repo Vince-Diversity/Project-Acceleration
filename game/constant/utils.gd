@@ -7,6 +7,7 @@ const room_dir = "res://game/room/rooms/"
 const profile_dir = "res://assets/profiles/"
 const bgm_dir = "res://assets/sound/bgm/"
 const npc_dir = "res://game/character/npcs/"
+const entrance_event_dir = "res://resources/events/entrance_events/"
 
 const anim_direction = {
 	Vector2.DOWN: AnimID.DOWN,
@@ -88,6 +89,10 @@ static func get_npc_path(npc_name: String):
 	return npc_dir.path_join(npc_name + ".tscn")
 
 
+static func get_entrance_event_path(room_id: String):
+	return entrance_event_dir.path_join(room_id + ".tres")
+
+
 static func str_to_seed(name: String) -> int:
 	return hash(name)
 
@@ -100,6 +105,19 @@ static func snap_to_compass(direction: Vector2) -> Vector2:
 	if is_equal_approx(snapped_vector.x, 0): snapped_vector.x = 0
 	if is_equal_approx(snapped_vector.y, 0): snapped_vector.y = 0
 	return snapped_vector
+
+
+static func get_files_in_dir(dir_path) -> Array[String]:
+	var file_arr: Array[String] = []
+	var dir = DirAccess.open(dir_path)
+	if dir:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		while file_name != "":
+			if not dir.current_is_dir():
+				file_arr.append(file_name.split('.')[0])
+			file_name = dir.get_next()
+	return file_arr
 
 
 # Makes a boolean array containing true elements

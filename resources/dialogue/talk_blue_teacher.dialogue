@@ -34,4 +34,5 @@ do set_npc_dialogue_node("BlueTeacher", "default")
 do set_npc_interaction_node("Blue", "")
 do set_npc_dialogue_id("Blue", "default_talk")
 do set_npc_dialogue_node("Blue", "default")
+do change_room("green_dorm", "DormDoor")
 => END!

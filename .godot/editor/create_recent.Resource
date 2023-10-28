@@ -1,3 +1,5 @@
+EntranceEvent
+Resource
 SpriteFrames
 TileSet
 Shortcut

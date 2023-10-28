@@ -3,14 +3,15 @@
 class_name DialogueManagerParser extends Object
 
 
-const DialogueConstants = preload("res://addons/dialogue_manager/constants.gd")
-const DialogueSettings = preload("res://addons/dialogue_manager/components/settings.gd")
+const DialogueConstants = preload("../constants.gd")
+const DialogueSettings = preload("./settings.gd")
 
 
 var IMPORT_REGEX: RegEx = RegEx.create_from_string("import \"(?<path>[^\"]+)\" as (?<prefix>[^\\!\\@\\#\\$\\%\\^\\&\\*\\(\\)\\-\\=\\+\\{\\}\\[\\]\\;\\:\\\"\\'\\,\\.\\<\\>\\?\\/\\s]+)")
 var VALID_TITLE_REGEX: RegEx = RegEx.create_from_string("^[^\\!\\@\\#\\$\\%\\^\\&\\*\\(\\)\\-\\=\\+\\{\\}\\[\\]\\;\\:\\\"\\'\\,\\.\\<\\>\\?\\/\\s]+$")
 var BEGINS_WITH_NUMBER_REGEX: RegEx = RegEx.create_from_string("^\\d")
 var TRANSLATION_REGEX: RegEx = RegEx.create_from_string("\\[ID:(?<tr>.*?)\\]")
+var TAGS_REGEX: RegEx = RegEx.create_from_string("\\[#(?<tags>.*?)\\]")
 var MUTATION_REGEX: RegEx = RegEx.create_from_string("(do|set) (?<mutation>.*)")
 var CONDITION_REGEX: RegEx = RegEx.create_from_string("(if|elif|while|else if) (?<condition>.*)")
 var WRAPPED_CONDITION_REGEX: RegEx = RegEx.create_from_string("\\[if (?<condition>.*)\\]")
@@ -43,7 +44,7 @@ var TOKEN_DEFINITIONS: Dictionary = {
 	DialogueConstants.TOKEN_COMMENT: RegEx.create_from_string("^#.*")
 }
 
-var WEIGHTED_RANDOM_SIBLINGS_REGEX: RegEx = RegEx.create_from_string("^\\%(?<weight>\\d+)? ")
+var WEIGHTED_RANDOM_SIBLINGS_REGEX: RegEx = RegEx.create_from_string("^\\%(?<weight>[\\d.]+)? ")
 
 var raw_lines: PackedStringArray = []
 var parent_stack: Array[String] = []
@@ -102,7 +103,7 @@ func parse(text: String, path: String) -> Error:
 		# Work out if we are inside a conditional or option or if we just
 		# indented back out of one
 		var indent_size: int = get_indent(raw_line)
-		if indent_size < parent_stack.size():
+		if indent_size < parent_stack.size() and not is_line_empty(raw_line):
 			for _tab in range(0, parent_stack.size() - indent_size):
 				parent_stack.pop_back()
 
@@ -126,6 +127,12 @@ func parse(text: String, path: String) -> Error:
 		if is_response_line(raw_line):
 			parent_stack.append(str(id))
 			line["type"] = DialogueConstants.TYPE_RESPONSE
+
+			# Extract any #tags
+			var tag_data: ResolvedTagData = extract_tags(raw_line)
+			line["tags"] = tag_data.tags
+			raw_line = tag_data.line_without_tags
+
 			if " [if " in raw_line:
 				line["condition"] = extract_condition(raw_line, true, indent_size)
 			if " =>" in raw_line:
@@ -183,6 +190,7 @@ func parse(text: String, path: String) -> Error:
 					next_id = line.next_id,
 					next_id_after = line.next_id_after,
 					text_replacements = line.text_replacements,
+					tags = line.tags,
 					translation_key = line.get("translation_key")
 				}
 
@@ -254,6 +262,10 @@ func parse(text: String, path: String) -> Error:
 		# Goto
 		elif is_goto_line(raw_line):
 			line["type"] = DialogueConstants.TYPE_GOTO
+
+			if raw_line.begins_with("%"):
+				apply_weighted_random(id, raw_line, indent_size, line)
+
 			line["next_id"] = extract_goto(raw_line)
 			if is_goto_snippet_line(raw_line):
 				line["is_snippet"] = true
@@ -296,6 +308,12 @@ func parse(text: String, path: String) -> Error:
 				raw_line = WEIGHTED_RANDOM_SIBLINGS_REGEX.sub(raw_line, "")
 
 			line["type"] = DialogueConstants.TYPE_DIALOGUE
+
+			# Extract any tags before we process the line
+			var tag_data: ResolvedTagData = extract_tags(raw_line)
+			line["tags"] = tag_data.tags
+			raw_line = tag_data.line_without_tags
+
 			var l = raw_line.replace("\\:", "!ESCAPED_COLON!")
 			if ": " in l:
 				var bits = Array(l.strip_edges().split(": "))
@@ -395,7 +413,6 @@ func parse(text: String, path: String) -> Error:
 			else:
 				line["next_id"] = line["parent_id"]
 
-
 		# Done!
 		parsed_lines[str(id)] = line
 
@@ -452,16 +469,16 @@ func prepare(text: String, path: String, include_imported_titles_hashes: bool = 
 
 				# Keep track of titles so we can add imported ones later
 				if str(import_data.path.hash()) in imported_titles.keys():
-					errors.append({ line_number = id, column_number = 0, error = DialogueConstants.ERR_FILE_ALREADY_IMPORTED })
+					add_error(id, 0, DialogueConstants.ERR_FILE_ALREADY_IMPORTED)
 				if import_data.prefix in imported_titles.values():
-					errors.append({ line_number = id, column_number = 0, error = DialogueConstants.ERR_DUPLICATE_IMPORT_NAME })
+					add_error(id, 0, DialogueConstants.ERR_DUPLICATE_IMPORT_NAME)
 				imported_titles[str(import_data.path.hash())] = import_data.prefix
 
 				# Import the file content
 				if not import_data.path.hash() in known_imports:
 					var error: Error = import_content(import_data.path, import_data.prefix, _imported_line_map, known_imports)
 					if error != OK:
-						errors.append({ line_number = id, column_number = 0, error = error })
+						add_error(id, 0, error)
 
 	var imported_content: String =  ""
 	var cummulative_line_number: int = 0
@@ -510,7 +527,9 @@ func add_error(line_number: int, column_number: int, error: int) -> void:
 			errors.append({
 				line_number = item.imported_on_line_number,
 				column_number = 0,
-				error = DialogueConstants.ERR_ERRORS_IN_IMPORTED_FILE
+				error = DialogueConstants.ERR_ERRORS_IN_IMPORTED_FILE,
+				external_error = error,
+				external_line_number = line_number
 			})
 			return
 
@@ -525,8 +544,11 @@ func add_error(line_number: int, column_number: int, error: int) -> void:
 func remove_error(line_number: int, error: int) -> void:
 	for i in range(errors.size() - 1, -1, -1):
 		var err = errors[i]
-		if err.line_number == line_number - _imported_line_count and err.error == error:
+		var is_native_error = err.line_number == line_number - _imported_line_count and err.error == error
+		var is_external_error = err.get("external_line_number") == line_number and err.get("external_error") == error
+		if is_native_error or is_external_error:
 			errors.remove_at(i)
+			return
 
 
 func is_import_line(line: String) -> bool:
@@ -556,11 +578,13 @@ func is_mutation_line(line: String) -> bool:
 
 func is_goto_line(line: String) -> bool:
 	line = line.strip_edges(true, false)
+	line = WEIGHTED_RANDOM_SIBLINGS_REGEX.sub(line, "")
 	return line.begins_with("=> ") or line.begins_with("=>< ")
 
 
 func is_goto_snippet_line(line: String) -> bool:
-	return line.strip_edges().begins_with("=>< ")
+	line = WEIGHTED_RANDOM_SIBLINGS_REGEX.sub(line.strip_edges(), "")
+	return line.begins_with("=>< ")
 
 
 func is_nested_dialogue_line(raw_line: String, parsed_lines: Dictionary, raw_lines: PackedStringArray, indent_size: int) -> bool:
@@ -658,34 +682,40 @@ func find_previous_response_id(line_number: int) -> String:
 
 
 func apply_weighted_random(id: int, raw_line: String, indent_size: int, line: Dictionary) -> void:
-	var weight: int = 1
+	var weight: float = 1
 	var found = WEIGHTED_RANDOM_SIBLINGS_REGEX.search(raw_line)
 	if found and found.names.has("weight"):
-		weight = found.strings[found.names.weight].to_int()
+		weight = found.strings[found.names.weight].to_float()
 
 	# Look back up the list to find the first weighted random line in this group
 	var original_random_line: Dictionary = {}
 	for i in range(id, 0, -1):
+		# Lines that aren't prefixed with the random token are a dead end
 		if not raw_lines[i].strip_edges().begins_with("%") or get_indent(raw_lines[i]) != indent_size:
 			break
+		# Make sure we group random dialogue and ranom lines separately
+		elif WEIGHTED_RANDOM_SIBLINGS_REGEX.sub(raw_line.strip_edges(), "").begins_with("=") != WEIGHTED_RANDOM_SIBLINGS_REGEX.sub(raw_lines[i].strip_edges(), "").begins_with("="):
+			break
+		# Otherwise we've found the origin
 		elif parsed_lines.has(str(i)) and parsed_lines[str(i)].has("siblings"):
 			original_random_line = parsed_lines[str(i)]
+			break
 
 	# Attach it to the original random line and work out where to go after the line
 	if original_random_line.size() > 0:
 		original_random_line["siblings"] += [{ weight = weight, id = str(id) }]
+		if original_random_line.type != DialogueConstants.TYPE_GOTO:
+			# Update the next line for all siblings (not goto lines, though, they manager their
+			# own next ID)
+			original_random_line["next_id"] = get_line_after_line(id, indent_size, line)
+			for sibling in original_random_line["siblings"]:
+				if sibling.id in parsed_lines:
+					parsed_lines[sibling.id]["next_id"] = original_random_line["next_id"]
 		line["next_id"] = original_random_line.next_id
 	# Or set up this line as the original
 	else:
 		line["siblings"] = [{ weight = weight, id = str(id) }]
-		# Find the last weighted random line in this group
-		for i in range(id, raw_lines.size()):
-			if i + 1 >= raw_lines.size():
-				line["next_id"] = DialogueConstants.ID_END
-				break
-			if not raw_lines[i + 1].strip_edges().begins_with("%") or get_indent(raw_lines[i + 1]) != indent_size:
-				line["next_id"] = get_line_after_line(i, indent_size, line)
-				break
+		line["next_id"] = get_line_after_line(id, indent_size, line)
 
 	if line.next_id == DialogueConstants.ID_NULL:
 		line["next_id"] = DialogueConstants.ID_END
@@ -906,7 +936,7 @@ func import_content(path: String, prefix: String, imported_line_map: Array[Dicti
 					content[i] = "%s=> %s/%s" % [line.split("=> ")[0], str(path.hash()), jump]
 
 		imported_paths.append(path)
-		known_imports[path.hash()] = "# %s as %s\n%s\n=> END\n" % [path, path.hash(), "\n".join(content)]
+		known_imports[path.hash()] = "\n".join(content) + "\n=> END\n"
 		return OK
 	else:
 		return ERR_FILE_NOT_FOUND
@@ -1069,6 +1099,23 @@ func extract_goto(line: String) -> String:
 		return titles.get(title)
 	else:
 		return DialogueConstants.ID_ERROR
+
+
+func extract_tags(line: String) -> ResolvedTagData:
+	var resolved_tags: PackedStringArray = []
+	var tag_matches: Array[RegExMatch] = TAGS_REGEX.search_all(line)
+	for tag_match in tag_matches:
+		line = line.replace(tag_match.get_string(), "")
+		var tags = tag_match.get_string().replace("[#", "").replace("]", "").replace(" ", "").split(",")
+		for tag in tags:
+			tag = tag.replace("#", "")
+			if not tag in resolved_tags:
+				resolved_tags.append(tag)
+
+	return ResolvedTagData.new({
+		tags = resolved_tags,
+		line_without_tags = line
+	})
 
 
 func extract_markers(line: String) -> ResolvedLineData:

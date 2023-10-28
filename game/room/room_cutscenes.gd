@@ -1,5 +1,6 @@
 class_name RoomCutscenes extends Node2D
 
+@export var entrance_cutscene: String
 var current_cutscene: Cutscene
 var current_dialogue_id: String
 var current_dialogue_node: String

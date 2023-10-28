@@ -119,6 +119,19 @@ func init_room(
 	textbox_focused_target = given_textbox_focused_target
 
 
+func handle_cutscene(target_root: Node2D):
+	if cutscenes.has_node(target_root.interaction_node):
+		start_cutscene(
+			target_root.interaction_node,
+			target_root.dialogue_id,
+			target_root.dialogue_node,
+			target_root)
+	else:
+		var node_name = add_unique_cutscene()
+		target_root.interaction_node = node_name
+		_on_begin_interaction.call_deferred(target_root)
+
+
 func start_cutscene(
 		interaction_node: String,
 		dialogue_id: String,
@@ -130,6 +143,14 @@ func start_cutscene(
 	cutscenes.current_cutscene.cutscene_started.emit()
 	stm.change_state(cutscene_state.state_id)
 	end_interaction.connect(source_node.get_node("InteractArea")._on_end_interaction, CONNECT_ONE_SHOT)
+
+
+func add_unique_cutscene() -> String:
+	# When using this, wait for the cutscene node to be added before starting the cutscene
+	var dlg_cutscene: DialogueCutscene = dialogue_cutscene_scn.instantiate()
+	var node_name = "Default%s" % cutscenes.get_children().size()
+	add_cutscene(dlg_cutscene, node_name)
+	return node_name
 
 
 func add_cutscene(cutscene: Cutscene, node_name: String):
@@ -154,18 +175,7 @@ func _on_player_interacted(interactable: Node2D):
 
 
 func _on_begin_interaction(target_root: Node2D):
-	if cutscenes.has_node(target_root.interaction_node):
-		start_cutscene(
-			target_root.interaction_node,
-			target_root.dialogue_id,
-			target_root.dialogue_node,
-			target_root)
-	else:
-		var node_name = "Default%s" % cutscenes.get_children().size()
-		var dlg_cutscene: DialogueCutscene = dialogue_cutscene_scn.instantiate()
-		add_cutscene(dlg_cutscene, node_name)
-		target_root.interaction_node = node_name
-		_on_begin_interaction.call_deferred(target_root)
+	handle_cutscene(target_root)
 
 
 func _on_door_begin_interaction(door: Door):

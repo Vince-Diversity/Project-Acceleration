@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_10"
+type="Resource"
+uid="uid://cw1wiuoc4230d"
+path="res://.godot/imported/enter_green_dorm.dialogue-2d281d00d7321ab1d6ea1990d6f11747.tres"
+
+[deps]
+
+source_file="res://resources/dialogue/enter_green_dorm.dialogue"
+dest_files=["res://.godot/imported/enter_green_dorm.dialogue-2d281d00d7321ab1d6ea1990d6f11747.tres"]
+
+[params]
+
+defaults=true

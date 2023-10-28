@@ -6,6 +6,7 @@ class_name Game extends Node2D
 @onready var stm: StateMachine = preload("res://game/game_state/state_machine.gd").new(default_state)
 @onready var text_box_scn: PackedScene = preload("res://game/ui/textbox/textbox.tscn")
 @onready var bgm: AudioStreamPlayer = $BGMPlayer
+@onready var entrance_events = $EntranceEvents
 var cache: SaveGame
 var loader: Loader
 var save_dir: String
@@ -60,6 +61,7 @@ func change_room(room_id: String, entrance_node: String):
 		current_room.call_deferred("free")
 		load_room(room_id, entrance_node)
 		load_preserved.call_deferred(cache)
+		handle_entrance_events.call_deferred(room_id, entrance_node)
 	else:
 		load_room("main_entrance", "DefaultDoor")
 
@@ -85,6 +87,26 @@ func create_preserved_npcs(sg: SaveGame):
 				var npc = load(Utils.get_npc_path(Utils.get_npc_id(npc_name))).instantiate()
 				current_room.npcs.add_child(npc)
 				npc.make_npc("npc_still_state", current_room)
+
+
+func handle_entrance_events(room_id: String, entrance_node: String):
+	if entrance_events.events.has(room_id):
+		var interaction_node = entrance_events.events[room_id]["interaction_node"]
+		if interaction_node.is_empty():
+			interaction_node = current_room.add_unique_cutscene()
+			start_entrance_events.call_deferred(room_id, entrance_node, interaction_node)
+		else:
+			start_entrance_events(room_id, entrance_node, interaction_node)
+
+
+func start_entrance_events(room_id: String, entrance_node: String, interaction_node: String):
+	var event_dict = entrance_events.events[room_id]
+	current_room.start_cutscene(
+		interaction_node,
+		event_dict["dialogue_id"],
+		event_dict["dialogue_node"],
+		current_room.doors.get_node(entrance_node))
+	entrance_events.update_event(room_id)
 
 
 func save():

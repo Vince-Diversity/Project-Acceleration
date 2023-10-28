@@ -1,8 +1,10 @@
+res://resources/events/entrance_events/
+res://resources/events/
+res://game/room/rooms
 res://game/thing/bed
 res://assets/things
 res://assets/characters/green
 res://game/thing
-res://game/room/rooms
 res://game/thing/table
 res://resources/tilesets
 res://resources/characters
@@ -18,5 +20,3 @@ res://assets/characters/amber
 res://assets/characters/maroon
 res://assets/characters/lime
 res://assets/characters/blue
-res://game/interactable
-res://assets/tiles

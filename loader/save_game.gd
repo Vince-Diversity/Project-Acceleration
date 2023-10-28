@@ -3,6 +3,7 @@ class_name SaveGame extends Resource
 const game_key = "game"
 const room_key = "current_room_id"
 const entrance_key = "entrance_node"
+const entrance_event_key = "entrance_event_key"
 const party_key = "party_key"
 
 const rooms_key = "rooms"

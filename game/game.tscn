@@ -1,10 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://byp03chml6uqm"]
+[gd_scene load_steps=4 format=3 uid="uid://byp03chml6uqm"]
 
 [ext_resource type="Script" path="res://game/game.gd" id="1_u57ma"]
 [ext_resource type="PackedScene" uid="uid://bl3qn6xvcdtfw" path="res://loader/sound/bgm_player.tscn" id="2_cyebn"]
+[ext_resource type="Script" path="res://game/entrance_events.gd" id="3_ect55"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_u57ma")
 
 [node name="BGMPlayer" parent="." instance=ExtResource("2_cyebn")]
 process_mode = 3
+
+[node name="EntranceEvents" type="Node2D" parent="." groups=["Preserved"]]
+script = ExtResource("3_ect55")

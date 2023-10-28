@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_b44f8"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_82bun"]
 
 [resource]
-script = ExtResource("1_b44f8")
+script = ExtResource("1_82bun")
 titles = {
 "cue": "2",
 "proceed": "30",
@@ -31,6 +31,7 @@ lines = {
 }]),
 "id": "10",
 "next_id": "11",
+"tags": PackedStringArray(),
 "text": "Hi. I'm {{blue}}.",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -53,6 +54,7 @@ lines = {
 }]),
 "id": "11",
 "next_id": "12",
+"tags": PackedStringArray(),
 "text": "[do express(cheerful)] I have heard of your extraordinary abilities and will greatly look forward to be your main teacher.",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "[do express(cheerful)] I have heard of your extraordinary abilities and will greatly look forward to be your main teacher.",
@@ -69,6 +71,7 @@ lines = {
 }]),
 "id": "12",
 "next_id": "13",
+"tags": PackedStringArray(),
 "text": "When you two are ready, [color=yellow]please return here so I can introduce {{blue}} to our study of the {{blue_aspect}}[/color].",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -127,6 +130,7 @@ lines = {
 }]),
 "id": "18",
 "next_id": "19",
+"tags": PackedStringArray(),
 "text": "[color=yellow](Should I leave {{blue}} to his new teacher now?)[/color]",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -143,6 +147,7 @@ lines = {
 "next_id": "end!",
 "next_id_after": "24",
 "responses": PackedStringArray("19", "20"),
+"tags": PackedStringArray(),
 "text": "No",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "No",
@@ -167,6 +172,7 @@ lines = {
 "id": "20",
 "next_id": "24",
 "next_id_after": "24",
+"tags": PackedStringArray(),
 "text": "Yes",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "Yes",
@@ -360,6 +366,24 @@ lines = {
 },
 "37": {
 "id": "37",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "change_room",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "green_dorm"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "DormDoor"
+}])])
+}])
+},
+"next_id": "38",
+"type": "mutation"
+},
+"38": {
+"id": "38",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
@@ -381,6 +405,7 @@ lines = {
 }]),
 "id": "7",
 "next_id": "8",
+"tags": PackedStringArray(),
 "text": "[do express(cheerful)] Good morning {{blue_teacher}}!",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -418,6 +443,7 @@ lines = {
 }]),
 "id": "9",
 "next_id": "10",
+"tags": PackedStringArray(),
 "text": "[do express(cheerful)] Hello {{green}}! And this new face is our new student?",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -430,4 +456,4 @@ lines = {
 "type": "dialogue"
 }
 }
-metadata/dialogue_manager_version = "2.24.2"
+metadata/dialogue_manager_version = "2.27.2"
