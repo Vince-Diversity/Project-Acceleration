@@ -1,4 +1,4 @@
-res://game/pause_menu.tscn
+res://game/room/rooms/green_dorm.tscn
 res://game/pause_menu.gd
 res://resources/events/entrance_event.gd
 res://resources/tilesets/library.tres
@@ -11,7 +11,8 @@ res://resources/things/table/default_table.tres
 res://resources/things/chair/default_chair.tres
 res://resources/things/bed.tres
 res://resources/characters/cat.tres
+res://game/entrance_events.gd
+res://game/game.gd
 res://game/room/rooms/main_classroom.tscn
-res://game/room/rooms/green_dorm.tscn
-res://game/character/npcs/cat.tscn
-res://game/room/room.tscn
+res://loader/screen.gd
+res://loader/loader.gd

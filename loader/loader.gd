@@ -45,17 +45,15 @@ func new_game():
 		sg.game_version = ProjectSettings.get_setting("application/config/version")
 		sg.data[sg.game_key][sg.party_key] = new_game_party_list
 		_change_to_game(sg)
-		game.load_room(new_game_room_id, new_game_entrance_node)
-		game.load_preserved(game.cache)
+		game.add_room(new_game_room_id, new_game_entrance_node)
 
 
 func enter_game():
 	var sg: Resource = load(save_path)
 	_change_to_game(sg)
-	game.load_room(
+	game.add_room(
 		game.cache.data[sg.game_key][sg.room_key],
 		game.cache.data[sg.game_key][sg.entrance_key])
-	game.load_preserved(game.cache)
 
 
 func enter_main_menu():

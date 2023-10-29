@@ -59,11 +59,15 @@ func change_room(room_id: String, entrance_node: String):
 		# Free the current room before loading cache
 		# Otherwise the cache will also be loaded on the old room
 		current_room.call_deferred("free")
-		load_room(room_id, entrance_node)
-		load_preserved.call_deferred(cache)
-		handle_entrance_events.call_deferred(room_id, entrance_node)
+		add_room(room_id, entrance_node)
 	else:
 		load_room("main_entrance", "DefaultDoor")
+
+
+func add_room(room_id: String, entrance_node: String):
+	load_room(room_id, entrance_node)
+	load_preserved.call_deferred(cache)
+	handle_entrance_events.call_deferred(room_id, entrance_node)
 
 
 func make_save_game(save_game: SaveGame):
@@ -106,7 +110,6 @@ func start_entrance_events(room_id: String, entrance_node: String, interaction_n
 		event_dict["dialogue_id"],
 		event_dict["dialogue_node"],
 		current_room.doors.get_node(entrance_node))
-	entrance_events.update_event(room_id)
 
 
 func save():
@@ -168,6 +171,7 @@ func _on_textbox_started(
 
 func _on_cutscene_ended(next_state_id: String):
 	stm.change_state(next_state_id)
+	entrance_events.update_event(current_room.room_id)
 
 
 func _on_textbox_focused():

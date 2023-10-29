@@ -4,7 +4,7 @@ do move_player("EnterMark1", "discover")
 
 
 ~ discover
-{{green}}: (Huh?)
+{{green}}: (?)
 do move_player("EnterMark2", "chat")
 => END!
 
