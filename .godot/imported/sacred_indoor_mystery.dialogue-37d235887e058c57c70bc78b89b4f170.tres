@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_bj714"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_fruch"]
 
 [resource]
-script = ExtResource("1_bj714")
+script = ExtResource("1_fruch")
 titles = {
 "found": "2",
 "present": "6",
@@ -29,6 +29,7 @@ lines = {
 }]),
 "id": "10",
 "next_id": "11",
+"tags": PackedStringArray(),
 "text": "Yes, this is exactly the thing we were looking for!",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "Yes, this is exactly the thing we were looking for!",
@@ -45,6 +46,7 @@ lines = {
 }]),
 "id": "11",
 "next_id": "12",
+"tags": PackedStringArray(),
 "text": "Now, let us stand together and cherish the moment.",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "Now, let us stand together and cherish the moment.",
@@ -160,6 +162,7 @@ lines = {
 }]),
 "id": "20",
 "next_id": "21",
+"tags": PackedStringArray(),
 "text": "[do express(sorry)] Excuse me, but I don't she is a sacred thing. She is just a girl and it is her name that is {{sacred}}.",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -182,6 +185,7 @@ lines = {
 }]),
 "id": "21",
 "next_id": "22",
+"tags": PackedStringArray(),
 "text": "A girl? I don't see any girl around here, other than yourself.",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "A girl? I don't see any girl around here, other than yourself.",
@@ -198,6 +202,7 @@ lines = {
 }]),
 "id": "22",
 "next_id": "23",
+"tags": PackedStringArray(),
 "text": "Me neither. I just see that you brought us {{sacred}}, and {{sacred}} is a sacred thing!",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -226,6 +231,7 @@ lines = {
 }]),
 "id": "23",
 "next_id": "24",
+"tags": PackedStringArray(),
 "text": "[do express(sorry)] (... How strange.)",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "[do express(sorry)] (... How strange.)",
@@ -242,6 +248,7 @@ lines = {
 }]),
 "id": "24",
 "next_id": "25",
+"tags": PackedStringArray(),
 "text": "(Maybe I should look through the {{revealer}} again.)",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -354,6 +361,7 @@ lines = {
 }]),
 "id": "6",
 "next_id": "7",
+"tags": PackedStringArray(),
 "text": "Hi again. Could I ask if you know about this girl? Her name is {{sacred}}.",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -406,6 +414,7 @@ lines = {
 }]),
 "id": "9",
 "next_id": "10",
+"tags": PackedStringArray(),
 "text": "{{sacred}}? What a wonderful thing!",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -418,4 +427,4 @@ lines = {
 "type": "dialogue"
 }
 }
-metadata/dialogue_manager_version = "2.24.2"
+metadata/dialogue_manager_version = "2.27.2"

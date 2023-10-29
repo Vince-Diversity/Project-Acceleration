@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_46bpv")
-interaction_node = ""
+interaction_node = "CatCutscene"
 dialogue_id = "enter_green_dorm"
 dialogue_node = "enter"
+is_oneshot = true

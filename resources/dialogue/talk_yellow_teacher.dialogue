@@ -36,7 +36,7 @@ do set_thing_anim("Computer", "running")
 {{cyan_ai}}: Did you short-ciruit the network again?
 {{yellow_teacher}}: Maybe.
 {{cyan_ai}}: I'll just switch on again.
-do reset_lightning("setters")
+do reset_lighting("setters")
 => END!
 
 

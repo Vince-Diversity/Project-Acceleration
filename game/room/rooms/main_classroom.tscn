@@ -37,8 +37,22 @@ target_direction_id = 2
 position = Vector2(-32, 32)
 target_direction_id = 2
 
-[node name="BlueMark" parent="RoomCutscenes/BlueTeacherCutscene" index="2" instance=ExtResource("6_7yf1x")]
+[node name="ReturnCutscene" parent="RoomCutscenes" index="1" instance=ExtResource("5_kfbhs")]
+position = Vector2(512, 96)
+
+[node name="MentorMark" parent="RoomCutscenes/ReturnCutscene" index="0"]
+position = Vector2(-32, 32)
+target_direction_id = 2
+
+[node name="StudentMark" parent="RoomCutscenes/ReturnCutscene" index="1"]
 position = Vector2(-32, 0)
-target_direction_id = 3
+target_direction_id = 2
+
+[node name="ReturnMark1" parent="RoomCutscenes/ReturnCutscene" index="2" instance=ExtResource("6_7yf1x")]
+position = Vector2(0, 64)
+
+[node name="ReturnMark2" parent="RoomCutscenes/ReturnCutscene" index="3" instance=ExtResource("6_7yf1x")]
+position = Vector2(0, 448)
 
 [editable path="RoomCutscenes/BlueTeacherCutscene"]
+[editable path="RoomCutscenes/ReturnCutscene"]

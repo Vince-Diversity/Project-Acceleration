@@ -1,3 +1,34 @@
 ~ enter
-a
+do move_player("EnterMark1", "discover")
+=> END!
+
+
+~ discover
+{{green}}: (Huh?)
+do move_player("EnterMark2", "chat")
+=> END!
+
+
+~ chat
+do turn_npc_to_player("Cat")
+{{green}}: [do express(cheerful)] Aren't you an uninvited visitor?
+{{cat}}: Me-ow Me-ow.
+{{green}}: (The windows are closed. Wonder how it got in here...)
+do move_npc("Cat", "CatMark1", "escape_1")
+=> END!
+
+
+~ escape_1
+do set_player_direction("down")
+do move_npc("Cat", "CatMark2", "escape_2")
+=> END!
+
+
+~ escape_2
+do move_npc("Cat", "CatMark3", "escape_3")
+=> END!
+
+
+~ escape_3
+{{green}}: (Let's follow it!)
 => END!

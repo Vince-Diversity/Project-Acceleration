@@ -3,7 +3,8 @@ class_name DialogueCutscene extends Cutscene
 @onready var mentor_mark = $MentorMark
 @onready var student_mark = $StudentMark
 @onready var dialogue_act_scr: GDScript = preload("res://game/cutscene/act/dialogue_act.gd")
-@onready var lightning_act_scr: GDScript = preload("res://game/cutscene/act/lightning_act.gd")
+@onready var lighting_act_scr: GDScript = preload("res://game/cutscene/act/lighting_act.gd")
+
 
 func make():
 	actm.add_act(make_current_dialogue())
@@ -31,6 +32,12 @@ func make_dialogue(dialogue_id: String, dialogue_node: String) -> Act:
 	return dialogue_act
 
 
+func make_move_party() -> Act:
+	return make_move(
+		owner.party.get_party_ordered(),
+		[mentor_mark, student_mark])
+
+
 func make_move_npc(
 		npc_node: String,
 		mark_node: String) -> Act:
@@ -41,28 +48,36 @@ func make_move_npc(
 	else: return null
 
 
-func make_move_party() -> Act:
-	return make_move(
-		owner.party.get_party_ordered(),
-		[mentor_mark, student_mark])
+func make_move_player(mark_node: String) -> Act:
+	if cutscenes.current_cutscene.has_node(mark_node):
+		return make_move(
+			[owner.party.player],
+			[cutscenes.current_cutscene.get_node(mark_node)])
+	else: return null
 
 
 func make_flash() -> Act:
-	var flash_in_act: Act = lightning_act_scr.new()
+	var flash_in_act: Act = lighting_act_scr.new()
 	flash_in_act.init_act(screen, Color.WHITE, 0.2)
 	return flash_in_act
 
 
 func make_darken() -> Act:
-	var darken_act: Act = lightning_act_scr.new()
+	var darken_act: Act = lighting_act_scr.new()
 	darken_act.init_act(screen, Color(Color.BLACK, 0.5), screen.instant)
 	return darken_act
 
 
 func make_reset_ligtning() -> Act:
-	var reset_lightning_act: Act = lightning_act_scr.new()
-	reset_lightning_act.init_act(screen, Color.TRANSPARENT, screen.instant)
-	return reset_lightning_act
+	var reset_lighting_act: Act = lighting_act_scr.new()
+	reset_lighting_act.init_act(screen, Color.TRANSPARENT, screen.instant)
+	return reset_lighting_act
+
+
+func make_fade_away(duration: float) -> Act:
+	var fade_away_act: Act = lighting_act_scr.new()
+	fade_away_act.init_act(screen, Color(Color.BLACK, 1), duration)
+	return fade_away_act
 
 
 func next_dialogue(next_dialogue_node: String):
@@ -72,13 +87,17 @@ func next_dialogue(next_dialogue_node: String):
 	actm.add_act(make_current_dialogue())
 
 
-func move(next_dialogue_node: String):
-	actm.add_act(make_move_party())
-	next_dialogue(next_dialogue_node)
+func move(next_dlg_line: String):
+	play(make_move_party(), next_dlg_line)
 
 
 func move_npc(npc_node: String, mark_node: String, next_dlg_line: String):
 	var act = make_move_npc(npc_node, mark_node)
+	play(act, next_dlg_line)
+
+
+func move_player(mark_node: String, next_dlg_line: String):
+	var act = make_move_player(mark_node)
 	play(act, next_dlg_line)
 
 
@@ -108,8 +127,13 @@ func darken(next_dlg_line: String):
 	next_dialogue(next_dlg_line)
 
 
-func reset_lightning(next_dlg_line: String):
+func reset_lighting(next_dlg_line: String):
 	actm.add_act(make_reset_ligtning())
+	next_dialogue(next_dlg_line)
+
+
+func fade_away(duration: float, next_dlg_line: String):
+	actm.add_act(make_fade_away(duration))
 	next_dialogue(next_dlg_line)
 
 
@@ -134,6 +158,13 @@ func set_npc_direction(npc_node: String, direction: String):
 		var npc = owner.npcs.get_node(npc_node)
 		npc.set_direction(Utils.get_anim_direction(anim_id))
 		npc.update_direction()
+
+
+func set_player_direction(direction: String):
+	var anim_id = Utils.get_anim_id(direction)
+	if anim_id == null: return
+	owner.party.player.set_direction(Utils.get_anim_direction(anim_id))
+	owner.party.player.update_direction()
 
 
 func set_npc_interaction_node(npc_node: String, interaction_node: String):

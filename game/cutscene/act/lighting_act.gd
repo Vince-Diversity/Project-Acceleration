@@ -2,7 +2,7 @@ extends Act
 
 var screen: Screen
 var color: Color
-var duration: int
+var duration: float
 
 
 func init_act(

@@ -61,6 +61,11 @@ func make_animate_thing(thing_node: String, anim_name: String) -> Act:
 	else: return null
 
 
+func set_thing_state(thing_node: String, thing_state_id: String):
+	if owner.things.has_node(thing_node):
+		owner.things.get_node(thing_node).change_state(thing_state_id)
+
+
 func add_async(content: Array):
 	if not content.is_empty():
 		async_act_matrix.append([])

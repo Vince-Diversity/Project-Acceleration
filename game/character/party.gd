@@ -9,6 +9,7 @@ func create_player():
 	player.init_player(self)
 	add_child(player)
 	player.player_interacted.connect(owner._on_player_interacted)
+	set_deferred("preserved_party_list", get_party_list())
 
 
 func remove_member(member: NPC):
@@ -19,7 +20,6 @@ func remove_member(member: NPC):
 		member.change_state("npc_still_state")
 		member.set_global_position(member_position)
 		member.idling_room_id = owner.room_id
-	set_deferred("preserved_party_list", get_party_list())
 
 
 func add_npc_as_member(npc: NPC):

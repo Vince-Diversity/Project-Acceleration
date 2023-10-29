@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bmkvuehhsetvg"]
+[gd_scene load_steps=10 format=3 uid="uid://bmkvuehhsetvg"]
 
 [ext_resource type="PackedScene" uid="uid://c1go3780g6ead" path="res://game/room/room.tscn" id="1_dgcqb"]
 [ext_resource type="TileSet" uid="uid://4fu4258gk02k" path="res://resources/tilesets/dorm.tres" id="2_j0g6v"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://d4gc2tdmt5l1a" path="res://game/thing/table/up_chair_office_table.tscn" id="4_phdfy"]
 [ext_resource type="PackedScene" uid="uid://c1dqban1i65o7" path="res://game/cutscene/silent_cutscene/rest_cutscene/player_rest_cutscene.tscn" id="5_erosg"]
 [ext_resource type="PackedScene" uid="uid://1sj2uxtvkjet" path="res://game/thing/bed/bed.tscn" id="5_jpcpe"]
+[ext_resource type="PackedScene" uid="uid://dt35hq2ybk80i" path="res://game/character/npcs/cat.tscn" id="6_6s7sj"]
+[ext_resource type="PackedScene" uid="uid://bqlmbt878hrxk" path="res://game/cutscene/dialogue_cutscene.tscn" id="8_0u1s5"]
+[ext_resource type="PackedScene" uid="uid://dtkkkrcbtqu58" path="res://game/cutscene/character_mark.tscn" id="9_5q03f"]
 
 [node name="GreenDorm" instance=ExtResource("1_dgcqb")]
 
@@ -35,10 +38,32 @@ y_sort_enabled = false
 position = Vector2(464, 224)
 interaction_node = "LieDownCutscene"
 
+[node name="Cat" parent="YSort/NPCs" index="0" instance=ExtResource("6_6s7sj")]
+position = Vector2(473, 224)
+
 [node name="SitCutscene" parent="RoomCutscenes" index="0" instance=ExtResource("5_erosg")]
 position = Vector2(576, 224)
 
 [node name="LieDownCutscene" parent="RoomCutscenes" index="1" instance=ExtResource("5_erosg")]
 position = Vector2(464, 224)
+
+[node name="CatCutscene" parent="RoomCutscenes" index="2" instance=ExtResource("8_0u1s5")]
+position = Vector2(512, 192)
+
+[node name="EnterMark1" parent="RoomCutscenes/CatCutscene" index="2" instance=ExtResource("9_5q03f")]
+position = Vector2(64, 128)
+target_direction_id = 2
+
+[node name="EnterMark2" parent="RoomCutscenes/CatCutscene" index="3" instance=ExtResource("9_5q03f")]
+target_direction_id = 1
+
+[node name="CatMark1" parent="RoomCutscenes/CatCutscene" index="4" instance=ExtResource("9_5q03f")]
+position = Vector2(-40, 80)
+
+[node name="CatMark2" parent="RoomCutscenes/CatCutscene" index="5" instance=ExtResource("9_5q03f")]
+position = Vector2(64, 112)
+
+[node name="CatMark3" parent="RoomCutscenes/CatCutscene" index="6" instance=ExtResource("9_5q03f")]
+position = Vector2(64, 368)
 
 [editable path="Doors/DormDoor"]

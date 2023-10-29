@@ -1,6 +1,9 @@
+res://assets/characters/cat
+res://resources/characters/
+res://game/character/npcs
+res://game/room/rooms
 res://resources/events/entrance_events/
 res://resources/events/
-res://game/room/rooms
 res://game/thing/bed
 res://assets/things
 res://assets/characters/green
@@ -9,14 +12,11 @@ res://game/thing/table
 res://resources/tilesets
 res://resources/characters
 res://assets/characters/blue_teacher
-res://game/character/npcs
 res://game/cutscene/dialogue_cutscene/dorm_door_cutscene
 res://game/thing/door
 res://resources/things
 res://game/character/npcs/
 res://assets/characters/yellow
-res://resources/characters/
 res://assets/characters/amber
 res://assets/characters/maroon
 res://assets/characters/lime
-res://assets/characters/blue

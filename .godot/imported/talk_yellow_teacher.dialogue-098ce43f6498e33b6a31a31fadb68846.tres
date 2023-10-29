@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_cwpv3"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_0fdqr"]
 
 [resource]
-script = ExtResource("1_cwpv3")
+script = ExtResource("1_0fdqr")
 titles = {
 "cue": "2",
 "darken": "24",
@@ -80,6 +80,7 @@ lines = {
 }]),
 "id": "18",
 "next_id": "19",
+"tags": PackedStringArray(),
 "text": "[speed=0.5] 3... 2... 1... Start!",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "[speed=0.5] 3... 2... 1... Start!",
@@ -111,6 +112,7 @@ lines = {
 }]),
 "id": "2",
 "next_id": "3",
+"tags": PackedStringArray(),
 "text": "[do express(cheerful)] Good morning {{yellow_teacher_formally}}!",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -172,6 +174,7 @@ lines = {
 }]),
 "id": "29",
 "next_id": "30",
+"tags": PackedStringArray(),
 "text": "[do express(shocked)] oops.",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "[do express(shocked)] oops.",
@@ -188,6 +191,7 @@ lines = {
 }]),
 "id": "3",
 "next_id": "4",
+"tags": PackedStringArray(),
 "text": "Students! Stand aside, please. The demonstration is about to begin.",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "Students! Stand aside, please. The demonstration is about to begin.",
@@ -255,6 +259,7 @@ lines = {
 }]),
 "id": "36",
 "next_id": "37",
+"tags": PackedStringArray(),
 "text": "Did you short-ciruit the network again?",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "Did you short-ciruit the network again?",
@@ -271,6 +276,7 @@ lines = {
 }]),
 "id": "37",
 "next_id": "38",
+"tags": PackedStringArray(),
 "text": "Maybe.",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "Maybe.",
@@ -287,6 +293,7 @@ lines = {
 }]),
 "id": "38",
 "next_id": "39",
+"tags": PackedStringArray(),
 "text": "I'll just switch on again.",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "I'll just switch on again.",
@@ -296,7 +303,7 @@ lines = {
 "id": "39",
 "mutation": {
 "expression": Array[Dictionary]([{
-"function": "reset_lightning",
+"function": "reset_lighting",
 "type": "function",
 "value": Array[Array]([Array[Dictionary]([{
 "type": "string",
@@ -360,6 +367,7 @@ lines = {
 }]),
 "id": "45",
 "next_id": "46",
+"tags": PackedStringArray(),
 "text": "[do express(shocked)] Let's pretend we just met, ok?",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "[do express(shocked)] Let's pretend we just met, ok?",
@@ -376,6 +384,7 @@ lines = {
 }]),
 "id": "46",
 "next_id": "47",
+"tags": PackedStringArray(),
 "text": "Hi, {{green}}! Already in class before term start?",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -398,6 +407,7 @@ lines = {
 }]),
 "id": "47",
 "next_id": "48",
+"tags": PackedStringArray(),
 "text": "Yes, {{yellow_teacher_formally}}. I am showing {{blue}}, our new student, around the school.",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -426,6 +436,7 @@ lines = {
 }]),
 "id": "48",
 "next_id": "49",
+"tags": PackedStringArray(),
 "text": "[do express(shocked)] Just call me {{yellow_teacher}}, please.",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -448,6 +459,7 @@ lines = {
 }]),
 "id": "49",
 "next_id": "50",
+"tags": PackedStringArray(),
 "text": "Well, I better get back to class prep, see you!",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "Well, I better get back to class prep, see you!",
@@ -559,4 +571,4 @@ lines = {
 "type": "mutation"
 }
 }
-metadata/dialogue_manager_version = "2.24.2"
+metadata/dialogue_manager_version = "2.27.2"

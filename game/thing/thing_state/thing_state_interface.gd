@@ -22,6 +22,7 @@ func check_interaction(_given_interactable: Node2D):
 
 
 func make_preserved_save(sg: SaveGame):
+	sg.update_room_keys(thing.owner.room_id)
 	var thing_dict = {}
 	sg.data[sg.rooms_key][thing.owner.room_id][sg.things_key][thing.name] = thing_dict
 	thing_dict[sg.state_key] = state_id

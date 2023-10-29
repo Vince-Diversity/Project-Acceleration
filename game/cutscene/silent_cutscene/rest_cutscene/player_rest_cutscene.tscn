@@ -5,5 +5,5 @@
 
 [node name="PlayerRestCutscene" instance=ExtResource("1_6c6ax")]
 script = ExtResource("2_gj33w")
-stand_up_node_name = "StandUpCutscene"
-member_name = "Blue"
+stand_up_node_name = null
+member_name = null

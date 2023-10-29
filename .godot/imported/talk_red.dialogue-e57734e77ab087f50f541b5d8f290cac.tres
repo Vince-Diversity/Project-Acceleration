@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_pjodw"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_k4ed3"]
 
 [resource]
-script = ExtResource("1_pjodw")
+script = ExtResource("1_k4ed3")
 titles = {
 "burn": "24",
 "cue": "2",
@@ -62,6 +62,7 @@ lines = {
 }]),
 "id": "14",
 "next_id": "15",
+"tags": PackedStringArray(),
 "text": "Watch out now.",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "Watch out now.",
@@ -378,6 +379,7 @@ lines = {
 }]),
 "id": "3",
 "next_id": "4",
+"tags": PackedStringArray(),
 "text": "Hi {{red}}! You have to show us one of your demos!",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -400,6 +402,7 @@ lines = {
 }]),
 "id": "30",
 "next_id": "31",
+"tags": PackedStringArray(),
 "text": "Wow!",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "Wow!",
@@ -713,6 +716,7 @@ lines = {
 }]),
 "id": "37",
 "next_id": "38",
+"tags": PackedStringArray(),
 "text": "Our classmates seem to have difficulties igniting just a single candle.",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "Our classmates seem to have difficulties igniting just a single candle.",
@@ -729,6 +733,7 @@ lines = {
 }]),
 "id": "38",
 "next_id": "39",
+"tags": PackedStringArray(),
 "text": "Maybe it is because most students do not know what they practice for.",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "Maybe it is because most students do not know what they practice for.",
@@ -745,6 +750,7 @@ lines = {
 }]),
 "id": "39",
 "next_id": "40",
+"tags": PackedStringArray(),
 "text": "[do express(sorry)] Not that I know why I practice so much.",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "[do express(sorry)] Not that I know why I practice so much.",
@@ -761,6 +767,7 @@ lines = {
 }]),
 "id": "4",
 "next_id": "5",
+"tags": PackedStringArray(),
 "text": "Hi. Is this the new student you mentioned?",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "Hi. Is this the new student you mentioned?",
@@ -777,6 +784,7 @@ lines = {
 }]),
 "id": "40",
 "next_id": "41",
+"tags": PackedStringArray(),
 "text": "I just always put in my best effort, isn't that the most natural thing to do?",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "I just always put in my best effort, isn't that the most natural thing to do?",
@@ -823,6 +831,7 @@ lines = {
 }]),
 "id": "45",
 "next_id": "46",
+"tags": PackedStringArray(),
 "text": "[do express(sorry)] Sorry for venting on you again.",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "[do express(sorry)] Sorry for venting on you again.",
@@ -839,6 +848,7 @@ lines = {
 }]),
 "id": "46",
 "next_id": "47",
+"tags": PackedStringArray(),
 "text": "[do express(cheerful)] No problem, thanks for the demo!",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "[do express(cheerful)] No problem, thanks for the demo!",
@@ -879,6 +889,7 @@ lines = {
 }]),
 "id": "5",
 "next_id": "6",
+"tags": PackedStringArray(),
 "text": "My name is {{blue}}.",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -922,6 +933,7 @@ lines = {
 }]),
 "id": "52",
 "next_id": "53",
+"tags": PackedStringArray(),
 "text": "[do express(cheerful)] Hi again! Can you show us another demo?",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "[do express(cheerful)] Hi again! Can you show us another demo?",
@@ -938,6 +950,7 @@ lines = {
 }]),
 "id": "53",
 "next_id": "54",
+"tags": PackedStringArray(),
 "text": "[do express(sorry)] Please, let me recover first.",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "[do express(sorry)] Please, let me recover first.",
@@ -960,6 +973,7 @@ lines = {
 }]),
 "id": "6",
 "next_id": "7",
+"tags": PackedStringArray(),
 "text": "And this is {{red}}, my friend and amazing {{red_aspect}} mage.",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -1047,4 +1061,4 @@ lines = {
 "type": "mutation"
 }
 }
-metadata/dialogue_manager_version = "2.24.2"
+metadata/dialogue_manager_version = "2.27.2"

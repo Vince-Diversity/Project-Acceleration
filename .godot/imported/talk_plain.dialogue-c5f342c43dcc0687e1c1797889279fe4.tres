@@ -1,28 +1,43 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_4h1pm"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_3cyfl"]
 
 [resource]
-script = ExtResource("1_4h1pm")
+script = ExtResource("1_3cyfl")
 titles = {
-"392725370/found": "2",
-"392725370/present": "6",
-"392725370/realise": "18",
-"mystery/found": "2",
-"mystery/present": "6",
-"mystery/realise": "18",
-"request": "46",
-"revisit": "55",
-"talk": "37"
+"392725370/found": "1",
+"392725370/present": "5",
+"392725370/realise": "17",
+"mystery/found": "1",
+"mystery/present": "5",
+"mystery/realise": "17",
+"request": "45",
+"revisit": "54",
+"talk": "36"
 }
 character_names = PackedStringArray("{{green}}", "{{plain}}", "{{average}}")
-first_title = "37"
+first_title = "36"
 lines = {
-"1": {
-"id": "1",
-"next_id": "2",
+"0": {
+"id": "0",
+"next_id": "1",
 "text": "392725370/found",
 "type": "title"
+},
+"1": {
+"id": "1",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "move",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "mystery/present"
+}])])
+}])
+},
+"next_id": "2",
+"type": "mutation"
 },
 "10": {
 "character": "{{average}}",
@@ -35,29 +50,14 @@ lines = {
 }]),
 "id": "10",
 "next_id": "11",
-"text": "Yes, this is exactly the thing we were looking for!",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "Yes, this is exactly the thing we were looking for!",
-"type": "dialogue"
-},
-"11": {
-"character": "{{average}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "average"
-}]),
-"value_in_text": "{{average}}"
-}]),
-"id": "11",
-"next_id": "12",
+"tags": PackedStringArray(),
 "text": "Now, let us stand together and cherish the moment.",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "Now, let us stand together and cherish the moment.",
 "type": "dialogue"
 },
-"12": {
-"id": "12",
+"11": {
+"id": "11",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "remove_member",
@@ -68,11 +68,11 @@ lines = {
 }])])
 }])
 },
-"next_id": "13",
+"next_id": "12",
 "type": "mutation"
 },
-"13": {
-"id": "13",
+"12": {
+"id": "12",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "move_npc",
@@ -89,23 +89,23 @@ lines = {
 }])])
 }])
 },
-"next_id": "14",
+"next_id": "13",
 "type": "mutation"
 },
-"14": {
-"id": "14",
+"13": {
+"id": "13",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 },
-"17": {
-"id": "17",
-"next_id": "18",
+"16": {
+"id": "16",
+"next_id": "17",
 "text": "392725370/realise",
 "type": "title"
 },
-"18": {
-"id": "18",
+"17": {
+"id": "17",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_npc_direction",
@@ -119,11 +119,11 @@ lines = {
 }])])
 }])
 },
-"next_id": "19",
+"next_id": "18",
 "type": "mutation"
 },
-"19": {
-"id": "19",
+"18": {
+"id": "18",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_npc_direction",
@@ -137,25 +137,10 @@ lines = {
 }])])
 }])
 },
-"next_id": "20",
+"next_id": "19",
 "type": "mutation"
 },
-"2": {
-"id": "2",
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "move",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "mystery/present"
-}])])
-}])
-},
-"next_id": "3",
-"type": "mutation"
-},
-"20": {
+"19": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -164,8 +149,9 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
-"id": "20",
-"next_id": "21",
+"id": "19",
+"next_id": "20",
+"tags": PackedStringArray(),
 "text": "[do express(sorry)] Excuse me, but I don't she is a sacred thing. She is just a girl and it is her name that is {{sacred}}.",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -177,7 +163,13 @@ lines = {
 "translation_key": "[do express(sorry)] Excuse me, but I don't she is a sacred thing. She is just a girl and it is her name that is {{sacred}}.",
 "type": "dialogue"
 },
-"21": {
+"2": {
+"id": "2",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"20": {
 "character": "{{plain}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -186,14 +178,15 @@ lines = {
 }]),
 "value_in_text": "{{plain}}"
 }]),
-"id": "21",
-"next_id": "22",
+"id": "20",
+"next_id": "21",
+"tags": PackedStringArray(),
 "text": "A girl? I don't see any girl around here, other than yourself.",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "A girl? I don't see any girl around here, other than yourself.",
 "type": "dialogue"
 },
-"22": {
+"21": {
 "character": "{{average}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -202,8 +195,9 @@ lines = {
 }]),
 "value_in_text": "{{average}}"
 }]),
-"id": "22",
-"next_id": "23",
+"id": "21",
+"next_id": "22",
+"tags": PackedStringArray(),
 "text": "Me neither. I just see that you brought us {{sacred}}, and {{sacred}} is a sacred thing!",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -221,6 +215,23 @@ lines = {
 "translation_key": "Me neither. I just see that you brought us {{sacred}}, and {{sacred}} is a sacred thing!",
 "type": "dialogue"
 },
+"22": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"id": "22",
+"next_id": "23",
+"tags": PackedStringArray(),
+"text": "[do express(sorry)] (... How strange.)",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "[do express(sorry)] (... How strange.)",
+"type": "dialogue"
+},
 "23": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
@@ -232,22 +243,7 @@ lines = {
 }]),
 "id": "23",
 "next_id": "24",
-"text": "[do express(sorry)] (... How strange.)",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "[do express(sorry)] (... How strange.)",
-"type": "dialogue"
-},
-"24": {
-"character": "{{green}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "green"
-}]),
-"value_in_text": "{{green}}"
-}]),
-"id": "24",
-"next_id": "25",
+"tags": PackedStringArray(),
 "text": "(Maybe I should look through the {{revealer}} again.)",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -259,8 +255,8 @@ lines = {
 "translation_key": "(Maybe I should look through the {{revealer}} again.)",
 "type": "dialogue"
 },
-"25": {
-"id": "25",
+"24": {
+"id": "24",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_npc_dialogue_id",
@@ -271,6 +267,24 @@ lines = {
 }]), Array[Dictionary]([{
 "type": "string",
 "value": "talk_sacred"
+}])])
+}])
+},
+"next_id": "25",
+"type": "mutation"
+},
+"25": {
+"id": "25",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_npc_dialogue_node",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Sacred"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "revisit"
 }])])
 }])
 },
@@ -285,7 +299,7 @@ lines = {
 "type": "function",
 "value": Array[Array]([Array[Dictionary]([{
 "type": "string",
-"value": "Sacred"
+"value": "Plain"
 }]), Array[Dictionary]([{
 "type": "string",
 "value": "revisit"
@@ -303,7 +317,7 @@ lines = {
 "type": "function",
 "value": Array[Array]([Array[Dictionary]([{
 "type": "string",
-"value": "Plain"
+"value": "Average"
 }]), Array[Dictionary]([{
 "type": "string",
 "value": "revisit"
@@ -315,58 +329,35 @@ lines = {
 },
 "28": {
 "id": "28",
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "set_npc_dialogue_node",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "Average"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "revisit"
-}])])
-}])
-},
-"next_id": "29",
-"type": "mutation"
-},
-"29": {
-"id": "29",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 },
-"3": {
-"id": "3",
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
-},
-"31": {
-"id": "31",
+"30": {
+"id": "30",
 "is_snippet": false,
 "next_id": "end",
 "type": "goto"
 },
-"34": {
+"33": {
 "character": "",
 "character_replacements": Array[Dictionary]([]),
-"id": "34",
-"next_id": "37",
+"id": "33",
+"next_id": "36",
+"tags": PackedStringArray(),
 "text": "import \"res://resources/dialogue/sacred_indoor_mystery.dialogue\" as mystery",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "import \"res://resources/dialogue/sacred_indoor_mystery.dialogue\" as mystery",
 "type": "dialogue"
 },
-"36": {
-"id": "36",
-"next_id": "37",
+"35": {
+"id": "35",
+"next_id": "36",
 "text": "talk",
 "type": "title"
 },
-"37": {
-"id": "37",
+"36": {
+"id": "36",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "check_sacred_joined",
@@ -374,57 +365,63 @@ lines = {
 "value": Array[Array]([])
 }])
 },
-"next_id": "38",
+"next_id": "37",
 "type": "mutation"
 },
-"38": {
+"37": {
 "condition": {
 "expression": Array[Dictionary]([{
 "type": "variable",
 "value": "is_sacred_joined"
 }])
 },
-"id": "38",
-"next_conditional_id": "40",
-"next_id": "39",
-"next_id_after": "42",
+"id": "37",
+"next_conditional_id": "39",
+"next_id": "38",
+"next_id_after": "41",
 "type": "condition"
+},
+"38": {
+"id": "38",
+"is_snippet": false,
+"next_id": "1",
+"parent_id": "37",
+"type": "goto"
 },
 "39": {
 "id": "39",
-"is_snippet": false,
-"next_id": "2",
-"parent_id": "38",
-"type": "goto"
+"next_conditional_id": "41",
+"next_id": "40",
+"next_id_after": "41",
+"type": "condition"
+},
+"4": {
+"id": "4",
+"next_id": "5",
+"text": "392725370/present",
+"type": "title"
 },
 "40": {
 "id": "40",
-"next_conditional_id": "42",
-"next_id": "41",
-"next_id_after": "42",
-"type": "condition"
+"is_snippet": false,
+"next_id": "45",
+"parent_id": "39",
+"type": "goto"
 },
 "41": {
 "id": "41",
 "is_snippet": false,
-"next_id": "46",
-"parent_id": "40",
-"type": "goto"
-},
-"42": {
-"id": "42",
-"is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 },
-"45": {
-"id": "45",
-"next_id": "46",
+"44": {
+"id": "44",
+"next_id": "45",
 "text": "request",
 "type": "title"
 },
-"46": {
-"id": "46",
+"45": {
+"id": "45",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "turn_npc_to_player",
@@ -435,10 +432,10 @@ lines = {
 }])])
 }])
 },
-"next_id": "47",
+"next_id": "46",
 "type": "mutation"
 },
-"47": {
+"46": {
 "character": "{{plain}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -447,14 +444,15 @@ lines = {
 }]),
 "value_in_text": "{{plain}}"
 }]),
-"id": "47",
-"next_id": "48",
+"id": "46",
+"next_id": "47",
+"tags": PackedStringArray(),
 "text": "Have you seen anything sacred around here?",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "Have you seen anything sacred around here?",
 "type": "dialogue"
 },
-"48": {
+"47": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -463,14 +461,15 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
-"id": "48",
-"next_id": "49",
+"id": "47",
+"next_id": "48",
+"tags": PackedStringArray(),
 "text": "No. Actually I'm not sure what you mean.",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "No. Actually I'm not sure what you mean.",
 "type": "dialogue"
 },
-"49": {
+"48": {
 "character": "{{plain}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -479,21 +478,16 @@ lines = {
 }]),
 "value_in_text": "{{plain}}"
 }]),
-"id": "49",
-"next_id": "50",
+"id": "48",
+"next_id": "49",
+"tags": PackedStringArray(),
 "text": "You will know when you see it. Bring it here, please!",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "You will know when you see it. Bring it here, please!",
 "type": "dialogue"
 },
-"5": {
-"id": "5",
-"next_id": "6",
-"text": "392725370/present",
-"type": "title"
-},
-"50": {
-"id": "50",
+"49": {
+"id": "49",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_npc_direction",
@@ -507,44 +501,10 @@ lines = {
 }])])
 }])
 },
-"next_id": "51",
+"next_id": "50",
 "type": "mutation"
 },
-"51": {
-"id": "51",
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
-},
-"54": {
-"id": "54",
-"next_id": "55",
-"text": "revisit",
-"type": "title"
-},
-"55": {
-"character": "{{plain}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "plain"
-}]),
-"value_in_text": "{{plain}}"
-}]),
-"id": "55",
-"next_id": "56",
-"text": "Don't look so worried! Just life in the moment.",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "Don't look so worried! Just life in the moment.",
-"type": "dialogue"
-},
-"56": {
-"id": "56",
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
-},
-"6": {
+"5": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -553,8 +513,9 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
-"id": "6",
-"next_id": "7",
+"id": "5",
+"next_id": "6",
+"tags": PackedStringArray(),
 "text": "Hi again. Could I ask if you know about this girl? Her name is {{sacred}}.",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -566,8 +527,43 @@ lines = {
 "translation_key": "Hi again. Could I ask if you know about this girl? Her name is {{sacred}}.",
 "type": "dialogue"
 },
-"7": {
-"id": "7",
+"50": {
+"id": "50",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"53": {
+"id": "53",
+"next_id": "54",
+"text": "revisit",
+"type": "title"
+},
+"54": {
+"character": "{{plain}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "plain"
+}]),
+"value_in_text": "{{plain}}"
+}]),
+"id": "54",
+"next_id": "55",
+"tags": PackedStringArray(),
+"text": "Don't look so worried! Just life in the moment.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Don't look so worried! Just life in the moment.",
+"type": "dialogue"
+},
+"55": {
+"id": "55",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"6": {
+"id": "6",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "turn_npc_to_player",
@@ -578,11 +574,11 @@ lines = {
 }])])
 }])
 },
-"next_id": "8",
+"next_id": "7",
 "type": "mutation"
 },
-"8": {
-"id": "8",
+"7": {
+"id": "7",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "turn_npc_to_player",
@@ -593,10 +589,10 @@ lines = {
 }])])
 }])
 },
-"next_id": "9",
+"next_id": "8",
 "type": "mutation"
 },
-"9": {
+"8": {
 "character": "{{plain}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -605,8 +601,9 @@ lines = {
 }]),
 "value_in_text": "{{plain}}"
 }]),
-"id": "9",
-"next_id": "10",
+"id": "8",
+"next_id": "9",
+"tags": PackedStringArray(),
 "text": "{{sacred}}? What a wonderful thing!",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -617,6 +614,23 @@ lines = {
 }]),
 "translation_key": "{{sacred}}? What a wonderful thing!",
 "type": "dialogue"
+},
+"9": {
+"character": "{{average}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "average"
+}]),
+"value_in_text": "{{average}}"
+}]),
+"id": "9",
+"next_id": "10",
+"tags": PackedStringArray(),
+"text": "Yes, this is exactly the thing we were looking for!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Yes, this is exactly the thing we were looking for!",
+"type": "dialogue"
 }
 }
-metadata/dialogue_manager_version = "2.24.2"
+metadata/dialogue_manager_version = "2.27.2"

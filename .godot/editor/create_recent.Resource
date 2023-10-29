@@ -1,6 +1,6 @@
+SpriteFrames
 EntranceEvent
 Resource
-SpriteFrames
 TileSet
 Shortcut
 InputEventAction

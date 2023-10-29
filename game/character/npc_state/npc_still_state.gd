@@ -28,6 +28,8 @@ func roam():
 
 func make_save(sg: SaveGame):
 	super(sg)
+	var npc_dict = sg.data[sg.rooms_key][npc.room.room_id][sg.npcs_key][npc.name]
+	npc_dict[sg.idling_room_key] = npc.idling_room_id
 
 
 func make_preserved_save(sg: SaveGame):
@@ -39,7 +41,7 @@ func load_save(sg: SaveGame):
 	super(sg)
 	if sg.data[sg.rooms_key].has(npc.room.room_id):
 		var npc_dict = sg.data[sg.rooms_key][npc.room.room_id][sg.npcs_key][npc.name]
-		if npc.room.party.has_node(NodePath(npc.name)) and npc_dict[sg.was_joined_key]:
+		if npc_dict[sg.was_joined_key]:
 			npc.change_state("npc_joined_state")
 			npc.room.party.add_npc_as_member(npc)
 
@@ -52,6 +54,8 @@ func _remove_moved_npc(sg: SaveGame) -> bool:
 			if not npc_dict[sg.idling_room_key].is_empty():
 				if npc_name == npc.name \
 				and npc_dict[sg.idling_room_key] != npc.room.room_id:
+					# The NPC is absent from default room
+					# This room is where the NPC moved to
 					npc.queue_free()
 					return true
 	return false
