@@ -30,5 +30,6 @@ do move_npc("Cat", "CatMark3", "escape_3")
 
 
 ~ escape_3
+do remove_npc("Cat")
 {{green}}: (Let's follow it!)
 => END!

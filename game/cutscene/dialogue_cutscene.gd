@@ -142,6 +142,11 @@ func remove_member(member_node: String):
 		owner.party.remove_member(owner.party.get_node(member_node))
 
 
+func remove_npc(npc_node: String):
+	if owner.npcs.has_node(npc_node):
+		owner.npcs.queue_free()
+
+
 func set_player_anim(anim_name: String):
 	owner.party.player.set_animation(anim_name)
 

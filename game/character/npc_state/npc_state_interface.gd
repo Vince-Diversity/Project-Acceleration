@@ -26,6 +26,16 @@ func roam():
 	pass
 
 
+func go_back_waiting(sg: SaveGame):
+	# Edits the save before it loads
+	var npc_dict = sg.data[sg.rooms_key][npc.room.room_id][sg.npcs_key][npc.name]
+	npc_dict[sg.interaction_key] = ""
+	npc_dict[sg.dialogue_id_key] = "default_join"
+	npc_dict[sg.dialogue_node_key] = "default"
+	npc_dict[sg.position_key] = npc.global_position
+	npc_dict[sg.direction_key] = npc.inputted_direction
+
+
 func make_save(sg: SaveGame):
 	sg.update_room_keys(npc.room.room_id)
 	var npc_dict = {}
@@ -35,8 +45,8 @@ func make_save(sg: SaveGame):
 	npc_dict[sg.dialogue_node_key] = npc.dialogue_node
 	npc_dict[sg.position_key] = npc.global_position
 	npc_dict[sg.direction_key] = npc.inputted_direction
-	npc_dict[sg.was_joined_key] = false
-	npc_dict[sg.idling_room_key] = ""
+	npc_dict[sg.idling_room_key] = npc.idling_room_id
+	npc_dict[sg.was_joined_key] = npc.is_waiting_at_gateway
 
 
 func make_preserved_save(sg: SaveGame):
@@ -47,8 +57,8 @@ func make_preserved_save(sg: SaveGame):
 	npc_dict[sg.dialogue_node_key] = npc.dialogue_node
 	npc_dict[sg.position_key] = npc.preserved_position
 	npc_dict[sg.direction_key] = Utils.get_anim_direction(npc.preserved_direction)
-	npc_dict[sg.was_joined_key] = false
 	npc_dict[sg.idling_room_key] = ""
+	npc_dict[sg.was_joined_key] = false
 
 
 func load_save(sg: SaveGame):
@@ -61,3 +71,4 @@ func load_save(sg: SaveGame):
 		npc.set_direction(npc_dict[sg.direction_key])
 		npc.update_direction()
 		npc.idling_room_id = npc_dict[sg.idling_room_key]
+		npc.is_waiting_at_gateway = npc_dict[sg.was_joined_key]

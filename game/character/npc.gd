@@ -14,12 +14,13 @@ class_name NPC extends Character
 @onready var joined_state: NPCJoinedState = \
 	preload("res://game/character/npc_state/npc_joined_state.gd").new("npc_joined_state", self)
 @onready var interact_area = $InteractArea
-var is_following: bool = false
 var preserved_position: Vector2
 var state_list: Dictionary
 var current_state: NPCState
 var room: Room
+var is_following: bool = false
 var idling_room_id: String
+var is_waiting_at_gateway: bool = false
 
 
 func _ready():

@@ -54,6 +54,5 @@ func _on_main_menu_pressed():
 
 
 func _unpause():
-	pause_menu_closed.emit()
 	get_tree().set_pause(false)
 	queue_free()

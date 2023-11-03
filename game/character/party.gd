@@ -29,14 +29,6 @@ func add_npc_as_member(npc: NPC):
 	npc.set_global_position(npc_position)
 
 
-func _add_member(member: NPC):
-	add_child(member)
-	move_child(member, 0)
-	member.make_npc("npc_joined_state", owner)
-	member.idling_room_id = ""
-	set_deferred("preserved_party_list", get_party_list())
-
-
 func has_member(npc_name: String) -> bool:
 	if get_party_list().has(npc_name): return true
 	return false
@@ -62,15 +54,33 @@ func load_save(sg: SaveGame):
 			var npc: NPC
 			if owner.npcs.has_node(npc_name):
 				npc = owner.npcs.get_node(npc_name)
-				var npc_dict = sg.data[sg.rooms_key][npc.room.room_id][sg.npcs_key][npc.name]
-				if npc_dict[sg.was_joined_key]:
+				if npc.is_imaginary:
+					if owner.entrance.is_gateway:
+						npc.current_state.go_back_waiting(sg)
+					else:
+						# The default NPC is excessive so remove it
+						owner.npcs.remove_child(npc)
+						_add_new_member(npc_id)
+				else:
 					add_npc_as_member(npc)
 			else:
-				npc = load(Utils.get_npc_path(npc_id)).instantiate()
-				_add_member(npc)
+				_add_new_member(npc_id)
 		create_player()
 	for member in get_party_ordered():
 		owner.entrance.set_entrance_direction(member)
+
+
+func _add_member(member: NPC):
+	add_child(member)
+	move_child(member, 0)
+	member.make_npc("npc_joined_state", owner)
+	set_deferred("preserved_party_list", get_party_list())
+	member.idling_room_id = ""
+
+
+func _add_new_member(npc_id: String):
+	var npc = load(Utils.get_npc_path(npc_id)).instantiate()
+	_add_member(npc)
 
 
 func exit_cutscene():

@@ -30,15 +30,13 @@ is_gateway = true
 position = Vector2(1248, 640)
 next_room_id = "sacred_indoor"
 next_room_entrance_node = "LeftPassageDown"
-is_gateway = false
 
 [node name="RightDoorUp" parent="Doors" index="2" instance=ExtResource("3_gjx02")]
 position = Vector2(1312, 640)
 next_room_id = "sacred_indoor"
 next_room_entrance_node = "RightPassageDown"
-is_gateway = false
 
 [node name="Sacred" parent="YSort/NPCs" index="0" instance=ExtResource("4_hnhvt")]
-position = Vector2(2624, 160)
+position = Vector2(704, 416)
 dialogue_id = "talk_sacred"
 dialogue_node = "talk"

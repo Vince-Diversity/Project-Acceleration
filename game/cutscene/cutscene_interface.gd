@@ -84,6 +84,8 @@ func make_async() -> Act:
 
 
 func change_room(room_id: String, entrance_node: String):
+	# Does not do special NPC handling at special doors
+	# since those require the exit door to be known
 	owner.change_room(room_id, entrance_node)
 
 

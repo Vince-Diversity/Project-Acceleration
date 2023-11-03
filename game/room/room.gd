@@ -164,6 +164,7 @@ func remove_members_at_gateway(door: Door):
 	for member in party.get_members_ordered():
 		if member.is_imaginary and door.is_gateway:
 			party.remove_member(member)
+			member.is_waiting_at_gateway = true
 
 
 func change_room(next_room_id: String, next_room_entrance_node: String):
