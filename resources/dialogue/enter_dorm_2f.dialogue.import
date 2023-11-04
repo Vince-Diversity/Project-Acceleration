@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_10"
+type="Resource"
+uid="uid://uscsrcng1e00"
+path="res://.godot/imported/enter_dorm_2f.dialogue-37d3a6a746e6e0ed5857635fab7f2a51.tres"
+
+[deps]
+
+source_file="res://resources/dialogue/enter_dorm_2f.dialogue"
+dest_files=["res://.godot/imported/enter_dorm_2f.dialogue-37d3a6a746e6e0ed5857635fab7f2a51.tres"]
+
+[params]
+
+defaults=true

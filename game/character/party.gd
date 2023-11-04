@@ -60,11 +60,11 @@ func load_save(sg: SaveGame):
 					else:
 						# The default NPC is excessive so remove it
 						owner.npcs.remove_child(npc)
-						_add_new_member(npc_id)
+						_create_member(npc_id)
 				else:
 					add_npc_as_member(npc)
 			else:
-				_add_new_member(npc_id)
+				_create_member(npc_id)
 		create_player()
 	for member in get_party_ordered():
 		owner.entrance.set_entrance_direction(member)
@@ -78,7 +78,7 @@ func _add_member(member: NPC):
 	member.idling_room_id = ""
 
 
-func _add_new_member(npc_id: String):
+func _create_member(npc_id: String):
 	var npc = load(Utils.get_npc_path(npc_id)).instantiate()
 	_add_member(npc)
 

@@ -1,0 +1,159 @@
+[gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_k5yei"]
+
+[resource]
+script = ExtResource("1_k5yei")
+titles = {
+"escape_1": "10",
+"escape_2": "15",
+"follow_cat": "2"
+}
+character_names = PackedStringArray("{{cat}}")
+first_title = "2"
+lines = {
+"1": {
+"id": "1",
+"next_id": "2",
+"text": "follow_cat",
+"type": "title"
+},
+"10": {
+"id": "10",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "move_npc",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Cat"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "CatMark2"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "escape_2"
+}])])
+}])
+},
+"next_id": "11",
+"type": "mutation"
+},
+"11": {
+"id": "11",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"14": {
+"id": "14",
+"next_id": "15",
+"text": "escape_2",
+"type": "title"
+},
+"15": {
+"id": "15",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "remove_npc",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Cat"
+}])])
+}])
+},
+"next_id": "16",
+"type": "mutation"
+},
+"16": {
+"id": "16",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"2": {
+"id": "2",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "create_npc",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Cat"
+}])])
+}])
+},
+"next_id": "3",
+"type": "mutation"
+},
+"3": {
+"id": "3",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_npc_at_mark",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Cat"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "CatMark1"
+}])])
+}])
+},
+"next_id": "4",
+"type": "mutation"
+},
+"4": {
+"character": "{{cat}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "cat"
+}]),
+"value_in_text": "{{cat}}"
+}]),
+"id": "4",
+"next_id": "5",
+"tags": PackedStringArray(),
+"text": "Me-ow meow!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Me-ow meow!",
+"type": "dialogue"
+},
+"5": {
+"id": "5",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "move_npc",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Cat"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "CatMark1"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "escape_1"
+}])])
+}])
+},
+"next_id": "6",
+"type": "mutation"
+},
+"6": {
+"id": "6",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"9": {
+"id": "9",
+"next_id": "10",
+"text": "escape_1",
+"type": "title"
+}
+}
+metadata/dialogue_manager_version = "2.27.3"

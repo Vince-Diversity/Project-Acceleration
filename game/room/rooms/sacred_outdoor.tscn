@@ -1,11 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cfd0fahk4q5rx"]
+[gd_scene load_steps=4 format=3 uid="uid://cfd0fahk4q5rx"]
 
-[ext_resource type="PackedScene" uid="uid://c1go3780g6ead" path="res://game/room/room.tscn" id="1_xc1dm"]
 [ext_resource type="TileSet" uid="uid://66i7pu2rvr6j" path="res://resources/tilesets/park.tres" id="2_vwage"]
 [ext_resource type="PackedScene" uid="uid://paluwp5ftjo0" path="res://game/thing/door/passage_up.tscn" id="3_gjx02"]
 [ext_resource type="PackedScene" uid="uid://cyx3iouistsep" path="res://game/character/npcs/sacred.tscn" id="4_hnhvt"]
 
-[node name="SacredOutdoor" instance=ExtResource("1_xc1dm")]
+[node name="SacredOutdoor"]
 
 [node name="TileMap" parent="." index="0"]
 y_sort_enabled = true

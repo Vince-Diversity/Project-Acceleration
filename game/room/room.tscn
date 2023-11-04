@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c1go3780g6ead"]
+[gd_scene load_steps=4 format=3 uid="uid://c1go3780g6ead"]
 
 [ext_resource type="Script" path="res://game/room/room.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://db8dgl6yj1t18" path="res://game/character/party.tscn" id="3"]
-[ext_resource type="Script" path="res://game/room/npcs.gd" id="4_pe3d4"]
 [ext_resource type="Script" path="res://game/room/room_cutscenes.gd" id="5_lnlsj"]
 
 [node name="Room" type="Node2D"]
@@ -40,7 +39,6 @@ y_sort_enabled = true
 
 [node name="NPCs" type="Node2D" parent="YSort"]
 y_sort_enabled = true
-script = ExtResource("4_pe3d4")
 
 [node name="RoomCutscenes" type="Node2D" parent="."]
 script = ExtResource("5_lnlsj")

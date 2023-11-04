@@ -147,6 +147,10 @@ func remove_npc(npc_node: String):
 		owner.npcs.queue_free()
 
 
+func create_npc(npc_name: String):
+	owner.create_npc(npc_name)
+
+
 func set_player_anim(anim_name: String):
 	owner.party.player.set_animation(anim_name)
 
@@ -154,6 +158,15 @@ func set_player_anim(anim_name: String):
 func set_npc_anim(npc_node: String, anim_name: String):
 	if owner.npcs.has_node(npc_node):
 		owner.npcs.get_node(npc_node).set_animation(anim_name)
+
+
+func set_npc_at_mark(npc_node: String, mark_node: String):
+	if owner.npcs.has_node(npc_node)\
+	and cutscenes.current_cutscene.has_node(mark_node):
+		var npc = owner.npcs.get_node(npc_node)
+		var mark = cutscenes.current_cutscene.get_node(mark_node)
+		npc.set_global_position(mark.global_position)
+		set_npc_direction(npc_node, Utils.anim_name[mark.target_direction_id])
 
 
 func set_npc_direction(npc_node: String, direction: String):
@@ -199,6 +212,10 @@ func turn_npc_to_player(npc_node: String):
 			owner.party.player.global_position - npc.global_position
 		npc.set_direction(direction)
 		npc.update_direction()
+
+
+func enable_entrance_event(room_id: String):
+	owner.entrance_event_edited.emit(room_id, true)
 
 
 func add_member(npc_node: String):

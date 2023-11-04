@@ -12,7 +12,7 @@ do move_player("EnterMark2", "chat")
 ~ chat
 do turn_npc_to_player("Cat")
 {{green}}: [do express(cheerful)] Aren't you an uninvited visitor?
-{{cat}}: Me-ow Me-ow.
+{{cat}}: Me-ow Me-ow!
 {{green}}: (The windows are closed. Wonder how it got in here...)
 do move_npc("Cat", "CatMark1", "escape_1")
 => END!
@@ -32,4 +32,5 @@ do move_npc("Cat", "CatMark3", "escape_3")
 ~ escape_3
 do remove_npc("Cat")
 {{green}}: (Let's follow it!)
+do enable_entrance_event("dorm_2f")
 => END!

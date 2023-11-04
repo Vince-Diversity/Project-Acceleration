@@ -48,7 +48,8 @@ func load_room(room_id: String, entrance_node: String):
 		change_room,
 		_on_textbox_started,
 		_on_cutscene_ended,
-		_on_textbox_focused)
+		_on_textbox_focused,
+		_on_entrance_event_edited)
 	add_child(current_room)
 
 
@@ -111,11 +112,12 @@ func handle_entrance_events(room_id: String, entrance_node: String):
 
 func start_entrance_events(room_id: String, entrance_node: String, interaction_node: String):
 	var event_dict = entrance_events.events[room_id]
-	current_room.start_cutscene(
-		interaction_node,
-		event_dict["dialogue_id"],
-		event_dict["dialogue_node"],
-		current_room.doors.get_node(entrance_node))
+	if event_dict["is_enabled"]:
+		current_room.start_cutscene(
+			interaction_node,
+			event_dict["dialogue_id"],
+			event_dict["dialogue_node"],
+			current_room.doors.get_node(entrance_node))
 
 
 func save():
@@ -164,6 +166,11 @@ func _on_cutscene_ended(next_state_id: String):
 
 func _on_textbox_focused():
 	text_box.reset_focus()
+
+
+func _on_entrance_event_edited(room_id: String, is_enabled: bool):
+	if entrance_events.events.has(room_id):
+		entrance_events.events[room_id]["is_enabled"] = is_enabled
 
 
 func _on_PauseMenu_save_pressed():

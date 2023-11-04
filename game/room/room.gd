@@ -28,6 +28,7 @@ var textbox_focused_target: Callable
 signal room_changed(next_room_id: String, next_room_entrance_node: String)
 signal player_interacted(interactable: Node2D)
 signal end_interaction()
+signal entrance_event_edited(room_id: String, is_enabled: bool)
 
 
 func _ready():
@@ -106,7 +107,8 @@ func init_room(
 		change_room_target: Callable,
 		given_textbox_started_target: Callable,
 		given_cutscene_ended_target: Callable,
-		given_textbox_focused_target: Callable):
+		given_textbox_focused_target: Callable,
+		entrance_event_edited_target: Callable):
 	room_id = given_room_id
 	entrance_node = given_entrance_node
 	stm = given_stm
@@ -117,6 +119,7 @@ func init_room(
 	textbox_started_target = given_textbox_started_target
 	cutscene_ended_target = given_cutscene_ended_target
 	textbox_focused_target = given_textbox_focused_target
+	entrance_event_edited.connect(entrance_event_edited_target)
 
 
 func handle_cutscene(target_root: Node2D):
@@ -165,6 +168,13 @@ func remove_members_at_gateway(door: Door):
 		if member.is_imaginary and door.is_gateway:
 			party.remove_member(member)
 			member.is_waiting_at_gateway = true
+
+
+func create_npc(npc_name: String):
+	var npc_id = Utils.get_npc_id(npc_name)
+	var npc = load(Utils.get_npc_path(npc_id)).instantiate()
+	npcs.add_child(npc)
+	npc.make_npc(npc.spawn_state, self)
 
 
 func change_room(next_room_id: String, next_room_entrance_node: String):

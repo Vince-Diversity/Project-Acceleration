@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_wcqld"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_58xxr"]
 
 [resource]
-script = ExtResource("1_wcqld")
+script = ExtResource("1_58xxr")
 titles = {
 "chat": "13",
 "discover": "7",
@@ -71,9 +71,9 @@ lines = {
 "id": "15",
 "next_id": "16",
 "tags": PackedStringArray(),
-"text": "Me-ow Me-ow.",
+"text": "Me-ow Me-ow!",
 "text_replacements": Array[Dictionary]([]),
-"translation_key": "Me-ow Me-ow.",
+"translation_key": "Me-ow Me-ow!",
 "type": "dialogue"
 },
 "16": {
@@ -265,6 +265,21 @@ lines = {
 },
 "35": {
 "id": "35",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "enable_entrance_event",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "dorm_2f"
+}])])
+}])
+},
+"next_id": "36",
+"type": "mutation"
+},
+"36": {
+"id": "36",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"

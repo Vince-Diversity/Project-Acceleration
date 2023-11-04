@@ -1,38 +1,63 @@
-[gd_resource type="Resource" script_class="SaveGame" load_steps=3 format=3]
+[gd_resource type="Resource" script_class="SaveGame" load_steps=2 format=3]
 
-[ext_resource type="Resource" path="res://resources/events/entrance_events/green_dorm.tres" id="1_pdg5y"]
-[ext_resource type="Script" path="res://loader/save_game.gd" id="2_828ar"]
+[ext_resource type="Script" path="res://loader/save_game.gd" id="1_ck5iv"]
 
 [resource]
-script = ExtResource("2_828ar")
+script = ExtResource("1_ck5iv")
 game_version = "0.3"
 data = {
 "game": {
-"current_room_id": "main_classroom",
+"current_room_id": "green_dorm",
 "entrance_event_key": {
-"green_dorm": ExtResource("1_pdg5y")
+"dorm_2f": {
+"dialogue_id": "enter_dorm_2f",
+"dialogue_node": "follow_cat",
+"interaction_node": "CatCutscene",
+"is_enabled": true,
+"is_oneshot": true
+}
 },
-"entrance_node": "DoorDown",
-"party_key": Array[String](["Blue"])
+"entrance_node": "DormDoor",
+"party_key": Array[String]([])
 },
 "rooms": {
+"green_dorm": {
+"npcs": {},
+"things": {
+"Bed": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"DormDoor": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"UpChairOfficeTable": {
+"current_anim": &"office",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+}
+}
+},
 "main_classroom": {
 "npcs": {
 "Blue": {
-"dialogue_id": "",
-"dialogue_node": "",
-"direction": Vector2(0.492054, 0.870564),
-"idling_room": "",
+"dialogue_id": "default_talk",
+"dialogue_node": "default",
+"direction": Vector2(0, 1),
+"idling_room": "main_classroom",
 "interaction_node": "",
-"position": Vector2(460.181, 112.825),
+"position": Vector2(479.165, 96.0368),
 "was_joined": false
 },
 "BlueTeacher": {
-"dialogue_id": "talk_blue_teacher",
-"dialogue_node": "query",
-"direction": Vector2(-0.03142, 0.999506),
+"dialogue_id": "default_talk",
+"dialogue_node": "default",
+"direction": Vector2(-1, 0),
 "idling_room": "",
-"interaction_node": "ReturnCutscene",
+"interaction_node": "",
 "position": Vector2(480, 64),
 "was_joined": false
 }
@@ -50,10 +75,10 @@ data = {
 "Blue": {
 "dialogue_id": "",
 "dialogue_node": "",
-"direction": Vector2(0.00741424, -0.999973),
+"direction": Vector2(0.328847, -0.944383),
 "idling_room": "",
 "interaction_node": "",
-"position": Vector2(571.214, 99.486),
+"position": Vector2(527.498, 97.8711),
 "was_joined": false
 }
 },
@@ -90,10 +115,10 @@ data = {
 "Blue": {
 "dialogue_id": "",
 "dialogue_node": "",
-"direction": Vector2(0.0972903, -0.995256),
+"direction": Vector2(0, -1),
 "idling_room": "",
 "interaction_node": "",
-"position": Vector2(572.297, -28.6183),
+"position": Vector2(576, -16),
 "was_joined": false
 }
 },

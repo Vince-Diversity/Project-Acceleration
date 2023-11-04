@@ -85,8 +85,8 @@ static func get_bgm_path(bgm_name: String):
 	return bgm_dir.path_join(bgm_name + ".ogg")
 
 
-static func get_npc_path(npc_name: String):
-	return npc_dir.path_join(npc_name + ".tscn")
+static func get_npc_path(npc_id: String):
+	return npc_dir.path_join(npc_id + ".tscn")
 
 
 static func get_entrance_event_path(room_id: String):
