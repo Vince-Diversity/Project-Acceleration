@@ -1,6 +1,11 @@
-extends AudioStreamPlayer
+class_name BGMPlayer extends AudioStreamPlayer
 
 var playback_position: float = 0.0
+var sound_toggle: bool = true:
+	set(mode):
+		sound_toggle = mode
+		if mode: resume()
+		else: pause()
 
 
 func pause():
@@ -19,4 +24,10 @@ func update_stream(new_audio_stream_path: String):
 		var new_audio_stream: AudioStream = load(new_audio_stream_path)
 		if not stream == new_audio_stream:
 			set_stream(new_audio_stream)
-			play()
+			if sound_toggle:
+				play()
+
+
+func reset_stream():
+	if is_instance_valid(stream):
+		playback_position = 0.0

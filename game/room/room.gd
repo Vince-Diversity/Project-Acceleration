@@ -102,7 +102,7 @@ func init_room(
 		given_room_id: String,
 		given_entrance_node: String,
 		given_stm: StateMachine,
-		given_bgm: AudioStreamPlayer,
+		given_bgm: BGMPlayer,
 		given_screen: Screen,
 		change_room_target: Callable,
 		given_textbox_started_target: Callable,

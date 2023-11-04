@@ -3,4 +3,5 @@
 [ext_resource type="Script" path="res://loader/sound/bgm_player.gd" id="1_mx74j"]
 
 [node name="BGMPlayer" type="AudioStreamPlayer"]
+process_mode = 3
 script = ExtResource("1_mx74j")

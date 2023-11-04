@@ -1,0 +1,17 @@
+~ follow_cat
+do create_npc("Cat")
+do set_npc_at_mark("Cat", "CatMark1")
+{{cat}}: Me-ow meow!
+do move_npc("Cat", "CatMark1", "escape_1")
+=> END!
+
+
+~ escape_1
+do move_npc("Cat", "CatMark2", "escape_2")
+=> END!
+
+
+~ escape_2
+do remove_npc("Cat")
+do enable_entrance_event("recreation_hallway")
+=> END!

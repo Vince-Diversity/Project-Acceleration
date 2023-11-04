@@ -1,18 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://bi2ykc6srhvrc"]
+[gd_scene load_steps=3 format=3 uid="uid://d3bekw7wnfp37"]
 
-[ext_resource type="Script" path="res://game/pause_menu.gd" id="1_rlnfb"]
+[ext_resource type="Script" path="res://game/pause_menu.gd" id="1_1nite"]
+[ext_resource type="PackedScene" uid="uid://b8t183k7x8rgj" path="res://loader/settings/settings_button.tscn" id="2_60umk"]
 
 [node name="PauseMenu" type="CanvasLayer"]
 layer = 2
-script = ExtResource("1_rlnfb")
+script = ExtResource("1_1nite")
 
 [node name="Margin" type="CenterContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_bottom = -128.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="MenuContainer" type="VBoxContainer" parent="Margin"]
 layout_mode = 2
@@ -33,6 +32,10 @@ text = "Resume"
 unique_name_in_owner = true
 layout_mode = 2
 text = "Save"
+
+[node name="Settings" parent="Margin/MenuContainer" instance=ExtResource("2_60umk")]
+unique_name_in_owner = true
+layout_mode = 2
 
 [node name="MainMenu" type="Button" parent="Margin/MenuContainer"]
 unique_name_in_owner = true

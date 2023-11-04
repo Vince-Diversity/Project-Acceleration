@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://dpd52yfxhpduc"]
 
-[ext_resource type="Script" path="res://loader/screen.gd" id="1_o40ru"]
+[ext_resource type="Script" path="res://loader/screen/screen.gd" id="1_4612l"]
 
 [node name="Screen" type="CanvasLayer"]
-script = ExtResource("1_o40ru")
+script = ExtResource("1_4612l")
 
 [node name="Overcast" type="ColorRect" parent="."]
 anchors_preset = 15

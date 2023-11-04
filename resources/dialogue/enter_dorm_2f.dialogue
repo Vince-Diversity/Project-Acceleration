@@ -13,4 +13,5 @@ do move_npc("Cat", "CatMark2", "escape_2")
 
 ~ escape_2
 do remove_npc("Cat")
+do enable_entrance_event("dorm_1f")
 => END!

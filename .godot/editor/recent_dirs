@@ -1,3 +1,5 @@
+res://loader/settings
+res://loader
 res://game/room/rooms
 res://assets/characters/cat
 res://resources/characters/
@@ -18,5 +20,3 @@ res://resources/things
 res://game/character/npcs/
 res://assets/characters/yellow
 res://assets/characters/amber
-res://assets/characters/maroon
-res://assets/characters/lime

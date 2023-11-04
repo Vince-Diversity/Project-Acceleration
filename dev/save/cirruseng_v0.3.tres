@@ -1,63 +1,64 @@
 [gd_resource type="Resource" script_class="SaveGame" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://loader/save_game.gd" id="1_ck5iv"]
+[ext_resource type="Script" path="res://loader/save_game.gd" id="1_wb8ea"]
 
 [resource]
-script = ExtResource("1_ck5iv")
+script = ExtResource("1_wb8ea")
 game_version = "0.3"
 data = {
 "game": {
-"current_room_id": "green_dorm",
+"current_room_id": "main_classroom",
 "entrance_event_key": {
+"dorm_1f": {
+"dialogue_id": "enter_dorm_1f",
+"dialogue_node": "follow_cat",
+"interaction_node": "CatCutscene",
+"is_enabled": false,
+"is_oneshot": true
+},
 "dorm_2f": {
 "dialogue_id": "enter_dorm_2f",
 "dialogue_node": "follow_cat",
 "interaction_node": "CatCutscene",
+"is_enabled": false,
+"is_oneshot": true
+},
+"green_dorm": {
+"dialogue_id": "enter_green_dorm",
+"dialogue_node": "enter",
+"interaction_node": "CatCutscene",
 "is_enabled": true,
+"is_oneshot": true
+},
+"recreation_hallway": {
+"dialogue_id": "enter_recreation_hallway",
+"dialogue_node": "follow_cat",
+"interaction_node": "CatCutscene",
+"is_enabled": false,
 "is_oneshot": true
 }
 },
-"entrance_node": "DormDoor",
-"party_key": Array[String]([])
+"entrance_node": "DoorDown",
+"party_key": Array[String](["Blue"])
 },
 "rooms": {
-"green_dorm": {
-"npcs": {},
-"things": {
-"Bed": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"DormDoor": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"UpChairOfficeTable": {
-"current_anim": &"office",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-}
-}
-},
 "main_classroom": {
 "npcs": {
 "Blue": {
-"dialogue_id": "default_talk",
-"dialogue_node": "default",
-"direction": Vector2(0, 1),
-"idling_room": "main_classroom",
+"dialogue_id": "",
+"dialogue_node": "",
+"direction": Vector2(0.999485, -0.0320866),
+"idling_room": "",
 "interaction_node": "",
-"position": Vector2(479.165, 96.0368),
+"position": Vector2(449.028, 97.2258),
 "was_joined": false
 },
 "BlueTeacher": {
-"dialogue_id": "default_talk",
-"dialogue_node": "default",
-"direction": Vector2(-1, 0),
+"dialogue_id": "talk_blue_teacher",
+"dialogue_node": "query",
+"direction": Vector2(-0.0330638, 0.999453),
 "idling_room": "",
-"interaction_node": "",
+"interaction_node": "ReturnCutscene",
 "position": Vector2(480, 64),
 "was_joined": false
 }
@@ -75,10 +76,10 @@ data = {
 "Blue": {
 "dialogue_id": "",
 "dialogue_node": "",
-"direction": Vector2(0.328847, -0.944383),
+"direction": Vector2(0.0974505, -0.99524),
 "idling_room": "",
 "interaction_node": "",
-"position": Vector2(527.498, 97.8711),
+"position": Vector2(553.772, 98.7526),
 "was_joined": false
 }
 },
@@ -115,10 +116,10 @@ data = {
 "Blue": {
 "dialogue_id": "",
 "dialogue_node": "",
-"direction": Vector2(0, -1),
+"direction": Vector2(-0.000125303, -1),
 "idling_room": "",
 "interaction_node": "",
-"position": Vector2(576, -16),
+"position": Vector2(576, -28.5),
 "was_joined": false
 }
 },

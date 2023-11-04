@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bcx8xsexaeam4"]
+[gd_scene load_steps=6 format=3 uid="uid://bcx8xsexaeam4"]
 
 [ext_resource type="Texture2D" uid="uid://cmr7ypp77igw1" path="res://assets/misc/title.png" id="1"]
 [ext_resource type="Script" path="res://loader/main_menu/main_menu.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://b8t183k7x8rgj" path="res://loader/settings/settings_button.tscn" id="3_inydj"]
 [ext_resource type="PackedScene" uid="uid://dyxcothjlr0so" path="res://loader/main_menu/controls.tscn" id="3_qxtpi"]
 [ext_resource type="PackedScene" uid="uid://bl3qn6xvcdtfw" path="res://loader/sound/bgm_player.tscn" id="4_ahlcs"]
 
@@ -51,6 +52,9 @@ text = "Load game"
 layout_mode = 2
 text = "New Game"
 
+[node name="Settings" parent="Options" instance=ExtResource("3_inydj")]
+layout_mode = 2
+
 [node name="Quit" type="Button" parent="Options"]
 layout_mode = 2
 text = "Quit"
@@ -67,4 +71,5 @@ grow_vertical = 2
 
 [connection signal="pressed" from="Options/LoadGame" to="." method="_on_LoadGame_pressed"]
 [connection signal="pressed" from="Options/NewGame" to="." method="_on_NewGame_pressed"]
+[connection signal="pressed" from="Options/Settings" to="." method="_on_Settings_pressed"]
 [connection signal="pressed" from="Options/Quit" to="." method="_on_Quit_pressed"]

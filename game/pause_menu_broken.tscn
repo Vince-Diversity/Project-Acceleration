@@ -1,15 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://d3bekw7wnfp37"]
+[gd_scene load_steps=2 format=3 uid="uid://bi2ykc6srhvrc"]
 
-[ext_resource type="Script" path="res://game/pause_menu.gd" id="1_jxafx"]
+[ext_resource type="Script" path="res://game/pause_menu.gd" id="1_rlnfb"]
 
 [node name="PauseMenu" type="CanvasLayer"]
 layer = 2
-script = ExtResource("1_jxafx")
+script = ExtResource("1_rlnfb")
 
 [node name="Margin" type="CenterContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = -128.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="MenuContainer" type="VBoxContainer" parent="Margin"]
 layout_mode = 2

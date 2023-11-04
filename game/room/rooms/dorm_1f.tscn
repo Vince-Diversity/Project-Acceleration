@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ji37dclu1sfr"]
+[gd_scene load_steps=9 format=3 uid="uid://ji37dclu1sfr"]
 
 [ext_resource type="PackedScene" uid="uid://c1go3780g6ead" path="res://game/room/room.tscn" id="1_5qc7v"]
 [ext_resource type="TileSet" uid="uid://dhmtx2d8j5rgp" path="res://resources/tilesets/recreation_hall.tres" id="2_2d57m"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://ny4hv8ju7irs" path="res://game/thing/door/dorm_door.tscn" id="4_buomv"]
 [ext_resource type="PackedScene" uid="uid://paluwp5ftjo0" path="res://game/thing/door/passage_up.tscn" id="5_j6u03"]
 [ext_resource type="PackedScene" uid="uid://3r765s140n15" path="res://game/cutscene/dialogue_cutscene/dorm_door_cutscene/dorm_door_cutscene.tscn" id="6_byrnl"]
+[ext_resource type="PackedScene" uid="uid://bqlmbt878hrxk" path="res://game/cutscene/dialogue_cutscene.tscn" id="7_rne6b"]
+[ext_resource type="PackedScene" uid="uid://dtkkkrcbtqu58" path="res://game/cutscene/character_mark.tscn" id="8_75icn"]
 
 [node name="Dorm1F" instance=ExtResource("1_5qc7v")]
 
@@ -54,3 +56,11 @@ next_room_id = "dorm_2f"
 next_room_entrance_node = "PassageDown2"
 
 [node name="DormDoorCutscene" parent="RoomCutscenes" index="0" instance=ExtResource("6_byrnl")]
+
+[node name="CatCutscene" parent="RoomCutscenes" index="1" instance=ExtResource("7_rne6b")]
+
+[node name="CatMark1" parent="RoomCutscenes/CatCutscene" index="2" instance=ExtResource("8_75icn")]
+position = Vector2(448, 448)
+
+[node name="CatMark2" parent="RoomCutscenes/CatCutscene" index="3" instance=ExtResource("8_75icn")]
+position = Vector2(576, 544)

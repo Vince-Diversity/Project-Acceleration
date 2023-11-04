@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_10"
+type="Resource"
+uid="uid://fd54pqu51yvm"
+path="res://.godot/imported/enter_recreation_hallway.dialogue-04708e8e39a874c1aefcc404ef628b3a.tres"
+
+[deps]
+
+source_file="res://resources/dialogue/enter_recreation_hallway.dialogue"
+dest_files=["res://.godot/imported/enter_recreation_hallway.dialogue-04708e8e39a874c1aefcc404ef628b3a.tres"]
+
+[params]
+
+defaults=true

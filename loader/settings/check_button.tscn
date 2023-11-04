@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckjbd7guw83ma"]
+
+[ext_resource type="Script" path="res://loader/settings/check_button.gd" id="1_5ped0"]
+
+[node name="CheckButton" type="CheckButton"]
+button_mask = 0
+script = ExtResource("1_5ped0")

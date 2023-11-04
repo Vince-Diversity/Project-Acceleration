@@ -30,7 +30,7 @@ func _ready_entrance_events():
 func update_event(room_id: String):
 	if events.has(room_id):
 		if events[room_id].is_oneshot:
-			remove_event(room_id)
+			events[room_id][enabled_key] = false
 
 
 func remove_event(room_id: String):
