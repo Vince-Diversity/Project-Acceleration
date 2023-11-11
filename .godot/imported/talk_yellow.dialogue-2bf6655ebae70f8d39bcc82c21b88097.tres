@@ -1,9 +1,10 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_gy03u"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_bmk65"]
 
 [resource]
-script = ExtResource("1_gy03u")
+script = ExtResource("1_bmk65")
+using_states = PackedStringArray()
 titles = {
 "talk": "2"
 }
@@ -27,6 +28,7 @@ lines = {
 }]),
 "id": "2",
 "next_id": "3",
+"tags": PackedStringArray(),
 "text": "I'm getting ganged up on by everyone just because I'm in the lead!",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "I'm getting ganged up on by everyone just because I'm in the lead!",
@@ -43,6 +45,7 @@ lines = {
 }]),
 "id": "3",
 "next_id": "4",
+"tags": PackedStringArray(),
 "text": "Besides, where did {{red}} go? Winning is more fun with proper competition.",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -61,4 +64,4 @@ lines = {
 "type": "goto"
 }
 }
-metadata/dialogue_manager_version = "2.24.2"
+metadata/dialogue_manager_version = "2.28.0"

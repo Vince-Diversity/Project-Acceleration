@@ -1,7 +1,9 @@
+res://assets/characters/yellow
+res://assets/characters/amber
+res://assets/characters/cat
 res://loader/settings
 res://loader
 res://game/room/rooms
-res://assets/characters/cat
 res://resources/characters/
 res://game/character/npcs
 res://resources/events/entrance_events/
@@ -18,5 +20,3 @@ res://game/cutscene/dialogue_cutscene/dorm_door_cutscene
 res://game/thing/door
 res://resources/things
 res://game/character/npcs/
-res://assets/characters/yellow
-res://assets/characters/amber

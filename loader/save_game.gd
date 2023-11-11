@@ -21,6 +21,8 @@ const direction_key = "direction"
 const was_joined_key = "was_joined"
 const idling_room_key = "idling_room"
 
+const bgm_toggle_key = "bgm_toggle"
+
 
 @export var game_version := ""
 @export var data := {

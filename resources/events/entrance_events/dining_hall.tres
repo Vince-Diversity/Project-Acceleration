@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EntranceEvent" load_steps=2 format=3 uid="uid://dqd0ssxl16117"]
+
+[ext_resource type="Script" path="res://resources/events/entrance_event.gd" id="1_8umcr"]
+
+[resource]
+script = ExtResource("1_8umcr")
+is_enabled = false
+interaction_node = "CatCutscene"
+dialogue_id = "enter_dining_hall"
+dialogue_node = "cat"
+is_oneshot = true

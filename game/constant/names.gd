@@ -38,4 +38,3 @@ const blue_aspect := "Immaterial"
 const revealer = "Revealing Eyepiece"
 
 var OUROBOROS = "Obo"
-

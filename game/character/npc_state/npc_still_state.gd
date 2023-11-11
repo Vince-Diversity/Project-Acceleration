@@ -4,7 +4,9 @@ class_name NPCStillState extends NPCState
 func enter():
 	npc.following_area.set_monitoring(false)
 	npc.following_area.set_monitorable(false)
-	if npc.anim_sprite.sprite_frames.has_animation(
+	if npc.anim_sprite.sprite_frames.has_animation(npc.preserved_animation):
+		npc.set_animation(npc.preserved_animation)
+	elif npc.anim_sprite.sprite_frames.has_animation(
 			Utils.anim_name[npc.preserved_direction]):
 		npc.set_direction(
 			Utils.get_anim_direction(npc.preserved_direction))

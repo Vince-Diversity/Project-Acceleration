@@ -1,9 +1,10 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_kugta"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_gfxxc"]
 
 [resource]
-script = ExtResource("1_kugta")
+script = ExtResource("1_gfxxc")
+using_states = PackedStringArray()
 titles = {
 "cue": "2",
 "proceed": "30",
@@ -654,4 +655,4 @@ lines = {
 "type": "dialogue"
 }
 }
-metadata/dialogue_manager_version = "2.27.2"
+metadata/dialogue_manager_version = "2.28.0"

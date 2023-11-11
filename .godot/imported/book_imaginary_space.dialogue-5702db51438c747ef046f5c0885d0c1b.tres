@@ -1,9 +1,10 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_1gwii"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_fl6jc"]
 
 [resource]
-script = ExtResource("1_1gwii")
+script = ExtResource("1_fl6jc")
+using_states = PackedStringArray()
 titles = {
 "cue": "2",
 "open_book": "7",
@@ -74,6 +75,7 @@ lines = {
 }]),
 "id": "15",
 "next_id": "16",
+"tags": PackedStringArray(),
 "text": "\"Reality is merely the top layer of the onion which represents our world. The imaginary are its layers.\"",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "\"Reality is merely the top layer of the onion which represents our world. The imaginary are its layers.\"",
@@ -90,6 +92,7 @@ lines = {
 }]),
 "id": "16",
 "next_id": "17",
+"tags": PackedStringArray(),
 "text": "\"By peeling its many layers, one may travel deeper into the imaginary.\"",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "\"By peeling its many layers, one may travel deeper into the imaginary.\"",
@@ -106,6 +109,7 @@ lines = {
 }]),
 "id": "17",
 "next_id": "18",
+"tags": PackedStringArray(),
 "text": "\"But, just like an onion, our most trusted theory predicts that the imaginary has a core, a deepest layer.\"",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "\"But, just like an onion, our most trusted theory predicts that the imaginary has a core, a deepest layer.\"",
@@ -122,6 +126,7 @@ lines = {
 }]),
 "id": "18",
 "next_id": "19",
+"tags": PackedStringArray(),
 "text": "\"Yet, despite all efforts, there is no consensus on the scientific validity of alledged evidence for its existence.\"",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "\"Yet, despite all efforts, there is no consensus on the scientific validity of alledged evidence for its existence.\"",
@@ -138,6 +143,7 @@ lines = {
 }]),
 "id": "19",
 "next_id": "20",
+"tags": PackedStringArray(),
 "text": "\"Researchers have merely been able to state that this mystery is yet enshrouded in an incomprehensible mist.\"",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "\"Researchers have merely been able to state that this mystery is yet enshrouded in an incomprehensible mist.\"",
@@ -154,6 +160,7 @@ lines = {
 }]),
 "id": "2",
 "next_id": "3",
+"tags": PackedStringArray(),
 "text": "Look over here, {{blue}}!",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -176,6 +183,7 @@ lines = {
 }]),
 "id": "20",
 "next_id": "21",
+"tags": PackedStringArray(),
 "text": "\"Hence, this deepest layer became recognised by the name: {{deepest_layer}}.\"",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -198,6 +206,7 @@ lines = {
 }]),
 "id": "21",
 "next_id": "22",
+"tags": PackedStringArray(),
 "text": "[do express(cheerful)] Hmm... I believe we should try look for this place called {{deepest_layer}} sometime.",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -286,6 +295,7 @@ lines = {
 }]),
 "id": "7",
 "next_id": "8",
+"tags": PackedStringArray(),
 "text": "\"The Myth of {{deepest_layer}}\".",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -308,6 +318,7 @@ lines = {
 }]),
 "id": "8",
 "next_id": "9",
+"tags": PackedStringArray(),
 "text": "[do express(cheerful)] This might be of help to you!",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "[do express(cheerful)] This might be of help to you!",
@@ -332,4 +343,4 @@ lines = {
 "type": "mutation"
 }
 }
-metadata/dialogue_manager_version = "2.24.2"
+metadata/dialogue_manager_version = "2.28.0"

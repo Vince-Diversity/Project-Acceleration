@@ -1,0 +1,24 @@
+~ cat
+do create_npc("Cat")
+do set_npc_at_mark("Cat", "CatMark")
+do elevate_npc("Cat")
+{{cat}}: Me-ow Me-ow!
+do move("approach")
+=> END!
+
+~ approach
+{{amber}}: Great. All that effort undone by a fake cat.
+{{green}}: [do express(sorry)] I'm sorry I couldn't catch up to it.
+{{yellow}}: Forget the game, this is amazing!
+do elevate_npc("Yellow")
+do move_npc("Yellow", "YellowMark1", "watch")
+=> END!
+
+~ watch
+do set_npc_direction("Cat", "up")
+{{cat}}: Me-ow?
+{{maroon}}: Man, the life-like reactions on this thing is unreal.
+{{yellow}}: Hold it! I sense an illusion spell. In fact, I carry the perfect tool to prove this!
+
+#{{yellow}}: Behold the {{revealer}}. A single peek through this gizmo will reveal the cat's true form!
+=> END!

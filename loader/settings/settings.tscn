@@ -17,6 +17,11 @@ grow_vertical = 2
 [node name="MenuContainer" type="VBoxContainer" parent="Margin"]
 layout_mode = 2
 
+[node name="Title" type="RichTextLabel" parent="Margin/MenuContainer"]
+layout_mode = 2
+text = "Settings"
+fit_content = true
+
 [node name="Return" type="Button" parent="Margin/MenuContainer"]
 layout_mode = 2
 text = "Return"

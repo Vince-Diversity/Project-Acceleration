@@ -1,9 +1,10 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_crok0"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_p8wpc"]
 
 [resource]
-script = ExtResource("1_crok0")
+script = ExtResource("1_p8wpc")
+using_states = PackedStringArray()
 titles = {
 "check": "3",
 "open_book": "8",
@@ -56,6 +57,7 @@ lines = {
 }]),
 "id": "14",
 "next_id": "15",
+"tags": PackedStringArray(),
 "text": "\"The {{red_aspect}} magic is the ability to conjure heat, perhaps even energy itself.\"",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -78,6 +80,7 @@ lines = {
 }]),
 "id": "15",
 "next_id": "16",
+"tags": PackedStringArray(),
 "text": "\"Where this energy is coming from is hard to understand. But it is clear that the user's willpower is a vital ingredient.\"",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "\"Where this energy is coming from is hard to understand. But it is clear that the user's willpower is a vital ingredient.\"",
@@ -133,6 +136,7 @@ lines = {
 }]),
 "id": "3",
 "next_id": "4",
+"tags": PackedStringArray(),
 "text": "\"{{red_aspect}} Magic\". (Read this one?)",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -149,6 +153,7 @@ lines = {
 "next_id": "8",
 "next_id_after": "8",
 "responses": PackedStringArray("4", "5"),
+"tags": PackedStringArray(),
 "text": "Read",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "Read",
@@ -158,6 +163,7 @@ lines = {
 "id": "5",
 "next_id": "end!",
 "next_id_after": "8",
+"tags": PackedStringArray(),
 "text": "Leave",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "Leave",
@@ -206,4 +212,4 @@ lines = {
 "type": "mutation"
 }
 }
-metadata/dialogue_manager_version = "2.24.2"
+metadata/dialogue_manager_version = "2.28.0"

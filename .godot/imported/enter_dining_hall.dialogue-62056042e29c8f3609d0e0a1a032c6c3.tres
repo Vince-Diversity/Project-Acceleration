@@ -1,0 +1,289 @@
+[gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_xi1rx"]
+
+[resource]
+script = ExtResource("1_xi1rx")
+using_states = PackedStringArray()
+titles = {
+"approach": "10",
+"cat": "2",
+"watch": "18"
+}
+character_names = PackedStringArray("{{cat}}", "{{amber}}", "{{green}}", "{{yellow}}", "{{maroon}}")
+first_title = "2"
+lines = {
+"1": {
+"id": "1",
+"next_id": "2",
+"text": "cat",
+"type": "title"
+},
+"10": {
+"character": "{{amber}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "amber"
+}]),
+"value_in_text": "{{amber}}"
+}]),
+"id": "10",
+"next_id": "11",
+"tags": PackedStringArray(),
+"text": "Great. All that effort undone by a fake cat.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Great. All that effort undone by a fake cat.",
+"type": "dialogue"
+},
+"11": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"id": "11",
+"next_id": "12",
+"tags": PackedStringArray(),
+"text": "[do express(sorry)] I'm sorry I couldn't catch up to it.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "[do express(sorry)] I'm sorry I couldn't catch up to it.",
+"type": "dialogue"
+},
+"12": {
+"character": "{{yellow}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "yellow"
+}]),
+"value_in_text": "{{yellow}}"
+}]),
+"id": "12",
+"next_id": "13",
+"tags": PackedStringArray(),
+"text": "Forget the game, this is amazing!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Forget the game, this is amazing!",
+"type": "dialogue"
+},
+"13": {
+"id": "13",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "elevate_npc",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Yellow"
+}])])
+}])
+},
+"next_id": "14",
+"type": "mutation"
+},
+"14": {
+"id": "14",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "move_npc",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Yellow"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "YellowMark1"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "watch"
+}])])
+}])
+},
+"next_id": "15",
+"type": "mutation"
+},
+"15": {
+"id": "15",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"17": {
+"id": "17",
+"next_id": "18",
+"text": "watch",
+"type": "title"
+},
+"18": {
+"id": "18",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_npc_direction",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Cat"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "up"
+}])])
+}])
+},
+"next_id": "19",
+"type": "mutation"
+},
+"19": {
+"character": "{{cat}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "cat"
+}]),
+"value_in_text": "{{cat}}"
+}]),
+"id": "19",
+"next_id": "20",
+"tags": PackedStringArray(),
+"text": "Me-ow?",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Me-ow?",
+"type": "dialogue"
+},
+"2": {
+"id": "2",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "create_npc",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Cat"
+}])])
+}])
+},
+"next_id": "3",
+"type": "mutation"
+},
+"20": {
+"character": "{{maroon}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "maroon"
+}]),
+"value_in_text": "{{maroon}}"
+}]),
+"id": "20",
+"next_id": "21",
+"tags": PackedStringArray(),
+"text": "Man, the life-like reactions on this thing is unreal.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Man, the life-like reactions on this thing is unreal.",
+"type": "dialogue"
+},
+"21": {
+"character": "{{yellow}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "yellow"
+}]),
+"value_in_text": "{{yellow}}"
+}]),
+"id": "21",
+"next_id": "24",
+"tags": PackedStringArray(),
+"text": "Hold it! I sense an illusion spell. In fact, I carry the perfect tool to prove this!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Hold it! I sense an illusion spell. In fact, I carry the perfect tool to prove this!",
+"type": "dialogue"
+},
+"24": {
+"id": "24",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"3": {
+"id": "3",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_npc_at_mark",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Cat"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "CatMark"
+}])])
+}])
+},
+"next_id": "4",
+"type": "mutation"
+},
+"4": {
+"id": "4",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "elevate_npc",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Cat"
+}])])
+}])
+},
+"next_id": "5",
+"type": "mutation"
+},
+"5": {
+"character": "{{cat}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "cat"
+}]),
+"value_in_text": "{{cat}}"
+}]),
+"id": "5",
+"next_id": "6",
+"tags": PackedStringArray(),
+"text": "Me-ow Me-ow!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Me-ow Me-ow!",
+"type": "dialogue"
+},
+"6": {
+"id": "6",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "move",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "approach"
+}])])
+}])
+},
+"next_id": "7",
+"type": "mutation"
+},
+"7": {
+"id": "7",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"9": {
+"id": "9",
+"next_id": "10",
+"text": "approach",
+"type": "title"
+}
+}
+metadata/dialogue_manager_version = "2.28.0"

@@ -1,9 +1,10 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_gc26d"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_sr7m2"]
 
 [resource]
-script = ExtResource("1_gc26d")
+script = ExtResource("1_sr7m2")
+using_states = PackedStringArray()
 titles = {
 "about": "13",
 "cue": "2",
@@ -35,6 +36,7 @@ lines = {
 }]),
 "id": "13",
 "next_id": "14",
+"tags": PackedStringArray(),
 "text": "About myself? I am not sure what you mean... I am definitely not that interesting.",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "About myself? I am not sure what you mean... I am definitely not that interesting.",
@@ -51,6 +53,7 @@ lines = {
 }]),
 "id": "14",
 "next_id": "15",
+"tags": PackedStringArray(),
 "text": "Anyways, my name is {{cyan_ai}}. I am an AI, although not the most functional kind, as you might have just noticed...",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -73,6 +76,7 @@ lines = {
 }]),
 "id": "15",
 "next_id": "16",
+"tags": PackedStringArray(),
 "text": "My role is to support the school network on pretty much all ends, so everything runs smoothly for the staff and students.",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "My role is to support the school network on pretty much all ends, so everything runs smoothly for the staff and students.",
@@ -122,6 +126,7 @@ lines = {
 }]),
 "id": "7",
 "next_id": "8",
+"tags": PackedStringArray(),
 "text": "Hello, need help with anything?",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "Hello, need help with anything?",
@@ -132,6 +137,7 @@ lines = {
 "next_id": "13",
 "next_id_after": "13",
 "responses": PackedStringArray("8", "9"),
+"tags": PackedStringArray(),
 "text": "Tell us about yourself.",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "Tell us about yourself.",
@@ -141,10 +147,11 @@ lines = {
 "id": "9",
 "next_id": "end!",
 "next_id_after": "13",
+"tags": PackedStringArray(),
 "text": "Nevermind.",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "Nevermind.",
 "type": "response"
 }
 }
-metadata/dialogue_manager_version = "2.24.2"
+metadata/dialogue_manager_version = "2.28.0"

@@ -4,6 +4,8 @@ const neutral := ""
 const cheerful := "cheerful"
 const shocked := "shocked"
 const sorry := "sorry"
+const sad := "crying"
+const angry := "angry"
 
 
 func express(expression: String):

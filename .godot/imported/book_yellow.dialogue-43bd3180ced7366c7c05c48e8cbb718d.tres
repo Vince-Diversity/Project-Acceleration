@@ -1,9 +1,10 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_tyxss"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_35fi8"]
 
 [resource]
-script = ExtResource("1_tyxss")
+script = ExtResource("1_35fi8")
+using_states = PackedStringArray()
 titles = {
 "check": "3",
 "open_book": "8",
@@ -56,6 +57,7 @@ lines = {
 }]),
 "id": "14",
 "next_id": "15",
+"tags": PackedStringArray(),
 "text": "\"The name originates from when practitioners demonstrated that they could instantly warp through space, like a bolt of lightning!\"",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "\"The name originates from when practitioners demonstrated that they could instantly warp through space, like a bolt of lightning!\"",
@@ -72,6 +74,7 @@ lines = {
 }]),
 "id": "15",
 "next_id": "16",
+"tags": PackedStringArray(),
 "text": "\"The magic of electricity and light is a very practical ability to have. Most of the techno-magical inventions have been possible thanks to it, and techno-magical development is nowadays the biggest source of potency for this power.",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "\"The magic of electricity and light is a very practical ability to have. Most of the techno-magical inventions have been possible thanks to it, and techno-magical development is nowadays the biggest source of potency for this power.",
@@ -127,6 +130,7 @@ lines = {
 }]),
 "id": "3",
 "next_id": "4",
+"tags": PackedStringArray(),
 "text": "\"{{yellow_aspect}} Magic\". (Read this one?)",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -143,6 +147,7 @@ lines = {
 "next_id": "8",
 "next_id_after": "8",
 "responses": PackedStringArray("4", "5"),
+"tags": PackedStringArray(),
 "text": "Read",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "Read",
@@ -152,6 +157,7 @@ lines = {
 "id": "5",
 "next_id": "end!",
 "next_id_after": "8",
+"tags": PackedStringArray(),
 "text": "Leave",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "Leave",
@@ -200,4 +206,4 @@ lines = {
 "type": "mutation"
 }
 }
-metadata/dialogue_manager_version = "2.24.2"
+metadata/dialogue_manager_version = "2.28.0"

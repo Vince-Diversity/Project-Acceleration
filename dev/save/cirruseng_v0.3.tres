@@ -1,14 +1,21 @@
 [gd_resource type="Resource" script_class="SaveGame" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://loader/save_game.gd" id="1_wb8ea"]
+[ext_resource type="Script" path="res://loader/save_game.gd" id="1_olf32"]
 
 [resource]
-script = ExtResource("1_wb8ea")
+script = ExtResource("1_olf32")
 game_version = "0.3"
 data = {
 "game": {
-"current_room_id": "main_classroom",
+"current_room_id": "recreation_hallway",
 "entrance_event_key": {
+"dining_hall": {
+"dialogue_id": "enter_dining_hall",
+"dialogue_node": "cat",
+"interaction_node": "CatCutscene",
+"is_enabled": true,
+"is_oneshot": true
+},
 "dorm_1f": {
 "dialogue_id": "enter_dorm_1f",
 "dialogue_node": "follow_cat",
@@ -27,7 +34,7 @@ data = {
 "dialogue_id": "enter_green_dorm",
 "dialogue_node": "enter",
 "interaction_node": "CatCutscene",
-"is_enabled": true,
+"is_enabled": false,
 "is_oneshot": true
 },
 "recreation_hallway": {
@@ -38,27 +45,182 @@ data = {
 "is_oneshot": true
 }
 },
-"entrance_node": "DoorDown",
-"party_key": Array[String](["Blue"])
+"entrance_node": "PassageUp",
+"party_key": Array[String]([])
 },
 "rooms": {
+"dorm_1f": {
+"npcs": {},
+"things": {
+"DoorDown": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"DormDoor1": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"DormDoor2": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"DormDoor3": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"DormDoor4": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"DormDoor5": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"DormDoor6": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"DormDoor7": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"DormDoor8": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"PassageUp1": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"PassageUp2": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+}
+}
+},
+"dorm_2f": {
+"npcs": {},
+"things": {
+"DormDoor1": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"DormDoor2": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"DormDoor3": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"DormDoor4": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"DormDoor5": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"DormDoor6": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"DormDoor7": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"DormDoor8": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"PassageDown1": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"PassageDown2": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"PassageUp": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+}
+}
+},
+"dorm_hallway": {
+"npcs": {},
+"things": {
+"DoorUp": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"PassageDown": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+}
+}
+},
+"green_dorm": {
+"npcs": {},
+"things": {
+"Bed": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"DormDoor": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"UpChairOfficeTable": {
+"current_anim": &"office",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+}
+}
+},
 "main_classroom": {
 "npcs": {
 "Blue": {
-"dialogue_id": "",
-"dialogue_node": "",
-"direction": Vector2(0.999485, -0.0320866),
-"idling_room": "",
+"dialogue_id": "default_talk",
+"dialogue_node": "default",
+"direction": Vector2(0, 1),
+"idling_room": "main_classroom",
 "interaction_node": "",
-"position": Vector2(449.028, 97.2258),
+"position": Vector2(479.147, 97.2),
 "was_joined": false
 },
 "BlueTeacher": {
-"dialogue_id": "talk_blue_teacher",
-"dialogue_node": "query",
-"direction": Vector2(-0.0330638, 0.999453),
+"dialogue_id": "default_talk",
+"dialogue_node": "default",
+"direction": Vector2(-1, 0),
 "idling_room": "",
-"interaction_node": "ReturnCutscene",
+"interaction_node": "",
 "position": Vector2(480, 64),
 "was_joined": false
 }
@@ -76,10 +238,10 @@ data = {
 "Blue": {
 "dialogue_id": "",
 "dialogue_node": "",
-"direction": Vector2(0.0974505, -0.99524),
+"direction": Vector2(0.24156, -0.970386),
 "idling_room": "",
 "interaction_node": "",
-"position": Vector2(553.772, 98.7526),
+"position": Vector2(554.066, 98.7669),
 "was_joined": false
 }
 },
@@ -116,10 +278,10 @@ data = {
 "Blue": {
 "dialogue_id": "",
 "dialogue_node": "",
-"direction": Vector2(-0.000125303, -1),
+"direction": Vector2(0, -1),
 "idling_room": "",
 "interaction_node": "",
-"position": Vector2(576, -28.5),
+"position": Vector2(576, -26),
 "was_joined": false
 }
 },
@@ -150,6 +312,26 @@ data = {
 "current_state": "thing_interactable_state"
 },
 "PassageRight": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+}
+}
+},
+"recreation_hallway": {
+"npcs": {},
+"things": {
+"PassageDown": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"PassageLeft": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"PassageUp": {
 "current_anim": &"default",
 "current_frame": 0,
 "current_state": "thing_interactable_state"

@@ -144,11 +144,16 @@ func remove_member(member_node: String):
 
 func remove_npc(npc_node: String):
 	if owner.npcs.has_node(npc_node):
-		owner.npcs.queue_free()
+		owner.npcs.get_node(npc_node).queue_free()
 
 
-func create_npc(npc_name: String):
-	owner.create_npc(npc_name)
+func create_npc(npc_node: String):
+	owner.create_npc(npc_node)
+
+
+func elevate_npc(npc_node: String):
+	if owner.npcs.has_node(npc_node):
+		owner.npcs.get_node(npc_node).set_z_index(1)
 
 
 func set_player_anim(anim_name: String):

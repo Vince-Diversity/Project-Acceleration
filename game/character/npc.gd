@@ -5,6 +5,7 @@ class_name NPC extends Character
 @export var dialogue_node: String
 @export var bubble_content: Bubble.Content
 @export var preserved_direction: Utils.AnimID
+@export var preserved_animation: String = ""
 @export var is_imaginary: bool = false
 @export_enum(
 	"npc_still_state",

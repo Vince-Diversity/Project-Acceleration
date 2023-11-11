@@ -4,6 +4,8 @@
 [ext_resource type="SpriteFrames" uid="uid://fvwww2y0mjlm" path="res://resources/characters/yellow.tres" id="2_8hd7a"]
 
 [node name="Yellow" instance=ExtResource("1_wc42u")]
+preserved_animation = ""
+is_symmetric = false
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = ExtResource("2_8hd7a")

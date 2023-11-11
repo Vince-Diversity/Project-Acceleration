@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://c5lcysxp5jpcv"
+path="res://.godot/imported/enter_dining_hall.dialogue-62056042e29c8f3609d0e0a1a032c6c3.tres"
+
+[deps]
+
+source_file="res://resources/dialogue/enter_dining_hall.dialogue"
+dest_files=["res://.godot/imported/enter_dining_hall.dialogue-62056042e29c8f3609d0e0a1a032c6c3.tres"]
+
+[params]
+
+defaults=true

@@ -1,9 +1,10 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_dqjfo"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_xxj1s"]
 
 [resource]
-script = ExtResource("1_dqjfo")
+script = ExtResource("1_xxj1s")
+using_states = PackedStringArray()
 titles = {
 "cue": "2",
 "react": "6",
@@ -47,6 +48,7 @@ lines = {
 }]),
 "id": "11",
 "next_id": "12",
+"tags": PackedStringArray(),
 "text": "[do express(cheerful)] Good morning {{green_teacher}}! I'm just showing {{blue}} around.",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -75,6 +77,7 @@ lines = {
 }]),
 "id": "12",
 "next_id": "13",
+"tags": PackedStringArray(),
 "text": "Nice to meet you {{blue}}, and thank you, {{green}}, for attending to our new student.",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -177,4 +180,4 @@ lines = {
 "type": "title"
 }
 }
-metadata/dialogue_manager_version = "2.24.2"
+metadata/dialogue_manager_version = "2.28.0"

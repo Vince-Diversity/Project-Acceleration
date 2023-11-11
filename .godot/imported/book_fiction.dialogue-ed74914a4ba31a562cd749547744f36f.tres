@@ -1,9 +1,10 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_m3wj7"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_22ye4"]
 
 [resource]
-script = ExtResource("1_m3wj7")
+script = ExtResource("1_22ye4")
+using_states = PackedStringArray()
 titles = {
 "check": "2",
 "open_book": "7",
@@ -50,6 +51,7 @@ lines = {
 }]),
 "id": "13",
 "next_id": "14",
+"tags": PackedStringArray(),
 "text": "\"Countries, laws, economy, maybe even science itself. To allow cilivization to exist, we need collective fiction.\"",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "\"Countries, laws, economy, maybe even science itself. To allow cilivization to exist, we need collective fiction.\"",
@@ -66,6 +68,7 @@ lines = {
 }]),
 "id": "14",
 "next_id": "15",
+"tags": PackedStringArray(),
 "text": "\"But technology and magic has made it increasingly difficult to distinguish between fiction and reality.\"",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "\"But technology and magic has made it increasingly difficult to distinguish between fiction and reality.\"",
@@ -82,6 +85,7 @@ lines = {
 }]),
 "id": "15",
 "next_id": "16",
+"tags": PackedStringArray(),
 "text": "\"This is no news. Our Extended Reality machines are making fiction dauntingly real. And the study of the {{blue_aspect}} has enhanced this experience to almost terrifying heights.\"",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -104,6 +108,7 @@ lines = {
 }]),
 "id": "16",
 "next_id": "17",
+"tags": PackedStringArray(),
 "text": "\"More and more researchers are suggesting that the world conjured by {{blue_aspect}} magic is not fiction, but actually real. Perhaps their research subject has taken its toll on their senses. And yet, the critics have no better explanation themselves.\"",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -126,6 +131,7 @@ lines = {
 }]),
 "id": "17",
 "next_id": "18",
+"tags": PackedStringArray(),
 "text": "\"One of the most striking breakthroughs was the discovery of the {{imaginary}}. A world created entirely by our collective fiction?! We will give an extensive coverage of the evidence and the limitations to this monstrous idea...\"",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -181,6 +187,7 @@ lines = {
 }]),
 "id": "2",
 "next_id": "3",
+"tags": PackedStringArray(),
 "text": "\"The Manifestation of our Collective Fiction.\" (Read this one?)\"",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "\"The Manifestation of our Collective Fiction.\" (Read this one?)\"",
@@ -197,6 +204,7 @@ lines = {
 "next_id": "7",
 "next_id_after": "7",
 "responses": PackedStringArray("3", "4"),
+"tags": PackedStringArray(),
 "text": "Read",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "Read",
@@ -206,6 +214,7 @@ lines = {
 "id": "4",
 "next_id": "end!",
 "next_id_after": "7",
+"tags": PackedStringArray(),
 "text": "Leave",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "Leave",
@@ -260,4 +269,4 @@ lines = {
 "type": "goto"
 }
 }
-metadata/dialogue_manager_version = "2.24.2"
+metadata/dialogue_manager_version = "2.28.0"

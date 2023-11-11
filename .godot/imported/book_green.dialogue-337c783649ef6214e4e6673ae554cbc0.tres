@@ -1,9 +1,10 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_78hnv"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_adon3"]
 
 [resource]
-script = ExtResource("1_78hnv")
+script = ExtResource("1_adon3")
+using_states = PackedStringArray()
 titles = {
 "check": "2",
 "open_book": "8",
@@ -56,6 +57,7 @@ lines = {
 }]),
 "id": "14",
 "next_id": "15",
+"tags": PackedStringArray(),
 "text": "\"{{green_aspect}} is a traditional name, originating from when practitioners able to make plants sprout in a matter of seconds.\"",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -78,6 +80,7 @@ lines = {
 }]),
 "id": "15",
 "next_id": "16",
+"tags": PackedStringArray(),
 "text": "\"The better knowledge a {{green_aspect}} magic practitioner has of their working substances and the nature of the material world, the more freely they seem to be able to make things.\"",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -139,6 +142,7 @@ lines = {
 }]),
 "id": "2",
 "next_id": "3",
+"tags": PackedStringArray(),
 "text": "\"{{green_aspect}} Magic\"",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -161,6 +165,7 @@ lines = {
 }]),
 "id": "3",
 "next_id": "4",
+"tags": PackedStringArray(),
 "text": "[do express(cheerful)] This is my magics major, by the way!",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "[do express(cheerful)] This is my magics major, by the way!",
@@ -171,6 +176,7 @@ lines = {
 "next_id": "8",
 "next_id_after": "8",
 "responses": PackedStringArray("4", "5"),
+"tags": PackedStringArray(),
 "text": "Read",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "Read",
@@ -180,6 +186,7 @@ lines = {
 "id": "5",
 "next_id": "end!",
 "next_id_after": "8",
+"tags": PackedStringArray(),
 "text": "Leave",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "Leave",
@@ -228,4 +235,4 @@ lines = {
 "type": "mutation"
 }
 }
-metadata/dialogue_manager_version = "2.24.2"
+metadata/dialogue_manager_version = "2.28.0"

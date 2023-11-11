@@ -45,9 +45,9 @@ func _on_resume_pressed():
 func _on_save_pressed():
 	save_pressed.emit()
 	title.text = "Saved!"
-	resume.disabled = true
-	save.disabled = true
-	main_menu.disabled = true
+	for child in $Margin/MenuContainer.get_children():
+		if child == title: continue
+		child.disabled = true
 	await get_tree().create_timer(1.0).timeout
 	_unpause()
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://coa8dmvvos8a5"]
+[gd_scene load_steps=13 format=3 uid="uid://coa8dmvvos8a5"]
 
 [ext_resource type="PackedScene" uid="uid://c1go3780g6ead" path="res://game/room/room.tscn" id="1_dqmem"]
 [ext_resource type="TileSet" uid="uid://dhmtx2d8j5rgp" path="res://resources/tilesets/recreation_hall.tres" id="2_012av"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://d1nsacscsvvjl" path="res://game/character/npcs/maroon.tscn" id="8_4u2ao"]
 [ext_resource type="PackedScene" uid="uid://b8llbyadkffk7" path="res://game/character/npcs/yellow.tscn" id="9_5ung8"]
 [ext_resource type="PackedScene" uid="uid://bb6f8uvru2yol" path="res://game/cutscene/silent_cutscene/rest_cutscene/party_rest_cutscene.tscn" id="10_xnr6p"]
+[ext_resource type="PackedScene" uid="uid://bqlmbt878hrxk" path="res://game/cutscene/dialogue_cutscene.tscn" id="11_ctr5d"]
+[ext_resource type="PackedScene" uid="uid://dtkkkrcbtqu58" path="res://game/cutscene/character_mark.tscn" id="12_mx8sv"]
 
 [node name="DiningHall" instance=ExtResource("1_dqmem")]
 
@@ -35,22 +37,42 @@ interaction_node = "PartyRestCutscene"
 position = Vector2(226, 466)
 dialogue_id = "talk_amber"
 dialogue_node = "talk"
+preserved_animation = "sit_left"
 
 [node name="Lime" parent="YSort/NPCs" index="1" instance=ExtResource("7_m210d")]
 position = Vector2(166, 465)
 scale = Vector2(-1, 1)
 dialogue_id = "talk_lime"
 dialogue_node = "talk"
+preserved_animation = ""
 
 [node name="Maroon" parent="YSort/NPCs" index="2" instance=ExtResource("8_4u2ao")]
 position = Vector2(168, 435)
 scale = Vector2(-1, 1)
 dialogue_id = "talk_maroon"
 dialogue_node = "talk"
+preserved_animation = ""
 
 [node name="Yellow" parent="YSort/NPCs" index="3" instance=ExtResource("9_5ung8")]
 position = Vector2(222, 437)
 dialogue_id = "talk_yellow"
 dialogue_node = "talk"
+preserved_animation = "sit_left"
 
 [node name="PartyRestCutscene" parent="RoomCutscenes" index="0" instance=ExtResource("10_xnr6p")]
+
+[node name="CatCutscene" parent="RoomCutscenes" index="1" instance=ExtResource("11_ctr5d")]
+position = Vector2(192, 352)
+
+[node name="MentorMark" parent="RoomCutscenes/CatCutscene" index="0"]
+position = Vector2(64, 32)
+target_direction_id = 1
+
+[node name="CatMark" parent="RoomCutscenes/CatCutscene" index="2" instance=ExtResource("12_mx8sv")]
+position = Vector2(0, 96)
+target_direction_id = 3
+
+[node name="YellowMark1" parent="RoomCutscenes/CatCutscene" index="3" instance=ExtResource("12_mx8sv")]
+position = Vector2(0, 64)
+
+[editable path="RoomCutscenes/CatCutscene"]

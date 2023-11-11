@@ -1,9 +1,10 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_ejc2q"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_4e5a6"]
 
 [resource]
-script = ExtResource("1_ejc2q")
+script = ExtResource("1_4e5a6")
+using_states = PackedStringArray()
 titles = {
 "follow_cat": "2"
 }
@@ -52,9 +53,24 @@ lines = {
 },
 "4": {
 "id": "4",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "enable_entrance_event",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "dining_hall"
+}])])
+}])
+},
+"next_id": "5",
+"type": "mutation"
+},
+"5": {
+"id": "5",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 }
 }
-metadata/dialogue_manager_version = "2.27.3"
+metadata/dialogue_manager_version = "2.28.0"

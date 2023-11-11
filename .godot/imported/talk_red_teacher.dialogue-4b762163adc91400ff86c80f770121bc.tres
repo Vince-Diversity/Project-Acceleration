@@ -1,9 +1,10 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_cbn3t"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_ia5rq"]
 
 [resource]
-script = ExtResource("1_cbn3t")
+script = ExtResource("1_ia5rq")
+using_states = PackedStringArray()
 titles = {
 "talk": "2"
 }
@@ -42,6 +43,7 @@ lines = {
 }]),
 "id": "3",
 "next_id": "4",
+"tags": PackedStringArray(),
 "text": "Hope you are fired up for some battle practice this term!",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "Hope you are fired up for some battle practice this term!",
@@ -58,6 +60,7 @@ lines = {
 }]),
 "id": "4",
 "next_id": "5",
+"tags": PackedStringArray(),
 "text": "Actually, I'm not so fond of that.",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "Actually, I'm not so fond of that.",
@@ -74,6 +77,7 @@ lines = {
 }]),
 "id": "5",
 "next_id": "6",
+"tags": PackedStringArray(),
 "text": "Think about it! Your friend {{red}} would need someone as dedicated as you to spar with.",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -96,6 +100,7 @@ lines = {
 }]),
 "id": "6",
 "next_id": "7",
+"tags": PackedStringArray(),
 "text": "{{blue}}, this is {{red_teacher}}. She is the main teacher of {{red_aspect}} magic but she also manages magical martial arts training.",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -126,4 +131,4 @@ lines = {
 "type": "goto"
 }
 }
-metadata/dialogue_manager_version = "2.24.2"
+metadata/dialogue_manager_version = "2.28.0"
