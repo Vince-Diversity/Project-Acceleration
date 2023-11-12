@@ -4,7 +4,8 @@ class_name Character extends CharacterBody2D
 @export var is_symmetric: bool = true
 @onready var anim_sprite = $AnimatedSprite2D
 @onready var following_area = $FollowingArea
-@onready var collosion = $CollisionShape2D
+@onready var collision = $CollisionShape2D
+@onready var items = $Items
 var inputted_direction := Vector2(0, 1)
 var party: Party
 
@@ -43,11 +44,17 @@ func update_angle():
 
 
 func set_animation(anim_name: String):
+	items.clear_exhibit()
 	anim_sprite.set_animation(anim_name)
 	var anim_id = Utils.get_anim_id(anim_name)
 	if is_instance_valid(anim_id):
 		set_direction(Utils.get_anim_direction(anim_id))
 		update_direction()
+
+
+func set_exhibit_animation(item_id: String):
+	set_animation("exhibit")
+	items.set_exhibit_item(item_id)
 
 
 func get_anim_name() -> String:

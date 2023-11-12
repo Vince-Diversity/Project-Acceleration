@@ -8,6 +8,7 @@ const profile_dir = "res://assets/profiles/"
 const bgm_dir = "res://assets/sound/bgm/"
 const npc_dir = "res://game/character/npcs/"
 const entrance_event_dir = "res://resources/events/entrance_events/"
+const item_dir = "res://game/item/items/"
 
 const anim_direction = {
 	Vector2.DOWN: AnimID.DOWN,
@@ -81,16 +82,20 @@ static func get_profile_path(dlg_line: DialogueLine, expression: String) -> Stri
 	return profile_dir.path_join(name).path_join(profile_id + ".png")
 
 
-static func get_bgm_path(bgm_name: String):
+static func get_bgm_path(bgm_name: String) -> String:
 	return bgm_dir.path_join(bgm_name + ".ogg")
 
 
-static func get_npc_path(npc_id: String):
+static func get_npc_path(npc_id: String) -> String:
 	return npc_dir.path_join(npc_id + ".tscn")
 
 
-static func get_entrance_event_path(room_id: String):
+static func get_entrance_event_path(room_id: String) -> String:
 	return entrance_event_dir.path_join(room_id + ".tres")
+
+
+static func get_item_path(item_id: String) -> String:
+	return item_dir.path_join(item_id + ".tscn")
 
 
 static func str_to_seed(name: String) -> int:

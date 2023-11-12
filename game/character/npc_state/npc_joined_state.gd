@@ -2,7 +2,7 @@ class_name NPCJoinedState extends NPCState
 
 
 func enter():
-	npc.collosion.set_disabled(true)
+	npc.collision.set_disabled(true)
 	npc.interact_area.set_monitoring(false)
 	npc.interact_area.set_monitorable(false)
 	npc.set_deferred("is_following", true)

@@ -19,6 +19,7 @@ do set_npc_direction("Cat", "up")
 {{cat}}: Me-ow?
 {{maroon}}: Man, the life-like reactions on this thing is unreal.
 {{yellow}}: Hold it! I sense an illusion spell. In fact, I carry the perfect tool to prove this!
-
-#{{yellow}}: Behold the {{revealer}}. A single peek through this gizmo will reveal the cat's true form!
+do set_npc_exhibit_anim("Yellow", "revealer")
+{{yellow}}: Behold the {{revealer}}. A single peek through this gizmo will reveal the cat's true form!
+do set_npc_anim("Yellow", "reveal_down")
 => END!

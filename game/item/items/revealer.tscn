@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bh7w3jfdqsrm6"]
+
+[ext_resource type="PackedScene" uid="uid://dx5vipp61bwlj" path="res://game/item/item.tscn" id="1_c5cj5"]
+[ext_resource type="SpriteFrames" uid="uid://buhrqrw4jbbca" path="res://resources/items/revealer.tres" id="2_cn1j8"]
+
+[node name="Revealer" instance=ExtResource("1_c5cj5")]
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = ExtResource("2_cn1j8")

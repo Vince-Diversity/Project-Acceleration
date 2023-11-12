@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dx5vipp61bwlj"]
+
+[node name="Item" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

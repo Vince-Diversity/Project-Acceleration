@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_xi1rx"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_223hs"]
 
 [resource]
-script = ExtResource("1_xi1rx")
+script = ExtResource("1_223hs")
 using_states = PackedStringArray()
 titles = {
 "approach": "10",
@@ -195,15 +195,74 @@ lines = {
 "value_in_text": "{{yellow}}"
 }]),
 "id": "21",
-"next_id": "24",
+"next_id": "22",
 "tags": PackedStringArray(),
 "text": "Hold it! I sense an illusion spell. In fact, I carry the perfect tool to prove this!",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "Hold it! I sense an illusion spell. In fact, I carry the perfect tool to prove this!",
 "type": "dialogue"
 },
+"22": {
+"id": "22",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_npc_exhibit_anim",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Yellow"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "revealer"
+}])])
+}])
+},
+"next_id": "23",
+"type": "mutation"
+},
+"23": {
+"character": "{{yellow}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "yellow"
+}]),
+"value_in_text": "{{yellow}}"
+}]),
+"id": "23",
+"next_id": "24",
+"tags": PackedStringArray(),
+"text": "Behold the {{revealer}}. A single peek through this gizmo will reveal the cat's true form!",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "revealer"
+}]),
+"value_in_text": "{{revealer}}"
+}]),
+"translation_key": "Behold the {{revealer}}. A single peek through this gizmo will reveal the cat's true form!",
+"type": "dialogue"
+},
 "24": {
 "id": "24",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_npc_anim",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Yellow"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "reveal_down"
+}])])
+}])
+},
+"next_id": "25",
+"type": "mutation"
+},
+"25": {
+"id": "25",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"

@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bk16wp1xkfq2e"]
+[gd_scene load_steps=6 format=3 uid="uid://bk16wp1xkfq2e"]
 
 [ext_resource type="Script" path="res://game/character/character.gd" id="1"]
+[ext_resource type="Script" path="res://game/character/items.gd" id="2_vxkua"]
+[ext_resource type="SpriteFrames" uid="uid://cg28xmmgcp04u" path="res://resources/vfx/exhibit_background.tres" id="3_0ggke"]
 
 [sub_resource type="CapsuleShape2D" id="1"]
 radius = 1.0
@@ -27,3 +29,12 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FollowingArea"]
 shape = SubResource("2")
+
+[node name="Items" type="Node2D" parent="."]
+script = ExtResource("2_vxkua")
+
+[node name="ExhibitMark" type="Marker2D" parent="Items"]
+
+[node name="ExhibitBackground" type="AnimatedSprite2D" parent="Items/ExhibitMark"]
+visible = false
+sprite_frames = ExtResource("3_0ggke")

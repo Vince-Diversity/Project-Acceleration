@@ -1,4 +1,9 @@
 res://assets/characters/yellow
+res://assets/vfx
+res://resources/vfx/
+res://assets/items
+res://resources/items/
+res://game/item/items
 res://assets/characters/amber
 res://assets/characters/cat
 res://loader/settings
@@ -15,8 +20,3 @@ res://game/thing
 res://game/thing/table
 res://resources/tilesets
 res://resources/characters
-res://assets/characters/blue_teacher
-res://game/cutscene/dialogue_cutscene/dorm_door_cutscene
-res://game/thing/door
-res://resources/things
-res://game/character/npcs/
