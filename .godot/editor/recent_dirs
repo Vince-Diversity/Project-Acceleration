@@ -1,3 +1,4 @@
+res://game/room/rooms
 res://assets/characters/yellow
 res://assets/vfx
 res://resources/vfx/
@@ -8,7 +9,6 @@ res://assets/characters/amber
 res://assets/characters/cat
 res://loader/settings
 res://loader
-res://game/room/rooms
 res://resources/characters/
 res://game/character/npcs
 res://resources/events/entrance_events/

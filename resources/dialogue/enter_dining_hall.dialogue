@@ -17,9 +17,24 @@ do move_npc("Yellow", "YellowMark1", "watch")
 ~ watch
 do set_npc_direction("Cat", "up")
 {{cat}}: Me-ow?
-{{maroon}}: Man, the life-like reactions on this thing is unreal.
-{{yellow}}: Hold it! I sense an illusion spell. In fact, I carry the perfect tool to prove this!
+{{lime}}: Heh, this robot is impressive.
+{{yellow}}: Won't fool me. It's just an illusion spell.
 do set_npc_exhibit_anim("Yellow", "revealer")
-{{yellow}}: Behold the {{revealer}}. A single peek through this gizmo will reveal the cat's true form!
+{{yellow}}: Behold the {{revealer}}. Watch, a single peek will reveal the cat's true form!
 do set_npc_anim("Yellow", "reveal_down")
+{{yellow}}: Reveal yourself!
+do flash("curiosity")
+=> END!
+
+~ curiosity
+do set_npc_anim("Cat", "lying_down")
+do reset_lighting("observation")
+=> END!
+
+~ observation
+do set_npc_anim("Yellow", "down")
+do wait(1)
+do set_npc_anim("Yellow", "lose_down")
+{{yellow}}: [do express(sad)] No! It's dead.
+{{lime}}: Curiosity killed the cat!
 => END!

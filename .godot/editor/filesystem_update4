@@ -1,4 +1,4 @@
-res://game/character/character.tscn
+res://game/room/rooms/dining_hall.tscn
 res://game/pause_menu.gd
 res://resources/events/entrance_event.gd
 res://resources/tilesets/recreation_hall.tres
@@ -6,18 +6,11 @@ res://resources/things/door/blue_door.tres
 res://resources/things/table/default_table.tres
 res://resources/things/table/dining_table.tres
 res://resources/things/chair/dining_chair.tres
+res://resources/vfx/exhibit_background.tres
 res://resources/characters/blue.tres
 res://resources/characters/amber.tres
 res://resources/characters/lime.tres
 res://resources/characters/maroon.tres
 res://resources/characters/yellow.tres
-res://resources/items/revealer.tres
-res://game/character/character.gd
-res://game/character/items.gd
-res://game/constant/utils.gd
-res://game/room/rooms/dining_hall.tscn
-res://game/item/item.tscn
-res://game/item/items/revealer.tscn
-res://game/character/npcs/yellow.tscn
-res://game/cutscene/dialogue_cutscene.gd
-res://resources/vfx/exhibit_background.tres
+res://game/ui/textbox/textbox.tscn
+res://game/ui/textbox/textbox.gd

@@ -139,3 +139,8 @@ static func any(list: Array[bool]) -> bool:
 		if el == true:
 			return true
 	return false
+
+
+# Polar to cartesian
+static func ra2xy(r, a) -> Vector2:
+	return Vector2(r*cos(a), r*sin(a))

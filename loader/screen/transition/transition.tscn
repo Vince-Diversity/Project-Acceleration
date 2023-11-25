@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://k53sw6oqxqop"]
+
+[ext_resource type="Script" path="res://loader/screen/transition/transition.gd" id="1_o6cy5"]
+
+[node name="Transition" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_o6cy5")
+r = 1.895
+a = 0.683

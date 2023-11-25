@@ -1,16 +1,18 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_223hs"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_p17im"]
 
 [resource]
-script = ExtResource("1_223hs")
+script = ExtResource("1_p17im")
 using_states = PackedStringArray()
 titles = {
 "approach": "10",
 "cat": "2",
+"curiosity": "30",
+"observation": "35",
 "watch": "18"
 }
-character_names = PackedStringArray("{{cat}}", "{{amber}}", "{{green}}", "{{yellow}}", "{{maroon}}")
+character_names = PackedStringArray("{{cat}}", "{{amber}}", "{{green}}", "{{yellow}}", "{{lime}}")
 first_title = "2"
 lines = {
 "1": {
@@ -169,20 +171,20 @@ lines = {
 "type": "mutation"
 },
 "20": {
-"character": "{{maroon}}",
+"character": "{{lime}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
 "type": "variable",
-"value": "maroon"
+"value": "lime"
 }]),
-"value_in_text": "{{maroon}}"
+"value_in_text": "{{lime}}"
 }]),
 "id": "20",
 "next_id": "21",
 "tags": PackedStringArray(),
-"text": "Man, the life-like reactions on this thing is unreal.",
+"text": "Heh, this robot is impressive.",
 "text_replacements": Array[Dictionary]([]),
-"translation_key": "Man, the life-like reactions on this thing is unreal.",
+"translation_key": "Heh, this robot is impressive.",
 "type": "dialogue"
 },
 "21": {
@@ -197,9 +199,9 @@ lines = {
 "id": "21",
 "next_id": "22",
 "tags": PackedStringArray(),
-"text": "Hold it! I sense an illusion spell. In fact, I carry the perfect tool to prove this!",
+"text": "Won't fool me. It's just an illusion spell.",
 "text_replacements": Array[Dictionary]([]),
-"translation_key": "Hold it! I sense an illusion spell. In fact, I carry the perfect tool to prove this!",
+"translation_key": "Won't fool me. It's just an illusion spell.",
 "type": "dialogue"
 },
 "22": {
@@ -232,7 +234,7 @@ lines = {
 "id": "23",
 "next_id": "24",
 "tags": PackedStringArray(),
-"text": "Behold the {{revealer}}. A single peek through this gizmo will reveal the cat's true form!",
+"text": "Behold the {{revealer}}. Watch, a single peek will reveal the cat's true form!",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
 "type": "variable",
@@ -240,7 +242,7 @@ lines = {
 }]),
 "value_in_text": "{{revealer}}"
 }]),
-"translation_key": "Behold the {{revealer}}. A single peek through this gizmo will reveal the cat's true form!",
+"translation_key": "Behold the {{revealer}}. Watch, a single peek will reveal the cat's true form!",
 "type": "dialogue"
 },
 "24": {
@@ -262,10 +264,48 @@ lines = {
 "type": "mutation"
 },
 "25": {
+"character": "{{yellow}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "yellow"
+}]),
+"value_in_text": "{{yellow}}"
+}]),
 "id": "25",
+"next_id": "26",
+"tags": PackedStringArray(),
+"text": "Reveal yourself!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Reveal yourself!",
+"type": "dialogue"
+},
+"26": {
+"id": "26",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "flash",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "curiosity"
+}])])
+}])
+},
+"next_id": "27",
+"type": "mutation"
+},
+"27": {
+"id": "27",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
+},
+"29": {
+"id": "29",
+"next_id": "30",
+"text": "curiosity",
+"type": "title"
 },
 "3": {
 "id": "3",
@@ -285,6 +325,136 @@ lines = {
 "next_id": "4",
 "type": "mutation"
 },
+"30": {
+"id": "30",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_npc_anim",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Cat"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "lying_down"
+}])])
+}])
+},
+"next_id": "31",
+"type": "mutation"
+},
+"31": {
+"id": "31",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "reset_lighting",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "observation"
+}])])
+}])
+},
+"next_id": "32",
+"type": "mutation"
+},
+"32": {
+"id": "32",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"34": {
+"id": "34",
+"next_id": "35",
+"text": "observation",
+"type": "title"
+},
+"35": {
+"id": "35",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_npc_anim",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Yellow"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "down"
+}])])
+}])
+},
+"next_id": "36",
+"type": "mutation"
+},
+"36": {
+"id": "36",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "wait",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "number",
+"value": 1
+}])])
+}])
+},
+"next_id": "37",
+"type": "mutation"
+},
+"37": {
+"id": "37",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_npc_anim",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Yellow"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "lose_down"
+}])])
+}])
+},
+"next_id": "38",
+"type": "mutation"
+},
+"38": {
+"character": "{{yellow}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "yellow"
+}]),
+"value_in_text": "{{yellow}}"
+}]),
+"id": "38",
+"next_id": "39",
+"tags": PackedStringArray(),
+"text": "[do express(sad)] No! It's dead.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "[do express(sad)] No! It's dead.",
+"type": "dialogue"
+},
+"39": {
+"character": "{{lime}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "lime"
+}]),
+"value_in_text": "{{lime}}"
+}]),
+"id": "39",
+"next_id": "40",
+"tags": PackedStringArray(),
+"text": "Curiosity killed the cat!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Curiosity killed the cat!",
+"type": "dialogue"
+},
 "4": {
 "id": "4",
 "mutation": {
@@ -299,6 +469,12 @@ lines = {
 },
 "next_id": "5",
 "type": "mutation"
+},
+"40": {
+"id": "40",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
 },
 "5": {
 "character": "{{cat}}",
@@ -345,4 +521,4 @@ lines = {
 "type": "title"
 }
 }
-metadata/dialogue_manager_version = "2.28.0"
+metadata/dialogue_manager_version = "2.29.2"
