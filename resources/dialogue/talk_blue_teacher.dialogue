@@ -4,11 +4,11 @@ do move("talk")
 
 
 ~ talk
-{{green}}: [do express(cheerful)] Good morning {{blue_teacher}}!
+{{green}}: [#expression=cheerful] Good morning {{blue_teacher}}!
 do turn_npc_to_player("BlueTeacher")
-{{blue_teacher}}: [do express(cheerful)] Hello {{green}}! And this new face is our new student?
+{{blue_teacher}}: [#expression=cheerful] Hello {{green}}! And this new face is our new student?
 {{blue}}: Hi. I'm {{blue}}.
-{{blue_teacher}}: [do express(cheerful)] I have heard of your extraordinary abilities and will greatly look forward to be your main teacher.
+{{blue_teacher}}: [#expression=cheerful] I have heard of your extraordinary abilities and will greatly look forward to be your main teacher.
 {{blue_teacher}}: When you two are ready, [color=yellow]please return here so I can introduce {{blue}} to our study of the {{blue_aspect}}[/color].
 do set_npc_interaction_node("BlueTeacher", "ReturnCutscene")
 do set_npc_dialogue_node("BlueTeacher", "query")
@@ -30,7 +30,7 @@ do move("proceed")
 do set_npc_direction("BlueTeacher", "down")
 do remove_member("Blue")
 {{green}}: (OK, time to go.)
-{{green}}: [do express(cheerful)] Bye {{blue_teacher}}! Bye {{blue}}.
+{{green}}: [#expression=cheerful] Bye {{blue_teacher}}! Bye {{blue}}.
 do add_async([[make_fade_away, [2]]])
 do add_async([[make_move_player, ["ReturnMark1"]], [make_move_player, ["ReturnMark2"]]])
 do play_async("reset")

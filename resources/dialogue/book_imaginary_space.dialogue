@@ -5,7 +5,7 @@ do move("open_book")
 
 ~ open_book
 {{green}}: "The Myth of {{deepest_layer}}".
-{{green}}: [do express(cheerful)] This might be of help to you!
+{{green}}: [#expression=cheerful] This might be of help to you!
 do set_thing_anim("BookcaseImaginarySpace", bookcase_taken_anim)
 do animate_player(read_anim, "read")
 => END!
@@ -18,7 +18,7 @@ do set_player_anim(reading_anim)
 {{green}}: "Yet, despite all efforts, there is no consensus on the scientific validity of alledged evidence for its existence."
 {{green}}: "Researchers have merely been able to state that this mystery is yet enshrouded in an incomprehensible mist."
 {{green}}: "Hence, this deepest layer became recognised by the name: {{deepest_layer}}."
-{{green}}: [do express(cheerful)] Hmm... I believe we should try look for this place called {{deepest_layer}} sometime.
+{{green}}: [#expression=cheerful] Hmm... I believe we should try look for this place called {{deepest_layer}} sometime.
 do set_thing_anim("BookcaseImaginarySpace", bookcase_anim)
 do set_player_anim("down")
 => END!

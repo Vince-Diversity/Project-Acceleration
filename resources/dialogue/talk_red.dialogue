@@ -36,20 +36,20 @@ do play_async("finish")
 ~ talk
 {{red}}: Our classmates seem to have difficulties igniting just a single candle.
 {{red}}: Maybe it is because most students do not know what they practice for.
-{{red}}: [do express(sorry)] Not that I know why I practice so much.
+{{red}}: [#expression=sorry] Not that I know why I practice so much.
 {{red}}: I just always put in my best effort, isn't that the most natural thing to do?
 => END!
 
 ~ finish
 do set_npc_anim("Red", "down")
-{{red}}: [do express(sorry)] Sorry for venting on you again.
-{{green}}: [do express(cheerful)] No problem, thanks for the demo!
+{{red}}: [#expression=sorry] Sorry for venting on you again.
+{{green}}: [#expression=sorry] No problem, thanks for the demo!
 do set_npc_dialogue_node("Red", "revisit")
 => END!
 
 ~ revisit
 do turn_npc_to_player("Red")
-{{green}}: [do express(cheerful)] Hi again! Can you show us another demo?
-{{red}}: [do express(sorry)] Please, let me recover first.
+{{green}}: [#expression=cheerful] Hi again! Can you show us another demo?
+{{red}}: [#expression=sorry] Please, let me recover first.
 do set_npc_anim("Red", "down")
 => END!

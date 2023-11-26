@@ -11,7 +11,7 @@ else
 ~ request
 do turn_npc_to_player("Average")
 {{average}}: Don't get us wrong, we're simple, secularized civilians. But we'd appreciate if you could find something sacred for us.
-{{green}}: [do express(sorry)] I will try...
+{{green}}: [#expression=sorry] I will try...
 do set_npc_direction("Average", "down")
 => END!
 

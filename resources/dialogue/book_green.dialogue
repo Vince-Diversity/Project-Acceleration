@@ -1,6 +1,6 @@
 ~ check
 {{green}}: "{{green_aspect}} Magic"
-{{green}}: [do express(cheerful)] This is my magics major, by the way!
+{{green}}: [#expression=cheerful] This is my magics major, by the way!
 - Read => open_book
 - Leave => END!
 

@@ -11,7 +11,7 @@ do move_player("EnterMark2", "chat")
 
 ~ chat
 do turn_npc_to_player("Cat")
-{{green}}: [do express(cheerful)] Aren't you an uninvited visitor?
+{{green}}: [#expression=cheerful] Aren't you an uninvited visitor?
 {{cat}}: Me-ow Me-ow!
 {{green}}: (The windows are closed. Wonder how it got in here...)
 do move_npc("Cat", "CatMark1", "escape_1")

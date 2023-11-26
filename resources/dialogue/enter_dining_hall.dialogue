@@ -16,7 +16,7 @@ do move_player("MentorMark2", "approach2")
 
 ~ approach2
 {{amber}}: Great. All that effort undone by a fake cat.
-{{green}}: [do express(sorry)] I'm sorry I couldn't catch up to it.
+{{green}}: [#expression=sorry] I'm sorry I couldn't catch up to it.
 {{yellow}}: Forget the game, this is amazing!
 do elevate_npc("Yellow")
 do move_npc("Yellow", "YellowMark1", "watch")
@@ -43,7 +43,7 @@ do reset_lighting("observation")
 do set_npc_direction("Yellow", "down")
 do wait(1)
 do set_npc_anim("Yellow", "lose_down")
-{{yellow}}: [do express(sad)] No! It's dead.
+{{yellow}}: [#expression=crying] No! It's dead.
 {{lime}}: Curiosity killed the cat!
 {{amber}}: How sad! Can you get off the table now?
 do move_npc("Yellow", "YellowMark2", "examine")
@@ -92,7 +92,7 @@ do animate_npc("Yellow", "up", "bet")
 {{yellow}}: Aha!
 do set_npc_anim("Yellow", "exhibit")
 {{yellow}}: If the dice rolls an odd number, {{cat}} is is mine.
-{{green}}: [do express(impish)] And if it rolls an even number, I get your [color=yellow]{{revealer}}[/color].
+{{green}}: [#expression=smug] And if it rolls an even number, I get your [color=yellow]{{revealer}}[/color].
 {{yellow}}: I like your attitude!
 do animate_npc("Yellow", "left", "rolled")
 => END!
@@ -100,7 +100,7 @@ do animate_npc("Yellow", "left", "rolled")
 ~ rolled
 The dice rolls a [[2|4|6]].
 do set_npc_anim("Yellow", "lose_down")
-{{yellow}}: [do express(sad)] Nooo!
+{{yellow}}: [#expression=crying] Nooo!
 do move_player("MentorMark3", "item_got")
 => END!
 
