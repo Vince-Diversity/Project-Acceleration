@@ -1,3 +1,8 @@
+res://game/character
+res://assets/characters/green
+res://assets/things
+res://assets/characters/lime
+res://assets/characters/maroon
 res://game/room/rooms
 res://assets/characters/yellow
 res://assets/vfx
@@ -14,9 +19,4 @@ res://game/character/npcs
 res://resources/events/entrance_events/
 res://resources/events/
 res://game/thing/bed
-res://assets/things
-res://assets/characters/green
 res://game/thing
-res://game/thing/table
-res://resources/tilesets
-res://resources/characters

@@ -1,14 +1,15 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_5ipwl"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_mtc15"]
 
 [resource]
-script = ExtResource("1_5ipwl")
+script = ExtResource("1_mtc15")
 using_states = PackedStringArray()
 titles = {
-"talk": "2"
+"talk": "2",
+"talk_after_cat_event": "7"
 }
-character_names = PackedStringArray("{{lime}}")
+character_names = PackedStringArray("{{lime}}", "{{green}}")
 first_title = "2"
 lines = {
 "1": {
@@ -16,6 +17,109 @@ lines = {
 "next_id": "2",
 "text": "talk",
 "type": "title"
+},
+"10": {
+"character": "{{lime}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "lime"
+}]),
+"value_in_text": "{{lime}}"
+}]),
+"id": "10",
+"next_id": "11",
+"tags": PackedStringArray(),
+"text": "I should have realised sooner. Every time a new dice is rolled, it takes the opposite polarity of the object in play; odd, or even.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "I should have realised sooner. Every time a new dice is rolled, it takes the opposite polarity of the object in play; odd, or even.",
+"type": "dialogue"
+},
+"11": {
+"character": "{{lime}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "lime"
+}]),
+"value_in_text": "{{lime}}"
+}]),
+"id": "11",
+"next_id": "12",
+"tags": PackedStringArray(),
+"text": "And when {{yellow}} used the {{revealer}} on the {{cat}}, he failed to account for the fact that the polarity was reversed!",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "yellow"
+}]),
+"value_in_text": "{{yellow}}"
+}, {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "revealer"
+}]),
+"value_in_text": "{{revealer}}"
+}, {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "cat"
+}]),
+"value_in_text": "{{cat}}"
+}]),
+"translation_key": "And when {{yellow}} used the {{revealer}} on the {{cat}}, he failed to account for the fact that the polarity was reversed!",
+"type": "dialogue"
+},
+"12": {
+"character": "{{lime}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "lime"
+}]),
+"value_in_text": "{{lime}}"
+}]),
+"id": "12",
+"next_id": "13",
+"tags": PackedStringArray(),
+"text": "[do express(cheerful)] But you noticed everything. So smart of you.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "[do express(cheerful)] But you noticed everything. So smart of you.",
+"type": "dialogue"
+},
+"13": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"id": "13",
+"next_id": "14",
+"tags": PackedStringArray(),
+"text": "[do express(cheerful)] Thank you for the compliments!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "[do express(cheerful)] Thank you for the compliments!",
+"type": "dialogue"
+},
+"14": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"id": "14",
+"next_id": "",
+"tags": PackedStringArray(),
+"text": "[do express(cheerful)] (I'm not sure I understand though!)",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "[do express(cheerful)] (I'm not sure I understand though!)",
+"type": "dialogue"
 },
 "2": {
 "character": "{{lime}}",
@@ -39,6 +143,75 @@ lines = {
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
+},
+"6": {
+"id": "6",
+"next_id": "7",
+"text": "talk_after_cat_event",
+"type": "title"
+},
+"7": {
+"character": "{{lime}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "lime"
+}]),
+"value_in_text": "{{lime}}"
+}]),
+"id": "7",
+"next_id": "8",
+"tags": PackedStringArray(),
+"text": "[do express(cheerful)] You're so clever, {{green}}.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"translation_key": "[do express(cheerful)] You're so clever, {{green}}.",
+"type": "dialogue"
+},
+"8": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"id": "8",
+"next_id": "9",
+"tags": PackedStringArray(),
+"text": "Oh? How so?",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Oh? How so?",
+"type": "dialogue"
+},
+"9": {
+"character": "{{lime}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "lime"
+}]),
+"value_in_text": "{{lime}}"
+}]),
+"id": "9",
+"next_id": "10",
+"tags": PackedStringArray(),
+"text": "Yes. {{yellow}}'s tricks were right in front of our noses and we saw nothing.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "yellow"
+}]),
+"value_in_text": "{{yellow}}"
+}]),
+"translation_key": "Yes. {{yellow}}'s tricks were right in front of our noses and we saw nothing.",
+"type": "dialogue"
 }
 }
-metadata/dialogue_manager_version = "2.28.0"
+metadata/dialogue_manager_version = "2.29.2"

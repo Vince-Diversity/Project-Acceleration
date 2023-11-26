@@ -1,12 +1,20 @@
 ~ cat
 do create_npc("Cat")
 do set_npc_at_mark("Cat", "CatMark")
+do set_npc_at_mark("Maroon", "MaroonMark1")
+do set_npc_at_mark("Lime", "LimeMark1")
+do set_thing_anim("SideChairBoardGameTable", "ruined_board_game")
 do elevate_npc("Cat")
 {{cat}}: Me-ow Me-ow!
-do move("approach")
+do move("approach1")
 => END!
 
-~ approach
+~ approach1
+do move_player("MentorMark2", "approach2")
+=> END!
+
+
+~ approach2
 {{amber}}: Great. All that effort undone by a fake cat.
 {{green}}: [do express(sorry)] I'm sorry I couldn't catch up to it.
 {{yellow}}: Forget the game, this is amazing!
@@ -20,7 +28,7 @@ do set_npc_direction("Cat", "up")
 {{lime}}: Heh, this robot is impressive.
 {{yellow}}: Won't fool me. It's just an illusion spell.
 do set_npc_exhibit_anim("Yellow", "revealer")
-{{yellow}}: Behold the {{revealer}}. Watch, a single peek will reveal the cat's true form!
+{{yellow}}: Behold the [color=yellow]{{revealer}}[/color]. Watch, a single peek will reveal the cat's true form!
 do set_npc_anim("Yellow", "reveal_down")
 {{yellow}}: Reveal yourself!
 do flash("curiosity")
@@ -32,9 +40,71 @@ do reset_lighting("observation")
 => END!
 
 ~ observation
-do set_npc_anim("Yellow", "down")
+do set_npc_direction("Yellow", "down")
 do wait(1)
 do set_npc_anim("Yellow", "lose_down")
 {{yellow}}: [do express(sad)] No! It's dead.
 {{lime}}: Curiosity killed the cat!
+{{amber}}: How sad! Can you get off the table now?
+do move_npc("Yellow", "YellowMark2", "examine")
+=> END!
+
+~ examine
+do reset_npc_elevation("Yellow")
+do move_npc("Amber", "BoardMark", "reactivate")
+=> END!
+
+~ reactivate
+{{amber}}: Hold on.
+do animate_npc("Amber", "left", "reactivated")
+=> END!
+
+~ reactivated
+do set_npc_direction("Cat", "right")
+{{cat}}: Me-ow!
+{{amber}}: There. It has an on-switch.
+{{yellow}}: To be expected for such a perfect test subject!
+do turn_player_to_npc("Yellow")
+{{green}}: What if I do not want you to treat {{cat}} as a test subject?
+do turn_npc_to_player("Yellow")
+{{yellow}}: Like you're the owner, {{green}}!
+{{lime}}: Did you find this mechanical creature on the web? Or perhaps it was a gift?
+do turn_player_to_npc("Lime")
+{{green}}: No, I don't know where you could find them.
+do turn_player_to_npc("Yellow")
+{{green}}: But I know that it's not yours, {{yellow}}.
+{{yellow}}: Then how about a bet?
+do move_npc("Yellow", "BoardMark", "push")
+=> END!
+
+~ push
+do turn_player_to_npc("Yellow")
+do move_npc("Amber", "AmberMark1", "search")
+=> END!
+
+~ search
+{{amber}}: Don't push me!
+{{yellow}}: Just looking for the second dice.
+do animate_npc("Yellow", "up", "bet")
+=> END!
+
+~ bet
+{{yellow}}: Aha!
+do set_npc_anim("Yellow", "exhibit")
+{{yellow}}: If the dice rolls an odd number, {{cat}} is is mine.
+{{green}}: [do express(impish)] And if it rolls an even number, I get your [color=yellow]{{revealer}}[/color].
+{{yellow}}: I like your attitude!
+do animate_npc("Yellow", "left", "rolled")
+=> END!
+
+~ rolled
+The dice rolls a [[2|4|6]].
+do set_npc_anim("Yellow", "lose_down")
+{{yellow}}: [do express(sad)] Nooo!
+do move_player("MentorMark3", "item_got")
+=> END!
+
+~ item_got
+do set_player_exhibit_anim("revealer")
+[color=yellow]Obtained the {{revealer}}![/color]
 => END!

@@ -4,6 +4,8 @@
 [ext_resource type="SpriteFrames" uid="uid://d3a4bs6q2q4xp" path="res://resources/characters/maroon.tres" id="2_lu4dg"]
 
 [node name="Maroon" instance=ExtResource("1_qdhaf")]
+preserved_animation = ""
+is_symmetric = false
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = ExtResource("2_lu4dg")

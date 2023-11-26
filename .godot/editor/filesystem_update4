@@ -12,5 +12,9 @@ res://resources/characters/amber.tres
 res://resources/characters/lime.tres
 res://resources/characters/maroon.tres
 res://resources/characters/yellow.tres
-res://game/ui/textbox/textbox.tscn
-res://game/ui/textbox/textbox.gd
+res://game/cutscene/dialogue_cutscene.gd
+res://game/constant/names.gd
+res://game/ui/textbox/profile.gd
+res://game/thing/table/side_chair_board_game_table.tscn
+res://resources/characters/green.tres
+res://game/character/player.tscn

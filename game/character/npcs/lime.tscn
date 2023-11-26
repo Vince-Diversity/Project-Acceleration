@@ -4,6 +4,8 @@
 [ext_resource type="SpriteFrames" uid="uid://d056tgt8nx4tg" path="res://resources/characters/lime.tres" id="2_imh1c"]
 
 [node name="Lime" instance=ExtResource("1_yxp51")]
+preserved_animation = ""
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = ExtResource("2_imh1c")
+animation = &"sit_right"

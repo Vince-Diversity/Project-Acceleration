@@ -23,6 +23,7 @@ script = ExtResource("3")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = ExtResource("2")
+animation = &"exhibit"
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("CircleShape2D_act1d")
@@ -48,3 +49,6 @@ shape = SubResource("CircleShape2D_rkx78")
 [node name="BubblePlace" parent="." index="5" instance=ExtResource("4_pvxn0")]
 position = Vector2(18, -29)
 sprite_frames = ExtResource("5_cnrpg")
+
+[node name="ExhibitMark" parent="Items" index="0"]
+position = Vector2(-10, -17)

@@ -1,3 +1,14 @@
 ~ talk
 {{lime}}: The number of possible outcomes far exceeds my mental capability.
 => END!
+
+
+~ talk_after_cat_event
+{{lime}}: [do express(cheerful)] You're so clever, {{green}}.
+{{green}}: Oh? How so?
+{{lime}}: Yes. {{yellow}}'s tricks were right in front of our noses and we saw nothing.
+{{lime}}: I should have realised sooner. Every time a new dice is rolled, it takes the opposite polarity of the object in play; odd, or even.
+{{lime}}: And when {{yellow}} used the {{revealer}} on the {{cat}}, he failed to account for the fact that the polarity was reversed!
+{{lime}}: [do express(cheerful)] But you noticed everything. So smart of you.
+{{green}}: [do express(cheerful)] Thank you for the compliments!
+{{green}}: [do express(cheerful)] (I'm not sure I understand though!)

@@ -51,4 +51,5 @@ do set_npc_dialogue_node("Red", "revisit")
 do turn_npc_to_player("Red")
 {{green}}: [do express(cheerful)] Hi again! Can you show us another demo?
 {{red}}: [do express(sorry)] Please, let me recover first.
+do set_npc_anim("Red", "down")
 => END!

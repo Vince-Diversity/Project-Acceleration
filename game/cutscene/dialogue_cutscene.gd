@@ -156,6 +156,11 @@ func elevate_npc(npc_node: String):
 		owner.npcs.get_node(npc_node).set_z_index(1)
 
 
+func reset_npc_elevation(npc_node: String):
+	if owner.npcs.has_node(npc_node):
+		owner.npcs.get_node(npc_node).set_z_index(0)
+
+
 func set_player_anim(anim_name: String):
 	owner.party.player.set_animation(anim_name)
 
@@ -222,10 +227,21 @@ func set_thing_anim(thing_node: String, anim_name: String):
 func turn_npc_to_player(npc_node: String):
 	if owner.npcs.has_node(npc_node):
 		var npc = owner.npcs.get_node(npc_node)
-		var direction: Vector2 =\
-			owner.party.player.global_position - npc.global_position
+		var direction: Vector2 = _get_npc_to_player_direction(npc_node)
 		npc.set_direction(direction)
 		npc.update_direction()
+
+
+func turn_player_to_npc(npc_node):
+	if owner.npcs.has_node(npc_node):
+		var direction = -_get_npc_to_player_direction(npc_node)
+		owner.party.player.set_direction(direction)
+		owner.party.player.update_direction()
+
+
+func _get_npc_to_player_direction(npc_node) -> Vector2:
+	var npc = owner.npcs.get_node(npc_node)
+	return owner.party.player.global_position - npc.global_position
 
 
 func enable_entrance_event(room_id: String):

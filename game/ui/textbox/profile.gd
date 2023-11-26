@@ -6,6 +6,7 @@ const shocked := "shocked"
 const sorry := "sorry"
 const sad := "crying"
 const angry := "angry"
+const impish := "smug"
 
 
 func express(expression: String):

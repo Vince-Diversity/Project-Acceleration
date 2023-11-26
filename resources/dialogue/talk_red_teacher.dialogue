@@ -4,4 +4,5 @@ do turn_npc_to_player("RedTeacher")
 {{green}}: Actually, I'm not so fond of that.
 {{red_teacher}}: Think about it! Your friend {{red}} would need someone as dedicated as you to spar with.
 {{green}}: {{blue}}, this is {{red_teacher}}. She is the main teacher of {{red_aspect}} magic but she also manages magical martial arts training.
+do set_npc_direction("RedTeacher", "down")
 => END!
