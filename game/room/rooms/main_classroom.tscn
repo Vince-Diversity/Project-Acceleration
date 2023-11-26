@@ -21,14 +21,15 @@ next_room_id = "main_hallway"
 next_room_entrance_node = "DoorUp"
 
 [node name="BlueTeacher" parent="YSort/NPCs" index="0" instance=ExtResource("4_ftpyf")]
-position = Vector2(480, 64)
+position = Vector2(448, 64)
 interaction_node = "BlueTeacherCutscene"
 dialogue_id = "talk_blue_teacher"
 dialogue_node = "cue"
 preserved_direction = 2
+preserved_animation = ""
 
 [node name="BlueTeacherCutscene" parent="RoomCutscenes" index="0" instance=ExtResource("5_kfbhs")]
-position = Vector2(480, 64)
+position = Vector2(448, 64)
 
 [node name="MentorMark" parent="RoomCutscenes/BlueTeacherCutscene" index="0"]
 target_direction_id = 2
@@ -38,7 +39,7 @@ position = Vector2(-32, 32)
 target_direction_id = 2
 
 [node name="ReturnCutscene" parent="RoomCutscenes" index="1" instance=ExtResource("5_kfbhs")]
-position = Vector2(512, 96)
+position = Vector2(480, 96)
 
 [node name="MentorMark" parent="RoomCutscenes/ReturnCutscene" index="0"]
 position = Vector2(-32, 32)
@@ -49,10 +50,10 @@ position = Vector2(-32, 0)
 target_direction_id = 2
 
 [node name="ReturnMark1" parent="RoomCutscenes/ReturnCutscene" index="2" instance=ExtResource("6_7yf1x")]
-position = Vector2(0, 64)
+position = Vector2(32, 64)
 
 [node name="ReturnMark2" parent="RoomCutscenes/ReturnCutscene" index="3" instance=ExtResource("6_7yf1x")]
-position = Vector2(0, 448)
+position = Vector2(32, 448)
 
 [editable path="RoomCutscenes/BlueTeacherCutscene"]
 [editable path="RoomCutscenes/ReturnCutscene"]

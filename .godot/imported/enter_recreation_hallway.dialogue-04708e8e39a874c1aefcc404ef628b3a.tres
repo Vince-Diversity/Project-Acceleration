@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_4e5a6"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_55lq1"]
 
 [resource]
-script = ExtResource("1_4e5a6")
+script = ExtResource("1_55lq1")
 using_states = PackedStringArray()
 titles = {
 "follow_cat": "2"
@@ -46,9 +46,9 @@ lines = {
 "id": "3",
 "next_id": "4",
 "tags": PackedStringArray(),
-"text": "(The meowing is coming from the dining hall!)",
+"text": "(It's coming from the dining hall!)",
 "text_replacements": Array[Dictionary]([]),
-"translation_key": "(The meowing is coming from the dining hall!)",
+"translation_key": "(It's coming from the dining hall!)",
 "type": "dialogue"
 },
 "4": {
@@ -73,4 +73,4 @@ lines = {
 "type": "goto"
 }
 }
-metadata/dialogue_manager_version = "2.28.0"
+metadata/dialogue_manager_version = "2.29.2"

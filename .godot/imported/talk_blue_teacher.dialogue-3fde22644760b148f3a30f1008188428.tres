@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_gfxxc"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_bpd1c"]
 
 [resource]
-script = ExtResource("1_gfxxc")
+script = ExtResource("1_bpd1c")
 using_states = PackedStringArray()
 titles = {
 "cue": "2",
@@ -57,10 +57,10 @@ lines = {
 }]),
 "id": "11",
 "next_id": "12",
-"tags": PackedStringArray(),
-"text": "[do express(cheerful)] I have heard of your extraordinary abilities and will greatly look forward to be your main teacher.",
+"tags": PackedStringArray("expression=cheerful"),
+"text": "I have heard of your extraordinary abilities and will greatly look forward to be your main teacher.",
 "text_replacements": Array[Dictionary]([]),
-"translation_key": "[do express(cheerful)] I have heard of your extraordinary abilities and will greatly look forward to be your main teacher.",
+"translation_key": "I have heard of your extraordinary abilities and will greatly look forward to be your main teacher.",
 "type": "dialogue"
 },
 "12": {
@@ -299,8 +299,8 @@ lines = {
 }]),
 "id": "33",
 "next_id": "34",
-"tags": PackedStringArray(),
-"text": "[do express(cheerful)] Bye {{blue_teacher}}! Bye {{blue}}.",
+"tags": PackedStringArray("expression=cheerful"),
+"text": "Bye {{blue_teacher}}! Bye {{blue}}.",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
 "type": "variable",
@@ -314,7 +314,7 @@ lines = {
 }]),
 "value_in_text": "{{blue}}"
 }]),
-"translation_key": "[do express(cheerful)] Bye {{blue_teacher}}! Bye {{blue}}.",
+"translation_key": "Bye {{blue_teacher}}! Bye {{blue}}.",
 "type": "dialogue"
 },
 "34": {
@@ -604,8 +604,8 @@ lines = {
 }]),
 "id": "7",
 "next_id": "8",
-"tags": PackedStringArray(),
-"text": "[do express(cheerful)] Good morning {{blue_teacher}}!",
+"tags": PackedStringArray("expression=cheerful"),
+"text": "Good morning {{blue_teacher}}!",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
 "type": "variable",
@@ -613,7 +613,7 @@ lines = {
 }]),
 "value_in_text": "{{blue_teacher}}"
 }]),
-"translation_key": "[do express(cheerful)] Good morning {{blue_teacher}}!",
+"translation_key": "Good morning {{blue_teacher}}!",
 "type": "dialogue"
 },
 "8": {
@@ -642,8 +642,8 @@ lines = {
 }]),
 "id": "9",
 "next_id": "10",
-"tags": PackedStringArray(),
-"text": "[do express(cheerful)] Hello {{green}}! And this new face is our new student?",
+"tags": PackedStringArray("expression=cheerful"),
+"text": "Hello {{green}}! And this new face is our new student?",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
 "type": "variable",
@@ -651,8 +651,8 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
-"translation_key": "[do express(cheerful)] Hello {{green}}! And this new face is our new student?",
+"translation_key": "Hello {{green}}! And this new face is our new student?",
 "type": "dialogue"
 }
 }
-metadata/dialogue_manager_version = "2.28.0"
+metadata/dialogue_manager_version = "2.29.2"

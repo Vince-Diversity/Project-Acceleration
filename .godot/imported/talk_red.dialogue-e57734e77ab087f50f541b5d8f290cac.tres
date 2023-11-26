@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_akelr"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_252ch"]
 
 [resource]
-script = ExtResource("1_akelr")
+script = ExtResource("1_252ch")
 using_states = PackedStringArray()
 titles = {
 "burn": "24",
@@ -751,10 +751,10 @@ lines = {
 }]),
 "id": "39",
 "next_id": "40",
-"tags": PackedStringArray(),
-"text": "[do express(sorry)] Not that I know why I practice so much.",
+"tags": PackedStringArray("expression=sorry"),
+"text": "Not that I know why I practice so much.",
 "text_replacements": Array[Dictionary]([]),
-"translation_key": "[do express(sorry)] Not that I know why I practice so much.",
+"translation_key": "Not that I know why I practice so much.",
 "type": "dialogue"
 },
 "4": {
@@ -832,10 +832,10 @@ lines = {
 }]),
 "id": "45",
 "next_id": "46",
-"tags": PackedStringArray(),
-"text": "[do express(sorry)] Sorry for venting on you again.",
+"tags": PackedStringArray("expression=sorry"),
+"text": "Sorry for venting on you again.",
 "text_replacements": Array[Dictionary]([]),
-"translation_key": "[do express(sorry)] Sorry for venting on you again.",
+"translation_key": "Sorry for venting on you again.",
 "type": "dialogue"
 },
 "46": {
@@ -849,10 +849,10 @@ lines = {
 }]),
 "id": "46",
 "next_id": "47",
-"tags": PackedStringArray(),
-"text": "[do express(cheerful)] No problem, thanks for the demo!",
+"tags": PackedStringArray("expression=sorry"),
+"text": "No problem, thanks for the demo!",
 "text_replacements": Array[Dictionary]([]),
-"translation_key": "[do express(cheerful)] No problem, thanks for the demo!",
+"translation_key": "No problem, thanks for the demo!",
 "type": "dialogue"
 },
 "47": {
@@ -934,10 +934,10 @@ lines = {
 }]),
 "id": "52",
 "next_id": "53",
-"tags": PackedStringArray(),
-"text": "[do express(cheerful)] Hi again! Can you show us another demo?",
+"tags": PackedStringArray("expression=cheerful"),
+"text": "Hi again! Can you show us another demo?",
 "text_replacements": Array[Dictionary]([]),
-"translation_key": "[do express(cheerful)] Hi again! Can you show us another demo?",
+"translation_key": "Hi again! Can you show us another demo?",
 "type": "dialogue"
 },
 "53": {
@@ -951,10 +951,10 @@ lines = {
 }]),
 "id": "53",
 "next_id": "54",
-"tags": PackedStringArray(),
-"text": "[do express(sorry)] Please, let me recover first.",
+"tags": PackedStringArray("expression=sorry"),
+"text": "Please, let me recover first.",
 "text_replacements": Array[Dictionary]([]),
-"translation_key": "[do express(sorry)] Please, let me recover first.",
+"translation_key": "Please, let me recover first.",
 "type": "dialogue"
 },
 "54": {

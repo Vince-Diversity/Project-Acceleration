@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_mtc15"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_gnnoq"]
 
 [resource]
-script = ExtResource("1_mtc15")
+script = ExtResource("1_gnnoq")
 using_states = PackedStringArray()
 titles = {
 "talk": "2",
@@ -81,10 +81,10 @@ lines = {
 }]),
 "id": "12",
 "next_id": "13",
-"tags": PackedStringArray(),
-"text": "[do express(cheerful)] But you noticed everything. So smart of you.",
+"tags": PackedStringArray("expression=cheerful"),
+"text": "But you noticed everything. So smart of you.",
 "text_replacements": Array[Dictionary]([]),
-"translation_key": "[do express(cheerful)] But you noticed everything. So smart of you.",
+"translation_key": "But you noticed everything. So smart of you.",
 "type": "dialogue"
 },
 "13": {
@@ -98,10 +98,10 @@ lines = {
 }]),
 "id": "13",
 "next_id": "14",
-"tags": PackedStringArray(),
-"text": "[do express(cheerful)] Thank you for the compliments!",
+"tags": PackedStringArray("expression=cheerful"),
+"text": "Thank you for the compliments!",
 "text_replacements": Array[Dictionary]([]),
-"translation_key": "[do express(cheerful)] Thank you for the compliments!",
+"translation_key": "Thank you for the compliments!",
 "type": "dialogue"
 },
 "14": {
@@ -114,12 +114,18 @@ lines = {
 "value_in_text": "{{green}}"
 }]),
 "id": "14",
-"next_id": "",
-"tags": PackedStringArray(),
-"text": "[do express(cheerful)] (I'm not sure I understand though!)",
+"next_id": "15",
+"tags": PackedStringArray("expression=cheerful"),
+"text": "(I'm not sure I understand though!)",
 "text_replacements": Array[Dictionary]([]),
-"translation_key": "[do express(cheerful)] (I'm not sure I understand though!)",
+"translation_key": "(I'm not sure I understand though!)",
 "type": "dialogue"
+},
+"15": {
+"id": "15",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
 },
 "2": {
 "character": "{{lime}}",
@@ -161,8 +167,8 @@ lines = {
 }]),
 "id": "7",
 "next_id": "8",
-"tags": PackedStringArray(),
-"text": "[do express(cheerful)] You're so clever, {{green}}.",
+"tags": PackedStringArray("expression=cheerful"),
+"text": "You're so clever, {{green}}.",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
 "type": "variable",
@@ -170,7 +176,7 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
-"translation_key": "[do express(cheerful)] You're so clever, {{green}}.",
+"translation_key": "You're so clever, {{green}}.",
 "type": "dialogue"
 },
 "8": {

@@ -68,6 +68,7 @@ func load_save(sg: SaveGame):
 		create_player()
 	for member in get_party_ordered():
 		owner.entrance.set_entrance_direction(member)
+	player.items.load_save_from_parent(sg)
 
 
 func _add_member(member: NPC):

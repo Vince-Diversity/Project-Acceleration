@@ -107,4 +107,11 @@ do move_player("MentorMark3", "item_got")
 ~ item_got
 do set_player_exhibit_anim("revealer")
 [color=yellow]Obtained the {{revealer}}![/color]
+do add_item("revealer")
+{{cat}}: Me-ow!
+do set_player_anim("down")
+do remove_npc("Yellow")
+do set_npc_dialogue_node("Amber", "talk_after_cat_event")
+do set_npc_dialogue_node("Lime", "talk_after_cat_event")
+do set_npc_dialogue_node("Maroon", "talk_after_cat_event")
 => END!

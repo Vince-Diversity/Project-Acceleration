@@ -9,7 +9,7 @@ func enter():
 
 
 func exit():
-	npc.collosion.set_disabled(false)
+	npc.collision.set_disabled(false)
 	npc.interact_area.set_monitoring(true)
 	npc.interact_area.set_monitorable(true)
 	npc.is_following = false

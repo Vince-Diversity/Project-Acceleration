@@ -1,3 +1,5 @@
+AnimationPlayer
+TextureRect
 Control
 CanvasLayer
 AnimatedSprite2D
@@ -18,7 +20,6 @@ AudioStreamPlayer
 ColorRect
 Area2D
 VSplitContainer
-TextureRect
 CharacterBody2D
 Character
 Node

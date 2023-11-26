@@ -48,6 +48,7 @@ func make_save(sg: SaveGame):
 	npc_dict[sg.anim_key] = npc.anim_sprite.get_animation()
 	npc_dict[sg.idling_room_key] = npc.idling_room_id
 	npc_dict[sg.was_joined_key] = npc.is_waiting_at_gateway
+	npc_dict[sg.z_index_key] = npc.z_index
 
 
 func make_preserved_save(sg: SaveGame):
@@ -61,6 +62,7 @@ func make_preserved_save(sg: SaveGame):
 	npc_dict[sg.anim_key] = npc.preserved_animation
 	npc_dict[sg.idling_room_key] = ""
 	npc_dict[sg.was_joined_key] = false
+	npc_dict[sg.z_index_key] = npc.preserved_z_index
 
 
 func load_save(sg: SaveGame):
@@ -75,3 +77,4 @@ func load_save(sg: SaveGame):
 		npc.set_animation(npc_dict[sg.anim_key])
 		npc.idling_room_id = npc_dict[sg.idling_room_key]
 		npc.is_waiting_at_gateway = npc_dict[sg.was_joined_key]
+		npc.set_z_index(npc_dict[sg.z_index_key])

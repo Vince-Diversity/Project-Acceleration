@@ -79,7 +79,7 @@ func set_nearest_interactable(new_interactable: Node2D):
 	if is_instance_valid(new_interactable):
 		if not is_instance_valid(bubble):
 			bubble = bubble_scn.instantiate()
-			bubble.init_bubble(new_interactable.bubble_content)
+			bubble.init_bubble()
 			add_child(bubble)
 			bubble.set_position(bubble_place.position)
 	else:

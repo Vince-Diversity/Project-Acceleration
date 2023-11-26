@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_adon3"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_d8wdc"]
 
 [resource]
-script = ExtResource("1_adon3")
+script = ExtResource("1_d8wdc")
 using_states = PackedStringArray()
 titles = {
 "check": "2",
@@ -165,10 +165,10 @@ lines = {
 }]),
 "id": "3",
 "next_id": "4",
-"tags": PackedStringArray(),
-"text": "[do express(cheerful)] This is my magics major, by the way!",
+"tags": PackedStringArray("expression=cheerful"),
+"text": "This is my magics major, by the way!",
 "text_replacements": Array[Dictionary]([]),
-"translation_key": "[do express(cheerful)] This is my magics major, by the way!",
+"translation_key": "This is my magics major, by the way!",
 "type": "dialogue"
 },
 "4": {
@@ -235,4 +235,4 @@ lines = {
 "type": "mutation"
 }
 }
-metadata/dialogue_manager_version = "2.28.0"
+metadata/dialogue_manager_version = "2.29.2"

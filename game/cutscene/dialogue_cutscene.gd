@@ -144,7 +144,7 @@ func remove_member(member_node: String):
 
 func remove_npc(npc_node: String):
 	if owner.npcs.has_node(npc_node):
-		owner.npcs.get_node(npc_node).queue_free()
+		owner.remove_npc(npc_node)
 
 
 func create_npc(npc_node: String):
@@ -257,6 +257,10 @@ func add_member(npc_node: String):
 func add_source_as_member():
 	if cutscenes.current_source_node.is_class("CharacterBody2D"):
 		owner.party.add_npc_as_member(cutscenes.current_source_node)
+
+
+func add_item(item_id: String):
+	owner.party.player.items.add_item(item_id)
 
 
 func play_async(next_dlg_line: String):

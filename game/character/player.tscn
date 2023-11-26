@@ -20,6 +20,8 @@ collision_layer = 1
 collision_mask = 6
 motion_mode = 1
 script = ExtResource("3")
+speed = null
+is_symmetric = null
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = ExtResource("2")
@@ -49,6 +51,8 @@ shape = SubResource("CircleShape2D_rkx78")
 [node name="BubblePlace" parent="." index="5" instance=ExtResource("4_pvxn0")]
 position = Vector2(18, -29)
 sprite_frames = ExtResource("5_cnrpg")
+
+[node name="Items" parent="." index="6" groups=["Preserved"]]
 
 [node name="ExhibitMark" parent="Items" index="0"]
 position = Vector2(-10, -17)

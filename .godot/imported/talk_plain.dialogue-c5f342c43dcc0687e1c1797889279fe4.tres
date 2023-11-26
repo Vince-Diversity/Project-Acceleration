@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_uwwq3"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_5owu3"]
 
 [resource]
-script = ExtResource("1_uwwq3")
+script = ExtResource("1_5owu3")
 using_states = PackedStringArray()
 titles = {
 "392725370/found": "1",
@@ -152,8 +152,8 @@ lines = {
 }]),
 "id": "19",
 "next_id": "20",
-"tags": PackedStringArray(),
-"text": "[do express(sorry)] Excuse me, but I don't she is a sacred thing. She is just a girl and it is her name that is {{sacred}}.",
+"tags": PackedStringArray("expression=sorry"),
+"text": "Excuse me, but I don't she is a sacred thing. She is just a girl and it is her name that is {{sacred}}.",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
 "type": "variable",
@@ -161,7 +161,7 @@ lines = {
 }]),
 "value_in_text": "{{sacred}}"
 }]),
-"translation_key": "[do express(sorry)] Excuse me, but I don't she is a sacred thing. She is just a girl and it is her name that is {{sacred}}.",
+"translation_key": "Excuse me, but I don't she is a sacred thing. She is just a girl and it is her name that is {{sacred}}.",
 "type": "dialogue"
 },
 "2": {
@@ -227,10 +227,10 @@ lines = {
 }]),
 "id": "22",
 "next_id": "23",
-"tags": PackedStringArray(),
-"text": "[do express(sorry)] (... How strange.)",
+"tags": PackedStringArray("expression=sorry"),
+"text": "(... How strange.)",
 "text_replacements": Array[Dictionary]([]),
-"translation_key": "[do express(sorry)] (... How strange.)",
+"translation_key": "(... How strange.)",
 "type": "dialogue"
 },
 "23": {
@@ -623,4 +623,4 @@ lines = {
 "type": "dialogue"
 }
 }
-metadata/dialogue_manager_version = "2.28.0"
+metadata/dialogue_manager_version = "2.29.2"

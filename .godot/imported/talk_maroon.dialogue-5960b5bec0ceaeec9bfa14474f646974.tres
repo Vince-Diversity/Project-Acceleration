@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_fbqhq"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_wnega"]
 
 [resource]
-script = ExtResource("1_fbqhq")
+script = ExtResource("1_wnega")
 using_states = PackedStringArray()
 titles = {
 "talk": "2",
@@ -80,12 +80,18 @@ lines = {
 "value_in_text": "{{maroon}}"
 }]),
 "id": "8",
-"next_id": "",
+"next_id": "9",
 "tags": PackedStringArray(),
 "text": "Wasn't always like this. But his genius self changed him.",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "Wasn't always like this. But his genius self changed him.",
 "type": "dialogue"
+},
+"9": {
+"id": "9",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
 }
 }
 metadata/dialogue_manager_version = "2.29.2"

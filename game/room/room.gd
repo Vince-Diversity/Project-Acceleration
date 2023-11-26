@@ -29,6 +29,7 @@ signal room_changed(next_room_id: String, next_room_entrance_node: String)
 signal player_interacted(interactable: Node2D)
 signal end_interaction()
 signal entrance_event_edited(room_id: String, is_enabled: bool)
+signal npc_removed(npc_name: String)
 
 
 func _ready():
@@ -108,7 +109,8 @@ func init_room(
 		given_textbox_started_target: Callable,
 		given_cutscene_ended_target: Callable,
 		given_textbox_focused_target: Callable,
-		entrance_event_edited_target: Callable):
+		entrance_event_edited_target: Callable,
+		npc_removed_target: Callable):
 	room_id = given_room_id
 	entrance_node = given_entrance_node
 	stm = given_stm
@@ -120,6 +122,7 @@ func init_room(
 	cutscene_ended_target = given_cutscene_ended_target
 	textbox_focused_target = given_textbox_focused_target
 	entrance_event_edited.connect(entrance_event_edited_target)
+	npc_removed.connect(npc_removed_target)
 
 
 func handle_cutscene(target_root: Node2D):
@@ -130,8 +133,8 @@ func handle_cutscene(target_root: Node2D):
 			target_root.dialogue_node,
 			target_root)
 	else:
-		var node_name = add_unique_cutscene()
-		target_root.interaction_node = node_name
+		var node_node = add_unique_cutscene()
+		target_root.interaction_node = node_node
 		_on_begin_interaction.call_deferred(target_root)
 
 
@@ -151,16 +154,16 @@ func start_cutscene(
 func add_unique_cutscene() -> String:
 	# When using this, wait for the cutscene node to be added before starting the cutscene
 	var dlg_cutscene: DialogueCutscene = dialogue_cutscene_scn.instantiate()
-	var node_name = "Default%s" % cutscenes.get_children().size()
-	add_cutscene(dlg_cutscene, node_name)
-	return node_name
+	var node_node = "Default%s" % cutscenes.get_children().size()
+	add_cutscene(dlg_cutscene, node_node)
+	return node_node
 
 
-func add_cutscene(cutscene: Cutscene, node_name: String):
+func add_cutscene(cutscene: Cutscene, node_node: String):
 		cutscenes.add_child(cutscene)
 		cutscene.owner = self
 		make_cutscene(cutscene)
-		cutscene.name = node_name
+		cutscene.name = node_node
 
 
 func remove_members_at_gateway(door: Door):
@@ -170,11 +173,18 @@ func remove_members_at_gateway(door: Door):
 			member.is_waiting_at_gateway = true
 
 
-func create_npc(npc_name: String):
-	var npc_id = Utils.get_npc_id(npc_name)
+func create_npc(npc_node: String):
+	var npc_id = Utils.get_npc_id(npc_node)
 	var npc = load(Utils.get_npc_path(npc_id)).instantiate()
 	npcs.add_child(npc)
 	npc.make_npc(npc.spawn_state, self)
+	npc.idling_room_id = room_id
+
+
+func remove_npc(npc_node: String):
+	var npc = npcs.get_node(npc_node)
+	npc_removed.emit(npc.name)
+	npc.queue_free()
 
 
 func change_room(next_room_id: String, next_room_entrance_node: String):

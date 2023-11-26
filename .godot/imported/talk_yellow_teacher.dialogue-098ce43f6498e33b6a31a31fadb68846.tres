@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_axr0l"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_1obru"]
 
 [resource]
-script = ExtResource("1_axr0l")
+script = ExtResource("1_1obru")
 using_states = PackedStringArray()
 titles = {
 "cue": "2",
@@ -113,8 +113,8 @@ lines = {
 }]),
 "id": "2",
 "next_id": "3",
-"tags": PackedStringArray(),
-"text": "[do express(cheerful)] Good morning {{yellow_teacher_formally}}!",
+"tags": PackedStringArray("expression=cheerful"),
+"text": "Good morning {{yellow_teacher_formally}}!",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
 "type": "variable",
@@ -122,7 +122,7 @@ lines = {
 }]),
 "value_in_text": "{{yellow_teacher_formally}}"
 }]),
-"translation_key": "[do express(cheerful)] Good morning {{yellow_teacher_formally}}!",
+"translation_key": "Good morning {{yellow_teacher_formally}}!",
 "type": "dialogue"
 },
 "20": {
@@ -175,10 +175,10 @@ lines = {
 }]),
 "id": "29",
 "next_id": "30",
-"tags": PackedStringArray(),
-"text": "[do express(shocked)] oops.",
+"tags": PackedStringArray("expression=shocked"),
+"text": "oops.",
 "text_replacements": Array[Dictionary]([]),
-"translation_key": "[do express(shocked)] oops.",
+"translation_key": "oops.",
 "type": "dialogue"
 },
 "3": {
@@ -368,10 +368,10 @@ lines = {
 }]),
 "id": "45",
 "next_id": "46",
-"tags": PackedStringArray(),
-"text": "[do express(shocked)] Let's pretend we just met, ok?",
+"tags": PackedStringArray("expression=shocked"),
+"text": "Let's pretend we just met, ok?",
 "text_replacements": Array[Dictionary]([]),
-"translation_key": "[do express(shocked)] Let's pretend we just met, ok?",
+"translation_key": "Let's pretend we just met, ok?",
 "type": "dialogue"
 },
 "46": {
@@ -437,8 +437,8 @@ lines = {
 }]),
 "id": "48",
 "next_id": "49",
-"tags": PackedStringArray(),
-"text": "[do express(shocked)] Just call me {{yellow_teacher}}, please.",
+"tags": PackedStringArray("expression=shocked"),
+"text": "Just call me {{yellow_teacher}}, please.",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
 "type": "variable",
@@ -446,7 +446,7 @@ lines = {
 }]),
 "value_in_text": "{{yellow_teacher}}"
 }]),
-"translation_key": "[do express(shocked)] Just call me {{yellow_teacher}}, please.",
+"translation_key": "Just call me {{yellow_teacher}}, please.",
 "type": "dialogue"
 },
 "49": {
@@ -572,4 +572,4 @@ lines = {
 "type": "mutation"
 }
 }
-metadata/dialogue_manager_version = "2.28.0"
+metadata/dialogue_manager_version = "2.29.2"

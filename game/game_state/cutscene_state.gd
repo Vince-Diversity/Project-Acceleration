@@ -21,11 +21,12 @@ func enter():
 
 
 func exit():
-	var source_node = cutscenes.current_source_node
-	for node in cutscenes.get_tree().get_nodes_in_group("Preserved"):
-		if node == source_node:
-			if not node.has_method("exit_cutscene"): continue
-			node.exit_cutscene()
+	cutscenes.get_tree().call_group("Preserved", "exit-cutscene")
+#	var source_node = cutscenes.current_source_node
+#	for node in cutscenes.get_tree().get_nodes_in_group("Preserved"):
+#		if node == source_node:
+#		if not node.has_method("exit_cutscene"): continue
+#		node.exit_cutscene()
 	cutscenes.reset()
 
 

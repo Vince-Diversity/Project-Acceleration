@@ -3,7 +3,6 @@ class_name NPC extends Character
 @export var interaction_node: String
 @export var dialogue_id: String
 @export var dialogue_node: String
-@export var bubble_content: Bubble.Content
 @export var preserved_direction: Utils.AnimID
 @export var preserved_animation: String = ""
 @export var is_imaginary: bool = false
@@ -16,6 +15,7 @@ class_name NPC extends Character
 	preload("res://game/character/npc_state/npc_joined_state.gd").new("npc_joined_state", self)
 @onready var interact_area = $InteractArea
 var preserved_position: Vector2
+var preserved_z_index : int
 var state_list: Dictionary
 var current_state: NPCState
 var room: Room
@@ -94,3 +94,4 @@ func load_save(sg: SaveGame):
 
 func exit_cutscene():
 	preserved_position = global_position
+	preserved_z_index = z_index

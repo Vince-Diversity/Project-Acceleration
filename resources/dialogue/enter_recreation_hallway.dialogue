@@ -1,5 +1,5 @@
 ~ follow_cat
 {{cat}}: Me-ow Me-ow!
-{{green}}: (The meowing is coming from the dining hall!)
+{{green}}: (It's coming from the dining hall!)
 do enable_entrance_event("dining_hall")
 => END!

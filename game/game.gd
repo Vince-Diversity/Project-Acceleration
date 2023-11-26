@@ -48,7 +48,8 @@ func load_room(room_id: String, entrance_node: String):
 		_on_textbox_started,
 		_on_cutscene_ended,
 		_on_textbox_focused,
-		_on_entrance_event_edited)
+		_on_entrance_event_edited,
+		_on_npc_removed)
 	add_child(current_room)
 
 
@@ -147,7 +148,7 @@ func _on_textbox_started(
 	text_box = text_box_scn.instantiate()
 	add_child(text_box)
 	var dlg_path = Utils.get_dlg_path(dialogue_id)
-	if !FileAccess.file_exists(dlg_path):
+	if not ResourceLoader.exists(dlg_path):
 		dlg_path = Utils.get_dlg_path("default")
 	dlg_res = load(dlg_path)
 	if dlg_res.lines.size() <= 0 or not dlg_res.titles.has(dialogue_node):
@@ -171,6 +172,13 @@ func _on_textbox_focused():
 func _on_entrance_event_edited(room_id: String, is_enabled: bool):
 	if entrance_events.events.has(room_id):
 		entrance_events.events[room_id]["is_enabled"] = is_enabled
+
+
+func _on_npc_removed(removed_npc_name: String):
+	if cache.data[cache.rooms_key].has(current_room.room_id):
+		var npcs_dict = cache.data[cache.rooms_key][current_room.room_id][cache.npcs_key]
+		if npcs_dict.has(removed_npc_name):
+			npcs_dict.erase(removed_npc_name)
 
 
 func _on_PauseMenu_save_pressed():

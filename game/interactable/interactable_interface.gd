@@ -8,7 +8,6 @@ class_name Interactable extends Node2D
 #@export var interaction_node: String
 #@export var dialogue_id: String
 #@export var dialogue_node: String
-#@export var bubble_content: Bubble.Content
 
 
 signal begin_interaction(interactable_scene: Node2D)

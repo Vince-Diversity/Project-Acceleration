@@ -6,7 +6,6 @@ class_name Thing extends StaticBody2D
 @export var is_oneshot: bool = false
 @export var rest_animation: String = "default"
 @export var elevate_characters: bool = false
-@export var bubble_content: Bubble.Content
 @export_enum(
 	"thing_interactable_state",
 	"thing_static_state") var spawn_state: String = "thing_interactable_state"

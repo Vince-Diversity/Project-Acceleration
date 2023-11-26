@@ -1,5 +1,6 @@
 class_name TextBox extends CanvasLayer
 ## Edited version of the example balloon from Dialogue addon v2.14.1
+# Updated to use a feature somewhere around v2.29 about tags
 
 @onready var balloon: ColorRect = %TextBackground
 @onready var character_label: RichTextLabel = %CharacterLabel
@@ -8,6 +9,7 @@ class_name TextBox extends CanvasLayer
 @onready var response_template: RichTextLabel = %ResponseTemplate
 @onready var profile_background := %ProfileBackground
 @onready var profile: TextureRect = %Profile
+@onready var indicator:  TextureRect = %Indicator
 
 ## The dialogue resource
 var resource: DialogueResource
@@ -16,7 +18,10 @@ var resource: DialogueResource
 var temporary_game_states: Array = []
 
 ## See if we are waiting for the player
-var is_waiting_for_input: bool = false
+var is_waiting_for_input: bool = false:
+	set(value):
+		is_waiting_for_input = value
+		indicator.set_visible(value)
 
 ## See if we are running a long mutation and should hide the balloon
 var will_hide_balloon: bool = false
@@ -57,15 +62,15 @@ var dialogue_line: DialogueLine:
 				item.show()
 				responses_menu.add_child(item)
 		
-		# Refresh profile
-		profile.set_texture(null)
-		profile_background.set_visible(false)
+		# Toggle profile
 		if not dialogue_line.character.is_empty():
-			if dialogue_line.inline_mutations.is_empty():
-				profile.express(profile.neutral)
+			if dialogue_line.tags.is_empty():
+				profile.express("")
 			else:
-				if not dialogue_line.inline_mutations[0][1].has("expression"):
-					profile.express(profile.neutral)
+				profile.express(dialogue_line.get_tag_value("expression"))
+		else:
+			profile.set_texture(null)
+			profile_background.set_visible(false)
 		
 		# Show our balloon
 		balloon.show()
