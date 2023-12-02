@@ -2,29 +2,36 @@ class_name Player extends Character
 
 @onready var direction_node = $Direction
 @onready var interact_area = $Direction/InteractArea
-@onready var bubble_place = $BubblePlace
-@onready var bubble_scn = preload("res://game/ui/bubble/bubble.tscn")
-var bubble: Bubble
+@onready var interacting_bubble_mark = $Bubbles/InteractingBubbleMark
+@onready var item_bubble_mark = $Bubbles/ItemBubbleMark
+@onready var interacting_bubble_scn = preload("res://game/ui/bubble/interacting_bubble.tscn")
+@onready var item_bubble_scn = preload("res://game/ui/bubble/item_bubble.tscn")
+var interacting_bubble: InteractingBubble
+var item_bubble: ItemBubble
 var nearest_interactable: Node2D:
 	set(interactable):
 		nearest_interactable = interactable
 		set_nearest_interactable(interactable)
 
 signal player_interacted(interactable: Node2D)
+signal browsing_started()
+signal browsing_ended()
 
 
 func _ready():
-	hide_placeholders()
 	update_angle()
 	player_interacted.connect(_on_player_interacted)
 
 
-func init_player(given_party: Party):
+func init_player(
+		given_party: Party,
+		player_interacted_target: Callable,
+		browsing_started_target: Callable,
+		browsing_ended_target: Callable):
 	party = given_party
-
-
-func hide_placeholders():
-	bubble_place.set_visible(false)
+	player_interacted.connect(player_interacted_target)
+	browsing_started.connect(browsing_started_target)
+	browsing_ended.connect(browsing_ended_target)
 
 
 func roam():
@@ -77,14 +84,22 @@ func check_interaction():
 
 func set_nearest_interactable(new_interactable: Node2D):
 	if is_instance_valid(new_interactable):
-		if not is_instance_valid(bubble):
-			bubble = bubble_scn.instantiate()
-			bubble.init_bubble()
-			add_child(bubble)
-			bubble.set_position(bubble_place.position)
+		if not is_instance_valid(interacting_bubble):
+			interacting_bubble = interacting_bubble_scn.instantiate()
+			interacting_bubble.init_bubble()
+			add_child(interacting_bubble)
+			interacting_bubble.set_position(interacting_bubble_mark.position)
 	else:
-		if is_instance_valid(bubble):
-			bubble.close()
+		if is_instance_valid(interacting_bubble):
+			interacting_bubble.close()
+
+
+func check_stored_items():
+	if not items.item_id_list.is_empty():
+		browsing_started.emit()
+		item_bubble = item_bubble_scn.instantiate()
+		item_bubble_mark.add_child(item_bubble)
+		item_bubble.add_item(items.item_id_list[0])
 
 
 func _on_player_interacted(_interactable: Node2D):

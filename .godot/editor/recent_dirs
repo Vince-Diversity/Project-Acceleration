@@ -1,3 +1,6 @@
+res://assets/vfx
+res://resources/vfx/
+res://game/ui/bubble
 res://game/room/rooms
 res://game/ui/textbox
 res://game/character
@@ -6,8 +9,6 @@ res://assets/things
 res://assets/characters/lime
 res://assets/characters/maroon
 res://assets/characters/yellow
-res://assets/vfx
-res://resources/vfx/
 res://assets/items
 res://resources/items/
 res://game/item/items
@@ -19,4 +20,3 @@ res://resources/characters/
 res://game/character/npcs
 res://resources/events/entrance_events/
 res://resources/events/
-res://game/thing/bed

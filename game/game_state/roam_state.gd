@@ -15,6 +15,8 @@ func update(_delta: float):
 func handle_input(event: InputEvent):
 	if event.is_action_pressed("ui_accept"):
 		party.player.check_interaction()
+	elif event.is_action_pressed("ui_item"):
+		party.player.check_stored_items()
 
 
 func enter():

@@ -1,0 +1,9 @@
+[gd_scene load_steps=4 format=3 uid="uid://cusivtyp1u3j"]
+
+[ext_resource type="PackedScene" uid="uid://bcvfpw0neifvb" path="res://game/ui/bubble/bubble.tscn" id="1_vjd68"]
+[ext_resource type="Script" path="res://game/ui/bubble/item_bubble.gd" id="2_bkc7l"]
+[ext_resource type="SpriteFrames" uid="uid://uprp1h6dxq0c" path="res://resources/vfx/item_background.tres" id="2_tj1gk"]
+
+[node name="ItemBubble" instance=ExtResource("1_vjd68")]
+sprite_frames = ExtResource("2_tj1gk")
+script = ExtResource("2_bkc7l")

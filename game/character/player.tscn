@@ -1,10 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://kmbb38hp7tsk"]
+[gd_scene load_steps=7 format=3 uid="uid://kmbb38hp7tsk"]
 
 [ext_resource type="PackedScene" uid="uid://bk16wp1xkfq2e" path="res://game/character/character.tscn" id="1"]
 [ext_resource type="SpriteFrames" uid="uid://drrwv183eagft" path="res://resources/characters/green.tres" id="2"]
 [ext_resource type="Script" path="res://game/character/player.gd" id="3"]
-[ext_resource type="PackedScene" uid="uid://bcvfpw0neifvb" path="res://game/ui/bubble/bubble.tscn" id="4_pvxn0"]
-[ext_resource type="SpriteFrames" uid="uid://dt10ddsmgxqyp" path="res://resources/vfx/exclamation.tres" id="5_cnrpg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_act1d"]
 radius = 8.0
@@ -20,8 +18,6 @@ collision_layer = 1
 collision_mask = 6
 motion_mode = 1
 script = ExtResource("3")
-speed = null
-is_symmetric = null
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = ExtResource("2")
@@ -48,11 +44,15 @@ collision_mask = 2
 [node name="CollisionShape2D" parent="FollowingArea" index="0"]
 shape = SubResource("CircleShape2D_rkx78")
 
-[node name="BubblePlace" parent="." index="5" instance=ExtResource("4_pvxn0")]
-position = Vector2(18, -29)
-sprite_frames = ExtResource("5_cnrpg")
-
-[node name="Items" parent="." index="6" groups=["Preserved"]]
+[node name="Items" parent="." index="5" groups=["Preserved"]]
 
 [node name="ExhibitMark" parent="Items" index="0"]
 position = Vector2(-10, -17)
+
+[node name="Bubbles" type="Node2D" parent="." index="6"]
+
+[node name="InteractingBubbleMark" type="Marker2D" parent="Bubbles" index="0"]
+position = Vector2(16, -32)
+
+[node name="ItemBubbleMark" type="Marker2D" parent="Bubbles" index="1"]
+position = Vector2(-16, -32)

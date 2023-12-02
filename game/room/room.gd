@@ -12,6 +12,7 @@ class_name Room extends Node2D
 @onready var roam_state: RoamState = preload("res://game/game_state/roam_state.gd").new("roam_state")
 @onready var cutscene_state: CutsceneState = preload("res://game/game_state/cutscene_state.gd").new("cutscene_state")
 @onready var rest_state: RestState = preload("res://game/game_state/rest_state.gd").new("rest_state")
+@onready var browse_state: BrowseState = preload("res://game/game_state/browse_state.gd").new("browse_state")
 @onready var dialogue_cutscene_scn: PackedScene = preload("res://game/cutscene/dialogue_cutscene.tscn")
 var thing_rng: RandomNumberGenerator
 var room_id: String
@@ -85,6 +86,8 @@ func _ready_states():
 	stm.add_state(cutscene_state)
 	rest_state.init_state(start_cutscene)
 	stm.add_state(rest_state)
+	browse_state.init_state(party)
+	stm.add_state(browse_state)
 
 
 func _ready_cutscenes():
@@ -210,3 +213,11 @@ func _on_door_begin_interaction(door: Door):
 
 func _on_cutscene_started():
 	cutscenes.current_cutscene.make()
+
+
+func _on_browsing_started():
+	stm.change_state("browse_state")
+
+
+func _on_browsing_ended():
+	stm.change_state("roam_state")

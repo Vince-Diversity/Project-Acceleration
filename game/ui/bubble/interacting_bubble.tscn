@@ -1,0 +1,9 @@
+[gd_scene load_steps=4 format=3 uid="uid://bn0ehmsv3ug5y"]
+
+[ext_resource type="PackedScene" uid="uid://bcvfpw0neifvb" path="res://game/ui/bubble/bubble.tscn" id="1_s3m2n"]
+[ext_resource type="SpriteFrames" uid="uid://dt10ddsmgxqyp" path="res://resources/vfx/exclamation.tres" id="2_nnlss"]
+[ext_resource type="Script" path="res://game/ui/bubble/interacting_bubble.gd" id="3_qyecf"]
+
+[node name="InteractingBubble" instance=ExtResource("1_s3m2n")]
+sprite_frames = ExtResource("2_nnlss")
+script = ExtResource("3_qyecf")

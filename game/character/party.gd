@@ -4,14 +4,6 @@ var player: Player
 var preserved_party_list: Array[String]
 
 
-func create_player():
-	player = load("res://game/character/player.tscn").instantiate()
-	player.init_player(self)
-	add_child(player)
-	player.player_interacted.connect(owner._on_player_interacted)
-	set_deferred("preserved_party_list", get_party_list())
-
-
 func remove_member(member: NPC):
 	if is_instance_valid(member):
 		var member_position = member.global_position
@@ -65,7 +57,7 @@ func load_save(sg: SaveGame):
 					add_npc_as_member(npc)
 			else:
 				_create_member(npc_id)
-		create_player()
+		_create_player()
 	for member in get_party_ordered():
 		owner.entrance.set_entrance_direction(member)
 	player.items.load_save_from_parent(sg)
@@ -82,6 +74,17 @@ func _add_member(member: NPC):
 func _create_member(npc_id: String):
 	var npc = load(Utils.get_npc_path(npc_id)).instantiate()
 	_add_member(npc)
+
+
+func _create_player():
+	player = load("res://game/character/player.tscn").instantiate()
+	player.init_player(
+		self,
+		owner._on_player_interacted,
+		owner._on_browsing_started,
+		owner._on_browsing_ended)
+	add_child(player)
+	set_deferred("preserved_party_list", get_party_list())
 
 
 func exit_cutscene():
