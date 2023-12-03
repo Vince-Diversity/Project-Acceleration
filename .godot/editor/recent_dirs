@@ -1,7 +1,9 @@
+res://game/interactable
+res://resources/items/
+res://game/ui/bubble
 res://assets/characters/green
 res://assets/vfx
 res://resources/vfx/
-res://game/ui/bubble
 res://game/room/rooms
 res://game/ui/textbox
 res://game/character
@@ -10,7 +12,6 @@ res://assets/characters/lime
 res://assets/characters/maroon
 res://assets/characters/yellow
 res://assets/items
-res://resources/items/
 res://game/item/items
 res://assets/characters/amber
 res://assets/characters/cat
@@ -19,4 +20,3 @@ res://loader
 res://resources/characters/
 res://game/character/npcs
 res://resources/events/entrance_events/
-res://resources/events/

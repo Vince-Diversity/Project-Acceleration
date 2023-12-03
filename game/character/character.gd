@@ -44,20 +44,20 @@ func update_angle():
 
 
 func set_animation(anim_name: String):
-	items.clear_exhibit()
 	anim_sprite.set_animation(anim_name)
 	var anim_id = Utils.get_anim_id(anim_name)
-	anim_sprite.play()
 	if is_instance_valid(anim_id):
+		items.clear_exhibit()
 		set_direction(Utils.get_anim_direction(anim_id))
 		update_direction()
 	else:
+		anim_sprite.play(anim_name)
 		anim_sprite.set_flip_h(false)
 
 
-func set_exhibit_animation(item_id: String):
+func exhibit(item_id: String):
 	set_animation("exhibit")
-	items.set_exhibit_item(item_id)
+	items.start_exhibit_item(item_id)
 
 
 func get_anim_name() -> String:

@@ -106,10 +106,10 @@ do move_player("MentorMark3", "item_got")
 
 ~ item_got
 do set_player_exhibit_anim("revealer")
-[color=yellow]Obtained the {{revealer}}![/color]
+[color=yellow]Obtained the {{revealer}}!
 do add_item("revealer")
-{{cat}}: Me-ow!
 do set_player_anim("down")
+The {{revealer}} has been stored in the {{inventory}}. [color=yellow]Check on obtained items with the Z key.[/color]
 do remove_npc("Yellow")
 do set_npc_dialogue_node("Amber", "talk_after_cat_event")
 do set_npc_dialogue_node("Lime", "talk_after_cat_event")

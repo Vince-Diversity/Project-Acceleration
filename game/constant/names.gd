@@ -36,5 +36,6 @@ const red_aspect := "Fire"
 const blue_aspect := "Immaterial"
 
 const revealer = "Revealing Eyepiece"
+const inventory = "pocket"
 
 var OUROBOROS = "Obo"

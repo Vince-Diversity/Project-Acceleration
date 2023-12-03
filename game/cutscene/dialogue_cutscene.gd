@@ -171,12 +171,12 @@ func set_npc_anim(npc_node: String, anim_name: String):
 
 
 func set_player_exhibit_anim(item_id: String):
-	owner.party.player.set_exhibit_animation(item_id)
+	owner.party.player.exhibit(item_id)
 
 
 func set_npc_exhibit_anim(npc_node: String, item_id: String):
 	if owner.npcs.has_node(npc_node):
-		owner.npcs.get_node(npc_node).set_exhibit_animation(item_id)
+		owner.npcs.get_node(npc_node).exhibit(item_id)
 
 
 func set_npc_at_mark(npc_node: String, mark_node: String):

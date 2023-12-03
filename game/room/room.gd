@@ -86,7 +86,11 @@ func _ready_states():
 	stm.add_state(cutscene_state)
 	rest_state.init_state(start_cutscene)
 	stm.add_state(rest_state)
-	browse_state.init_state(party)
+	browse_state.init_state(
+		party,
+		cutscenes,
+		start_cutscene,
+		dialogue_cutscene_scn)
 	stm.add_state(browse_state)
 
 

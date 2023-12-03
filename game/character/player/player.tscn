@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://kmbb38hp7tsk"]
 
-[ext_resource type="PackedScene" uid="uid://bk16wp1xkfq2e" path="res://game/character/character.tscn" id="1"]
-[ext_resource type="SpriteFrames" uid="uid://drrwv183eagft" path="res://resources/characters/green.tres" id="2"]
-[ext_resource type="Script" path="res://game/character/player.gd" id="3"]
+[ext_resource type="PackedScene" uid="uid://bk16wp1xkfq2e" path="res://game/character/character.tscn" id="1_shlk6"]
+[ext_resource type="Script" path="res://game/character/player/player.gd" id="2_b5inq"]
+[ext_resource type="SpriteFrames" uid="uid://drrwv183eagft" path="res://resources/characters/green.tres" id="3_mkne3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_act1d"]
 radius = 8.0
@@ -13,14 +13,14 @@ radius = 8.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_rkx78"]
 radius = 20.0
 
-[node name="Player" instance=ExtResource("1")]
+[node name="Player" instance=ExtResource("1_shlk6")]
 collision_layer = 1
 collision_mask = 6
 motion_mode = 1
-script = ExtResource("3")
+script = ExtResource("2_b5inq")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
-sprite_frames = ExtResource("2")
+sprite_frames = ExtResource("3_mkne3")
 animation = &"pocket"
 
 [node name="CollisionShape2D" parent="." index="1"]

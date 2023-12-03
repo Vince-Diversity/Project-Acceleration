@@ -1,9 +1,17 @@
-[gd_scene format=3 uid="uid://dx5vipp61bwlj"]
+[gd_scene load_steps=3 format=3 uid="uid://dx5vipp61bwlj"]
+
+[ext_resource type="Script" path="res://game/item/item.gd" id="1_wne11"]
+[ext_resource type="Script" path="res://game/interactable/item_interactable.gd" id="2_syc7w"]
 
 [node name="Item" type="StaticBody2D"]
-collision_layer = 0
-collision_mask = 0
+collision_layer = 4
+script = ExtResource("1_wne11")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="InteractArea" type="Area2D" parent="."]
+script = ExtResource("2_syc7w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]

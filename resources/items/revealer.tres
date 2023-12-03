@@ -1,6 +1,7 @@
-[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://buhrqrw4jbbca"]
+[gd_resource type="SpriteFrames" script_class="ItemSprite" load_steps=4 format=3 uid="uid://buhrqrw4jbbca"]
 
 [ext_resource type="Texture2D" uid="uid://dj6j2n8a6xdny" path="res://assets/items/revealer.png" id="1_rr32j"]
+[ext_resource type="Script" path="res://resources/items/item_sprite.gd" id="2_veooi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m47o4"]
 atlas = ExtResource("1_rr32j")
@@ -16,3 +17,5 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+script = ExtResource("2_veooi")
+browse_dialogue_node = "revealer"

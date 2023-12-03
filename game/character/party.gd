@@ -1,5 +1,6 @@
 class_name Party extends Node2D
 
+@onready var player_scn = preload("res://game/character/player/player.tscn")
 var player: Player
 var preserved_party_list: Array[String]
 
@@ -77,7 +78,7 @@ func _create_member(npc_id: String):
 
 
 func _create_player():
-	player = load("res://game/character/player.tscn").instantiate()
+	player = player_scn.instantiate()
 	player.init_player(
 		self,
 		owner._on_player_interacted,

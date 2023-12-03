@@ -4,14 +4,14 @@ extends Node2D
 @onready var exhibit_background = $ExhibitMark/ExhibitBackground
 var item_id_list: Array[String] = []
 var preserved_item_id_list: Array[String] = []
-var exhibit_item: Node2D
+var exhibit_item: Item
 
 
 func add_item(item_id: String):
 	item_id_list.append(item_id)
 
 
-func set_exhibit_item(item_id: String):
+func start_exhibit_item(item_id: String):
 	clear_exhibit()
 	var item_path = Utils.get_item_path(item_id)
 	if ResourceLoader.exists(item_path):

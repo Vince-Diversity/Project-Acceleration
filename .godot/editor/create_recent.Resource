@@ -1,6 +1,6 @@
+Resource
 SpriteFrames
 EntranceEvent
-Resource
 TileSet
 Shortcut
 InputEventAction

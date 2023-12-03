@@ -1,6 +1,7 @@
 class_name Interactable extends Node2D
 
-## Instance this to scenes that can be interacted with
+## Script for scenes that can be interacted with
+# Make an Area2D and add a script that inherits from this
 # Uses get_node("InteractArea") to refer to instances of this scene
 
 

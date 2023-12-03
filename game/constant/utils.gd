@@ -10,6 +10,7 @@ const bgm_dir = "res://assets/sound/bgm/"
 const npc_dir = "res://game/character/npcs/"
 const entrance_event_dir = "res://resources/events/entrance_events/"
 const item_dir = "res://game/item/items/"
+const item_sprite_dir = "res://resources/items/"
 
 const anim_direction = {
 	Vector2.DOWN: AnimID.DOWN,
@@ -40,6 +41,10 @@ static func get_npc_id(npc_name: String) -> String:
 
 static func get_npc_name(npc_id: String) -> String:
 	return npc_id.to_pascal_case()
+
+
+static func get_item_id(item_name: String) -> String:
+	return item_name.to_snake_case()
 
 
 static func connect_neighbouring_elems(arr: Array):
@@ -97,6 +102,10 @@ static func get_entrance_event_path(room_id: String) -> String:
 
 static func get_item_path(item_id: String) -> String:
 	return item_dir.path_join(item_id + ".tscn")
+
+
+static func get_item_sprite_path(item_id: String) -> String:
+	return item_sprite_dir.path_join(item_id + ".tres")
 
 
 static func str_to_seed(name: String) -> int:

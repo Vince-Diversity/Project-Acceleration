@@ -7,9 +7,5 @@ func _ready():
 	set_z_index(Utils.Elevation.UI)
 
 
-func init_bubble():
-	set_sprite_frames(exclamation_res)
-
-
 func close():
 	queue_free()

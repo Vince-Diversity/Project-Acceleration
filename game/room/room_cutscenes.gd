@@ -24,6 +24,12 @@ func change_source_node(
 	current_source_node = source_node
 
 
+func add_cutscene(cutscene_scn: PackedScene, cutscene_node: String):
+	if not owner.cutscenes.has_node(cutscene_node):
+		var cutscene = cutscene_scn.instantiate()
+		owner.add_cutscene(cutscene, cutscene_node)
+
+
 func reset():
 	current_cutscene = null
 	current_dialogue_id = ""

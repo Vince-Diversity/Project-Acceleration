@@ -32,9 +32,7 @@ func get_thing_member_rest_mark() -> CharacterMark:
 
 
 func _make_rest_state():
-	if not owner.cutscenes.has_node(stand_up_node_name):
-		var stand_up_cutscene = stand_up_cutscene_scn.instantiate()
-		owner.add_cutscene(stand_up_cutscene, stand_up_node_name)
+	cutscenes.add_cutscene(stand_up_cutscene_scn, stand_up_node_name)
 	owner.rest_state.make_state(
 		stand_up_node_name,
 		get_thing())

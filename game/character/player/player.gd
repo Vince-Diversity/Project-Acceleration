@@ -97,9 +97,24 @@ func set_nearest_interactable(new_interactable: Node2D):
 func check_stored_items():
 	if not items.item_id_list.is_empty():
 		browsing_started.emit()
-		item_bubble = item_bubble_scn.instantiate()
-		item_bubble_mark.add_child(item_bubble)
-		item_bubble.add_item(items.item_id_list[0])
+
+
+func make_item_bubble():
+	item_bubble = item_bubble_scn.instantiate()
+	item_bubble_mark.add_child(item_bubble)
+	item_bubble.set_current_item_id(items.item_id_list[0])
+
+
+func is_exhibiting() -> bool:
+	return is_instance_valid(items.exhibit_item)
+
+
+func get_thought_item_id() -> String:
+	return item_bubble.current_item_id
+
+
+func get_thought_item_sprite() -> ItemSprite:
+	return item_bubble.current_item_sprite
 
 
 func _on_player_interacted(_interactable: Node2D):

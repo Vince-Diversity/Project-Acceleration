@@ -19,6 +19,20 @@ content_margin_right = 5.0
 content_margin_bottom = 5.0
 draw_center = false
 
+[sub_resource type="Animation" id="Animation_t7nqa"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(130, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
 [sub_resource type="Animation" id="Animation_u53iv"]
 resource_name = "indicate"
 loop_mode = 1
@@ -32,20 +46,6 @@ tracks/0/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
 "points": PackedFloat32Array(130, -0.25, 0, 0.25, 0, 125, -0.25, 0, 0.25, 0, 130, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.5, 1)
-}
-
-[sub_resource type="Animation" id="Animation_t7nqa"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position:y")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(130, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5eq0v"]
@@ -82,7 +82,7 @@ theme_override_constants/margin_right = 450
 [node name="ProfileBackground" type="ColorRect" parent="Overhead/Spacer/ProfileMargin"]
 unique_name_in_owner = true
 layout_mode = 2
-color = Color(0, 0, 0, 0.501961)
+color = Color(0, 0, 0, 0.752941)
 
 [node name="Profile" type="TextureRect" parent="Overhead/Spacer/ProfileMargin"]
 unique_name_in_owner = true
@@ -95,7 +95,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color(0, 0, 0, 0.501961)
+color = Color(0, 0, 0, 0.752941)
 
 [node name="TextMargin" type="MarginContainer" parent="Overhead/Spacer/TextBackground"]
 layout_mode = 1
