@@ -17,11 +17,12 @@ func handle_input(event: InputEvent):
 
 
 func enter():
-	pass
+	party.player.set_animation("pocket")
 
 
 func exit():
 	party.player.item_bubble.close()
+	party.player.set_animation("default")
 
 
 func grab_focus():

@@ -153,12 +153,12 @@ func create_npc(npc_node: String):
 
 func elevate_npc(npc_node: String):
 	if owner.npcs.has_node(npc_node):
-		owner.npcs.get_node(npc_node).set_z_index(1)
+		owner.npcs.get_node(npc_node).set_z_index(Utils.Elevation.FRONT)
 
 
 func reset_npc_elevation(npc_node: String):
 	if owner.npcs.has_node(npc_node):
-		owner.npcs.get_node(npc_node).set_z_index(0)
+		owner.npcs.get_node(npc_node).set_z_index(Utils.Elevation.FLOOR)
 
 
 func set_player_anim(anim_name: String):

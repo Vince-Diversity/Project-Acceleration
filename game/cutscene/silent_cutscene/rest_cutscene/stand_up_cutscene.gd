@@ -13,7 +13,7 @@ func make():
 
 func end_cutscene():
 	super()
-	owner.party.set_z_index(0)
+	owner.party.set_z_index(Utils.Elevation.FLOOR)
 	set_thing_state(
 		get_thing().name,
 		"thing_interactable_state")

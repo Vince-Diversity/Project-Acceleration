@@ -1,5 +1,11 @@
 class_name ItemBubble extends Bubble
+
+@onready var anim_player: AnimationPlayer = $AnimationPlayer
 var current_item
+
+
+func _ready():
+	anim_player.play("indicator")
 
 
 func add_item(item_id):

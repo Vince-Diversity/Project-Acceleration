@@ -7,7 +7,7 @@ class_name RestCutscene extends SilentCutscene
 
 func make():
 	if get_thing().elevate_characters:
-		owner.party.set_z_index(1)
+		owner.party.set_z_index(Utils.Elevation.FRONT)
 	set_thing_state(
 		get_thing().name,
 		"thing_permeable_state")

@@ -21,7 +21,7 @@ script = ExtResource("3")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = ExtResource("2")
-animation = &"exhibit"
+animation = &"pocket"
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("CircleShape2D_act1d")

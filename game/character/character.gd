@@ -47,9 +47,12 @@ func set_animation(anim_name: String):
 	items.clear_exhibit()
 	anim_sprite.set_animation(anim_name)
 	var anim_id = Utils.get_anim_id(anim_name)
+	anim_sprite.play()
 	if is_instance_valid(anim_id):
 		set_direction(Utils.get_anim_direction(anim_id))
 		update_direction()
+	else:
+		anim_sprite.set_flip_h(false)
 
 
 func set_exhibit_animation(item_id: String):
@@ -58,6 +61,7 @@ func set_exhibit_animation(item_id: String):
 
 
 func get_anim_name() -> String:
+	if inputted_direction == Vector2.ZERO: return ""
 	var snapped_direction: Vector2 = Utils.snap_to_compass(inputted_direction)
 	var anim_id: int = Utils.anim_direction[snapped_direction]
 	if anim_id == Utils.AnimID.RIGHT and is_symmetric:

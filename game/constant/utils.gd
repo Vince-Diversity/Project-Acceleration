@@ -1,6 +1,7 @@
 class_name Utils extends Object
 
 enum AnimID {DOWN, LEFT, UP, RIGHT}
+enum Elevation {FLOOR, FRONT, UI}
 
 const dlg_dir = "res://resources/dialogue/"
 const room_dir = "res://game/room/rooms/"
