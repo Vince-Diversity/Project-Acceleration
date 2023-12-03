@@ -18,6 +18,7 @@ collision_layer = 1
 collision_mask = 6
 motion_mode = 1
 script = ExtResource("2_b5inq")
+is_symmetric = null
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = ExtResource("3_mkne3")

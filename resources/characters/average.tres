@@ -1,8 +1,9 @@
-[gd_resource type="SpriteFrames" load_steps=17 format=3 uid="uid://nkhbhv8w7qom"]
+[gd_resource type="SpriteFrames" load_steps=22 format=3 uid="uid://nkhbhv8w7qom"]
 
 [ext_resource type="Texture2D" uid="uid://djpfevb6awj6d" path="res://assets/characters/average/average_down.png" id="1_icvi0"]
 [ext_resource type="Texture2D" uid="uid://drd415bnne6jg" path="res://assets/characters/average/average_left.png" id="2_1ml65"]
 [ext_resource type="Texture2D" uid="uid://dv6abqh4sdxvh" path="res://assets/characters/average/average_up.png" id="3_a6qtq"]
+[ext_resource type="Texture2D" uid="uid://b6simm1rokegr" path="res://assets/characters/average/average_right.png" id="3_tugeg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aqgl4"]
 atlas = ExtResource("1_icvi0")
@@ -38,6 +39,22 @@ region = Rect2(126, 0, 63, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kdesj"]
 atlas = ExtResource("2_1ml65")
+region = Rect2(189, 0, 63, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njkyc"]
+atlas = ExtResource("3_tugeg")
+region = Rect2(0, 0, 63, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_una5u"]
+atlas = ExtResource("3_tugeg")
+region = Rect2(63, 0, 63, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_karoe"]
+atlas = ExtResource("3_tugeg")
+region = Rect2(126, 0, 63, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_akkgi"]
+atlas = ExtResource("3_tugeg")
 region = Rect2(189, 0, 63, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hp2jr"]
@@ -98,6 +115,23 @@ animations = [{
 }],
 "loop": false,
 "name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_njkyc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_una5u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_karoe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_akkgi")
+}],
+"loop": false,
+"name": &"right",
 "speed": 5.0
 }, {
 "frames": [{

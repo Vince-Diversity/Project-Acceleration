@@ -5,6 +5,7 @@ var party: Party
 var cutscenes: RoomCutscenes
 var start_cutscene_target: Callable
 var browsing_cutscene_scn: PackedScene
+var previous_player_anim_name: String
 
 
 func init_state(
@@ -30,6 +31,7 @@ func handle_input(event: InputEvent):
 
 
 func enter():
+	previous_player_anim_name = party.player.get_animation()
 	party.player.make_item_bubble()
 	party.player.set_animation("pocket")
 
@@ -37,7 +39,7 @@ func enter():
 func exit():
 	party.player.item_bubble.close()
 	if not party.player.is_exhibiting():
-		party.player.set_animation("default")
+		party.player.set_animation(previous_player_anim_name)
 
 
 func grab_focus():
@@ -50,8 +52,11 @@ func save(game: Game, sg: SaveGame):
 
 
 func _retrieve_item():
-	party.player.exhibit(party.player.get_thought_item_id())
-	_make_browsing_cutscene()
+	if party.player.is_near_interactable():
+		party.player.check_stored_items_near_interactable()
+	else:
+		party.player.exhibit(party.player.get_thought_item_id())
+		_make_browsing_cutscene()
 
 
 func _make_browsing_cutscene():

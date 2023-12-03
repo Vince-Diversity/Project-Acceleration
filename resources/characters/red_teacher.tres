@@ -1,7 +1,8 @@
-[gd_resource type="SpriteFrames" load_steps=17 format=3 uid="uid://j7dhujtuqvl4"]
+[gd_resource type="SpriteFrames" load_steps=22 format=3 uid="uid://j7dhujtuqvl4"]
 
 [ext_resource type="Texture2D" uid="uid://dpjws3l4wbq8f" path="res://assets/characters/red_teacher/red_teacher_down.png" id="1_ljmnx"]
 [ext_resource type="Texture2D" uid="uid://c6miixirfkim7" path="res://assets/characters/red_teacher/red_teacher_left.png" id="2_t3djm"]
+[ext_resource type="Texture2D" uid="uid://27u1uans2wr6" path="res://assets/characters/red_teacher/red_teacher_right.png" id="3_ihkyw"]
 [ext_resource type="Texture2D" uid="uid://dvdtdmfuar8qj" path="res://assets/characters/red_teacher/red_teacher_up.png" id="3_mh2sc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o1vy5"]
@@ -38,6 +39,22 @@ region = Rect2(126, 0, 63, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vad3g"]
 atlas = ExtResource("2_t3djm")
+region = Rect2(189, 0, 63, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8h65p"]
+atlas = ExtResource("3_ihkyw")
+region = Rect2(0, 0, 63, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p81f2"]
+atlas = ExtResource("3_ihkyw")
+region = Rect2(63, 0, 63, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x1wap"]
+atlas = ExtResource("3_ihkyw")
+region = Rect2(126, 0, 63, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxwtc"]
+atlas = ExtResource("3_ihkyw")
 region = Rect2(189, 0, 63, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ud6tv"]
@@ -98,6 +115,23 @@ animations = [{
 }],
 "loop": false,
 "name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8h65p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p81f2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x1wap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fxwtc")
+}],
+"loop": false,
+"name": &"right",
 "speed": 5.0
 }, {
 "frames": [{

@@ -84,19 +84,27 @@ func check_interaction():
 
 func set_nearest_interactable(new_interactable: Node2D):
 	if is_instance_valid(new_interactable):
-		if not is_instance_valid(interacting_bubble):
+		if not is_near_interactable():
 			interacting_bubble = interacting_bubble_scn.instantiate()
 			interacting_bubble.init_bubble()
 			add_child(interacting_bubble)
 			interacting_bubble.set_position(interacting_bubble_mark.position)
 	else:
-		if is_instance_valid(interacting_bubble):
+		if is_near_interactable():
 			interacting_bubble.close()
+
+
+func is_near_interactable() -> bool:
+	return is_instance_valid(interacting_bubble)
 
 
 func check_stored_items():
 	if not items.item_id_list.is_empty():
 		browsing_started.emit()
+
+
+func check_stored_items_near_interactable():
+	pass
 
 
 func make_item_bubble():
