@@ -1,0 +1,34 @@
+~ talk
+do turn_npc_to_player("Cat")
+{{cat}}: Me-ow Me-ow!
+=> END!
+
+~ reveal
+{{green}}: (Use the {{revealer}} on this little one?)
+- Yes => reveal_selected
+- No => END!
+=> END!
+
+~ reveal_selected
+do flash("curiosity")
+=> END!
+
+~ curiosity
+do set_npc_anim("Cat", "lying_down")
+do reset_lighting("observation")
+=> END!
+
+~ observation
+do set_npc_dialogue_node("Cat", "fake")
+do wait(1)
+{{green}}: (The cat is silent.)
+=> END!
+
+~ fake
+{{green}}: (Reactivate the cat?)
+- Yes => reactivate
+- No => END!
+
+~ reactivate
+do set_npc_dialogue_node("Cat", "talk")
+=> talk

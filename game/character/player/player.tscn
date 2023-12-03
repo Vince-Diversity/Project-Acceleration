@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://kmbb38hp7tsk"]
+[gd_scene load_steps=8 format=3 uid="uid://kmbb38hp7tsk"]
 
 [ext_resource type="PackedScene" uid="uid://bk16wp1xkfq2e" path="res://game/character/character.tscn" id="1_shlk6"]
 [ext_resource type="Script" path="res://game/character/player/player.gd" id="2_b5inq"]
 [ext_resource type="SpriteFrames" uid="uid://drrwv183eagft" path="res://resources/characters/green.tres" id="3_mkne3"]
+[ext_resource type="Script" path="res://game/character/player/bubbles.gd" id="4_5sklu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_act1d"]
 radius = 8.0
@@ -18,7 +19,6 @@ collision_layer = 1
 collision_mask = 6
 motion_mode = 1
 script = ExtResource("2_b5inq")
-is_symmetric = null
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = ExtResource("3_mkne3")
@@ -51,6 +51,7 @@ shape = SubResource("CircleShape2D_rkx78")
 position = Vector2(-10, -17)
 
 [node name="Bubbles" type="Node2D" parent="." index="6"]
+script = ExtResource("4_5sklu")
 
 [node name="InteractingBubbleMark" type="Marker2D" parent="Bubbles" index="0"]
 position = Vector2(16, -32)

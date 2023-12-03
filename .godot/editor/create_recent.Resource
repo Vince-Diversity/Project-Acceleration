@@ -1,6 +1,0 @@
-Resource
-SpriteFrames
-EntranceEvent
-TileSet
-Shortcut
-InputEventAction

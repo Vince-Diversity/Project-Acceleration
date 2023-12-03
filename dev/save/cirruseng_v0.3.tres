@@ -65,8 +65,8 @@ data = {
 },
 "Cat": {
 "current_anim": &"left",
-"dialogue_id": "",
-"dialogue_node": "",
+"dialogue_id": "talk_cat",
+"dialogue_node": "talk",
 "direction": Vector2(1, 0),
 "idling_room": "dining_hall",
 "interaction_node": "",

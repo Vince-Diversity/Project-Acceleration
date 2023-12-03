@@ -19,3 +19,4 @@ animations = [{
 }]
 script = ExtResource("2_veooi")
 browse_dialogue_node = "revealer"
+interaction_dialogue_node = "reveal"

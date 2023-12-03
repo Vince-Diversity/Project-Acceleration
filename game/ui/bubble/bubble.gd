@@ -1,6 +1,6 @@
-class_name Bubble extends AnimatedSprite2D
+class_name Bubble extends Node2D
 
-var exclamation_res: Resource = preload("res://resources/vfx/exclamation.tres")
+@onready var bubble_sprite = $BubbleSprite
 
 
 func _ready():

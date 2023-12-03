@@ -2,12 +2,7 @@ class_name Player extends Character
 
 @onready var direction_node = $Direction
 @onready var interact_area = $Direction/InteractArea
-@onready var interacting_bubble_mark = $Bubbles/InteractingBubbleMark
-@onready var item_bubble_mark = $Bubbles/ItemBubbleMark
-@onready var interacting_bubble_scn = preload("res://game/ui/bubble/interacting_bubble.tscn")
-@onready var item_bubble_scn = preload("res://game/ui/bubble/item_bubble.tscn")
-var interacting_bubble: InteractingBubble
-var item_bubble: ItemBubble
+@onready var bubbles = $Bubbles
 var nearest_interactable: Node2D:
 	set(interactable):
 		nearest_interactable = interactable
@@ -84,18 +79,17 @@ func check_interaction():
 
 func set_nearest_interactable(new_interactable: Node2D):
 	if is_instance_valid(new_interactable):
-		if not is_near_interactable():
-			interacting_bubble = interacting_bubble_scn.instantiate()
-			interacting_bubble.init_bubble()
-			add_child(interacting_bubble)
-			interacting_bubble.set_position(interacting_bubble_mark.position)
+		if not is_instance_valid(bubbles.interacting_bubble):
+			bubbles.add_interacting_bubble()
+			bubbles.item_interactable = true
 	else:
 		if is_near_interactable():
-			interacting_bubble.close()
+			bubbles.interacting_bubble.close()
+			bubbles.item_interactable = false
 
 
-func is_near_interactable() -> bool:
-	return is_instance_valid(interacting_bubble)
+func is_near_interactable():
+	return bubbles.item_interactable
 
 
 func check_stored_items():
@@ -103,26 +97,29 @@ func check_stored_items():
 		browsing_started.emit()
 
 
-func check_stored_items_near_interactable():
-	pass
-
-
 func make_item_bubble():
-	item_bubble = item_bubble_scn.instantiate()
-	item_bubble_mark.add_child(item_bubble)
-	item_bubble.set_current_item_id(items.item_id_list[0])
+	bubbles.add_item_bubble(items.item_id_list[0])
 
 
 func is_exhibiting() -> bool:
 	return is_instance_valid(items.exhibit_item)
 
 
+func reset_bubbles():
+	bubbles.reset_modulation()
+
+
+func close_bubbles():
+	bubbles.item_bubble.close()
+	nearest_interactable = null
+
+
 func get_thought_item_id() -> String:
-	return item_bubble.current_item_id
+	return bubbles.item_bubble.current_item_id
 
 
 func get_thought_item_sprite() -> ItemSprite:
-	return item_bubble.current_item_sprite
+	return bubbles.item_bubble.current_item_sprite
 
 
 func _on_player_interacted(_interactable: Node2D):

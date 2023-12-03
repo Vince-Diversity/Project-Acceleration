@@ -114,4 +114,5 @@ do remove_npc("Yellow")
 do set_npc_dialogue_node("Amber", "talk_after_cat_event")
 do set_npc_dialogue_node("Lime", "talk_after_cat_event")
 do set_npc_dialogue_node("Maroon", "talk_after_cat_event")
+do set_npc_dialogue_node("Cat", "talk")
 => END!

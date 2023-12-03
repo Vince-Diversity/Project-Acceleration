@@ -38,10 +38,6 @@ func update_direction():
 		anim_sprite.stop()
 
 
-func update_angle():
-	pass
-
-
 func set_animation(anim_name: String):
 	anim_sprite.set_animation(anim_name)
 	var anim_id = Utils.get_anim_id(anim_name)

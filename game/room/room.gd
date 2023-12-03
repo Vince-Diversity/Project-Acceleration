@@ -86,11 +86,7 @@ func _ready_states():
 	stm.add_state(cutscene_state)
 	rest_state.init_state(start_cutscene)
 	stm.add_state(rest_state)
-	browse_state.init_state(
-		party,
-		cutscenes,
-		start_cutscene,
-		dialogue_cutscene_scn)
+	browse_state.init_state(self)
 	stm.add_state(browse_state)
 
 
@@ -140,8 +136,8 @@ func handle_cutscene(target_root: Node2D):
 			target_root.dialogue_node,
 			target_root)
 	else:
-		var node_node = add_unique_cutscene()
-		target_root.interaction_node = node_node
+		var cutscene_node = add_unique_cutscene()
+		target_root.interaction_node = cutscene_node
 		_on_begin_interaction.call_deferred(target_root)
 
 
@@ -161,16 +157,17 @@ func start_cutscene(
 func add_unique_cutscene() -> String:
 	# When using this, wait for the cutscene node to be added before starting the cutscene
 	var dlg_cutscene: DialogueCutscene = dialogue_cutscene_scn.instantiate()
-	var node_node = "Default%s" % cutscenes.get_children().size()
-	add_cutscene(dlg_cutscene, node_node)
-	return node_node
+	var interaction_node = "Default%s" % cutscenes.get_children().size()
+	add_cutscene(dlg_cutscene, interaction_node)
+	return interaction_node
 
 
-func add_cutscene(cutscene: Cutscene, node_node: String):
+func add_cutscene(cutscene: Cutscene, interaction_node: String):
+	if not cutscenes.has_node(interaction_node):
 		cutscenes.add_child(cutscene)
 		cutscene.owner = self
 		make_cutscene(cutscene)
-		cutscene.name = node_node
+		cutscene.name = interaction_node
 
 
 func remove_members_at_gateway(door: Door):

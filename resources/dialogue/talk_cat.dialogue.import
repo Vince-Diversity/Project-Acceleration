@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://bfg86ck8ia2k4"
+path="res://.godot/imported/talk_cat.dialogue-62b6730b4ff6f0d5677bfc1d79125870.tres"
+
+[deps]
+
+source_file="res://resources/dialogue/talk_cat.dialogue"
+dest_files=["res://.godot/imported/talk_cat.dialogue-62b6730b4ff6f0d5677bfc1d79125870.tres"]
+
+[params]
+
+defaults=true
