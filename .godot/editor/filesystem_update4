@@ -1,4 +1,5 @@
 res://game/ui/bubble/interacting_bubble.tscn
 res://resources/vfx/interactable_background.tres
+res://resources/vfx/exhibit_background.tres
+res://resources/characters/green.tres
 res://resources/vfx/item_background.tres
-res://game/item/items/revealer.tscn

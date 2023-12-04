@@ -62,13 +62,19 @@ func make_flash() -> Act:
 	return flash_in_act
 
 
+func make_blink() -> Act:
+	var blink_in_act: Act = lighting_act_scr.new()
+	blink_in_act.init_act(screen, Color.BLACK, 0.2)
+	return blink_in_act
+
+
 func make_darken() -> Act:
 	var darken_act: Act = lighting_act_scr.new()
 	darken_act.init_act(screen, Color(Color.BLACK, 0.5), screen.instant)
 	return darken_act
 
 
-func make_reset_ligtning() -> Act:
+func make_reset_lighting() -> Act:
 	var reset_lighting_act: Act = lighting_act_scr.new()
 	reset_lighting_act.init_act(screen, Color.TRANSPARENT, screen.instant)
 	return reset_lighting_act
@@ -118,7 +124,13 @@ func animate_thing(thing_node: String, anim_name: String, next_dlg_line: String)
 
 func flash(next_dlg_line: String):
 	actm.add_act(make_flash())
-	actm.add_act(make_reset_ligtning())
+	actm.add_act(make_reset_lighting())
+	next_dialogue(next_dlg_line)
+
+
+func blink(next_dlg_line: String):
+	actm.add_act(make_blink())
+	actm.add_act(make_reset_lighting())
 	next_dialogue(next_dlg_line)
 
 
@@ -128,7 +140,7 @@ func darken(next_dlg_line: String):
 
 
 func reset_lighting(next_dlg_line: String):
-	actm.add_act(make_reset_ligtning())
+	actm.add_act(make_reset_lighting())
 	next_dialogue(next_dlg_line)
 
 

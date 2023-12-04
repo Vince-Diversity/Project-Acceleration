@@ -10,7 +10,7 @@ do turn_npc_to_player("Cat")
 => END!
 
 ~ reveal_selected
-do flash("curiosity")
+do blink("curiosity")
 => END!
 
 ~ curiosity
@@ -21,7 +21,7 @@ do reset_lighting("observation")
 ~ observation
 do set_npc_dialogue_node("Cat", "fake")
 do wait(1)
-{{green}}: (The cat is silent.)
+(The cat is silent.)
 => END!
 
 ~ fake

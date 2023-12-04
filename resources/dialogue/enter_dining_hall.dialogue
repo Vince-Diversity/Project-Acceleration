@@ -31,7 +31,7 @@ do set_npc_exhibit_anim("Yellow", "revealer")
 {{yellow}}: Behold the [color=yellow]{{revealer}}[/color]. Watch, a single peek will reveal the cat's true form!
 do set_npc_anim("Yellow", "reveal_down")
 {{yellow}}: Reveal yourself!
-do flash("curiosity")
+do blink("curiosity")
 => END!
 
 ~ curiosity

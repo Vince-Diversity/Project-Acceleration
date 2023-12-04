@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_r20gb"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_4a42m"]
 
 [resource]
-script = ExtResource("1_r20gb")
+script = ExtResource("1_4a42m")
 using_states = PackedStringArray()
 titles = {
 "approach1": "13",
@@ -613,7 +613,7 @@ lines = {
 "id": "34",
 "mutation": {
 "expression": Array[Dictionary]([{
-"function": "flash",
+"function": "blink",
 "type": "function",
 "value": Array[Array]([Array[Dictionary]([{
 "type": "string",

@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_ypmb0"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_gx6bb"]
 
 [resource]
-script = ExtResource("1_ypmb0")
+script = ExtResource("1_gx6bb")
 using_states = PackedStringArray()
 titles = {
 "curiosity": "17",
@@ -39,7 +39,7 @@ lines = {
 "id": "13",
 "mutation": {
 "expression": Array[Dictionary]([{
-"function": "flash",
+"function": "blink",
 "type": "function",
 "value": Array[Array]([Array[Dictionary]([{
 "type": "string",
@@ -156,14 +156,8 @@ lines = {
 "type": "mutation"
 },
 "24": {
-"character": "{{green}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "green"
-}]),
-"value_in_text": "{{green}}"
-}]),
+"character": "",
+"character_replacements": Array[Dictionary]([]),
 "id": "24",
 "next_id": "25",
 "tags": PackedStringArray(),
