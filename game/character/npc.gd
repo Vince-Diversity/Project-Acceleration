@@ -28,7 +28,7 @@ func _ready():
 	state_list[still_state.state_id] = still_state
 	state_list[joined_state.state_id] = joined_state
 	current_state = state_list[spawn_state]
-	current_state.enter()
+	current_state.enter.call_deferred()
 
 
 func make_npc(
@@ -39,11 +39,9 @@ func make_npc(
 
 
 func change_state(thing_state_id: String):
-	_remove_connections()
 	current_state.exit()
 	current_state = state_list[thing_state_id]
 	current_state.enter()
-	_update_connections()
 
 
 func roam():
@@ -54,20 +52,6 @@ func _set_following_direction():
 	var next_member: Character = room.party.get_next_member(self)
 	var direction: Vector2 = next_member.global_position - global_position
 	set_direction(direction)
-
-
-func _update_connections():
-	if not room.player_interacted.is_connected(current_state.check_interaction):
-		room.player_interacted.connect(current_state.check_interaction)
-	if not interact_area.begin_interaction.is_connected(room._on_begin_interaction):
-		interact_area.begin_interaction.connect(room._on_begin_interaction)
-
-
-func _remove_connections():
-	if room.player_interacted.is_connected(current_state.check_interaction):
-		room.player_interacted.disconnect(current_state.check_interaction)
-	if interact_area.begin_interaction.is_connected(room._on_begin_interaction):
-		interact_area.begin_interaction.disconnect(room._on_begin_interaction)
 
 
 func _on_FollowingArea_area_entered(area: Area2D):

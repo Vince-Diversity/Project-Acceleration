@@ -85,6 +85,9 @@ func _create_player():
 		owner._on_browsing_started,
 		owner._on_browsing_ended)
 	add_child(player)
+	player.make_player(
+		owner._on_idle_bubbles_selected,
+		owner._on_interact_bubbles_selected)
 	set_deferred("preserved_party_list", get_party_list())
 
 

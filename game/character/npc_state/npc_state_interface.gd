@@ -1,6 +1,5 @@
 class_name NPCState extends GDScript
 
-# the id is the scipt filename
 var state_id: String
 var npc: NPC
 
@@ -11,11 +10,13 @@ func _init(given_state_id: String, given_npc: NPC):
 
 
 func enter():
-	pass
+	Utils.try_connect(npc.room.player_interacted, check_interaction)
+	Utils.try_connect(npc.interact_area.begin_interaction, npc.room._on_begin_interaction)
 
 
 func exit():
-	pass
+	Utils.try_disconnect(npc.room.player_interacted, check_interaction)
+	Utils.try_disconnect(npc.interact_area.begin_interaction, npc.room._on_begin_interaction)
 
 
 func check_interaction(_given_interactable: Node2D):

@@ -2,6 +2,7 @@ class_name NPCStillState extends NPCState
 
 
 func enter():
+	super()
 	npc.following_area.set_monitoring(false)
 	npc.following_area.set_monitorable(false)
 	if npc.anim_sprite.sprite_frames.has_animation(npc.preserved_animation):
@@ -15,6 +16,7 @@ func enter():
 
 
 func exit():
+	super()
 	npc.following_area.set_monitoring(true)
 	npc.following_area.set_monitorable(true)
 

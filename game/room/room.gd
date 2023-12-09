@@ -31,6 +31,7 @@ signal player_interacted(interactable: Node2D)
 signal end_interaction()
 signal entrance_event_edited(room_id: String, is_enabled: bool)
 signal npc_removed(npc_name: String)
+signal item_()
 
 
 func _ready():
@@ -86,7 +87,7 @@ func _ready_states():
 	stm.add_state(cutscene_state)
 	rest_state.init_state(start_cutscene)
 	stm.add_state(rest_state)
-	browse_state.init_state(self)
+	browse_state.init_state(party)
 	stm.add_state(browse_state)
 
 
@@ -222,3 +223,20 @@ func _on_browsing_started():
 
 func _on_browsing_ended():
 	stm.change_state("roam_state")
+
+
+func _on_idle_bubbles_selected():
+	cutscenes.add_cutscene(dialogue_cutscene_scn, browse_state.browsing_cutscene_name)
+	start_cutscene(
+		browse_state.browsing_cutscene_name,
+		"browse_items",
+		party.player.get_thought_item_sprite().browse_dialogue_node,
+		party.player.items.exhibit_item)
+
+
+func _on_interact_bubbles_selected():
+	start_cutscene(
+		add_unique_cutscene(),
+		party.player.nearest_interactable.dialogue_id,
+		party.player.get_thought_item_sprite().interaction_dialogue_node,
+		party.player.nearest_interactable)

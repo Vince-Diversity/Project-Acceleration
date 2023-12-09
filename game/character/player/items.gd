@@ -1,4 +1,4 @@
-extends Node2D
+class_name Items extends Node2D
 
 @onready var exhibit_mark = $ExhibitMark
 @onready var exhibit_background = $ExhibitMark/ExhibitBackground

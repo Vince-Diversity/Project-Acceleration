@@ -9,8 +9,8 @@ var nearest_interactable: Node2D:
 		set_nearest_interactable(interactable)
 
 signal player_interacted(interactable: Node2D)
-signal browsing_started()
-signal browsing_ended()
+signal browsing_started
+signal browsing_ended
 
 
 func _ready():
@@ -27,6 +27,15 @@ func init_player(
 	player_interacted.connect(player_interacted_target)
 	browsing_started.connect(browsing_started_target)
 	browsing_ended.connect(browsing_ended_target)
+	browsing_ended.connect(_on_browsing_ended)
+
+
+func make_player(
+		idle_bubbles_selected_target: Callable,
+		interact_bubbles_selected_target: Callable):
+	bubbles.idle_bubbles_selected.connect(idle_bubbles_selected_target)
+	bubbles.interact_bubbles_selected.connect(interact_bubbles_selected_target)
+	bubbles.init_bubbles(self)
 
 
 func roam():
@@ -79,17 +88,9 @@ func check_interaction():
 
 func set_nearest_interactable(new_interactable: Node2D):
 	if is_instance_valid(new_interactable):
-		if not is_instance_valid(bubbles.interacting_bubble):
-			bubbles.add_interacting_bubble()
-			bubbles.item_interactable = true
+		bubbles.try_change_state("bubbles_interact_state")
 	else:
-		if is_near_interactable():
-			bubbles.interacting_bubble.close()
-			bubbles.item_interactable = false
-
-
-func is_near_interactable():
-	return bubbles.item_interactable
+		bubbles.try_change_state("bubbles_idle_state")
 
 
 func check_stored_items():
@@ -101,21 +102,8 @@ func make_item_bubble():
 	bubbles.add_item_bubble(items.item_id_list[0])
 
 
-func is_exhibiting() -> bool:
-	return is_instance_valid(items.exhibit_item)
-
-
-func reset_bubbles():
-	bubbles.reset_modulation()
-
-
-func close_bubbles():
+func close_item_bubble():
 	bubbles.item_bubble.close()
-	nearest_interactable = null
-
-
-func get_thought_item_id() -> String:
-	return bubbles.item_bubble.current_item_id
 
 
 func get_thought_item_sprite() -> ItemSprite:
@@ -124,3 +112,7 @@ func get_thought_item_sprite() -> ItemSprite:
 
 func _on_player_interacted(_interactable: Node2D):
 	set_deferred("nearest_interactable", null)
+
+
+func _on_browsing_ended():
+	bubbles.reset_bubbles()

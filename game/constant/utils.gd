@@ -122,6 +122,16 @@ static func snap_to_compass(direction: Vector2) -> Vector2:
 	return snapped_vector
 
 
+static func try_connect(source_signal, target):
+	if not source_signal.is_connected(target):
+		source_signal.connect(target)
+
+
+static func try_disconnect(source_signal, target):
+	if source_signal.is_connected(target):
+		source_signal.disconnect(target)
+
+
 static func get_files_in_dir(dir_path) -> Array[String]:
 	var file_arr: Array[String] = []
 	var dir = DirAccess.open(dir_path)
