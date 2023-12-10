@@ -234,9 +234,13 @@ func _on_idle_bubbles_selected():
 		party.player.items.exhibit_item)
 
 
-func _on_interact_bubbles_selected():
+func _on_interact_bubbles_selected(item_id: String, interactable_name: String):
+	if not cutscenes.item_interact_cutscenes.has(item_id):
+		cutscenes.item_interact_cutscenes[item_id] = {}
+	if not cutscenes.item_interact_cutscenes[item_id].has(interactable_name):
+		cutscenes.item_interact_cutscenes[item_id][interactable_name] = add_unique_cutscene()
 	start_cutscene(
-		add_unique_cutscene(),
+		cutscenes.item_interact_cutscenes[item_id][interactable_name],
 		party.player.nearest_interactable.dialogue_id,
 		party.player.get_thought_item_sprite().interaction_dialogue_node,
 		party.player.nearest_interactable)

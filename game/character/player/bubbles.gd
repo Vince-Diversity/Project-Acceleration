@@ -14,7 +14,7 @@ var current_state: BubblesState
 var state_list: Dictionary
 
 signal idle_bubbles_selected
-signal interact_bubbles_selected
+signal interact_bubbles_selected(item_id: String, interactable_name: String)
 
 
 func _ready():

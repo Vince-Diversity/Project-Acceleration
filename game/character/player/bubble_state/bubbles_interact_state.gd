@@ -16,7 +16,9 @@ func create():
 
 func select():
 	super()
-	player.bubbles.interact_bubbles_selected.emit()
+	player.bubbles.interact_bubbles_selected.emit(
+		player.bubbles.item_bubble.current_item_id,
+		player.nearest_interactable.name)
 
 
 func reset():

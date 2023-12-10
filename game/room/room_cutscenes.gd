@@ -5,6 +5,7 @@ var current_cutscene: Cutscene
 var current_dialogue_id: String
 var current_dialogue_node: String
 var current_source_node: Node2D
+var item_interact_cutscenes: Dictionary
 
 
 func change_cutscene(
