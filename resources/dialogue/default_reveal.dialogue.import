@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://c1bvaug226ff3"
+path="res://.godot/imported/default_reveal.dialogue-fbd5fa9e9d0f3f1e5ac490476d028508.tres"
+
+[deps]
+
+source_file="res://resources/dialogue/default_reveal.dialogue"
+dest_files=["res://.godot/imported/default_reveal.dialogue-fbd5fa9e9d0f3f1e5ac490476d028508.tres"]
+
+[params]
+
+defaults=true

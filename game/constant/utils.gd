@@ -73,9 +73,16 @@ static func get_res_arr(res_dir_path: String) -> Array:
 	var res_dir = DirAccess.open(res_dir_path)
 	var name_arr = Array(res_dir.get_files())
 	for name in name_arr:
-		if name.ends_with(".import"):
+		if name.ends_with(".import") or name.ends_with(".gd"):
 			name_arr.erase(name)
 	return name_arr
+
+
+static func has_res(res_dir_path: String, res_condition: Callable) -> bool:
+	for res_file in get_res_arr(res_dir_path):
+		if res_condition.call(load(res_dir_path.path_join(res_file))):
+			return true
+	return false
 
 
 static func get_profile_path(dlg_line: DialogueLine, expression: String) -> String:

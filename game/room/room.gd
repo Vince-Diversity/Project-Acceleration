@@ -155,9 +155,9 @@ func start_cutscene(
 	end_interaction.connect(source_node.get_node("InteractArea")._on_end_interaction, CONNECT_ONE_SHOT)
 
 
-func add_unique_cutscene() -> String:
+func add_unique_cutscene(cutscene_scn: PackedScene = dialogue_cutscene_scn) -> String:
 	# When using this, wait for the cutscene node to be added before starting the cutscene
-	var dlg_cutscene: DialogueCutscene = dialogue_cutscene_scn.instantiate()
+	var dlg_cutscene: DialogueCutscene = cutscene_scn.instantiate()
 	var interaction_node = "Default%s" % cutscenes.get_children().size()
 	add_cutscene(dlg_cutscene, interaction_node)
 	return interaction_node
@@ -237,10 +237,11 @@ func _on_idle_bubbles_selected():
 func _on_interact_bubbles_selected(item_id: String, interactable_name: String):
 	if not cutscenes.item_interact_cutscenes.has(item_id):
 		cutscenes.item_interact_cutscenes[item_id] = {}
-	if not cutscenes.item_interact_cutscenes[item_id].has(interactable_name):
-		cutscenes.item_interact_cutscenes[item_id][interactable_name] = add_unique_cutscene()
+	var item_dict = cutscenes.item_interact_cutscenes[item_id]
+	if not item_dict.has(interactable_name):
+		item_dict[interactable_name] = add_unique_cutscene()
 	start_cutscene(
-		cutscenes.item_interact_cutscenes[item_id][interactable_name],
+		item_dict[interactable_name],
 		party.player.nearest_interactable.dialogue_id,
 		party.player.get_thought_item_sprite().interaction_dialogue_node,
 		party.player.nearest_interactable)

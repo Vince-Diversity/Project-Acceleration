@@ -152,11 +152,17 @@ func _on_textbox_started(
 		dlg_path = Utils.get_dlg_path("default")
 	dlg_res = load(dlg_path)
 	if dlg_res.lines.size() <= 0 or not dlg_res.titles.has(dialogue_node):
-		dlg_path = Utils.get_dlg_path("default")
+		if Utils.has_res(
+				Utils.item_sprite_dir,
+				func(item_sprite):
+					return item_sprite.interaction_dialogue_node == dialogue_node):
+			dlg_path = Utils.get_dlg_path("default_reveal")
+			dialogue_node = "default"
+		else:
+			dlg_path = Utils.get_dlg_path("default")
+			dialogue_node = "default"
 		dlg_res = load(dlg_path)
 	DialogueManager.dialogue_ended.connect(dialogue_ended_target, CONNECT_ONE_SHOT)
-	if dialogue_node.is_empty():
-		dialogue_node = "default"
 	text_box.start(dlg_res, dialogue_node, [cutscene])
 
 
