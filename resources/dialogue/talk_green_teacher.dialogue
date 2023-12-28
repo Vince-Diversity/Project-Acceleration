@@ -1,10 +1,17 @@
+import "res://resources/dialogue/default_talk.dialogue" as default_talk
+
 ~ cue
-do move("react")
+if is_mentoring
+	do move("react")
+else
+	=> default_talk/default
 => END!
+
 
 ~ react
 do animate_npc("GreenTeacher", "stop_reading_sittinga", "talk")
 => END!
+
 
 ~ talk
 do set_npc_anim("GreenTeacher", "sitting")

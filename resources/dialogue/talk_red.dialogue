@@ -1,12 +1,17 @@
+import "res://resources/dialogue/default_talk.dialogue" as default_talk
+
 ~ cue
-do turn_npc_to_player("Red")
-{{green}}: Hi {{red}}! You have to show us one of your demos!
-{{red}}: Hi. Is this the new student you mentioned?
-{{blue}}: My name is {{blue}}.
-{{green}}: And this is {{red}}, my friend and amazing {{red_aspect}} mage.
-do add_async([[make_move_npc, ["Red", "RedMark"]]])
-do add_async([[make_move_party, []]])
-do play_async("ignite")
+if is_mentoring
+	do turn_npc_to_player("Red")
+	{{green}}: Hi {{red}}! You have to show us one of your demos!
+	{{red}}: Hi. Is this the new student you mentioned?
+	{{blue}}: My name is {{blue}}.
+	{{green}}: And this is {{red}}, my friend and amazing {{red_aspect}} mage.
+	do add_async([[make_move_npc, ["Red", "RedMark"]]])
+	do add_async([[make_move_party, []]])
+	do play_async("ignite")
+else
+	=> default_talk/default
 => END!
 
 ~ ignite
@@ -48,8 +53,11 @@ do set_npc_dialogue_node("Red", "revisit")
 => END!
 
 ~ revisit
-do turn_npc_to_player("Red")
-{{green}}: [#expression=cheerful] Hi again! Can you show us another demo?
-{{red}}: [#expression=sorry] Please, let me recover first.
-do set_npc_anim("Red", "down")
+if is_mentoring
+	do turn_npc_to_player("Red")
+	{{green}}: [#expression=cheerful] Hi again! Can you show us another demo?
+	{{red}}: [#expression=sorry] Please, let me recover first.
+	do set_npc_anim("Red", "down")
+else
+	=> default_talk/default
 => END!

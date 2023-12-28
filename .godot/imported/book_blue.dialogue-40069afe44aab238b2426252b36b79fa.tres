@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_3ej0t"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_l3j7h"]
 
 [resource]
-script = ExtResource("1_3ej0t")
+script = ExtResource("1_l3j7h")
 using_states = PackedStringArray()
 titles = {
 "check": "2",
-"open_book": "7",
-"read": "12"
+"open_book": "10",
+"read": "15"
 }
 character_names = PackedStringArray("{{green}}")
 first_title = "2"
@@ -19,158 +19,8 @@ lines = {
 "text": "check",
 "type": "title"
 },
-"11": {
-"id": "11",
-"next_id": "12",
-"text": "read",
-"type": "title"
-},
-"12": {
-"id": "12",
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "set_player_anim",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "variable",
-"value": "reading_anim"
-}])])
-}])
-},
-"next_id": "13",
-"type": "mutation"
-},
-"13": {
-"character": "{{green}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "green"
-}]),
-"value_in_text": "{{green}}"
-}]),
-"id": "13",
-"next_id": "14",
-"tags": PackedStringArray(),
-"text": "\"All other magical elements affect reality in some way. But the {{blue_aspect}} magic appears to go beyond that reality.\"",
-"text_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "blue_aspect"
-}]),
-"value_in_text": "{{blue_aspect}}"
-}]),
-"translation_key": "\"All other magical elements affect reality in some way. But the {{blue_aspect}} magic appears to go beyond that reality.\"",
-"type": "dialogue"
-},
-"14": {
-"character": "{{green}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "green"
-}]),
-"value_in_text": "{{green}}"
-}]),
-"id": "14",
-"next_id": "15",
-"tags": PackedStringArray(),
-"text": "\"Practitioners are able to vanish, becoming invicible and undetectable.\"",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "\"Practitioners are able to vanish, becoming invicible and undetectable.\"",
-"type": "dialogue"
-},
-"15": {
-"id": "15",
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "set_thing_anim",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "BlueAspect"
-}]), Array[Dictionary]([{
-"type": "variable",
-"value": "bookcase_anim"
-}])])
-}])
-},
-"next_id": "16",
-"type": "mutation"
-},
-"16": {
-"id": "16",
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "set_player_anim",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "down"
-}])])
-}])
-},
-"next_id": "17",
-"type": "mutation"
-},
-"17": {
-"id": "17",
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
-},
-"2": {
-"character": "{{green}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "green"
-}]),
-"value_in_text": "{{green}}"
-}]),
-"id": "2",
-"next_id": "3",
-"tags": PackedStringArray(),
-"text": "\"{{blue_aspect}} Magic\". (Read this one?)",
-"text_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "blue_aspect"
-}]),
-"value_in_text": "{{blue_aspect}}"
-}]),
-"translation_key": "\"{{blue_aspect}} Magic\". (Read this one?)",
-"type": "dialogue"
-},
-"3": {
-"id": "3",
-"next_id": "7",
-"next_id_after": "7",
-"responses": PackedStringArray("3", "4"),
-"tags": PackedStringArray(),
-"text": "Read",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "Read",
-"type": "response"
-},
-"4": {
-"id": "4",
-"next_id": "end!",
-"next_id_after": "7",
-"tags": PackedStringArray(),
-"text": "Leave",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "Leave",
-"type": "response"
-},
-"6": {
-"id": "6",
-"next_id": "7",
-"text": "open_book",
-"type": "title"
-},
-"7": {
-"id": "7",
+"10": {
+"id": "10",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_thing_anim",
@@ -184,11 +34,11 @@ lines = {
 }])])
 }])
 },
-"next_id": "8",
+"next_id": "11",
 "type": "mutation"
 },
-"8": {
-"id": "8",
+"11": {
+"id": "11",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "animate_player",
@@ -202,14 +52,259 @@ lines = {
 }])])
 }])
 },
-"next_id": "9",
+"next_id": "12",
 "type": "mutation"
 },
-"9": {
-"id": "9",
+"12": {
+"id": "12",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
+},
+"14": {
+"id": "14",
+"next_id": "15",
+"text": "read",
+"type": "title"
+},
+"15": {
+"id": "15",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_player_anim",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "variable",
+"value": "reading_anim"
+}])])
+}])
+},
+"next_id": "16",
+"type": "mutation"
+},
+"16": {
+"condition": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "is_mentoring"
+}])
+},
+"id": "16",
+"next_conditional_id": "19",
+"next_id": "17",
+"next_id_after": "22",
+"type": "condition"
+},
+"17": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"id": "17",
+"next_id": "18",
+"parent_id": "16",
+"tags": PackedStringArray(),
+"text": "\"All other magical elements affect reality in some way. But the {{blue_aspect}} magic appears to go beyond that reality.\"",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "blue_aspect"
+}]),
+"value_in_text": "{{blue_aspect}}"
+}]),
+"translation_key": "\"All other magical elements affect reality in some way. But the {{blue_aspect}} magic appears to go beyond that reality.\"",
+"type": "dialogue"
+},
+"18": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"id": "18",
+"next_id": "22",
+"parent_id": "16",
+"tags": PackedStringArray(),
+"text": "\"Practitioners are able to vanish, becoming invicible and undetectable.\"",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "\"Practitioners are able to vanish, becoming invicible and undetectable.\"",
+"type": "dialogue"
+},
+"19": {
+"id": "19",
+"next_conditional_id": "22",
+"next_id": "20",
+"next_id_after": "22",
+"type": "condition"
+},
+"2": {
+"condition": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "is_mentoring"
+}])
+},
+"id": "2",
+"next_conditional_id": "4",
+"next_id": "3",
+"next_id_after": "6",
+"type": "condition"
+},
+"20": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "20",
+"next_id": "21",
+"parent_id": "19",
+"tags": PackedStringArray(),
+"text": "(All other magical elements affect reality in some way. But the {{blue_aspect}} magic appears to go beyond that reality.)",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "blue_aspect"
+}]),
+"value_in_text": "{{blue_aspect}}"
+}]),
+"translation_key": "(All other magical elements affect reality in some way. But the {{blue_aspect}} magic appears to go beyond that reality.)",
+"type": "dialogue"
+},
+"21": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "21",
+"next_id": "22",
+"parent_id": "19",
+"tags": PackedStringArray(),
+"text": "(Practitioners are able to vanish, becoming invicible and undetectable.)",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "(Practitioners are able to vanish, becoming invicible and undetectable.)",
+"type": "dialogue"
+},
+"22": {
+"id": "22",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_thing_anim",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "BlueAspect"
+}]), Array[Dictionary]([{
+"type": "variable",
+"value": "bookcase_anim"
+}])])
+}])
+},
+"next_id": "23",
+"type": "mutation"
+},
+"23": {
+"id": "23",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_player_anim",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "down"
+}])])
+}])
+},
+"next_id": "24",
+"type": "mutation"
+},
+"24": {
+"id": "24",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"3": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"id": "3",
+"next_id": "6",
+"parent_id": "2",
+"tags": PackedStringArray(),
+"text": "\"{{blue_aspect}} Magic\".",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "blue_aspect"
+}]),
+"value_in_text": "{{blue_aspect}}"
+}]),
+"translation_key": "\"{{blue_aspect}} Magic\".",
+"type": "dialogue"
+},
+"4": {
+"id": "4",
+"next_conditional_id": "6",
+"next_id": "5",
+"next_id_after": "6",
+"type": "condition"
+},
+"5": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "5",
+"next_id": "6",
+"parent_id": "4",
+"tags": PackedStringArray(),
+"text": "(\"{{blue_aspect}} Magic\".)",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "blue_aspect"
+}]),
+"value_in_text": "{{blue_aspect}}"
+}]),
+"translation_key": "(\"{{blue_aspect}} Magic\".)",
+"type": "dialogue"
+},
+"6": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "6",
+"next_id": "10",
+"next_id_after": "10",
+"responses": PackedStringArray("6", "7"),
+"tags": PackedStringArray(),
+"text": "Read",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Read",
+"type": "response"
+},
+"7": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "7",
+"next_id": "end!",
+"next_id_after": "10",
+"tags": PackedStringArray(),
+"text": "Leave",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Leave",
+"type": "response"
+},
+"9": {
+"id": "9",
+"next_id": "10",
+"text": "open_book",
+"type": "title"
 }
 }
-metadata/dialogue_manager_version = "2.28.0"
+metadata/dialogue_manager_version = "2.31.0"

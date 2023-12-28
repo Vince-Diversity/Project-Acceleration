@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_p8wpc"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_1r0sl"]
 
 [resource]
-script = ExtResource("1_p8wpc")
+script = ExtResource("1_1r0sl")
 using_states = PackedStringArray()
 titles = {
 "check": "3",
-"open_book": "8",
-"read": "13"
+"open_book": "11",
+"read": "16"
 }
 character_names = PackedStringArray("{{green}}")
 first_title = "3"
@@ -21,162 +21,12 @@ lines = {
 },
 "10": {
 "id": "10",
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
-},
-"12": {
-"id": "12",
-"next_id": "13",
-"text": "read",
-"type": "title"
-},
-"13": {
-"id": "13",
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "set_player_anim",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "variable",
-"value": "reading_anim"
-}])])
-}])
-},
-"next_id": "14",
-"type": "mutation"
-},
-"14": {
-"character": "{{green}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "green"
-}]),
-"value_in_text": "{{green}}"
-}]),
-"id": "14",
-"next_id": "15",
-"tags": PackedStringArray(),
-"text": "\"The {{red_aspect}} magic is the ability to conjure heat, perhaps even energy itself.\"",
-"text_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "red_aspect"
-}]),
-"value_in_text": "{{red_aspect}}"
-}]),
-"translation_key": "\"The {{red_aspect}} magic is the ability to conjure heat, perhaps even energy itself.\"",
-"type": "dialogue"
-},
-"15": {
-"character": "{{green}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "green"
-}]),
-"value_in_text": "{{green}}"
-}]),
-"id": "15",
-"next_id": "16",
-"tags": PackedStringArray(),
-"text": "\"Where this energy is coming from is hard to understand. But it is clear that the user's willpower is a vital ingredient.\"",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "\"Where this energy is coming from is hard to understand. But it is clear that the user's willpower is a vital ingredient.\"",
-"type": "dialogue"
-},
-"16": {
-"id": "16",
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "set_thing_anim",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "RedAspect"
-}]), Array[Dictionary]([{
-"type": "variable",
-"value": "bookcase_anim"
-}])])
-}])
-},
-"next_id": "17",
-"type": "mutation"
-},
-"17": {
-"id": "17",
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "set_player_anim",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "down"
-}])])
-}])
-},
-"next_id": "18",
-"type": "mutation"
-},
-"18": {
-"id": "18",
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
-},
-"3": {
-"character": "{{green}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "green"
-}]),
-"value_in_text": "{{green}}"
-}]),
-"id": "3",
-"next_id": "4",
-"tags": PackedStringArray(),
-"text": "\"{{red_aspect}} Magic\". (Read this one?)",
-"text_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "red_aspect"
-}]),
-"value_in_text": "{{red_aspect}}"
-}]),
-"translation_key": "\"{{red_aspect}} Magic\". (Read this one?)",
-"type": "dialogue"
-},
-"4": {
-"id": "4",
-"next_id": "8",
-"next_id_after": "8",
-"responses": PackedStringArray("4", "5"),
-"tags": PackedStringArray(),
-"text": "Read",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "Read",
-"type": "response"
-},
-"5": {
-"id": "5",
-"next_id": "end!",
-"next_id_after": "8",
-"tags": PackedStringArray(),
-"text": "Leave",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "Leave",
-"type": "response"
-},
-"7": {
-"id": "7",
-"next_id": "8",
+"next_id": "11",
 "text": "open_book",
 "type": "title"
 },
-"8": {
-"id": "8",
+"11": {
+"id": "11",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_thing_anim",
@@ -190,11 +40,11 @@ lines = {
 }])])
 }])
 },
-"next_id": "9",
+"next_id": "12",
 "type": "mutation"
 },
-"9": {
-"id": "9",
+"12": {
+"id": "12",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "animate_player",
@@ -208,8 +58,253 @@ lines = {
 }])])
 }])
 },
-"next_id": "10",
+"next_id": "13",
 "type": "mutation"
+},
+"13": {
+"id": "13",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"15": {
+"id": "15",
+"next_id": "16",
+"text": "read",
+"type": "title"
+},
+"16": {
+"id": "16",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_player_anim",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "variable",
+"value": "reading_anim"
+}])])
+}])
+},
+"next_id": "17",
+"type": "mutation"
+},
+"17": {
+"condition": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "is_mentoring"
+}])
+},
+"id": "17",
+"next_conditional_id": "20",
+"next_id": "18",
+"next_id_after": "23",
+"type": "condition"
+},
+"18": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"id": "18",
+"next_id": "19",
+"parent_id": "17",
+"tags": PackedStringArray(),
+"text": "\"The {{red_aspect}} magic is the ability to conjure heat, perhaps even energy itself.\"",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "red_aspect"
+}]),
+"value_in_text": "{{red_aspect}}"
+}]),
+"translation_key": "\"The {{red_aspect}} magic is the ability to conjure heat, perhaps even energy itself.\"",
+"type": "dialogue"
+},
+"19": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"id": "19",
+"next_id": "23",
+"parent_id": "17",
+"tags": PackedStringArray(),
+"text": "\"Where this energy is coming from is hard to understand. But it is clear that the user's willpower is a vital ingredient.\"",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "\"Where this energy is coming from is hard to understand. But it is clear that the user's willpower is a vital ingredient.\"",
+"type": "dialogue"
+},
+"20": {
+"id": "20",
+"next_conditional_id": "23",
+"next_id": "21",
+"next_id_after": "23",
+"type": "condition"
+},
+"21": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "21",
+"next_id": "22",
+"parent_id": "20",
+"tags": PackedStringArray(),
+"text": "(\"The {{red_aspect}} magic is the ability to conjure heat, perhaps even energy itself.\")",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "red_aspect"
+}]),
+"value_in_text": "{{red_aspect}}"
+}]),
+"translation_key": "(\"The {{red_aspect}} magic is the ability to conjure heat, perhaps even energy itself.\")",
+"type": "dialogue"
+},
+"22": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "22",
+"next_id": "23",
+"parent_id": "20",
+"tags": PackedStringArray(),
+"text": "(\"Where this energy is coming from is hard to understand. But it is clear that the user's willpower is a vital ingredient.\")",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "(\"Where this energy is coming from is hard to understand. But it is clear that the user's willpower is a vital ingredient.\")",
+"type": "dialogue"
+},
+"23": {
+"id": "23",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_thing_anim",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "RedAspect"
+}]), Array[Dictionary]([{
+"type": "variable",
+"value": "bookcase_anim"
+}])])
+}])
+},
+"next_id": "24",
+"type": "mutation"
+},
+"24": {
+"id": "24",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_player_anim",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "down"
+}])])
+}])
+},
+"next_id": "25",
+"type": "mutation"
+},
+"25": {
+"id": "25",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"3": {
+"condition": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "is_mentoring"
+}])
+},
+"id": "3",
+"next_conditional_id": "5",
+"next_id": "4",
+"next_id_after": "7",
+"type": "condition"
+},
+"4": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"id": "4",
+"next_id": "7",
+"parent_id": "3",
+"tags": PackedStringArray(),
+"text": "\"{{red_aspect}} Magic.\"",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "red_aspect"
+}]),
+"value_in_text": "{{red_aspect}}"
+}]),
+"translation_key": "\"{{red_aspect}} Magic.\"",
+"type": "dialogue"
+},
+"5": {
+"id": "5",
+"next_conditional_id": "7",
+"next_id": "6",
+"next_id_after": "7",
+"type": "condition"
+},
+"6": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "6",
+"next_id": "7",
+"parent_id": "5",
+"tags": PackedStringArray(),
+"text": "(\"{{red_aspect}} Magic.\")",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "red_aspect"
+}]),
+"value_in_text": "{{red_aspect}}"
+}]),
+"translation_key": "(\"{{red_aspect}} Magic.\")",
+"type": "dialogue"
+},
+"7": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "7",
+"next_id": "11",
+"next_id_after": "11",
+"responses": PackedStringArray("7", "8"),
+"tags": PackedStringArray(),
+"text": "Read",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Read",
+"type": "response"
+},
+"8": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "8",
+"next_id": "end!",
+"next_id_after": "11",
+"tags": PackedStringArray(),
+"text": "Leave",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Leave",
+"type": "response"
 }
 }
-metadata/dialogue_manager_version = "2.28.0"
+metadata/dialogue_manager_version = "2.31.0"

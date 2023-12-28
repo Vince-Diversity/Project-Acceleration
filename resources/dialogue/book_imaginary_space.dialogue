@@ -1,24 +1,35 @@
 ~ cue
-{{green}}: Look over here, {{blue}}!
+if is_mentoring
+	{{green}}: Look over here, {{blue}}!
 do move("open_book")
 => END!
 
 ~ open_book
-{{green}}: "The Myth of {{deepest_layer}}".
-{{green}}: [#expression=cheerful] This might be of help to you!
+if is_mentoring
+	{{green}}: "The Myth of {{deepest_layer}}".
+else
+	(The Myth of {{deepest_layer}}".)
 do set_thing_anim("BookcaseImaginarySpace", bookcase_taken_anim)
 do animate_player(read_anim, "read")
 => END!
 
 ~ read
 do set_player_anim(reading_anim)
-{{green}}: "Reality is merely the top layer of the onion which represents our world. The imaginary are its layers."
-{{green}}: "By peeling its many layers, one may travel deeper into the imaginary."
-{{green}}: "But, just like an onion, our most trusted theory predicts that the imaginary has a core, a deepest layer."
-{{green}}: "Yet, despite all efforts, there is no consensus on the scientific validity of alledged evidence for its existence."
-{{green}}: "Researchers have merely been able to state that this mystery is yet enshrouded in an incomprehensible mist."
-{{green}}: "Hence, this deepest layer became recognised by the name: {{deepest_layer}}."
-{{green}}: [#expression=cheerful] Hmm... I believe we should try look for this place called {{deepest_layer}} sometime.
+if is_mentoring
+	{{green}}: "Reality is merely the top layer of the onion which represents our world. The imaginary are its layers."
+	{{green}}: "By peeling its many layers, one may travel deeper into the imaginary."
+	{{green}}: "But, just like an onion, our most trusted theory predicts that the imaginary has a core, a deepest layer."
+	{{green}}: "Yet, despite all efforts, there is no consensus on the scientific validity of alledged evidence for its existence."
+	{{green}}: "Researchers have merely been able to state that this mystery is yet enshrouded in an incomprehensible mist."
+	{{green}}: "Hence, this deepest layer became recognised by the name: {{deepest_layer}}."
+	{{green}}: [#expression=cheerful] Hmm... I believe we should try look for this place called {{deepest_layer}} sometime.
+else
+	("Reality is merely the top layer of the onion which represents our world. The imaginary are its layers.")
+	("By peeling its many layers, one may travel deeper into the imaginary.")
+	("But, just like an onion, our most trusted theory predicts that the imaginary has a core, a deepest layer.")
+	("Yet, despite all efforts, there is no consensus on the scientific validity of alledged evidence for its existence.")
+	("Researchers have merely been able to state that this mystery is yet enshrouded in an incomprehensible mist.")
+	("Hence, this deepest layer became recognised by the name: {{deepest_layer}}.")
 do set_thing_anim("BookcaseImaginarySpace", bookcase_anim)
 do set_player_anim("down")
 => END!

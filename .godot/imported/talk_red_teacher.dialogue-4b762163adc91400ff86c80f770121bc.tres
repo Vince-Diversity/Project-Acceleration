@@ -1,24 +1,50 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_ide5e"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_mav17"]
 
 [resource]
-script = ExtResource("1_ide5e")
+script = ExtResource("1_mav17")
 using_states = PackedStringArray()
 titles = {
-"talk": "2"
+"1800858898/default": "1",
+"default_talk/default": "1",
+"talk": "10"
 }
 character_names = PackedStringArray("{{red_teacher}}", "{{green}}")
-first_title = "2"
+first_title = "10"
 lines = {
-"1": {
-"id": "1",
-"next_id": "2",
-"text": "talk",
+"0": {
+"id": "0",
+"next_id": "1",
+"text": "1800858898/default",
 "type": "title"
 },
-"2": {
-"id": "2",
+"1": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "1",
+"next_id": "2",
+"tags": PackedStringArray(),
+"text": "(No problem here!)",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "(No problem here!)",
+"type": "dialogue"
+},
+"10": {
+"condition": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "is_mentoring"
+}])
+},
+"id": "10",
+"next_conditional_id": "17",
+"next_id": "11",
+"next_id_after": "19",
+"type": "condition"
+},
+"11": {
+"id": "11",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "turn_npc_to_player",
@@ -29,10 +55,11 @@ lines = {
 }])])
 }])
 },
-"next_id": "3",
+"next_id": "12",
+"parent_id": "10",
 "type": "mutation"
 },
-"3": {
+"12": {
 "character": "{{red_teacher}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -41,15 +68,16 @@ lines = {
 }]),
 "value_in_text": "{{red_teacher}}"
 }]),
-"id": "3",
-"next_id": "4",
+"id": "12",
+"next_id": "13",
+"parent_id": "10",
 "tags": PackedStringArray(),
 "text": "Hope you are fired up for some battle practice this term!",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "Hope you are fired up for some battle practice this term!",
 "type": "dialogue"
 },
-"4": {
+"13": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -58,15 +86,16 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
-"id": "4",
-"next_id": "5",
+"id": "13",
+"next_id": "14",
+"parent_id": "10",
 "tags": PackedStringArray(),
 "text": "Actually, I'm not so fond of that.",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "Actually, I'm not so fond of that.",
 "type": "dialogue"
 },
-"5": {
+"14": {
 "character": "{{red_teacher}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -75,8 +104,9 @@ lines = {
 }]),
 "value_in_text": "{{red_teacher}}"
 }]),
-"id": "5",
-"next_id": "6",
+"id": "14",
+"next_id": "15",
+"parent_id": "10",
 "tags": PackedStringArray(),
 "text": "Think about it! Your friend {{red}} would need someone as dedicated as you to spar with.",
 "text_replacements": Array[Dictionary]([{
@@ -89,7 +119,7 @@ lines = {
 "translation_key": "Think about it! Your friend {{red}} would need someone as dedicated as you to spar with.",
 "type": "dialogue"
 },
-"6": {
+"15": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -98,8 +128,9 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
-"id": "6",
-"next_id": "7",
+"id": "15",
+"next_id": "16",
+"parent_id": "10",
 "tags": PackedStringArray(),
 "text": "{{blue}}, this is {{red_teacher}}. She is the main teacher of {{red_aspect}} magic but she also manages magical martial arts training.",
 "text_replacements": Array[Dictionary]([{
@@ -124,8 +155,8 @@ lines = {
 "translation_key": "{{blue}}, this is {{red_teacher}}. She is the main teacher of {{red_aspect}} magic but she also manages magical martial arts training.",
 "type": "dialogue"
 },
-"7": {
-"id": "7",
+"16": {
+"id": "16",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_npc_direction",
@@ -139,14 +170,47 @@ lines = {
 }])])
 }])
 },
-"next_id": "8",
+"next_id": "19",
+"parent_id": "10",
 "type": "mutation"
 },
-"8": {
-"id": "8",
+"17": {
+"id": "17",
+"next_conditional_id": "19",
+"next_id": "18",
+"next_id_after": "19",
+"type": "condition"
+},
+"18": {
+"id": "18",
+"is_snippet": false,
+"next_id": "1",
+"parent_id": "17",
+"type": "goto"
+},
+"19": {
+"id": "19",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
+},
+"2": {
+"id": "2",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"4": {
+"id": "4",
+"is_snippet": false,
+"next_id": "end",
+"type": "goto"
+},
+"9": {
+"id": "9",
+"next_id": "10",
+"text": "talk",
+"type": "title"
 }
 }
-metadata/dialogue_manager_version = "2.29.2"
+metadata/dialogue_manager_version = "2.31.0"

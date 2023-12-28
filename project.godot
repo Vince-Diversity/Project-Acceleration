@@ -20,6 +20,7 @@ config/version="0.3"
 
 Names="*res://game/constant/names.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+Condition="*res://game/condition/condition.tscn"
 
 [debug]
 
@@ -28,7 +29,7 @@ gdscript/warnings/return_value_discarded=false
 [dialogue_manager]
 
 general/new_with_template=false
-general/states=["Names"]
+general/states=["Names", "Condition"]
 
 [display]
 

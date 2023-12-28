@@ -1,6 +1,8 @@
 ~ check
-
-{{green}}: "{{yellow_aspect}} Magic". (Read this one?)
+if is_mentoring
+	{{green}}: "{{yellow_aspect}} Magic."
+else
+	("{{yellow_aspect}} Magic.")
 - Read => open_book
 - Leave => END!
 
@@ -11,8 +13,12 @@ do animate_player(read_anim, "read")
 
 ~ read
 do set_player_anim(reading_anim)
-{{green}}: "The name originates from when practitioners demonstrated that they could instantly warp through space, like a bolt of lightning!"
-{{green}}: "The magic of electricity and light is a very practical ability to have. Most of the techno-magical inventions have been possible thanks to it, and techno-magical development is nowadays the biggest source of potency for this power.
+if is_mentoring
+	{{green}}: "The name originates from when practitioners demonstrated that they could instantly warp through space, like a bolt of lightning!"
+	{{green}}: "The magic of electricity and light is a very practical ability to have. Most of the techno-magical inventions have been possible thanks to it, and techno-magical development is nowadays the biggest source of potency for this power.
+else
+	("The name originates from when practitioners demonstrated that they could instantly warp through space, like a bolt of lightning!")
+	("The magic of electricity and light is a very practical ability to have. Most of the techno-magical inventions have been possible thanks to it, and techno-magical development is nowadays the biggest source of potency for this power.")
 do set_thing_anim("YellowAspect", bookcase_anim)
 do set_player_anim("down")
 => END!

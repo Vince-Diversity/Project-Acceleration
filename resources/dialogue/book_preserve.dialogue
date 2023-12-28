@@ -3,17 +3,24 @@ do move("open_book")
 => END!
 
 ~ open_book
-{{green}}: Plants are life too. By understanding them, we can help them grow.
+if is_mentoring
+	{{green}}: Plants are life too. By understanding them, we can help them grow.
 do set_thing_anim("BookcasePreserve", bookcase_taken_anim)
 do animate_player(read_anim, "read")
 => END!
 
 ~ read
 do set_player_anim(reading_anim)
-{{green}}: "In two words, {{green_aspect}} magic is to 'enhance' and to 'preserve'."
-{{green}}: "The magic manifests by enhancing existing traits to a subject."
-{{green}}: "Even when the practitioner ends their spell, the magic remains in the form of a more complete subject."
-{{green}}: "Changes made with {{green_aspect}} magic are therefore always preserved."
+if is_mentoring
+	{{green}}: "In two words, {{green_aspect}} magic is to 'enhance' and to 'preserve'."
+	{{green}}: "The magic manifests by enhancing existing traits to a subject."
+	{{green}}: "Even when the practitioner ends their spell, the magic remains in the form of a more complete subject."
+	{{green}}: "Changes made with {{green_aspect}} magic are therefore always preserved."
+else
+	("In two words, {{green_aspect}} magic is to 'enhance' and to 'preserve'.")
+	("The magic manifests by enhancing existing traits to a subject.")
+	("Even when the practitioner ends their spell, the magic remains in the form of a more complete subject.")
+	("Changes made with {{green_aspect}} magic are therefore always preserved.")
 do set_thing_anim("BookcasePreserve", bookcase_anim)
 do set_player_anim("down")
 => END!

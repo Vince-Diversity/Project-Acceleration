@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_e06dd"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_k0srk"]
 
 [resource]
-script = ExtResource("1_e06dd")
+script = ExtResource("1_k0srk")
 using_states = PackedStringArray()
 titles = {
 "AO": "3",
@@ -20,7 +20,7 @@ titles = {
 "TM": "63",
 "WP": "43"
 }
-character_names = PackedStringArray("{{green}}")
+character_names = PackedStringArray()
 first_title = "3"
 lines = {
 "1": {
@@ -36,20 +36,14 @@ lines = {
 "type": "title"
 },
 "13": {
-"character": "{{green}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "green"
-}]),
-"value_in_text": "{{green}}"
-}]),
+"character": "",
+"character_replacements": Array[Dictionary]([]),
 "id": "13",
 "next_id": "14",
 "tags": PackedStringArray(),
-"text": "\"Botanics and Potions\"",
+"text": "(\"Botanics and Potions\".)",
 "text_replacements": Array[Dictionary]([]),
-"translation_key": "\"Botanics and Potions\"",
+"translation_key": "(\"Botanics and Potions\".)",
 "type": "dialogue"
 },
 "14": {
@@ -65,20 +59,14 @@ lines = {
 "type": "title"
 },
 "18": {
-"character": "{{green}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "green"
-}]),
-"value_in_text": "{{green}}"
-}]),
+"character": "",
+"character_replacements": Array[Dictionary]([]),
 "id": "18",
 "next_id": "19",
 "tags": PackedStringArray(),
-"text": "\"Chaos Theory and Foresight\"",
+"text": "(\"Chaos Theory and Foresight\".)",
 "text_replacements": Array[Dictionary]([]),
-"translation_key": "\"Chaos Theory and Foresight\"",
+"translation_key": "(\"Chaos Theory and Foresight\".)",
 "type": "dialogue"
 },
 "19": {
@@ -94,20 +82,14 @@ lines = {
 "type": "title"
 },
 "23": {
-"character": "{{green}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "green"
-}]),
-"value_in_text": "{{green}}"
-}]),
+"character": "",
+"character_replacements": Array[Dictionary]([]),
 "id": "23",
 "next_id": "24",
 "tags": PackedStringArray(),
-"text": "\"Defense against Magic\"",
+"text": "(\"Defense against Magic\".)",
 "text_replacements": Array[Dictionary]([]),
-"translation_key": "\"Defense against Magic\"",
+"translation_key": "(\"Defense against Magic\".)",
 "type": "dialogue"
 },
 "24": {
@@ -123,20 +105,14 @@ lines = {
 "type": "title"
 },
 "28": {
-"character": "{{green}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "green"
-}]),
-"value_in_text": "{{green}}"
-}]),
+"character": "",
+"character_replacements": Array[Dictionary]([]),
 "id": "28",
 "next_id": "29",
 "tags": PackedStringArray(),
-"text": "\"Beliefs of Mythical Beings\"",
+"text": "(\"Beliefs of Mythical Beings\".)",
 "text_replacements": Array[Dictionary]([]),
-"translation_key": "\"Beliefs of Mythical Beings\"",
+"translation_key": "(\"Beliefs of Mythical Beings\".)",
 "type": "dialogue"
 },
 "29": {
@@ -146,20 +122,14 @@ lines = {
 "type": "goto"
 },
 "3": {
-"character": "{{green}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "green"
-}]),
-"value_in_text": "{{green}}"
-}]),
+"character": "",
+"character_replacements": Array[Dictionary]([]),
 "id": "3",
 "next_id": "4",
 "tags": PackedStringArray(),
-"text": "\"Apparations and Optics\"",
+"text": "(\"Apparations and Optics\".)",
 "text_replacements": Array[Dictionary]([]),
-"translation_key": "\"Apparations and Optics\"",
+"translation_key": "(\"Apparations and Optics\".)",
 "type": "dialogue"
 },
 "31": {
@@ -169,20 +139,14 @@ lines = {
 "type": "title"
 },
 "33": {
-"character": "{{green}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "green"
-}]),
-"value_in_text": "{{green}}"
-}]),
+"character": "",
+"character_replacements": Array[Dictionary]([]),
 "id": "33",
 "next_id": "34",
 "tags": PackedStringArray(),
-"text": "\"Statistics and Other Delusive Magic\"",
+"text": "(\"Statistics and Other Delusive Magic\".)",
 "text_replacements": Array[Dictionary]([]),
-"translation_key": "\"Statistics and Other Delusive Magic\"",
+"translation_key": "(\"Statistics and Other Delusive Magic\".)",
 "type": "dialogue"
 },
 "34": {
@@ -198,20 +162,14 @@ lines = {
 "type": "title"
 },
 "38": {
-"character": "{{green}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "green"
-}]),
-"value_in_text": "{{green}}"
-}]),
+"character": "",
+"character_replacements": Array[Dictionary]([]),
 "id": "38",
 "next_id": "39",
 "tags": PackedStringArray(),
-"text": "\"History of Magiscience\"",
+"text": "(\"History of Magiscience\".)",
 "text_replacements": Array[Dictionary]([]),
-"translation_key": "\"History of Magiscience\"",
+"translation_key": "(\"History of Magiscience\".)",
 "type": "dialogue"
 },
 "39": {
@@ -233,20 +191,14 @@ lines = {
 "type": "title"
 },
 "43": {
-"character": "{{green}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "green"
-}]),
-"value_in_text": "{{green}}"
-}]),
+"character": "",
+"character_replacements": Array[Dictionary]([]),
 "id": "43",
 "next_id": "44",
 "tags": PackedStringArray(),
-"text": "\"Explaining Warping - The Endless Entanglement Debate\"",
+"text": "(\"Explaining Warping - The Endless Entanglement Debate\".)",
 "text_replacements": Array[Dictionary]([]),
-"translation_key": "\"Explaining Warping - The Endless Entanglement Debate\"",
+"translation_key": "(\"Explaining Warping - The Endless Entanglement Debate\".)",
 "type": "dialogue"
 },
 "44": {
@@ -262,20 +214,14 @@ lines = {
 "type": "title"
 },
 "48": {
-"character": "{{green}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "green"
-}]),
-"value_in_text": "{{green}}"
-}]),
+"character": "",
+"character_replacements": Array[Dictionary]([]),
 "id": "48",
 "next_id": "49",
 "tags": PackedStringArray(),
-"text": "\"Electronic Beings - Sentient AI or Just Magic?\"",
+"text": "(\"Electronic Beings - Sentient AI or Just Magic?\".)",
 "text_replacements": Array[Dictionary]([]),
-"translation_key": "\"Electronic Beings - Sentient AI or Just Magic?\"",
+"translation_key": "(\"Electronic Beings - Sentient AI or Just Magic?\".)",
 "type": "dialogue"
 },
 "49": {
@@ -291,20 +237,14 @@ lines = {
 "type": "title"
 },
 "53": {
-"character": "{{green}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "green"
-}]),
-"value_in_text": "{{green}}"
-}]),
+"character": "",
+"character_replacements": Array[Dictionary]([]),
 "id": "53",
 "next_id": "54",
 "tags": PackedStringArray(),
-"text": "\"Mathematics of Magiscience\"",
+"text": "(\"Mathematics of Magiscience\".)",
 "text_replacements": Array[Dictionary]([]),
-"translation_key": "\"Mathematics of Magiscience\"",
+"translation_key": "(\"Mathematics of Magiscience\".)",
 "type": "dialogue"
 },
 "54": {
@@ -320,20 +260,14 @@ lines = {
 "type": "title"
 },
 "58": {
-"character": "{{green}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "green"
-}]),
-"value_in_text": "{{green}}"
-}]),
+"character": "",
+"character_replacements": Array[Dictionary]([]),
 "id": "58",
 "next_id": "59",
 "tags": PackedStringArray(),
-"text": "\"Medicine and Healing Magic\"",
+"text": "(\"Medicine and Healing Magic\".)",
 "text_replacements": Array[Dictionary]([]),
-"translation_key": "\"Medicine and Healing Magic\"",
+"translation_key": "(\"Medicine and Healing Magic\".)",
 "type": "dialogue"
 },
 "59": {
@@ -355,18 +289,12 @@ lines = {
 "type": "title"
 },
 "63": {
-"character": "{{green}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "green"
-}]),
-"value_in_text": "{{green}}"
-}]),
+"character": "",
+"character_replacements": Array[Dictionary]([]),
 "id": "63",
 "next_id": "64",
 "tags": PackedStringArray(),
-"text": "\"Unified Theory for Thermodynamics and {{red_aspect}} Magic?\"",
+"text": "(\"Unified Theory for Thermodynamics and {{red_aspect}} Magic?\".)",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
 "type": "variable",
@@ -374,7 +302,7 @@ lines = {
 }]),
 "value_in_text": "{{red_aspect}}"
 }]),
-"translation_key": "\"Unified Theory for Thermodynamics and {{red_aspect}} Magic?\"",
+"translation_key": "(\"Unified Theory for Thermodynamics and {{red_aspect}} Magic?\".)",
 "type": "dialogue"
 },
 "64": {
@@ -384,20 +312,14 @@ lines = {
 "type": "goto"
 },
 "8": {
-"character": "{{green}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "green"
-}]),
-"value_in_text": "{{green}}"
-}]),
+"character": "",
+"character_replacements": Array[Dictionary]([]),
 "id": "8",
 "next_id": "9",
 "tags": PackedStringArray(),
-"text": "\"Anatomy and Transformations\"",
+"text": "(\"Anatomy and Transformations\".)",
 "text_replacements": Array[Dictionary]([]),
-"translation_key": "\"Anatomy and Transformations\"",
+"translation_key": "(\"Anatomy and Transformations\".)",
 "type": "dialogue"
 },
 "9": {
@@ -407,4 +329,4 @@ lines = {
 "type": "goto"
 }
 }
-metadata/dialogue_manager_version = "2.28.0"
+metadata/dialogue_manager_version = "2.31.0"

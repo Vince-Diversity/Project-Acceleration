@@ -1,5 +1,8 @@
 ~ check
-{{green}}: "The Manifestation of our Collective Fiction." (Read this one?)"
+if is_mentoring
+	{{green}}: "The Manifestation of our Collective Fiction".
+else
+	("The Manifestation of our Collective Fiction".)
 - Read => open_book
 - Leave => END!
 

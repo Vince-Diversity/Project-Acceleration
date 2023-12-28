@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_o8fsp"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_b7h23"]
 
 [resource]
-script = ExtResource("1_o8fsp")
+script = ExtResource("1_b7h23")
 using_states = PackedStringArray()
 titles = {
 "default": "3"
 }
-character_names = PackedStringArray("{{green}}")
+character_names = PackedStringArray()
 first_title = "3"
 lines = {
 "1": {
@@ -18,14 +18,8 @@ lines = {
 "type": "title"
 },
 "3": {
-"character": "{{green}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "green"
-}]),
-"value_in_text": "{{green}}"
-}]),
+"character": "",
+"character_replacements": Array[Dictionary]([]),
 "id": "3",
 "next_id": "4",
 "tags": PackedStringArray(),
@@ -41,4 +35,4 @@ lines = {
 "type": "goto"
 }
 }
-metadata/dialogue_manager_version = "2.29.2"
+metadata/dialogue_manager_version = "2.31.0"

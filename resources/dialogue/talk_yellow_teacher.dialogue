@@ -1,7 +1,12 @@
+import "res://resources/dialogue/default_talk.dialogue" as default_talk
+
 ~ cue
-{{green}}: [#expression=cheerful] Good morning {{yellow_teacher_formally}}!
-{{yellow_teacher}}: Students! Stand aside, please. The demonstration is about to begin.
-do move("prepare_1")
+if is_mentoring
+	{{green}}: [#expression=cheerful] Good morning {{yellow_teacher_formally}}!
+	{{yellow_teacher}}: Students! Stand aside, please. The demonstration is about to begin.
+	do move("prepare_1")
+else
+	=> default_talk/default
 => END!
 
 
@@ -41,13 +46,16 @@ do reset_lighting("setters")
 
 
 ~ talk
-do turn_npc_to_player("YellowTeacher")
-{{yellow_teacher}}: [#expression=shocked] Let's pretend we just met, ok?
-{{yellow_teacher}}: Hi, {{green}}! Already in class before term start?
-{{green}}: Yes, {{yellow_teacher_formally}}. I am showing {{blue}}, our new student, around the school.
-{{yellow_teacher}}: [#expression=shocked] Just call me {{yellow_teacher}}, please.
-{{yellow_teacher}}: Well, I better get back to class prep, see you!
-do set_npc_direction("YellowTeacher", "down")
+if is_mentoring
+	do turn_npc_to_player("YellowTeacher")
+	{{yellow_teacher}}: [#expression=shocked] Let's pretend we just met, ok?
+	{{yellow_teacher}}: Hi, {{green}}! Already in class before term start?
+	{{green}}: Yes, {{yellow_teacher_formally}}. I am showing {{blue}}, our new student, around the school.
+	{{yellow_teacher}}: [#expression=shocked] Just call me {{yellow_teacher}}, please.
+	{{yellow_teacher}}: Well, I better get back to class prep, see you!
+	do set_npc_direction("YellowTeacher", "down")
+else
+	=> default_talk/default
 => END!
 
 

@@ -1,6 +1,9 @@
 ~ check
 
-{{green}}: "Duality and the {{imaginary}}. (Read this one?)"
+if is_mentoring
+	{{green}}: "Duality and the {{imaginary}}".
+else
+	"(Duality and the {{imaginary}}".)
 - Read => open_book
 - Leave => END!
 
@@ -11,9 +14,14 @@ do animate_player(read_anim, "read")
 
 ~ read
 do set_player_anim(reading_anim)
-{{green}}: "René Descartes wrote 'I think, therefore I am', separating the concepts of mind and body. Quantum physicists are only finding more evidence for the the wave-particle duality. The duality of truth is omnifarious."
-{{green}}: "When speaking of duality, we mean that something exists in two distincly different ways, simultaneously!"
-{{green}}: "In this book, we argue for the duality between the {{real}} and the {{imaginary}}..."
+if is_mentoring
+	{{green}}: "René Descartes wrote 'I think, therefore I am', separating the concepts of mind and body. Quantum physicists are only finding more evidence for the the wave-particle duality. The duality of truth is omnifarious."
+	{{green}}: "When speaking of duality, we mean that something exists in two distincly different ways, simultaneously!"
+	{{green}}: "In this book, we argue for the duality between the {{real}} and the {{imaginary}}..."
+else
+	(René Descartes wrote 'I think, therefore I am', separating the concepts of mind and body. Quantum physicists are only finding more evidence for the the wave-particle duality. The duality of truth is omnifarious.)
+	(When speaking of duality, we mean that something exists in two distincly different ways, simultaneously!)
+	(In this book, we argue for the duality between the {{real}} and the {{imaginary}}...)
 do set_thing_anim("BookcaseDuality", bookcase_anim)
 do set_player_anim("down")
 => END!

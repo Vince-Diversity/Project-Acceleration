@@ -11,6 +11,9 @@ const rooms_key = "rooms"
 const things_key = "things"
 const npcs_key = "npcs"
 
+const condition_key = "conditions"
+const mentoring_condition_key = "is_mentoring"
+
 const state_key = "current_state"
 const anim_key = "current_anim"
 const frame_key = "current_frame"
@@ -30,6 +33,7 @@ const bgm_toggle_key = "bgm_toggle"
 @export var data := {
 	game_key: {},
 	rooms_key: {},
+	condition_key: {},
 }
 
 

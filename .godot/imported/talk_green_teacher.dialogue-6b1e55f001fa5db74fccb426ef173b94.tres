@@ -1,26 +1,133 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_hi8ta"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_5xx4q"]
 
 [resource]
-script = ExtResource("1_hi8ta")
+script = ExtResource("1_5xx4q")
 using_states = PackedStringArray()
 titles = {
-"cue": "2",
-"react": "6",
-"talk": "10"
+"1800858898/default": "1",
+"cue": "10",
+"default_talk/default": "1",
+"react": "18",
+"talk": "23"
 }
 character_names = PackedStringArray("{{green}}", "{{green_teacher}}")
-first_title = "2"
+first_title = "10"
 lines = {
-"1": {
-"id": "1",
-"next_id": "2",
-"text": "cue",
+"0": {
+"id": "0",
+"next_id": "1",
+"text": "1800858898/default",
 "type": "title"
 },
+"1": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "1",
+"next_id": "2",
+"tags": PackedStringArray(),
+"text": "(No problem here!)",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "(No problem here!)",
+"type": "dialogue"
+},
 "10": {
+"condition": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "is_mentoring"
+}])
+},
 "id": "10",
+"next_conditional_id": "12",
+"next_id": "11",
+"next_id_after": "14",
+"type": "condition"
+},
+"11": {
+"id": "11",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "move",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "react"
+}])])
+}])
+},
+"next_id": "14",
+"parent_id": "10",
+"type": "mutation"
+},
+"12": {
+"id": "12",
+"next_conditional_id": "14",
+"next_id": "13",
+"next_id_after": "14",
+"type": "condition"
+},
+"13": {
+"id": "13",
+"is_snippet": false,
+"next_id": "1",
+"parent_id": "12",
+"type": "goto"
+},
+"14": {
+"id": "14",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"17": {
+"id": "17",
+"next_id": "18",
+"text": "react",
+"type": "title"
+},
+"18": {
+"id": "18",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "animate_npc",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "GreenTeacher"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "stop_reading_sittinga"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "talk"
+}])])
+}])
+},
+"next_id": "19",
+"type": "mutation"
+},
+"19": {
+"id": "19",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"2": {
+"id": "2",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"22": {
+"id": "22",
+"next_id": "23",
+"text": "talk",
+"type": "title"
+},
+"23": {
+"id": "23",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_npc_anim",
@@ -34,10 +141,10 @@ lines = {
 }])])
 }])
 },
-"next_id": "11",
+"next_id": "24",
 "type": "mutation"
 },
-"11": {
+"24": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -46,8 +153,8 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
-"id": "11",
-"next_id": "12",
+"id": "24",
+"next_id": "25",
 "tags": PackedStringArray("expression=cheerful"),
 "text": "Good morning {{green_teacher}}! I'm just showing {{blue}} around.",
 "text_replacements": Array[Dictionary]([{
@@ -66,7 +173,7 @@ lines = {
 "translation_key": "Good morning {{green_teacher}}! I'm just showing {{blue}} around.",
 "type": "dialogue"
 },
-"12": {
+"25": {
 "character": "{{green_teacher}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -75,8 +182,8 @@ lines = {
 }]),
 "value_in_text": "{{green_teacher}}"
 }]),
-"id": "12",
-"next_id": "13",
+"id": "25",
+"next_id": "26",
 "tags": PackedStringArray(),
 "text": "Nice to meet you {{blue}}, and thank you, {{green}}, for attending to our new student.",
 "text_replacements": Array[Dictionary]([{
@@ -95,8 +202,8 @@ lines = {
 "translation_key": "Nice to meet you {{blue}}, and thank you, {{green}}, for attending to our new student.",
 "type": "dialogue"
 },
-"13": {
-"id": "13",
+"26": {
+"id": "26",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_npc_anim",
@@ -110,74 +217,26 @@ lines = {
 }])])
 }])
 },
-"next_id": "14",
+"next_id": "27",
 "type": "mutation"
 },
-"14": {
-"id": "14",
+"27": {
+"id": "27",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 },
-"2": {
-"id": "2",
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "move",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "react"
-}])])
-}])
-},
-"next_id": "3",
-"type": "mutation"
-},
-"3": {
-"id": "3",
+"4": {
+"id": "4",
 "is_snippet": false,
-"next_id": "end!",
-"type": "goto"
-},
-"5": {
-"id": "5",
-"next_id": "6",
-"text": "react",
-"type": "title"
-},
-"6": {
-"id": "6",
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "animate_npc",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "GreenTeacher"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "stop_reading_sittinga"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "talk"
-}])])
-}])
-},
-"next_id": "7",
-"type": "mutation"
-},
-"7": {
-"id": "7",
-"is_snippet": false,
-"next_id": "end!",
+"next_id": "end",
 "type": "goto"
 },
 "9": {
 "id": "9",
 "next_id": "10",
-"text": "talk",
+"text": "cue",
 "type": "title"
 }
 }
-metadata/dialogue_manager_version = "2.29.2"
+metadata/dialogue_manager_version = "2.31.0"
