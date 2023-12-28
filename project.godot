@@ -11,10 +11,10 @@ config_version=5
 [application]
 
 config/name="ProjectAcceleration"
-run/main_scene="res://loader/loader.tscn"
-config/features=PackedStringArray("4.1")
-config/icon="res://assets/misc/icon.png"
 config/version="0.3"
+run/main_scene="res://loader/loader.tscn"
+config/features=PackedStringArray("4.2")
+config/icon="res://assets/misc/icon.png"
 
 [autoload]
 

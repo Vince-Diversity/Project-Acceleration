@@ -1,5 +1,5 @@
 3acdcc5cb6df755358dde907981ccea8
-::res://::1703785587
+::res://::1703795554
 default_bus_layout.tres::AudioBusLayout::7027105994059957776::1701719604::0::1::::<><>::
 default_env.tres::Environment::-1::1701719604::0::1::::<><>::
 dialogue.cfg::TextFile::-1::1701719604::0::1::::<><>::
@@ -367,9 +367,9 @@ player.tscn::PackedScene::726724994187435594::1703787636::0::1::::<><>::uid://bk
 bubbles_idle_state.gd::GDScript::-1::1702149958::0::1::::BubblesIdleState<>BubblesState<>::
 bubbles_interact_state.gd::GDScript::-1::1702202040::0::1::::BubblesInteractState<>BubblesState<>::
 bubbles_state_interface.gd::GDScript::-1::1702150013::0::1::::BubblesState<>GDScript<>::
-::res://game/condition/::1703789730
-condition.tscn::PackedScene::2232843874648518862::1703789730::0::1::::<><>::res://game/condition/condition.gd
+::res://game/condition/::1703789758
 condition.gd::GDScript::-1::1703784736::0::1::::<>Node<>::
+condition.tscn::PackedScene::2232843874648518862::1703789758::0::1::::<><>::res://game/condition/condition.gd
 ::res://game/constant/::1703783751
 names.gd::GDScript::-1::1703783751::0::1::::<>Node<>::
 utils.gd::GDScript::-1::1702206666::0::1::::Utils<>Object<>::
@@ -556,7 +556,7 @@ red_teacher.tres::SpriteFrames::697955397668733895::1701719604::0::1::::<><>::ui
 sacred.tres::SpriteFrames::4050294191267114484::1701719604::0::1::::<><>::uid://cb5amh1dk53ep
 yellow.tres::SpriteFrames::395672410679950550::1702206994::0::1::::<><>::uid://b6vt3p51kw7ow
 yellow_teacher.tres::SpriteFrames::6858417074805860848::1701719604::0::1::::<><>::uid://53psghyii0ug
-::res://resources/dialogue/::1703789730
+::res://resources/dialogue/::1703789758
 book_blue.dialogue::Resource::5664062924880182697::1703788431::1703788431::1::::<><>::res://addons/dialogue_manager/dialogue_resource.gd
 book_duality.dialogue::Resource::5096869948031530471::1703788418::1703788418::1::::<><>::res://addons/dialogue_manager/dialogue_resource.gd
 book_fiction.dialogue::Resource::3581026659274357088::1703788403::1703788404::1::::<><>::res://addons/dialogue_manager/dialogue_resource.gd

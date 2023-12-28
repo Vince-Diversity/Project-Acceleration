@@ -1,15 +1,3 @@
-res://loader/loader.tscn
-res://resources/vfx/exhibit_background.tres
-res://resources/characters/green.tres
+res://game/condition/condition.tscn
 res://resources/vfx/interactable_background.tres
 res://resources/vfx/item_background.tres
-res://game/constant/names.gd
-res://loader/save_game.gd
-res://game/game_state/state_interface.gd
-res://dev/save/cirruseng_v0.3.tres
-res://game/conditions.tscn
-res://game/condition/condition.tscn
-res://game/condition/condition.gd
-res://game/character/player/player.tscn
-res://game/character/player/player.gd
-res://game/character/character.gd
