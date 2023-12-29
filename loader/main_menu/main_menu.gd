@@ -1,5 +1,5 @@
 class_name MainMenu extends Control
-## User interface for loading the game using [Loader], changing settings or closing the program.
+## Menu for loading the game using [Loader], changing settings or closing the program.
 ##
 ## Controls for the game are managed by the [RichTextLabel] node Info.
 ## Background music is set using [member bgm_file].
@@ -12,7 +12,6 @@ class_name MainMenu extends Control
 @onready var _options = $Options
 @onready var _load_game = $Options/LoadGame
 @onready var _new_game = $Options/NewGame
-@onready var _settings = $Options/Settings
 
 ## The focused button.
 var focus
@@ -36,10 +35,10 @@ func _ready_main_menu():
 	focus.grab_focus()
 
 
-## Initialises the node before it is added to the scene tree.
-func init_main_menu(given_loader: Loader, bgm_player: BGMPlayer):
+## Initialises this node before it is added to the scene tree.
+func init_main_menu(given_loader: Loader):
 	loader = given_loader
-	bgm_player.update_stream(bgm_file)
+	loader.bgm_player.update_stream(bgm_file)
 
 
 ## Adds an option to load an existing game, if that exists.

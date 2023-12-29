@@ -1,12 +1,13 @@
 class_name PauseMenu extends CanvasLayer
+## a
 
-@onready var settings_scn = preload("res://loader/settings/settings.tscn")
-@onready var title = $Margin/MenuContainer/Title
-@onready var resume = $Margin/MenuContainer/Resume
-@onready var save = $Margin/MenuContainer/Save
-@onready var settings = $Margin/MenuContainer/Settings
-@onready var main_menu = $Margin/MenuContainer/MainMenu
-var bgm: BGMPlayer
+@onready var _settings_scn = preload("res://loader/settings/settings.tscn")
+@onready var _title = $Margin/MenuContainer/Title
+@onready var _resume = $Margin/MenuContainer/Resume
+@onready var _save = $Margin/MenuContainer/Save
+@onready var _settings = $Margin/MenuContainer/Settings
+@onready var _main_menu = $Margin/MenuContainer/MainMenu
+var bgm_player: BGMPlayer
 
 signal save_pressed
 signal main_menu_pressed
@@ -20,11 +21,11 @@ func _ready():
 
 
 func _ready_menu():
-	resume.pressed.connect(_on_resume_pressed)
-	save.pressed.connect(_on_save_pressed)
-	settings.pressed.connect(_on_settings_pressed)
-	main_menu.pressed.connect(_on_main_menu_pressed)
-	resume.grab_focus()
+	_resume.pressed.connect(_on_resume_pressed)
+	_save.pressed.connect(_on_save_pressed)
+	_settings.pressed.connect(_on_settings_pressed)
+	_main_menu.pressed.connect(_on_main_menu_pressed)
+	_resume.grab_focus()
 
 
 func init_pause_menu(
@@ -35,7 +36,7 @@ func init_pause_menu(
 	save_pressed.connect(save_pressed_target)
 	main_menu_pressed.connect(main_menu_pressed_target)
 	pause_menu_closed.connect(pause_menu_closed_target)
-	bgm = given_bgm
+	bgm_player = given_bgm
 
 
 func _on_resume_pressed():
@@ -44,9 +45,9 @@ func _on_resume_pressed():
 
 func _on_save_pressed():
 	save_pressed.emit()
-	title.text = "Saved!"
+	_title.text = "Saved!"
 	for child in $Margin/MenuContainer.get_children():
-		if child == title: continue
+		if child == _title: continue
 		child.disabled = true
 	await get_tree().create_timer(1.0).timeout
 	_unpause()
@@ -58,8 +59,8 @@ func _on_main_menu_pressed():
 
 
 func _on_settings_pressed():
-	var settings_node = settings_scn.instantiate()
-	settings_node.init_settings(self, get_parent(), resume, bgm)
+	var settings_node = _settings_scn.instantiate()
+	settings_node.init_settings(self, get_parent(), _resume, bgm_player)
 	get_parent().add_child(settings_node)
 	get_parent().remove_child(self)
 

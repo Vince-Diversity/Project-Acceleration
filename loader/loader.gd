@@ -67,7 +67,7 @@ func _ready_bgm_player():
 
 func _ready_main_menu():
 	main_menu = _main_menu_scn.instantiate()
-	main_menu.init_main_menu(self, bgm_player)
+	main_menu.init_main_menu(self)
 	_add_child_to_root_deferred(main_menu)
 
 
@@ -101,14 +101,14 @@ func enter_main_menu():
 	screen.reset_fade()
 	bgm_player.reset_stream()
 	main_menu = _main_menu_scn.instantiate()
-	main_menu.init_main_menu(self, bgm_player)
+	main_menu.init_main_menu(self)
 	_add_child_to_root(main_menu)
 
 
 func _change_to_game(save_game: SaveGame):
 	main_menu.queue_free()
 	game = _game_scn.instantiate()
-	game.init_game(self, save_dir, save_game)
+	game.init_game(self, save_game)
 	_add_child_to_root(game)
 
 

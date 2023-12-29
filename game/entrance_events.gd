@@ -1,4 +1,5 @@
-extends Node2D
+class_name EntranceEvents extends Node2D
+## a
 
 const enabled_key = "is_enabled"
 const interaction_key = "interaction_node"

@@ -1,15 +1,17 @@
 class_name TextBox extends CanvasLayer
-## Edited version of the example balloon from Dialogue addon v2.14.1
-# Updated to use a feature somewhere around v2.29 about tags
+## Edited version of the example balloon from Dialogue addon v2.14.1,
+## see [url]https://github.com/nathanhoad/godot_dialogue_manager/releases/tag/v2.14.1[/url].
+## Updated to use a feature about tags, which was introduced somewhere
+## around v2.29.
 
-@onready var balloon: ColorRect = %TextBackground
-@onready var character_label: RichTextLabel = %CharacterLabel
-@onready var dialogue_label := %DialogueLabel
-@onready var responses_menu: VBoxContainer = %Responses
-@onready var response_template: RichTextLabel = %ResponseTemplate
-@onready var profile_background := %ProfileBackground
-@onready var profile: TextureRect = %Profile
-@onready var indicator:  TextureRect = %Indicator
+@onready var _balloon: ColorRect = %TextBackground
+@onready var _character_label: RichTextLabel = %CharacterLabel
+@onready var _dialogue_label := %DialogueLabel
+@onready var _responses_menu: VBoxContainer = %Responses
+@onready var _response_template: RichTextLabel = %ResponseTemplate
+@onready var _profile_background := %ProfileBackground
+@onready var _profile: TextureRect = %Profile
+@onready var _indicator:  TextureRect = %Indicator
 
 ## The dialogue resource
 var resource: DialogueResource
@@ -21,7 +23,7 @@ var temporary_game_states: Array = []
 var is_waiting_for_input: bool = false:
 	set(value):
 		is_waiting_for_input = value
-		indicator.set_visible(value)
+		_indicator.set_visible(value)
 
 ## See if we are running a long mutation and should hide the balloon
 var will_hide_balloon: bool = false
@@ -36,54 +38,54 @@ var dialogue_line: DialogueLine:
 			return
 		
 		# Remove any previous responses
-		for child in responses_menu.get_children():
-			responses_menu.remove_child(child)
+		for child in _responses_menu.get_children():
+			_responses_menu.remove_child(child)
 			child.queue_free()
 		
 		dialogue_line = next_dialogue_line
 		
-		character_label.visible = not dialogue_line.character.is_empty()
-		character_label.text = tr(dialogue_line.character, "dialogue")
+		_character_label.visible = not dialogue_line.character.is_empty()
+		_character_label.text = tr(dialogue_line.character, "dialogue")
 		
-		dialogue_label.modulate.a = 0
-		dialogue_label.dialogue_line = dialogue_line
+		_dialogue_label.modulate.a = 0
+		_dialogue_label.dialogue_line = dialogue_line
 		
 		# Show any responses we have
-		responses_menu.modulate.a = 0
+		_responses_menu.modulate.a = 0
 		if dialogue_line.responses.size() > 0:
 			for response in dialogue_line.responses:
 				# Duplicate the template so we can grab the fonts, sizing, etc
-				var item: RichTextLabel = response_template.duplicate(0)
-				item.name = "Response%d" % responses_menu.get_child_count()
+				var item: RichTextLabel = _response_template.duplicate(0)
+				item.name = "Response%d" % _responses_menu.get_child_count()
 				if not response.is_allowed:
 					item.name = String(item.name) + "Disallowed"
 					item.modulate.a = 0.4
 				item.text = response.text
 				item.show()
-				responses_menu.add_child(item)
+				_responses_menu.add_child(item)
 		
 		# Toggle profile
 		if not dialogue_line.character.is_empty():
 			if dialogue_line.tags.is_empty():
-				profile.express("")
+				_profile.express("")
 			else:
-				profile.express(dialogue_line.get_tag_value("expression"))
+				_profile.express(dialogue_line.get_tag_value("expression"))
 		else:
-			profile.set_texture(null)
-			profile_background.set_visible(false)
+			_profile.set_texture(null)
+			_profile_background.set_visible(false)
 		
 		# Show our balloon
-		balloon.show()
+		_balloon.show()
 		will_hide_balloon = false
 		
-		dialogue_label.modulate.a = 1
+		_dialogue_label.modulate.a = 1
 		if not dialogue_line.text.is_empty():
-			dialogue_label.type_out()
-			await dialogue_label.finished_typing
+			_dialogue_label.type_out()
+			await _dialogue_label.finished_typing
 		
 		# Wait for input
 		if dialogue_line.responses.size() > 0:
-			responses_menu.modulate.a = 1
+			_responses_menu.modulate.a = 1
 			configure_menu()
 		elif is_instance_valid(dialogue_line.time):
 			var time = dialogue_line.text.length() * 0.02 if dialogue_line.time == "auto" else dialogue_line.time.to_float()
@@ -91,15 +93,15 @@ var dialogue_line: DialogueLine:
 			next(dialogue_line.next_id)
 		else:
 			is_waiting_for_input = true
-			balloon.focus_mode = Control.FOCUS_ALL
-			balloon.grab_focus()
+			_balloon.focus_mode = Control.FOCUS_ALL
+			_balloon.grab_focus()
 	get:
 		return dialogue_line
 
 
 func _ready() -> void:
-	response_template.hide()
-	balloon.hide()
+	_response_template.hide()
+	_balloon.hide()
 	
 	Engine.get_singleton("DialogueManager").mutated.connect(_on_mutated)
 
@@ -112,7 +114,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 ## Start some dialogue
 func start(dialogue_resource: DialogueResource, title: String, extra_game_states: Array = []) -> void:
 	temporary_game_states = extra_game_states
-	temporary_game_states.push_front(profile)
+	temporary_game_states.push_front(_profile)
 	is_waiting_for_input = false
 	resource = dialogue_resource
 
@@ -127,9 +129,9 @@ func next(next_id: String) -> void:
 ### Helpers
 
 
-# Set up keyboard movement and signals for the response menu
+## Set up keyboard movement and signals for the response menu
 func configure_menu() -> void:
-	balloon.focus_mode = Control.FOCUS_NONE
+	_balloon.focus_mode = Control.FOCUS_NONE
 	
 	var items = get_responses()
 	for i in items.size():
@@ -160,21 +162,21 @@ func configure_menu() -> void:
 	items[0].grab_focus()
 
 
-# When external scripts reset the focus
+## When external scripts reset the focus
 func reset_focus():
 	if dialogue_line.responses.size() > 0:
 		var item = get_responses()[0]
 		item.focus_mode = Control.FOCUS_ALL
 		item.grab_focus()
 	else:
-		balloon.focus_mode = Control.FOCUS_ALL
-		balloon.grab_focus()
+		_balloon.focus_mode = Control.FOCUS_ALL
+		_balloon.grab_focus()
 
 
-# Get a list of enabled items
+## Get a list of enabled items
 func get_responses() -> Array:
 	var items: Array = []
-	for child in responses_menu.get_children():
+	for child in _responses_menu.get_children():
 		if "Disallowed" in child.name: continue
 		items.append(child)
 		
@@ -185,13 +187,13 @@ func get_responses() -> Array:
 
 
 func _on_mutated(_mutation: Dictionary) -> void:
-	profile_background.hide()
+	_profile_background.hide()
 	is_waiting_for_input = false
 	will_hide_balloon = true
 	get_tree().create_timer(0.1).timeout.connect(func():
 		if will_hide_balloon:
 			will_hide_balloon = false
-			balloon.hide()
+			_balloon.hide()
 	)
 
 
@@ -219,5 +221,5 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 	
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == 1:
 		next(dialogue_line.next_id)
-	elif event.is_action_pressed("ui_accept") and get_viewport().gui_get_focus_owner() == balloon:
+	elif event.is_action_pressed("ui_accept") and get_viewport().gui_get_focus_owner() == _balloon:
 		next(dialogue_line.next_id)

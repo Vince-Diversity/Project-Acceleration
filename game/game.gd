@@ -1,23 +1,38 @@
 class_name Game extends Node2D
-## ab
+## When added to the scene tree, a game session starts running.
+##
+## References the [Loader] for saving or exiting the current game session,
+## and passing the [BGMPlayer] and [Screen] instances.
+## Manages [Room] nodes in the scene tree when a game session starts
+## or when changing rooms with [method change_room].
+## Also manages [PauseMenu] and [TextBox] nodes.
 
-@onready var menu_scn = preload("res://game/pause_menu.tscn")
-@onready var save_res = preload("res://loader/save_game.gd")
-@onready var default_state: DefaultState = preload("res://game/game_state/default_state.gd").new("default_state")
-@onready var stm: StateMachine = preload("res://game/game_state/state_machine.gd").new(default_state)
-@onready var text_box_scn: PackedScene = preload("res://game/ui/textbox/textbox.tscn")
-@onready var entrance_events = $EntranceEvents
+@onready var _menu_scn = preload("res://game/pause_menu.tscn")
+@onready var _default_state: DefaultState = preload("res://game/game_state/default_state.gd").new("default_state")
+@onready var _stm: StateMachine = preload("res://game/game_state/state_machine.gd").new(_default_state)
+@onready var _text_box_scn: PackedScene = preload("res://game/ui/textbox/textbox.tscn")
+@onready var _entrance_events = $EntranceEvents
+
+## Temporary save data used to store the current game session.
+## The cache updates whenever a new room is added
+## using [method add_room] is called.
 var cache: SaveGame
+
+## Reference to [Loader].
 var loader: Loader
-var save_dir: String
-var menu: PauseMenu
-var text_box: TextBox
-var dlg_res: DialogueResource
+
+## Current [Room] instance.
 var current_room: Room
+
+## Current [PauseMenu] instance, or null when the game is not paused.
+var menu: PauseMenu
+
+## Current [TextBox] instance, or null when there is no dialogue.
+var text_box: TextBox
 
 
 func _physics_process(delta):
-	stm.update_state(delta)
+	_stm.update_state(delta)
 
 
 func _input(event: InputEvent):
@@ -26,23 +41,25 @@ func _input(event: InputEvent):
 
 
 func _unhandled_input(event):
-	stm.handle_input_state(event)
+	_stm.handle_input_state(event)
 
 
+## Initialises this node before it is added to the scene tree.
+## References the [Loader] and the loaded [SaveGame].
 func init_game(
-		given_loader: Loader, given_save_dir: String, save_game: SaveGame):
+		given_loader: Loader,
+		save_game: SaveGame):
 	loader = given_loader
-	save_dir = given_save_dir
 	cache = save_game
 
 
-func load_room(room_id: String, entrance_node: String):
+func _load_room(room_id: String, entrance_node: String):
 	var room_path = Utils.get_room_path(room_id)
 	current_room = load(room_path).instantiate()
 	current_room.init_room(
 		room_id,
 		entrance_node,
-		stm,
+		_stm,
 		loader.bgm_player,
 		loader.screen,
 		change_room,
@@ -54,41 +71,47 @@ func load_room(room_id: String, entrance_node: String):
 	add_child(current_room)
 
 
+## Calls [method add_room] and frees the previously existing rooms if it exists.
 func change_room(room_id: String, entrance_node: String):
 	var room_path = Utils.get_room_path(room_id)
-	save_cache()
+	_save_cache()
 	if FileAccess.file_exists(room_path):
 		# Free the current room before loading cache
 		# Otherwise the cache will also be loaded on the old room
 		current_room.call_deferred("free")
 		add_room(room_id, entrance_node)
 	else:
-		load_room("main_entrance", "DefaultDoor")
+		_load_room("main_entrance", "DefaultDoor")
 
 
-func save_cache():
-	make_save_game(cache)
+func _save_cache():
+	_make_save_game(cache)
 
 
+## Adds a new [Room] instance with the given room_id to the scene tree
+## and spawns the party at the given entrance_node.
+## Loads the [member cache] save data to the new room
+## and starts an entrance event,
+## if the room has an active event listed in [EntranceEvents].
 func add_room(room_id: String, entrance_node: String):
-	load_room(room_id, entrance_node)
-	load_preserved.call_deferred(cache)
-	handle_entrance_events.call_deferred(room_id, entrance_node)
+	_load_room(room_id, entrance_node)
+	_load_preserved.call_deferred(cache)
+	_handle_entrance_events.call_deferred(room_id, entrance_node)
 
 
-func make_save_game(sg: SaveGame):
-	stm.save_state(self, sg)
+func _make_save_game(sg: SaveGame):
+	_stm.save_state(self, sg)
 
 
-func load_preserved(sg: SaveGame):
-	create_preserved_npcs(sg)
+func _load_preserved(sg: SaveGame):
+	_create_preserved_npcs(sg)
 	# Iterating needed, SceneTree.call_group doesn't find nodes that are moved during loading
 	for node in get_tree().get_nodes_in_group("Preserved"):
 		if not node.has_method("load_save"): continue
 		node.load_save(sg)
 
 
-func create_preserved_npcs(sg: SaveGame):
+func _create_preserved_npcs(sg: SaveGame):
 	# Assumes only one instance of idling room id exists for each npc
 	if sg.data[sg.rooms_key].has(current_room.room_id):
 		var room_dict = sg.data[sg.rooms_key][current_room.room_id]
@@ -101,18 +124,18 @@ func create_preserved_npcs(sg: SaveGame):
 				npc.make_npc("npc_still_state", current_room)
 
 
-func handle_entrance_events(room_id: String, entrance_node: String):
-	if entrance_events.events.has(room_id):
-		var interaction_node = entrance_events.events[room_id]["interaction_node"]
+func _handle_entrance_events(room_id: String, entrance_node: String):
+	if _entrance_events.events.has(room_id):
+		var interaction_node = _entrance_events.events[room_id]["interaction_node"]
 		if interaction_node.is_empty():
 			interaction_node = current_room.add_unique_cutscene()
-			start_entrance_events.call_deferred(room_id, entrance_node, interaction_node)
+			_start_entrance_events.call_deferred(room_id, entrance_node, interaction_node)
 		else:
-			start_entrance_events(room_id, entrance_node, interaction_node)
+			_start_entrance_events(room_id, entrance_node, interaction_node)
 
 
-func start_entrance_events(room_id: String, entrance_node: String, interaction_node: String):
-	var event_dict = entrance_events.events[room_id]
+func _start_entrance_events(room_id: String, entrance_node: String, interaction_node: String):
+	var event_dict = _entrance_events.events[room_id]
 	if event_dict["is_enabled"]:
 		current_room.start_cutscene(
 			interaction_node,
@@ -121,18 +144,18 @@ func start_entrance_events(room_id: String, entrance_node: String, interaction_n
 			current_room.doors.get_node(entrance_node))
 
 
-func save():
+func _save():
 	var sg = cache.duplicate()
-	make_save_game(sg)
-	var dir = DirAccess.open(save_dir)
+	_make_save_game(sg)
+	var dir = DirAccess.open(loader.save_dir)
 	if not dir:
-		DirAccess.make_dir_absolute(save_dir)
+		DirAccess.make_dir_absolute(loader.save_dir)
 	ResourceSaver.save(sg, loader.save_path)
 
 
 func _pause():
 	if !is_instance_valid(menu):
-		menu = menu_scn.instantiate()
+		menu = _menu_scn.instantiate()
 		menu.init_pause_menu(
 			_on_PauseMenu_save_pressed,
 			_on_PauseMenu_main_menu_pressed,
@@ -146,12 +169,12 @@ func _on_textbox_started(
 		dialogue_node: String,
 		dialogue_ended_target: Callable,
 		cutscene: DialogueCutscene):
-	text_box = text_box_scn.instantiate()
+	text_box = _text_box_scn.instantiate()
 	add_child(text_box)
 	var dlg_path = Utils.get_dlg_path(dialogue_id)
 	if not ResourceLoader.exists(dlg_path):
 		dlg_path = Utils.get_dlg_path("default")
-	dlg_res = load(dlg_path)
+	var dlg_res = load(dlg_path)
 	if dlg_res.lines.size() <= 0 or not dlg_res.titles.has(dialogue_node):
 		if Utils.has_res(
 				Utils.item_sprite_dir,
@@ -168,8 +191,8 @@ func _on_textbox_started(
 
 
 func _on_cutscene_ended(next_state_id: String):
-	stm.change_state(next_state_id)
-	entrance_events.update_event(current_room.room_id)
+	_stm.change_state(next_state_id)
+	_entrance_events.update_event(current_room.room_id)
 
 
 func _on_textbox_focused():
@@ -177,8 +200,8 @@ func _on_textbox_focused():
 
 
 func _on_entrance_event_edited(room_id: String, is_enabled: bool):
-	if entrance_events.events.has(room_id):
-		entrance_events.events[room_id]["is_enabled"] = is_enabled
+	if _entrance_events.events.has(room_id):
+		_entrance_events.events[room_id]["is_enabled"] = is_enabled
 
 
 func _on_npc_removed(removed_npc_name: String):
@@ -189,7 +212,7 @@ func _on_npc_removed(removed_npc_name: String):
 
 
 func _on_PauseMenu_save_pressed():
-	save()
+	_save()
 
 
 func _on_PauseMenu_main_menu_pressed():
@@ -201,4 +224,4 @@ func _on_PauseMenu_closed():
 
 
 func _reset_focus():
-	stm.grab_state_focus()
+	_stm.grab_state_focus()
