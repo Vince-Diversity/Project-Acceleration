@@ -2,8 +2,8 @@ class_name Items extends Node2D
 
 @onready var exhibit_mark = $ExhibitMark
 @onready var exhibit_background = $ExhibitMark/ExhibitBackground
-var item_id_list: Array[String] = []
-var preserved_item_id_list: Array[String] = []
+var item_id_list: Array = []
+var preserved_item_id_list: Array = []
 var exhibit_item: Item
 
 

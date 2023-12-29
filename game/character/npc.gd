@@ -28,7 +28,7 @@ func _ready():
 	state_list[still_state.state_id] = still_state
 	state_list[joined_state.state_id] = joined_state
 	current_state = state_list[spawn_state]
-	current_state.enter.call_deferred()
+	current_state.enter()
 
 
 func make_npc(

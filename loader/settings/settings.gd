@@ -44,8 +44,8 @@ func _on_return_pressed():
 
 
 func _on_bgm_pressed():
-	bgm_check.toggle(bgm_pressed_callable)
+	bgm_check.toggle(_bgm_pressed_callable)
 
 
-func bgm_pressed_callable(is_mode_toggled: bool):
+func _bgm_pressed_callable(is_mode_toggled: bool):
 	bgm_player.sound_toggle = is_mode_toggled

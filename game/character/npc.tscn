@@ -20,8 +20,8 @@ script = ExtResource("2_n6ygt")
 interaction_node = ""
 dialogue_id = ""
 dialogue_node = ""
-bubble_content = 0
 preserved_direction = 0
+preserved_animation = ""
 is_imaginary = false
 spawn_state = "npc_still_state"
 

@@ -33,16 +33,16 @@ func roam():
 
 
 func make_save(sg: SaveGame):
-	sg.data[sg.game_key][sg.party_key] = get_party_list()
+	sg.data[sg.party_key] = get_party_list()
 
 
 func make_preserved_save(sg: SaveGame):
-	sg.data[sg.game_key][sg.party_key] = preserved_party_list
+	sg.data[sg.party_key] = preserved_party_list
 
 
 func load_save(sg: SaveGame):
-	if sg.data[sg.game_key].has(sg.party_key):
-		for npc_name in sg.data[sg.game_key][sg.party_key]:
+	if sg.data.has(sg.party_key):
+		for npc_name in sg.data[sg.party_key]:
 			var npc_id = Utils.get_npc_id(npc_name)
 			var npc: NPC
 			if owner.npcs.has_node(npc_name):

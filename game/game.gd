@@ -1,4 +1,5 @@
 class_name Game extends Node2D
+## ab
 
 @onready var menu_scn = preload("res://game/pause_menu.tscn")
 @onready var save_res = preload("res://loader/save_game.gd")

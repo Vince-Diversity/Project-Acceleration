@@ -1,4 +1,12 @@
 class_name SaveGame extends Resource
+## Stores all save data.
+##
+## The save format is a [Resource] instance, categorised with dictionaries and arrays.
+## The stored data can be built-in types but not nodes or resources.
+## All dictionary keys are collected in the Constants section.
+## The [member game_version] and [member data] properties
+## need to be exported variables, so that this resource can be duplicated later
+## in [method Game.save], according to [method Resource.duplicate].
 
 const game_key = "game"
 const room_key = "current_room_id"
@@ -29,14 +37,21 @@ const z_index_key = "z_index"
 const bgm_toggle_key = "bgm_toggle"
 
 
+## Current version of the game.
 @export var game_version := ""
+
+## Dictionary with save data.
+## It is initalised with all the subcategories of the save data.
 @export var data := {
-	game_key: {},
-	rooms_key: {},
 	condition_key: {},
+	game_key: {},
+	items_key: [],
+	party_key: [],
+	rooms_key: {},
 }
 
 
+## Initialises a new room entry to the save data.
 func update_room_keys(room_id: String):
 	if not data[rooms_key].has(room_id):
 		var room_dict = {}

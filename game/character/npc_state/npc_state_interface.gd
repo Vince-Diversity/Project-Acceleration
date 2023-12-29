@@ -10,8 +10,9 @@ func _init(given_state_id: String, given_npc: NPC):
 
 
 func enter():
-	Utils.try_connect(npc.room.player_interacted, check_interaction)
-	Utils.try_connect(npc.interact_area.begin_interaction, npc.room._on_begin_interaction)
+	if is_instance_valid(npc.room):
+		Utils.try_connect(npc.room.player_interacted, check_interaction)
+		Utils.try_connect(npc.interact_area.begin_interaction, npc.room._on_begin_interaction)
 
 
 func exit():
