@@ -1,6 +1,6 @@
 # Introduction to reading the code
 
-Each GDScript file is documented with the classes they instantiate into the gameor references to other classes that do the instantiation. For example, the [loader.gd](./loader/loader.gd) documentation references the [main_menu.gd](./loader/main_menu/main_menu.gd) and [game.gd](./game/game.gd) classes. Let's start from the `loader.gd` class.
+Each GDScript file is documented with the classes they instantiate into the game or references to other classes that do the instantiation. For example, the [loader.gd](~/loader/loader.gd) documentation references the [main menu.gd](~/loader/main_menu/main_menu.gd) and [game.gd](~/game/game.gd) classes. Let's start from the `loader.gd` class.
 
 
 ## Loading and saving
