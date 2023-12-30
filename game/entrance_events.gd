@@ -10,7 +10,6 @@ const oneshot_key = "is_oneshot"
 # Dictionary mapping event id to event resource
 var events: Dictionary
 
-
 func _ready():
 	_ready_entrance_events()
 
@@ -50,3 +49,8 @@ func make_preserved_save(sg: SaveGame):
 func load_save(sg: SaveGame):
 	if sg.data[sg.game_key].has(sg.entrance_event_key):
 		events = sg.data[sg.game_key][sg.entrance_event_key]
+
+
+func _on_entrance_event_edited(room_id: String, is_enabled: bool):
+	if events.has(room_id):
+		events[room_id]["is_enabled"] = is_enabled

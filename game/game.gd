@@ -1,9 +1,10 @@
 class_name Game extends Node2D
-## When added to the scene tree, a game session starts running.
+## When added to the [SceneTree], a game session starts running.
 ##
+## Initialises the [StateMachine] to the current game session.
 ## References the [Loader] for saving or exiting the current game session,
 ## and passing the [BGMPlayer] and [Screen] instances.
-## Manages [Room] nodes in the scene tree when a game session starts
+## Manages [Room] nodes when a game session starts
 ## or when changing rooms with [method change_room].
 ## Also manages [PauseMenu] and [TextBox] nodes.
 
@@ -14,20 +15,19 @@ class_name Game extends Node2D
 @onready var _entrance_events = $EntranceEvents
 
 ## Temporary save data used to store the current game session.
-## The cache updates whenever a new room is added
-## using [method add_room] is called.
+## The cache updates whenever the current room is changed by [method change_room].
 var cache: SaveGame
 
-## Reference to [Loader].
+## Reference to the loader.
 var loader: Loader
 
-## Current [Room] instance.
+## Current game environment instance.
 var current_room: Room
 
-## Current [PauseMenu] instance, or null when the game is not paused.
+## Current pause menu instance, or null when the game is not paused.
 var menu: PauseMenu
 
-## Current [TextBox] instance, or null when there is no dialogue.
+## Current text box instance, or null when there is no dialogue.
 var text_box: TextBox
 
 
@@ -44,7 +44,7 @@ func _unhandled_input(event):
 	_stm.handle_input_state(event)
 
 
-## Initialises this node before it is added to the scene tree.
+## Initialises this node before it is added to the [SceneTree].
 ## References the [Loader] and the loaded [SaveGame].
 func init_game(
 		given_loader: Loader,
@@ -66,12 +66,15 @@ func _load_room(room_id: String, entrance_node: String):
 		_on_textbox_started,
 		_on_cutscene_ended,
 		_on_textbox_focused,
-		_on_entrance_event_edited,
+		_entrance_events._on_entrance_event_edited,
 		_on_npc_removed)
 	add_child(current_room)
 
 
-## Calls [method add_room] and frees the previously existing rooms if it exists.
+## Updates the [member cache] save,
+## calls [method add_room] and frees the [member current_room] if it exists.
+## If the given [code]room_id[/code] does not match a [Room] scene filename,
+## a default room is added instead.
 func change_room(room_id: String, entrance_node: String):
 	var room_path = Utils.get_room_path(room_id)
 	_save_cache()
@@ -88,9 +91,9 @@ func _save_cache():
 	_make_save_game(cache)
 
 
-## Adds a new [Room] instance with the given room_id to the scene tree
-## and spawns the party at the given entrance_node.
-## Loads the [member cache] save data to the new room
+## Adds a new [Room] instance with the filename given by [code]room_id[/code] to the [SceneTree]
+## and assigns a spawn point at the given [code]entrance_node[/code].
+## Then loads the [member cache] save data to the new room
 ## and starts an entrance event,
 ## if the room has an active event listed in [EntranceEvents].
 func add_room(room_id: String, entrance_node: String):
@@ -164,11 +167,25 @@ func _pause():
 		add_child(menu)
 
 
+## Adds a text box to the scene tree.
+## The contents of the text box are given by the
+## filename of the [DialogueResource] [code]dialogue_id[/code],
+## title to the [method DialogueResource.get_next_dialogue_line] [code]dialogue_node[/code],
+## target of the [signal DialogueManager.dialogue_ended]
+## signal [code]dialogue_ended_target[/code]
+## and the current active [code]dialogue_cutscene[/code].
+## Items have special titles given by [ItemSprite.interaction_dialogue_node].
+## If the dialogue resource filename or title is not found,
+## the title of an item is used instead.
+## (Since there is only one item so far, there is only one item to pick,
+## hence the [code]@experimental[/code] tag).
+## Otherwise, a default dialogue resource is used instead.
+## @experimental
 func _on_textbox_started(
 		dialogue_id: String,
 		dialogue_node: String,
 		dialogue_ended_target: Callable,
-		cutscene: DialogueCutscene):
+		dialogue_cutscene: DialogueCutscene):
 	text_box = _text_box_scn.instantiate()
 	add_child(text_box)
 	var dlg_path = Utils.get_dlg_path(dialogue_id)
@@ -187,23 +204,25 @@ func _on_textbox_started(
 			dialogue_node = "default"
 		dlg_res = load(dlg_path)
 	DialogueManager.dialogue_ended.connect(dialogue_ended_target, CONNECT_ONE_SHOT)
-	text_box.start(dlg_res, dialogue_node, [cutscene])
+	text_box.start(dlg_res, dialogue_node, [dialogue_cutscene])
 
 
+## Called when a [CutsceneState] ends.
+## Changes game session state to that of [code]next_state_id[/code].
+## If the cutscene was an entrance event,
+## that event is updated, see [method EntranceEvents.update_event].
 func _on_cutscene_ended(next_state_id: String):
 	_stm.change_state(next_state_id)
 	_entrance_events.update_event(current_room.room_id)
 
 
+## Gives focus to the current [TextBox]
 func _on_textbox_focused():
 	text_box.reset_focus()
 
 
-func _on_entrance_event_edited(room_id: String, is_enabled: bool):
-	if _entrance_events.events.has(room_id):
-		_entrance_events.events[room_id]["is_enabled"] = is_enabled
-
-
+## Called when an [NPC] is freed.
+## Removes the entry of that npc from [member cache].
 func _on_npc_removed(removed_npc_name: String):
 	if cache.data[cache.rooms_key].has(current_room.room_id):
 		var npcs_dict = cache.data[cache.rooms_key][current_room.room_id][cache.npcs_key]

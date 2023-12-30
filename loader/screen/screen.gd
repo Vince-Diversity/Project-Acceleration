@@ -8,7 +8,7 @@ const default_ease_type := Tween.EASE_IN_OUT
 const default_trans_type := Tween.TRANS_LINEAR
 @onready var _overcast = $Overcast
 
-## Current [Tween] instance.
+## Current tween instance.
 var tween: Tween
 
 ## Emits when a screen transition has finished

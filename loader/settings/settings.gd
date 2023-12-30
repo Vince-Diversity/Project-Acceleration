@@ -2,6 +2,8 @@ class_name Settings extends CanvasLayer
 ## Menu for configuring the [BGMPlayer]
 ## and other desirable nodes.
 ##
+## This menu can replace and later go back to a previous menu
+## using the properties [member previous_menu], [member previous_parent] and [member previous_focus].
 ## Uses the [TogglingCheckButton] to make changes to nodes whenever it is toggled.
 
 
@@ -10,22 +12,20 @@ class_name Settings extends CanvasLayer
 @onready var _bgm_check = $Margin/MenuContainer/BGM/CheckButton
 
 ## Reference to the menu node that had focus
-## before this settings node was added to the scene tree.
-## Used for returning to the previous menu later.
+## before this settings node was added to the [SceneTree].
 var previous_menu: Node
 
 ## Reference to the parent of the node in [member previous_menu]
-## before this settings node was added to the scene tree.
+## before this settings node was added to the [SceneTree].
 ## Assigning this allows the previous node to be a menu that gets freed
 ## when this menu is opened.
 var previous_parent: Node
 
 ## Reference to the desired focus of the previous menu node
-## before this settings node was added to the scene tree.
-## Used for returning to the previous menu later.
+## before this settings node was added to the [SceneTree].
 var previous_focus: Control
 
-## Reference to [BGMPlayer].
+## Reference to current background music player.
 var bgm_player: BGMPlayer
 
 
@@ -45,7 +45,7 @@ func _ready_bgm():
 	_bgm_check.set_pressed(bgm_player.sound_toggle)
 
 
-## Initialises this node before it is added to the scene tree.
+## Initialises this node before it is added to the [SceneTree].
 func init_settings(
 		given_menu: Node,
 		given_parent: Node,

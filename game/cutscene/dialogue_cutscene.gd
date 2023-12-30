@@ -160,7 +160,7 @@ func remove_npc(npc_node: String):
 
 
 func create_npc(npc_node: String):
-	owner.create_npc(npc_node)
+	owner.create_npc(Utils.get_npc_id(npc_node))
 
 
 func elevate_npc(npc_node: String):

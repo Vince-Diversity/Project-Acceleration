@@ -4,13 +4,13 @@ class_name TextBox extends CanvasLayer
 ## Updated to use a feature about tags, which was introduced somewhere
 ## around v2.29.
 
+@onready var profile: TextureRect = %Profile
+@onready var profile_background := %ProfileBackground
 @onready var _balloon: ColorRect = %TextBackground
 @onready var _character_label: RichTextLabel = %CharacterLabel
 @onready var _dialogue_label := %DialogueLabel
 @onready var _responses_menu: VBoxContainer = %Responses
 @onready var _response_template: RichTextLabel = %ResponseTemplate
-@onready var _profile_background := %ProfileBackground
-@onready var _profile: TextureRect = %Profile
 @onready var _indicator:  TextureRect = %Indicator
 
 ## The dialogue resource
@@ -67,12 +67,12 @@ var dialogue_line: DialogueLine:
 		# Toggle profile
 		if not dialogue_line.character.is_empty():
 			if dialogue_line.tags.is_empty():
-				_profile.express("")
+				profile.express("")
 			else:
-				_profile.express(dialogue_line.get_tag_value("expression"))
+				profile.express(dialogue_line.get_tag_value("expression"))
 		else:
-			_profile.set_texture(null)
-			_profile_background.set_visible(false)
+			profile.set_texture(null)
+			profile_background.set_visible(false)
 		
 		# Show our balloon
 		_balloon.show()
@@ -114,7 +114,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 ## Start some dialogue
 func start(dialogue_resource: DialogueResource, title: String, extra_game_states: Array = []) -> void:
 	temporary_game_states = extra_game_states
-	temporary_game_states.push_front(_profile)
+	temporary_game_states.push_front(profile)
 	is_waiting_for_input = false
 	resource = dialogue_resource
 
@@ -187,7 +187,7 @@ func get_responses() -> Array:
 
 
 func _on_mutated(_mutation: Dictionary) -> void:
-	_profile_background.hide()
+	profile_background.hide()
 	is_waiting_for_input = false
 	will_hide_balloon = true
 	get_tree().create_timer(0.1).timeout.connect(func():

@@ -1,4 +1,5 @@
 class_name RoamState extends GameState
+## Enables player movement and interaction with the environment.
 
 var party: Party
 

@@ -2,7 +2,7 @@ class_name Loader extends Node
 ## Loads the [MainMenu], [Game] and [Screen] nodes, and creates [SaveGame] resources.
 ##
 ## The methods in this class is used to switch between the game and the main menu.
-## Methods and properties tagged as "@experimental" are
+## Methods and properties tagged as [code]@experimental[/code] are
 ## temporary when developing the game.
 
 ## Path to directory with save data.
@@ -36,16 +36,16 @@ var new_game_party_list: Array[String] = ["Blue"]
 ## Path to the save file.
 var save_path: String = save_dir.path_join("cirruseng_v%s.tres" % ProjectSettings.get_setting("application/config/version"))
 
-## Current [Game] instance.
+## Current game session instance.
 var game: Game
 
-## Current [MainMenu] instance.
+## Current main menu instance.
 var main_menu: MainMenu
 
-## Current [Screen] instance.
+## Current transition screen instance.
 var screen: Screen
 
-## Current [BGMPlayer] instance.
+## Current background music player instance.
 var bgm_player: BGMPlayer
 
 
@@ -95,7 +95,7 @@ func enter_game():
 	bgm_player.reset_stream()
 
 
-## Stops the current game and enters the main menu.
+## Frees the current game session and enters the main menu.
 func enter_main_menu():
 	game.queue_free()
 	screen.reset_fade()
