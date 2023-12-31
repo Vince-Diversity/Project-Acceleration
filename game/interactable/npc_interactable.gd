@@ -1,8 +1,11 @@
-extends Interactable
+class_name NPCInteractable extends Interactable
+## Makes [NPC] scenes interactable with the player.
 
 
-func check_interaction(given_interactable: Node2D):
-	if given_interactable == owner:
+## Checks if this [NPC] scene is the desired [code]interactable_scene[/code]
+## and begins the interaction if so.
+func check_interaction(interactable_scene: Node2D):
+	if interactable_scene == owner:
 		begin_interaction.emit(owner)
 
 

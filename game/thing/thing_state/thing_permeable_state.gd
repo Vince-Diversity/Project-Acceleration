@@ -10,7 +10,7 @@ func exit():
 	pass
 
 
-func check_interaction(_given_interactable: Node2D):
+func check_interaction(_interactable_scene: Node2D):
 	pass
 
 

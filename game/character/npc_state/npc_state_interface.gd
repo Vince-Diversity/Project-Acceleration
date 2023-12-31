@@ -20,7 +20,7 @@ func exit():
 	Utils.try_disconnect(npc.interact_area.begin_interaction, npc.room._on_begin_interaction)
 
 
-func check_interaction(_given_interactable: Node2D):
+func check_interaction(_interactable_scene: Node2D):
 	pass
 
 

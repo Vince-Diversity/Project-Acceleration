@@ -1,42 +1,44 @@
 class_name BrowseState extends GameState
+## Enables the player to look through currently obtained items.
 
 const browsing_cutscene_name = "BrowsingCutscene"
-var party: Party
-var previous_player_anim_name: String
+
+var _party: Party
+var _previous_player_anim_name: String
 
 
+## Initialises this state.
 func init_state(given_party: Party):
-	party = given_party
+	_party = given_party
 
 
-func update(_delta: float):
-	pass
-
-
+## Allows the player to select an obtained item.
 func handle_input(event: InputEvent):
 	if event.is_action_pressed("ui_item"):
-		party.player.browsing_ended.emit()
+		_party.player.browsing_ended.emit()
 	elif event.is_action_pressed("ui_accept"):
-		party.player.bubbles.select_option()
+		_party.player.bubbles.select_option()
 
 
+## Opens an [ItemBubble] instance above the player
+## and plays a browsing animation.
 func enter():
-	previous_player_anim_name = party.player.get_animation()
-	party.player.set_animation("pocket")
-	party.player.bubbles.create_item_bubble()
+	_previous_player_anim_name = _party.player.get_animation()
+	_party.player.set_animation("pocket")
+	_party.player.bubbles.create_item_bubble()
 
 
+## Closes the [ItemBubble] instance, hides any occasional items
+## that were shown and restores the player animation to that before this state.
 func exit():
-	party.player.close_item_bubble()
-	if not is_instance_valid(party.player.items.exhibit_item):
-		party.player.set_animation(previous_player_anim_name)
-		party.player.anim_sprite.stop()
+	_party.player.close_item_bubble()
+	if not is_instance_valid(_party.player.items.exhibit_item):
+		_party.player.set_animation(_previous_player_anim_name)
+		_party.player.anim_sprite.stop()
+	_previous_player_anim_name = "";
 
 
-func grab_focus():
-	pass
-
-
+## Saves the game, including any preserved changes in the game session so far.
 func save(game: Game, sg: SaveGame):
 	super(game, sg)
 	game.get_tree().call_group("Preserved", "make_save", sg)

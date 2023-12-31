@@ -1,7 +1,8 @@
 class_name ItemInteractable extends Interactable
+## Makes [Item] scenes interactable with the player.
 
-
-func check_interaction(_given_interactable: Node2D):
+## Does nothing, there are no interactions with [Item] scenes currently
+func check_interaction(_interactable_scene: Node2D):
 	pass
 
 

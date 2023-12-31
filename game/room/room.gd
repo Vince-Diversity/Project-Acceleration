@@ -11,16 +11,17 @@ class_name Room extends Node2D
 ## [br]
 ## Subclasses of [Cutscene] nodes can be added as children to the
 ## [RoomCutscenes] node to enable custom cutscenes.
-## Optionally, for cutscenes that emerge from interaction with
-## a [Thing] or [NPC], if no matching cutscene is added a default cutscene
+## Optionally, for cutscenes that emerge from player interaction
+## with the environment, if no matching cutscene is added a default cutscene
 ## instance will be added automatically.
+## See [Interactable] for how player interaction is implemented.
 ## [br]
 ## [br]
 ## Party members are always added when the room scene is added to the [SceneTree].
 ## All other children can be added manually to the scene using the Godot editor.
-## When the contents of the environment are changed, which can for example happen during cutscenes,
-## the changes are stored in the [member Game.cache], and the next time
-## the same room scene is entered those changes will update the room scene.
+## When the environment is changed, which can for example happen during cutscenes,
+## those changes are saved when leaving the room scene, and the next time
+## the same room scene is entered those changes will be updated to the environment.
 ## This means that the scene that is built from the editor becomes the default room instance,
 ## and the actual encountered environment during a game session is an updated version of that room.
 
@@ -33,9 +34,13 @@ class_name Room extends Node2D
 ## Reference to [code]NPCs[/code] child node.
 @onready var npcs = $YSort/NPCs
 
+## Reference to [code]Things[/code] child node.
+@onready var things = $YSort/Things
+
+## Reference to [code]Doors[/code] child node.
+@onready var doors = $Doors
+
 @onready var _cutscenes = $RoomCutscenes
-@onready var _things = $YSort/Things
-@onready var _doors = $Doors
 @onready var _roam_state: RoamState = preload("res://game/game_state/roam_state.gd").new("roam_state")
 @onready var _cutscene_state: CutsceneState = preload("res://game/game_state/cutscene_state.gd").new("cutscene_state")
 @onready var _rest_state: RestState = preload("res://game/game_state/rest_state.gd").new("rest_state")
@@ -77,8 +82,8 @@ var textbox_focused_target: Callable
 ## at the spawn point with node name [next_room_entrance_node].
 signal room_changed(next_room_id: String, next_room_entrance_node: String)
 
-## Emitted when the [Player] interacts with the given [code]interactable[/code].
-signal player_interacted(interactable: Interactable)
+## Emitted when the [Player] interacts with the given [Interactable] node.
+signal player_interacted(interactable: Node2D)
 
 ## Emitted when an [Interactable] finishes an interaction.
 signal end_interaction()
@@ -102,18 +107,18 @@ func _ready():
 
 
 func _ready_entrance():
-	if _doors.get_child_count() == 0:
+	if doors.get_child_count() == 0:
 		room_changed.emit("main_entrance", "DefaultDoor")
 		return
-	if _doors.has_node(entrance_node):
-		entrance = _doors.get_node(entrance_node)
+	if doors.has_node(entrance_node):
+		entrance = doors.get_node(entrance_node)
 	else:
-		entrance = _doors.get_children()[0]
+		entrance = doors.get_children()[0]
 	party.set_global_position(entrance.spawn_point.global_position)
 
 
 func _ready_doors():
-	for door in _doors.get_children():
+	for door in doors.get_children():
 		door.make_thing(self)
 		var door_interactable = door.get_node("InteractArea")
 		player_interacted.connect(door_interactable.check_interaction)
@@ -124,7 +129,7 @@ func _ready_things():
 	thing_rng = RandomNumberGenerator.new()
 	var thing_seed = Utils.str_to_seed(name)
 	thing_rng.set_seed(thing_seed)
-	for thing in _things.get_children():
+	for thing in things.get_children():
 		thing.make_thing(self)
 		var thing_interactable = thing.get_node("InteractArea")
 		player_interacted.connect(thing_interactable.check_interaction)
@@ -179,6 +184,7 @@ func init_room(
 	bgm = given_bgm
 	bgm.update_stream(bgm_file)
 	screen = given_screen
+	# Deferred to ensure that the cutscene ends, which updates preserved properties before leaving the room.
 	room_changed.connect(change_room_target, CONNECT_DEFERRED)
 	textbox_started_target = given_textbox_started_target
 	cutscene_ended_target = given_cutscene_ended_target
@@ -260,14 +266,15 @@ func change_room(next_room_id: String, next_room_entrance_node: String):
 	room_changed.emit(next_room_id, next_room_entrance_node)
 
 
-## Called when the player interacts with the given [code]interactable[/code].
-func _on_player_interacted(interactable: Interactable):
-	player_interacted.emit(interactable)
+## Called when the player interacts with the given [Interactable] node.
+func _on_player_interacted(interactable_scene: Node2D):
+	player_interacted.emit(interactable_scene)
 
 
 ## Called when an interaction with the given [Interactable] scene root [code]target_root[/code] starts.
-## If [code]target_root[/code] does not have an assigned [member Interactable.interaction_node],
-## a unique [code]interaction_node[/code] name is assigned.
+## If the [code]interaction_node[/code] property of the scene root
+## does not match any existing cutscenes, a default cutscene is added to the [SceneTree]
+## and a unique [code]interaction_node[/code] name is assigned.
 func _on_begin_interaction(target_root: Node2D):
 	if _cutscenes.has_node(target_root.interaction_node):
 		start_cutscene(

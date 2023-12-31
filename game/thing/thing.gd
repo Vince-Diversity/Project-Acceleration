@@ -1,4 +1,5 @@
 class_name Thing extends StaticBody2D
+## a
 
 @export var interaction_node: String
 @export var dialogue_id: String

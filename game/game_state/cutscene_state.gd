@@ -1,39 +1,52 @@
 class_name CutsceneState extends GameState
-## a
+## Enables a cutscene to play out.
+##
+## If the cutscene has dialogue, note that this state
+## does not handle inputs to the dialogue.
+## For such purpose, the Dialogue addon is used instead and
+## the input handler is given in the current [TextBox] instance.
+## [br]
+## [br]
+## When saving the game during a cutscene, before it finishes, the changes 
+## done so far to the current game session are not saved.
+## Instead, the game session before the cutscene started is saved.
 
-## a
-var cutscenes: RoomCutscenes
+var _cutscenes: RoomCutscenes
 
 
+## Initialises this class.
 func init_state(
 		given_cutscenes: RoomCutscenes):
-	cutscenes = given_cutscenes
+	_cutscenes = given_cutscenes
 
 
+## Plays out any occuring cutscene acts at every frame.
 func update(delta: float):
-	cutscenes.current_cutscene.update_cutscene(delta)
+	_cutscenes.current_cutscene.update_cutscene(delta)
 
 
-func handle_input(_event: InputEvent):
-	pass
-
-
+## Starts the [member RoomCutscenes.current_cutscene].
 func enter():
-	cutscenes.current_cutscene.begin_cutscene()
+	_cutscenes.current_cutscene.begin_cutscene()
 
 
+## Clears the current cutscene data from [RoomCutscenes]
+## and enables any changes made during the cutscene to be preserved when saving.
 func exit():
-	cutscenes.get_tree().call_group("Preserved", "exit_cutscene")
-	cutscenes.reset()
+	_cutscenes.get_tree().call_group("Preserved", "exit_cutscene")
+	_cutscenes.reset()
 
 
+## Directs the focus onto the current cutscene control.
 func grab_focus():
-	cutscenes.current_cutscene.grab_cutscene_focus()
+	_cutscenes.current_cutscene.grab_cutscene_focus()
 
 
+## Saves the game, but excludes changes done during the cutscene
+## if the saved node has such a designated method [code]make_preserved_save[/code].
 func save(game: Game, sg: SaveGame):
 	super(game, sg)
-	for node in cutscenes.get_tree().get_nodes_in_group("Preserved"):
+	for node in _cutscenes.get_tree().get_nodes_in_group("Preserved"):
 		if node.has_method("make_preserved_save"):
 			node.make_preserved_save(sg)
 		else:

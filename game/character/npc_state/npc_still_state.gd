@@ -21,8 +21,8 @@ func exit():
 	npc.following_area.set_monitorable(true)
 
 
-func check_interaction(given_interactable: Node2D):
-	if given_interactable == npc:
+func check_interaction(interactable_scene: Node2D):
+	if interactable_scene == npc:
 		npc.get_node("InteractArea").begin_interaction.emit(npc)
 
 

@@ -1,10 +1,10 @@
 class_name Game extends Node2D
 ## When added to the [SceneTree], a game session starts running.
 ##
-## Initialises the [StateMachine] to the current game session.
+## Initialises the [StateMachine], which manages [GameState] instances.
 ## References the [Loader] for saving or exiting the current game session,
-## and passing the [BGMPlayer] and [Screen] instances.
-## Manages [Room] nodes when a game session starts
+## and modifying the [BGMPlayer] and [Screen].
+## Creates a game environment by managing [Room] nodes when a game session starts
 ## or when changing rooms with [method change_room].
 ## Also manages [PauseMenu] and [TextBox] nodes.
 
@@ -79,8 +79,6 @@ func change_room(room_id: String, entrance_node: String):
 	var room_path = Utils.get_room_path(room_id)
 	_save_cache()
 	if FileAccess.file_exists(room_path):
-		# Free the current room before loading cache
-		# Otherwise the cache will also be loaded on the old room
 		current_room.call_deferred("free")
 		add_room(room_id, entrance_node)
 	else:
@@ -98,6 +96,8 @@ func _save_cache():
 ## if the room has an active event listed in [EntranceEvents].
 func add_room(room_id: String, entrance_node: String):
 	_load_room(room_id, entrance_node)
+	# Deferred so that the current room is freed before loading cache.
+	# Otherwise the cache will also be loaded on the old room.
 	_load_preserved.call_deferred(cache)
 	_handle_entrance_events.call_deferred(room_id, entrance_node)
 
@@ -147,7 +147,10 @@ func _start_entrance_events(room_id: String, entrance_node: String, interaction_
 			current_room.doors.get_node(entrance_node))
 
 
-func _save():
+## Creates a save file at the location given by [member Loader.save_dir].
+## Uses a copy of the [member Game.cache]
+## and possibly updates it depending on the current game session state.
+func save():
 	var sg = cache.duplicate()
 	_make_save_game(sg)
 	var dir = DirAccess.open(loader.save_dir)
@@ -231,7 +234,7 @@ func _on_npc_removed(removed_npc_name: String):
 
 
 func _on_PauseMenu_save_pressed():
-	_save()
+	save()
 
 
 func _on_PauseMenu_main_menu_pressed():

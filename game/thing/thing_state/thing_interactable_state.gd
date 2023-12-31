@@ -10,8 +10,8 @@ func exit():
 	pass
 
 
-func check_interaction(given_interactable: Node2D):
-	if given_interactable == thing:
+func check_interaction(interactable_scene: Node2D):
+	if interactable_scene == thing:
 		thing.get_node("InteractArea").begin_interaction.emit(thing)
 
 

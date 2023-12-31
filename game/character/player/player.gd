@@ -8,7 +8,7 @@ var nearest_interactable: Node2D:
 		nearest_interactable = interactable
 		set_nearest_interactable(interactable)
 
-signal player_interacted(interactable: Node2D)
+signal player_interacted(interactable_scene: Node2D)
 signal browsing_started
 signal browsing_ended
 
@@ -110,7 +110,7 @@ func get_thought_item_sprite() -> ItemSprite:
 	return bubbles.item_bubble.current_item_sprite
 
 
-func _on_player_interacted(_interactable: Node2D):
+func _on_player_interacted(_interactable_scene: Node2D):
 	set_deferred("nearest_interactable", null)
 
 

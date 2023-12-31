@@ -1,39 +1,38 @@
 class_name RoamState extends GameState
-## Enables player movement and interaction with the environment.
+## Enables the player to move freely in the environment.
 
-var party: Party
+var _party: Party
 
 
+## Initialises this class.
 func init_state(
 		given_party: Party):
-	party = given_party
+	_party = given_party
 
 
+## Updates positions of player and other party members at every frame.
 func update(_delta: float):
-	party.roam()
+	_party.roam()
 
 
+## Allows the player to interact with the environment
+## or browse through obtained items.
 func handle_input(event: InputEvent):
 	if event.is_action_pressed("ui_accept"):
-		party.player.check_interaction()
+		_party.player.check_interaction()
 	elif event.is_action_pressed("ui_item"):
-		party.player.check_stored_items()
+		_party.player.check_stored_items()
 
 
-func enter():
-	pass
-
-
+## Stops any ongoing movement animations.
 func exit():
-	for member in party.get_party_ordered():
+	super()
+	for member in _party.get_party_ordered():
 		member.animate_idle()
 	pass
 
 
-func grab_focus():
-	pass
-
-
+## Saves the game, including any preserved changes in the game session so far.
 func save(game: Game, sg: SaveGame):
 	super(game, sg)
 	game.get_tree().call_group("Preserved", "make_save", sg)

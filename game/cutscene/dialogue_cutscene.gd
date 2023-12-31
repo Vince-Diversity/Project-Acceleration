@@ -70,13 +70,13 @@ func make_blink() -> Act:
 
 func make_darken() -> Act:
 	var darken_act: Act = lighting_act_scr.new()
-	darken_act.init_act(screen, Color(Color.BLACK, 0.5), screen.instant)
+	darken_act.init_act(screen, Color(Color.BLACK, 0.5), screen.instant_duration)
 	return darken_act
 
 
 func make_reset_lighting() -> Act:
 	var reset_lighting_act: Act = lighting_act_scr.new()
-	reset_lighting_act.init_act(screen, Color.TRANSPARENT, screen.instant)
+	reset_lighting_act.init_act(screen, Color.TRANSPARENT, screen.instant_duration)
 	return reset_lighting_act
 
 

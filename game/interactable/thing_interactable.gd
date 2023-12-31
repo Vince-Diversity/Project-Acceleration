@@ -1,8 +1,11 @@
 class_name ThingInteractable extends Interactable
+## Makes [Thing] scenes interactable with the player.
 
 
-func check_interaction(given_interactable: Node2D):
-	owner.current_state.check_interaction(given_interactable)
+## Checks if this [Thing] is in an interactable state
+## and performs further checks if so.
+func check_interaction(interactable_scene: Node2D):
+	owner.current_state.check_interaction(interactable_scene)
 
 
 func _on_end_interaction():

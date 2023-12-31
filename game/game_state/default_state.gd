@@ -1,25 +1,7 @@
 class_name DefaultState extends GameState
+## Dummy state that is initialized to the [StateMachine] before any state is initialised.
 
 
-func update(_delta: float):
-	pass
-
-
-func handle_input(_event: InputEvent):
-	pass
-
-
-func enter():
-	pass
-
-
-func exit():
-	pass
-
-
-func grab_focus():
-	pass
-
-
-func save(_game: Game, _save_game: SaveGame):
+## Initialises this class. Currently does nothing.
+func init_state():
 	pass
