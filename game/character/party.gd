@@ -10,7 +10,7 @@ func remove_member(member: NPC):
 		var member_position = member.global_position
 		remove_child(member)
 		owner.npcs.add_child(member)
-		member.change_state("npc_still_state")
+		member.change_states("npc_still_state")
 		member.set_global_position(member_position)
 		member.idling_room_id = owner.room_id
 

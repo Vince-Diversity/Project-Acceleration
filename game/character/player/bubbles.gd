@@ -29,7 +29,7 @@ func init_bubbles(player: Player):
 	current_state.enter()
 
 
-func try_change_state(state_id: String):
+func try_change_states(state_id: String):
 	if state_id != current_state.state_id:
 		current_state.exit()
 		current_state = state_list[state_id]

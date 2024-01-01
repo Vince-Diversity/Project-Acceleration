@@ -7,5 +7,5 @@
 if is_joined("Blue")
 	(Dorm {{door_number}}. That's my dorm!)
 else
-	do change_room("green_dorm", "DormDoor")
+	do change_rooms("green_dorm", "DormDoor")
 => END!

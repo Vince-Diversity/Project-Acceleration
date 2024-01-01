@@ -7,7 +7,7 @@ signal accept_pressed
 signal action_input(is_pressing, id)
 
 signal input_on_responding(input_type, index)
-signal change_room
+signal change_rooms
 
 func _unhandled_key_input(event):
 	if event.is_action_pressed("ui_accept"):
@@ -46,4 +46,4 @@ func _on_Action_focus_entered():
 	text_box.resp_arr[-1].grab_focus()
 
 func _on_TextBox_finished_next_set():
-	emit_signal("change_room")
+	emit_signal("change_rooms")

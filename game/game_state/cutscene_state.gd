@@ -42,13 +42,7 @@ func grab_focus():
 	_cutscenes.current_cutscene.grab_cutscene_focus()
 
 
-## Saves the game, but excludes changes done during the cutscene
-## if the saved node has such a designated method [code]make_preserved_save[/code].
+## Saves the game, but excludes changes done during the cutscene.
 func save(game: Game, sg: SaveGame):
 	super(game, sg)
-	for node in _cutscenes.get_tree().get_nodes_in_group("Preserved"):
-		if node.has_method("make_preserved_save"):
-			node.make_preserved_save(sg)
-		else:
-			if not node.has_method("make_save"): continue
-			node.make_save(sg)
+	save_preserved_game(game.get_tree(), sg)

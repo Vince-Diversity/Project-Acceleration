@@ -87,7 +87,7 @@ func make_fade_away(duration: float) -> Act:
 
 
 func next_dialogue(next_dialogue_node: String):
-	cutscenes.change_dialogue(
+	cutscenes.change_dialogues(
 		cutscenes.current_dialogue_id,
 		next_dialogue_node)
 	actm.add_act(make_current_dialogue())

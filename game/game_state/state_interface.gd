@@ -13,6 +13,7 @@ class_name GameState extends GDScript
 var state_id: String
 
 
+## Initialises this class, assigning the ID [member state_id].
 func _init(given_state_id: String):
 	state_id = given_state_id
 
@@ -49,3 +50,20 @@ func save(game: Game, sg: SaveGame):
 	sg.data[sg.game_key] = {}
 	sg.data[sg.game_key][sg.room_key] = game.current_room.room_id
 	sg.data[sg.game_key][sg.entrance_key] = game.current_room.entrance_node
+
+
+## Saves the current game session.
+func save_current_game(scene_tree: SceneTree, sg: SaveGame):
+	scene_tree.call_group("Preserved", "make_save", sg)
+
+
+## Saves the game from a delayed game session
+## if the saved nodes have such a designated method [code]make_preserved_save[/code].
+## Otherwise, for nodes without that method, the current node instance is saved instead.
+func save_preserved_game(scene_tree: SceneTree, sg: SaveGame):
+	for node in scene_tree.get_nodes_in_group("Preserved"):
+		if node.has_method("make_preserved_save"):
+			node.make_preserved_save(sg)
+		else:
+			if not node.has_method("make_save"): continue
+			node.make_save(sg)

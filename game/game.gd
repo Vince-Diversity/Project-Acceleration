@@ -5,7 +5,7 @@ class_name Game extends Node2D
 ## References the [Loader] for saving or exiting the current game session,
 ## and modifying the [BGMPlayer] and [Screen].
 ## Creates a game environment by managing [Room] nodes when a game session starts
-## or when changing rooms with [method change_room].
+## or when changing rooms with [method change_rooms], checking for any [EntranceEvents].
 ## Also manages [PauseMenu] and [TextBox] nodes.
 
 @onready var _menu_scn = preload("res://game/pause_menu.tscn")
@@ -15,7 +15,7 @@ class_name Game extends Node2D
 @onready var _entrance_events = $EntranceEvents
 
 ## Temporary save data used to store the current game session.
-## The cache updates whenever the current room is changed by [method change_room].
+## The cache updates whenever the current room is changed by [method change_rooms].
 var cache: SaveGame
 
 ## Reference to the loader.
@@ -62,7 +62,7 @@ func _load_room(room_id: String, entrance_node: String):
 		_stm,
 		loader.bgm_player,
 		loader.screen,
-		change_room,
+		change_rooms,
 		_on_textbox_started,
 		_on_cutscene_ended,
 		_on_textbox_focused,
@@ -75,7 +75,7 @@ func _load_room(room_id: String, entrance_node: String):
 ## calls [method add_room] and frees the [member current_room] if it exists.
 ## If the given [code]room_id[/code] does not match a [Room] scene filename,
 ## a default room is added instead.
-func change_room(room_id: String, entrance_node: String):
+func change_rooms(room_id: String, entrance_node: String):
 	var room_path = Utils.get_room_path(room_id)
 	_save_cache()
 	if FileAccess.file_exists(room_path):
@@ -215,7 +215,7 @@ func _on_textbox_started(
 ## If the cutscene was an entrance event,
 ## that event is updated, see [method EntranceEvents.update_event].
 func _on_cutscene_ended(next_state_id: String):
-	_stm.change_state(next_state_id)
+	_stm.change_states(next_state_id)
 	_entrance_events.update_event(current_room.room_id)
 
 

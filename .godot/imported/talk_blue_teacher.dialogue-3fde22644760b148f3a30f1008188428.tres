@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_bpd1c"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_rp36c"]
 
 [resource]
-script = ExtResource("1_bpd1c")
+script = ExtResource("1_rp36c")
 using_states = PackedStringArray()
 titles = {
 "cue": "2",
@@ -179,6 +179,8 @@ lines = {
 "type": "mutation"
 },
 "20": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
 "id": "20",
 "next_id": "end!",
 "next_id_after": "25",
@@ -190,6 +192,8 @@ lines = {
 "type": "response"
 },
 "21": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
 "id": "21",
 "next_id": "25",
 "next_id_after": "25",
@@ -567,7 +571,7 @@ lines = {
 "id": "52",
 "mutation": {
 "expression": Array[Dictionary]([{
-"function": "change_room",
+"function": "change_rooms",
 "type": "function",
 "value": Array[Array]([Array[Dictionary]([{
 "type": "string",
@@ -655,4 +659,4 @@ lines = {
 "type": "dialogue"
 }
 }
-metadata/dialogue_manager_version = "2.29.2"
+metadata/dialogue_manager_version = "2.31.0"

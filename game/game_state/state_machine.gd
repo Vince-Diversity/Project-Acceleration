@@ -29,8 +29,8 @@ func handle_input_state(event: InputEvent):
 	current_state.handle_input(event)
 
 
-## Changes the [member current_state] with the state corresponding to the given state_id.
-func change_state(state_id: String):
+## Changes the [member current_state] with the state corresponding to the given [code]state_id[/code].
+func change_states(state_id: String):
 	current_state.exit()
 	current_state = state_list[state_id]
 	current_state.enter()

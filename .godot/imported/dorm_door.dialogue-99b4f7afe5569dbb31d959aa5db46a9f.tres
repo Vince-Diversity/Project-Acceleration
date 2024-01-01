@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_oxidj"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_rm8ml"]
 
 [resource]
-script = ExtResource("1_oxidj")
+script = ExtResource("1_rm8ml")
 using_states = PackedStringArray()
 titles = {
 "default": "2",
@@ -22,7 +22,7 @@ lines = {
 "id": "10",
 "mutation": {
 "expression": Array[Dictionary]([{
-"function": "change_room",
+"function": "change_rooms",
 "type": "function",
 "value": Array[Array]([Array[Dictionary]([{
 "type": "string",

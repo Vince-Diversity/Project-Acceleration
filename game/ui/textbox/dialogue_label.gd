@@ -1,6 +1,7 @@
 extends RichTextLabel
 ## Edited version of the dialogue label from Dialogue addon v2.14.1
-# with some quickfixes from v2.16.1
+## with some quickfixes from v2.16.1,
+## see [url]https://github.com/nathanhoad/godot_dialogue_manager/releases/tag/v2.14.1[/url].
 
 signal spoke(letter: String, letter_index: int, speed: float)
 signal paused_typing(duration: float)

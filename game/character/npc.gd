@@ -35,10 +35,10 @@ func make_npc(
 		given_npc_state: String,
 		given_room: Room):
 	room = given_room
-	change_state(given_npc_state)
+	change_states(given_npc_state)
 
 
-func change_state(thing_state_id: String):
+func change_states(thing_state_id: String):
 	current_state.exit()
 	current_state = state_list[thing_state_id]
 	current_state.enter()

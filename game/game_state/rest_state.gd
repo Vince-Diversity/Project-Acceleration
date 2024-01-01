@@ -1,5 +1,7 @@
 class_name RestState extends GameState
 ## A temporary state when the player is sitting or resting in some way.
+##
+## Chairs and beds are examples of [Thing] instances which the player can rest on.
 
 var _start_cutscene_target: Callable
 var _stand_up_node_name: String
@@ -32,7 +34,7 @@ func handle_input(event: InputEvent):
 			_stand_up_source_node)
 
 
-## Saves the game, including any preserved changes in the game session so far.
+## Saves the game from the last state that allows saving.
 func save(game: Game, sg: SaveGame):
 	super(game, sg)
-	game.get_tree().call_group("Preserved", "make_save", sg)
+	save_preserved_game(game.get_tree(), sg)

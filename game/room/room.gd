@@ -1,7 +1,7 @@
 class_name Room extends Node2D
-## Base class for the current environment of a game session.
+## Base scene for the current environment of a game session.
 ##
-## Scenes of the subclasses of this node are used to build the game world.
+## Scenes that inherit this scene are used to build the game world.
 ## When selecing which room scene to load, the [member room_id] property is used as an identifier.
 ## Each scene has a [TileMap] for mapping and [Door] instances for spawn and exit points.
 ## The [Player] is a child of the [Party] node and [NPC] instances are either children of
@@ -40,10 +40,14 @@ class_name Room extends Node2D
 ## Reference to [code]Doors[/code] child node.
 @onready var doors = $Doors
 
-@onready var _cutscenes = $RoomCutscenes
+## Reference to [RoomCutscenes] child node.
+@onready var cutscenes = $RoomCutscenes
+
+## Reference to [RestState] instance.
+@onready var rest_state: RestState = preload("res://game/game_state/rest_state.gd").new("rest_state")
+
 @onready var _roam_state: RoamState = preload("res://game/game_state/roam_state.gd").new("roam_state")
 @onready var _cutscene_state: CutsceneState = preload("res://game/game_state/cutscene_state.gd").new("cutscene_state")
-@onready var _rest_state: RestState = preload("res://game/game_state/rest_state.gd").new("rest_state")
 @onready var _browse_state: BrowseState = preload("res://game/game_state/browse_state.gd").new("browse_state")
 @onready var _dialogue_cutscene_scn: PackedScene = preload("res://game/cutscene/dialogue_cutscene.tscn")
 
@@ -103,7 +107,7 @@ func _ready():
 	_ready_npcs()
 	_ready_states()
 	_ready_cutscenes()
-	stm.change_state(_roam_state.state_id)
+	stm.change_states(_roam_state.state_id)
 
 
 func _ready_entrance():
@@ -119,7 +123,6 @@ func _ready_entrance():
 
 func _ready_doors():
 	for door in doors.get_children():
-		door.make_thing(self)
 		var door_interactable = door.get_node("InteractArea")
 		player_interacted.connect(door_interactable.check_interaction)
 		door_interactable.begin_interaction.connect(_on_door_begin_interaction)
@@ -130,7 +133,6 @@ func _ready_things():
 	var thing_seed = Utils.str_to_seed(name)
 	thing_rng.set_seed(thing_seed)
 	for thing in things.get_children():
-		thing.make_thing(self)
 		var thing_interactable = thing.get_node("InteractArea")
 		player_interacted.connect(thing_interactable.check_interaction)
 		thing_interactable.begin_interaction.connect(_on_begin_interaction)
@@ -145,21 +147,21 @@ func _ready_npcs():
 func _ready_states():
 	_roam_state.init_state(party)
 	stm.add_state(_roam_state)
-	_cutscene_state.init_state(_cutscenes)
+	_cutscene_state.init_state(cutscenes)
 	stm.add_state(_cutscene_state)
-	_rest_state.init_state(start_cutscene)
-	stm.add_state(_rest_state)
+	rest_state.init_state(start_cutscene)
+	stm.add_state(rest_state)
 	_browse_state.init_state(party)
 	stm.add_state(_browse_state)
 
 
 func _ready_cutscenes():
-	for cutscene in _cutscenes.get_children():
+	for cutscene in cutscenes.get_children():
 		_make_cutscene(cutscene)
 
 
 func _make_cutscene(cutscene: Cutscene):
-	cutscene.init_cutscene(_cutscenes, screen)
+	cutscene.init_cutscene(cutscenes, screen)
 	cutscene.cutscene_started.connect(
 		_on_cutscene_started)
 	cutscene.cutscene_ended.connect(cutscene_ended_target)
@@ -172,7 +174,7 @@ func init_room(
 		given_stm: StateMachine,
 		given_bgm: BGMPlayer,
 		given_screen: Screen,
-		change_room_target: Callable,
+		change_rooms_target: Callable,
 		given_textbox_started_target: Callable,
 		given_cutscene_ended_target: Callable,
 		given_textbox_focused_target: Callable,
@@ -185,7 +187,7 @@ func init_room(
 	bgm.update_stream(bgm_file)
 	screen = given_screen
 	# Deferred to ensure that the cutscene ends, which updates preserved properties before leaving the room.
-	room_changed.connect(change_room_target, CONNECT_DEFERRED)
+	room_changed.connect(change_rooms_target, CONNECT_DEFERRED)
 	textbox_started_target = given_textbox_started_target
 	cutscene_ended_target = given_cutscene_ended_target
 	textbox_focused_target = given_textbox_focused_target
@@ -207,11 +209,11 @@ func start_cutscene(
 		dialogue_id: String,
 		dialogue_node: String,
 		source_node: Node2D):
-	_cutscenes.change_cutscene(interaction_node)
-	_cutscenes.change_dialogue(dialogue_id, dialogue_node)
-	_cutscenes.change_source_node(source_node)
-	_cutscenes.current_cutscene.cutscene_started.emit()
-	stm.change_state(_cutscene_state.state_id)
+	cutscenes.change_cutscenes(interaction_node)
+	cutscenes.change_dialogues(dialogue_id, dialogue_node)
+	cutscenes.change_source_nodes(source_node)
+	cutscenes.current_cutscene.cutscene_started.emit()
+	stm.change_states(_cutscene_state.state_id)
 	end_interaction.connect(source_node.get_node("InteractArea")._on_end_interaction, CONNECT_ONE_SHOT)
 
 
@@ -223,7 +225,7 @@ func start_cutscene(
 func add_unique_cutscene(cutscene_scn: PackedScene = _dialogue_cutscene_scn) -> String:
 	# When using this, wait for the cutscene node to be added before starting the cutscene
 	var dlg_cutscene: Cutscene = cutscene_scn.instantiate()
-	var interaction_node = "Default%s" % _cutscenes.get_children().size()
+	var interaction_node = "Default%s" % cutscenes.get_children().size()
 	add_cutscene(dlg_cutscene, interaction_node)
 	return interaction_node
 
@@ -231,8 +233,8 @@ func add_unique_cutscene(cutscene_scn: PackedScene = _dialogue_cutscene_scn) -> 
 ## Adds the given [code]cutscene[/code] to the [SceneTree]
 ## and assigns the node name [code]interaction_node[/code] to it.
 func add_cutscene(cutscene: Cutscene, interaction_node: String):
-	if not _cutscenes.has_node(interaction_node):
-		_cutscenes.add_child(cutscene)
+	if not cutscenes.has_node(interaction_node):
+		cutscenes.add_child(cutscene)
 		cutscene.owner = self
 		_make_cutscene(cutscene)
 		cutscene.name = interaction_node
@@ -262,7 +264,7 @@ func remove_npc(npc_node: String):
 
 ## Changes to a room with filename [code]next_room_id[/code]
 ## at the spawn point with node name [next_room_entrance_node].
-func change_room(next_room_id: String, next_room_entrance_node: String):
+func change_rooms(next_room_id: String, next_room_entrance_node: String):
 	room_changed.emit(next_room_id, next_room_entrance_node)
 
 
@@ -276,7 +278,7 @@ func _on_player_interacted(interactable_scene: Node2D):
 ## does not match any existing cutscenes, a default cutscene is added to the [SceneTree]
 ## and a unique [code]interaction_node[/code] name is assigned.
 func _on_begin_interaction(target_root: Node2D):
-	if _cutscenes.has_node(target_root.interaction_node):
+	if cutscenes.has_node(target_root.interaction_node):
 		start_cutscene(
 			target_root.interaction_node,
 			target_root.dialogue_id,
@@ -296,30 +298,30 @@ func _on_door_begin_interaction(door: Door):
 	var room_path = Utils.get_room_path(door.next_room_id)
 	if FileAccess.file_exists(room_path):
 		_remove_members_at_gateway(door)
-		change_room(door.next_room_id, door.next_room_entrance_node)
+		change_rooms(door.next_room_id, door.next_room_entrance_node)
 	else:
 		_on_begin_interaction(door)
 
 
 ## Starts the current [Cutscene].
 func _on_cutscene_started():
-	_cutscenes.current_cutscene.make()
+	cutscenes.current_cutscene.make()
 
 
 ## Changes the current game session state to [BrowseState].
 func _on_browsing_started():
-	stm.change_state("browse_state")
+	stm.change_states("browse_state")
 
 
 ## Called when a [BrowseState] game session state ends.
 func _on_browsing_ended():
-	stm.change_state("roam_state")
+	stm.change_states("roam_state")
 
 
 ## Starts a cutscene about examining the current item
 ## [member Bubbles.item_bubble.current_item_sprite].
 func _on_idle_bubbles_selected():
-	_cutscenes.add_cutscene(_dialogue_cutscene_scn, _browse_state.browsing_cutscene_name)
+	cutscenes.add_cutscene(_dialogue_cutscene_scn, _browse_state.browsing_cutscene_name)
 	start_cutscene(
 		_browse_state.browsing_cutscene_name,
 		"browse_items",
@@ -331,9 +333,9 @@ func _on_idle_bubbles_selected():
 ## [member Bubbles.item_bubble.current_item_sprite]
 ## on the current interactable [member Player.nearest_interactable].
 func _on_interact_bubbles_selected(item_id: String, interactable_name: String):
-	if not _cutscenes.item_interact_cutscenes.has(item_id):
-		_cutscenes.item_interact_cutscenes[item_id] = {}
-	var item_dict = _cutscenes.item_interact_cutscenes[item_id]
+	if not cutscenes.item_interact_cutscenes.has(item_id):
+		cutscenes.item_interact_cutscenes[item_id] = {}
+	var item_dict = cutscenes.item_interact_cutscenes[item_id]
 	if not item_dict.has(interactable_name):
 		item_dict[interactable_name] = add_unique_cutscene()
 	start_cutscene(

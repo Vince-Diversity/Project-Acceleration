@@ -3,7 +3,7 @@ class_name SaveGame extends Resource
 ##
 ## The save format is a [Resource] instance, categorised with dictionaries and arrays.
 ## The stored data can be built-in types but not nodes or resources.
-## All dictionary keys are collected in the Constants section.
+## All dictionary keys are collected in the constants section.
 ## The [member game_version] and [member data] properties
 ## need to be exported variables, so that this resource can be duplicated later
 ## in [method Game.save], according to [method Resource.duplicate].

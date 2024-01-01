@@ -1,16 +1,16 @@
-[gd_resource type="Resource" script_class="SaveGame" load_steps=2 format=3 uid="uid://5cewlcjede2q"]
+[gd_resource type="Resource" script_class="SaveGame" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://loader/save_game.gd" id="1_71oq2"]
+[ext_resource type="Script" path="res://loader/save_game.gd" id="1_sgv07"]
 
 [resource]
-script = ExtResource("1_71oq2")
+script = ExtResource("1_sgv07")
 game_version = "0.3"
 data = {
 "conditions": {
 "is_mentoring": true
 },
 "game": {
-"current_room_id": "main_classroom",
+"current_room_id": "dining_hall",
 "entrance_event": {
 "dining_hall": {
 "dialogue_id": "enter_dining_hall",
@@ -48,39 +48,82 @@ data = {
 "is_oneshot": true
 }
 },
-"entrance_node": "DoorDown"
+"entrance_node": "PassageUp"
 },
 "items": [],
 "party": Array[String](["Blue"]),
 "rooms": {
-"main_classroom": {
+"dining_hall": {
 "npcs": {
-"Blue": {
-"current_anim": "down",
-"dialogue_id": "",
-"dialogue_node": "",
-"direction": Vector2(0.513028, 0.858372),
+"Amber": {
+"current_anim": "sit_left",
+"dialogue_id": "talk_amber",
+"dialogue_node": "talk",
+"direction": Vector2(0, 1),
 "idling_room": "",
 "interaction_node": "",
-"position": Vector2(428.806, 111.898),
+"position": Vector2(226, 466),
 "was_joined": false,
 "z_index": 0
 },
-"BlueTeacher": {
-"current_anim": "down",
-"dialogue_id": "talk_blue_teacher",
-"dialogue_node": "query",
-"direction": Vector2(0.0209934, 0.99978),
+"Blue": {
+"current_anim": "right",
+"dialogue_id": "",
+"dialogue_node": "",
+"direction": Vector2(0.99986, 0.0167299),
 "idling_room": "",
-"interaction_node": "ReturnCutscene",
-"position": Vector2(448, 64),
+"interaction_node": "",
+"position": Vector2(197.376, 400.254),
+"was_joined": false,
+"z_index": 0
+},
+"Lime": {
+"current_anim": "sit_right",
+"dialogue_id": "talk_lime",
+"dialogue_node": "talk",
+"direction": Vector2(0, 1),
+"idling_room": "",
+"interaction_node": "",
+"position": Vector2(166, 465),
+"was_joined": false,
+"z_index": 0
+},
+"Maroon": {
+"current_anim": "sit_right",
+"dialogue_id": "talk_maroon",
+"dialogue_node": "talk",
+"direction": Vector2(0, 1),
+"idling_room": "",
+"interaction_node": "",
+"position": Vector2(168, 435),
+"was_joined": false,
+"z_index": 0
+},
+"Yellow": {
+"current_anim": "sit_left",
+"dialogue_id": "talk_yellow",
+"dialogue_node": "talk",
+"direction": Vector2(0, 1),
+"idling_room": "",
+"interaction_node": "",
+"position": Vector2(222, 437),
 "was_joined": false,
 "z_index": 0
 }
 },
 "party": {},
 "things": {
-"DoorDown": {
+"KitchenDoor": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"PassageUp": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"SideChairBoardGameTable": {
 "current_anim": &"default",
 "current_frame": 0,
 "current_state": "thing_interactable_state"
@@ -90,13 +133,13 @@ data = {
 "main_entrance": {
 "npcs": {
 "Blue": {
-"current_anim": "up",
+"current_anim": "right",
 "dialogue_id": "",
 "dialogue_node": "",
-"direction": Vector2(0.322442, -0.946589),
+"direction": Vector2(1, 0.000189962),
 "idling_room": "",
 "interaction_node": "",
-"position": Vector2(520.829, 103.565),
+"position": Vector2(784.5, 320),
 "was_joined": false,
 "z_index": 0
 }
@@ -130,38 +173,23 @@ data = {
 }
 }
 },
-"main_hallway": {
+"recreation_hallway": {
 "npcs": {
 "Blue": {
-"current_anim": "up",
+"current_anim": "right",
 "dialogue_id": "",
 "dialogue_node": "",
-"direction": Vector2(0, -1),
+"direction": Vector2(0.913146, 0.407632),
 "idling_room": "",
 "interaction_node": "",
-"position": Vector2(576, -8.5),
+"position": Vector2(639.825, 538.708),
 "was_joined": false,
 "z_index": 0
 }
 },
 "party": {},
 "things": {
-"DoorUp": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"PassageBlue": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
 "PassageDown": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"PassageGreen": {
 "current_anim": &"default",
 "current_frame": 0,
 "current_state": "thing_interactable_state"
@@ -171,7 +199,7 @@ data = {
 "current_frame": 0,
 "current_state": "thing_interactable_state"
 },
-"PassageRight": {
+"PassageUp": {
 "current_anim": &"default",
 "current_frame": 0,
 "current_state": "thing_interactable_state"

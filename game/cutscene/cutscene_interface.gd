@@ -63,7 +63,7 @@ func make_animate_thing(thing_node: String, anim_name: String) -> Act:
 
 func set_thing_state(thing_node: String, thing_state_id: String):
 	if owner.things.has_node(thing_node):
-		owner.things.get_node(thing_node).change_state(thing_state_id)
+		owner.things.get_node(thing_node).change_states(thing_state_id)
 
 
 func add_async(content: Array):
@@ -83,10 +83,10 @@ func make_async() -> Act:
 	return async_act
 
 
-func change_room(room_id: String, entrance_node: String):
+func change_rooms(room_id: String, entrance_node: String):
 	# Does not do special NPC handling at special doors
 	# since those require the exit door to be known
-	owner.change_room(room_id, entrance_node)
+	owner.change_rooms(room_id, entrance_node)
 
 
 func is_joined(npc_name: String) -> bool:

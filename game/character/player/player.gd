@@ -88,9 +88,9 @@ func check_interaction():
 
 func set_nearest_interactable(new_interactable: Node2D):
 	if is_instance_valid(new_interactable):
-		bubbles.try_change_state("bubbles_interact_state")
+		bubbles.try_change_states("bubbles_interact_state")
 	else:
-		bubbles.try_change_state("bubbles_idle_state")
+		bubbles.try_change_states("bubbles_idle_state")
 
 
 func check_stored_items():

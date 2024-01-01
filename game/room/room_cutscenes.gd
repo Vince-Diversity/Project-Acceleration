@@ -8,19 +8,19 @@ var current_source_node: Node2D
 var item_interact_cutscenes: Dictionary
 
 
-func change_cutscene(
+func change_cutscenes(
 		cutscene_node: String):
 	current_cutscene = get_node(cutscene_node)
 
 
-func change_dialogue(
+func change_dialogues(
 		dialogue_id: String,
 		dialogue_node):
 	current_dialogue_id = dialogue_id
 	current_dialogue_node = dialogue_node
 
 
-func change_source_node(
+func change_source_nodes(
 		source_node: Node2D):
 	current_source_node = source_node
 

@@ -35,4 +35,4 @@ func exit():
 ## Saves the game, including any preserved changes in the game session so far.
 func save(game: Game, sg: SaveGame):
 	super(game, sg)
-	game.get_tree().call_group("Preserved", "make_save", sg)
+	save_current_game(game.get_tree(), sg)

@@ -16,7 +16,7 @@ class_name Interactable extends Area2D
 ## exported variables of instantiated child scenes are only visible in the editor
 ## if those variables are in the root of the child scene.
 ## [codeblock]
-## ##Node name of the desired [Cutscene]. Optionally, a default cutscene is used if this field remains empty.
+## ## Node name of the desired [Cutscene]. Optionally, a default cutscene is used if this field remains empty.
 ## @export var interaction_node: String
 ## ## Filename of the [DialogueResource] containing the desired dialogue.
 ## @export var dialogue_id: String
@@ -25,7 +25,7 @@ class_name Interactable extends Area2D
 ## [/codeblock]
 
 
-## Emitted when a player interaction with the given [code]interactable_scene[/code] begins.
+## Emitted when a player interacts with the given [code]interactable_scene[/code].
 signal begin_interaction(interactable_scene: Node2D)
 
 
