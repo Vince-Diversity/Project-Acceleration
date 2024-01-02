@@ -21,7 +21,7 @@ The `Game` node is the first example where states are used. A state is a class t
 
 ## Making the environment interactable
 
-To make NPCs and things able to respond to player interaction, a custom `Area2D` child is added to these scenes. Subclasses of `interactable_interface.gd` are used to create different interaction nodes. For example, an `NPC` node has a child interactable node called `Interactable` which is configured by the `npc_interactable.gd` class. An interactable thing in the environment has a different interactable node.
+To make NPCs and things able to respond to player interaction, a custom `Area2D` child is added to these scenes. Subclasses of `interactable_interface.gd` are used to create different interaction nodes. For example, an `NPC` node has a child interactable node called `Interactable` which is configured by the `npc_interactable.gd` class. An interactable `Thing` node in the environment has a different interactable node.
 
 ## Saving changes to the current game session
 
@@ -29,7 +29,7 @@ The contents of a `Room` instance is dynamic. Some player interactions may perfo
 
 Only nodes that can change need to be treated with a save functionality. To distinguish these nodes, they are assigned the Godot node group `Preserved`. Whenever the player exits the current `Room` or saves the game, the current game state calls a `make_save(save_game: SaveGame)` function on each node in this node group, if the function exists there.
 
-The player saves the game in the pause menu when pausing the game. Since pausing is possible at any point in the game, saving during a cutscene state is treated differently. When saving during a cutscene state, the `save()` function of the `cutscene_state.gd` class is used, which calls a different function `make_preserved_save(save_game: SaveGame)` on each `Preserved` node, if the function exists. Also, in a `Preserved` node, there are reserved variables for copies of saved properties that update only after a cutscene has ended. These properties are used when saving during a cutscene by calling `exit_cutscene()` in the `Preserved` node, if that function exists. As a result, a save file made during a cutscene does not take into account any changes that were made during that cutscene.
+The player saves the game in the pause menu when pausing the game. Since pausing is possible at any point in the game, saving during cutscene states, or other temporary states, are treated differently. When saving during a cutscene state, the `save()` function of the `cutscene_state.gd` class is used, which calls a different function `make_preserved_save(save_game: SaveGame)` on each `Preserved` node, if the function exists. Also, in a `Preserved` node, there are reserved variables for copies of saved properties that update only after a cutscene has ended. These properties are used when saving during a cutscene by calling `exit_cutscene()` in the `Preserved` node, if that function exists. As a result, a save file made during a cutscene does not take into account any changes that were made during that cutscene.
 
 This result is also ensured by the fact that `Cutscene` instances are child nodes of the current `Room` instance, so that the cutscene instance always ends before leaving a room instance. It is possible to make a cutscene that changes the current `Room` instance and continues. Then, loading a save file that was saved during such a cutscene will start the game session at the last `Room` instance that was entered, and save changes to any previous rooms.
 

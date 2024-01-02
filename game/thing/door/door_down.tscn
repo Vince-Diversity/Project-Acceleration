@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://crgs75xh58fgm"]
 
 [ext_resource type="PackedScene" uid="uid://dqktwnq312s04" path="res://game/thing/door/door.tscn" id="1_hbmiv"]
-[ext_resource type="SpriteFrames" uid="uid://d2gasqmip3odt" path="res://resources/things/door.tres" id="2_q2dx6"]
+[ext_resource type="SpriteFrames" uid="uid://d2gasqmip3odt" path="res://resources/things/door/default_door.tres" id="2_q2dx6"]
 
 [node name="DoorDown" instance=ExtResource("1_hbmiv")]
 entrance_direction = 2

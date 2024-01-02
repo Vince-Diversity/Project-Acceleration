@@ -1,16 +1,9 @@
-extends DialogueCutscene
+class_name SacredIndoorCutscene extends DialogueCutscene
+## This cutscene may change depending on where the Sacred NPC is.
 
-@onready var sacred_mark = $SacredMark1
-var is_sacred_joined: bool = false
-
-func check_sacred_joined():
-	if owner.party.has_node("Sacred"):
-		is_sacred_joined = true
-	else:
-		is_sacred_joined = false
-
-
-func make_move_party() -> Act:
-	return make_move(
-		owner.party.get_party_ordered(),
-		[mentor_mark, student_mark, sacred_mark])
+## Checks if Sacred is in the current party.
+var is_sacred_joined: bool:
+	get:
+		if owner.party.has_member("Sacred"):
+			return true
+		else: return false

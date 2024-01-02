@@ -8,6 +8,8 @@ var state_list: Dictionary
 var current_state: GameState
 
 
+## Initialises this class and sets the current game session state to the
+## [code]given_current_state[/code].
 func _init(given_current_state: GameState):
 	add_state(given_current_state)
 	current_state = given_current_state

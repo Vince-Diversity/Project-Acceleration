@@ -1,7 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://178xk8x52ji8"]
-
-[ext_resource type="PackedScene" uid="uid://bqlmbt878hrxk" path="res://game/cutscene/dialogue_cutscene.tscn" id="1_3hm1s"]
-[ext_resource type="Script" path="res://game/cutscene/dialogue_cutscene/item_interaction_cutscene/item_interaction_cutscene.gd" id="2_yf8sl"]
-
-[node name="ItemInteractionCutscene" instance=ExtResource("1_3hm1s")]
-script = ExtResource("2_yf8sl")

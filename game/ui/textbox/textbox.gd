@@ -1,10 +1,13 @@
 class_name TextBox extends CanvasLayer
+## A Text box displaying dialogue.
+##
 ## Edited version of the example balloon from Dialogue addon v2.14.1,
 ## see [url]https://github.com/nathanhoad/godot_dialogue_manager/releases/tag/v2.14.1[/url].
 ## Updated to use a feature about tags, which was introduced somewhere
 ## around v2.29.
+## Uses the [CustomDialogueLabel] and [Profile] nodes.
 
-@onready var profile: TextureRect = %Profile
+@onready var profile: Profile = %Profile
 @onready var profile_background := %ProfileBackground
 @onready var _balloon: ColorRect = %TextBackground
 @onready var _character_label: RichTextLabel = %CharacterLabel

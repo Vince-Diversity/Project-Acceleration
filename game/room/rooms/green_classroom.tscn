@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://cvo2pdotfacvp" path="res://resources/tilesets/green_interior.tres" id="2_vypme"]
 [ext_resource type="PackedScene" uid="uid://crgs75xh58fgm" path="res://game/thing/door/door_down.tscn" id="3_hhjfj"]
 [ext_resource type="PackedScene" uid="uid://dopivkfksretw" path="res://game/thing/sprout/sprout.tscn" id="4_homgw"]
-[ext_resource type="PackedScene" uid="uid://cbqllvvoulkny" path="res://game/cutscene/silent_cutscene/sprout_cutscene/sprout_cutscene.tscn" id="5_30x1x"]
+[ext_resource type="PackedScene" uid="uid://bqmu4inqcaoa8" path="res://game/cutscene/silent_cutscene/sprout_cutscene/sprout_cutscene.tscn" id="5_30x1x"]
 [ext_resource type="PackedScene" uid="uid://f62lyhp5kra6" path="res://game/thing/bookcase/bookcase.tscn" id="5_4731s"]
 [ext_resource type="PackedScene" uid="uid://s1p35h1esehl" path="res://game/thing/table/down_chair_table.tscn" id="6_nt1iw"]
 [ext_resource type="PackedScene" uid="uid://bqlmbt878hrxk" path="res://game/cutscene/dialogue_cutscene.tscn" id="7_anbct"]
@@ -24,18 +24,22 @@ next_room_entrance_node = "DoorUp"
 
 [node name="Sprout1" parent="YSort/Things" index="0" instance=ExtResource("4_homgw")]
 position = Vector2(192, 320)
+interaction_node = "SproutCutscene"
 is_oneshot = true
 
 [node name="Sprout2" parent="YSort/Things" index="1" instance=ExtResource("4_homgw")]
 position = Vector2(448, 448)
+interaction_node = "SproutCutscene"
 is_oneshot = true
 
 [node name="Sprout3" parent="YSort/Things" index="2" instance=ExtResource("4_homgw")]
 position = Vector2(704, 448)
+interaction_node = "SproutCutscene"
 is_oneshot = true
 
 [node name="Sprout4" parent="YSort/Things" index="3" instance=ExtResource("4_homgw")]
 position = Vector2(960, 320)
+interaction_node = "SproutCutscene"
 is_oneshot = true
 
 [node name="BookcasePreserve" parent="YSort/Things" index="4" instance=ExtResource("5_4731s")]

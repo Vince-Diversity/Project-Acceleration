@@ -8,7 +8,7 @@ radius = 12.0
 height = 32.0
 
 [node name="Candle" instance=ExtResource("1_ed4h8")]
-spawn_state = "thing_static_state"
+spawn_state_id = "thing_static_state"
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = ExtResource("2_vqtrt")

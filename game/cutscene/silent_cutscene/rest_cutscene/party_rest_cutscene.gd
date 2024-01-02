@@ -1,6 +1,8 @@
 extends RestCutscene
+## A cutscene where the player and other party members
+## rest on something like a set of chairs.
 
-
+## Creates this cutscene for the current target thing.
 func make():
 	var player_mark = get_thing_player_rest_mark()
 	var member_mark = get_thing_member_rest_mark()
@@ -28,7 +30,3 @@ func make():
 					[owner.party.player],
 					[player_mark]))
 			actm.add_act(make_animate_player(rest_anim))
-
-
-func end_cutscene():
-	super()

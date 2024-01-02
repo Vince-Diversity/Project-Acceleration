@@ -40,8 +40,7 @@ func make_save(sg: SaveGame):
 	thing_dict[sg.frame_key] = thing.anim_sprite.frame
 
 
-## Called during a [CutsceneState], saving the target [member ThingState.thing]
-## before that cutscene started to the given [code]sg[/code].
+## Saves preserved variables of the target [member ThingState.thing] to the given [code]sg[/code].
 ## The animation of the target thing is saved at frame 0.
 func make_preserved_save(sg: SaveGame):
 	sg.update_room_keys(thing.owner.room_id)

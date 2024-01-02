@@ -9,7 +9,7 @@ class_name Room extends Node2D
 ## Also, [Thing] instances in the environment are added as children of the [code]Things[/code] node.
 ## [br]
 ## [br]
-## Subclasses of [Cutscene] nodes can be added as children to the
+## [Cutscene] nodes can be added as children to the
 ## [RoomCutscenes] node to enable custom cutscenes.
 ## Optionally, for cutscenes that emerge from player interaction
 ## with the environment, if no matching cutscene is added a default cutscene
@@ -199,11 +199,11 @@ func init_room(
 ## changes the game session state to [CutsceneState].
 ## The node name of this cutscene is given by [code]interaction_node[/code]
 ## and it needs to have be added to the [SceneTree] before this function is called.
-## Also, [code]source_node[/code] is a required node that relates the most to the current cutscene,
-## see [member RoomCutscenes.current_source_node].
 ## If the cutscene has dialogue, the dialogue contents are given by the
 ## filename of the [DialogueResource], [code]dialogue_id[/code], and
 ## title to the [method DialogueResource.get_next_dialogue_line], [code]dialogue_node[/code].
+## The [code]source_node[/code] determines a scene instance in
+## the current room that is targeted by this cutscene.
 func start_cutscene(
 		interaction_node: String,
 		dialogue_id: String,
@@ -222,6 +222,7 @@ func start_cutscene(
 ## Optionally, the [PackedScene] of a subclass of [Cutscene] can be given
 ## as [code]cutscene_scn[/code].
 ## By default, a [DialogueCutscene] is instantiated.
+## Returns the node name given to the instantiated cutscene.
 func add_unique_cutscene(cutscene_scn: PackedScene = _dialogue_cutscene_scn) -> String:
 	# When using this, wait for the cutscene node to be added before starting the cutscene
 	var dlg_cutscene: Cutscene = cutscene_scn.instantiate()
@@ -230,14 +231,14 @@ func add_unique_cutscene(cutscene_scn: PackedScene = _dialogue_cutscene_scn) -> 
 	return interaction_node
 
 
-## Adds the given [code]cutscene[/code] to the [SceneTree]
-## and assigns the node name [code]interaction_node[/code] to it.
-func add_cutscene(cutscene: Cutscene, interaction_node: String):
-	if not cutscenes.has_node(interaction_node):
+## Adds the given [code]cutscene[/code] to the [SceneTree] if it does not yet exist
+## and assigns the node name [code]cutscene_node[/code] to it.
+func add_cutscene(cutscene: Cutscene, cutscene_node: String):
+	if not cutscenes.has_node(cutscene_node):
 		cutscenes.add_child(cutscene)
 		cutscene.owner = self
 		_make_cutscene(cutscene)
-		cutscene.name = interaction_node
+		cutscene.name = cutscene_node
 
 
 func _remove_members_at_gateway(door: Door):
@@ -268,12 +269,14 @@ func change_rooms(next_room_id: String, next_room_entrance_node: String):
 	room_changed.emit(next_room_id, next_room_entrance_node)
 
 
-## Called when the player interacts with the given [Interactable] node.
+## Called when the player interacts with the given [Interactable] scene root.
 func _on_player_interacted(interactable_scene: Node2D):
 	player_interacted.emit(interactable_scene)
 
 
-## Called when an interaction with the given [Interactable] scene root [code]target_root[/code] starts.
+## Called when an interaction starts.
+## The given [code]target_root[/code] is the scene root of the [Interactable]
+## with which the player interacts.
 ## If the [code]interaction_node[/code] property of the scene root
 ## does not match any existing cutscenes, a default cutscene is added to the [SceneTree]
 ## and a unique [code]interaction_node[/code] name is assigned.
@@ -293,7 +296,8 @@ func _on_begin_interaction(target_root: Node2D):
 ## Called when the player interacts with the given [code]door[/code].
 ## If the door is linked to a room, the current room is changed to that
 ## and any existing interaction is skipped.
-## Handles cases where party members are not intended to pass the door
+## Handles cases where party members are not intended to pass the door,
+## see [member NPC.is_imaginary].
 func _on_door_begin_interaction(door: Door):
 	var room_path = Utils.get_room_path(door.next_room_id)
 	if FileAccess.file_exists(room_path):
@@ -318,10 +322,12 @@ func _on_browsing_ended():
 	stm.change_states("roam_state")
 
 
-## Starts a cutscene about examining the current item
-## [member Bubbles.item_bubble.current_item_sprite].
+## Starts a cutscene about examining the current
+## [member Bubbles.item_bubble.current_item_sprite] item.
+## The target of this cutscene is the [Item]
+## instance that corresponds to that item.
 func _on_idle_bubbles_selected():
-	cutscenes.add_cutscene(_dialogue_cutscene_scn, _browse_state.browsing_cutscene_name)
+	add_cutscene(_dialogue_cutscene_scn.instantiate(), _browse_state.browsing_cutscene_name)
 	start_cutscene(
 		_browse_state.browsing_cutscene_name,
 		"browse_items",
@@ -329,9 +335,10 @@ func _on_idle_bubbles_selected():
 		party.player.items.exhibit_item)
 
 
-## Starts a cutscene about using the current item
-## [member Bubbles.item_bubble.current_item_sprite]
-## on the current interactable [member Player.nearest_interactable].
+## Starts a cutscene about using the current item with [code]item_id[/code]
+## given by [member Bubbles.item_bubble.current_item_sprite]
+## on the current interactable scene root with node name [code]interactable_name[/code].
+## The target of this cutscene is the [Interactable] scene root with which the item interacts.
 func _on_interact_bubbles_selected(item_id: String, interactable_name: String):
 	if not cutscenes.item_interact_cutscenes.has(item_id):
 		cutscenes.item_interact_cutscenes[item_id] = {}

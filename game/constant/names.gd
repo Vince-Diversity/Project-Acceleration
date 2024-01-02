@@ -1,4 +1,6 @@
 extends Node
+## List of names of characters and things in the game.
+## This is passed to [DialogueResource] and used as dialogue constants.
 
 const green := "Misa"
 const blue := "Ari"

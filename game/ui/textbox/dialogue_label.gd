@@ -1,4 +1,6 @@
-extends RichTextLabel
+class_name CustomDialogueLabel extends RichTextLabel
+## Writes out text for dialogue.
+##
 ## Edited version of the dialogue label from Dialogue addon v2.14.1
 ## with some quickfixes from v2.16.1,
 ## see [url]https://github.com/nathanhoad/godot_dialogue_manager/releases/tag/v2.14.1[/url].

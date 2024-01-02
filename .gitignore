@@ -6,6 +6,7 @@ Thumbs.db
 .import/
 export.cfg
 export_presets.cfg
+.godot/editor/*
 
 # Mono-specific ignores
 .mono/

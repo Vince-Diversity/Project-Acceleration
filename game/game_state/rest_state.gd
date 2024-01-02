@@ -2,6 +2,8 @@ class_name RestState extends GameState
 ## A temporary state when the player is sitting or resting in some way.
 ##
 ## Chairs and beds are examples of [Thing] instances which the player can rest on.
+## When entering this state, a [StandUpCutscene] is added to the [SceneTree],
+## if it does not yet exist, which is played when this state ends.
 
 var _start_cutscene_target: Callable
 var _stand_up_node_name: String

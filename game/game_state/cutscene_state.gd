@@ -1,5 +1,5 @@
 class_name CutsceneState extends GameState
-## Enables a cutscene to play out.
+## Enables a [Cutscene] to play out.
 ##
 ## If the cutscene has dialogue, note that this state
 ## does not handle inputs to the dialogue.
