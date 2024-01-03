@@ -93,7 +93,7 @@ func _save_cache():
 ## and assigns a spawn point at the given [code]entrance_node[/code].
 ## Then loads the [member cache] save data to the new room
 ## and starts an entrance event,
-## if the room has an active event listed in [EntranceEvents].
+## if the room has an activated event listed in [EntranceEvents].
 func add_room(room_id: String, entrance_node: String):
 	_load_room(room_id, entrance_node)
 	# Deferred so that the current room is freed before loading cache.
@@ -176,7 +176,7 @@ func _pause():
 ## title to the [method DialogueResource.get_next_dialogue_line] [code]dialogue_node[/code],
 ## target of the [signal DialogueManager.dialogue_ended]
 ## signal [code]dialogue_ended_target[/code]
-## and the current active [code]dialogue_cutscene[/code].
+## and the current activated [code]dialogue_cutscene[/code].
 ## Items have special titles given by [ItemSprite.interaction_dialogue_node].
 ## If the dialogue resource filename or title is not found,
 ## the title of an item is used instead.

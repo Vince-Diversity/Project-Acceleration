@@ -5,8 +5,8 @@ class_name Character extends CharacterBody2D
 ## The latter is used to enable party members to follow the next party member or player
 ## when the player moves around in the environment.
 ## The order in which party members follow each other is given by [method Party.get_party_ordered].
-## A character also has markers for special animations such as when showing an item scene
-## by adding it as a nested node to the [Items] child node.
+## A character also has markers for special animations such as when showing an item,
+## see [Items].
 
 ## How fast this character moves.
 @export var speed: float = 150

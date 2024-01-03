@@ -61,7 +61,7 @@ var preserved_z_index : int
 ## List of [NPCState] instances labeled by each respective [member NPCState.state_id].
 var state_list: Dictionary
 
-## Current active NPC state instance.
+## Current activated NPC state instance.
 var current_state: NPCState
 
 ## Reference to the room instance.

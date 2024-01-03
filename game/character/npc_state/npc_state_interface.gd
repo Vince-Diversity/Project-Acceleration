@@ -1,5 +1,5 @@
 class_name NPCState extends GDScript
-## Base class for NPC states
+## Base class for [NPC] states
 
 ## The filename (without the extension) is used as ID for this class.
 var state_id: String

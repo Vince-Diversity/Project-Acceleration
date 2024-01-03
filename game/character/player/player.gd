@@ -2,15 +2,15 @@ class_name Player extends Character
 ## The character who is controlled by the player.
 ##
 ## The player character can interact with [Interactable] scenes in the environment
-## with a player [member interact_area]. This area is different from other [Interactable]
-## areas in that only extends in front of the player and turns with the player.
+## using the player [member interact_area]. This area is different from other [Interactable]
+## areas in that it only extends in front of the player and turns with the player.
 ## [br]
 ## [br]
 ## Also, the player character makes thought bubbles to signify when the player can
 ## make something in the game happen. These thought bubbles are managed by the
-## [Bubbles] child node.
-## For example, when the player's interaction area overlaps the area of an interactable scene,
-## a corresponding thought bubble appears to show that some interaction is possible.
+## [Bubbles] child node. When the player has obtained an item in their [Items] list,
+## thought bubbles are also used to select items.
+
 
 @onready var _direction_node: Marker2D = $Direction
 
@@ -56,13 +56,13 @@ func init_player(
 	browsing_ended.connect(_on_browsing_ended)
 
 
-## Initialises the player after it is added to the [SceneTree].
+## Further initialises the player after it is added to the [SceneTree].
 func make_player(
 		idle_bubbles_selected_target: Callable,
 		interact_bubbles_selected_target: Callable):
 	bubbles.idle_bubbles_selected.connect(idle_bubbles_selected_target)
 	bubbles.interact_bubbles_selected.connect(interact_bubbles_selected_target)
-	bubbles.init_bubbles(self)
+	bubbles.make_bubbles(self)
 
 
 ## Updated at every frame to enable player movement.
@@ -150,7 +150,7 @@ func get_thought_item_sprite() -> ItemSprite:
 	return bubbles.item_bubble.current_item_sprite
 
 
-## Called when the player interacts with the given [Interactable] scene root.
+## Called when the player interacts with the given [Interactable] scene root, if that exists.
 func _on_player_interacted(_interactable_scene: Node2D):
 	set_deferred("nearest_interactable", null)
 

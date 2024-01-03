@@ -54,7 +54,7 @@ class_name Thing extends StaticBody2D
 ## List of [ThingState] instances labeled by each respective [member ThingState.state_id].
 var state_list: Dictionary
 
-## Current active thing state instance.
+## Current activated thing state instance.
 var current_state: ThingState
 
 ## ID of thing state after the last [CutsceneState] ended.

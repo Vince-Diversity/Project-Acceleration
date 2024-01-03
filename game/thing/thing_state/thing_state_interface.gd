@@ -1,5 +1,6 @@
 class_name ThingState extends GDScript
-## Base class for thing states.
+## Base class for [Thing] states.
+
 
 ## The filename (without the extension) is used as ID for this class.
 var state_id: String

@@ -4,7 +4,7 @@ class_name StateMachine extends GDScript
 ## List of [GameState] instances labeled by each respective [member GameState.state_id].
 var state_list: Dictionary
 
-## Current active game session state instance.
+## Current activated game session state instance.
 var current_state: GameState
 
 
