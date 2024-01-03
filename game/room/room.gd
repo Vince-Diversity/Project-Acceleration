@@ -28,8 +28,8 @@ class_name Room extends Node2D
 ## Path to the playing background music.
 @export_file var bgm_file: String
 
-## Reference to [Party] child node.
-@onready var party = $YSort/Party
+## Reference to the party child node.
+@onready var party: Party = $YSort/Party
 
 ## Reference to [code]NPCs[/code] child node.
 @onready var npcs = $YSort/NPCs
@@ -40,10 +40,10 @@ class_name Room extends Node2D
 ## Reference to [code]Doors[/code] child node.
 @onready var doors = $Doors
 
-## Reference to [RoomCutscenes] child node.
-@onready var cutscenes = $RoomCutscenes
+## Reference to cutscenes child node.
+@onready var cutscenes: RoomCutscenes = $RoomCutscenes
 
-## Reference to [RestState] instance.
+## Reference to rest state instance.
 @onready var rest_state: RestState = preload("res://game/game_state/rest_state.gd").new("rest_state")
 
 @onready var _roam_state: RoamState = preload("res://game/game_state/roam_state.gd").new("roam_state")
@@ -86,7 +86,7 @@ var textbox_focused_target: Callable
 ## at the spawn point with node name [next_room_entrance_node].
 signal room_changed(next_room_id: String, next_room_entrance_node: String)
 
-## Emitted when the [Player] interacts with the given [Interactable] node.
+## Emitted when the [Player] interacts with the given [Interactable] scene root.
 signal player_interacted(interactable: Node2D)
 
 ## Emitted when an [Interactable] finishes an interaction.
@@ -297,7 +297,7 @@ func _on_begin_interaction(target_root: Node2D):
 ## If the door is linked to a room, the current room is changed to that
 ## and any existing interaction is skipped.
 ## Handles cases where party members are not intended to pass the door,
-## see [member NPC.is_imaginary].
+## see [NPC].
 func _on_door_begin_interaction(door: Door):
 	var room_path = Utils.get_room_path(door.next_room_id)
 	if FileAccess.file_exists(room_path):

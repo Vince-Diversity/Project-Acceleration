@@ -1,23 +1,49 @@
 class_name Player extends Character
+## The character who is controlled by the player.
+##
+## The player character can interact with [Interactable] scenes in the environment
+## with a player [member interact_area]. This area is different from other [Interactable]
+## areas in that only extends in front of the player and turns with the player.
+## [br]
+## [br]
+## Also, the player character makes thought bubbles to signify when the player can
+## make something in the game happen. These thought bubbles are managed by the
+## [Bubbles] child node.
+## For example, when the player's interaction area overlaps the area of an interactable scene,
+## a corresponding thought bubble appears to show that some interaction is possible.
 
-@onready var direction_node = $Direction
-@onready var interact_area = $Direction/InteractArea
-@onready var bubbles = $Bubbles
+@onready var _direction_node: Marker2D = $Direction
+
+## Reference to the interaction area of the player.
+@onready var interact_area: Area2D = $Direction/InteractArea
+
+## Reference to the bubbles child node.
+@onready var bubbles: Bubbles = $Bubbles
+
+## The [Interactable] scene root that is closest to the player.
+## Is automatically updated at every frame.
+## Also updates the [member Bubbles.current_state] accordingly.
 var nearest_interactable: Node2D:
 	set(interactable):
 		nearest_interactable = interactable
-		set_nearest_interactable(interactable)
+		_set_nearest_interactable(interactable)
 
+## Emitted when the player interacts with the given [Interactable] scene root.
 signal player_interacted(interactable_scene: Node2D)
+
+## Emitted when the player starts browsing through obtained items.
 signal browsing_started
+
+## Emitted when the player stops browsing through obtained items.
 signal browsing_ended
 
 
 func _ready():
-	update_angle()
+	_update_angle()
 	player_interacted.connect(_on_player_interacted)
 
 
+## Initialises the player before it is added to the [SceneTree].
 func init_player(
 		given_party: Party,
 		player_interacted_target: Callable,
@@ -30,6 +56,7 @@ func init_player(
 	browsing_ended.connect(_on_browsing_ended)
 
 
+## Initialises the player after it is added to the [SceneTree].
 func make_player(
 		idle_bubbles_selected_target: Callable,
 		interact_bubbles_selected_target: Callable):
@@ -38,34 +65,40 @@ func make_player(
 	bubbles.init_bubbles(self)
 
 
+## Updated at every frame to enable player movement.
+## Reads the currently inputted direction and moves the player accordingly,
+## or plays their idle animation if no movement is inputted.
+## Also updates the [member nearest_interactable].
 func roam():
-	update_input_direction()
+	_update_input_direction()
 	if inputted_direction == Vector2.ZERO:
 		animate_idle()
 	else:
 		move()
-	check_nearest_interactable()
+	_check_nearest_interactable()
 
 
+## Moves the player and updates the angle of the player's interaction area.
 func move():
 	super()
-	update_angle()
+	_update_angle()
 
 
+## Updates the player's direction and the angle of the player's interaction area.
 func update_direction():
 	super()
-	update_angle()
+	_update_angle()
 
 
-func update_angle():
-	direction_node.rotation = Utils.snap_to_compass(inputted_direction).angle()
+func _update_angle():
+	_direction_node.rotation = Utils.snap_to_compass(inputted_direction).angle()
 
 
-func update_input_direction():
+func _update_input_direction():
 	inputted_direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 
 
-func check_nearest_interactable():
+func _check_nearest_interactable():
 	var areas: Array[Area2D] = interact_area.get_overlapping_areas()
 	if areas.is_empty():
 		nearest_interactable = null
@@ -81,38 +114,47 @@ func check_nearest_interactable():
 			nearest_interactable = next_nearest_interactable
 
 
+## Begins a player interaction with the [member nearest_interactable].
 func check_interaction():
 	if is_instance_valid(nearest_interactable):
 		player_interacted.emit(nearest_interactable)
 
 
-func set_nearest_interactable(new_interactable: Node2D):
+func _set_nearest_interactable(new_interactable: Node2D):
 	if is_instance_valid(new_interactable):
 		bubbles.try_change_states("bubbles_interact_state")
 	else:
 		bubbles.try_change_states("bubbles_idle_state")
 
 
+## Begins a [BrowseState] if the player has any obtained items.
 func check_stored_items():
 	if not items.item_id_list.is_empty():
 		browsing_started.emit()
 
 
+## Adds a thought bubble starting on the first entry of [member Items.item_id_list]
+## if the player has any obtained items.
 func make_item_bubble():
-	bubbles.add_item_bubble(items.item_id_list[0])
+	if not items.item_id_list.is_empty():
+		bubbles.add_item_bubble(items.item_id_list[0])
 
 
+## Closes any item thought bubbles.
 func close_item_bubble():
 	bubbles.item_bubble.close()
 
 
+## Gets the item sprite of the current thought bubble, possibly null.
 func get_thought_item_sprite() -> ItemSprite:
 	return bubbles.item_bubble.current_item_sprite
 
 
+## Called when the player interacts with the given [Interactable] scene root.
 func _on_player_interacted(_interactable_scene: Node2D):
 	set_deferred("nearest_interactable", null)
 
 
+## Called when a [BrowseState] finishes.
 func _on_browsing_ended():
 	bubbles.reset_bubbles()

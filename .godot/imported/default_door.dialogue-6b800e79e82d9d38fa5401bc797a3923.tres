@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_ssn1m"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_ggggd"]
 
 [resource]
-script = ExtResource("1_ssn1m")
+script = ExtResource("1_ggggd")
 using_states = PackedStringArray()
 titles = {
 "default": "2"
@@ -21,12 +21,18 @@ lines = {
 "character": "",
 "character_replacements": Array[Dictionary]([]),
 "id": "2",
-"next_id": "",
+"next_id": "3",
 "tags": PackedStringArray(),
 "text": "(I wonder how this was made. It really looks like an exit!)",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "(I wonder how this was made. It really looks like an exit!)",
 "type": "dialogue"
+},
+"3": {
+"id": "3",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
 }
 }
 metadata/dialogue_manager_version = "2.31.0"

@@ -19,11 +19,11 @@ class_name Door extends Thing
 @export var entrance_direction: Utils.AnimID
 
 ## Toggles whether this spawn point allows access for
-## imaginary party members, see [member NPC.is_imaginary].
+## imaginary party members, see [NPC].
 @export var is_gateway: bool = false
 
-## [Marker2D] to the spawn point position of this door.
-@onready var spawn_point = $SpawnPoint
+## Marker to the spawn point position of this door.
+@onready var spawn_point: Marker2D = $SpawnPoint
 
 
 ## Sets [member entrance_direction] to the given [code]character[/code].

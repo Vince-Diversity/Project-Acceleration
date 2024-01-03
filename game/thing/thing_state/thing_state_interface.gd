@@ -25,12 +25,12 @@ func exit():
 	pass
 
 
-## Called when the player interacts with the given [code]interactable_scene[/code].
+## Called when the player interacts with the given [Interactable] scene root.
 func check_interaction(_interactable_scene: Node2D):
 	pass
 
 
-## Saves [member ThingState.thing] to the given [code]sg[/code].
+## Saves the thing with this state to the given [code]sg[/code].
 func make_save(sg: SaveGame):
 	sg.update_room_keys(thing.owner.room_id)
 	var thing_dict = {}
@@ -40,7 +40,7 @@ func make_save(sg: SaveGame):
 	thing_dict[sg.frame_key] = thing.anim_sprite.frame
 
 
-## Saves preserved variables of the target [member ThingState.thing] to the given [code]sg[/code].
+## Saves this thing at a previous point in the game session to the given [code]sg[/code].
 ## The animation of the target thing is saved at frame 0.
 func make_preserved_save(sg: SaveGame):
 	sg.update_room_keys(thing.owner.room_id)

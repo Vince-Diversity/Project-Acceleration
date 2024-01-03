@@ -23,7 +23,7 @@ func handle_input(event: InputEvent):
 ## Opens an [ItemBubble] instance above the player
 ## and plays a browsing animation.
 func enter():
-	_previous_player_anim_name = _party.player.get_animation()
+	_previous_player_anim_name = _party.player.anim_sprite.animation
 	_party.player.set_animation("pocket")
 	_party.player.bubbles.create_item_bubble()
 

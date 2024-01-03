@@ -36,12 +36,12 @@ class_name Thing extends StaticBody2D
 @onready var anim_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 ## Reference to the interaction area of of this thing.
-@onready var interact_area: CollisionShape2D = $InteractArea/CollisionShape2D
+@onready var interact_area: Interactable = $InteractArea
 
 ## Reference to the collision area of this thing.
 @onready var collision: CollisionShape2D = $CollisionShape2D
 
-## Reference to the room instance which contains this thing.
+## Reference to the current room instance.
 @onready var room: Room = owner
 
 @onready var _interactable_state: ThingInteractableState = \
@@ -77,7 +77,7 @@ func make_save(sg: SaveGame):
 	current_state.make_save(sg)
 
 
-## Saves a preserved instance of this thing to the given [code]sg[/code].
+## Saves this thing at a previous point in the game session to the given [code]sg[/code].
 func make_preserved_save(sg: SaveGame):
 	current_state.make_preserved_save(sg)
 
@@ -97,7 +97,7 @@ func set_rng(_thing_rng: RandomNumberGenerator):
 	pass
 
 
-## Changes the [member current_state] with the state corresponding to the given [code]thing_state_id[/code].
+## Changes the [member current_state] to the given [code]thing_state_id[/code].
 func change_states(thing_state_id: String):
 	current_state.exit()
 	current_state = state_list[thing_state_id]

@@ -27,12 +27,12 @@ class_name DialogueCutscene extends Cutscene
 ## They can be ignored when not needed, and more markers can be added as
 ## child nodes when creating a [Room] scene.
 
-## Reference to [CharacterMark] intended as a default [Player] position.
-@onready var mentor_mark = $MentorMark
+## Reference to marker intended as a default [Player] position.
+@onready var mentor_mark: CharacterMark = $MentorMark
 
-## Reference to [CharacterMark] intended as a default position for a party member [NPC].
+## Reference to marker intended as a default position for a party member [NPC].
 ## So far, only one party member that has a key role is joined at a time.
-@onready var student_mark = $StudentMark
+@onready var student_mark: CharacterMark = $StudentMark
 
 @onready var _dialogue_act_scr: GDScript = preload("res://game/cutscene/act/dialogue_act.gd")
 @onready var _lighting_act_scr: GDScript = preload("res://game/cutscene/act/lighting_act.gd")

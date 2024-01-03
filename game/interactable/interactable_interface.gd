@@ -25,7 +25,7 @@ class_name Interactable extends Area2D
 ## [/codeblock]
 
 
-## Emitted when a player interacts with the given [code]interactable_scene[/code].
+## Emitted when a player interacts with the given [Interactable] scene root.
 signal begin_interaction(interactable_scene: Node2D)
 
 

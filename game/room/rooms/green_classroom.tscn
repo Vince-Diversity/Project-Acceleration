@@ -58,6 +58,7 @@ position = Vector2(572, 183)
 interaction_node = "Teacher"
 dialogue_id = "talk_green_teacher"
 dialogue_node = "cue"
+preserved_animation = "default"
 
 [node name="SproutCutscene" parent="RoomCutscenes" index="0" instance=ExtResource("5_30x1x")]
 

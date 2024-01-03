@@ -1,6 +1,6 @@
 # Introduction to reading the code
 
-The code is documented in a way that, hopefully, makes it clear how different classes relate to each other. Classes that aren't self-explanatory, are documented with what other classes they instantiate. For example, the [loader.gd](../loader/loader.gd) documentation references the [main menu.gd](../loader/main_menu/main_menu.gd) and [game.gd](../game/game.gd) classes. Let's start from the `loader.gd` class. This introduction goes through the code briefly so it becomes easier to navigate in the code documentation later.
+The code is documented in a way that, hopefully, makes it clear how different classes relate to each other. The `GDScript` classes are documented with what other classes they instantiate. For example, the [loader.gd](../loader/loader.gd) documentation references the [main menu.gd](../loader/main_menu/main_menu.gd) and [game.gd](../game/game.gd) classes. Let's start from the `loader.gd` class. This introduction goes through the code and explains certain conventions so it becomes easier to navigate in the code documentation later.
 
 
 ## Loading the game
@@ -23,7 +23,9 @@ The `Game` node is the first example where states are used. A state is a class t
 
 To make NPCs and things able to respond to player interaction, a custom `Area2D` child is added to these scenes. Subclasses of `interactable_interface.gd` are used to create different interaction nodes. For example, an `NPC` node has a child interactable node called `Interactable` which is configured by the `npc_interactable.gd` class. An interactable `Thing` node in the environment has a different interactable node.
 
-## Saving changes to the current game session
+An interaction starts in an node instance of the `player.gd` class. ...
+
+## Saving the game
 
 The contents of a `Room` instance is dynamic. Some player interactions may perform preserved changes to the environment. These changes are saved temporarily to `Game.cache`  when exiting the current `Room`, or to a save file when saving the game. In the latter case, this calls the `Game.save()` function, which in turn calls the `save()` function in the current game session state.
 
