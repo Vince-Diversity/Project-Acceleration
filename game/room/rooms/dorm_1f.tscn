@@ -18,8 +18,8 @@ layer_1/tile_data = PackedInt32Array(196607, 0, 0, 131081, 0, 0)
 
 [node name="DoorDown" parent="Doors" index="0" instance=ExtResource("3_05e07")]
 position = Vector2(576, 576)
-next_room_id = "dorm_hallway"
-next_room_entrance_node = "DoorUp"
+next_room_id = "recreation_hallway"
+next_room_entrance_node = "PassageUp"
 
 [node name="DormDoor1" parent="Doors" index="1" instance=ExtResource("4_buomv")]
 position = Vector2(192, 288)

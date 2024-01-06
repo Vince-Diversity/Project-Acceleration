@@ -26,7 +26,6 @@ interaction_node = "BlueTeacherCutscene"
 dialogue_id = "talk_blue_teacher"
 dialogue_node = "cue"
 preserved_direction = 2
-preserved_animation = ""
 
 [node name="BlueTeacherCutscene" parent="RoomCutscenes" index="0" instance=ExtResource("5_kfbhs")]
 position = Vector2(448, 64)

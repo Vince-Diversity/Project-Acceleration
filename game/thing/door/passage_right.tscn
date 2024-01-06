@@ -1,15 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://m70p5l8u2p8r"]
+[gd_scene load_steps=4 format=3 uid="uid://m70p5l8u2p8r"]
 
 [ext_resource type="PackedScene" uid="uid://dqktwnq312s04" path="res://game/thing/door/door.tscn" id="1_l387l"]
+[ext_resource type="SpriteFrames" uid="uid://byv44jy8jkept" path="res://resources/tilesets/hall_template/passage_right.tres" id="2_pm5o3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lg4h5"]
-size = Vector2(64, 64)
+size = Vector2(32, 32)
 
 [node name="PassageRight" instance=ExtResource("1_l387l")]
 entrance_direction = 1
 
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = ExtResource("2_pm5o3")
+
 [node name="CollisionShape2D" parent="InteractArea" index="0"]
-position = Vector2(32, 0)
+position = Vector2(16, 0)
 shape = SubResource("RectangleShape2D_lg4h5")
 
 [node name="SpawnPoint" parent="." index="2"]

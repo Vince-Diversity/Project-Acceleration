@@ -22,7 +22,7 @@ var new_game_room_id: String = "main_entrance"
 
 ## The first entrance during developmemt.
 ## @experimental
-var new_game_entrance_node: String = "DoorDown"
+var new_game_entrance_node: String = "PassageDown"
 
 ## The first party during development.
 ## @experimental

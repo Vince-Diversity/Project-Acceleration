@@ -22,8 +22,25 @@ class_name Door extends Thing
 ## imaginary party members, see [NPC].
 @export var is_gateway: bool = false
 
+
+## Path to tileset of current room, used for making corners around a door.
+@export_file var current_tileset: String = "res://resources/tilesets/"
+
+
 ## Marker to the spawn point position of this door.
 @onready var spawn_point: Marker2D = $SpawnPoint
+
+
+
+func _ready():
+	super()
+	_ready_tileset()
+
+
+func _ready_tileset():
+	if ResourceLoader.exists(current_tileset):
+		anim_sprite.set_sprite_frames(load(current_tileset))
+		anim_sprite.set_animation("default")
 
 
 ## Sets [member entrance_direction] to the given [code]character[/code].

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dq8xphy0ajl6"
-path="res://.godot/imported/small_cell_tileset.png-6bf61f0b151e4f5785b42c3207e1579d.ctex"
+path="res://.godot/imported/real_hall.png-1933e96ebcfcbd6dd08b61e5d2c1db04.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tiles/small_cell_tileset.png"
-dest_files=["res://.godot/imported/small_cell_tileset.png-6bf61f0b151e4f5785b42c3207e1579d.ctex"]
+source_file="res://assets/tiles/tilesets/real_hall.png"
+dest_files=["res://.godot/imported/real_hall.png-1933e96ebcfcbd6dd08b61e5d2c1db04.ctex"]
 
 [params]
 
