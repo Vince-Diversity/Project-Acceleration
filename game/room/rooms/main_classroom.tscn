@@ -17,7 +17,7 @@ layer_2/tile_data = PackedInt32Array(65539, 196611, 0, 65540, 196611, 0, 131075,
 
 [node name="DoorDown" parent="Doors" index="0" instance=ExtResource("3_fyga4")]
 position = Vector2(512, 576)
-next_room_id = "main_hallway"
+next_room_id = "main_hall"
 next_room_entrance_node = "DoorUp"
 
 [node name="BlueTeacher" parent="YSort/NPCs" index="0" instance=ExtResource("4_ftpyf")]

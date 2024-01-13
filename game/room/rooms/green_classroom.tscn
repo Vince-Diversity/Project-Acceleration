@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ds36i8l6a4epu"]
+[gd_scene load_steps=10 format=3 uid="uid://dhpht1d02xykq"]
 
 [ext_resource type="PackedScene" uid="uid://c1go3780g6ead" path="res://game/room/room.tscn" id="1_w8x7q"]
 [ext_resource type="TileSet" uid="uid://cvo2pdotfacvp" path="res://resources/tilesets/green_interior.tres" id="2_vypme"]
@@ -19,8 +19,8 @@ layer_2/tile_data = PackedInt32Array(196611, 2, 0, 196613, 2, 0, 131073, 2, 0, 1
 
 [node name="DoorDown" parent="Doors" index="0" instance=ExtResource("3_hhjfj")]
 position = Vector2(576, 576)
-next_room_id = "green_hallway"
-next_room_entrance_node = "DoorUp"
+next_room_id = "main_hall"
+next_room_entrance_node = "DoorGreen"
 
 [node name="Sprout1" parent="YSort/Things" index="0" instance=ExtResource("4_homgw")]
 position = Vector2(192, 320)

@@ -17,8 +17,8 @@ layer_2/tile_data = PackedInt32Array(196609, 3, 0, 196610, 3, 0, 1, 65536, 0, 65
 
 [node name="DoorDown" parent="Doors" index="0" instance=ExtResource("3_2jpxv")]
 position = Vector2(960, 320)
-next_room_id = "yellow_hallway"
-next_room_entrance_node = "DoorUp"
+next_room_id = "main_hall"
+next_room_entrance_node = "DoorYellow"
 
 [node name="Computer" parent="YSort/Things" index="0" instance=ExtResource("4_fe07v")]
 position = Vector2(448, 192)

@@ -1,8 +1,5 @@
 ~ check
-if is_mentoring
-	{{green}}: "The Manifestation of our Collective Fiction".
-else
-	("The Manifestation of our Collective Fiction".)
+("The Manifestation of our Collective Fiction".)
 - Read => open_book
 - Leave => END!
 
@@ -13,7 +10,7 @@ do animate_player(read_anim, "read")
 
 ~ read
 do set_player_anim(reading_anim)
-{{green}}: "Countries, laws, economy, maybe even science itself. To allow cilivization to exist, we need collective fiction."
+{{green}}: "Countries, laws, economy, maybe even science itself. To allow civilization to exist, we need collective fiction."
 {{green}}: "But technology and magic has made it increasingly difficult to distinguish between fiction and reality."
 {{green}}: "This is no news. Our Extended Reality machines are making fiction dauntingly real. And the study of the {{blue_aspect}} has enhanced this experience to almost terrifying heights."
 {{green}}: "More and more researchers are suggesting that the world conjured by {{blue_aspect}} magic is not fiction, but actually real. Perhaps their research subject has taken its toll on their senses. And yet, the critics have no better explanation themselves."
