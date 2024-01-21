@@ -2,37 +2,37 @@
 
 [ext_resource type="Texture2D" uid="uid://b3l6cx6qjlv0y" path="res://assets/things/computer.png" id="1_anjl0"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5t3k6"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3mu3"]
 atlas = ExtResource("1_anjl0")
-region = Rect2(128, 0, 128, 128)
+region = Rect2(64, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wvtad"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_rwi2s"]
 atlas = ExtResource("1_anjl0")
-region = Rect2(256, 0, 128, 128)
+region = Rect2(128, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1vqnt"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_lg73k"]
 atlas = ExtResource("1_anjl0")
-region = Rect2(384, 0, 128, 128)
+region = Rect2(192, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_js75u"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwxkg"]
 atlas = ExtResource("1_anjl0")
-region = Rect2(0, 0, 128, 128)
+region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_uyhnu"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_jmh2l"]
 atlas = ExtResource("1_anjl0")
-region = Rect2(384, 0, 128, 128)
+region = Rect2(192, 0, 64, 64)
 
 [resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5t3k6")
+"texture": SubResource("AtlasTexture_u3mu3")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wvtad")
+"texture": SubResource("AtlasTexture_rwi2s")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1vqnt")
+"texture": SubResource("AtlasTexture_lg73k")
 }],
 "loop": false,
 "name": &"boot",
@@ -40,7 +40,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_js75u")
+"texture": SubResource("AtlasTexture_gwxkg")
 }],
 "loop": false,
 "name": &"default",
@@ -48,7 +48,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_uyhnu")
+"texture": SubResource("AtlasTexture_jmh2l")
 }],
 "loop": false,
 "name": &"running",

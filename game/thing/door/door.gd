@@ -23,7 +23,7 @@ class_name Door extends Thing
 @export var is_gateway: bool = false
 
 
-## Path to tileset of current room, used for making corners around a door.
+## Path to tileset of current door, used for making corners around it.
 @export_file var current_tileset: String = "res://resources/tilesets/"
 
 

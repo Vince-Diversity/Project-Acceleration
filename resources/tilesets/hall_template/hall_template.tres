@@ -1,9 +1,9 @@
 [gd_resource type="TileSet" load_steps=3 format=3 uid="uid://de7f3bgcrw16e"]
 
-[ext_resource type="Texture2D" uid="uid://dfm33adm8c2k5" path="res://assets/tiles/tilesets/hall_template.png" id="1_3i8k7"]
+[ext_resource type="Texture2D" uid="uid://d1yua8gu22rqx" path="res://assets/tiles/tilesets/dining_hall.png" id="1_gkhg2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x1ax1"]
-texture = ExtResource("1_3i8k7")
+texture = ExtResource("1_gkhg2")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/terrain_set = 0

@@ -1,0 +1,18 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://brs23u2p37jwh"]
+
+[ext_resource type="Texture2D" uid="uid://c7dyssuaaw00e" path="res://assets/tiles/stairs.png" id="1_pyfwd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aijq0"]
+atlas = ExtResource("1_pyfwd")
+region = Rect2(256, 128, 128, 128)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aijq0")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]

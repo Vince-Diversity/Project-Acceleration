@@ -22,7 +22,7 @@ current_tileset = "res://resources/tilesets/real_hall/passage_left.tres"
 [node name="PassageUp" parent="Doors" index="1" instance=ExtResource("5_kyxq7")]
 position = Vector2(512, 192)
 next_room_id = "dorm_1f"
-next_room_entrance_node = "DoorDown"
+next_room_entrance_node = "PassageDown"
 current_tileset = "res://resources/tilesets/real_hall/passage_up.tres"
 
 [node name="PassageDown" parent="Doors" index="2" instance=ExtResource("5_lelgs")]

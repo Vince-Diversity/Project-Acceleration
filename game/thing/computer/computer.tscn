@@ -10,7 +10,6 @@ size = Vector2(10, 10)
 size = Vector2(45, 36)
 
 [node name="Computer" instance=ExtResource("1_tsesn")]
-spawn_state = "thing_static_state"
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = ExtResource("2_m0nlm")

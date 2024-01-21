@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c7dyssuaaw00e" path="res://assets/tiles/stairs.png" id="1_ywjha"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_elys5"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_dejq6"]
 atlas = ExtResource("1_ywjha")
 region = Rect2(128, 0, 128, 128)
 
@@ -10,7 +10,7 @@ region = Rect2(128, 0, 128, 128)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_elys5")
+"texture": SubResource("AtlasTexture_dejq6")
 }],
 "loop": false,
 "name": &"default",
