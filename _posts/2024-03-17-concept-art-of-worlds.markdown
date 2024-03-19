@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Worlds art idea sketcing"
+title: "Worlds art idea sketching"
 date: 2024-03-17 12:00:00 +0100
 categories: art
 ---
