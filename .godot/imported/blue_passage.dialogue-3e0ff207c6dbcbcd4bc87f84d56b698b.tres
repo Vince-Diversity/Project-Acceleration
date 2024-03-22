@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_ohal6"]
+
+[resource]
+script = ExtResource("1_ohal6")
+using_states = PackedStringArray()
+titles = {
+"default": "2"
+}
+character_names = PackedStringArray()
+first_title = "2"
+lines = {
+"1": {
+"id": "1",
+"next_id": "2",
+"text": "default",
+"type": "title"
+},
+"2": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "2",
+"next_id": "3",
+"tags": PackedStringArray(),
+"text": "(There seems to be an entrance here, but I don't know where it leads so probably shouldn't intrude.)",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "(There seems to be an entrance here, but I don't know where it leads so probably shouldn't intrude.)",
+"type": "dialogue"
+},
+"3": {
+"id": "3",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+}
+}
+metadata/dialogue_manager_version = "2.31.0"

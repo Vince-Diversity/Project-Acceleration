@@ -13,7 +13,7 @@ var playback_position: float = 0.0
 
 ## Resumes or pauses the playback
 ## when this property is set to on or off respectively.
-var sound_toggle: bool = true:
+var sound_toggle: bool = false:
 	set(mode):
 		sound_toggle = mode
 		if mode: resume()

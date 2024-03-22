@@ -27,7 +27,7 @@ position = Vector2(960, 32)
 position = Vector2(192, 64)
 next_room_id = "recreation_hallway"
 next_room_entrance_node = "PassageDown"
-current_tileset = "res://resources/tilesets/dining_hall/passage_up.tres"
+current_tileset = "res://resources/tilesets/recreation_hall/passage_up.tres"
 
 [node name="SideChairBoardGameTable" parent="YSort/Things" index="0" instance=ExtResource("6_1awoa")]
 position = Vector2(174, 258)

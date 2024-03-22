@@ -20,19 +20,24 @@ current_tileset = "res://resources/tilesets/real_hall/passage_down.tres"
 [node name="DoorYellow" parent="Doors" index="1" instance=ExtResource("4_kwfwq")]
 position = Vector2(-576, -512)
 next_room_id = "yellow_classroom"
-next_room_entrance_node = "DoorDown"
+next_room_entrance_node = "PassageDown"
 
 [node name="DoorGreen" parent="Doors" index="2" instance=ExtResource("4_kwfwq")]
 position = Vector2(-384, -704)
 next_room_id = "green_classroom"
-next_room_entrance_node = "DoorDown "
+next_room_entrance_node = "PassageDown "
 
 [node name="DoorRed" parent="Doors" index="3" instance=ExtResource("4_kwfwq")]
 position = Vector2(576, -512)
 next_room_id = "red_classroom"
-next_room_entrance_node = "DoorDown "
+next_room_entrance_node = "PassageDown"
 
 [node name="DoorUp" parent="Doors" index="4" instance=ExtResource("4_kwfwq")]
 position = Vector2(0, -1024)
 next_room_id = "main_classroom"
-next_room_entrance_node = "DoorDown"
+next_room_entrance_node = "PassageDown"
+
+[node name="DoorBlue" parent="Doors" index="5" instance=ExtResource("4_kwfwq")]
+position = Vector2(384, -704)
+next_room_id = "blue_classroom"
+next_room_entrance_node = "PassageDown"

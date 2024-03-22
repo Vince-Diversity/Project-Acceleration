@@ -23,6 +23,7 @@ const average := "Joe"
 const deepest_layer := "Cirruseng"
 const imaginary := "Imaginary Space"
 const real := "Real Space"
+const absolutely_undetectable_capsule := "Absolutely Undetectable Room"
 
 const bookcase_anim := "default"
 const bookcase_taken_anim := "taken"

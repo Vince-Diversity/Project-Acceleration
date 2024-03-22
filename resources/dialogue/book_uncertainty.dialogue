@@ -1,0 +1,25 @@
+~ cue
+do move("open_book")
+=> END!
+
+~ open_book
+do set_thing_anim("BookcaseUncertainty", bookcase_taken_anim)
+do animate_player(read_anim, "read")
+=> END!
+
+~ read
+do set_player_anim(reading_anim)
+if is_mentoring
+	{{green}}: "The {{blue_aspect}} magic has given access to the imaginary space, quite literally breaking down our sense of reality."
+	{{green}}: "While the mechanisms are yet to be explained, it has become possible to repeatably enter the imaginary space."
+	{{green}}: "A strikingly simple way is to enter a so-called {{absolutely_undetectable_capsule}}."
+else
+	("The {{blue_aspect}} magic has given access to the imaginary space, quite literally breaking down our sense of reality.")
+	("While the mechanisms are yet to be explained, it has become possible to repeatably enter the imaginary space.")
+	("A strikingly simple way is to enter a so-called {{absolutely_undetectable_capsule}}.")
+do set_thing_anim("BookcaseUncertainty", bookcase_anim)
+do set_player_anim("down")
+if is_mentoring
+	{{green}}: I've actually never seen any {{absolutely_undetectable_capsule}}.
+	{{green}}: [#expression=cheerful] Wonder if we'll be able to see one soon!
+=> END!

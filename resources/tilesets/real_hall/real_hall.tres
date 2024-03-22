@@ -1,6 +1,7 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://436arnq2ulbi"]
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://436arnq2ulbi"]
 
 [ext_resource type="Texture2D" uid="uid://dq8xphy0ajl6" path="res://assets/tiles/tilesets/real_hall.png" id="1_un8w4"]
+[ext_resource type="Texture2D" uid="uid://c7dyssuaaw00e" path="res://assets/tiles/stairs.png" id="2_8sg15"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x1ax1"]
 texture = ExtResource("1_un8w4")
@@ -277,6 +278,22 @@ texture_region_size = Vector2i(64, 64)
 0:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:5/0/physics_layer_0/angular_velocity = 0.0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_01hrl"]
+texture = ExtResource("2_8sg15")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+
 [resource]
 tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 4
@@ -286,3 +303,4 @@ terrain_set_0/terrain_0/color = Color(0, 0.439216, 0.25098, 1)
 terrain_set_0/terrain_1/name = "Wall"
 terrain_set_0/terrain_1/color = Color(0.501961, 0, 0.25098, 1)
 sources/0 = SubResource("TileSetAtlasSource_x1ax1")
+sources/1 = SubResource("TileSetAtlasSource_01hrl")
