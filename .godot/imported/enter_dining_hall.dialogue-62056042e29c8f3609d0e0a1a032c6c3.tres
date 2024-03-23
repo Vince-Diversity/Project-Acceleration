@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_4a42m"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_m0fe0"]
 
 [resource]
-script = ExtResource("1_4a42m")
+script = ExtResource("1_m0fe0")
 using_states = PackedStringArray()
 titles = {
 "approach1": "13",
@@ -11,7 +11,10 @@ titles = {
 "bet": "92",
 "cat": "2",
 "curiosity": "38",
+"escape": "131",
 "examine": "53",
+"finish": "138",
+"fury": "119",
 "item_got": "108",
 "observation": "43",
 "push": "81",
@@ -173,7 +176,7 @@ lines = {
 "type": "function",
 "value": Array[Array]([Array[Dictionary]([{
 "type": "string",
-"value": "down"
+"value": "left"
 }])])
 }])
 },
@@ -186,7 +189,7 @@ lines = {
 "id": "112",
 "next_id": "113",
 "tags": PackedStringArray(),
-"text": "The {{revealer}} has been stored in the {{inventory}}. [color=yellow]Check on obtained items with the Z key.[/color]",
+"text": "The {{revealer}} has been stored in the {{inventory}}. [color=yellow]Check on obtained items with the C key.[/color]",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
 "type": "variable",
@@ -200,54 +203,58 @@ lines = {
 }]),
 "value_in_text": "{{inventory}}"
 }]),
-"translation_key": "The {{revealer}} has been stored in the {{inventory}}. [color=yellow]Check on obtained items with the Z key.[/color]",
+"translation_key": "The {{revealer}} has been stored in the {{inventory}}. [color=yellow]Check on obtained items with the C key.[/color]",
 "type": "dialogue"
 },
 "113": {
-"id": "113",
-"mutation": {
+"character": "{{yellow}}",
+"character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
-"function": "remove_npc",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "Yellow"
-}])])
-}])
-},
+"type": "variable",
+"value": "yellow"
+}]),
+"value_in_text": "{{yellow}}"
+}]),
+"id": "113",
 "next_id": "114",
-"type": "mutation"
+"tags": PackedStringArray("expression=crying"),
+"text": "I don't understand, an even number would be impossible in that situation!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "I don't understand, an even number would be impossible in that situation!",
+"type": "dialogue"
 },
 "114": {
+"character": "{{amber}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "amber"
+}]),
+"value_in_text": "{{amber}}"
+}]),
 "id": "114",
+"next_id": "115",
+"tags": PackedStringArray(),
+"text": "Impossible? No...",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Impossible? No...",
+"type": "dialogue"
+},
+"115": {
+"id": "115",
 "mutation": {
 "expression": Array[Dictionary]([{
-"function": "set_npc_dialogue_node",
+"function": "move_npc",
 "type": "function",
 "value": Array[Array]([Array[Dictionary]([{
 "type": "string",
 "value": "Amber"
 }]), Array[Dictionary]([{
 "type": "string",
-"value": "talk_after_cat_event"
-}])])
-}])
-},
-"next_id": "115",
-"type": "mutation"
-},
-"115": {
-"id": "115",
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "set_npc_dialogue_node",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "Lime"
+"value": "AmberMark2"
 }]), Array[Dictionary]([{
 "type": "string",
-"value": "talk_after_cat_event"
+"value": "fury"
 }])])
 }])
 },
@@ -256,51 +263,196 @@ lines = {
 },
 "116": {
 "id": "116",
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "set_npc_dialogue_node",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "Maroon"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "talk_after_cat_event"
-}])])
-}])
-},
-"next_id": "117",
-"type": "mutation"
-},
-"117": {
-"id": "117",
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "set_npc_dialogue_node",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "Cat"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "talk"
-}])])
-}])
-},
-"next_id": "118",
-"type": "mutation"
-},
-"118": {
-"id": "118",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
+},
+"118": {
+"id": "118",
+"next_id": "119",
+"text": "fury",
+"type": "title"
+},
+"119": {
+"id": "119",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_npc_anim",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Yellow"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "down"
+}])])
+}])
+},
+"next_id": "120",
+"type": "mutation"
 },
 "12": {
 "id": "12",
 "next_id": "13",
 "text": "approach1",
 "type": "title"
+},
+"120": {
+"id": "120",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_npc_anim",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Amber"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "up_angry"
+}])])
+}])
+},
+"next_id": "121",
+"type": "mutation"
+},
+"121": {
+"character": "{{amber}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "amber"
+}]),
+"value_in_text": "{{amber}}"
+}]),
+"id": "121",
+"next_id": "122",
+"tags": PackedStringArray("expression=angry"),
+"text": "So not only have you been manipulating us with false dice all this time,",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "So not only have you been manipulating us with false dice all this time,",
+"type": "dialogue"
+},
+"122": {
+"character": "{{amber}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "amber"
+}]),
+"value_in_text": "{{amber}}"
+}]),
+"id": "122",
+"next_id": "123",
+"tags": PackedStringArray("expression=angry"),
+"text": "but you also attempted to trick {{green}} with a fake bet? You rat!",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"translation_key": "but you also attempted to trick {{green}} with a fake bet? You rat!",
+"type": "dialogue"
+},
+"123": {
+"character": "{{yellow}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "yellow"
+}]),
+"value_in_text": "{{yellow}}"
+}]),
+"id": "123",
+"next_id": "124",
+"tags": PackedStringArray("expression=shocked"),
+"text": "{{amber}}, you hair, s-s-static electricity!",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "amber"
+}]),
+"value_in_text": "{{amber}}"
+}]),
+"translation_key": "{{amber}}, you hair, s-s-static electricity!",
+"type": "dialogue"
+},
+"124": {
+"character": "{{amber}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "amber"
+}]),
+"value_in_text": "{{amber}}"
+}]),
+"id": "124",
+"next_id": "125",
+"tags": PackedStringArray("expression=angry"),
+"text": "Is that so? How about we perform some experiments on our lab rat?",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Is that so? How about we perform some experiments on our lab rat?",
+"type": "dialogue"
+},
+"125": {
+"character": "{{yellow}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "yellow"
+}]),
+"value_in_text": "{{yellow}}"
+}]),
+"id": "125",
+"next_id": "126",
+"tags": PackedStringArray("expression=shocked"),
+"text": "Eep!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Eep!",
+"type": "dialogue"
+},
+"126": {
+"id": "126",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "double_npc_speed",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Yellow"
+}])])
+}])
+},
+"next_id": "127",
+"type": "mutation"
+},
+"127": {
+"id": "127",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "move_npc",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Yellow"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "YellowMark3"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "escape"
+}])])
+}])
+},
+"next_id": "128",
+"type": "mutation"
+},
+"128": {
+"id": "128",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
 },
 "13": {
 "id": "13",
@@ -320,8 +472,244 @@ lines = {
 "next_id": "14",
 "type": "mutation"
 },
+"130": {
+"id": "130",
+"next_id": "131",
+"text": "escape",
+"type": "title"
+},
+"131": {
+"id": "131",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "reset_npc_speed",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Yellow"
+}])])
+}])
+},
+"next_id": "132",
+"type": "mutation"
+},
+"132": {
+"id": "132",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "remove_npc",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Yellow"
+}])])
+}])
+},
+"next_id": "133",
+"type": "mutation"
+},
+"133": {
+"id": "133",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_npc_anim",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Amber"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "up"
+}])])
+}])
+},
+"next_id": "134",
+"type": "mutation"
+},
+"134": {
+"character": "{{amber}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "amber"
+}]),
+"value_in_text": "{{amber}}"
+}]),
+"id": "134",
+"next_id": "135",
+"tags": PackedStringArray(),
+"text": "Sigh...",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Sigh...",
+"type": "dialogue"
+},
+"135": {
+"id": "135",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "move_npc",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Amber"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "AmberMark3"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "finish"
+}])])
+}])
+},
+"next_id": "138",
+"type": "mutation"
+},
+"137": {
+"id": "137",
+"next_id": "138",
+"text": "finish",
+"type": "title"
+},
+"138": {
+"id": "138",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_npc_anim",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Amber"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "sit_left"
+}])])
+}])
+},
+"next_id": "139",
+"type": "mutation"
+},
+"139": {
+"id": "139",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_npc_dialogue_node",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Amber"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "talk_after_cat_event"
+}])])
+}])
+},
+"next_id": "140",
+"type": "mutation"
+},
 "14": {
 "id": "14",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"140": {
+"id": "140",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_npc_dialogue_node",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Lime"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "talk_after_cat_event"
+}])])
+}])
+},
+"next_id": "141",
+"type": "mutation"
+},
+"141": {
+"id": "141",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_npc_dialogue_node",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Maroon"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "talk_after_cat_event"
+}])])
+}])
+},
+"next_id": "142",
+"type": "mutation"
+},
+"142": {
+"id": "142",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_npc_dialogue_id",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Cat"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "talk_cat"
+}])])
+}])
+},
+"next_id": "143",
+"type": "mutation"
+},
+"143": {
+"id": "143",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_npc_dialogue_node",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Cat"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "talk"
+}])])
+}])
+},
+"next_id": "144",
+"type": "mutation"
+},
+"144": {
+"id": "144",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "change_entrance_event",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "recreation_hallway"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "BlueTeacherCutscene"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": ""
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "searching_blue"
+}])])
+}])
+},
+"next_id": "145",
+"type": "mutation"
+},
+"145": {
+"id": "145",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
@@ -563,7 +951,7 @@ lines = {
 "id": "31",
 "next_id": "32",
 "tags": PackedStringArray(),
-"text": "Behold the [color=yellow]{{revealer}}[/color]. Watch, a single peek will reveal the cat's true form!",
+"text": "Behold the [color=yellow]{{revealer}}[/color]. Watch, a single peek will reveal its true form!",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
 "type": "variable",
@@ -571,7 +959,7 @@ lines = {
 }]),
 "value_in_text": "{{revealer}}"
 }]),
-"translation_key": "Behold the [color=yellow]{{revealer}}[/color]. Watch, a single peek will reveal the cat's true form!",
+"translation_key": "Behold the [color=yellow]{{revealer}}[/color]. Watch, a single peek will reveal its true form!",
 "type": "dialogue"
 },
 "32": {
@@ -1015,9 +1403,9 @@ lines = {
 "id": "65",
 "next_id": "66",
 "tags": PackedStringArray(),
-"text": "There. It has an on-switch.",
+"text": "There. It has an \"on\" switch.",
 "text_replacements": Array[Dictionary]([]),
-"translation_key": "There. It has an on-switch.",
+"translation_key": "There. It has an \"on\" switch.",
 "type": "dialogue"
 },
 "66": {
@@ -1064,15 +1452,9 @@ lines = {
 "id": "68",
 "next_id": "69",
 "tags": PackedStringArray(),
-"text": "What if I do not want you to treat {{cat}} as a test subject?",
-"text_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "cat"
-}]),
-"value_in_text": "{{cat}}"
-}]),
-"translation_key": "What if I do not want you to treat {{cat}} as a test subject?",
+"text": "No, I disapprove of your experimenting!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "No, I disapprove of your experimenting!",
 "type": "dialogue"
 },
 "69": {
@@ -1140,9 +1522,9 @@ lines = {
 "id": "71",
 "next_id": "72",
 "tags": PackedStringArray(),
-"text": "Did you find this mechanical creature on the web? Or perhaps it was a gift?",
+"text": "Where did you find this mechanical creature?",
 "text_replacements": Array[Dictionary]([]),
-"translation_key": "Did you find this mechanical creature on the web? Or perhaps it was a gift?",
+"translation_key": "Where did you find this mechanical creature?",
 "type": "dialogue"
 },
 "72": {
@@ -1172,9 +1554,9 @@ lines = {
 "id": "73",
 "next_id": "74",
 "tags": PackedStringArray(),
-"text": "No, I don't know where you could find them.",
+"text": "I didn't find it, it found me.",
 "text_replacements": Array[Dictionary]([]),
-"translation_key": "No, I don't know where you could find them.",
+"translation_key": "I didn't find it, it found me.",
 "type": "dialogue"
 },
 "74": {
@@ -1204,7 +1586,7 @@ lines = {
 "id": "75",
 "next_id": "76",
 "tags": PackedStringArray(),
-"text": "But I know that it's not yours, {{yellow}}.",
+"text": "Which means it's not yours, {{yellow}}!",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
 "type": "variable",
@@ -1212,7 +1594,7 @@ lines = {
 }]),
 "value_in_text": "{{yellow}}"
 }]),
-"translation_key": "But I know that it's not yours, {{yellow}}.",
+"translation_key": "Which means it's not yours, {{yellow}}!",
 "type": "dialogue"
 },
 "76": {
@@ -1538,4 +1920,4 @@ lines = {
 "type": "goto"
 }
 }
-metadata/dialogue_manager_version = "2.29.2"
+metadata/dialogue_manager_version = "2.31.0"

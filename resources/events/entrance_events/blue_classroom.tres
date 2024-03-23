@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EntranceEvent" load_steps=2 format=3 uid="uid://dicq0rqre3fng"]
+
+[ext_resource type="Script" path="res://resources/events/entrance_event.gd" id="1_r7qcs"]
+
+[resource]
+script = ExtResource("1_r7qcs")
+is_enabled = false
+interaction_node = "BlueTeacherCutscene"
+dialogue_id = "enter_blue_classroom"
+dialogue_node = "missing"
+is_oneshot = true

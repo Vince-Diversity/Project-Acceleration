@@ -1,17 +1,18 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_u134l"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_d64ki"]
 
 [resource]
-script = ExtResource("1_u134l")
+script = ExtResource("1_d64ki")
 using_states = PackedStringArray()
 titles = {
-"chat": "13",
-"discover": "7",
+"chat": "17",
+"discover": "11",
 "enter": "2",
-"escape_1": "22",
-"escape_2": "28",
-"escape_3": "33"
+"enter_2": "6",
+"escape_1": "26",
+"escape_2": "32",
+"escape_3": "37"
 }
 character_names = PackedStringArray("{{green}}", "{{cat}}")
 first_title = "2"
@@ -22,14 +23,61 @@ lines = {
 "text": "enter",
 "type": "title"
 },
+"10": {
+"id": "10",
+"next_id": "11",
+"text": "discover",
+"type": "title"
+},
+"11": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"id": "11",
+"next_id": "12",
+"tags": PackedStringArray(),
+"text": "(?)",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "(?)",
+"type": "dialogue"
+},
 "12": {
 "id": "12",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "move_player",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "EnterMark2"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "chat"
+}])])
+}])
+},
 "next_id": "13",
-"text": "chat",
-"type": "title"
+"type": "mutation"
 },
 "13": {
 "id": "13",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"16": {
+"id": "16",
+"next_id": "17",
+"text": "chat",
+"type": "title"
+},
+"17": {
+"id": "17",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "turn_npc_to_player",
@@ -40,10 +88,10 @@ lines = {
 }])])
 }])
 },
-"next_id": "14",
+"next_id": "18",
 "type": "mutation"
 },
-"14": {
+"18": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -52,15 +100,15 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
-"id": "14",
-"next_id": "15",
+"id": "18",
+"next_id": "19",
 "tags": PackedStringArray("expression=cheerful"),
 "text": "Aren't you an uninvited visitor?",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "Aren't you an uninvited visitor?",
 "type": "dialogue"
 },
-"15": {
+"19": {
 "character": "{{cat}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -69,15 +117,30 @@ lines = {
 }]),
 "value_in_text": "{{cat}}"
 }]),
-"id": "15",
-"next_id": "16",
+"id": "19",
+"next_id": "20",
 "tags": PackedStringArray(),
 "text": "Me-ow Me-ow!",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "Me-ow Me-ow!",
 "type": "dialogue"
 },
-"16": {
+"2": {
+"id": "2",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "reset_lighting",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "enter_2"
+}])])
+}])
+},
+"next_id": "3",
+"type": "mutation"
+},
+"20": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -86,16 +149,16 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
-"id": "16",
-"next_id": "17",
+"id": "20",
+"next_id": "21",
 "tags": PackedStringArray(),
 "text": "(The windows are closed. Wonder how it got in here...)",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "(The windows are closed. Wonder how it got in here...)",
 "type": "dialogue"
 },
-"17": {
-"id": "17",
+"21": {
+"id": "21",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "move_npc",
@@ -112,41 +175,23 @@ lines = {
 }])])
 }])
 },
-"next_id": "18",
+"next_id": "22",
 "type": "mutation"
 },
-"18": {
-"id": "18",
+"22": {
+"id": "22",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 },
-"2": {
-"id": "2",
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "move_player",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "EnterMark1"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "discover"
-}])])
-}])
-},
-"next_id": "3",
-"type": "mutation"
-},
-"21": {
-"id": "21",
-"next_id": "22",
+"25": {
+"id": "25",
+"next_id": "26",
 "text": "escape_1",
 "type": "title"
 },
-"22": {
-"id": "22",
+"26": {
+"id": "26",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_player_direction",
@@ -157,11 +202,11 @@ lines = {
 }])])
 }])
 },
-"next_id": "23",
+"next_id": "27",
 "type": "mutation"
 },
-"23": {
-"id": "23",
+"27": {
+"id": "27",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "move_npc",
@@ -178,23 +223,29 @@ lines = {
 }])])
 }])
 },
-"next_id": "24",
+"next_id": "28",
 "type": "mutation"
 },
-"24": {
-"id": "24",
+"28": {
+"id": "28",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 },
-"27": {
-"id": "27",
-"next_id": "28",
+"3": {
+"id": "3",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"31": {
+"id": "31",
+"next_id": "32",
 "text": "escape_2",
 "type": "title"
 },
-"28": {
-"id": "28",
+"32": {
+"id": "32",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "move_npc",
@@ -211,29 +262,23 @@ lines = {
 }])])
 }])
 },
-"next_id": "29",
-"type": "mutation"
-},
-"29": {
-"id": "29",
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
-},
-"3": {
-"id": "3",
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
-},
-"32": {
-"id": "32",
 "next_id": "33",
-"text": "escape_3",
-"type": "title"
+"type": "mutation"
 },
 "33": {
 "id": "33",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"36": {
+"id": "36",
+"next_id": "37",
+"text": "escape_3",
+"type": "title"
+},
+"37": {
+"id": "37",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "remove_npc",
@@ -244,10 +289,10 @@ lines = {
 }])])
 }])
 },
-"next_id": "34",
+"next_id": "38",
 "type": "mutation"
 },
-"34": {
+"38": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -256,16 +301,16 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
-"id": "34",
-"next_id": "35",
+"id": "38",
+"next_id": "39",
 "tags": PackedStringArray(),
 "text": "(Let's follow it!)",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "(Let's follow it!)",
 "type": "dialogue"
 },
-"35": {
-"id": "35",
+"39": {
+"id": "39",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "enable_entrance_event",
@@ -276,61 +321,44 @@ lines = {
 }])])
 }])
 },
-"next_id": "36",
+"next_id": "40",
 "type": "mutation"
 },
-"36": {
-"id": "36",
+"40": {
+"id": "40",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 },
-"6": {
-"id": "6",
-"next_id": "7",
-"text": "discover",
+"5": {
+"id": "5",
+"next_id": "6",
+"text": "enter_2",
 "type": "title"
 },
-"7": {
-"character": "{{green}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "green"
-}]),
-"value_in_text": "{{green}}"
-}]),
-"id": "7",
-"next_id": "8",
-"tags": PackedStringArray(),
-"text": "(?)",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "(?)",
-"type": "dialogue"
-},
-"8": {
-"id": "8",
+"6": {
+"id": "6",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "move_player",
 "type": "function",
 "value": Array[Array]([Array[Dictionary]([{
 "type": "string",
-"value": "EnterMark2"
+"value": "EnterMark1"
 }]), Array[Dictionary]([{
 "type": "string",
-"value": "chat"
+"value": "discover"
 }])])
 }])
 },
-"next_id": "9",
+"next_id": "7",
 "type": "mutation"
 },
-"9": {
-"id": "9",
+"7": {
+"id": "7",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 }
 }
-metadata/dialogue_manager_version = "2.29.2"
+metadata/dialogue_manager_version = "2.31.0"

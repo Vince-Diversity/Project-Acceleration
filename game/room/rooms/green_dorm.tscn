@@ -354,7 +354,7 @@ layer_0/tile_data = PackedInt32Array(983059, 458752, 1, 917523, 458752, 1, 85198
 layer_1/tile_data = PackedInt32Array(131080, 196609, 0, 131081, 262145, 0, 131082, 131073, 0, 327687, 131073, 1, 393223, 131073, 1, 458759, 131073, 1)
 layer_2/tile_data = PackedInt32Array(327690, 65537, 0, 393226, 65537, 1, 131082, 1, 0, 196618, 1, 1, 262154, 1, 2)
 
-[node name="PassageDown" parent="Doors" index="0" instance=ExtResource("4_pvbm1")]
+[node name="DormDoor" parent="Doors" index="0" instance=ExtResource("4_pvbm1")]
 position = Vector2(576, 512)
 next_room_id = "dorm_2f"
 next_room_entrance_node = "DormDoor2"

@@ -17,8 +17,8 @@ do set_npc_dialogue_node("BlueTeacher", "query")
 
 ~ query
 {{green}}: [color=yellow](Should I leave {{blue}} to his new teacher now?)[/color]
-- No => END!
 - Yes => yes
+- No => END!
 
 
 ~ yes
@@ -30,22 +30,19 @@ do move("proceed")
 do set_npc_direction("BlueTeacher", "down")
 do remove_member("Blue")
 {{green}}: (OK, time to go.)
-{{green}}: [#expression=cheerful] Bye {{blue_teacher}}! Bye {{blue}}.
+{{green}}: [#expression=cheerful] Bye {{blue_teacher}}! Bye {{blue}}!
 do add_async([[make_fade_away, [2]]])
 do add_async([[make_move_player, ["ReturnMark1"]], [make_move_player, ["ReturnMark2"]]])
-do play_async("reset")
+do play_async("setters")
 => END!
 
-
-~ reset
-do reset_lighting("setters")
-=> END!
 
 ~ setters
-do set_npc_direction("BlueTeacher", "left")
+do set_npc_direction("BlueTeacher", "down")
 do set_npc_interaction_node("BlueTeacher", "")
 do set_npc_dialogue_id("BlueTeacher", "default_talk")
 do set_npc_dialogue_node("BlueTeacher", "default")
+do set_npc_direction("Blue", "up")
 do set_npc_interaction_node("Blue", "")
 do set_npc_dialogue_id("Blue", "default_talk")
 do set_npc_dialogue_node("Blue", "default")

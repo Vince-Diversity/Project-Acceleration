@@ -335,6 +335,22 @@ func set_npc_dialogue_node(npc_node: String, dialogue_node: String):
 		owner.npcs.get_node(npc_node).dialogue_node = dialogue_node
 
 
+## Sets the speed of the [NPC] that has the given [code]npc_node[/code] name
+## to double that of default.
+func double_npc_speed(npc_node: String):
+	if owner.npcs.has_node(npc_node):
+		var npc = owner.npcs.get_node(npc_node);
+		npc.speed = 2 * npc.default_speed
+
+
+## Sets the speed of the [NPC] that has the given [code]npc_node[/code] name
+## to the default walking speed.
+func reset_npc_speed(npc_node: String):
+	if owner.npcs.has_node(npc_node):
+		var npc = owner.npcs.get_node(npc_node);
+		npc.speed = npc.default_speed
+
+
 ## Sets the animation of the [Thing], with the given [code]thing_node[/code] name,
 ## with the given [member AnimatedSprite2D.animation] [code]anim_name[/code].
 func set_thing_anim(thing_node: String, anim_name: String):
@@ -368,6 +384,23 @@ func _get_npc_to_player_direction(npc_node) -> Vector2:
 ## Enables the [EntranceEvent] of the [Room] with the given [code]room_id[/code].
 func enable_entrance_event(room_id: String):
 	owner.entrance_event_edited.emit(room_id, true)
+
+
+## Enables the [EntranceEvent] of the [Room] with the given [code]room_id[/code]
+## with updated node name of the entrance event cutscene instance [code]interaction_node[/code],
+## filename of its [DialogueResource] [code]dialogue_id[/code] and
+## its dialogue title [code]dialogue_node[/code].
+func change_entrance_event(
+		room_id: String,
+		interaction_node: String,
+		dialogue_id: String,
+		dialogue_node: String):
+	owner.entrance_event_edited.emit(
+		room_id,
+		true,
+		interaction_node,
+		dialogue_id,
+		dialogue_node)
 
 
 ## Adds the [NPC] with the given [code]npc_node[/code] name

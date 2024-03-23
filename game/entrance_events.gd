@@ -66,6 +66,22 @@ func load_save(sg: SaveGame):
 
 ## Toggles the entrance event of the given [code]room_id[/code]
 ## according to [code]is_enabled[/code], if the given [code]room_id[/code] exists.
-func _on_entrance_event_edited(room_id: String, is_enabled: bool):
+## There are also optional arguments [code]interaction_node[/code], [code]dialogue_id[/code] and [code]dialogue_node[/code]
+## that, if specified, update the cutscene instance node name,
+## filename of the [DialogueResource], [code]dialogue_id[/code], and
+## title to the [method DialogueResource.get_next_dialogue_line], [code]dialogue_node[/code].
+## respectively. To skip optional arguments, empty strings can be used since they are reserved for skipping.
+func _on_entrance_event_edited(
+		room_id: String,
+		is_enabled: bool,
+		interaction_node: String = "",
+		dialogue_id: String = "",
+		dialogue_node: String = ""):
 	if events.has(room_id):
-		events[room_id]["is_enabled"] = is_enabled
+		events[room_id][enabled_key] = is_enabled
+		if not interaction_node.is_empty():
+			events[room_id][interaction_key] = interaction_node
+		if not dialogue_id.is_empty():
+			events[room_id][dialogue_id_key] = dialogue_id
+		if not dialogue_node.is_empty():
+			events[room_id][dialogue_node_key] = dialogue_node

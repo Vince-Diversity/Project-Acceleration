@@ -28,7 +28,7 @@ do set_npc_direction("Cat", "up")
 {{lime}}: Heh, this robot is impressive.
 {{yellow}}: Won't fool me. It's just an illusion spell.
 do set_npc_exhibit_anim("Yellow", "revealer")
-{{yellow}}: Behold the [color=yellow]{{revealer}}[/color]. Watch, a single peek will reveal the cat's true form!
+{{yellow}}: Behold the [color=yellow]{{revealer}}[/color]. Watch, a single peek will reveal its true form!
 do set_npc_anim("Yellow", "reveal_down")
 {{yellow}}: Reveal yourself!
 do blink("curiosity")
@@ -62,17 +62,17 @@ do animate_npc("Amber", "left", "reactivated")
 ~ reactivated
 do set_npc_direction("Cat", "right")
 {{cat}}: Me-ow!
-{{amber}}: There. It has an on-switch.
+{{amber}}: There. It has an "on" switch.
 {{yellow}}: To be expected for such a perfect test subject!
 do turn_player_to_npc("Yellow")
-{{green}}: What if I do not want you to treat {{cat}} as a test subject?
+{{green}}: No, I disapprove of your experimenting!
 do turn_npc_to_player("Yellow")
 {{yellow}}: Like you're the owner, {{green}}!
-{{lime}}: Did you find this mechanical creature on the web? Or perhaps it was a gift?
+{{lime}}: Where did you find this mechanical creature?
 do turn_player_to_npc("Lime")
-{{green}}: No, I don't know where you could find them.
+{{green}}: I didn't find it, it found me.
 do turn_player_to_npc("Yellow")
-{{green}}: But I know that it's not yours, {{yellow}}.
+{{green}}: Which means it's not yours, {{yellow}}!
 {{yellow}}: Then how about a bet?
 do move_npc("Yellow", "BoardMark", "push")
 => END!
@@ -108,11 +108,38 @@ do move_player("MentorMark3", "item_got")
 do set_player_exhibit_anim("revealer")
 [color=yellow]Obtained the {{revealer}}!
 do add_item("revealer")
-do set_player_anim("down")
-The {{revealer}} has been stored in the {{inventory}}. [color=yellow]Check on obtained items with the Z key.[/color]
+do set_player_anim("left")
+The {{revealer}} has been stored in the {{inventory}}. [color=yellow]Check on obtained items with the C key.[/color]
+{{yellow}}: [#expression=crying] I don't understand, an even number would be impossible in that situation!
+{{amber}}: Impossible? No...
+do move_npc("Amber", "AmberMark2", "fury")
+=> END!
+
+~ fury
+do set_npc_anim("Yellow", "down")
+do set_npc_anim("Amber", "up_angry")
+{{amber}}: [#expression=angry] So not only have you been manipulating us with false dice all this time,
+{{amber}}: [#expression=angry] but you also attempted to trick {{green}} with a fake bet? You rat!
+{{yellow}}: [#expression=shocked] {{amber}}, you hair, s-s-static electricity!
+{{amber}}: [#expression=angry] Is that so? How about we perform some experiments on our lab rat?
+{{yellow}}: [#expression=shocked] Eep!
+do double_npc_speed("Yellow")
+do move_npc("Yellow", "YellowMark3", "escape")
+=> END!
+
+~ escape
+do reset_npc_speed("Yellow")
 do remove_npc("Yellow")
+do set_npc_anim("Amber", "up")
+{{amber}}: Sigh...
+do move_npc("Amber", "AmberMark3", "finish")
+
+~ finish
+do set_npc_anim("Amber", "sit_left")
 do set_npc_dialogue_node("Amber", "talk_after_cat_event")
 do set_npc_dialogue_node("Lime", "talk_after_cat_event")
 do set_npc_dialogue_node("Maroon", "talk_after_cat_event")
+do set_npc_dialogue_id("Cat", "talk_cat")
 do set_npc_dialogue_node("Cat", "talk")
+do change_entrance_event("recreation_hallway", "BlueTeacherCutscene", "", "searching_blue")
 => END!

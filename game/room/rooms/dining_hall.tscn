@@ -99,4 +99,15 @@ target_direction_id = 2
 position = Vector2(48, 95)
 target_direction_id = 1
 
+[node name="AmberMark2" parent="RoomCutscenes/CatCutscene" index="11" instance=ExtResource("12_mx8sv")]
+position = Vector2(26, 114)
+target_direction_id = 2
+
+[node name="YellowMark3" parent="RoomCutscenes/CatCutscene" index="12" instance=ExtResource("12_mx8sv")]
+position = Vector2(37, -155)
+
+[node name="AmberMark3" parent="RoomCutscenes/CatCutscene" index="13" instance=ExtResource("12_mx8sv")]
+position = Vector2(34, 114)
+target_direction_id = 2
+
 [editable path="RoomCutscenes/CatCutscene"]

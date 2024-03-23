@@ -3,3 +3,25 @@
 {{green}}: (It's coming from the dining hall!)
 do enable_entrance_event("dining_hall")
 => END!
+
+~ searching_blue
+do create_npc("BlueTeacher")
+do set_npc_at_mark("BlueTeacher", "BlueTeacherMark1")
+do wait(1)
+{{blue_teacher}}: Hmm...
+do turn_npc_to_player("BlueTeacher")
+{{blue_teacher}}: {{green}}! I need your assistance.
+do turn_player_to_npc("BlueTeacher")
+{{green}}: [#expression=cheerful] Yes {{blue_teacher}}! What should I do?
+{{blue_teacher}}: There's some bad news I need to tell you.
+{{green}}: Oh...
+do add_async([[make_fade_away, [2]]])
+do add_async([[make_move_player, ["GreenMark1"]]])
+do play_async("setters")
+=> END!
+
+~ setters
+do remove_npc("BlueTeacher")
+do enable_entrance_event("blue_classroom")
+do change_rooms("blue_classroom", "PassageDown")
+=> END!

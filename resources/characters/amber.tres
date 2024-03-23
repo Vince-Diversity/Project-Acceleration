@@ -1,10 +1,11 @@
-[gd_resource type="SpriteFrames" load_steps=24 format=3 uid="uid://dxtxxu7jbyjyc"]
+[gd_resource type="SpriteFrames" load_steps=28 format=3 uid="uid://dxtxxu7jbyjyc"]
 
 [ext_resource type="Texture2D" uid="uid://v4pyxa6gdnuh" path="res://assets/characters/amber/amber_sit_left.png" id="1_hfmui"]
 [ext_resource type="Texture2D" uid="uid://c1uerrr3f1itk" path="res://assets/characters/amber/amber_down.png" id="2_evrk1"]
 [ext_resource type="Texture2D" uid="uid://cd57uc76oxeiu" path="res://assets/characters/amber/amber_left.png" id="3_wgmmu"]
 [ext_resource type="Texture2D" uid="uid://bjngqotthg55t" path="res://assets/characters/amber/amber_right.png" id="4_s11xm"]
 [ext_resource type="Texture2D" uid="uid://crui33mmi57h7" path="res://assets/characters/amber/amber_up.png" id="5_xu5aw"]
+[ext_resource type="Texture2D" uid="uid://cg0jaejwcbaxp" path="res://assets/characters/amber/amber_angry_up.png" id="6_2rxab"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3xbc5"]
 atlas = ExtResource("2_evrk1")
@@ -77,6 +78,18 @@ region = Rect2(126, 0, 63, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_7r7ga"]
 atlas = ExtResource("5_xu5aw")
 region = Rect2(189, 0, 63, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_15eor"]
+atlas = ExtResource("6_2rxab")
+region = Rect2(0, 0, 63, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nauc0"]
+atlas = ExtResource("6_2rxab")
+region = Rect2(63, 0, 63, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxx0w"]
+atlas = ExtResource("6_2rxab")
+region = Rect2(126, 0, 63, 64)
 
 [resource]
 animations = [{
@@ -163,4 +176,18 @@ animations = [{
 "loop": false,
 "name": &"up",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_15eor")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nauc0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxx0w")
+}],
+"loop": true,
+"name": &"up_angry",
+"speed": 3.0
 }]

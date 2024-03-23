@@ -1,0 +1,86 @@
+~ missing
+do create_npc("BlueTeacher")
+do set_npc_at_mark("BlueTeacher", "BlueTeacherMark1")
+do set_npc_direction("BlueTeacher", "up")
+do reset_lighting("moving")
+=> END!
+
+~ moving
+do add_async([[make_move_npc, ["BlueTeacher", "BlueTeacherMark2"]], [make_move_npc, ["BlueTeacher", "BlueTeacherMark3"]]])
+do add_async([[make_move_player, ["GreenMark1"]], [make_move_player, ["GreenMark2"]]])
+do add_async([[make_dialogue, ["enter_blue_classroom", "explaining"]]])
+do play_async("open")
+=> END!
+
+~ explaining
+{{blue_teacher}}: The classroom of {{blue_aspect}} magic, this is where our new student disappeared.
+{{green}}: [#expression=sorry] I shouldn't have been so distracted...
+{{blue_teacher}}: No no, the mistake is mine.
+=> END!
+
+~ open
+do wait(1)
+do turn_npc_to_player("BlueTeacher")
+{{blue_teacher}}: Now listen carefully.
+do set_npc_direction("BlueTeacher", "left")
+{{blue_teacher}}: In the next room, there will be a set of stairs leading towards the {{absolutely_undetectable_capsule}}.
+{{blue_teacher}}: The room is, by design, void of any light, sound or anything that can be sensed. Not even the walls can be touched.
+{{blue_teacher}}: When you are there, always remember to [color=yellow]keep going further[/color]. Understood?
+- Yes => yes
+- No => no
+=> END!
+
+~ yes
+{{green}}: Understood.
+=> stop_talking
+=> END!
+
+~ no
+{{green}}: [#expression=sorry] I don't understand.
+{{blue_teacher}}: Excuse me for not explaining everything properly yet, I would prefer to show you instead.
+{{blue_teacher}}: Basically, all you need to remember is to go down the stairs, enter the room on the bottom floor, and in that room keep going further into it.
+=> stop_talking
+=> END!
+
+~ stop_talking
+{{blue_teacher}}: When you are ready, speak to me again and I will open the entrance for you.
+=> talk_setters
+
+~ talk_setters
+
+do set_npc_interaction_node("BlueTeacher", "ReturnCutscene")
+do set_npc_dialogue_id("BlueTeacher", "enter_blue_classroom")
+do set_npc_dialogue_node("BlueTeacher", "query")
+=> END!
+
+~ query
+{{blue_teacher}}: [color=yellow]Ready to enter?[/color]
+- yes => cue_enter_1
+- what should I do? => no
+- no => END!
+
+~ cue_enter_1
+do move_npc("BlueTeacher", "BlueTeacherMark1", "cue_enter_2")
+=> END!
+
+~ cue_enter_2
+do animate_npc("BlueTeacher", "left", "cue_enter_3")
+=> END!
+
+~ cue_enter_3
+do move_npc("BlueTeacher", "BlueTeacherMark2", "cue_enter_4")
+=> END!
+
+~ cue_enter_4
+do move_player("GreenMark1", "enter")
+=> END!
+
+~ enter
+do turn_player_to_npc("BlueTeacher")
+{{blue_teacher}}: I will see you shortly on the other side.
+do set_player_direction("left")
+=> enter_setters
+
+~ enter_setters
+do change_rooms("blue_stairs", "PassageRight")
+=> END!

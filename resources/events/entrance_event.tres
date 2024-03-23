@@ -4,6 +4,8 @@
 
 [resource]
 script = ExtResource("1_yu5ln")
+is_enabled = false
 interaction_node = ""
 dialogue_id = ""
 dialogue_node = ""
+is_oneshot = true

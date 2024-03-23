@@ -8,8 +8,11 @@ class_name Character extends CharacterBody2D
 ## A character also has markers for special animations such as when showing an item,
 ## see [Items].
 
+## Default walking speed
+const default_speed: float = 150
+
 ## How fast this character moves.
-@export var speed: float = 150
+@export var speed: float = default_speed
 
 ## Reference to the character's sprite.
 @onready var anim_sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -71,8 +74,8 @@ func update_direction():
 func set_animation(anim_name: String):
 	anim_sprite.set_animation(anim_name)
 	var anim_id = Utils.get_anim_id(anim_name)
+	items.clear_exhibit()
 	if anim_id != null:
-		items.clear_exhibit()
 		set_direction(Utils.get_anim_direction(anim_id))
 		update_direction()
 	else:

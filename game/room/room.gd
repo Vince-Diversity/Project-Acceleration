@@ -92,9 +92,13 @@ signal player_interacted(interactable: Node2D)
 ## Emitted when an [Interactable] finishes an interaction.
 signal end_interaction()
 
-## Emitted when the entrance event for the room with file name [code]room_id[/code]
-## is toggled accordingly to [code]is_enabled[/code].
-signal entrance_event_edited(room_id: String, is_enabled: bool)
+## Emitted when the entrance event for the room with file name [code]room_id[/code] is updated.
+signal entrance_event_edited(
+	room_id: String,
+	is_enabled: bool,
+	interaction_node: String,
+	dialogue_id: String,
+	dialogue_node: String)
 
 ## Emitted when an [NPC] with node name [code]npc_name[/code] is freed.
 signal npc_removed(npc_name: String)

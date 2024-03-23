@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b7jwh4l1tkjrp"]
+[gd_scene load_steps=8 format=3 uid="uid://b7jwh4l1tkjrp"]
 
 [ext_resource type="PackedScene" uid="uid://c1go3780g6ead" path="res://game/room/room.tscn" id="1_1awx0"]
 [ext_resource type="TileSet" uid="uid://436arnq2ulbi" path="res://resources/tilesets/real_hall/real_hall.tres" id="2_4hrka"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://paluwp5ftjo0" path="res://game/thing/door/passage_up.tscn" id="5_kyxq7"]
 [ext_resource type="PackedScene" uid="uid://dsfvepwkk4y7l" path="res://game/thing/door/passage_down.tscn" id="5_lelgs"]
 [ext_resource type="PackedScene" uid="uid://bqlmbt878hrxk" path="res://game/cutscene/dialogue_cutscene.tscn" id="6_3h7ri"]
+[ext_resource type="PackedScene" uid="uid://dtkkkrcbtqu58" path="res://game/cutscene/character_mark.tscn" id="7_iyl5f"]
 
 [node name="RecreationHallway" instance=ExtResource("1_1awx0")]
 
@@ -32,3 +33,13 @@ next_room_entrance_node = "PassageUp"
 current_tileset = "res://resources/tilesets/real_hall/passage_down.tres"
 
 [node name="CatCutscene" parent="RoomCutscenes" index="0" instance=ExtResource("6_3h7ri")]
+
+[node name="BlueTeacherCutscene" parent="RoomCutscenes" index="1" instance=ExtResource("6_3h7ri")]
+
+[node name="BlueTeacherMark1" parent="RoomCutscenes/BlueTeacherCutscene" index="2" instance=ExtResource("7_iyl5f")]
+position = Vector2(352, 448)
+target_direction_id = 1
+
+[node name="GreenMark1" parent="RoomCutscenes/BlueTeacherCutscene" index="3" instance=ExtResource("7_iyl5f")]
+position = Vector2(384, 448)
+target_direction_id = 1
