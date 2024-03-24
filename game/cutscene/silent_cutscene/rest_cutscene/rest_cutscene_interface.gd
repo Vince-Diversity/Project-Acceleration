@@ -12,7 +12,7 @@ class_name RestCutscene extends SilentCutscene
 @onready var _stand_up_cutscene_scn = preload("res://game/cutscene/silent_cutscene/rest_cutscene/stand_up_cutscene.tscn")
 
 ## Creates acts and configures the involved characters and things to allow for the cutscene to play out.
-func make():
+func start_cutscene():
 	if get_thing().elevate_characters:
 		owner.party.set_z_index(Utils.Elevation.FRONT)
 	set_thing_state(

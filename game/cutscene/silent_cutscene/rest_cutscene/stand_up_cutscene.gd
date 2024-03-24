@@ -7,7 +7,7 @@ class_name StandUpCutscene extends SilentCutscene
 ## Creates an act list where the player moves away from a thing
 ## which they were resting on.
 ## Other party members will later follow naturally once [RoamState] is ended.
-func make():
+func start_cutscene():
 	var stand_up_mark = get_thing_stand_up_mark()
 	if is_instance_valid(stand_up_mark):
 		actm.add_act(

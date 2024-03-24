@@ -202,12 +202,13 @@ func init_room(
 ## Updates the current cutscene in [RoomCutscenes] and
 ## changes the game session state to [CutsceneState].
 ## The node name of this cutscene is given by [code]interaction_node[/code]
-## and it needs to have be added to the [SceneTree] before this function is called.
+## and it needs to have been added to the [SceneTree] before this function is called.
 ## If the cutscene has dialogue, the dialogue contents are given by the
 ## filename of the [DialogueResource], [code]dialogue_id[/code], and
 ## title to the [method DialogueResource.get_next_dialogue_line], [code]dialogue_node[/code].
 ## The [code]source_node[/code] determines a scene instance in
 ## the current room that is targeted by this cutscene.
+## Optionally, the [code]source_node[/code] is skipped if it is null or not a valid node instance.
 func start_cutscene(
 		interaction_node: String,
 		dialogue_id: String,
@@ -218,7 +219,8 @@ func start_cutscene(
 	cutscenes.change_source_nodes(source_node)
 	cutscenes.current_cutscene.cutscene_started.emit()
 	stm.change_states(_cutscene_state.state_id)
-	end_interaction.connect(source_node.get_node("InteractArea")._on_end_interaction, CONNECT_ONE_SHOT)
+	if is_instance_valid(source_node):
+		end_interaction.connect(source_node.get_node("InteractArea")._on_end_interaction, CONNECT_ONE_SHOT)
 
 
 ## Adds a [Cutscene] instance to the [SceneTree]
@@ -313,7 +315,7 @@ func _on_door_begin_interaction(door: Door):
 
 ## Starts the current [Cutscene].
 func _on_cutscene_started():
-	cutscenes.current_cutscene.make()
+	cutscenes.current_cutscene.start_cutscene()
 
 
 ## Changes the current game session state to [BrowseState].
@@ -354,3 +356,19 @@ func _on_interact_bubbles_selected(item_id: String, interactable_name: String):
 		party.player.nearest_interactable.dialogue_id,
 		party.player.get_thought_item_sprite().interaction_dialogue_node,
 		party.player.nearest_interactable)
+
+
+## Starts a cutscene from entering or leaving a subarea within this room.
+## The [code]interaction_node[/code] is the cutscene that contains this area.
+## The dialogue contents are given by the
+## filename of the [DialogueResource], [code]dialogue_id[/code], and
+## title to the [method DialogueResource.get_next_dialogue_line], [code]dialogue_node[/code].
+func _on_begin_area_cutscene(
+		interaction_node: String,
+		dialogue_id: String,
+		dialogue_node: String):
+	start_cutscene(
+		interaction_node,
+		dialogue_id,
+		dialogue_node,
+		null)

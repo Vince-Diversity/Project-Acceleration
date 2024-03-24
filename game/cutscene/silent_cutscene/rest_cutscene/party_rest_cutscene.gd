@@ -3,7 +3,7 @@ extends RestCutscene
 ## rest on something like a set of chairs.
 
 ## Creates this cutscene for the current target thing.
-func make():
+func start_cutscene():
 	var player_mark = get_thing_player_rest_mark()
 	var member_mark = get_thing_member_rest_mark()
 	var rest_anim = get_thing_rest_animation()

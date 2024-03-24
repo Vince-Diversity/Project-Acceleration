@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlamanp2k1irs"]
+
+[ext_resource type="PackedScene" uid="uid://bqlmbt878hrxk" path="res://game/cutscene/dialogue_cutscene.tscn" id="1_wge50"]
+[ext_resource type="Script" path="res://game/cutscene/dialogue_cutscene/area_cutscene/area_cutscene.gd" id="2_0515t"]
+
+[node name="AreaCutscene" instance=ExtResource("1_wge50")]
+script = ExtResource("2_0515t")
+dialogue_id = ""
+dialogue_node = ""
+
+[node name="EventArea" type="Area2D" parent="." index="2"]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EventArea" index="0"]

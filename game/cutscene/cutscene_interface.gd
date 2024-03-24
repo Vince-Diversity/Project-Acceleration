@@ -38,14 +38,14 @@ signal cutscene_started
 signal cutscene_ended(next_state_id: String)
 
 
-## Initialises this node before it is added to the scene tree.
+## Initialises the cutscene.
 func init_cutscene(given_cutscenes: RoomCutscenes, given_screen: Screen):
 	cutscenes = given_cutscenes
 	screen = given_screen
 
 
-## Creates the initial [member actm] contents of this cutscene.
-func make():
+## Starts the cutscene, creating the [ActManager] and associated [Act] instances if needed.
+func start_cutscene():
 	pass
 
 

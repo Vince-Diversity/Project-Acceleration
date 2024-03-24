@@ -15,7 +15,8 @@ layer_1/tile_data = PackedInt32Array(393225, 1, 1, 458761, 1, 1, 524297, 1, 1, 3
 
 [node name="PassageDown" parent="Doors" index="0" instance=ExtResource("3_n0ugd")]
 position = Vector2(640, 1216)
-next_room_id = " "
+next_room_id = "absolutely_undetectable_room"
+next_room_entrance_node = "Door"
 current_tileset = "res://resources/tilesets/library_hall/passage_down.tres"
 
 [node name="PassageRight" parent="Doors" index="1" instance=ExtResource("4_pdm1g")]

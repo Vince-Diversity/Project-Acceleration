@@ -39,7 +39,7 @@ class_name DialogueCutscene extends Cutscene
 
 
 ## Creates a [DialogueAct] to initialise the act list.
-func make():
+func start_cutscene():
 	actm.add_act(_make_current_dialogue())
 
 
