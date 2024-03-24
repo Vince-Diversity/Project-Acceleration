@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_7uwkj"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_d0qc4"]
 
 [resource]
-script = ExtResource("1_7uwkj")
+script = ExtResource("1_d0qc4")
 using_states = PackedStringArray()
 titles = {
 "cue": "2",
@@ -166,8 +166,14 @@ lines = {
 "type": "mutation"
 },
 "20": {
-"character": "",
-"character_replacements": Array[Dictionary]([]),
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
 "id": "20",
 "next_id": "21",
 "parent_id": "19",
@@ -184,8 +190,14 @@ lines = {
 "type": "dialogue"
 },
 "21": {
-"character": "",
-"character_replacements": Array[Dictionary]([]),
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
 "id": "21",
 "next_id": "22",
 "parent_id": "19",
@@ -196,8 +208,14 @@ lines = {
 "type": "dialogue"
 },
 "22": {
-"character": "",
-"character_replacements": Array[Dictionary]([]),
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
 "id": "22",
 "next_id": "23",
 "parent_id": "19",
@@ -208,8 +226,14 @@ lines = {
 "type": "dialogue"
 },
 "23": {
-"character": "",
-"character_replacements": Array[Dictionary]([]),
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
 "id": "23",
 "next_id": "24",
 "parent_id": "19",

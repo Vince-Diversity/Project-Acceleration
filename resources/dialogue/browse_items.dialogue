@@ -5,11 +5,11 @@
 - Instruction => revealer_instruction
 
 ~ revealer_info
-(A pair of glasses that I received from {{yellow}}. It has a golden frame, but it's fake gold. One of the lens holders has an improvised lens system attached. The other is covered.)
+{{green}}: (A pair of glasses that I received from {{yellow}}. It has a golden frame, but it's fake gold. One of the lens holders has an improvised lens system attached. The other is covered.)
 => revealer
 
 ~ revealer_instruction
-(If I am near a thing or person, close enough to interact with them, and then bring this item out again, I might be able to make something happen.)
+{{green}}: (If I am near a thing or person, close enough to interact with them, and then bring this item out again, I might be able to make something happen.)
 => revealer
 
 ~ end_browsing

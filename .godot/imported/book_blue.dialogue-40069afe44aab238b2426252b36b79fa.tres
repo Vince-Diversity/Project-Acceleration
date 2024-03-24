@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_l3j7h"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_uh0yo"]
 
 [resource]
-script = ExtResource("1_l3j7h")
+script = ExtResource("1_uh0yo")
 using_states = PackedStringArray()
 titles = {
 "check": "2",
@@ -158,8 +158,14 @@ lines = {
 "type": "condition"
 },
 "20": {
-"character": "",
-"character_replacements": Array[Dictionary]([]),
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
 "id": "20",
 "next_id": "21",
 "parent_id": "19",
@@ -176,8 +182,14 @@ lines = {
 "type": "dialogue"
 },
 "21": {
-"character": "",
-"character_replacements": Array[Dictionary]([]),
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
 "id": "21",
 "next_id": "22",
 "parent_id": "19",
@@ -258,8 +270,14 @@ lines = {
 "type": "condition"
 },
 "5": {
-"character": "",
-"character_replacements": Array[Dictionary]([]),
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
 "id": "5",
 "next_id": "6",
 "parent_id": "4",

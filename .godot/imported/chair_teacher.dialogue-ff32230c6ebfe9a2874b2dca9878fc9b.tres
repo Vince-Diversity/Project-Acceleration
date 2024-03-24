@@ -1,35 +1,41 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_b7h23"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_le1ku"]
 
 [resource]
-script = ExtResource("1_b7h23")
+script = ExtResource("1_le1ku")
 using_states = PackedStringArray()
 titles = {
-"default": "3"
+"default": "2"
 }
-character_names = PackedStringArray()
-first_title = "3"
+character_names = PackedStringArray("{{green}}")
+first_title = "2"
 lines = {
 "1": {
 "id": "1",
-"next_id": "3",
+"next_id": "2",
 "text": "default",
 "type": "title"
 },
-"3": {
-"character": "",
-"character_replacements": Array[Dictionary]([]),
-"id": "3",
-"next_id": "4",
+"2": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"id": "2",
+"next_id": "3",
 "tags": PackedStringArray(),
 "text": "(Seems a little rude not to talk to the teacher in front of their desk.)",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "(Seems a little rude not to talk to the teacher in front of their desk.)",
 "type": "dialogue"
 },
-"4": {
-"id": "4",
+"3": {
+"id": "3",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"

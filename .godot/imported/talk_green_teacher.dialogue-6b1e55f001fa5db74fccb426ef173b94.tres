@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_5xx4q"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_mhqux"]
 
 [resource]
-script = ExtResource("1_5xx4q")
+script = ExtResource("1_mhqux")
 using_states = PackedStringArray()
 titles = {
 "1800858898/default": "1",
@@ -22,8 +22,14 @@ lines = {
 "type": "title"
 },
 "1": {
-"character": "",
-"character_replacements": Array[Dictionary]([]),
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
 "id": "1",
 "next_id": "2",
 "tags": PackedStringArray(),

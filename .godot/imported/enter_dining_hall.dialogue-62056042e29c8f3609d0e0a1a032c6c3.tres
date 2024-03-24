@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_m0fe0"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_iwocr"]
 
 [resource]
-script = ExtResource("1_m0fe0")
+script = ExtResource("1_iwocr")
 using_states = PackedStringArray()
 titles = {
 "approach1": "13",
@@ -189,7 +189,7 @@ lines = {
 "id": "112",
 "next_id": "113",
 "tags": PackedStringArray(),
-"text": "The {{revealer}} has been stored in the {{inventory}}. [color=yellow]Check on obtained items with the C key.[/color]",
+"text": "The {{revealer}} has been stored in the {{inventory}}. [color=yellow]Check on obtained items with the X  key.[/color]",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
 "type": "variable",
@@ -203,7 +203,7 @@ lines = {
 }]),
 "value_in_text": "{{inventory}}"
 }]),
-"translation_key": "The {{revealer}} has been stored in the {{inventory}}. [color=yellow]Check on obtained items with the C key.[/color]",
+"translation_key": "The {{revealer}} has been stored in the {{inventory}}. [color=yellow]Check on obtained items with the X  key.[/color]",
 "type": "dialogue"
 },
 "113": {

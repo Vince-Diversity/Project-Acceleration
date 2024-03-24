@@ -109,7 +109,7 @@ do set_player_exhibit_anim("revealer")
 [color=yellow]Obtained the {{revealer}}!
 do add_item("revealer")
 do set_player_anim("left")
-The {{revealer}} has been stored in the {{inventory}}. [color=yellow]Check on obtained items with the C key.[/color]
+The {{revealer}} has been stored in the {{inventory}}. [color=yellow]Check on obtained items with the X  key.[/color]
 {{yellow}}: [#expression=crying] I don't understand, an even number would be impossible in that situation!
 {{amber}}: Impossible? No...
 do move_npc("Amber", "AmberMark2", "fury")

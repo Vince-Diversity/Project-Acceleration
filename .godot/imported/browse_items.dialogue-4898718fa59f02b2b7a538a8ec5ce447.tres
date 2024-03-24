@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_vgoc8"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_jvouj"]
 
 [resource]
-script = ExtResource("1_vgoc8")
+script = ExtResource("1_jvouj")
 using_states = PackedStringArray()
 titles = {
 "end_browsing": "16",
@@ -11,7 +11,7 @@ titles = {
 "revealer_info": "8",
 "revealer_instruction": "12"
 }
-character_names = PackedStringArray()
+character_names = PackedStringArray("{{green}}")
 first_title = "2"
 lines = {
 "1": {
@@ -27,8 +27,14 @@ lines = {
 "type": "title"
 },
 "12": {
-"character": "",
-"character_replacements": Array[Dictionary]([]),
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
 "id": "12",
 "next_id": "13",
 "tags": PackedStringArray(),
@@ -88,6 +94,8 @@ lines = {
 "type": "dialogue"
 },
 "3": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
 "id": "3",
 "next_id": "16",
 "next_id_after": "8",
@@ -99,6 +107,8 @@ lines = {
 "type": "response"
 },
 "4": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
 "id": "4",
 "next_id": "8",
 "next_id_after": "8",
@@ -109,6 +119,8 @@ lines = {
 "type": "response"
 },
 "5": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
 "id": "5",
 "next_id": "12",
 "next_id_after": "8",
@@ -125,8 +137,14 @@ lines = {
 "type": "title"
 },
 "8": {
-"character": "",
-"character_replacements": Array[Dictionary]([]),
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
 "id": "8",
 "next_id": "9",
 "tags": PackedStringArray(),
@@ -148,4 +166,4 @@ lines = {
 "type": "goto"
 }
 }
-metadata/dialogue_manager_version = "2.29.2"
+metadata/dialogue_manager_version = "2.31.0"

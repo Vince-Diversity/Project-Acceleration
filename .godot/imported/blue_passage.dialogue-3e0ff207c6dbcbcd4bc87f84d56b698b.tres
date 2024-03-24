@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_ohal6"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_g735y"]
 
 [resource]
-script = ExtResource("1_ohal6")
+script = ExtResource("1_g735y")
 using_states = PackedStringArray()
 titles = {
 "default": "2"
 }
-character_names = PackedStringArray()
+character_names = PackedStringArray("{{green}}")
 first_title = "2"
 lines = {
 "1": {
@@ -18,14 +18,20 @@ lines = {
 "type": "title"
 },
 "2": {
-"character": "",
-"character_replacements": Array[Dictionary]([]),
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
 "id": "2",
 "next_id": "3",
 "tags": PackedStringArray(),
-"text": "(There seems to be an entrance here, but I don't know where it leads so probably shouldn't intrude.)",
+"text": "(There seems to be an entrance to something special here, probably should not enter without informing the teachers.)",
 "text_replacements": Array[Dictionary]([]),
-"translation_key": "(There seems to be an entrance here, but I don't know where it leads so probably shouldn't intrude.)",
+"translation_key": "(There seems to be an entrance to something special here, probably should not enter without informing the teachers.)",
 "type": "dialogue"
 },
 "3": {

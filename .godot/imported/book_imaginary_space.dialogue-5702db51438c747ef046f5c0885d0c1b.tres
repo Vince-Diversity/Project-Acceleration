@@ -1,16 +1,16 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_jc78p"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_4gkcg"]
 
 [resource]
-script = ExtResource("1_jc78p")
+script = ExtResource("1_4gkcg")
 using_states = PackedStringArray()
 titles = {
 "cue": "2",
 "open_book": "8",
 "read": "17"
 }
-character_names = PackedStringArray("{{green}}", "(\"Hence, this deepest layer became recognised by the name")
+character_names = PackedStringArray("{{green}}")
 first_title = "2"
 lines = {
 "1": {
@@ -27,8 +27,14 @@ lines = {
 "type": "condition"
 },
 "11": {
-"character": "",
-"character_replacements": Array[Dictionary]([]),
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
 "id": "11",
 "next_id": "12",
 "parent_id": "10",
@@ -279,8 +285,14 @@ lines = {
 "type": "condition"
 },
 "27": {
-"character": "",
-"character_replacements": Array[Dictionary]([]),
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
 "id": "27",
 "next_id": "28",
 "parent_id": "26",
@@ -291,8 +303,14 @@ lines = {
 "type": "dialogue"
 },
 "28": {
-"character": "",
-"character_replacements": Array[Dictionary]([]),
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
 "id": "28",
 "next_id": "29",
 "parent_id": "26",
@@ -303,8 +321,14 @@ lines = {
 "type": "dialogue"
 },
 "29": {
-"character": "",
-"character_replacements": Array[Dictionary]([]),
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
 "id": "29",
 "next_id": "30",
 "parent_id": "26",
@@ -339,8 +363,14 @@ lines = {
 "type": "dialogue"
 },
 "30": {
-"character": "",
-"character_replacements": Array[Dictionary]([]),
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
 "id": "30",
 "next_id": "31",
 "parent_id": "26",
@@ -351,8 +381,14 @@ lines = {
 "type": "dialogue"
 },
 "31": {
-"character": "",
-"character_replacements": Array[Dictionary]([]),
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
 "id": "31",
 "next_id": "32",
 "parent_id": "26",
@@ -363,13 +399,19 @@ lines = {
 "type": "dialogue"
 },
 "32": {
-"character": "(\"Hence, this deepest layer became recognised by the name",
-"character_replacements": Array[Dictionary]([]),
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
 "id": "32",
 "next_id": "33",
 "parent_id": "26",
 "tags": PackedStringArray(),
-"text": "{{deepest_layer}}.\")",
+"text": "(\"Hence, this deepest layer became recognised by the name: {{deepest_layer}}.\")",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
 "type": "variable",
@@ -377,7 +419,7 @@ lines = {
 }]),
 "value_in_text": "{{deepest_layer}}"
 }]),
-"translation_key": "{{deepest_layer}}.\")",
+"translation_key": "(\"Hence, this deepest layer became recognised by the name: {{deepest_layer}}.\")",
 "type": "dialogue"
 },
 "33": {

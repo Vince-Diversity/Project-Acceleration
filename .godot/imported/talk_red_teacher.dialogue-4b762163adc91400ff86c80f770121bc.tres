@@ -1,16 +1,16 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_mav17"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_xgpf2"]
 
 [resource]
-script = ExtResource("1_mav17")
+script = ExtResource("1_xgpf2")
 using_states = PackedStringArray()
 titles = {
 "1800858898/default": "1",
 "default_talk/default": "1",
 "talk": "10"
 }
-character_names = PackedStringArray("{{red_teacher}}", "{{green}}")
+character_names = PackedStringArray("{{green}}", "{{red_teacher}}")
 first_title = "10"
 lines = {
 "0": {
@@ -20,8 +20,14 @@ lines = {
 "type": "title"
 },
 "1": {
-"character": "",
-"character_replacements": Array[Dictionary]([]),
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
 "id": "1",
 "next_id": "2",
 "tags": PackedStringArray(),

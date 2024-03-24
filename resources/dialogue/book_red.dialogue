@@ -3,7 +3,7 @@
 if is_mentoring
 	{{green}}: "{{red_aspect}} Magic."
 else
-	("{{red_aspect}} Magic.")
+	{{green}}: ("{{red_aspect}} Magic.")
 - Read => open_book
 - Leave => END!
 
@@ -18,8 +18,8 @@ if is_mentoring
 	{{green}}: "The {{red_aspect}} magic is the ability to conjure heat, perhaps even energy itself."
 	{{green}}: "Where this energy is coming from is hard to understand. But it is clear that the user's willpower is a vital ingredient."
 else
-	("The {{red_aspect}} magic is the ability to conjure heat, perhaps even energy itself.")
-	("Where this energy is coming from is hard to understand. But it is clear that the user's willpower is a vital ingredient.")
+	{{green}}: ("The {{red_aspect}} magic is the ability to conjure heat, perhaps even energy itself.")
+	{{green}}: ("Where this energy is coming from is hard to understand. But it is clear that the user's willpower is a vital ingredient.")
 do set_thing_anim("RedAspect", bookcase_anim)
 do set_player_anim("down")
 => END!

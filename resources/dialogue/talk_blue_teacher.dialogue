@@ -38,6 +38,7 @@ do play_async("setters")
 
 
 ~ setters
+set is_mentoring =  false
 do set_npc_direction("BlueTeacher", "down")
 do set_npc_interaction_node("BlueTeacher", "")
 do set_npc_dialogue_id("BlueTeacher", "default_talk")

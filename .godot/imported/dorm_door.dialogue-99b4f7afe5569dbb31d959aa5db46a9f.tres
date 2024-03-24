@@ -1,15 +1,15 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_rm8ml"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_x51i6"]
 
 [resource]
-script = ExtResource("1_rm8ml")
+script = ExtResource("1_x51i6")
 using_states = PackedStringArray()
 titles = {
 "default": "2",
 "green_dorm_door": "7"
 }
-character_names = PackedStringArray()
+character_names = PackedStringArray("{{green}}")
 first_title = "2"
 lines = {
 "1": {
@@ -44,8 +44,14 @@ lines = {
 "type": "goto"
 },
 "2": {
-"character": "",
-"character_replacements": Array[Dictionary]([]),
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
 "id": "2",
 "next_id": "3",
 "tags": PackedStringArray(),
@@ -90,8 +96,14 @@ lines = {
 "type": "condition"
 },
 "8": {
-"character": "",
-"character_replacements": Array[Dictionary]([]),
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
 "id": "8",
 "next_id": "11",
 "parent_id": "7",

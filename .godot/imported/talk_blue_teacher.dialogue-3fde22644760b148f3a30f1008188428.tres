@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_mvf7i"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_y6bck"]
 
 [resource]
-script = ExtResource("1_mvf7i")
+script = ExtResource("1_y6bck")
 using_states = PackedStringArray()
 titles = {
 "cue": "2",
@@ -417,6 +417,23 @@ lines = {
 "id": "41",
 "mutation": {
 "expression": Array[Dictionary]([{
+"type": "variable",
+"value": "is_mentoring"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "variable",
+"value": "false"
+}])
+},
+"next_id": "42",
+"type": "mutation"
+},
+"42": {
+"id": "42",
+"mutation": {
+"expression": Array[Dictionary]([{
 "function": "set_npc_direction",
 "type": "function",
 "value": Array[Array]([Array[Dictionary]([{
@@ -428,11 +445,11 @@ lines = {
 }])])
 }])
 },
-"next_id": "42",
+"next_id": "43",
 "type": "mutation"
 },
-"42": {
-"id": "42",
+"43": {
+"id": "43",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_npc_interaction_node",
@@ -446,11 +463,11 @@ lines = {
 }])])
 }])
 },
-"next_id": "43",
+"next_id": "44",
 "type": "mutation"
 },
-"43": {
-"id": "43",
+"44": {
+"id": "44",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_npc_dialogue_id",
@@ -464,11 +481,11 @@ lines = {
 }])])
 }])
 },
-"next_id": "44",
+"next_id": "45",
 "type": "mutation"
 },
-"44": {
-"id": "44",
+"45": {
+"id": "45",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_npc_dialogue_node",
@@ -482,11 +499,11 @@ lines = {
 }])])
 }])
 },
-"next_id": "45",
+"next_id": "46",
 "type": "mutation"
 },
-"45": {
-"id": "45",
+"46": {
+"id": "46",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_npc_direction",
@@ -500,11 +517,11 @@ lines = {
 }])])
 }])
 },
-"next_id": "46",
+"next_id": "47",
 "type": "mutation"
 },
-"46": {
-"id": "46",
+"47": {
+"id": "47",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_npc_interaction_node",
@@ -518,11 +535,11 @@ lines = {
 }])])
 }])
 },
-"next_id": "47",
+"next_id": "48",
 "type": "mutation"
 },
-"47": {
-"id": "47",
+"48": {
+"id": "48",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_npc_dialogue_id",
@@ -536,11 +553,11 @@ lines = {
 }])])
 }])
 },
-"next_id": "48",
+"next_id": "49",
 "type": "mutation"
 },
-"48": {
-"id": "48",
+"49": {
+"id": "49",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_npc_dialogue_node",
@@ -554,11 +571,11 @@ lines = {
 }])])
 }])
 },
-"next_id": "49",
+"next_id": "50",
 "type": "mutation"
 },
-"49": {
-"id": "49",
+"50": {
+"id": "50",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "change_rooms",
@@ -572,11 +589,11 @@ lines = {
 }])])
 }])
 },
-"next_id": "50",
+"next_id": "51",
 "type": "mutation"
 },
-"50": {
-"id": "50",
+"51": {
+"id": "51",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"

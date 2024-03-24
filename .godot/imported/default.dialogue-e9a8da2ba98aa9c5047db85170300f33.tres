@@ -1,27 +1,27 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_u8ql2"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_ttcke"]
 
 [resource]
-script = ExtResource("1_u8ql2")
+script = ExtResource("1_ttcke")
 using_states = PackedStringArray()
 titles = {
-"default": "3"
+"default": "2"
 }
 character_names = PackedStringArray()
-first_title = "3"
+first_title = "2"
 lines = {
 "1": {
 "id": "1",
-"next_id": "3",
+"next_id": "2",
 "text": "default",
 "type": "title"
 },
-"3": {
+"2": {
 "character": "",
 "character_replacements": Array[Dictionary]([]),
-"id": "3",
-"next_id": "4",
+"id": "2",
+"next_id": "3",
 "tags": PackedStringArray(),
 "text": "Somehow cat sounds appear and steal {{green}}'s attention. Me-ow Me-ow Me-ow Me-ow Me-ow.",
 "text_replacements": Array[Dictionary]([{
@@ -34,19 +34,23 @@ lines = {
 "translation_key": "Somehow cat sounds appear and steal {{green}}'s attention. Me-ow Me-ow Me-ow Me-ow Me-ow.",
 "type": "dialogue"
 },
-"4": {
-"id": "4",
-"next_id": "3",
+"3": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "3",
+"next_id": "2",
 "next_id_after": "end!",
-"responses": PackedStringArray("4", "5"),
+"responses": PackedStringArray("3", "4"),
 "tags": PackedStringArray(),
 "text": "Stay",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "Stay",
 "type": "response"
 },
-"5": {
-"id": "5",
+"4": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "4",
 "next_id": "end",
 "next_id_after": "end!",
 "tags": PackedStringArray(),
@@ -56,4 +60,4 @@ lines = {
 "type": "response"
 }
 }
-metadata/dialogue_manager_version = "2.28.0"
+metadata/dialogue_manager_version = "2.31.0"
