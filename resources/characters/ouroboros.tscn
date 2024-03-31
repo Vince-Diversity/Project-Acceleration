@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://dw8b8p0xvgfc1"]
+
+[ext_resource type="PackedScene" uid="uid://4514c46hbp0d" path="res://game/character/npc.tscn" id="1_6jmhn"]
+[ext_resource type="SpriteFrames" uid="uid://c4e00goyiyrsj" path="res://resources/characters/ouroboros.tres" id="2_c7hya"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e7jxb"]
+radius = 14.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nxi7m"]
+radius = 12.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ixv68"]
+radius = 8.0
+
+[node name="Ouroboros" instance=ExtResource("1_6jmhn")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = ExtResource("2_c7hya")
+animation = &"down"
+frame = 3
+frame_progress = 1.0
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 0)
+shape = SubResource("CircleShape2D_e7jxb")
+
+[node name="CollisionShape2D" parent="FollowingArea" index="0"]
+shape = SubResource("CircleShape2D_nxi7m")
+
+[node name="CollisionShape2D" parent="InteractArea" index="0"]
+position = Vector2(0, 0)
+shape = SubResource("CircleShape2D_ixv68")
+
+[node name="ExhibitBackground" parent="Items/ExhibitMark" index="0"]
+visible = true

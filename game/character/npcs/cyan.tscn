@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwvglald8j4h8"]
+
+[ext_resource type="PackedScene" uid="uid://4514c46hbp0d" path="res://game/character/npc.tscn" id="1_dh7pc"]
+[ext_resource type="SpriteFrames" uid="uid://cbjrfsw7rugdw" path="res://resources/characters/cyan.tres" id="2_4xyor"]
+
+[node name="Cyan" instance=ExtResource("1_dh7pc")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = ExtResource("2_4xyor")
+
+[node name="ExhibitBackground" parent="Items/ExhibitMark" index="0"]
+visible = true
