@@ -36,6 +36,7 @@ class_name DialogueCutscene extends Cutscene
 
 @onready var _dialogue_act_scr: GDScript = preload("res://game/cutscene/act/dialogue_act.gd")
 @onready var _lighting_act_scr: GDScript = preload("res://game/cutscene/act/lighting_act.gd")
+@onready var _idle_frame_act_scr: GDScript = preload("res://game/cutscene/act/idle_frame_act.gd")
 
 
 ## Creates a [DialogueAct] to initialise the act list.
@@ -146,6 +147,11 @@ func make_fade_away(duration: float) -> LightingAct:
 	return fade_away_act
 
 
+## Creates and returns an empty act that is used to wait one frame.
+func make_idle_frame() -> IdleFrameAct:
+	return _idle_frame_act_scr.new()
+
+
 func _play(act: Act, next_dlg_title: String):
 	if is_instance_valid(act):
 		actm.add_act(act)
@@ -246,6 +252,25 @@ func create_npc(npc_name: String):
 	owner.create_npc(Utils.get_npc_id(npc_name))
 
 
+## Adds an [NPC] with scene name [code]npc_name[/code] to the current [Room]
+## and waits until that is done, then continues with the [code]next_dlg_title[/code].
+## Workaround to create_npc(), since sometimes NPCs can not be created.
+## This happened when trying to make an NPC during an [AreaCutscene].
+func await_create_npc(npc_name: String, next_dlg_title: String):
+	create_npc.call_deferred(npc_name)
+	_play(make_idle_frame(), next_dlg_title)
+
+
+## Adds a [CharacterMark] with xy-coordinates relative to the [Player] position
+## with the given node name [code]mark_node[/code], unless the name already exists.
+## The direction of the created character mark is "right", just as a default.
+func create_mark_from_player(mark_node: String, x: float, y: float):
+	if not has_node(mark_node):
+		var target_pos = owner.party.player.global_position + Vector2(x, y)
+		var target_direction_id = Utils.AnimID.RIGHT
+		owner.create_character_mark(mark_node, target_pos, target_direction_id)
+
+
 ## Sets the [member CanvasItem.z_index] of the [NPC] with the given [code]npc_node[/code] name
 ## to be in front of the general environment.
 func elevate_npc(npc_node: String):
@@ -292,6 +317,19 @@ func set_npc_at_mark(npc_node: String, mark_node: String):
 		var mark = cutscenes.current_cutscene.get_node(mark_node)
 		npc.set_global_position(mark.global_position)
 		set_npc_direction(npc_node, Utils.anim_name[mark.target_direction_id])
+
+
+## Sets the position of the [NPC], with the given [code]npc_node[/code] name,
+## just outside the screen and to the left of the player.
+func set_npc_just_outside_viewport(npc_node: String):
+	if owner.npcs.has_node(npc_node):
+		var npc = owner.npcs.get_node(npc_node)
+		var npc_xpos =\
+			owner.party.player.global_position.y\
+			- ProjectSettings.get("display/window/size/viewport_width")
+		var npc_ypos = owner.party.player.global_position.y
+		var npc_pos = Vector2(npc_xpos, npc_ypos)
+		npc.set_global_position(npc_pos)
 
 
 ## Sets the direction of the [NPC], with the given [code]npc_node[/code] name,

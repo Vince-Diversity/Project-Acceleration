@@ -140,3 +140,21 @@ func mutate_inline_mutations(index: int) -> void:
 		if inline_mutation[0] == index:
 			# The DialogueManager can't be referenced directly here so we need to get it by its path
 			Engine.get_singleton("DialogueManager").mutate(inline_mutation[1], dialogue_line.extra_game_states, true)
+
+
+# Changes fonts for just this line if it exists.
+func change_fonts(font_id: String) -> void:
+	var font_path = get_font_path(font_id)
+	if ResourceLoader.exists(font_path):
+		var font: Font = load(font_path)
+		add_theme_font_override("normal_font", font)
+		add_theme_font_size_override("normal_font_size", 32)
+
+
+# Gets path to the font [code].ttf[/code] asset
+# with the given filename [code]name[/code].
+func get_font_path(font_id) -> String:
+	if font_id.is_empty():
+		return font_id
+	else:
+		return Utils.font_dir.path_join(font_id + ".ttf")

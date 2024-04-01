@@ -262,6 +262,22 @@ func create_npc(npc_id: String):
 	npc.idling_room_id = room_id
 
 
+## Adds a new [CharacterMark] to the current cutscene, if there is one,
+## with the given node name [code]mark_node[/code].
+## The mark is then moved to a [code]target_position[/code]-
+## The [code]target_direction_id[/code] gives the target facing direction.
+func create_character_mark(
+		mark_node: String,
+		target_position: Vector2,
+		target_direction_id: Utils.AnimID):
+	if is_instance_valid(cutscenes.current_cutscene):
+		var mark = CharacterMark.new()
+		mark.name = mark_node
+		mark.target_direction_id = target_direction_id
+		cutscenes.current_cutscene.add_child(mark)
+		mark.set_position(target_position)
+
+
 ## Frees the [NPC] with the given node name [code]npc_node[/code].
 func remove_npc(npc_node: String):
 	var npc = npcs.get_node(npc_node)

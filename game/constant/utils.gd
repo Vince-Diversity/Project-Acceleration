@@ -15,6 +15,7 @@ enum Elevation {
 const dlg_dir = "res://resources/dialogue/"
 const room_dir = "res://game/room/rooms/"
 const profile_dir = "res://assets/profiles/"
+const font_dir = "res://assets/fonts/"
 const bgm_dir = "res://assets/sound/bgm/"
 const npc_dir = "res://game/character/npcs/"
 const entrance_event_dir = "res://resources/events/entrance_events/"

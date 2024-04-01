@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://d11tlbycluywa"]
+[gd_scene load_steps=8 format=3 uid="uid://d11tlbycluywa"]
 
 [ext_resource type="PackedScene" uid="uid://c1go3780g6ead" path="res://game/room/room.tscn" id="1_3ocvk"]
 [ext_resource type="TileSet" uid="uid://db67bqre3wm7u" path="res://resources/tilesets/void_hall/void_hall.tres" id="2_7f1qg"]
@@ -7,6 +7,12 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rq7wn"]
 radius = 256.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xhngm"]
+radius = 2048.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d8iw8"]
+radius = 8192.0
 
 [node name="AbsolutelyUndetectableRoom" instance=ExtResource("1_3ocvk")]
 bgm_file = ""
@@ -19,11 +25,27 @@ layer_0/tile_data = PackedInt32Array(852127, 131072, 1, 786591, 131072, 1, 72105
 next_room_id = "blue_stairs"
 next_room_entrance_node = "PassageDown"
 
-[node name="AreaExitedCutscene" parent="RoomCutscenes" index="0" instance=ExtResource("4_75mje")]
-dialogue_id = "absolutely_undetectable_capsule_area_1"
-dialogue_node = "exited"
+[node name="AreaExitedCutscene1" parent="RoomCutscenes" index="0" instance=ExtResource("4_75mje")]
+dialogue_id = "absolutely_undetectable_capsule"
+dialogue_node = "area_1"
 
-[node name="CollisionShape2D" parent="RoomCutscenes/AreaExitedCutscene/EventArea" index="0"]
+[node name="CollisionShape2D" parent="RoomCutscenes/AreaExitedCutscene1/EventArea" index="0"]
 shape = SubResource("CircleShape2D_rq7wn")
 
-[editable path="RoomCutscenes/AreaExitedCutscene"]
+[node name="AreaExitedCutscene2" parent="RoomCutscenes" index="1" instance=ExtResource("4_75mje")]
+dialogue_id = "absolutely_undetectable_capsule"
+dialogue_node = "area_2"
+
+[node name="CollisionShape2D" parent="RoomCutscenes/AreaExitedCutscene2/EventArea" index="0"]
+shape = SubResource("CircleShape2D_xhngm")
+
+[node name="AreaExitedCutscene3" parent="RoomCutscenes" index="2" instance=ExtResource("4_75mje")]
+dialogue_id = "absolutely_undetectable_capsule"
+dialogue_node = "area_3"
+
+[node name="CollisionShape2D" parent="RoomCutscenes/AreaExitedCutscene3/EventArea" index="0"]
+shape = SubResource("CircleShape2D_d8iw8")
+
+[editable path="RoomCutscenes/AreaExitedCutscene1"]
+[editable path="RoomCutscenes/AreaExitedCutscene2"]
+[editable path="RoomCutscenes/AreaExitedCutscene3"]

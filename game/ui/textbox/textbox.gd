@@ -67,12 +67,14 @@ var dialogue_line: DialogueLine:
 				item.show()
 				_responses_menu.add_child(item)
 		
-		# Toggle profile
+		# Toggle profile or change fonts
 		if not dialogue_line.character.is_empty():
 			if dialogue_line.tags.is_empty():
 				profile.express("")
 			else:
+				# get_tag_value returns an empty string if the tag isnt found
 				profile.express(dialogue_line.get_tag_value("expression"))
+				_dialogue_label.change_fonts(dialogue_line.get_tag_value("font"))
 		else:
 			profile.set_texture(null)
 			profile_background.set_visible(false)

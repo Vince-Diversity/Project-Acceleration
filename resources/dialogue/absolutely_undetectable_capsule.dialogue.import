@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://dbtq55lxa5b2d"
+path="res://.godot/imported/absolutely_undetectable_capsule.dialogue-94370cc95cfb5945fd5ef3381074ead5.tres"
+
+[deps]
+
+source_file="res://resources/dialogue/absolutely_undetectable_capsule.dialogue"
+dest_files=["res://.godot/imported/absolutely_undetectable_capsule.dialogue-94370cc95cfb5945fd5ef3381074ead5.tres"]
+
+[params]
+
+defaults=true

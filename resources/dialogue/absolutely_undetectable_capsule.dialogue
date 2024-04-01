@@ -1,0 +1,26 @@
+~ area_1
+do await_create_npc("Ouroboros", "area_1_npc_created")
+=> END!
+
+
+~ area_1_npc_created
+do create_mark_from_player("OuroborosMark1", -24, 0)
+do set_npc_just_outside_viewport("Ouroboros")
+{{green}}: [#expression=sorry] (It's completely dark in here.)
+do move_npc("Ouroboros", "OuroborosMark1", "temp")
+=> END!
+
+
+~ temp
+do turn_player_to_npc("Ouroboros")
+{{ouroboros}}: [#font=above] Nom nom!
+=> END!
+
+
+~ area_2
+{{green}}: (No turning back now. Just need to keep going.)
+=> END!
+
+
+~ area_3
+=> END!
