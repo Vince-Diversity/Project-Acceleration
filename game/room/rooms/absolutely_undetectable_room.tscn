@@ -6,10 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://btvw7i5rbfitb" path="res://game/cutscene/dialogue_cutscene/area_cutscene/area_exited_cutscene.tscn" id="4_75mje"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rq7wn"]
-radius = 256.0
+radius = 1024.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xhngm"]
-radius = 2048.0
+radius = 4096.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d8iw8"]
 radius = 8192.0

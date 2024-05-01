@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ba8r111wr8llp"
-path="res://.godot/imported/yellow_shocked.png-3f716f9e705555d513f69eb5806266b7.ctex"
+uid="uid://dqggawly26iif"
+path="res://.godot/imported/ai_dorm.png-2a0c4ffe510d423515a570ff3318c934.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/profiles/yellow/yellow_shocked.png"
-dest_files=["res://.godot/imported/yellow_shocked.png-3f716f9e705555d513f69eb5806266b7.ctex"]
+source_file="res://assets/tiles/blue_space/ai_dorm.png"
+dest_files=["res://.godot/imported/ai_dorm.png-2a0c4ffe510d423515a570ff3318c934.ctex"]
 
 [params]
 

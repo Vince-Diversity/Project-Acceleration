@@ -120,9 +120,9 @@ do set_npc_anim("Yellow", "down")
 do set_npc_anim("Amber", "up_angry")
 {{amber}}: [#expression=angry] So not only have you been manipulating us with false dice all this time,
 {{amber}}: [#expression=angry] but you also attempted to trick {{green}} with a fake bet? You rat!
-{{yellow}}: [#expression=shocked] {{amber}}, you hair, s-s-static electricity!
+{{yellow}}: [#expression=scared] {{amber}}, you hair, s-s-static electricity!
 {{amber}}: [#expression=angry] Is that so? How about we perform some experiments on our lab rat?
-{{yellow}}: [#expression=shocked] Eep!
+{{yellow}}: [#expression=scared] Eep!
 do double_npc_speed("Yellow")
 do move_npc("Yellow", "YellowMark3", "escape")
 => END!
@@ -133,6 +133,7 @@ do remove_npc("Yellow")
 do set_npc_anim("Amber", "up")
 {{amber}}: Sigh...
 do move_npc("Amber", "AmberMark3", "finish")
+=> END!
 
 ~ finish
 do set_npc_anim("Amber", "sit_left")

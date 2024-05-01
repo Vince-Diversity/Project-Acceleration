@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_iwocr"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_m5c0x"]
 
 [resource]
-script = ExtResource("1_iwocr")
+script = ExtResource("1_m5c0x")
 using_states = PackedStringArray()
 titles = {
 "approach1": "13",
@@ -13,7 +13,7 @@ titles = {
 "curiosity": "38",
 "escape": "131",
 "examine": "53",
-"finish": "138",
+"finish": "139",
 "fury": "119",
 "item_got": "108",
 "observation": "43",
@@ -366,7 +366,7 @@ lines = {
 }]),
 "id": "123",
 "next_id": "124",
-"tags": PackedStringArray("expression=shocked"),
+"tags": PackedStringArray("expression=scared"),
 "text": "{{amber}}, you hair, s-s-static electricity!",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -406,7 +406,7 @@ lines = {
 }]),
 "id": "125",
 "next_id": "126",
-"tags": PackedStringArray("expression=shocked"),
+"tags": PackedStringArray("expression=scared"),
 "text": "Eep!",
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "Eep!",
@@ -561,17 +561,23 @@ lines = {
 }])])
 }])
 },
-"next_id": "138",
+"next_id": "136",
 "type": "mutation"
 },
-"137": {
-"id": "137",
-"next_id": "138",
-"text": "finish",
-"type": "title"
+"136": {
+"id": "136",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
 },
 "138": {
 "id": "138",
+"next_id": "139",
+"text": "finish",
+"type": "title"
+},
+"139": {
+"id": "139",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_npc_anim",
@@ -582,24 +588,6 @@ lines = {
 }]), Array[Dictionary]([{
 "type": "string",
 "value": "sit_left"
-}])])
-}])
-},
-"next_id": "139",
-"type": "mutation"
-},
-"139": {
-"id": "139",
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "set_npc_dialogue_node",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "Amber"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "talk_after_cat_event"
 }])])
 }])
 },
@@ -620,7 +608,7 @@ lines = {
 "type": "function",
 "value": Array[Array]([Array[Dictionary]([{
 "type": "string",
-"value": "Lime"
+"value": "Amber"
 }]), Array[Dictionary]([{
 "type": "string",
 "value": "talk_after_cat_event"
@@ -638,7 +626,7 @@ lines = {
 "type": "function",
 "value": Array[Array]([Array[Dictionary]([{
 "type": "string",
-"value": "Maroon"
+"value": "Lime"
 }]), Array[Dictionary]([{
 "type": "string",
 "value": "talk_after_cat_event"
@@ -652,6 +640,24 @@ lines = {
 "id": "142",
 "mutation": {
 "expression": Array[Dictionary]([{
+"function": "set_npc_dialogue_node",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Maroon"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "talk_after_cat_event"
+}])])
+}])
+},
+"next_id": "143",
+"type": "mutation"
+},
+"143": {
+"id": "143",
+"mutation": {
+"expression": Array[Dictionary]([{
 "function": "set_npc_dialogue_id",
 "type": "function",
 "value": Array[Array]([Array[Dictionary]([{
@@ -663,11 +669,11 @@ lines = {
 }])])
 }])
 },
-"next_id": "143",
+"next_id": "144",
 "type": "mutation"
 },
-"143": {
-"id": "143",
+"144": {
+"id": "144",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_npc_dialogue_node",
@@ -681,11 +687,11 @@ lines = {
 }])])
 }])
 },
-"next_id": "144",
+"next_id": "145",
 "type": "mutation"
 },
-"144": {
-"id": "144",
+"145": {
+"id": "145",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "change_entrance_event",
@@ -705,11 +711,11 @@ lines = {
 }])])
 }])
 },
-"next_id": "145",
+"next_id": "146",
 "type": "mutation"
 },
-"145": {
-"id": "145",
+"146": {
+"id": "146",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"

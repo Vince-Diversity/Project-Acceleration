@@ -1,26 +1,33 @@
 ~ area_1
-do await_create_npc("Ouroboros", "area_1_npc_created")
-=> END!
-
-
-~ area_1_npc_created
-do create_mark_from_player("OuroborosMark1", -24, 0)
-do set_npc_just_outside_viewport("Ouroboros")
 {{green}}: [#expression=sorry] (It's completely dark in here.)
-do move_npc("Ouroboros", "OuroborosMark1", "temp")
-=> END!
-
-
-~ temp
-do turn_player_to_npc("Ouroboros")
-{{ouroboros}}: [#font=above] Nom nom!
+{{green}}: (But I just need to keep going.)
 => END!
 
 
 ~ area_2
-{{green}}: (No turning back now. Just need to keep going.)
+{{green}}: [#expression=scared] (Hope I won't get lost in here.)
+{{green}}: (But I'm also curious, wonder what will happen next?)
 => END!
 
 
 ~ area_3
+{{green}}: [#expression=scared] (Is there something coming this way?)
+do await_create_npc("Ouroboros", "area_3_npc_created")
+=> END!
+
+
+~ area_3_npc_created
+do set_npc_just_outside_viewport("Ouroboros")
+do create_mark_from_player("OuroborosMark1", -32, 0)
+do move_npc("Ouroboros", "OuroborosMark1", "talk_ouroboros")
+=> END!
+
+~ talk_ouroboros
+do turn_player_to_npc("Ouroboros")
+{{ouroboros}}: [#font=above] Nom you!
+{{green}}: [#expression=cheerful] Hi there! My name is {{green}}. {{blue_teacher}} sent me to this place. Could you guide me?
+{{ouroboros}}: [#font=above] Nom is our friend. {{green}} is our friend.
+do set_npc_anim("Ouroboros", "circling")
+{{ouroboros}}: [#font=above] Nom will help now. Nyoom!
+do change_rooms("blue_space", "Spawn")
 => END!

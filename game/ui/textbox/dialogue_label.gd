@@ -149,6 +149,9 @@ func change_fonts(font_id: String) -> void:
 		var font: Font = load(font_path)
 		add_theme_font_override("normal_font", font)
 		add_theme_font_size_override("normal_font_size", 32)
+	else:
+		remove_theme_font_override("normal_font")
+		remove_theme_font_size_override("normal_font_size")
 
 
 # Gets path to the font [code].ttf[/code] asset

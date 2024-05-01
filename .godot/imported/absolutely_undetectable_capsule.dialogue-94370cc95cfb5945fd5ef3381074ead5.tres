@@ -1,16 +1,16 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_8jo5h"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_tq7my"]
 
 [resource]
-script = ExtResource("1_8jo5h")
+script = ExtResource("1_tq7my")
 using_states = PackedStringArray()
 titles = {
 "area_1": "2",
-"area_1_npc_created": "7",
-"area_2": "21",
-"area_3": "26",
-"temp": "15"
+"area_2": "8",
+"area_3": "14",
+"area_3_npc_created": "20",
+"talk_ouroboros": "26"
 }
 character_names = PackedStringArray("{{green}}", "{{ouroboros}}")
 first_title = "2"
@@ -23,6 +23,118 @@ lines = {
 },
 "10": {
 "id": "10",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"13": {
+"id": "13",
+"next_id": "14",
+"text": "area_3",
+"type": "title"
+},
+"14": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"id": "14",
+"next_id": "15",
+"tags": PackedStringArray("expression=scared"),
+"text": "(Is there something coming this way?)",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "(Is there something coming this way?)",
+"type": "dialogue"
+},
+"15": {
+"id": "15",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "await_create_npc",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Ouroboros"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "area_3_npc_created"
+}])])
+}])
+},
+"next_id": "16",
+"type": "mutation"
+},
+"16": {
+"id": "16",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"19": {
+"id": "19",
+"next_id": "20",
+"text": "area_3_npc_created",
+"type": "title"
+},
+"2": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"id": "2",
+"next_id": "3",
+"tags": PackedStringArray("expression=sorry"),
+"text": "(It's completely dark in here.)",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "(It's completely dark in here.)",
+"type": "dialogue"
+},
+"20": {
+"id": "20",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_npc_just_outside_viewport",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Ouroboros"
+}])])
+}])
+},
+"next_id": "21",
+"type": "mutation"
+},
+"21": {
+"id": "21",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "create_mark_from_player",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "OuroborosMark1"
+}]), Array[Dictionary]([{
+"type": "number",
+"value": -32
+}]), Array[Dictionary]([{
+"type": "number",
+"value": 0
+}])])
+}])
+},
+"next_id": "22",
+"type": "mutation"
+},
+"22": {
+"id": "22",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "move_npc",
@@ -35,27 +147,27 @@ lines = {
 "value": "OuroborosMark1"
 }]), Array[Dictionary]([{
 "type": "string",
-"value": "temp"
+"value": "talk_ouroboros"
 }])])
 }])
 },
-"next_id": "11",
+"next_id": "23",
 "type": "mutation"
 },
-"11": {
-"id": "11",
+"23": {
+"id": "23",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 },
-"14": {
-"id": "14",
-"next_id": "15",
-"text": "temp",
+"25": {
+"id": "25",
+"next_id": "26",
+"text": "talk_ouroboros",
 "type": "title"
 },
-"15": {
-"id": "15",
+"26": {
+"id": "26",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "turn_player_to_npc",
@@ -66,10 +178,10 @@ lines = {
 }])])
 }])
 },
-"next_id": "16",
+"next_id": "27",
 "type": "mutation"
 },
-"16": {
+"27": {
 "character": "{{ouroboros}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -78,45 +190,15 @@ lines = {
 }]),
 "value_in_text": "{{ouroboros}}"
 }]),
-"id": "16",
-"next_id": "17",
+"id": "27",
+"next_id": "28",
 "tags": PackedStringArray("font=above"),
-"text": "Nom nom!",
+"text": "Nom you!",
 "text_replacements": Array[Dictionary]([]),
-"translation_key": "Nom nom!",
+"translation_key": "Nom you!",
 "type": "dialogue"
 },
-"17": {
-"id": "17",
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
-},
-"2": {
-"id": "2",
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "await_create_npc",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "Ouroboros"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "area_1_npc_created"
-}])])
-}])
-},
-"next_id": "3",
-"type": "mutation"
-},
-"20": {
-"id": "20",
-"next_id": "21",
-"text": "area_2",
-"type": "title"
-},
-"21": {
+"28": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -125,79 +207,153 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
-"id": "21",
-"next_id": "22",
-"tags": PackedStringArray(),
-"text": "(No turning back now. Just need to keep going.)",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "(No turning back now. Just need to keep going.)",
+"id": "28",
+"next_id": "29",
+"tags": PackedStringArray("expression=cheerful"),
+"text": "Hi there! My name is {{green}}. {{blue_teacher}} sent me to this place. Could you guide me?",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}, {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "blue_teacher"
+}]),
+"value_in_text": "{{blue_teacher}}"
+}]),
+"translation_key": "Hi there! My name is {{green}}. {{blue_teacher}} sent me to this place. Could you guide me?",
 "type": "dialogue"
 },
-"22": {
-"id": "22",
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
-},
-"25": {
-"id": "25",
-"next_id": "26",
-"text": "area_3",
-"type": "title"
-},
-"26": {
-"id": "26",
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
+"29": {
+"character": "{{ouroboros}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "ouroboros"
+}]),
+"value_in_text": "{{ouroboros}}"
+}]),
+"id": "29",
+"next_id": "30",
+"tags": PackedStringArray("font=above"),
+"text": "Nom is our friend. {{green}} is our friend.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"translation_key": "Nom is our friend. {{green}} is our friend.",
+"type": "dialogue"
 },
 "3": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
 "id": "3",
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
+"next_id": "4",
+"tags": PackedStringArray(),
+"text": "(But I just need to keep going.)",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "(But I just need to keep going.)",
+"type": "dialogue"
 },
-"6": {
-"id": "6",
-"next_id": "7",
-"text": "area_1_npc_created",
-"type": "title"
-},
-"7": {
-"id": "7",
+"30": {
+"id": "30",
 "mutation": {
 "expression": Array[Dictionary]([{
-"function": "create_mark_from_player",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "OuroborosMark1"
-}]), Array[Dictionary]([{
-"type": "number",
-"value": -24
-}]), Array[Dictionary]([{
-"type": "number",
-"value": 0
-}])])
-}])
-},
-"next_id": "8",
-"type": "mutation"
-},
-"8": {
-"id": "8",
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "set_npc_just_outside_viewport",
+"function": "set_npc_anim",
 "type": "function",
 "value": Array[Array]([Array[Dictionary]([{
 "type": "string",
 "value": "Ouroboros"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "circling"
 }])])
 }])
 },
-"next_id": "9",
+"next_id": "31",
 "type": "mutation"
+},
+"31": {
+"character": "{{ouroboros}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "ouroboros"
+}]),
+"value_in_text": "{{ouroboros}}"
+}]),
+"id": "31",
+"next_id": "32",
+"tags": PackedStringArray("font=above"),
+"text": "Nom will help now. Nyoom!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Nom will help now. Nyoom!",
+"type": "dialogue"
+},
+"32": {
+"id": "32",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "change_rooms",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "blue_space"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "Spawn"
+}])])
+}])
+},
+"next_id": "33",
+"type": "mutation"
+},
+"33": {
+"id": "33",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"4": {
+"id": "4",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"7": {
+"id": "7",
+"next_id": "8",
+"text": "area_2",
+"type": "title"
+},
+"8": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"id": "8",
+"next_id": "9",
+"tags": PackedStringArray("expression=scared"),
+"text": "(Hope I won't get lost in here.)",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "(Hope I won't get lost in here.)",
+"type": "dialogue"
 },
 "9": {
 "character": "{{green}}",
@@ -210,10 +366,10 @@ lines = {
 }]),
 "id": "9",
 "next_id": "10",
-"tags": PackedStringArray("expression=sorry"),
-"text": "(It's completely dark in here.)",
+"tags": PackedStringArray(),
+"text": "(But I'm also curious, wonder what will happen next?)",
 "text_replacements": Array[Dictionary]([]),
-"translation_key": "(It's completely dark in here.)",
+"translation_key": "(But I'm also curious, wonder what will happen next?)",
 "type": "dialogue"
 }
 }

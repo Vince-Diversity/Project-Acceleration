@@ -325,7 +325,7 @@ func set_npc_just_outside_viewport(npc_node: String):
 	if owner.npcs.has_node(npc_node):
 		var npc = owner.npcs.get_node(npc_node)
 		var npc_xpos =\
-			owner.party.player.global_position.y\
+			owner.party.player.global_position.x\
 			- ProjectSettings.get("display/window/size/viewport_width")
 		var npc_ypos = owner.party.player.global_position.y
 		var npc_pos = Vector2(npc_xpos, npc_ypos)
