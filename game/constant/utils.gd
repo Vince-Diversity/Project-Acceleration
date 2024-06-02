@@ -104,7 +104,7 @@ static func get_bgm_path(bgm_name: String) -> String:
 	return bgm_dir.path_join(bgm_name + ".ogg")
 
 
-## Gets the path to the [NPC] with the given [code]npc_id[/code].
+## Gets the path to the [NPC] with the given [code]npc_id[/code],
 static func get_npc_path(npc_id: String) -> String:
 	return npc_dir.path_join(npc_id + ".tscn")
 

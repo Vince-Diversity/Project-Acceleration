@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SaveGame" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="SaveGame" load_steps=2 format=3 uid="uid://dpbm6pengkg75"]
 
 [ext_resource type="Script" path="res://loader/save_game.gd" id="1_xqvw2"]
 
@@ -120,12 +120,12 @@ data = {
 "npcs": {
 "Cyan": {
 "current_anim": &"left",
-"dialogue_id": "",
-"dialogue_node": "",
+"dialogue_id": "talk_cyan",
+"dialogue_node": "cue",
 "direction": Vector2(-1, 0),
 "idling_room": "",
-"interaction_node": "",
-"position": Vector2(448, 256),
+"interaction_node": "CyanCutscene",
+"position": Vector2(448, 279),
 "was_joined": false,
 "z_index": 0
 }

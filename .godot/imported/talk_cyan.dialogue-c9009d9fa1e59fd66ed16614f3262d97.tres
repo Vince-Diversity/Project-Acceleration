@@ -1,0 +1,841 @@
+[gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_ytset"]
+
+[resource]
+script = ExtResource("1_ytset")
+using_states = PackedStringArray()
+titles = {
+"cue": "2",
+"talk_1": "6",
+"talk_2": "16",
+"talk_3": "33",
+"talk_4": "50"
+}
+character_names = PackedStringArray("{{cyan}}", "{{green}}", "{{blue_teacher}}")
+first_title = "2"
+lines = {
+"1": {
+"id": "1",
+"next_id": "2",
+"text": "cue",
+"type": "title"
+},
+"10": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"id": "10",
+"next_id": "11",
+"tags": PackedStringArray(),
+"text": "By the way, are you maybe {{cyan}}?",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "cyan"
+}]),
+"value_in_text": "{{cyan}}"
+}]),
+"translation_key": "By the way, are you maybe {{cyan}}?",
+"type": "dialogue"
+},
+"11": {
+"character": "{{cyan}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "cyan"
+}]),
+"value_in_text": "{{cyan}}"
+}]),
+"id": "11",
+"next_id": "12",
+"tags": PackedStringArray(),
+"text": "Oh no! I forgot that you haven't been here before!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Oh no! I forgot that you haven't been here before!",
+"type": "dialogue"
+},
+"12": {
+"id": "12",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "animate_npc",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Cyan"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "left"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "talk_2"
+}])])
+}])
+},
+"next_id": "13",
+"type": "mutation"
+},
+"13": {
+"id": "13",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"15": {
+"id": "15",
+"next_id": "16",
+"text": "talk_2",
+"type": "title"
+},
+"16": {
+"id": "16",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "turn_npc_to_player",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Cyan"
+}])])
+}])
+},
+"next_id": "17",
+"type": "mutation"
+},
+"17": {
+"character": "{{cyan}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "cyan"
+}]),
+"value_in_text": "{{cyan}}"
+}]),
+"id": "17",
+"next_id": "18",
+"tags": PackedStringArray(),
+"text": "Anyways, welcome to {{imaginary}}.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "imaginary"
+}]),
+"value_in_text": "{{imaginary}}"
+}]),
+"translation_key": "Anyways, welcome to {{imaginary}}.",
+"type": "dialogue"
+},
+"18": {
+"character": "{{cyan}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "cyan"
+}]),
+"value_in_text": "{{cyan}}"
+}]),
+"id": "18",
+"next_id": "19",
+"tags": PackedStringArray(),
+"text": "While it is still a subject of study, the {{imaginary}} appears to be a separate world, a place below the familliar {{real}}.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "imaginary"
+}]),
+"value_in_text": "{{imaginary}}"
+}, {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "real"
+}]),
+"value_in_text": "{{real}}"
+}]),
+"translation_key": "While it is still a subject of study, the {{imaginary}} appears to be a separate world, a place below the familliar {{real}}.",
+"type": "dialogue"
+},
+"19": {
+"character": "{{cyan}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "cyan"
+}]),
+"value_in_text": "{{cyan}}"
+}]),
+"id": "19",
+"next_id": "20",
+"tags": PackedStringArray(),
+"text": "What that means is... well... the person you see here now, me, doesn't really exist, from the perspective of the {{real}}.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "real"
+}]),
+"value_in_text": "{{real}}"
+}]),
+"translation_key": "What that means is... well... the person you see here now, me, doesn't really exist, from the perspective of the {{real}}.",
+"type": "dialogue"
+},
+"2": {
+"id": "2",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "move",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "talk_1"
+}])])
+}])
+},
+"next_id": "3",
+"type": "mutation"
+},
+"20": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"id": "20",
+"next_id": "21",
+"tags": PackedStringArray(),
+"text": "That's so interesting! But what about from your perspective?",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "That's so interesting! But what about from your perspective?",
+"type": "dialogue"
+},
+"21": {
+"character": "{{cyan}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "cyan"
+}]),
+"value_in_text": "{{cyan}}"
+}]),
+"id": "21",
+"next_id": "22",
+"tags": PackedStringArray(),
+"text": "From mine? Oh, I don't know...",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "From mine? Oh, I don't know...",
+"type": "dialogue"
+},
+"22": {
+"character": "{{cyan}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "cyan"
+}]),
+"value_in_text": "{{cyan}}"
+}]),
+"id": "22",
+"next_id": "23",
+"tags": PackedStringArray(),
+"text": "Sorry, I haven't heard this question before so I'm unsure how to respond. I'm just a partly-functional AI, after all.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Sorry, I haven't heard this question before so I'm unsure how to respond. I'm just a partly-functional AI, after all.",
+"type": "dialogue"
+},
+"23": {
+"character": "{{cyan}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "cyan"
+}]),
+"value_in_text": "{{cyan}}"
+}]),
+"id": "23",
+"next_id": "24",
+"tags": PackedStringArray(),
+"text": "Aaanyways... From my perspective, well that's complicated. My body here feels real, because it only exists in this world. But I also exist in the {{real}}, that is how I can contact students, after all.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "real"
+}]),
+"value_in_text": "{{real}}"
+}]),
+"translation_key": "Aaanyways... From my perspective, well that's complicated. My body here feels real, because it only exists in this world. But I also exist in the {{real}}, that is how I can contact students, after all.",
+"type": "dialogue"
+},
+"24": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"id": "24",
+"next_id": "25",
+"tags": PackedStringArray(),
+"text": "OK, I understand.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "OK, I understand.",
+"type": "dialogue"
+},
+"25": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"id": "25",
+"next_id": "26",
+"tags": PackedStringArray("expression=cheerful"),
+"text": "That is so interesting!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "That is so interesting!",
+"type": "dialogue"
+},
+"26": {
+"id": "26",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "create_npc",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "BlueTeacher"
+}])])
+}])
+},
+"next_id": "27",
+"type": "mutation"
+},
+"27": {
+"id": "27",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_npc_at_mark",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "BlueTeacher"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "BlueTeacherMark1"
+}])])
+}])
+},
+"next_id": "28",
+"type": "mutation"
+},
+"28": {
+"character": "{{blue_teacher}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "blue_teacher"
+}]),
+"value_in_text": "{{blue_teacher}}"
+}]),
+"id": "28",
+"next_id": "29",
+"tags": PackedStringArray(),
+"text": "I have arrived.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "I have arrived.",
+"type": "dialogue"
+},
+"29": {
+"id": "29",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "move_npc",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "BlueTeacher"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "BlueTeacherMark2"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "talk_3"
+}])])
+}])
+},
+"next_id": "30",
+"type": "mutation"
+},
+"3": {
+"id": "3",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"30": {
+"id": "30",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"32": {
+"id": "32",
+"next_id": "33",
+"text": "talk_3",
+"type": "title"
+},
+"33": {
+"id": "33",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "turn_npc_to_npc",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Cyan"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "BlueTeacher"
+}])])
+}])
+},
+"next_id": "34",
+"type": "mutation"
+},
+"34": {
+"id": "34",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "turn_player_to_npc",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "BlueTeacher"
+}])])
+}])
+},
+"next_id": "35",
+"type": "mutation"
+},
+"35": {
+"character": "{{blue_teacher}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "blue_teacher"
+}]),
+"value_in_text": "{{blue_teacher}}"
+}]),
+"id": "35",
+"next_id": "36",
+"tags": PackedStringArray(),
+"text": "{{cyan}}, I see that you have already introduced {{green}}, good work.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "cyan"
+}]),
+"value_in_text": "{{cyan}}"
+}, {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"translation_key": "{{cyan}}, I see that you have already introduced {{green}}, good work.",
+"type": "dialogue"
+},
+"36": {
+"character": "{{cyan}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "cyan"
+}]),
+"value_in_text": "{{cyan}}"
+}]),
+"id": "36",
+"next_id": "37",
+"tags": PackedStringArray(),
+"text": "Oh...",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Oh...",
+"type": "dialogue"
+},
+"37": {
+"character": "{{blue_teacher}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "blue_teacher"
+}]),
+"value_in_text": "{{blue_teacher}}"
+}]),
+"id": "37",
+"next_id": "38",
+"tags": PackedStringArray(),
+"text": "{{cyan}}, any new on the problem at hand?",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "cyan"
+}]),
+"value_in_text": "{{cyan}}"
+}]),
+"translation_key": "{{cyan}}, any new on the problem at hand?",
+"type": "dialogue"
+},
+"38": {
+"character": "{{cyan}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "cyan"
+}]),
+"value_in_text": "{{cyan}}"
+}]),
+"id": "38",
+"next_id": "39",
+"tags": PackedStringArray(),
+"text": "No, {{blue_teacher}}. No new signs of the missing student.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "blue_teacher"
+}]),
+"value_in_text": "{{blue_teacher}}"
+}]),
+"translation_key": "No, {{blue_teacher}}. No new signs of the missing student.",
+"type": "dialogue"
+},
+"39": {
+"character": "{{blue_teacher}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "blue_teacher"
+}]),
+"value_in_text": "{{blue_teacher}}"
+}]),
+"id": "39",
+"next_id": "40",
+"tags": PackedStringArray("expression=sorry"),
+"text": "I regret to ask this of you, {{green}}, but I would like you aid in the search for {{blue}}.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}, {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "blue"
+}]),
+"value_in_text": "{{blue}}"
+}]),
+"translation_key": "I regret to ask this of you, {{green}}, but I would like you aid in the search for {{blue}}.",
+"type": "dialogue"
+},
+"40": {
+"character": "{{blue_teacher}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "blue_teacher"
+}]),
+"value_in_text": "{{blue_teacher}}"
+}]),
+"id": "40",
+"next_id": "41",
+"tags": PackedStringArray(),
+"text": "The {{imaginary}} is vast and deep. I would greatly appreciate help from a trustworthy student like you.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "imaginary"
+}]),
+"value_in_text": "{{imaginary}}"
+}]),
+"translation_key": "The {{imaginary}} is vast and deep. I would greatly appreciate help from a trustworthy student like you.",
+"type": "dialogue"
+},
+"41": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"id": "41",
+"next_id": "42",
+"tags": PackedStringArray(),
+"text": "It is my please to be of help, and  my duty as a mentor to find {{blue}}!",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "blue"
+}]),
+"value_in_text": "{{blue}}"
+}]),
+"translation_key": "It is my please to be of help, and  my duty as a mentor to find {{blue}}!",
+"type": "dialogue"
+},
+"42": {
+"character": "{{blue_teacher}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "blue_teacher"
+}]),
+"value_in_text": "{{blue_teacher}}"
+}]),
+"id": "42",
+"next_id": "43",
+"tags": PackedStringArray("expression=cheerful"),
+"text": "Excellent.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Excellent.",
+"type": "dialogue"
+},
+"43": {
+"character": "{{blue_teacher}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "blue_teacher"
+}]),
+"value_in_text": "{{blue_teacher}}"
+}]),
+"id": "43",
+"next_id": "44",
+"tags": PackedStringArray(),
+"text": "Now, a word of precaution. There is yet no evidence that what happens in the {{imaginary}} can harm our actual selves. But I am not fond of the idea to have students find such evidence first-hand.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "imaginary"
+}]),
+"value_in_text": "{{imaginary}}"
+}]),
+"translation_key": "Now, a word of precaution. There is yet no evidence that what happens in the {{imaginary}} can harm our actual selves. But I am not fond of the idea to have students find such evidence first-hand.",
+"type": "dialogue"
+},
+"44": {
+"character": "{{blue_teacher}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "blue_teacher"
+}]),
+"value_in_text": "{{blue_teacher}}"
+}]),
+"id": "44",
+"next_id": "45",
+"tags": PackedStringArray(),
+"text": "But the situation becomes different when a student is missing, highly suspected to have gone deeper into the {{imaginary}} through their own ability.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "imaginary"
+}]),
+"value_in_text": "{{imaginary}}"
+}]),
+"translation_key": "But the situation becomes different when a student is missing, highly suspected to have gone deeper into the {{imaginary}} through their own ability.",
+"type": "dialogue"
+},
+"45": {
+"character": "{{blue_teacher}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "blue_teacher"
+}]),
+"value_in_text": "{{blue_teacher}}"
+}]),
+"id": "45",
+"next_id": "46",
+"tags": PackedStringArray(),
+"text": "So for your safety, {{green}}...",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"translation_key": "So for your safety, {{green}}...",
+"type": "dialogue"
+},
+"46": {
+"id": "46",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "move_npc",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "BlueTeacher"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "BlueTeacherMark3"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "talk_4"
+}])])
+}])
+},
+"next_id": "47",
+"type": "mutation"
+},
+"47": {
+"id": "47",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"49": {
+"id": "49",
+"next_id": "50",
+"text": "talk_4",
+"type": "title"
+},
+"5": {
+"id": "5",
+"next_id": "6",
+"text": "talk_1",
+"type": "title"
+},
+"50": {
+"character": "{{blue_teacher}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "blue_teacher"
+}]),
+"value_in_text": "{{blue_teacher}}"
+}]),
+"id": "50",
+"next_id": "51",
+"tags": PackedStringArray(),
+"text": "{{ouroboros}}!",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "ouroboros"
+}]),
+"value_in_text": "{{ouroboros}}"
+}]),
+"translation_key": "{{ouroboros}}!",
+"type": "dialogue"
+},
+"51": {
+"id": "51",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "create_npc",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Ouroboros"
+}])])
+}])
+},
+"next_id": "52",
+"type": "mutation"
+},
+"52": {
+"id": "52",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"6": {
+"id": "6",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "turn_npc_to_player",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Cyan"
+}])])
+}])
+},
+"next_id": "7",
+"type": "mutation"
+},
+"7": {
+"character": "{{cyan}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "cyan"
+}]),
+"value_in_text": "{{cyan}}"
+}]),
+"id": "7",
+"next_id": "8",
+"tags": PackedStringArray(),
+"text": "{{green}}, I'm sorry for having to trouble you like this.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"translation_key": "{{green}}, I'm sorry for having to trouble you like this.",
+"type": "dialogue"
+},
+"8": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"id": "8",
+"next_id": "9",
+"tags": PackedStringArray("expression=cheerful"),
+"text": "No it's fine!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "No it's fine!",
+"type": "dialogue"
+},
+"9": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"id": "9",
+"next_id": "10",
+"tags": PackedStringArray("expression=sorry"),
+"text": "Actually, it's my fault for not keeping an eye on the new student.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Actually, it's my fault for not keeping an eye on the new student.",
+"type": "dialogue"
+}
+}
+metadata/dialogue_manager_version = "2.31.0"

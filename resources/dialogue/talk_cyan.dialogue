@@ -1,0 +1,52 @@
+~ cue
+do move("talk_1")
+=> END!
+
+~ talk_1
+do turn_npc_to_player("Cyan")
+{{cyan}}: {{green}}, I'm sorry for having to trouble you like this.
+{{green}}: [#expression=cheerful] No it's fine!
+{{green}}: [#expression=sorry] Actually, it's my fault for not keeping an eye on the new student.
+{{green}}: By the way, are you maybe {{cyan}}?
+{{cyan}}: Oh no! I forgot that you haven't been here before!
+do animate_npc("Cyan", "left", "talk_2")
+=> END!
+
+~ talk_2
+do turn_npc_to_player("Cyan")
+{{cyan}}: Anyways, welcome to {{imaginary}}.
+{{cyan}}: While it is still a subject of study, the {{imaginary}} appears to be a separate world, a place below the familliar {{real}}.
+{{cyan}}: What that means is... well... the person you see here now, me, doesn't really exist, from the perspective of the {{real}}.
+{{green}}: That's so interesting! But what about from your perspective?
+{{cyan}}: From mine? Oh, I don't know...
+{{cyan}}: Sorry, I haven't heard this question before so I'm unsure how to respond. I'm just a partly-functional AI, after all.
+{{cyan}}: Aaanyways... From my perspective, well that's complicated. My body here feels real, because it only exists in this world. But I also exist in the {{real}}, that is how I can contact students, after all.
+{{green}}: OK, I understand.
+{{green}}: [#expression=cheerful] That is so interesting!
+do create_npc("BlueTeacher")
+do set_npc_at_mark("BlueTeacher", "BlueTeacherMark1")
+{{blue_teacher}}: I have arrived.
+do move_npc("BlueTeacher", "BlueTeacherMark2", "talk_3")
+=> END!
+
+~ talk_3
+do turn_npc_to_npc("Cyan", "BlueTeacher")
+do turn_player_to_npc("BlueTeacher")
+{{blue_teacher}}: {{cyan}}, I see that you have already introduced {{green}}, good work.
+{{cyan}}: Oh...
+{{blue_teacher}}: {{cyan}}, any new on the problem at hand?
+{{cyan}}: No, {{blue_teacher}}. No new signs of the missing student.
+{{blue_teacher}}: [#expression=sorry] I regret to ask this of you, {{green}}, but I would like you aid in the search for {{blue}}.
+{{blue_teacher}}: The {{imaginary}} is vast and deep. I would greatly appreciate help from a trustworthy student like you.
+{{green}}: It is my please to be of help, and  my duty as a mentor to find {{blue}}!
+{{blue_teacher}}: [#expression=cheerful] Excellent.
+{{blue_teacher}}: Now, a word of precaution. There is yet no evidence that what happens in the {{imaginary}} can harm our actual selves. But I am not fond of the idea to have students find such evidence first-hand.
+{{blue_teacher}}: But the situation becomes different when a student is missing, highly suspected to have gone deeper into the {{imaginary}} through their own ability.
+{{blue_teacher}}: So for your safety, {{green}}...
+do move_npc("BlueTeacher", "BlueTeacherMark3", "talk_4")
+=> END!
+
+~ talk_4
+{{blue_teacher}}: {{ouroboros}}!
+do create_npc("Ouroboros")
+=> END!

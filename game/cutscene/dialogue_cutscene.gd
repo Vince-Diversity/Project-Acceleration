@@ -406,17 +406,31 @@ func turn_npc_to_player(npc_node: String):
 		npc.update_direction()
 
 
+## Turns the [NPC] with the given [code]source_npc_node[/code] name
+## towards the [NPC] with the given [code]target_npc_node[/code] name.
+func turn_npc_to_npc(source_npc_node: String, target_npc_node: String):
+	if owner.npcs.has_node(source_npc_node) and owner.npcs.has_node(target_npc_node):
+		var source_npc = owner.npcs.get_node(source_npc_node)
+		var direction: Vector2 = _get_npc_to_npc_direction(source_npc_node, target_npc_node)
+		source_npc.set_direction(direction)
+		source_npc.update_direction()
+
+
 ## Turns the [Player] towards the [NPC] with the given [code]npc_node[/code] name
-func turn_player_to_npc(npc_node):
+func turn_player_to_npc(npc_node: String):
 	if owner.npcs.has_node(npc_node):
 		var direction = -_get_npc_to_player_direction(npc_node)
 		owner.party.player.set_direction(direction)
 		owner.party.player.update_direction()
 
 
-func _get_npc_to_player_direction(npc_node) -> Vector2:
-	var npc = owner.npcs.get_node(npc_node)
-	return owner.party.player.global_position - npc.global_position
+func _get_npc_to_player_direction(npc_node: String) -> Vector2:
+	return owner.party.player.global_position - owner.npcs.get_node(npc_node).global_position
+
+
+func _get_npc_to_npc_direction(source_npc_node: String, target_npc_node: String) -> Vector2:
+	return owner.npcs.get_node(target_npc_node).global_position \
+		- owner.npcs.get_node(source_npc_node).global_position
 
 
 ## Enables the [EntranceEvent] of the [Room] with the given [code]room_id[/code].
