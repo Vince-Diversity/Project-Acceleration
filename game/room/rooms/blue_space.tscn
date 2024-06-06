@@ -23,6 +23,7 @@ position = Vector2(448, 279)
 interaction_node = "CyanCutscene"
 dialogue_id = "talk_cyan"
 dialogue_node = "cue"
+filename = ""
 
 [node name="CyanCutscene" parent="RoomCutscenes" index="0" instance=ExtResource("5_g7455")]
 position = Vector2(448, 256)

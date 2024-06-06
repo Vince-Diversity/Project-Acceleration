@@ -254,9 +254,13 @@ func _remove_members_at_gateway(door: Door):
 			member.is_waiting_at_gateway = true
 
 
-## Adds the [NPC] with the given filename [code]npc_id[/code] to the [SceneTree].
-func create_npc(npc_id: String):
-	var npc = load(Utils.get_npc_path(npc_id)).instantiate()
+## Adds the [NPC] with the given filename [code]npc_filename[/code] to the [SceneTree]
+## and names the node to [code]npc_node[/code].
+## Alternatively, if the node name is just Pascal case of the filename,
+## the filename does not need to be given or should be an empty string.
+func create_npc(npc_node: String, npc_filename = ""):
+	if npc_filename.is_empty(): npc_filename = Utils.get_npc_id(npc_node)
+	var npc = load(Utils.get_npc_path(npc_filename)).instantiate()
 	npcs.add_child(npc)
 	npc.make_npc(npc.spawn_state, self)
 	npc.idling_room_id = room_id

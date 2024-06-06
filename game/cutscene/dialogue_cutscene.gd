@@ -247,9 +247,11 @@ func remove_npc(npc_node: String):
 		owner.remove_npc(npc_node)
 
 
-## Adds an [NPC] with scene name [code]npc_name[/code] to the current [Room].
-func create_npc(npc_name: String):
-	owner.create_npc(Utils.get_npc_id(npc_name))
+## Adds an [NPC] with node name [code]npc_name[/code] to the current [Room].
+## If the node name is different, i.e. not the Pascal case, of its filename,
+## the filename needs to be added manually with [code]npc_filename[/code].
+func create_npc(npc_node: String, npc_filename = ""):
+	owner.create_npc(npc_node, npc_filename)
 
 
 ## Adds an [NPC] with scene name [code]npc_name[/code] to the current [Room]

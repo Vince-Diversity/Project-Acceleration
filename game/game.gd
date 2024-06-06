@@ -122,7 +122,7 @@ func _create_preserved_npcs(sg: SaveGame):
 			var npc_dict = room_dict[sg.npcs_key][npc_name]
 			if npc_dict[sg.idling_room_key] == current_room.room_id \
 			and not current_room.npcs.has_node(npc_name):
-				var npc = load(Utils.get_npc_path(Utils.get_npc_id(npc_name))).instantiate()
+				var npc = load(Utils.get_npc_path(npc_dict[sg.filename_key])).instantiate()
 				current_room.npcs.add_child(npc)
 				npc.make_npc("npc_still_state", current_room)
 

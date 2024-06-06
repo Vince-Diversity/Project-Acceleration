@@ -43,6 +43,11 @@ class_name NPC extends Character
 	"npc_still_state",
 	"npc_joined_state") var spawn_state: String = "npc_still_state"
 
+## The filename of this node, without the extension.
+## If this string is empty, the NPC node name (converted to snake case) will be used,
+## so edit this when the NPC node name needs to be different.
+@export var filename: String = ""
+
 @onready var _still_state: NPCStillState = \
 	preload("res://game/character/npc_state/npc_still_state.gd").new("npc_still_state", self)
 
@@ -79,6 +84,7 @@ var is_waiting_at_gateway: bool = false
 
 
 func _ready():
+	if filename.is_empty(): filename = Utils.get_npc_id(name)
 	state_list[_still_state.state_id] = _still_state
 	state_list[_joined_state.state_id] = _joined_state
 	current_state = state_list[spawn_state]

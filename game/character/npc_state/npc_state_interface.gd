@@ -52,6 +52,7 @@ func make_save(sg: SaveGame):
 	sg.update_room_keys(npc.room.room_id)
 	var npc_dict = {}
 	sg.data[sg.rooms_key][npc.room.room_id][sg.npcs_key][npc.name] = npc_dict
+	npc_dict[sg.filename_key] = npc.filename
 	npc_dict[sg.interaction_key] = npc.interaction_node
 	npc_dict[sg.dialogue_id_key] = npc.dialogue_id
 	npc_dict[sg.dialogue_node_key] = npc.dialogue_node
@@ -68,6 +69,7 @@ func make_save(sg: SaveGame):
 func make_preserved_save(sg: SaveGame):
 	var npc_dict = {}
 	sg.data[sg.rooms_key][npc.room.room_id][sg.npcs_key][npc.name] = npc_dict
+	npc_dict[sg.filename_key] = npc.filename
 	npc_dict[sg.interaction_key] = npc.interaction_node
 	npc_dict[sg.dialogue_id_key] = npc.dialogue_id
 	npc_dict[sg.dialogue_node_key] = npc.dialogue_node
@@ -83,6 +85,7 @@ func make_preserved_save(sg: SaveGame):
 func load_save(sg: SaveGame):
 	if sg.data[sg.rooms_key].has(npc.room.room_id):
 		var npc_dict = sg.data[sg.rooms_key][npc.room.room_id][sg.npcs_key][npc.name]
+		npc.filename = npc_dict[sg.filename_key]
 		npc.interaction_node = npc_dict[sg.interaction_key]
 		npc.dialogue_id = npc_dict[sg.dialogue_id_key]
 		npc.dialogue_node = npc_dict[sg.dialogue_node_key]

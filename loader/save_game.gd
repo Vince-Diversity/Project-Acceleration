@@ -23,6 +23,8 @@ const condition_key = "conditions"
 const mentoring_condition_key = "is_mentoring"
 
 const state_key = "current_state"
+const filename_key = "filename"
+
 const anim_key = "current_anim"
 const frame_key = "current_frame"
 const interaction_key = "interaction_node"

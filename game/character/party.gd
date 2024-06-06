@@ -73,7 +73,8 @@ func make_preserved_save(sg: SaveGame):
 func load_save(sg: SaveGame):
 	if sg.data.has(sg.party_key):
 		for npc_name in sg.data[sg.party_key]:
-			var npc_id = Utils.get_npc_id(npc_name)
+			var npc_dict = sg.data[sg.rooms_key][owner.room.room_id][sg.npcs_key][npc_name]
+			var npc_id = npc_dict[sg.filename_key]
 			var npc: NPC
 			if owner.npcs.has_node(npc_name):
 				npc = owner.npcs.get_node(npc_name)
