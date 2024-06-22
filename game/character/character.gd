@@ -71,13 +71,19 @@ func update_direction():
 
 ## Sets the character's direction given by the movement animation name [code]anim_name[/code],
 ## or, if the animation does not correponds to any movement direction, plays it like a regular animation.
-func set_animation(anim_name: String):
+## Also disables animation looping by default.
+## Optionally, a looping animation is played when [code]loop_toggle[/code] is true.
+func set_animation(anim_name: String, loop_toggle: bool = false):
 	anim_sprite.set_animation(anim_name)
 	var anim_id = Utils.get_anim_id(anim_name)
 	items.clear_exhibit()
+	anim_sprite.sprite_frames.set_animation_loop(anim_name, loop_toggle)
 	if anim_id != null:
 		set_direction(Utils.get_anim_direction(anim_id))
 		update_direction()
+		if loop_toggle:
+			# also play the animation to loop it
+			anim_sprite.play()
 	else:
 		anim_sprite.play(anim_name)
 

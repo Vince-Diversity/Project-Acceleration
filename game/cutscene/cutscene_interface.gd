@@ -20,6 +20,7 @@ class_name Cutscene extends Node2D
 @onready var _move_to_position_act_scr: GDScript = preload("res://game/cutscene/act/move_to_position_act.gd")
 @onready var _animate_act_scr: GDScript = preload("res://game/cutscene/act/animate_act.gd")
 @onready var _async_act_scr: GDScript = preload("res://game/cutscene/act/async_act.gd")
+@onready var _set_act_scr: GDScript = preload("res://game/cutscene/act/set_act.gd")
 
 ## Reference to the cutscenes node of the current [Room].
 var cutscenes: RoomCutscenes
@@ -101,6 +102,14 @@ func make_animate_thing(thing_node: String, anim_name: String) -> AnimateAct:
 			owner.things.get_node(thing_node).anim_sprite,
 			anim_name)
 	else: return null
+
+
+## Creates and returns an act that calls an arbitrary given [code]setter[/code]
+## with the given [code]setter_args[/code].
+func make_set(setter: Callable, setter_args: Array) -> SetAct:
+	var set_act = _set_act_scr.new()
+	set_act.init_act(setter, setter_args)
+	return set_act
 
 
 ## Changes the state of the [Thing] with the given [code]thing_node[/code] name

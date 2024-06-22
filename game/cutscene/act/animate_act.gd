@@ -18,6 +18,7 @@ func init_act(
 
 ## Plays the animation of this act, if it exists, otherwise a default animation is played.
 func enter():
+	anim.sprite_frames.set_animation_loop(anim_name, false)
 	anim.animation_finished.connect(_on_animation_finished, CONNECT_ONE_SHOT)
 	if anim.sprite_frames.has_animation(anim_name):
 		anim.play(anim_name)

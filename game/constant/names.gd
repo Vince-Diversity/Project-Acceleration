@@ -43,6 +43,4 @@ const blue_aspect := "Immaterial"
 const revealer = "Revealing Eyepiece"
 const inventory = "pocket"
 
-
-var OUROBOROS = "Obo"
-
+const observer = "Observer"

@@ -293,9 +293,12 @@ func set_player_anim(anim_name: String):
 
 ## Sets the animation of the [NPC], with the given [code]npc_node[/code] name,
 ## with the given [member AnimatedSprite2D.animation] [code]anim_name[/code].
-func set_npc_anim(npc_node: String, anim_name: String):
+## Also disables animation looping by default.
+## Optionally, looping can be enabled when [code]loop_toggle[/code] is true.
+func set_npc_anim(npc_node: String, anim_name: String, loop_toggle: bool = false):
 	if owner.npcs.has_node(npc_node):
-		owner.npcs.get_node(npc_node).set_animation(anim_name)
+		var npc = owner.npcs.get_node(npc_node)
+		npc.set_animation(anim_name, loop_toggle)
 
 
 ## Sets the player animation to show an [ItemSprite] with the given [code]item_id[/code].

@@ -26,7 +26,7 @@ do move_npc("Ouroboros", "OuroborosMark1", "talk_ouroboros")
 do turn_player_to_npc("Ouroboros")
 {{ouroboros}}: [#font=above] Nom you!
 {{green}}: [#expression=cheerful] Hi there! My name is {{green}}. {{blue_teacher}} sent me to this place. Could you guide me?
-{{ouroboros}}: [#font=above] Nom is our friend. {{green}} is our friend.
+{{ouroboros}}: [#font=above] {{blue_teacher}} is our friend. {{green}} is our friend.
 do set_npc_anim("Ouroboros", "circling")
 {{ouroboros}}: [#font=above] Nom will help now. Nyoom!
 do change_rooms("blue_space", "Spawn")

@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_tq7my"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_11736"]
 
 [resource]
-script = ExtResource("1_tq7my")
+script = ExtResource("1_11736")
 using_states = PackedStringArray()
 titles = {
 "area_1": "2",
@@ -239,15 +239,21 @@ lines = {
 "id": "29",
 "next_id": "30",
 "tags": PackedStringArray("font=above"),
-"text": "Nom is our friend. {{green}} is our friend.",
+"text": "{{blue_teacher}} is our friend. {{green}} is our friend.",
 "text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "blue_teacher"
+}]),
+"value_in_text": "{{blue_teacher}}"
+}, {
 "expression": Array[Dictionary]([{
 "type": "variable",
 "value": "green"
 }]),
 "value_in_text": "{{green}}"
 }]),
-"translation_key": "Nom is our friend. {{green}} is our friend.",
+"translation_key": "{{blue_teacher}} is our friend. {{green}} is our friend.",
 "type": "dialogue"
 },
 "3": {

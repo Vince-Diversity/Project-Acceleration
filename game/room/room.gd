@@ -145,6 +145,7 @@ func _ready_things():
 
 func _ready_npcs():
 	for npc in npcs.get_children():
+		# Any custom [NPC] names are assumed to be added using the editor
 		npc.make_npc("npc_still_state", self)
 
 
@@ -262,7 +263,7 @@ func create_npc(npc_node: String, npc_filename = ""):
 	if npc_filename.is_empty(): npc_filename = Utils.get_npc_id(npc_node)
 	var npc = load(Utils.get_npc_path(npc_filename)).instantiate()
 	npcs.add_child(npc)
-	npc.make_npc(npc.spawn_state, self)
+	npc.make_npc(npc.spawn_state, self, npc_node)
 	npc.idling_room_id = room_id
 
 

@@ -1,18 +1,21 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_ytset"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_5f1hc"]
 
 [resource]
-script = ExtResource("1_ytset")
+script = ExtResource("1_5f1hc")
 using_states = PackedStringArray()
 titles = {
 "cue": "2",
 "talk_1": "6",
 "talk_2": "16",
 "talk_3": "33",
-"talk_4": "50"
+"talk_4": "50",
+"talk_5": "63",
+"talk_6": "71",
+"talk_7": "80"
 }
-character_names = PackedStringArray("{{cyan}}", "{{green}}", "{{blue_teacher}}")
+character_names = PackedStringArray("{{cyan}}", "{{green}}", "{{blue_teacher}}", "{{obo}}")
 first_title = "2"
 lines = {
 "1": {
@@ -533,7 +536,7 @@ lines = {
 "id": "39",
 "next_id": "40",
 "tags": PackedStringArray("expression=sorry"),
-"text": "I regret to ask this of you, {{green}}, but I would like you aid in the search for {{blue}}.",
+"text": "I regret to ask this of you, {{green}}, but I would like your aid in searching for {{blue}}.",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
 "type": "variable",
@@ -547,7 +550,7 @@ lines = {
 }]),
 "value_in_text": "{{blue}}"
 }]),
-"translation_key": "I regret to ask this of you, {{green}}, but I would like you aid in the search for {{blue}}.",
+"translation_key": "I regret to ask this of you, {{green}}, but I would like your aid in searching for {{blue}}.",
 "type": "dialogue"
 },
 "40": {
@@ -722,27 +725,22 @@ lines = {
 "type": "title"
 },
 "50": {
-"character": "{{blue_teacher}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "blue_teacher"
-}]),
-"value_in_text": "{{blue_teacher}}"
-}]),
 "id": "50",
-"next_id": "51",
-"tags": PackedStringArray(),
-"text": "{{ouroboros}}!",
-"text_replacements": Array[Dictionary]([{
+"mutation": {
 "expression": Array[Dictionary]([{
-"type": "variable",
+"function": "create_npc",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Ouroboros1"
+}]), Array[Dictionary]([{
+"type": "string",
 "value": "ouroboros"
-}]),
-"value_in_text": "{{ouroboros}}"
-}]),
-"translation_key": "{{ouroboros}}!",
-"type": "dialogue"
+}])])
+}])
+},
+"next_id": "51",
+"type": "mutation"
 },
 "51": {
 "id": "51",
@@ -752,7 +750,10 @@ lines = {
 "type": "function",
 "value": Array[Array]([Array[Dictionary]([{
 "type": "string",
-"value": "Ouroboros"
+"value": "Ouroboros2"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "ouroboros"
 }])])
 }])
 },
@@ -761,9 +762,252 @@ lines = {
 },
 "52": {
 "id": "52",
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "create_npc",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Ouroboros3"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "ouroboros"
+}])])
+}])
+},
+"next_id": "53",
+"type": "mutation"
+},
+"53": {
+"id": "53",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_npc_at_mark",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Ouroboros1"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "Ouroboros1Mark1"
+}])])
+}])
+},
+"next_id": "54",
+"type": "mutation"
+},
+"54": {
+"id": "54",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_npc_at_mark",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Ouroboros2"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "Ouroboros2Mark1"
+}])])
+}])
+},
+"next_id": "55",
+"type": "mutation"
+},
+"55": {
+"id": "55",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_npc_at_mark",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Ouroboros3"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "Ouroboros3Mark1"
+}])])
+}])
+},
+"next_id": "56",
+"type": "mutation"
+},
+"56": {
+"id": "56",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "add_async",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "array",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "array",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "variable",
+"value": "make_move_npc"
+}]), Array[Dictionary]([{
+"type": "array",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Ouroboros1"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "Ouroboros1Mark2"
+}])])
+}])])
+}]), Array[Dictionary]([{
+"type": "array",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "variable",
+"value": "make_set"
+}]), Array[Dictionary]([{
+"type": "array",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "variable",
+"value": "set_npc_anim"
+}]), Array[Dictionary]([{
+"type": "array",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Ouroboros1"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "left"
+}]), Array[Dictionary]([{
+"type": "variable",
+"value": "true"
+}])])
+}])])
+}])])
+}])])
+}])])
+}])
+},
+"next_id": "57",
+"type": "mutation"
+},
+"57": {
+"id": "57",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "add_async",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "array",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "array",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "variable",
+"value": "make_move_npc"
+}]), Array[Dictionary]([{
+"type": "array",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Ouroboros2"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "Ouroboros2Mark2"
+}])])
+}])])
+}]), Array[Dictionary]([{
+"type": "array",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "variable",
+"value": "make_set"
+}]), Array[Dictionary]([{
+"type": "array",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "variable",
+"value": "set_npc_anim"
+}]), Array[Dictionary]([{
+"type": "array",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Ouroboros2"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "circling"
+}]), Array[Dictionary]([{
+"type": "variable",
+"value": "true"
+}])])
+}])])
+}])])
+}])])
+}])])
+}])
+},
+"next_id": "58",
+"type": "mutation"
+},
+"58": {
+"id": "58",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "add_async",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "array",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "array",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "variable",
+"value": "make_move_npc"
+}]), Array[Dictionary]([{
+"type": "array",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Ouroboros3"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "Ouroboros3Mark2"
+}])])
+}])])
+}]), Array[Dictionary]([{
+"type": "array",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "variable",
+"value": "make_set"
+}]), Array[Dictionary]([{
+"type": "array",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "variable",
+"value": "set_npc_anim"
+}]), Array[Dictionary]([{
+"type": "array",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Ouroboros3"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "down"
+}]), Array[Dictionary]([{
+"type": "variable",
+"value": "true"
+}])])
+}])])
+}])])
+}])])
+}])])
+}])
+},
+"next_id": "59",
+"type": "mutation"
+},
+"59": {
+"id": "59",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "play_async",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "talk_5"
+}])])
+}])
+},
+"next_id": "60",
+"type": "mutation"
 },
 "6": {
 "id": "6",
@@ -779,6 +1023,128 @@ lines = {
 },
 "next_id": "7",
 "type": "mutation"
+},
+"60": {
+"id": "60",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"62": {
+"id": "62",
+"next_id": "63",
+"text": "talk_5",
+"type": "title"
+},
+"63": {
+"character": "{{blue_teacher}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "blue_teacher"
+}]),
+"value_in_text": "{{blue_teacher}}"
+}]),
+"id": "63",
+"next_id": "64",
+"tags": PackedStringArray(),
+"text": "These are magical creatures called {{ouroboros}}.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "ouroboros"
+}]),
+"value_in_text": "{{ouroboros}}"
+}]),
+"translation_key": "These are magical creatures called {{ouroboros}}.",
+"type": "dialogue"
+},
+"64": {
+"character": "{{blue_teacher}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "blue_teacher"
+}]),
+"value_in_text": "{{blue_teacher}}"
+}]),
+"id": "64",
+"next_id": "65",
+"tags": PackedStringArray(),
+"text": "Peculiar creatures they are, living in the {{imaginary}} but unrestricted by any of the common rules in these worlds.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "imaginary"
+}]),
+"value_in_text": "{{imaginary}}"
+}]),
+"translation_key": "Peculiar creatures they are, living in the {{imaginary}} but unrestricted by any of the common rules in these worlds.",
+"type": "dialogue"
+},
+"65": {
+"character": "{{blue_teacher}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "blue_teacher"
+}]),
+"value_in_text": "{{blue_teacher}}"
+}]),
+"id": "65",
+"next_id": "66",
+"tags": PackedStringArray("expression=cheerful"),
+"text": "But what we do know for certain is that they how loyal they are to visitors such as us. Even texts from pioneering explorers can confirm this.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "But what we do know for certain is that they how loyal they are to visitors such as us. Even texts from pioneering explorers can confirm this.",
+"type": "dialogue"
+},
+"66": {
+"character": "{{blue_teacher}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "blue_teacher"
+}]),
+"value_in_text": "{{blue_teacher}}"
+}]),
+"id": "66",
+"next_id": "67",
+"tags": PackedStringArray(),
+"text": "So ideally, I would like to have one of them join you in your journey, {{green}}.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"translation_key": "So ideally, I would like to have one of them join you in your journey, {{green}}.",
+"type": "dialogue"
+},
+"67": {
+"id": "67",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "move_player",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "MentorMark2"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "talk_6"
+}])])
+}])
+},
+"next_id": "68",
+"type": "mutation"
+},
+"68": {
+"id": "68",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
 },
 "7": {
 "character": "{{cyan}}",
@@ -803,6 +1169,259 @@ lines = {
 "translation_key": "{{green}}, I'm sorry for having to trouble you like this.",
 "type": "dialogue"
 },
+"70": {
+"id": "70",
+"next_id": "71",
+"text": "talk_6",
+"type": "title"
+},
+"71": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"id": "71",
+"next_id": "72",
+"tags": PackedStringArray("expression=cheerful"),
+"text": "They're so lively!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "They're so lively!",
+"type": "dialogue"
+},
+"72": {
+"character": "{{blue_teacher}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "blue_teacher"
+}]),
+"value_in_text": "{{blue_teacher}}"
+}]),
+"id": "72",
+"next_id": "73",
+"tags": PackedStringArray(),
+"text": "We may only wait. The {{ouroboros}} can not be chosen. They usually chose which visitor to follow.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "ouroboros"
+}]),
+"value_in_text": "{{ouroboros}}"
+}]),
+"translation_key": "We may only wait. The {{ouroboros}} can not be chosen. They usually chose which visitor to follow.",
+"type": "dialogue"
+},
+"73": {
+"id": "73",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "add_async",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "array",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "array",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "variable",
+"value": "make_move_npc"
+}]), Array[Dictionary]([{
+"type": "array",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Ouroboros1"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "Ouroboros1Mark3"
+}])])
+}])])
+}]), Array[Dictionary]([{
+"type": "array",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "variable",
+"value": "make_animate_npc"
+}]), Array[Dictionary]([{
+"type": "array",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Ouroboros1"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "down"
+}])])
+}])])
+}]), Array[Dictionary]([{
+"type": "array",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "variable",
+"value": "make_move_npc"
+}]), Array[Dictionary]([{
+"type": "array",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Ouroboros1"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "Ouroboros1Mark4"
+}])])
+}])])
+}])])
+}])])
+}])
+},
+"next_id": "74",
+"type": "mutation"
+},
+"74": {
+"id": "74",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "add_async",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "array",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "array",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "variable",
+"value": "make_move_npc"
+}]), Array[Dictionary]([{
+"type": "array",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Ouroboros2"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "Ouroboros2Mark3"
+}])])
+}])])
+}]), Array[Dictionary]([{
+"type": "array",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "variable",
+"value": "make_animate_npc"
+}]), Array[Dictionary]([{
+"type": "array",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Ouroboros2"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "down"
+}])])
+}])])
+}]), Array[Dictionary]([{
+"type": "array",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "variable",
+"value": "make_move_npc"
+}]), Array[Dictionary]([{
+"type": "array",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Ouroboros2"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "Ouroboros2Mark4"
+}])])
+}])])
+}])])
+}])])
+}])
+},
+"next_id": "75",
+"type": "mutation"
+},
+"75": {
+"id": "75",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "add_async",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "array",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "array",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "variable",
+"value": "make_move_npc"
+}]), Array[Dictionary]([{
+"type": "array",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Ouroboros3"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "Ouroboros3Mark3"
+}])])
+}])])
+}]), Array[Dictionary]([{
+"type": "array",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "variable",
+"value": "make_animate_npc"
+}]), Array[Dictionary]([{
+"type": "array",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Ouroboros3"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "right"
+}])])
+}])])
+}]), Array[Dictionary]([{
+"type": "array",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "variable",
+"value": "make_move_npc"
+}]), Array[Dictionary]([{
+"type": "array",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Ouroboros3"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "Ouroboros3Mark4"
+}])])
+}])])
+}])])
+}])])
+}])
+},
+"next_id": "76",
+"type": "mutation"
+},
+"76": {
+"id": "76",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "play_async",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "talk_7"
+}])])
+}])
+},
+"next_id": "77",
+"type": "mutation"
+},
+"77": {
+"id": "77",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"79": {
+"id": "79",
+"next_id": "80",
+"text": "talk_7",
+"type": "title"
+},
 "8": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
@@ -819,6 +1438,144 @@ lines = {
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "No it's fine!",
 "type": "dialogue"
+},
+"80": {
+"id": "80",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "remove_npc",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Ouroboros2"
+}])])
+}])
+},
+"next_id": "81",
+"type": "mutation"
+},
+"81": {
+"id": "81",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "remove_npc",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Ouroboros3"
+}])])
+}])
+},
+"next_id": "82",
+"type": "mutation"
+},
+"82": {
+"id": "82",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "turn_player_to_npc",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Ouroboros1"
+}])])
+}])
+},
+"next_id": "83",
+"type": "mutation"
+},
+"83": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"id": "83",
+"next_id": "84",
+"tags": PackedStringArray("expression=cheerful"),
+"text": "Hi! My name is {{green}}. What is your name?",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"translation_key": "Hi! My name is {{green}}. What is your name?",
+"type": "dialogue"
+},
+"84": {
+"character": "{{obo}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "obo"
+}]),
+"value_in_text": "{{obo}}"
+}]),
+"id": "84",
+"next_id": "85",
+"tags": PackedStringArray("font=above"),
+"text": "{{ouroboros}}.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "ouroboros"
+}]),
+"value_in_text": "{{ouroboros}}"
+}]),
+"translation_key": "{{ouroboros}}.",
+"type": "dialogue"
+},
+"85": {
+"character": "{{obo}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "obo"
+}]),
+"value_in_text": "{{obo}}"
+}]),
+"id": "85",
+"next_id": "86",
+"tags": PackedStringArray("font=above"),
+"text": "Nom, {{green}} is the {{observer}}. Nom will help the {{observer}}, always, when the {{observer}} is wandering in imaginations.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}, {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "observer"
+}]),
+"value_in_text": "{{observer}}"
+}, {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "observer"
+}]),
+"value_in_text": "{{observer}}"
+}, {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "observer"
+}]),
+"value_in_text": "{{observer}}"
+}]),
+"translation_key": "Nom, {{green}} is the {{observer}}. Nom will help the {{observer}}, always, when the {{observer}} is wandering in imaginations.",
+"type": "dialogue"
+},
+"86": {
+"id": "86",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
 },
 "9": {
 "character": "{{green}}",

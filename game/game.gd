@@ -124,7 +124,7 @@ func _create_preserved_npcs(sg: SaveGame):
 			and not current_room.npcs.has_node(npc_name):
 				var npc = load(Utils.get_npc_path(npc_dict[sg.filename_key])).instantiate()
 				current_room.npcs.add_child(npc)
-				npc.make_npc("npc_still_state", current_room)
+				npc.make_npc("npc_still_state", current_room, npc_name)
 
 
 func _handle_entrance_events(room_id: String, entrance_node: String):

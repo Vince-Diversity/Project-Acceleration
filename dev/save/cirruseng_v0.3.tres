@@ -123,6 +123,7 @@ data = {
 "dialogue_id": "talk_cyan",
 "dialogue_node": "cue",
 "direction": Vector2(-1, 0),
+"filename": "cyan",
 "idling_room": "",
 "interaction_node": "CyanCutscene",
 "position": Vector2(448, 279),

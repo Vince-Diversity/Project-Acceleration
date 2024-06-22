@@ -94,7 +94,9 @@ func _ready():
 ## Initialises this scene after it is added to the [SceneTree].
 func make_npc(
 		given_npc_state: String,
-		given_room: Room):
+		given_room: Room,
+		custom_name: String = ""):
+	if not custom_name.is_empty(): name = custom_name
 	room = given_room
 	change_states(given_npc_state)
 

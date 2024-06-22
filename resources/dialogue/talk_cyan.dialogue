@@ -36,7 +36,7 @@ do turn_player_to_npc("BlueTeacher")
 {{cyan}}: Oh...
 {{blue_teacher}}: {{cyan}}, any new on the problem at hand?
 {{cyan}}: No, {{blue_teacher}}. No new signs of the missing student.
-{{blue_teacher}}: [#expression=sorry] I regret to ask this of you, {{green}}, but I would like you aid in the search for {{blue}}.
+{{blue_teacher}}: [#expression=sorry] I regret to ask this of you, {{green}}, but I would like your aid in searching for {{blue}}.
 {{blue_teacher}}: The {{imaginary}} is vast and deep. I would greatly appreciate help from a trustworthy student like you.
 {{green}}: It is my please to be of help, and  my duty as a mentor to find {{blue}}!
 {{blue_teacher}}: [#expression=cheerful] Excellent.
@@ -47,6 +47,40 @@ do move_npc("BlueTeacher", "BlueTeacherMark3", "talk_4")
 => END!
 
 ~ talk_4
-{{blue_teacher}}: {{ouroboros}}!
-do create_npc("Ouroboros")
+do create_npc("Ouroboros1", "ouroboros")
+do create_npc("Ouroboros2", "ouroboros")
+do create_npc("Ouroboros3", "ouroboros")
+do set_npc_at_mark("Ouroboros1", "Ouroboros1Mark1")
+do set_npc_at_mark("Ouroboros2", "Ouroboros2Mark1")
+do set_npc_at_mark("Ouroboros3", "Ouroboros3Mark1")
+do add_async([[make_move_npc, ["Ouroboros1", "Ouroboros1Mark2"]], [make_set, [set_npc_anim, ["Ouroboros1", "left", true]]]])
+do add_async([[make_move_npc, ["Ouroboros2", "Ouroboros2Mark2"]], [make_set, [set_npc_anim, ["Ouroboros2", "circling", true]]]])
+do add_async([[make_move_npc, ["Ouroboros3", "Ouroboros3Mark2"]], [make_set, [set_npc_anim, ["Ouroboros3", "down", true]]]])
+do play_async("talk_5")
+=> END!
+
+~ talk_5
+{{blue_teacher}}: These are magical creatures called {{ouroboros}}.
+{{blue_teacher}}: Peculiar creatures they are, living in the {{imaginary}} but unrestricted by any of the common rules in these worlds.
+{{blue_teacher}}: [#expression=cheerful] But what we do know for certain is that they how loyal they are to visitors such as us. Even texts from pioneering explorers can confirm this.
+{{blue_teacher}}: So ideally, I would like to have one of them join you in your journey, {{green}}.
+do move_player("MentorMark2", "talk_6")
+=> END!
+
+~ talk_6
+{{green}}: [#expression=cheerful] They're so lively!
+{{blue_teacher}}: We may only wait. The {{ouroboros}} can not be chosen. They usually chose which visitor to follow.
+do add_async([[make_move_npc, ["Ouroboros1", "Ouroboros1Mark3"]], [make_animate_npc, ["Ouroboros1", "down"]], [make_move_npc, ["Ouroboros1", "Ouroboros1Mark4"]]])
+do add_async([[make_move_npc, ["Ouroboros2", "Ouroboros2Mark3"]], [make_animate_npc, ["Ouroboros2", "down"]], [make_move_npc, ["Ouroboros2", "Ouroboros2Mark4"]]])
+do add_async([[make_move_npc, ["Ouroboros3", "Ouroboros3Mark3"]], [make_animate_npc, ["Ouroboros3", "right"]], [make_move_npc, ["Ouroboros3", "Ouroboros3Mark4"]]])
+do play_async("talk_7")
+=> END!
+
+~ talk_7
+do remove_npc("Ouroboros2")
+do remove_npc("Ouroboros3")
+do turn_player_to_npc("Ouroboros1")
+{{green}}: [#expression=cheerful] Hi! My name is {{green}}. What is your name?
+{{obo}}: [#font=above] {{ouroboros}}.
+{{obo}}: [#font=above] Nom, {{green}} is the {{observer}}. Nom will help the {{observer}}, always, when the {{observer}} is wandering in imaginations.
 => END!
