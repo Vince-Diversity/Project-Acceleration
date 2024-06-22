@@ -94,6 +94,12 @@ func exhibit(item_id: String):
 	items.start_exhibit_item(item_id)
 
 
+## Plays an animation where the [ItemSprite] with the given [code]item_id[/code]
+## floats above the character.
+func float_item_above(item_id: String):
+	items.start_floating_item(item_id)
+
+
 func _get_anim_name() -> String:
 	if inputted_direction == Vector2.ZERO: return ""
 	var snapped_direction: Vector2 = Utils.snap_to_compass(inputted_direction)

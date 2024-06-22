@@ -313,6 +313,11 @@ func set_npc_exhibit_anim(npc_node: String, item_id: String):
 		owner.npcs.get_node(npc_node).exhibit(item_id)
 
 
+## Sets an [ItemSprite] floating above the player.
+func set_above_player_float(item_id: String):
+	owner.party.player.float_item_above(item_id)
+
+
 ## Sets the position of the [NPC], with the given [code]npc_node[/code] name,
 ## at the [CharacterMark] with the given [code]mark_node[/code] name.
 func set_npc_at_mark(npc_node: String, mark_node: String):

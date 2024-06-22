@@ -11,6 +11,7 @@ class_name Items extends Node2D
 
 @onready var _exhibit_mark = $ExhibitMark
 @onready var _exhibit_background = $ExhibitMark/ExhibitBackground
+@onready var _floating_mark = $FloatingMark
 
 ## List of item IDs of the items currently obtained by the character with this node.
 var item_id_list: Array = []
@@ -21,6 +22,8 @@ var preserved_item_id_list: Array = []
 ## The item currently shown by the character with this node.
 ## Does not necessarily have to be an item obtained by that character.
 var exhibit_item: Item
+
+var floating_item: Item
 
 
 ## Adds the given [code]item_id[/code] to the [member item_id_list].
@@ -36,6 +39,15 @@ func start_exhibit_item(item_id: String):
 		exhibit_item = load(item_path).instantiate()
 		_exhibit_mark.add_child(exhibit_item)
 		_exhibit_background.set_visible(true)
+
+
+## Has the [Item] with the given [code]item_id[/code] float above the character with this node.
+func start_floating_item(item_id: String):
+	if is_instance_valid(floating_item): floating_item.queue_free()
+	var item_path = Utils.get_item_path(item_id)
+	if ResourceLoader.exists(item_path):
+		floating_item = load(item_path).instantiate()
+		_floating_mark.add_child(floating_item)
 
 
 ## Frees the currently displayed [member exhibit_item].

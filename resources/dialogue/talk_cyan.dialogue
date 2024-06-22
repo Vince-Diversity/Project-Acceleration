@@ -47,13 +47,13 @@ do move_npc("BlueTeacher", "BlueTeacherMark3", "talk_4")
 => END!
 
 ~ talk_4
-do create_npc("Ouroboros1", "ouroboros")
+do create_npc("Ouroboros", "ouroboros")
 do create_npc("Ouroboros2", "ouroboros")
 do create_npc("Ouroboros3", "ouroboros")
-do set_npc_at_mark("Ouroboros1", "Ouroboros1Mark1")
+do set_npc_at_mark("Ouroboros", "Ouroboros1Mark1")
 do set_npc_at_mark("Ouroboros2", "Ouroboros2Mark1")
 do set_npc_at_mark("Ouroboros3", "Ouroboros3Mark1")
-do add_async([[make_move_npc, ["Ouroboros1", "Ouroboros1Mark2"]], [make_set, [set_npc_anim, ["Ouroboros1", "left", true]]]])
+do add_async([[make_move_npc, ["Ouroboros", "Ouroboros1Mark2"]], [make_set, [set_npc_anim, ["Ouroboros", "left", true]]]])
 do add_async([[make_move_npc, ["Ouroboros2", "Ouroboros2Mark2"]], [make_set, [set_npc_anim, ["Ouroboros2", "circling", true]]]])
 do add_async([[make_move_npc, ["Ouroboros3", "Ouroboros3Mark2"]], [make_set, [set_npc_anim, ["Ouroboros3", "down", true]]]])
 do play_async("talk_5")
@@ -70,7 +70,7 @@ do move_player("MentorMark2", "talk_6")
 ~ talk_6
 {{green}}: [#expression=cheerful] They're so lively!
 {{blue_teacher}}: We may only wait. The {{ouroboros}} can not be chosen. They usually chose which visitor to follow.
-do add_async([[make_move_npc, ["Ouroboros1", "Ouroboros1Mark3"]], [make_animate_npc, ["Ouroboros1", "down"]], [make_move_npc, ["Ouroboros1", "Ouroboros1Mark4"]]])
+do add_async([[make_move_npc, ["Ouroboros", "Ouroboros1Mark3"]], [make_animate_npc, ["Ouroboros", "down"]], [make_move_npc, ["Ouroboros", "Ouroboros1Mark4"]]])
 do add_async([[make_move_npc, ["Ouroboros2", "Ouroboros2Mark3"]], [make_animate_npc, ["Ouroboros2", "down"]], [make_move_npc, ["Ouroboros2", "Ouroboros2Mark4"]]])
 do add_async([[make_move_npc, ["Ouroboros3", "Ouroboros3Mark3"]], [make_animate_npc, ["Ouroboros3", "right"]], [make_move_npc, ["Ouroboros3", "Ouroboros3Mark4"]]])
 do play_async("talk_7")
@@ -79,8 +79,19 @@ do play_async("talk_7")
 ~ talk_7
 do remove_npc("Ouroboros2")
 do remove_npc("Ouroboros3")
-do turn_player_to_npc("Ouroboros1")
+do turn_player_to_npc("Ouroboros")
 {{green}}: [#expression=cheerful] Hi! My name is {{green}}. What is your name?
-{{obo}}: [#font=above] {{ouroboros}}.
-{{obo}}: [#font=above] Nom, {{green}} is the {{observer}}. Nom will help the {{observer}}, always, when the {{observer}} is wandering in imaginations.
+{{ouroboros}}: [#font=above] {{ouroboros}}.
+{{ouroboros}}: [#font=above] Nom, {{green}} is the {{observer}}. Nom will help the {{observer}}, when the {{observer}} is wandering in imaginations, always.
+do move_npc("Ouroboros", "Ouroboros1Mark5", "ouroboros_got_1")
+=> END!
+
+~ ouroboros_got_1
+do remove_npc("Ouroboros")
+do set_above_player_float("ouroboros")
+do animate_player("admire_above", "ouroboros_got_2")
+=> END!
+
+~ ouroboros_got_2
+[color=yellow]{{ouroboros}} will now follow {{green}} in the {{imaginary}}![/color]
 => END!

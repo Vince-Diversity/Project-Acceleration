@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_5f1hc"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_e4n11"]
 
 [resource]
-script = ExtResource("1_5f1hc")
+script = ExtResource("1_e4n11")
 using_states = PackedStringArray()
 titles = {
 "cue": "2",
+"ouroboros_got_1": "90",
+"ouroboros_got_2": "96",
 "talk_1": "6",
 "talk_2": "16",
 "talk_3": "33",
@@ -15,7 +17,7 @@ titles = {
 "talk_6": "71",
 "talk_7": "80"
 }
-character_names = PackedStringArray("{{cyan}}", "{{green}}", "{{blue_teacher}}", "{{obo}}")
+character_names = PackedStringArray("{{cyan}}", "{{green}}", "{{blue_teacher}}", "{{ouroboros}}")
 first_title = "2"
 lines = {
 "1": {
@@ -732,7 +734,7 @@ lines = {
 "type": "function",
 "value": Array[Array]([Array[Dictionary]([{
 "type": "string",
-"value": "Ouroboros1"
+"value": "Ouroboros"
 }]), Array[Dictionary]([{
 "type": "string",
 "value": "ouroboros"
@@ -786,7 +788,7 @@ lines = {
 "type": "function",
 "value": Array[Array]([Array[Dictionary]([{
 "type": "string",
-"value": "Ouroboros1"
+"value": "Ouroboros"
 }]), Array[Dictionary]([{
 "type": "string",
 "value": "Ouroboros1Mark1"
@@ -849,7 +851,7 @@ lines = {
 "type": "array",
 "value": Array[Array]([Array[Dictionary]([{
 "type": "string",
-"value": "Ouroboros1"
+"value": "Ouroboros"
 }]), Array[Dictionary]([{
 "type": "string",
 "value": "Ouroboros1Mark2"
@@ -869,7 +871,7 @@ lines = {
 "type": "array",
 "value": Array[Array]([Array[Dictionary]([{
 "type": "string",
-"value": "Ouroboros1"
+"value": "Ouroboros"
 }]), Array[Dictionary]([{
 "type": "string",
 "value": "left"
@@ -1232,7 +1234,7 @@ lines = {
 "type": "array",
 "value": Array[Array]([Array[Dictionary]([{
 "type": "string",
-"value": "Ouroboros1"
+"value": "Ouroboros"
 }]), Array[Dictionary]([{
 "type": "string",
 "value": "Ouroboros1Mark3"
@@ -1247,7 +1249,7 @@ lines = {
 "type": "array",
 "value": Array[Array]([Array[Dictionary]([{
 "type": "string",
-"value": "Ouroboros1"
+"value": "Ouroboros"
 }]), Array[Dictionary]([{
 "type": "string",
 "value": "down"
@@ -1262,7 +1264,7 @@ lines = {
 "type": "array",
 "value": Array[Array]([Array[Dictionary]([{
 "type": "string",
-"value": "Ouroboros1"
+"value": "Ouroboros"
 }]), Array[Dictionary]([{
 "type": "string",
 "value": "Ouroboros1Mark4"
@@ -1477,7 +1479,7 @@ lines = {
 "type": "function",
 "value": Array[Array]([Array[Dictionary]([{
 "type": "string",
-"value": "Ouroboros1"
+"value": "Ouroboros"
 }])])
 }])
 },
@@ -1508,13 +1510,13 @@ lines = {
 "type": "dialogue"
 },
 "84": {
-"character": "{{obo}}",
+"character": "{{ouroboros}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
 "type": "variable",
-"value": "obo"
+"value": "ouroboros"
 }]),
-"value_in_text": "{{obo}}"
+"value_in_text": "{{ouroboros}}"
 }]),
 "id": "84",
 "next_id": "85",
@@ -1531,18 +1533,18 @@ lines = {
 "type": "dialogue"
 },
 "85": {
-"character": "{{obo}}",
+"character": "{{ouroboros}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
 "type": "variable",
-"value": "obo"
+"value": "ouroboros"
 }]),
-"value_in_text": "{{obo}}"
+"value_in_text": "{{ouroboros}}"
 }]),
 "id": "85",
 "next_id": "86",
 "tags": PackedStringArray("font=above"),
-"text": "Nom, {{green}} is the {{observer}}. Nom will help the {{observer}}, always, when the {{observer}} is wandering in imaginations.",
+"text": "Nom, {{green}} is the {{observer}}. Nom will help the {{observer}}, when the {{observer}} is wandering in imaginations, always.",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
 "type": "variable",
@@ -1568,14 +1570,41 @@ lines = {
 }]),
 "value_in_text": "{{observer}}"
 }]),
-"translation_key": "Nom, {{green}} is the {{observer}}. Nom will help the {{observer}}, always, when the {{observer}} is wandering in imaginations.",
+"translation_key": "Nom, {{green}} is the {{observer}}. Nom will help the {{observer}}, when the {{observer}} is wandering in imaginations, always.",
 "type": "dialogue"
 },
 "86": {
 "id": "86",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "move_npc",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Ouroboros"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "Ouroboros1Mark5"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "ouroboros_got_1"
+}])])
+}])
+},
+"next_id": "87",
+"type": "mutation"
+},
+"87": {
+"id": "87",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
+},
+"89": {
+"id": "89",
+"next_id": "90",
+"text": "ouroboros_got_1",
+"type": "title"
 },
 "9": {
 "character": "{{green}}",
@@ -1593,6 +1622,101 @@ lines = {
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "Actually, it's my fault for not keeping an eye on the new student.",
 "type": "dialogue"
+},
+"90": {
+"id": "90",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "remove_npc",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Ouroboros"
+}])])
+}])
+},
+"next_id": "91",
+"type": "mutation"
+},
+"91": {
+"id": "91",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_above_player_float",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "ouroboros"
+}])])
+}])
+},
+"next_id": "92",
+"type": "mutation"
+},
+"92": {
+"id": "92",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "animate_player",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "admire_above"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "ouroboros_got_2"
+}])])
+}])
+},
+"next_id": "93",
+"type": "mutation"
+},
+"93": {
+"id": "93",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"95": {
+"id": "95",
+"next_id": "96",
+"text": "ouroboros_got_2",
+"type": "title"
+},
+"96": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "96",
+"next_id": "97",
+"tags": PackedStringArray(),
+"text": "[color=yellow]{{ouroboros}} will now follow {{green}} in the {{imaginary}}![/color]",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "ouroboros"
+}]),
+"value_in_text": "{{ouroboros}}"
+}, {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}, {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "imaginary"
+}]),
+"value_in_text": "{{imaginary}}"
+}]),
+"translation_key": "[color=yellow]{{ouroboros}} will now follow {{green}} in the {{imaginary}}![/color]",
+"type": "dialogue"
+},
+"97": {
+"id": "97",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
 }
 }
 metadata/dialogue_manager_version = "2.31.0"

@@ -22,7 +22,7 @@ script = ExtResource("2_b5inq")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = ExtResource("3_mkne3")
-animation = &"pocket"
+animation = &"down"
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("CircleShape2D_act1d")
@@ -49,6 +49,9 @@ shape = SubResource("CircleShape2D_rkx78")
 
 [node name="ExhibitMark" parent="Items" index="0"]
 position = Vector2(-10, -17)
+
+[node name="FloatingMark" parent="Items" index="1"]
+position = Vector2(0, -20)
 
 [node name="Bubbles" type="Node2D" parent="." index="6"]
 script = ExtResource("4_5sklu")

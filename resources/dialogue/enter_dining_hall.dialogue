@@ -106,7 +106,7 @@ do move_player("MentorMark3", "item_got")
 
 ~ item_got
 do set_player_exhibit_anim("revealer")
-[color=yellow]Obtained the {{revealer}}!
+[color=yellow]Obtained the {{revealer}}![/color]
 do add_item("revealer")
 do set_player_anim("left")
 The {{revealer}} has been stored in the {{inventory}}. [color=yellow]Check on obtained items with the X  key.[/color]

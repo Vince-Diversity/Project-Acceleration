@@ -1,6 +1,7 @@
-[gd_resource type="SpriteFrames" load_steps=40 format=3 uid="uid://drrwv183eagft"]
+[gd_resource type="SpriteFrames" load_steps=43 format=3 uid="uid://drrwv183eagft"]
 
 [ext_resource type="Texture2D" uid="uid://2osd4mx8kcrs" path="res://assets/characters/green/green_down.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://djdjbhg4jummi" path="res://assets/characters/green/green_admire_above.png" id="1_tuonn"]
 [ext_resource type="Texture2D" uid="uid://2cgvjcahm0cf" path="res://assets/characters/green/green_up.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://dwngx03ih6leb" path="res://assets/characters/green/green_focus.png" id="2_acv3m"]
 [ext_resource type="Texture2D" uid="uid://b1i7j4wmi0ky7" path="res://assets/characters/green/green_exhibit.png" id="2_ovg7l"]
@@ -11,6 +12,14 @@
 [ext_resource type="Texture2D" uid="uid://b7ehojjwaqf6q" path="res://assets/characters/green/green_pocket.png" id="6_c7sru"]
 [ext_resource type="Texture2D" uid="uid://bs7hjajc1bunu" path="res://assets/characters/green/green_sit_up.png" id="6_x0xeq"]
 [ext_resource type="Texture2D" uid="uid://bmpvpo4bnni7y" path="res://assets/characters/green/green_right.png" id="8_rann5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fyx5s"]
+atlas = ExtResource("1_tuonn")
+region = Rect2(0, 0, 63, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m75lj"]
+atlas = ExtResource("1_tuonn")
+region = Rect2(63, 0, 63, 64)
 
 [sub_resource type="AtlasTexture" id="5"]
 atlas = ExtResource("1")
@@ -126,6 +135,17 @@ region = Rect2(189, 0, 63, 64)
 
 [resource]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fyx5s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m75lj")
+}],
+"loop": false,
+"name": &"admire_above",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("5")

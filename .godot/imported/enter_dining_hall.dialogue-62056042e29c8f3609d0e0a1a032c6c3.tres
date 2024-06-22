@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_m5c0x"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_y20a4"]
 
 [resource]
-script = ExtResource("1_m5c0x")
+script = ExtResource("1_y20a4")
 using_states = PackedStringArray()
 titles = {
 "approach1": "13",
@@ -142,7 +142,7 @@ lines = {
 "id": "109",
 "next_id": "110",
 "tags": PackedStringArray(),
-"text": "[color=yellow]Obtained the {{revealer}}!",
+"text": "[color=yellow]Obtained the {{revealer}}![/color]",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
 "type": "variable",
@@ -150,7 +150,7 @@ lines = {
 }]),
 "value_in_text": "{{revealer}}"
 }]),
-"translation_key": "[color=yellow]Obtained the {{revealer}}!",
+"translation_key": "[color=yellow]Obtained the {{revealer}}![/color]",
 "type": "dialogue"
 },
 "110": {

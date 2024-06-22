@@ -38,3 +38,5 @@ script = ExtResource("2_vxkua")
 [node name="ExhibitBackground" type="AnimatedSprite2D" parent="Items/ExhibitMark"]
 visible = false
 sprite_frames = ExtResource("3_0ggke")
+
+[node name="FloatingMark" type="Marker2D" parent="Items"]
