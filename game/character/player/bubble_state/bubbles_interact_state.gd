@@ -28,3 +28,7 @@ func select():
 ## Resets any visual modifications done to the bubbles node.
 func reset():
 	player.bubbles.reset_modulation()
+
+
+func change_bubble(_direction: Utils.Direction):
+	pass

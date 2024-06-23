@@ -133,11 +133,13 @@ func check_stored_items():
 		browsing_started.emit()
 
 
-## Adds a thought bubble starting on the first entry of [member Items.item_id_list]
+## Adds a thought bubble from the [member Items.item_id_list]
 ## if the player has any obtained items.
 func make_item_bubble():
 	if not items.item_id_list.is_empty():
-		bubbles.add_item_bubble(items.item_id_list[0])
+		bubbles.add_item_bubble(
+			items.item_id_list[bubbles.current_state.current_item_index],
+			items.item_id_list.size())
 
 
 ## Closes any item thought bubbles.

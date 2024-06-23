@@ -13,3 +13,15 @@ func select():
 	super()
 	player.exhibit(player.bubbles.item_bubble.current_item_id)
 	player.bubbles.idle_bubbles_selected.emit()
+
+
+## Scrolls to an adjacent item.
+## Does nothing if the player has less than two items.
+func change_bubble(direction: Utils.Direction):
+	if player.items.item_id_list.size() > 1:
+		match direction:
+			Utils.Direction.LEFT: current_item_index -= 1
+			Utils.Direction.RIGHT: current_item_index += 1
+		player.bubbles.item_bubble.set_current_item(
+			player.items.item_id_list[current_item_index],
+			player.items.item_id_list.size())

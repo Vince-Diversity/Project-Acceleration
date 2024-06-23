@@ -75,6 +75,10 @@ func reset_bubbles():
 	current_state.reset()
 
 
+func change_bubble(direction: Utils.Direction):
+	current_state.change_bubble(direction)
+
+
 ## Adds an [member interacting_bubble] node.
 func add_interacting_bubble():
 	interacting_bubble = _interacting_bubble_scn.instantiate()
@@ -83,10 +87,10 @@ func add_interacting_bubble():
 
 
 ## Adds an [member item_bubble] node.
-func add_item_bubble(item_id: String):
+func add_item_bubble(item_id: String, item_list_size: int):
 	item_bubble = _item_bubble_scn.instantiate()
 	_item_bubble_mark.add_child(item_bubble)
-	item_bubble.current_item_id = item_id
+	item_bubble.set_current_item(item_id, item_list_size)
 
 
 ## Modulates the thought bubbles, which indicates that an item interaction is possible.

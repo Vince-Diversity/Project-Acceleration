@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://kmbb38hp7tsk"]
 
-[ext_resource type="PackedScene" uid="uid://bk16wp1xkfq2e" path="res://game/character/character.tscn" id="1_shlk6"]
-[ext_resource type="Script" path="res://game/character/player/player.gd" id="2_b5inq"]
-[ext_resource type="SpriteFrames" uid="uid://drrwv183eagft" path="res://resources/characters/green.tres" id="3_mkne3"]
-[ext_resource type="Script" path="res://game/character/player/bubbles.gd" id="4_5sklu"]
+[ext_resource type="PackedScene" uid="uid://bk16wp1xkfq2e" path="res://game/character/character.tscn" id="1_8dn0h"]
+[ext_resource type="Script" path="res://game/character/player/player.gd" id="2_nbpss"]
+[ext_resource type="SpriteFrames" uid="uid://drrwv183eagft" path="res://resources/characters/green.tres" id="3_ricuv"]
+[ext_resource type="Script" path="res://game/character/player/bubbles.gd" id="4_r0uk3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_act1d"]
 radius = 8.0
@@ -14,15 +14,17 @@ radius = 8.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_rkx78"]
 radius = 20.0
 
-[node name="Player" instance=ExtResource("1_shlk6")]
+[node name="Player" instance=ExtResource("1_8dn0h")]
 collision_layer = 1
 collision_mask = 6
 motion_mode = 1
-script = ExtResource("2_b5inq")
+script = ExtResource("2_nbpss")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
-sprite_frames = ExtResource("3_mkne3")
+sprite_frames = ExtResource("3_ricuv")
 animation = &"down"
+frame = 3
+frame_progress = 1.0
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("CircleShape2D_act1d")
@@ -54,7 +56,7 @@ position = Vector2(-10, -17)
 position = Vector2(0, -20)
 
 [node name="Bubbles" type="Node2D" parent="." index="6"]
-script = ExtResource("4_5sklu")
+script = ExtResource("4_r0uk3")
 
 [node name="InteractingBubbleMark" type="Marker2D" parent="Bubbles" index="0"]
 position = Vector2(16, -32)

@@ -8,6 +8,11 @@ var state_id: String
 ## Reference to the player with the [Bubbles] node with this state.
 var player: Player
 
+## The current item index in the [Items.item_id_list].
+var current_item_index: int = 0:
+	set(value):
+		current_item_index %= player.items.item_id_list.size()
+
 
 ## Initialises this class, assigning the ID [member state_id].
 func _init(given_state_id: String):
@@ -32,6 +37,7 @@ func exit():
 
 ## Called when creating a new [ItemBubble] instance.
 func create():
+	current_item_index = 0
 	player.make_item_bubble()
 
 
@@ -43,4 +49,8 @@ func select():
 
 ## Called when resetting visual modifiers on the current bubbles.
 func reset():
+	pass
+
+
+func change_bubble(_direction: Utils.Direction):
 	pass

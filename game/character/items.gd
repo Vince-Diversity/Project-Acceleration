@@ -23,6 +23,7 @@ var preserved_item_id_list: Array = []
 ## Does not necessarily have to be an item obtained by that character.
 var exhibit_item: Item
 
+## An item that floats above the character.
 var floating_item: Item
 
 

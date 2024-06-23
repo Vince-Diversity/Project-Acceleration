@@ -18,6 +18,10 @@ func handle_input(event: InputEvent):
 		_party.player.browsing_ended.emit()
 	elif event.is_action_pressed("ui_accept"):
 		_party.player.bubbles.select_option()
+	elif event.is_action_pressed("ui_left"):
+		_party.player.bubbles.change_bubble(Utils.Direction.LEFT)
+	elif event.is_action_pressed("ui_right"):
+		_party.player.bubbles.change_bubble(Utils.Direction.RIGHT)
 
 
 ## Opens an [ItemBubble] instance above the player
