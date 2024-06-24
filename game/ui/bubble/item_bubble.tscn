@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://24f110c1bjqp"]
+[gd_scene load_steps=9 format=3 uid="uid://24f110c1bjqp"]
 
 [ext_resource type="PackedScene" uid="uid://bcvfpw0neifvb" path="res://game/ui/bubble/bubble.tscn" id="1_vjd68"]
 [ext_resource type="Script" path="res://game/ui/bubble/item_bubble.gd" id="2_bkc7l"]
@@ -41,6 +41,32 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0)
 }
 
+[sub_resource type="Animation" id="Animation_iujax"]
+resource_name = "scroll_left_indicator"
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ScrollLeftIndicator:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(-19, -0.25, 0, 0.25, 0, -23, -0.25, 0, 0.25, 0, -19, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ScrollRightIndicator:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(19, -0.25, 0, 0.25, 0, 23, -0.25, 0, 0.25, 0, 19, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+
 [sub_resource type="Animation" id="Animation_88tmd"]
 resource_name = "indicator"
 loop_mode = 1
@@ -56,42 +82,11 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5, 1)
 }
 
-[sub_resource type="Animation" id="Animation_iujax"]
-resource_name = "scroll_left_indicator"
-loop_mode = 1
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ScrollLeftIndicator:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(-19, -0.25, 0, 0.25, 0, -23, -0.25, 0, 0.25, 0, -19, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5, 1)
-}
-
-[sub_resource type="Animation" id="Animation_s0g5j"]
-resource_name = "right_indicator"
-loop_mode = 1
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ScrollRightIndicator:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(19, -0.25, 0, 0.25, 0, 23, -0.25, 0, 0.25, 0, 19, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5, 1)
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_celc1"]
 _data = {
 "RESET": SubResource("Animation_6v5k1"),
-"indicator": SubResource("Animation_88tmd"),
-"left_indicator": SubResource("Animation_iujax"),
-"right_indicator": SubResource("Animation_s0g5j")
+"scroll_indicator": SubResource("Animation_iujax"),
+"select_indicator": SubResource("Animation_88tmd")
 }
 
 [node name="ItemBubble" instance=ExtResource("1_vjd68")]
@@ -109,7 +104,7 @@ libraries = {
 texture = ExtResource("4_alvii")
 
 [node name="ScrollLeftIndicator" type="Sprite2D" parent="." index="3"]
-position = Vector2(-19, 0)
+position = Vector2(-19, 1)
 rotation = 1.5708
 texture = ExtResource("4_alvii")
 

@@ -11,7 +11,7 @@ var player: Player
 ## The current item index in the [Items.item_id_list].
 var current_item_index: int = 0:
 	set(value):
-		current_item_index %= player.items.item_id_list.size()
+		current_item_index = value % player.items.item_id_list.size()
 
 
 ## Initialises this class, assigning the ID [member state_id].

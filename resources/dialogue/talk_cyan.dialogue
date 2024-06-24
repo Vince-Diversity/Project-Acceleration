@@ -80,6 +80,7 @@ do play_async("talk_7")
 do remove_npc("Ouroboros2")
 do remove_npc("Ouroboros3")
 do turn_player_to_npc("Ouroboros")
+do turn_npc_to_player("BlueTeacher")
 {{green}}: [#expression=cheerful] Hi! My name is {{green}}. What is your name?
 {{ouroboros}}: [#font=above] {{ouroboros}}.
 {{ouroboros}}: [#font=above] Nom, {{green}} is the {{observer}}. Nom will help the {{observer}}, when the {{observer}} is wandering in imaginations, always.
@@ -94,4 +95,22 @@ do animate_player("admire_above", "ouroboros_got_2")
 
 ~ ouroboros_got_2
 [color=yellow]{{ouroboros}} will now follow {{green}} in the {{imaginary}}![/color]
+do add_item("ouroboros")
+{{ouroboros}} can be checked on the same way as other items, with the [color=yellow]X key and then left/right keys.[/color]
+{{blue_teacher}}: The {{observer}}? I need to look into what that means.
+{{blue_teacher}}: [#expression=cheerful] But I am relieved how quickly the {{ouroboros}} took a liking to you, {{green}}.
+{{green}}: [#expression=cheerful] Heehee, this one is making me dizzy!
+{{blue_teacher}}: Now, I will leave it to you, {{green}}. And if you need any further assistance, please ask {{cyan}} or their sibling for help.
+{{green}}: Understood, {{blue_teacher}}.
+do move_npc("BlueTeacher", "BlueTeacherMark4", "setters")
+=> END!
+
+~ setters
+do remove_npc("BlueTeacher")
+do set_npc_dialogue_node("Cyan", "talk_after_ouroboros_obtained")
+=> END!
+
+~ talk_after_ouroboros_obtained
+{{cyan}}: I know {{blue_teacher}} said I could help, but unfortunately I do not really know how...
+{{cyan}}: Maybe you could try find my sibling? They should be on the other side of this space.
 => END!

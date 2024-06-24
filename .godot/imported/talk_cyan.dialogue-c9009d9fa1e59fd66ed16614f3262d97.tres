@@ -1,21 +1,23 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_e4n11"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_hyoof"]
 
 [resource]
-script = ExtResource("1_e4n11")
+script = ExtResource("1_hyoof")
 using_states = PackedStringArray()
 titles = {
 "cue": "2",
-"ouroboros_got_1": "90",
-"ouroboros_got_2": "96",
+"ouroboros_got_1": "91",
+"ouroboros_got_2": "97",
+"setters": "109",
 "talk_1": "6",
 "talk_2": "16",
 "talk_3": "33",
 "talk_4": "50",
 "talk_5": "63",
 "talk_6": "71",
-"talk_7": "80"
+"talk_7": "80",
+"talk_after_ouroboros_obtained": "114"
 }
 character_names = PackedStringArray("{{cyan}}", "{{green}}", "{{blue_teacher}}", "{{ouroboros}}")
 first_title = "2"
@@ -49,6 +51,175 @@ lines = {
 "translation_key": "By the way, are you maybe {{cyan}}?",
 "type": "dialogue"
 },
+"100": {
+"character": "{{blue_teacher}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "blue_teacher"
+}]),
+"value_in_text": "{{blue_teacher}}"
+}]),
+"id": "100",
+"next_id": "101",
+"tags": PackedStringArray(),
+"text": "The {{observer}}? I need to look into what that means.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "observer"
+}]),
+"value_in_text": "{{observer}}"
+}]),
+"translation_key": "The {{observer}}? I need to look into what that means.",
+"type": "dialogue"
+},
+"101": {
+"character": "{{blue_teacher}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "blue_teacher"
+}]),
+"value_in_text": "{{blue_teacher}}"
+}]),
+"id": "101",
+"next_id": "102",
+"tags": PackedStringArray("expression=cheerful"),
+"text": "But I am relieved how quickly the {{ouroboros}} took a liking to you, {{green}}.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "ouroboros"
+}]),
+"value_in_text": "{{ouroboros}}"
+}, {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"translation_key": "But I am relieved how quickly the {{ouroboros}} took a liking to you, {{green}}.",
+"type": "dialogue"
+},
+"102": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"id": "102",
+"next_id": "103",
+"tags": PackedStringArray("expression=cheerful"),
+"text": "Heehee, this one is making me dizzy!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Heehee, this one is making me dizzy!",
+"type": "dialogue"
+},
+"103": {
+"character": "{{blue_teacher}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "blue_teacher"
+}]),
+"value_in_text": "{{blue_teacher}}"
+}]),
+"id": "103",
+"next_id": "104",
+"tags": PackedStringArray(),
+"text": "Now, I will leave it to you, {{green}}. And if you need any further assistance, please ask {{cyan}} or their sibling for help.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}, {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "cyan"
+}]),
+"value_in_text": "{{cyan}}"
+}]),
+"translation_key": "Now, I will leave it to you, {{green}}. And if you need any further assistance, please ask {{cyan}} or their sibling for help.",
+"type": "dialogue"
+},
+"104": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"id": "104",
+"next_id": "105",
+"tags": PackedStringArray(),
+"text": "Understood, {{blue_teacher}}.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "blue_teacher"
+}]),
+"value_in_text": "{{blue_teacher}}"
+}]),
+"translation_key": "Understood, {{blue_teacher}}.",
+"type": "dialogue"
+},
+"105": {
+"id": "105",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "move_npc",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "BlueTeacher"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "BlueTeacherMark4"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "setters"
+}])])
+}])
+},
+"next_id": "106",
+"type": "mutation"
+},
+"106": {
+"id": "106",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"108": {
+"id": "108",
+"next_id": "109",
+"text": "setters",
+"type": "title"
+},
+"109": {
+"id": "109",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "remove_npc",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "BlueTeacher"
+}])])
+}])
+},
+"next_id": "110",
+"type": "mutation"
+},
 "11": {
 "character": "{{cyan}}",
 "character_replacements": Array[Dictionary]([{
@@ -65,6 +236,82 @@ lines = {
 "text_replacements": Array[Dictionary]([]),
 "translation_key": "Oh no! I forgot that you haven't been here before!",
 "type": "dialogue"
+},
+"110": {
+"id": "110",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_npc_dialogue_node",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "Cyan"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "talk_after_ouroboros_obtained"
+}])])
+}])
+},
+"next_id": "111",
+"type": "mutation"
+},
+"111": {
+"id": "111",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"113": {
+"id": "113",
+"next_id": "114",
+"text": "talk_after_ouroboros_obtained",
+"type": "title"
+},
+"114": {
+"character": "{{cyan}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "cyan"
+}]),
+"value_in_text": "{{cyan}}"
+}]),
+"id": "114",
+"next_id": "115",
+"tags": PackedStringArray(),
+"text": "I know {{blue_teacher}} said I could help, but unfortunately I do not really know how...",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "blue_teacher"
+}]),
+"value_in_text": "{{blue_teacher}}"
+}]),
+"translation_key": "I know {{blue_teacher}} said I could help, but unfortunately I do not really know how...",
+"type": "dialogue"
+},
+"115": {
+"character": "{{cyan}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "cyan"
+}]),
+"value_in_text": "{{cyan}}"
+}]),
+"id": "115",
+"next_id": "116",
+"tags": PackedStringArray(),
+"text": "Maybe you could try find my sibling? They should be on the other side of this space.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Maybe you could try find my sibling? They should be on the other side of this space.",
+"type": "dialogue"
+},
+"116": {
+"id": "116",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
 },
 "12": {
 "id": "12",
@@ -1487,6 +1734,21 @@ lines = {
 "type": "mutation"
 },
 "83": {
+"id": "83",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "turn_npc_to_player",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "BlueTeacher"
+}])])
+}])
+},
+"next_id": "84",
+"type": "mutation"
+},
+"84": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -1495,8 +1757,8 @@ lines = {
 }]),
 "value_in_text": "{{green}}"
 }]),
-"id": "83",
-"next_id": "84",
+"id": "84",
+"next_id": "85",
 "tags": PackedStringArray("expression=cheerful"),
 "text": "Hi! My name is {{green}}. What is your name?",
 "text_replacements": Array[Dictionary]([{
@@ -1507,29 +1769,6 @@ lines = {
 "value_in_text": "{{green}}"
 }]),
 "translation_key": "Hi! My name is {{green}}. What is your name?",
-"type": "dialogue"
-},
-"84": {
-"character": "{{ouroboros}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "ouroboros"
-}]),
-"value_in_text": "{{ouroboros}}"
-}]),
-"id": "84",
-"next_id": "85",
-"tags": PackedStringArray("font=above"),
-"text": "{{ouroboros}}.",
-"text_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "ouroboros"
-}]),
-"value_in_text": "{{ouroboros}}"
-}]),
-"translation_key": "{{ouroboros}}.",
 "type": "dialogue"
 },
 "85": {
@@ -1543,6 +1782,29 @@ lines = {
 }]),
 "id": "85",
 "next_id": "86",
+"tags": PackedStringArray("font=above"),
+"text": "{{ouroboros}}.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "ouroboros"
+}]),
+"value_in_text": "{{ouroboros}}"
+}]),
+"translation_key": "{{ouroboros}}.",
+"type": "dialogue"
+},
+"86": {
+"character": "{{ouroboros}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "ouroboros"
+}]),
+"value_in_text": "{{ouroboros}}"
+}]),
+"id": "86",
+"next_id": "87",
 "tags": PackedStringArray("font=above"),
 "text": "Nom, {{green}} is the {{observer}}. Nom will help the {{observer}}, when the {{observer}} is wandering in imaginations, always.",
 "text_replacements": Array[Dictionary]([{
@@ -1573,8 +1835,8 @@ lines = {
 "translation_key": "Nom, {{green}} is the {{observer}}. Nom will help the {{observer}}, when the {{observer}} is wandering in imaginations, always.",
 "type": "dialogue"
 },
-"86": {
-"id": "86",
+"87": {
+"id": "87",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "move_npc",
@@ -1591,20 +1853,14 @@ lines = {
 }])])
 }])
 },
-"next_id": "87",
+"next_id": "88",
 "type": "mutation"
 },
-"87": {
-"id": "87",
+"88": {
+"id": "88",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
-},
-"89": {
-"id": "89",
-"next_id": "90",
-"text": "ouroboros_got_1",
-"type": "title"
 },
 "9": {
 "character": "{{green}}",
@@ -1625,6 +1881,12 @@ lines = {
 },
 "90": {
 "id": "90",
+"next_id": "91",
+"text": "ouroboros_got_1",
+"type": "title"
+},
+"91": {
+"id": "91",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "remove_npc",
@@ -1635,11 +1897,11 @@ lines = {
 }])])
 }])
 },
-"next_id": "91",
+"next_id": "92",
 "type": "mutation"
 },
-"91": {
-"id": "91",
+"92": {
+"id": "92",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_above_player_float",
@@ -1650,11 +1912,11 @@ lines = {
 }])])
 }])
 },
-"next_id": "92",
+"next_id": "93",
 "type": "mutation"
 },
-"92": {
-"id": "92",
+"93": {
+"id": "93",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "animate_player",
@@ -1668,26 +1930,26 @@ lines = {
 }])])
 }])
 },
-"next_id": "93",
+"next_id": "94",
 "type": "mutation"
 },
-"93": {
-"id": "93",
+"94": {
+"id": "94",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"
 },
-"95": {
-"id": "95",
-"next_id": "96",
+"96": {
+"id": "96",
+"next_id": "97",
 "text": "ouroboros_got_2",
 "type": "title"
 },
-"96": {
+"97": {
 "character": "",
 "character_replacements": Array[Dictionary]([]),
-"id": "96",
-"next_id": "97",
+"id": "97",
+"next_id": "98",
 "tags": PackedStringArray(),
 "text": "[color=yellow]{{ouroboros}} will now follow {{green}} in the {{imaginary}}![/color]",
 "text_replacements": Array[Dictionary]([{
@@ -1712,11 +1974,37 @@ lines = {
 "translation_key": "[color=yellow]{{ouroboros}} will now follow {{green}} in the {{imaginary}}![/color]",
 "type": "dialogue"
 },
-"97": {
-"id": "97",
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
+"98": {
+"id": "98",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "add_item",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "ouroboros"
+}])])
+}])
+},
+"next_id": "99",
+"type": "mutation"
+},
+"99": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "99",
+"next_id": "100",
+"tags": PackedStringArray(),
+"text": "{{ouroboros}} can be checked on the same way as other items, with the [color=yellow]X key and then left/right keys.[/color]",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "ouroboros"
+}]),
+"value_in_text": "{{ouroboros}}"
+}]),
+"translation_key": "{{ouroboros}} can be checked on the same way as other items, with the [color=yellow]X key and then left/right keys.[/color]",
+"type": "dialogue"
 }
 }
 metadata/dialogue_manager_version = "2.31.0"

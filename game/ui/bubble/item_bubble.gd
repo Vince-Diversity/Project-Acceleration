@@ -18,17 +18,20 @@ var current_item_id: String:
 ## The current item sprite.
 var current_item_sprite: ItemSprite
 
+## The [AnimatedSprite2D] containing the current item sprite.
+var current_anim_sprite: AnimatedSprite2D
+
 
 func _ready():
 	super()
-	_anim_player.play("indicator")
+	_anim_player.play("select_indicator")
 
 
 func _make_sprite(item_id: String):
 	var item_sprite_path = Utils.get_item_sprite_path(item_id)
 	if ResourceLoader.exists(item_sprite_path):
 		current_item_sprite = load(item_sprite_path)
-		var current_anim_sprite = AnimatedSprite2D.new()
+		current_anim_sprite = AnimatedSprite2D.new()
 		add_child(current_anim_sprite)
 		current_anim_sprite.set_sprite_frames(current_item_sprite)
 		current_anim_sprite.play("default")
@@ -38,6 +41,7 @@ func _make_sprite(item_id: String):
 ## with the given [code]item_id[/code].
 ## Enables scrolling indicators if there are at least two items in the item list.
 func set_current_item(item_id: String, item_list_size: int):
+	if is_instance_valid(current_anim_sprite): current_anim_sprite.queue_free()
 	current_item_id = item_id
 	if item_list_size < 2:
 		_scroll_left_indicator.set_visible(false)
@@ -45,5 +49,4 @@ func set_current_item(item_id: String, item_list_size: int):
 	else:
 		_scroll_left_indicator.set_visible(true)
 		_scroll_right_indicator.set_visible(true)
-		_anim_player.play("left_indicator")
-		_anim_player.play("right_indicator")
+		_anim_player.play("scroll_indicator")

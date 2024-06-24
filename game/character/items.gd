@@ -60,7 +60,10 @@ func clear_exhibit():
 
 ## Saves the item list to the given [code]sg[/code].
 func make_save(sg: SaveGame):
-	sg.data[sg.items_key] = item_id_list
+	var items_dict := {}
+	sg.data[sg.items_key] = items_dict
+	items_dict[sg.item_list_key] = item_id_list
+	items_dict[sg.floating_item_key] = floating_item.item_sprite
 
 
 ## Saves this item list at a previous point in the game session to the given [code]sg[/code].

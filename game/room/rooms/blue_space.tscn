@@ -49,46 +49,50 @@ position = Vector2(20, -5)
 position = Vector2(126, -7)
 target_direction_id = 2
 
-[node name="Ouroboros1Mark1" parent="RoomCutscenes/CyanCutscene" index="6" instance=ExtResource("6_fahoj")]
+[node name="BlueTeacherMark4" parent="RoomCutscenes/CyanCutscene" index="6" instance=ExtResource("6_fahoj")]
+position = Vector2(126, 400)
+target_direction_id = 2
+
+[node name="Ouroboros1Mark1" parent="RoomCutscenes/CyanCutscene" index="7" instance=ExtResource("6_fahoj")]
 position = Vector2(99, -412)
 
-[node name="Ouroboros1Mark2" parent="RoomCutscenes/CyanCutscene" index="7" instance=ExtResource("6_fahoj")]
+[node name="Ouroboros1Mark2" parent="RoomCutscenes/CyanCutscene" index="8" instance=ExtResource("6_fahoj")]
 position = Vector2(97, -58)
 
-[node name="Ouroboros1Mark3" parent="RoomCutscenes/CyanCutscene" index="8" instance=ExtResource("6_fahoj")]
+[node name="Ouroboros1Mark3" parent="RoomCutscenes/CyanCutscene" index="9" instance=ExtResource("6_fahoj")]
 position = Vector2(1, -12)
 
-[node name="Ouroboros1Mark4" parent="RoomCutscenes/CyanCutscene" index="9" instance=ExtResource("6_fahoj")]
+[node name="Ouroboros1Mark4" parent="RoomCutscenes/CyanCutscene" index="10" instance=ExtResource("6_fahoj")]
 position = Vector2(64, -13)
 target_direction_id = 3
 
-[node name="Ouroboros1Mark5" parent="RoomCutscenes/CyanCutscene" index="10" instance=ExtResource("6_fahoj")]
+[node name="Ouroboros1Mark5" parent="RoomCutscenes/CyanCutscene" index="11" instance=ExtResource("6_fahoj")]
 position = Vector2(88, -13)
 target_direction_id = 3
 
-[node name="Ouroboros2Mark1" parent="RoomCutscenes/CyanCutscene" index="11" instance=ExtResource("6_fahoj")]
+[node name="Ouroboros2Mark1" parent="RoomCutscenes/CyanCutscene" index="12" instance=ExtResource("6_fahoj")]
 position = Vector2(127, -378)
 
-[node name="Ouroboros2Mark2" parent="RoomCutscenes/CyanCutscene" index="12" instance=ExtResource("6_fahoj")]
+[node name="Ouroboros2Mark2" parent="RoomCutscenes/CyanCutscene" index="13" instance=ExtResource("6_fahoj")]
 position = Vector2(125, -53)
 
-[node name="Ouroboros2Mark3" parent="RoomCutscenes/CyanCutscene" index="13" instance=ExtResource("6_fahoj")]
+[node name="Ouroboros2Mark3" parent="RoomCutscenes/CyanCutscene" index="14" instance=ExtResource("6_fahoj")]
 position = Vector2(98, -36)
 
-[node name="Ouroboros2Mark4" parent="RoomCutscenes/CyanCutscene" index="14" instance=ExtResource("6_fahoj")]
+[node name="Ouroboros2Mark4" parent="RoomCutscenes/CyanCutscene" index="15" instance=ExtResource("6_fahoj")]
 position = Vector2(97, -391)
 
-[node name="Ouroboros3Mark1" parent="RoomCutscenes/CyanCutscene" index="15" instance=ExtResource("6_fahoj")]
+[node name="Ouroboros3Mark1" parent="RoomCutscenes/CyanCutscene" index="16" instance=ExtResource("6_fahoj")]
 position = Vector2(156, -398)
 
-[node name="Ouroboros3Mark2" parent="RoomCutscenes/CyanCutscene" index="16" instance=ExtResource("6_fahoj")]
+[node name="Ouroboros3Mark2" parent="RoomCutscenes/CyanCutscene" index="17" instance=ExtResource("6_fahoj")]
 position = Vector2(148, -59)
 
-[node name="Ouroboros3Mark3" parent="RoomCutscenes/CyanCutscene" index="17" instance=ExtResource("6_fahoj")]
+[node name="Ouroboros3Mark3" parent="RoomCutscenes/CyanCutscene" index="18" instance=ExtResource("6_fahoj")]
 position = Vector2(169, -24)
 target_direction_id = 3
 
-[node name="Ouroboros3Mark4" parent="RoomCutscenes/CyanCutscene" index="18" instance=ExtResource("6_fahoj")]
+[node name="Ouroboros3Mark4" parent="RoomCutscenes/CyanCutscene" index="19" instance=ExtResource("6_fahoj")]
 position = Vector2(156, -363)
 target_direction_id = 1
 

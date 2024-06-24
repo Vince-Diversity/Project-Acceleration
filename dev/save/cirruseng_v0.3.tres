@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SaveGame" load_steps=2 format=3 uid="uid://dpbm6pengkg75"]
+[gd_resource type="Resource" script_class="SaveGame" load_steps=2 format=3 uid="uid://bs47i1f42sltx"]
 
 [ext_resource type="Script" path="res://loader/save_game.gd" id="1_xqvw2"]
 
@@ -57,7 +57,7 @@ data = {
 },
 "entrance_node": "Spawn"
 },
-"items": ["revealer"],
+"items": ["revealer", "ouroboros"],
 "party": Array[String]([]),
 "rooms": {
 "absolutely_undetectable_room": {
@@ -119,10 +119,10 @@ data = {
 "blue_space": {
 "npcs": {
 "Cyan": {
-"current_anim": &"left",
+"current_anim": &"up",
 "dialogue_id": "talk_cyan",
-"dialogue_node": "cue",
-"direction": Vector2(-1, 0),
+"dialogue_node": "talk_after_ouroboros_obtained",
+"direction": Vector2(0.5686, -0.822614),
 "filename": "cyan",
 "idling_room": "",
 "interaction_node": "CyanCutscene",

@@ -38,6 +38,9 @@ const z_index_key = "z_index"
 
 const bgm_toggle_key = "bgm_toggle"
 
+const item_list_key = "item_list"
+const floating_key = "floating_item"
+
 
 ## Current version of the game.
 @export var game_version := ""
