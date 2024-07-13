@@ -30,5 +30,7 @@ func reset():
 	player.bubbles.reset_modulation()
 
 
+## Unsure what happens when interacting with something
+## while scrolling through items, so not implemented yet.
 func change_bubble(_direction: Utils.Direction):
 	pass

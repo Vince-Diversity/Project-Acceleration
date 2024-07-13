@@ -12,6 +12,10 @@
 {{green}}: (If I am near a thing or person, close enough to interact with them, and then bring this item out again, I might be able to make something happen.)
 => revealer
 
+~ ouroboros
+{{ouroboros}}: [#font=above] Hi!
+=> end_browsing
+
 ~ end_browsing
 do set_player_anim("default")
 => END!

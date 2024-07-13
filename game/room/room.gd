@@ -359,7 +359,7 @@ func _on_idle_bubbles_selected():
 		_browse_state.browsing_cutscene_name,
 		"browse_items",
 		party.player.get_thought_item_sprite().browse_dialogue_node,
-		party.player.items.exhibit_item)
+		null)
 
 
 ## Starts a cutscene about using the current item with [code]item_id[/code]

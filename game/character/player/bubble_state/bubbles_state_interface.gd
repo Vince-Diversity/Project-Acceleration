@@ -52,5 +52,6 @@ func reset():
 	pass
 
 
+## Called when scrolling through obtained items.
 func change_bubble(_direction: Utils.Direction):
 	pass

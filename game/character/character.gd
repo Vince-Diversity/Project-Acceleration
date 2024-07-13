@@ -97,6 +97,7 @@ func exhibit(item_id: String):
 ## Plays an animation where the [ItemSprite] with the given [code]item_id[/code]
 ## floats above the character.
 func float_item_above(item_id: String):
+	set_animation("admire_above")
 	items.start_floating_item(item_id)
 
 

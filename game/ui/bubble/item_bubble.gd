@@ -24,7 +24,7 @@ var current_anim_sprite: AnimatedSprite2D
 
 func _ready():
 	super()
-	_anim_player.play("select_indicator")
+	_anim_player.play("scroll_indicator")
 
 
 func _make_sprite(item_id: String):

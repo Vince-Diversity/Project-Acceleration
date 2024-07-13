@@ -1,17 +1,18 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_jvouj"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_db28l"]
 
 [resource]
-script = ExtResource("1_jvouj")
+script = ExtResource("1_db28l")
 using_states = PackedStringArray()
 titles = {
-"end_browsing": "16",
+"end_browsing": "20",
+"ouroboros": "16",
 "revealer": "2",
 "revealer_info": "8",
 "revealer_instruction": "12"
 }
-character_names = PackedStringArray("{{green}}")
+character_names = PackedStringArray("{{green}}", "{{ouroboros}}")
 first_title = "2"
 lines = {
 "1": {
@@ -52,29 +53,37 @@ lines = {
 "15": {
 "id": "15",
 "next_id": "16",
-"text": "end_browsing",
+"text": "ouroboros",
 "type": "title"
 },
 "16": {
-"id": "16",
-"mutation": {
+"character": "{{ouroboros}}",
+"character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
-"function": "set_player_anim",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "default"
-}])])
-}])
-},
+"type": "variable",
+"value": "ouroboros"
+}]),
+"value_in_text": "{{ouroboros}}"
+}]),
+"id": "16",
 "next_id": "17",
-"type": "mutation"
+"tags": PackedStringArray("font=above"),
+"text": "Hi!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Hi!",
+"type": "dialogue"
 },
 "17": {
 "id": "17",
 "is_snippet": false,
-"next_id": "end!",
+"next_id": "20",
 "type": "goto"
+},
+"19": {
+"id": "19",
+"next_id": "20",
+"text": "end_browsing",
+"type": "title"
 },
 "2": {
 "character": "",
@@ -93,11 +102,32 @@ lines = {
 "translation_key": "{{revealer}}",
 "type": "dialogue"
 },
+"20": {
+"id": "20",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_player_anim",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "default"
+}])])
+}])
+},
+"next_id": "21",
+"type": "mutation"
+},
+"21": {
+"id": "21",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
 "3": {
 "character": "",
 "character_replacements": Array[Dictionary]([]),
 "id": "3",
-"next_id": "16",
+"next_id": "20",
 "next_id_after": "8",
 "responses": PackedStringArray("3", "4", "5"),
 "tags": PackedStringArray(),
