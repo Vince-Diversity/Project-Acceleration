@@ -20,4 +20,4 @@ animations = [{
 script = ExtResource("2_veooi")
 browse_dialogue_node = "revealer"
 interaction_dialogue_node = "reveal"
-select_animation = "exhibit"
+items_state_id = "items_exhibit_state"

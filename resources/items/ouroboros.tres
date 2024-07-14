@@ -20,4 +20,4 @@ animations = [{
 script = ExtResource("2_uhebr")
 browse_dialogue_node = "ouroboros"
 interaction_dialogue_node = ""
-select_animation = "float_item_above"
+items_state_id = "items_above_state"

@@ -19,6 +19,7 @@ class_name ItemSprite extends SpriteFrames
 @export var interaction_dialogue_node: String
 
 
-## Name of the [Character] callable that is called when selecting the item.
-## The callable needs to take one argument that is the ID of the item sprite.
-@export var select_animation: String
+## ID of the [ItemsState] that determines how the
+## player and items are animated.
+## The ID is the filename of the [ItemsState] script.
+@export var items_state_id: String

@@ -63,6 +63,7 @@ func make_player(
 	bubbles.idle_bubbles_selected.connect(idle_bubbles_selected_target)
 	bubbles.interact_bubbles_selected.connect(interact_bubbles_selected_target)
 	bubbles.make_bubbles(self)
+	items.make_items(self)
 
 
 ## Updated at every frame to enable player movement.

@@ -14,9 +14,9 @@ class_name Bubbles extends Node2D
 @onready var _interacting_bubble_scn = preload("res://game/ui/bubble/interacting_bubble.tscn")
 @onready var _item_bubble_scn = preload("res://game/ui/bubble/item_bubble.tscn")
 @onready var _idle_state: BubblesIdleState =\
-	preload("res://game/character/player/bubble_state/bubbles_idle_state.gd").new("bubbles_idle_state")
+	preload("res://game/character/player/bubbles_state/bubbles_idle_state.gd").new("bubbles_idle_state")
 @onready var _interact_state: BubblesInteractState =\
-	preload("res://game/character/player/bubble_state/bubbles_interact_state.gd").new("bubbles_interact_state")
+	preload("res://game/character/player/bubbles_state/bubbles_interact_state.gd").new("bubbles_interact_state")
 
 
 ## The current thought bubble used for interactions.
@@ -51,12 +51,12 @@ func make_bubbles(player: Player):
 	current_state.enter()
 
 
-## Changes the [member current_state] to the given [code]bubble_state_id[/code],
+## Changes the [member current_state] to the given [code]bubbles_state_id[/code],
 ## if that state is not already the current state.
-func try_change_states(bubble_state_id: String):
-	if bubble_state_id != current_state.state_id:
+func try_change_states(bubbles_state_id: String):
+	if bubbles_state_id != current_state.state_id:
 		current_state.exit()
-		current_state = state_list[bubble_state_id]
+		current_state = state_list[bubbles_state_id]
 		current_state.enter()
 
 

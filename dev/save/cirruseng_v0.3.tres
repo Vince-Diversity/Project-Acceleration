@@ -57,7 +57,10 @@ data = {
 },
 "entrance_node": "Spawn"
 },
-"items": ["revealer", "ouroboros"],
+"items": {
+"floating_item": "ouroboros",
+"item_list": ["revealer", "ouroboros"]
+},
 "party": Array[String]([]),
 "rooms": {
 "absolutely_undetectable_room": {

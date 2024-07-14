@@ -11,9 +11,9 @@ func enter():
 ## Also clears the current [Player.nearest_interactable] reference.
 func select():
 	super()
-	player.call(
-		player.bubbles.item_bubble.current_item_sprite.select_animation,
-		player.bubbles.item_bubble.current_item_id)
+	var item_bubble: ItemBubble = player.bubbles.item_bubble
+	player.items.change_states(item_bubble.current_item_sprite.items_state_id)
+	player.items.animate_item_selected(item_bubble.current_item_id)
 	player.bubbles.idle_bubbles_selected.emit()
 
 

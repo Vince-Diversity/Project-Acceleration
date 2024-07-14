@@ -28,15 +28,15 @@ func handle_input(event: InputEvent):
 ## and plays a browsing animation.
 func enter():
 	_previous_player_anim_name = _party.player.anim_sprite.animation
-	_party.player.set_animation("pocket")
+	_party.player.set_animation("think")
 	_party.player.bubbles.create_item_bubble()
 
 
-## Closes the [ItemBubble] instance, hides any occasional items
-## that were shown and restores the player animation to that before this state.
+## Closes the [ItemBubble] instance
+## and restores the player animation to that before this state.
 func exit():
 	_party.player.close_item_bubble()
-	if not is_instance_valid(_party.player.items.exhibit_item):
+	if not _party.player.items.is_animating_item():
 		_party.player.set_animation(_previous_player_anim_name)
 		_party.player.anim_sprite.stop()
 	_previous_player_anim_name = "";

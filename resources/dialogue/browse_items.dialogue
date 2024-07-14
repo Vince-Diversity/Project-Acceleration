@@ -13,8 +13,29 @@
 => revealer
 
 ~ ouroboros
-{{ouroboros}}: [#font=above] Hi!
+(The {{ouroboros}} is floating above my head.)
+- Resume => end_browsing
+- Talk => ouroboros_info
 => end_browsing
+
+~ ouroboros_info
+{{ouroboros}}: Nom is listening, always.
+- "What can you do?" => ouroboros_ability
+- "Could you bring me home?" => ouroboros_home_query
+- Finish talking => end_browsing
+
+~ ouroboros_ability
+{{ouroboros}}: Nom can travel freely in the {{imaginary}}. Nom can bring the {{observer}} to back to their home world. Nom can bring the {{observer}} back to the {{imaginary}}.
+=> ouroboros_info
+
+~ ouroboros_home_query
+{{ouroboros}}: {{observer}} wants to go back home?
+- Yes => ouroboros_home
+- Wait nevermind => ouroboros_info
+
+~ ouroboros_home
+{{ouroboros}}: Nyoom!
+do change_rooms("blue_classroom",  "Spawn")
 
 ~ end_browsing
 do set_player_anim("default")

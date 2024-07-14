@@ -74,9 +74,10 @@ func update_direction():
 ## Also disables animation looping by default.
 ## Optionally, a looping animation is played when [code]loop_toggle[/code] is true.
 func set_animation(anim_name: String, loop_toggle: bool = false):
+	## When moving, stop the character actively holding any item.
+	items.clear_items()
 	anim_sprite.set_animation(anim_name)
 	var anim_id = Utils.get_anim_id(anim_name)
-	items.clear_exhibit()
 	anim_sprite.sprite_frames.set_animation_loop(anim_name, loop_toggle)
 	if anim_id != null:
 		set_direction(Utils.get_anim_direction(anim_id))
@@ -86,19 +87,6 @@ func set_animation(anim_name: String, loop_toggle: bool = false):
 			anim_sprite.play()
 	else:
 		anim_sprite.play(anim_name)
-
-
-## Plays an animation where the character shows the [ItemSprite] with the given [code]item_id[/code].
-func exhibit(item_id: String):
-	set_animation("exhibit")
-	items.start_exhibit_item(item_id)
-
-
-## Plays an animation where the [ItemSprite] with the given [code]item_id[/code]
-## floats above the character.
-func float_item_above(item_id: String):
-	set_animation("admire_above")
-	items.start_floating_item(item_id)
 
 
 func _get_anim_name() -> String:

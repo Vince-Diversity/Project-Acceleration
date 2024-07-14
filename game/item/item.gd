@@ -18,10 +18,15 @@ class_name Item extends StaticBody2D
 ## The sprite of this item.
 @onready var anim_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
-## The sprite resource of this item.
-var item_sprite: ItemSprite
+## The ID of the item is the same as the filename of its corresponding [ItemSprite] resource.
+var item_id: String
 
 
 func _ready():
 	anim_sprite.sprite_frames.set_animation_loop(anim_sprite.animation, true)
 	anim_sprite.play()
+
+
+## Initialise this item before it is added to the scene tree.
+func init_item(given_item_id: String):
+	item_id = given_item_id
