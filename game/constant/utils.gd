@@ -23,7 +23,7 @@ const bgm_dir = "res://assets/sound/bgm/"
 const npc_dir = "res://game/character/npcs/"
 const entrance_event_dir = "res://resources/events/entrance_events/"
 const item_dir = "res://game/item/items/"
-const item_sprite_dir = "res://resources/items/"
+const item_sprite_dir = "res://resources/items/item_sprites"
 
 ## Maps a direction [Vector2] to an [enum AnimID] numbering.
 const anim_direction = {

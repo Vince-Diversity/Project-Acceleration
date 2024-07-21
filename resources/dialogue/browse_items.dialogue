@@ -35,6 +35,7 @@
 
 ~ ouroboros_home
 {{ouroboros}}: Nyoom!
+do change_entrance_event("blue_classroom", "", "enter_blue_classroom", "remove_ouroboros")
 do change_rooms("blue_classroom",  "Spawn")
 
 ~ end_browsing

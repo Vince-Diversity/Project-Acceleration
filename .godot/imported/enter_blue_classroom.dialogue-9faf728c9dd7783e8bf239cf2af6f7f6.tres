@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_wij00"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_5jyq8"]
 
 [resource]
-script = ExtResource("1_wij00")
+script = ExtResource("1_5jyq8")
 using_states = PackedStringArray()
 titles = {
 "cue_enter_1": "63",
@@ -18,6 +18,8 @@ titles = {
 "no": "39",
 "open": "22",
 "query": "57",
+"remove_ouroboros": "93",
+"remove_teacher": "89",
 "stop_talking": "46",
 "talk_setters": "51",
 "yes": "34"
@@ -904,6 +906,27 @@ lines = {
 "next_id": "end!",
 "type": "goto"
 },
+"88": {
+"id": "88",
+"next_id": "89",
+"text": "remove_teacher",
+"type": "title"
+},
+"89": {
+"id": "89",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "remove_npc",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "BlueTeacher"
+}])])
+}])
+},
+"next_id": "90",
+"type": "mutation"
+},
 "9": {
 "id": "9",
 "mutation": {
@@ -948,6 +971,36 @@ lines = {
 },
 "next_id": "10",
 "type": "mutation"
+},
+"90": {
+"id": "90",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
+},
+"92": {
+"id": "92",
+"next_id": "93",
+"text": "remove_ouroboros",
+"type": "title"
+},
+"93": {
+"id": "93",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "clear_player_items",
+"type": "function",
+"value": Array[Array]([])
+}])
+},
+"next_id": "94",
+"type": "mutation"
+},
+"94": {
+"id": "94",
+"is_snippet": false,
+"next_id": "end!",
+"type": "goto"
 }
 }
 metadata/dialogue_manager_version = "2.31.0"

@@ -7,6 +7,11 @@ class_name Items extends Node2D
 ## to the [SceneTree]. Instead, only the [ItemSprite] corresponding to that item is used.
 ## For that reason, every item has both an [Item] node and separate [ItemSprite] resource.
 ## By convention, the ID of an item is defined as the filename (without the extension) of the [ItemSprite] resource.
+## [br]
+## [br]
+## The [ItemSprite] resources are instanced into the [member item_sprite_list].
+## This allows changing what happens when browsing or selecting the item
+## and saving those changes.
 
 @onready var _absent_state =\
 	preload("res://game/character/player/items_state/items_absent_state.gd").new("items_absent_state")
@@ -21,8 +26,17 @@ class_name Items extends Node2D
 @warning_ignore("unused_private_class_variable")
 @onready var _floating_mark = $FloatingMark
 
+const browse_dialogue_node_key = "browse_dialogue_node"
+const interaction_dialogue_node_key = "interaction_dialogue_node"
+const items_state_id_key = "items_state_id"
+
 ## List of item IDs of the items currently obtained by the character with this node.
 var item_id_list: Array = []
+
+## Dictionary mapping item IDs to [ItemSprite] instances.
+## All possible types of items are listed here
+## because new items may be added to the [member item_id_list].
+var item_sprite_list: Dictionary
 
 ## Item IDs list after the last [CutsceneState] ended.
 var preserved_item_id_list: Array = []
@@ -42,10 +56,35 @@ var current_state: ItemsState
 
 
 func _ready():
+	_ready_item_sprite_list()
 	state_list[_absent_state.state_id] = _absent_state
 	state_list[_exhibit_state.state_id] = _exhibit_state
 	state_list[_above_state.state_id] = _above_state
 	current_state = state_list[_absent_state.state_id]
+
+
+func _ready_item_sprite_list():
+	for item_id in Utils.get_files_in_dir(Utils.item_sprite_dir):
+		var item_sprite_path = Utils.get_item_sprite_path(item_id)
+		var item_sprite_res = load(item_sprite_path)
+		var item_dict := {}
+		item_sprite_list[item_id] = item_dict
+		item_dict[browse_dialogue_node_key] = item_sprite_res["browse_dialogue_node"]
+		item_dict[interaction_dialogue_node_key] = item_sprite_res["interaction_dialogue_node"]
+		item_dict[items_state_id_key] = item_sprite_res["items_state_id"]
+
+
+func _add_floating_item(item_id: String):
+	var item_path = Utils.get_item_path(item_id)
+	if ResourceLoader.exists(item_path):
+		floating_item = load(item_path).instantiate()
+		floating_item.init_item(item_id)
+		_floating_mark.add_child(floating_item)
+
+
+func _clear_floating_item():
+	if is_instance_valid(floating_item):
+		floating_item.queue_free()
 
 
 ## Initialises this node after it is added to the [SceneTree].
@@ -70,9 +109,14 @@ func animate_item_selected(item_id: String):
 	current_state.animate_item_selected(item_id)
 
 
-## Clears temporary items.
-func clear_items():
-	current_state.clear()
+## Clears items that the player is actively holding.
+func clear_holding_items():
+	current_state.clear_holding()
+
+
+## Clears items regardless of whether the player is actively holding it or not.
+func clear_any_items():
+	current_state.clear_any()
 
 
 ## Checks if the player is animating an item.
@@ -80,28 +124,15 @@ func is_animating_item() -> bool:
 	return current_state.is_animating()
 
 
-func _add_exhibit_item(item_id: String):
-	var item_path = Utils.get_item_path(item_id)
-	if ResourceLoader.exists(item_path):
-		exhibit_item = load(item_path).instantiate()
-		exhibit_item.init_item(item_id)
-		_exhibit_mark.add_child(exhibit_item)
-		_exhibit_background.set_visible(true)
-
-
-func _add_floating_item(item_id: String):
-	var item_path = Utils.get_item_path(item_id)
-	if ResourceLoader.exists(item_path):
-		floating_item = load(item_path).instantiate()
-		floating_item.init_item(item_id)
-		_floating_mark.add_child(floating_item)
-
-
 ## Saves the item list to the given [code]sg[/code].
 func make_save(sg: SaveGame):
 	var items_dict := {}
 	sg.data[sg.items_key] = items_dict
+	## save what items the player has obtained
 	items_dict[sg.item_list_key] = item_id_list
+	## save changes to what happens when an item is browsed or selected
+	sg.data[sg.items_key][sg.item_sprite_key] = item_sprite_list
+	## if there are any floating items, save their appearance
 	if is_instance_valid(floating_item):
 		items_dict[sg.floating_key] = floating_item.item_id
 	else:
@@ -110,7 +141,12 @@ func make_save(sg: SaveGame):
 
 ## Saves this item list at a previous point in the game session to the given [code]sg[/code].
 func make_preserved_save(sg: SaveGame):
-	sg.data[sg.items_key] = preserved_item_id_list
+	var items_dict := {}
+	sg.data[sg.items_key] = items_dict
+	## save what items the player had obtained at a previous point in the game session
+	items_dict[sg.item_list_key] = preserved_item_id_list
+	## (do not changes to what happens when an item is browsed or selected)
+	## (do not save any floating items)
 
 
 ## Loads the item thing from the given [code]sg[/code].
@@ -118,14 +154,20 @@ func make_preserved_save(sg: SaveGame):
 func load_save_from_parent(sg: SaveGame):
 	if sg.data.has(sg.items_key):
 		var items_dict = sg.data[sg.items_key]
-		item_id_list = items_dict[sg.item_list_key]
+		if items_dict.has(sg.item_list_key):
+			## load what items the player has obtained
+			item_id_list = items_dict[sg.item_list_key]
 		preserved_item_id_list = item_id_list.duplicate()
-		_add_floating_item(items_dict[sg.floating_key])
+		## load any changes to what happens when an item is browsed or selected
+		item_sprite_list = sg.data[sg.items_key][sg.item_sprite_key]
+		## load any floating items
+		if items_dict.has(sg.floating_key):
+			_add_floating_item(items_dict[sg.floating_key])
 
 
 ## Called when a [CutsceneState] ends.
 func exit_cutscene():
 	## Clear items first before changing to default state.
-	clear_items()
+	clear_holding_items()
 	change_states("items_absent_state")
 	preserved_item_id_list = item_id_list.duplicate()

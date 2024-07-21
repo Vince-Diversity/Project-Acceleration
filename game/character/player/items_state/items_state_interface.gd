@@ -19,12 +19,6 @@ func make_state(given_player: Player):
 	player = given_player
 
 
-func _clear_exhibit():
-	if is_instance_valid(player.items.exhibit_item):
-		player.items.exhibit_item.queue_free()
-		player.items._exhibit_background.set_visible(false)
-
-
 ## Called when the character of this state
 ## starts running an animation when selecting an item
 ## with the given [code]item_id[/code].
@@ -34,7 +28,12 @@ func animate_item_selected(_item_id: String):
 
 ## Called when exiting a [CutsceneState] or when
 ## certain items need to be cleared.
-func clear():
+func clear_holding():
+	pass
+
+
+## Called whenever any item needs to be cleared.
+func clear_any():
 	pass
 
 

@@ -73,8 +73,14 @@ func make_preserved_save(sg: SaveGame):
 func load_save(sg: SaveGame):
 	if sg.data.has(sg.party_key):
 		for npc_name in sg.data[sg.party_key]:
-			var npc_dict = sg.data[sg.rooms_key][owner.room.room_id][sg.npcs_key][npc_name]
-			var npc_id = npc_dict[sg.filename_key]
+			var npc_id: String
+			if sg.data.has(sg.rooms_key):
+				## Assume that when starting a new game, the NPC ID is just the NPC name in snake case.
+				npc_id = Utils.get_npc_id(npc_name)
+			else:
+				## Generally, the NPC ID is given by the filename, which is saved in every NPC data.
+				var npc_dict = sg.data[sg.rooms_key][owner.room_id][sg.npcs_key][npc_name]
+				npc_id = npc_dict[sg.filename_key]
 			var npc: NPC
 			if owner.npcs.has_node(npc_name):
 				npc = owner.npcs.get_node(npc_name)

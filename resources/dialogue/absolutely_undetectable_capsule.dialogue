@@ -29,5 +29,6 @@ do turn_player_to_npc("Ouroboros")
 {{ouroboros}}: [#font=above] {{blue_teacher}} is our friend. {{green}} is our friend.
 do set_npc_anim("Ouroboros", "circling")
 {{ouroboros}}: [#font=above] Nom will help now. Nyoom!
+do change_entrance_event("blue_classroom", "", "enter_blue_classroom", "remove_teacher")
 do change_rooms("blue_space", "Spawn")
 => END!

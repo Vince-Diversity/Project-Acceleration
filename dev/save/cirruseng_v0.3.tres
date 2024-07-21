@@ -87,19 +87,7 @@ data = {
 }
 },
 "blue_classroom": {
-"npcs": {
-"BlueTeacher": {
-"current_anim": &"down",
-"dialogue_id": "enter_blue_classroom",
-"dialogue_node": "query",
-"direction": Vector2(0, 1),
-"idling_room": "blue_classroom",
-"interaction_node": "ReturnCutscene",
-"position": Vector2(832.191, 81.3259),
-"was_joined": false,
-"z_index": 0
-}
-},
+"npcs": {},
 "party": {},
 "things": {
 "BookcaseUncertainty": {
@@ -113,6 +101,11 @@ data = {
 "current_state": "thing_interactable_state"
 },
 "PassageLeft": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+"Spawn": {
 "current_anim": &"default",
 "current_frame": 0,
 "current_state": "thing_interactable_state"

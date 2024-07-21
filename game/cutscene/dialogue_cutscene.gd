@@ -286,6 +286,12 @@ func reset_npc_elevation(npc_node: String):
 		owner.npcs.get_node(npc_node).set_z_index(Utils.Elevation.FLOOR)
 
 
+## Removes any [Item] instances currently added to the [SceneTree]
+## from the player.
+func clear_player_items():
+	owner.party.player.items.clear_any_items()
+
+
 ## Sets the [Player] animation with the given [member AnimatedSprite2D.animation] [code]anim_name[/code].
 func set_player_anim(anim_name: String):
 	owner.party.player.set_animation(anim_name)
@@ -405,6 +411,11 @@ func reset_npc_speed(npc_node: String):
 func set_thing_anim(thing_node: String, anim_name: String):
 	if owner.things.has_node(thing_node):
 		owner.things.get_node(thing_node).anim_sprite.play(anim_name)
+
+
+func set_item_browse_dialogue_node(item_id: String, dialogue_node: String):
+	if owner.party.player.items.item_id_list.has(item_id):
+		
 
 
 ## Turns the [NPC] with the given [code]npc_node[/code] name

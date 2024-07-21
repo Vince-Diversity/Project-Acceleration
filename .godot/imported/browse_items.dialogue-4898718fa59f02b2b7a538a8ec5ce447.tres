@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_f83uy"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_xs0fc"]
 
 [resource]
-script = ExtResource("1_f83uy")
+script = ExtResource("1_xs0fc")
 using_states = PackedStringArray()
 titles = {
-"end_browsing": "41",
+"end_browsing": "42",
 "ouroboros": "16",
 "ouroboros_ability": "28",
 "ouroboros_home": "37",
@@ -81,7 +81,7 @@ lines = {
 "character": "",
 "character_replacements": Array[Dictionary]([]),
 "id": "17",
-"next_id": "41",
+"next_id": "42",
 "next_id_after": "19",
 "responses": PackedStringArray("17", "18"),
 "tags": PackedStringArray(),
@@ -105,7 +105,7 @@ lines = {
 "19": {
 "id": "19",
 "is_snippet": false,
-"next_id": "41",
+"next_id": "42",
 "type": "goto"
 },
 "2": {
@@ -177,7 +177,7 @@ lines = {
 "character": "",
 "character_replacements": Array[Dictionary]([]),
 "id": "25",
-"next_id": "41",
+"next_id": "42",
 "next_id_after": "28",
 "tags": PackedStringArray(),
 "text": "Finish talking",
@@ -242,7 +242,7 @@ lines = {
 "character": "",
 "character_replacements": Array[Dictionary]([]),
 "id": "3",
-"next_id": "41",
+"next_id": "42",
 "next_id_after": "8",
 "responses": PackedStringArray("3", "4", "5"),
 "tags": PackedStringArray(),
@@ -332,6 +332,30 @@ lines = {
 "id": "38",
 "mutation": {
 "expression": Array[Dictionary]([{
+"function": "change_entrance_event",
+"type": "function",
+"value": Array[Array]([Array[Dictionary]([{
+"type": "string",
+"value": "blue_classroom"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": ""
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "enter_blue_classroom"
+}]), Array[Dictionary]([{
+"type": "string",
+"value": "remove_ouroboros"
+}])])
+}])
+},
+"next_id": "39",
+"type": "mutation"
+},
+"39": {
+"id": "39",
+"mutation": {
+"expression": Array[Dictionary]([{
 "function": "change_rooms",
 "type": "function",
 "value": Array[Array]([Array[Dictionary]([{
@@ -343,7 +367,7 @@ lines = {
 }])])
 }])
 },
-"next_id": "41",
+"next_id": "42",
 "type": "mutation"
 },
 "4": {
@@ -358,14 +382,14 @@ lines = {
 "translation_key": "Info",
 "type": "response"
 },
-"40": {
-"id": "40",
-"next_id": "41",
+"41": {
+"id": "41",
+"next_id": "42",
 "text": "end_browsing",
 "type": "title"
 },
-"41": {
-"id": "41",
+"42": {
+"id": "42",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_player_anim",
@@ -376,11 +400,11 @@ lines = {
 }])])
 }])
 },
-"next_id": "42",
+"next_id": "43",
 "type": "mutation"
 },
-"42": {
-"id": "42",
+"43": {
+"id": "43",
 "is_snippet": false,
 "next_id": "end!",
 "type": "goto"

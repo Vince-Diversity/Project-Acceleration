@@ -75,7 +75,7 @@ func update_direction():
 ## Optionally, a looping animation is played when [code]loop_toggle[/code] is true.
 func set_animation(anim_name: String, loop_toggle: bool = false):
 	## When moving, stop the character actively holding any item.
-	items.clear_items()
+	items.clear_holding_items()
 	anim_sprite.set_animation(anim_name)
 	var anim_id = Utils.get_anim_id(anim_name)
 	anim_sprite.sprite_frames.set_animation_loop(anim_name, loop_toggle)

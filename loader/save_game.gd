@@ -40,6 +40,7 @@ const bgm_toggle_key = "bgm_toggle"
 
 const item_list_key = "item_list"
 const floating_key = "floating_item"
+const item_sprite_key = "item_sprite"
 
 
 ## Current version of the game.
@@ -50,7 +51,7 @@ const floating_key = "floating_item"
 @export var data := {
 	condition_key: {},
 	game_key: {},
-	items_key: [],
+	items_key: {},
 	party_key: [],
 	rooms_key: {},
 }
@@ -64,4 +65,3 @@ func update_room_keys(room_id: String):
 		room_dict[things_key] = {}
 		room_dict[npcs_key] = {}
 		room_dict[party_key] = {}
-		room_dict[things_key] = {}

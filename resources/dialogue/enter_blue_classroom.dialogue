@@ -84,3 +84,11 @@ do set_player_direction("left")
 ~ enter_setters
 do change_rooms("blue_stairs", "PassageRight")
 => END!
+
+~ remove_teacher
+do remove_npc("BlueTeacher")
+=> END!
+
+~ remove_ouroboros
+do clear_player_items()
+=> END!

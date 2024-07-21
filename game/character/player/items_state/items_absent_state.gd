@@ -8,8 +8,14 @@ func animate_item_selected(_item_id: String):
 
 
 ## The player should not be holding any items in this state.
-func clear():
+func clear_holding():
 	pass
+
+
+## Clear any items that could be present
+## without the player holding it.
+func clear_any():
+	player.items._clear_floating_item()
 
 
 ## There is no item being animated.
