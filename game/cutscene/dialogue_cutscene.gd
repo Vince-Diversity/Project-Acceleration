@@ -415,7 +415,8 @@ func set_thing_anim(thing_node: String, anim_name: String):
 
 func set_item_browse_dialogue_node(item_id: String, dialogue_node: String):
 	if owner.party.player.items.item_id_list.has(item_id):
-		
+		owner.party.player.items.item_effect_list[
+			owner.party.player.items.browse_dialogue_node_key] = dialogue_node
 
 
 ## Turns the [NPC] with the given [code]npc_node[/code] name

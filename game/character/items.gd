@@ -9,8 +9,9 @@ class_name Items extends Node2D
 ## By convention, the ID of an item is defined as the filename (without the extension) of the [ItemSprite] resource.
 ## [br]
 ## [br]
-## The [ItemSprite] resources are instanced into the [member item_sprite_list].
-## This allows changing what happens when browsing or selecting the item
+## The effects of an item are defined in the [ItemSprite] resources
+## and are instanced into the game in the [member item_effect_list].
+## An item effect allows changing what happens when browsing or selecting the item
 ## and saving those changes.
 
 @onready var _absent_state =\
@@ -33,10 +34,10 @@ const items_state_id_key = "items_state_id"
 ## List of item IDs of the items currently obtained by the character with this node.
 var item_id_list: Array = []
 
-## Dictionary mapping item IDs to [ItemSprite] instances.
+## Dictionary mapping item IDs to the effects of that item.
 ## All possible types of items are listed here
 ## because new items may be added to the [member item_id_list].
-var item_sprite_list: Dictionary
+var item_effect_list: Dictionary
 
 ## Item IDs list after the last [CutsceneState] ended.
 var preserved_item_id_list: Array = []
@@ -56,19 +57,19 @@ var current_state: ItemsState
 
 
 func _ready():
-	_ready_item_sprite_list()
+	_ready_item_effect_list()
 	state_list[_absent_state.state_id] = _absent_state
 	state_list[_exhibit_state.state_id] = _exhibit_state
 	state_list[_above_state.state_id] = _above_state
 	current_state = state_list[_absent_state.state_id]
 
 
-func _ready_item_sprite_list():
+func _ready_item_effect_list():
 	for item_id in Utils.get_files_in_dir(Utils.item_sprite_dir):
 		var item_sprite_path = Utils.get_item_sprite_path(item_id)
 		var item_sprite_res = load(item_sprite_path)
 		var item_dict := {}
-		item_sprite_list[item_id] = item_dict
+		item_effect_list[item_id] = item_dict
 		item_dict[browse_dialogue_node_key] = item_sprite_res["browse_dialogue_node"]
 		item_dict[interaction_dialogue_node_key] = item_sprite_res["interaction_dialogue_node"]
 		item_dict[items_state_id_key] = item_sprite_res["items_state_id"]
@@ -124,14 +125,9 @@ func is_animating_item() -> bool:
 	return current_state.is_animating()
 
 
-## Saves the item list to the given [code]sg[/code].
-func make_save(sg: SaveGame):
-	var items_dict := {}
-	sg.data[sg.items_key] = items_dict
-	## save what items the player has obtained
-	items_dict[sg.item_list_key] = item_id_list
+func _make_save_helper(sg: SaveGame, items_dict: Dictionary):
 	## save changes to what happens when an item is browsed or selected
-	sg.data[sg.items_key][sg.item_sprite_key] = item_sprite_list
+	sg.data[sg.items_key][sg.item_effect_key] = item_effect_list
 	## if there are any floating items, save their appearance
 	if is_instance_valid(floating_item):
 		items_dict[sg.floating_key] = floating_item.item_id
@@ -139,14 +135,26 @@ func make_save(sg: SaveGame):
 		items_dict[sg.floating_item_key] = ""
 
 
+## Saves the item list to the given [code]sg[/code].
+func make_save(sg: SaveGame):
+	var items_dict := {}
+	sg.data[sg.items_key] = items_dict
+	## save what items the player has obtained
+	items_dict[sg.item_list_key] = item_id_list
+	_make_save_helper(sg, items_dict)
+
+
 ## Saves this item list at a previous point in the game session to the given [code]sg[/code].
+## But only the item list being updated should be restored to a previous point.
+## This is because when an item is used to change rooms, so far the game session state
+## when that happens is a cutscene state, so this function is called before changing rooms
+## instead of the ordinary [method make_save].
 func make_preserved_save(sg: SaveGame):
 	var items_dict := {}
 	sg.data[sg.items_key] = items_dict
 	## save what items the player had obtained at a previous point in the game session
 	items_dict[sg.item_list_key] = preserved_item_id_list
-	## (do not changes to what happens when an item is browsed or selected)
-	## (do not save any floating items)
+	_make_save_helper(sg, items_dict)
 
 
 ## Loads the item thing from the given [code]sg[/code].
@@ -159,7 +167,7 @@ func load_save_from_parent(sg: SaveGame):
 			item_id_list = items_dict[sg.item_list_key]
 		preserved_item_id_list = item_id_list.duplicate()
 		## load any changes to what happens when an item is browsed or selected
-		item_sprite_list = sg.data[sg.items_key][sg.item_sprite_key]
+		item_effect_list = items_dict[sg.item_effect_key]
 		## load any floating items
 		if items_dict.has(sg.floating_key):
 			_add_floating_item(items_dict[sg.floating_key])

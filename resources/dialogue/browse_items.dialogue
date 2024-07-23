@@ -36,7 +36,13 @@
 ~ ouroboros_home
 {{ouroboros}}: Nyoom!
 do change_entrance_event("blue_classroom", "", "enter_blue_classroom", "remove_ouroboros")
+do set_item_browse_dialogue_node("ouroboros", "ouroboros_real_space")
 do change_rooms("blue_classroom",  "Spawn")
+
+~ ouroboros_real_space
+{{ouroboros}}: Nom is not really here!
+do clear_player_items()
+=> END!
 
 ~ end_browsing
 do set_player_anim("default")

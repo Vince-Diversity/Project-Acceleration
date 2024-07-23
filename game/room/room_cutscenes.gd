@@ -15,8 +15,7 @@ var current_dialogue_node: String
 var current_source_node: Node2D
 
 
-## Lists cutscene node names related to item usage, labeled by the item ID
-## defined in [member Bubbles.item_bubble.current_item_sprite].
+## Lists cutscene node names related to item usage, labeled by the current item ID.
 ## The list is gradually updated in the current [Room] instance when items are used.
 var item_interact_cutscenes: Dictionary
 

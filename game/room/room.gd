@@ -349,33 +349,34 @@ func _on_browsing_ended():
 	stm.change_states("roam_state")
 
 
-## Starts a cutscene about examining the current
-## [member Bubbles.item_bubble.current_item_sprite] item.
+## Starts a cutscene about examining the current item.
 ## The target of this cutscene is the [Item]
 ## instance that corresponds to that item.
 func _on_idle_bubbles_selected():
 	add_cutscene(_dialogue_cutscene_scn.instantiate(), _browse_state.browsing_cutscene_name)
+	var item_id: String = party.player.bubbles.item_bubble.current_item_id
+	var item_dict: Dictionary = party.player.items.item_effect_list[item_id]
 	start_cutscene(
 		_browse_state.browsing_cutscene_name,
 		"browse_items",
-		party.player.get_thought_item_sprite().browse_dialogue_node,
+		item_dict[party.player.items.browse_dialogue_node_key],
 		null)
 
 
 ## Starts a cutscene about using the current item with [code]item_id[/code]
-## given by [member Bubbles.item_bubble.current_item_sprite]
 ## on the current interactable scene root with node name [code]interactable_name[/code].
 ## The target of this cutscene is the [Interactable] scene root with which the item interacts.
 func _on_interact_bubbles_selected(item_id: String, interactable_name: String):
 	if not cutscenes.item_interact_cutscenes.has(item_id):
 		cutscenes.item_interact_cutscenes[item_id] = {}
-	var item_dict = cutscenes.item_interact_cutscenes[item_id]
-	if not item_dict.has(interactable_name):
-		item_dict[interactable_name] = add_unique_cutscene()
+	var item_cutscenes_dict = cutscenes.item_interact_cutscenes[item_id]
+	if not item_cutscenes_dict.has(interactable_name):
+		item_cutscenes_dict[interactable_name] = add_unique_cutscene()
+	var item_dict: Dictionary = party.player.items.item_effect_list[item_id]
 	start_cutscene(
-		item_dict[interactable_name],
+		item_cutscenes_dict[interactable_name],
 		party.player.nearest_interactable.dialogue_id,
-		party.player.get_thought_item_sprite().interaction_dialogue_node,
+		item_dict[party.player.items.interaction_dialogue_node_key],
 		party.player.nearest_interactable)
 
 

@@ -148,11 +148,6 @@ func close_item_bubble():
 	bubbles.item_bubble.close()
 
 
-## Gets the item sprite of the current thought bubble, possibly null.
-func get_thought_item_sprite() -> ItemSprite:
-	return bubbles.item_bubble.current_item_sprite
-
-
 ## Called when the player interacts with the given [Interactable] scene root, if that exists.
 func _on_player_interacted(_interactable_scene: Node2D):
 	set_deferred("nearest_interactable", null)
