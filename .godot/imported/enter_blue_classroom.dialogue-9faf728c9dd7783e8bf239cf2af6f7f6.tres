@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_5jyq8"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_8jxfa"]
 
 [resource]
-script = ExtResource("1_5jyq8")
+script = ExtResource("1_8jxfa")
 using_states = PackedStringArray()
 titles = {
 "cue_enter_1": "63",

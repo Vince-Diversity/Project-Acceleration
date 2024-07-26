@@ -21,7 +21,7 @@
 ~ ouroboros_info
 {{ouroboros}}: Nom is listening, always.
 - "What can you do?" => ouroboros_ability
-- "Could you bring me home?" => ouroboros_home_query
+- "Could you take me home?" => ouroboros_home_query
 - Finish talking => end_browsing
 
 ~ ouroboros_ability
@@ -38,11 +38,34 @@
 do change_entrance_event("blue_classroom", "", "enter_blue_classroom", "remove_ouroboros")
 do set_item_browse_dialogue_node("ouroboros", "ouroboros_real_space")
 do change_rooms("blue_classroom",  "Spawn")
+=> END!
 
 ~ ouroboros_real_space
-{{ouroboros}}: Nom is not really here!
-do clear_player_items()
+(The {{ouroboros}} reappeared, floating above my head.)
+- Resume => ouroboros_real_space_end_browsing
+- Talk => ouroboros_real_space_info
 => END!
+
+~ ouroboros_real_space_info
+{{ouroboros}}: Nom is listening, always.
+- "What can you do?" => ouroboros_real_space_ability
+- "Could you take me back to the {{imaginary}}?" => ouroboros_imaginary
+- Finish talking =>  ouroboros_real_space_end_browsing
+
+~ ouroboros_imaginary
+{{ouroboros}}: Nyoom!
+do change_entrance_event("blue_space", "", "enter_blue_space", "add_ouroboros")
+do set_item_browse_dialogue_node("ouroboros", "ouroboros")
+do change_rooms("blue_space",  "Spawn")
+=> END!
+
+~ ouroboros_real_space_ability
+{{ouroboros}}: Nom can travel freely in the {{imaginary}}. Nom can bring the {{observer}} to back to their home world. Nom can bring the {{observer}} back to the {{imaginary}}.
+=> ouroboros_real_space_info
+
+~ ouroboros_real_space_end_browsing
+do clear_player_items()
+=> end_browsing
 
 ~ end_browsing
 do set_player_anim("default")

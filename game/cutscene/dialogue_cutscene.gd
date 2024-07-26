@@ -286,6 +286,11 @@ func reset_npc_elevation(npc_node: String):
 		owner.npcs.get_node(npc_node).set_z_index(Utils.Elevation.FLOOR)
 
 
+## Makes the item with the given [code]item_id[/code] float above the player.
+func add_player_floating_item(item_id: String):
+	owner.party.player.items._add_floating_item(item_id)
+
+
 ## Removes any [Item] instances currently added to the [SceneTree]
 ## from the player.
 func clear_player_items():
@@ -413,9 +418,12 @@ func set_thing_anim(thing_node: String, anim_name: String):
 		owner.things.get_node(thing_node).anim_sprite.play(anim_name)
 
 
+## Sets the title of the [DialogueNode] that will play
+## when the item with the given [code]item_id[/code] is selected
+## to that given by [code]dialogue_node[/code].
 func set_item_browse_dialogue_node(item_id: String, dialogue_node: String):
 	if owner.party.player.items.item_id_list.has(item_id):
-		owner.party.player.items.item_effect_list[
+		owner.party.player.items.item_effect_list[item_id][
 			owner.party.player.items.browse_dialogue_node_key] = dialogue_node
 
 

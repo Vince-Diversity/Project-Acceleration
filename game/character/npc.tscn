@@ -24,6 +24,7 @@ preserved_direction = 0
 preserved_animation = ""
 is_imaginary = false
 spawn_state = "npc_still_state"
+filename = ""
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = ExtResource("3_71hso")

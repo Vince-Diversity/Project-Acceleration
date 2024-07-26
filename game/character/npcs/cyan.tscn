@@ -7,6 +7,3 @@
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = ExtResource("2_4xyor")
-
-[node name="ExhibitBackground" parent="Items/ExhibitMark" index="0"]
-visible = true
