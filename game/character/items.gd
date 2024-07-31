@@ -132,7 +132,7 @@ func _make_save_helper(sg: SaveGame, items_dict: Dictionary):
 	if is_instance_valid(floating_item):
 		items_dict[sg.floating_key] = floating_item.item_id
 	else:
-		items_dict[sg.floating_item_key] = ""
+		items_dict[sg.floating_key] = ""
 
 
 ## Saves the item list to the given [code]sg[/code].

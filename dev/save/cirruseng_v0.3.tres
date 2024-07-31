@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SaveGame" load_steps=2 format=3 uid="uid://bs47i1f42sltx"]
+[gd_resource type="Resource" script_class="SaveGame" load_steps=2 format=3]
 
 [ext_resource type="Script" path="res://loader/save_game.gd" id="1_xqvw2"]
 
@@ -10,11 +10,11 @@ data = {
 "is_mentoring": false
 },
 "game": {
-"current_room_id": "blue_space",
+"current_room_id": "blue_classroom",
 "entrance_event": {
 "blue_classroom": {
 "dialogue_id": "enter_blue_classroom",
-"dialogue_node": "missing",
+"dialogue_node": "remove_ouroboros",
 "interaction_node": "BlueTeacherCutscene",
 "is_enabled": false,
 "is_oneshot": true
@@ -58,10 +58,10 @@ data = {
 "entrance_node": "Spawn"
 },
 "items": {
-"floating_item": "ouroboros",
+"floating_item": "",
 "item_effect": {
 "ouroboros": {
-"browse_dialogue_node": "ouroboros",
+"browse_dialogue_node": "ouroboros_real_space",
 "interaction_dialogue_node": "",
 "items_state_id": "items_above_state"
 },
