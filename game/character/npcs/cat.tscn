@@ -4,7 +4,6 @@
 [ext_resource type="SpriteFrames" uid="uid://cv6exjt8bycl7" path="res://resources/characters/cat.tres" id="2_t1548"]
 
 [node name="Cat" instance=ExtResource("1_racpr")]
-preserved_animation = ""
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = ExtResource("2_t1548")

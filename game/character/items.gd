@@ -15,11 +15,11 @@ class_name Items extends Node2D
 ## and saving those changes.
 
 @onready var _absent_state =\
-	preload("res://game/character/player/items_state/items_absent_state.gd").new("items_absent_state")
+	preload("res://game/character/items_state/items_absent_state.gd").new("items_absent_state")
 @onready var _exhibit_state =\
-	preload("res://game/character/player/items_state/items_exhibit_state.gd").new("items_exhibit_state")
+	preload("res://game/character/items_state/items_exhibit_state.gd").new("items_exhibit_state")
 @onready var _above_state =\
-	preload("res://game/character/player/items_state/items_above_state.gd").new("items_above_state")
+	preload("res://game/character/items_state/items_above_state.gd").new("items_above_state")
 @warning_ignore("unused_private_class_variable")
 @onready var _exhibit_mark = $ExhibitMark
 @warning_ignore("unused_private_class_variable")
