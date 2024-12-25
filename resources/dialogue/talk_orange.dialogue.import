@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://d18bdgl50phxm"
+path="res://.godot/imported/talk_orange.dialogue-7ce3ecce8dc2172ec2e15b1ba119e4af.tres"
+
+[deps]
+
+source_file="res://resources/dialogue/talk_orange.dialogue"
+dest_files=["res://.godot/imported/talk_orange.dialogue-7ce3ecce8dc2172ec2e15b1ba119e4af.tres"]
+
+[params]
+
+defaults=true

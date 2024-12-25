@@ -4,8 +4,8 @@ class_name ItemsState extends GDScript
 ## The filename (without the extension) is used as ID for this class.
 var state_id: String
 
-## Reference to the player with the [Items] node with this state.
-var player: Player
+## Reference to the character with the [Items] node with this state.
+var character: Character
 
 
 ## Initialises this class, assigning the ID [member state_id].
@@ -15,8 +15,8 @@ func _init(given_state_id: String):
 
 ## Further initialises this class after the [code]given_player[/code]
 ## has been added to the [SceneTree].
-func make_state(given_player: Player):
-	player = given_player
+func make_state(given_character: Character):
+	character = given_character
 
 
 ## Called when the character of this state

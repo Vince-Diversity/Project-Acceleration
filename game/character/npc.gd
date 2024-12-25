@@ -99,6 +99,7 @@ func make_npc(
 	if not custom_name.is_empty(): name = custom_name
 	room = given_room
 	change_states(given_npc_state)
+	items.make_items(self)
 
 
 ## Changes the [member current_state] to the given [code]npc_state_id[/code].

@@ -95,4 +95,7 @@ target_direction_id = 3
 position = Vector2(156, -363)
 target_direction_id = 1
 
+[node name="OrangeMark1" parent="RoomCutscenes/CyanCutscene" index="20" instance=ExtResource("6_fahoj")]
+position = Vector2(2117, -1497)
+
 [editable path="RoomCutscenes/CyanCutscene"]

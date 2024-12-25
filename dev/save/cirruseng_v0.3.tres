@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="SaveGame" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://loader/save_game.gd" id="1_xqvw2"]
+[ext_resource type="Script" path="res://loader/save_game.gd" id="1_xcfmn"]
 
 [resource]
-script = ExtResource("1_xqvw2")
+script = ExtResource("1_xcfmn")
 game_version = "0.3"
 data = {
 "conditions": {
@@ -14,8 +14,15 @@ data = {
 "entrance_event": {
 "blue_classroom": {
 "dialogue_id": "enter_blue_classroom",
-"dialogue_node": "remove_ouroboros",
+"dialogue_node": "missing",
 "interaction_node": "BlueTeacherCutscene",
+"is_enabled": false,
+"is_oneshot": true
+},
+"blue_space": {
+"dialogue_id": "",
+"dialogue_node": "",
+"interaction_node": "",
 "is_enabled": false,
 "is_oneshot": true
 },
@@ -55,13 +62,13 @@ data = {
 "is_oneshot": true
 }
 },
-"entrance_node": "Spawn"
+"entrance_node": "PassageDown"
 },
 "items": {
 "floating_item": "",
 "item_effect": {
 "ouroboros": {
-"browse_dialogue_node": "ouroboros_real_space",
+"browse_dialogue_node": "ouroboros",
 "interaction_dialogue_node": "",
 "items_state_id": "items_above_state"
 },
@@ -71,35 +78,25 @@ data = {
 "items_state_id": "items_exhibit_state"
 }
 },
-"item_list": ["revealer", "ouroboros"]
+"item_list": ["revealer"]
 },
 "party": Array[String]([]),
 "rooms": {
-"absolutely_undetectable_room": {
+"blue_classroom": {
 "npcs": {
-"Ouroboros": {
-"current_anim": &"circling",
-"dialogue_id": "",
-"dialogue_node": "",
-"direction": Vector2(1, 0),
-"idling_room": "absolutely_undetectable_room",
-"interaction_node": "",
-"position": Vector2(-34.5, 8192),
+"BlueTeacher": {
+"current_anim": &"left",
+"dialogue_id": "enter_blue_classroom",
+"dialogue_node": "query",
+"direction": Vector2(-1, 0),
+"filename": "blue_teacher",
+"idling_room": "blue_classroom",
+"interaction_node": "ReturnCutscene",
+"position": Vector2(864.253, 98.377),
 "was_joined": false,
 "z_index": 0
 }
 },
-"party": {},
-"things": {
-"Door": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-}
-}
-},
-"blue_classroom": {
-"npcs": {},
 "party": {},
 "things": {
 "BookcaseUncertainty": {
@@ -124,46 +121,6 @@ data = {
 }
 }
 },
-"blue_space": {
-"npcs": {
-"Cyan": {
-"current_anim": &"up",
-"dialogue_id": "talk_cyan",
-"dialogue_node": "talk_after_ouroboros_obtained",
-"direction": Vector2(0, -1),
-"filename": "cyan",
-"idling_room": "",
-"interaction_node": "CyanCutscene",
-"position": Vector2(448, 279),
-"was_joined": false,
-"z_index": 0
-}
-},
-"party": {},
-"things": {
-"Spawn": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-}
-}
-},
-"blue_stairs": {
-"npcs": {},
-"party": {},
-"things": {
-"PassageDown": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"PassageRight": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-}
-}
-},
 "dining_hall": {
 "npcs": {
 "Amber": {
@@ -171,8 +128,9 @@ data = {
 "dialogue_id": "talk_amber",
 "dialogue_node": "talk_after_cat_event",
 "direction": Vector2(0, -1),
+"filename": "amber",
 "idling_room": "",
-"interaction_node": "Default3",
+"interaction_node": "Default6",
 "position": Vector2(204.947, 269.301),
 "was_joined": false,
 "z_index": 0
@@ -181,9 +139,10 @@ data = {
 "current_anim": &"right",
 "dialogue_id": "talk_cat",
 "dialogue_node": "talk",
-"direction": Vector2(1, 0),
+"direction": Vector2(0.997493, -0.0707622),
+"filename": "cat",
 "idling_room": "dining_hall",
-"interaction_node": "Default2",
+"interaction_node": "Default5",
 "position": Vector2(172, 251),
 "was_joined": false,
 "z_index": 1
@@ -193,8 +152,9 @@ data = {
 "dialogue_id": "talk_lime",
 "dialogue_node": "talk_after_cat_event",
 "direction": Vector2(1, 0),
+"filename": "lime",
 "idling_room": "",
-"interaction_node": "Default5",
+"interaction_node": "",
 "position": Vector2(135, 275),
 "was_joined": false,
 "z_index": 0
@@ -204,8 +164,9 @@ data = {
 "dialogue_id": "talk_maroon",
 "dialogue_node": "talk_after_cat_event",
 "direction": Vector2(1, 0),
+"filename": "maroon",
 "idling_room": "",
-"interaction_node": "Default4",
+"interaction_node": "",
 "position": Vector2(137, 245),
 "was_joined": false,
 "z_index": 0
@@ -340,9 +301,10 @@ data = {
 "dialogue_id": "default_talk",
 "dialogue_node": "default",
 "direction": Vector2(0, -1),
+"filename": "blue",
 "idling_room": "main_classroom",
 "interaction_node": "",
-"position": Vector2(446.296, 96.0279),
+"position": Vector2(447.692, 96.9584),
 "was_joined": false,
 "z_index": 0
 },
@@ -351,6 +313,7 @@ data = {
 "dialogue_id": "default_talk",
 "dialogue_node": "default",
 "direction": Vector2(0, 1),
+"filename": "blue_teacher",
 "idling_room": "",
 "interaction_node": "",
 "position": Vector2(448, 64),
@@ -374,9 +337,10 @@ data = {
 "dialogue_id": "",
 "dialogue_node": "",
 "direction": Vector2(0, -1),
+"filename": "blue",
 "idling_room": "",
 "interaction_node": "",
-"position": Vector2(0, -275.5),
+"position": Vector2(0, -283),
 "was_joined": false,
 "z_index": 0
 }
@@ -412,9 +376,10 @@ data = {
 "dialogue_id": "",
 "dialogue_node": "",
 "direction": Vector2(0, -1),
+"filename": "blue",
 "idling_room": "",
 "interaction_node": "",
-"position": Vector2(0, -961.5),
+"position": Vector2(0, -964),
 "was_joined": false,
 "z_index": 0
 }
@@ -460,7 +425,8 @@ data = {
 "dialogue_id": "",
 "dialogue_node": "",
 "direction": Vector2(0.857493, 0.514496),
-"idling_room": "",
+"filename": "blue_teacher",
+"idling_room": "recreation_hallway",
 "interaction_node": "",
 "position": Vector2(352, 448),
 "was_joined": false,

@@ -25,7 +25,6 @@ do turn_npc_to_player("Cyan")
 {{green}}: [#expression=cheerful] That is so interesting!
 do create_npc("BlueTeacher")
 do set_npc_at_mark("BlueTeacher", "BlueTeacherMark1")
-{{blue_teacher}}: I have arrived.
 do move_npc("BlueTeacher", "BlueTeacherMark2", "talk_3")
 => END!
 
@@ -107,6 +106,9 @@ do move_npc("BlueTeacher", "BlueTeacherMark4", "setters")
 
 ~ setters
 do remove_npc("BlueTeacher")
+do create_npc("Orange")
+do set_npc_at_mark("Orange", "OrangeMark1")
+do set_npc_dialogue_node("Orange", "talk_orange")
 do set_npc_dialogue_node("Cyan", "talk_after_ouroboros_obtained")
 => END!
 

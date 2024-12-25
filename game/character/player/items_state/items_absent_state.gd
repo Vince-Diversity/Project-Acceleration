@@ -15,7 +15,7 @@ func clear_holding():
 ## Clear any items that could be present
 ## without the player holding it.
 func clear_any():
-	player.items._clear_floating_item()
+	character.items._clear_floating_item()
 
 
 ## There is no item being animated.

@@ -322,8 +322,8 @@ func set_player_exhibit_anim(item_id: String):
 ## to show an [ItemSprite] with the given [code]item_id[/code].
 func set_npc_exhibit_anim(npc_node: String, item_id: String):
 	if owner.npcs.has_node(npc_node):
-		owner.npcs.get_node(npc_node).exhibit(item_id)
-
+		owner.npcs.get_node(npc_node).items.change_states("items_exhibit_state")
+		owner.npcs.get_node(npc_node).items.animate_item_selected(item_id)
 
 ## Sets an [ItemSprite] floating above the player.
 func set_above_player_float(item_id: String):

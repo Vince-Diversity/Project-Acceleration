@@ -2,8 +2,8 @@ class_name Items extends Node2D
 ## Manages items that are obtained or used by a [Character].
 ##
 ## Any character can show any [Item], which adds an item node instance to [member exhibit_item].
-## The [Player] can also examine or use an obtained item.
-## For these player interactions, it is not necessary to add that [Item]
+## The [Character] can also examine or use an obtained item.
+## For player interactions, it is not necessary to add that [Item]
 ## to the [SceneTree]. Instead, only the [ItemSprite] corresponding to that item is used.
 ## For that reason, every item has both an [Item] node and separate [ItemSprite] resource.
 ## By convention, the ID of an item is defined as the filename (without the extension) of the [ItemSprite] resource.
@@ -89,10 +89,10 @@ func _clear_floating_item():
 
 
 ## Initialises this node after it is added to the [SceneTree].
-func make_items(player: Player):
-	_absent_state.make_state(player)
-	_exhibit_state.make_state(player)
-	_above_state.make_state(player)
+func make_items(character: Character):
+	_absent_state.make_state(character)
+	_exhibit_state.make_state(character)
+	_above_state.make_state(character)
 
 
 ## Changes the [member current_state] to the given [code]items_state_id[/code].
@@ -110,17 +110,17 @@ func animate_item_selected(item_id: String):
 	current_state.animate_item_selected(item_id)
 
 
-## Clears items that the player is actively holding.
+## Clears items that the character is actively holding.
 func clear_holding_items():
 	current_state.clear_holding()
 
 
-## Clears items regardless of whether the player is actively holding it or not.
+## Clears items regardless of whether the character is actively holding it or not.
 func clear_any_items():
 	current_state.clear_any()
 
 
-## Checks if the player is animating an item.
+## Checks if the character is animating an item.
 func is_animating_item() -> bool:
 	return current_state.is_animating()
 
@@ -139,7 +139,7 @@ func _make_save_helper(sg: SaveGame, items_dict: Dictionary):
 func make_save(sg: SaveGame):
 	var items_dict := {}
 	sg.data[sg.items_key] = items_dict
-	## save what items the player has obtained
+	## save what items the character has obtained
 	items_dict[sg.item_list_key] = item_id_list
 	_make_save_helper(sg, items_dict)
 
@@ -152,7 +152,7 @@ func make_save(sg: SaveGame):
 func make_preserved_save(sg: SaveGame):
 	var items_dict := {}
 	sg.data[sg.items_key] = items_dict
-	## save what items the player had obtained at a previous point in the game session
+	## save what items the character had obtained at a previous point in the game session
 	items_dict[sg.item_list_key] = preserved_item_id_list
 	_make_save_helper(sg, items_dict)
 
@@ -163,11 +163,12 @@ func load_save_from_parent(sg: SaveGame):
 	if sg.data.has(sg.items_key):
 		var items_dict = sg.data[sg.items_key]
 		if items_dict.has(sg.item_list_key):
-			## load what items the player has obtained
+			## load what items the character has obtained
 			item_id_list = items_dict[sg.item_list_key]
 		preserved_item_id_list = item_id_list.duplicate()
 		## load any changes to what happens when an item is browsed or selected
-		item_effect_list = items_dict[sg.item_effect_key]
+		if items_dict.has(sg.item_effect_key):
+			item_effect_list = items_dict[sg.item_effect_key]
 		## load any floating items
 		if items_dict.has(sg.floating_key):
 			_add_floating_item(items_dict[sg.floating_key])
