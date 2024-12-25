@@ -155,6 +155,10 @@ func make_async() -> AsyncAct:
 ## [code]entrance_node[/code] name.
 ## Does not handle when [member NPC.is_imaginary] is true,
 ## since those require the exit door of the current room to be known.
+##
+## When using [member DialogueCutscene.remove_npc], the NPC needs to be
+## removed in at least one frame before changing rooms, so that
+## the [member Game.cache] is set up properly.
 func change_rooms(room_id: String, entrance_node: String):
 	owner.change_rooms(room_id, entrance_node)
 

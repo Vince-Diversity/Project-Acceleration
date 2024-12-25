@@ -108,7 +108,8 @@ do move_npc("BlueTeacher", "BlueTeacherMark4", "setters")
 do remove_npc("BlueTeacher")
 do create_npc("Orange")
 do set_npc_at_mark("Orange", "OrangeMark1")
-do set_npc_dialogue_node("Orange", "talk_orange")
+do set_npc_dialogue_id("Orange", "talk_orange")
+do set_npc_dialogue_node("Orange", "talk")
 do set_npc_dialogue_node("Cyan", "talk_after_ouroboros_obtained")
 => END!
 

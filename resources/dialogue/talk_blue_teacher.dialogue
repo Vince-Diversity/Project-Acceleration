@@ -22,30 +22,29 @@ do set_npc_dialogue_node("BlueTeacher", "query")
 
 
 ~ yes
-do move("proceed")
+do move("proceed_1")
 => END!
 
 
-~ proceed
+~ proceed_1
 do set_npc_direction("BlueTeacher", "down")
 do remove_member("Blue")
 {{green}}: (OK, time to go.)
 {{green}}: [#expression=cheerful] Bye {{blue_teacher}}! Bye {{blue}}!
-do add_async([[make_fade_away, [2]]])
-do add_async([[make_move_player, ["ReturnMark1"]], [make_move_player, ["ReturnMark2"]]])
-do play_async("setters")
+do add_async([[make_fade_away, [1.5]]])
+do add_async([[make_move_player, ["ReturnMark1"]]])
+do play_async("proceed_2")
+=> END!
+
+
+~ proceed_2
+do remove_npc("Blue")
+do remove_npc("BlueTeacher")
+do move_player("ReturnMark2", "setters")
 => END!
 
 
 ~ setters
 set is_mentoring =  false
-do set_npc_direction("BlueTeacher", "down")
-do set_npc_interaction_node("BlueTeacher", "")
-do set_npc_dialogue_id("BlueTeacher", "default_talk")
-do set_npc_dialogue_node("BlueTeacher", "default")
-do set_npc_direction("Blue", "up")
-do set_npc_interaction_node("Blue", "")
-do set_npc_dialogue_id("Blue", "default_talk")
-do set_npc_dialogue_node("Blue", "default")
 do change_rooms("green_dorm", "DormDoor")
 => END!

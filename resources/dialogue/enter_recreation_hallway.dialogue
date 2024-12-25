@@ -17,11 +17,13 @@ do turn_player_to_npc("BlueTeacher")
 {{green}}: Oh...
 do add_async([[make_fade_away, [2]]])
 do add_async([[make_move_player, ["GreenMark1"]]])
-do play_async("setters")
+do play_async("clean")
 => END!
 
+~ clean
+do await_remove_npc("BlueTeacher", "setters")
+
 ~ setters
-do remove_npc("BlueTeacher")
 do enable_entrance_event("blue_classroom")
 do change_rooms("blue_classroom", "PassageDown")
 => END!
