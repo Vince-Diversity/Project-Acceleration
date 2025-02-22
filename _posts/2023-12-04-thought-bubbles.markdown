@@ -16,4 +16,4 @@ Whenever the player gets close enough to an interactable object, an action thoug
 But if the player then opens the items thought bubble, the usual interaction is replaced with an item interacting on the object. Both thought bubbles are opened to show this.
 ![Item-interaction-thought-bubbles](/Project-Acceleration/docs/assets/images/item-interaction-thought-bubbles.png)
 
-Hopefulle that makes it clear what the item is used on. But, as I can already tell, it is demanding on the artstyle, since the bubbles need to be small so they do not cover the screen too much, while the item thought bubble need to be large enough to be clear and won't blend into the background too much.
+Hopefully that makes it clear what the item is used on. But there are some downsides. The bubbles are a bit small for comfort and might blend into the background.
