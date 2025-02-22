@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Summary of 2023"
+title: "First milestone of version 0.3"
 date: 2024-01-03 12:00:00 +0100
 categories: development
 ---
 
-Version 0.3 started being worked on a year ago, on January 2023. The version before was text-based, so the current version 0.3 is where all basic features of the game were built. It took a year, but now the game developement has gotten far enough so it's time to focus on designing the game's content next.
+Version 0.3 started being worked on a year ago, on January 2023. The version before was text-based, and the current version implements all the gameplay and some simple graphics, so 0.3 is going to take much longer to make. The first milestone has been reached now: game developement has gotten far enough so it's time to focus on designing the game's content next.
 
 The things that can be done in the game now are summarised here.
 * An environment can be built using Godot 4 editor. The environment background can be mapped with a tileset and objects in the environment can be interacted with.
