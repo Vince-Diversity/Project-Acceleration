@@ -1,396 +1,510 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_fvw0l"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_u1vu5"]
 
 [resource]
-script = ExtResource("1_fvw0l")
+script = ExtResource("1_u1vu5")
 using_states = PackedStringArray()
 titles = {
-"1800858898/default": "1",
-"burn": "35",
-"cue": "10",
-"default_talk/default": "1",
-"finish": "55",
-"ignite": "24",
-"revisit": "62",
-"talk": "48"
+"1800858898/default": "-5",
+"burn": "28",
+"cue": "3",
+"default_talk/default": "-6",
+"finish": "48",
+"ignite": "17",
+"revisit": "55",
+"talk": "41"
 }
 character_names = PackedStringArray("{{green}}", "{{red}}", "{{blue}}")
-first_title = "10"
+first_title = "2"
 lines = {
-"0": {
-"id": "0",
-"next_id": "1",
-"text": "1800858898/default",
-"type": "title"
+"-2": {
+"id": "-2",
+"next_id": "2",
+"type": ""
 },
-"1": {
+"-3": {
+"id": "-3",
+"is_snippet": false,
+"next_id": "end",
+"next_id_after": "",
+"type": "goto"
+},
+"-4": {
+"id": "-4",
+"is_snippet": false,
+"next_id": "end!",
+"next_id_after": "",
+"type": "goto"
+},
+"-5": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 2,
 "type": "variable",
 "value": "green"
 }]),
 "value_in_text": "{{green}}"
 }]),
-"id": "1",
-"next_id": "2",
-"tags": PackedStringArray(),
+"id": "-5",
+"next_id": "-4",
 "text": "(No problem here!)",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "(No problem here!)",
 "type": "dialogue"
 },
-"10": {
-"condition": {
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "is_mentoring"
-}])
+"-6": {
+"id": "-6",
+"next_id": "-5",
+"type": "title"
 },
+"10": {
 "id": "10",
-"next_conditional_id": "19",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "add_async",
+"i": 3,
+"type": &"function",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 13,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 14,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 15,
+"type": "variable",
+"value": "make_move_party"
+}]), Array[Dictionary]([{
+"i": 32,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 33,
+"type": "bracket_close"
+}])])
+}, {
+"i": 34,
+"type": "bracket_close"
+}])])
+}, {
+"i": 35,
+"type": "bracket_close"
+}])])
+}, {
+"i": 36,
+"type": "parens_close"
+}])])
+}]),
+"is_blocking": true
+},
 "next_id": "11",
-"next_id_after": "21",
-"type": "condition"
+"type": "mutation"
 },
 "11": {
 "id": "11",
 "mutation": {
 "expression": Array[Dictionary]([{
-"function": "turn_npc_to_player",
-"type": "function",
+"function": "play_async",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
+"i": 14,
 "type": "string",
-"value": "Red"
+"value": "ignite"
+}, {
+"i": 22,
+"type": "parens_close"
 }])])
-}])
+}]),
+"is_blocking": true
 },
-"next_id": "12",
-"parent_id": "10",
+"next_id": "14",
 "type": "mutation"
 },
 "12": {
-"character": "{{green}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "green"
-}]),
-"value_in_text": "{{green}}"
-}]),
+"condition": {},
 "id": "12",
 "next_id": "13",
-"parent_id": "10",
-"tags": PackedStringArray(),
-"text": "Hi {{red}}! You have to show us one of your demos!",
-"text_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "red"
-}]),
-"value_in_text": "{{red}}"
-}]),
-"translation_key": "Hi {{red}}! You have to show us one of your demos!",
-"type": "dialogue"
+"next_id_after": "14",
+"type": "condition"
 },
 "13": {
-"character": "{{red}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "red"
-}]),
-"value_in_text": "{{red}}"
-}]),
 "id": "13",
-"next_id": "14",
-"parent_id": "10",
-"tags": PackedStringArray(),
-"text": "Hi. Is this the new student you mentioned?",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "Hi. Is this the new student you mentioned?",
-"type": "dialogue"
+"is_snippet": false,
+"next_id": "-6",
+"next_id_after": "",
+"type": "goto"
 },
 "14": {
-"character": "{{blue}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "blue"
-}]),
-"value_in_text": "{{blue}}"
-}]),
 "id": "14",
-"next_id": "15",
-"parent_id": "10",
-"tags": PackedStringArray(),
-"text": "My name is {{blue}}.",
-"text_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "blue"
-}]),
-"value_in_text": "{{blue}}"
-}]),
-"translation_key": "My name is {{blue}}.",
-"type": "dialogue"
+"is_snippet": false,
+"next_id": "end!",
+"next_id_after": "",
+"type": "goto"
 },
 "15": {
-"character": "{{green}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "green"
-}]),
-"value_in_text": "{{green}}"
-}]),
 "id": "15",
 "next_id": "16",
-"parent_id": "10",
-"tags": PackedStringArray(),
-"text": "And this is {{red}}, my friend and amazing {{red_aspect}} mage.",
-"text_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "red"
-}]),
-"value_in_text": "{{red}}"
-}, {
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "red_aspect"
-}]),
-"value_in_text": "{{red_aspect}}"
-}]),
-"translation_key": "And this is {{red}}, my friend and amazing {{red_aspect}} mage.",
-"type": "dialogue"
+"type": ""
 },
 "16": {
 "id": "16",
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "add_async",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "variable",
-"value": "make_move_npc"
-}]), Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "Red"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "RedMark"
-}])])
-}])])
-}])])
-}])])
-}])
-},
 "next_id": "17",
-"parent_id": "10",
-"type": "mutation"
+"type": "title"
 },
 "17": {
 "id": "17",
 "mutation": {
 "expression": Array[Dictionary]([{
-"function": "add_async",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "variable",
-"value": "make_move_party"
-}]), Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([])
-}])])
-}])])
-}])])
-}])
-},
-"next_id": "18",
-"parent_id": "10",
-"type": "mutation"
-},
-"18": {
-"id": "18",
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "play_async",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "ignite"
-}])])
-}])
-},
-"next_id": "21",
-"parent_id": "10",
-"type": "mutation"
-},
-"19": {
-"id": "19",
-"next_conditional_id": "21",
-"next_id": "20",
-"next_id_after": "21",
-"type": "condition"
-},
-"2": {
-"id": "2",
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
-},
-"20": {
-"id": "20",
-"is_snippet": false,
-"next_id": "1",
-"parent_id": "19",
-"type": "goto"
-},
-"21": {
-"id": "21",
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
-},
-"23": {
-"id": "23",
-"next_id": "24",
-"text": "ignite",
-"type": "title"
-},
-"24": {
-"id": "24",
-"mutation": {
-"expression": Array[Dictionary]([{
 "function": "set_npc_anim",
-"type": "function",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
+"i": 16,
 "type": "string",
 "value": "Red"
 }]), Array[Dictionary]([{
+"i": 23,
 "type": "string",
 "value": "focus"
+}, {
+"i": 30,
+"type": "parens_close"
 }])])
-}])
+}]),
+"is_blocking": true
 },
-"next_id": "25",
+"next_id": "18",
 "type": "mutation"
 },
-"25": {
+"18": {
 "character": "{{red}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 2,
 "type": "variable",
 "value": "red"
 }]),
 "value_in_text": "{{red}}"
 }]),
-"id": "25",
-"next_id": "26",
-"tags": PackedStringArray(),
+"id": "18",
+"next_id": "19",
 "text": "Watch out now.",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "Watch out now.",
 "type": "dialogue"
 },
-"26": {
-"id": "26",
+"19": {
+"id": "19",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "add_async",
-"type": "function",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
-"type": "array",
+"i": 13,
+"type": &"array",
 "value": Array[Array]([Array[Dictionary]([{
-"type": "array",
+"i": 14,
+"type": &"array",
 "value": Array[Array]([Array[Dictionary]([{
+"i": 15,
 "type": "variable",
 "value": "make_animate_thing"
 }]), Array[Dictionary]([{
-"type": "array",
+"i": 35,
+"type": &"array",
 "value": Array[Array]([Array[Dictionary]([{
+"i": 36,
 "type": "string",
 "value": "Candle1"
 }]), Array[Dictionary]([{
+"i": 47,
 "type": "string",
 "value": "flaring"
+}, {
+"i": 56,
+"type": "bracket_close"
 }])])
+}, {
+"i": 57,
+"type": "bracket_close"
 }])])
+}, {
+"i": 58,
+"type": "bracket_close"
 }])])
+}, {
+"i": 59,
+"type": "parens_close"
 }])])
-}])
+}]),
+"is_blocking": true
 },
-"next_id": "27",
+"next_id": "20",
 "type": "mutation"
 },
-"27": {
-"id": "27",
+"2": {
+"id": "2",
+"next_id": "3",
+"type": "title"
+},
+"20": {
+"id": "20",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "add_async",
-"type": "function",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
-"type": "array",
+"i": 13,
+"type": &"array",
 "value": Array[Array]([Array[Dictionary]([{
-"type": "array",
+"i": 14,
+"type": &"array",
 "value": Array[Array]([Array[Dictionary]([{
+"i": 15,
 "type": "variable",
 "value": "make_animate_thing"
 }]), Array[Dictionary]([{
-"type": "array",
+"i": 35,
+"type": &"array",
 "value": Array[Array]([Array[Dictionary]([{
+"i": 36,
 "type": "string",
 "value": "Candle2"
 }]), Array[Dictionary]([{
+"i": 47,
 "type": "string",
 "value": "flaring"
+}, {
+"i": 56,
+"type": "bracket_close"
 }])])
+}, {
+"i": 57,
+"type": "bracket_close"
 }])])
+}, {
+"i": 58,
+"type": "bracket_close"
 }])])
+}, {
+"i": 59,
+"type": "parens_close"
 }])])
-}])
+}]),
+"is_blocking": true
 },
-"next_id": "28",
+"next_id": "21",
 "type": "mutation"
+},
+"21": {
+"id": "21",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "add_async",
+"i": 3,
+"type": &"function",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 13,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 14,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 15,
+"type": "variable",
+"value": "make_animate_thing"
+}]), Array[Dictionary]([{
+"i": 35,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 36,
+"type": "string",
+"value": "Candle3"
+}]), Array[Dictionary]([{
+"i": 47,
+"type": "string",
+"value": "flaring"
+}, {
+"i": 56,
+"type": "bracket_close"
+}])])
+}, {
+"i": 57,
+"type": "bracket_close"
+}])])
+}, {
+"i": 58,
+"type": "bracket_close"
+}])])
+}, {
+"i": 59,
+"type": "parens_close"
+}])])
+}]),
+"is_blocking": true
+},
+"next_id": "22",
+"type": "mutation"
+},
+"22": {
+"id": "22",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "add_async",
+"i": 3,
+"type": &"function",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 13,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 14,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 15,
+"type": "variable",
+"value": "make_animate_thing"
+}]), Array[Dictionary]([{
+"i": 35,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 36,
+"type": "string",
+"value": "Candle4"
+}]), Array[Dictionary]([{
+"i": 47,
+"type": "string",
+"value": "flaring"
+}, {
+"i": 56,
+"type": "bracket_close"
+}])])
+}, {
+"i": 57,
+"type": "bracket_close"
+}])])
+}, {
+"i": 58,
+"type": "bracket_close"
+}])])
+}, {
+"i": 59,
+"type": "parens_close"
+}])])
+}]),
+"is_blocking": true
+},
+"next_id": "23",
+"type": "mutation"
+},
+"23": {
+"id": "23",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "add_async",
+"i": 3,
+"type": &"function",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 13,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 14,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 15,
+"type": "variable",
+"value": "make_animate_thing"
+}]), Array[Dictionary]([{
+"i": 35,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 36,
+"type": "string",
+"value": "Candle5"
+}]), Array[Dictionary]([{
+"i": 47,
+"type": "string",
+"value": "flaring"
+}, {
+"i": 56,
+"type": "bracket_close"
+}])])
+}, {
+"i": 57,
+"type": "bracket_close"
+}])])
+}, {
+"i": 58,
+"type": "bracket_close"
+}])])
+}, {
+"i": 59,
+"type": "parens_close"
+}])])
+}]),
+"is_blocking": true
+},
+"next_id": "24",
+"type": "mutation"
+},
+"24": {
+"id": "24",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "play_async",
+"i": 3,
+"type": &"function",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 14,
+"type": "string",
+"value": "burn"
+}, {
+"i": 20,
+"type": "parens_close"
+}])])
+}]),
+"is_blocking": true
+},
+"next_id": "25",
+"type": "mutation"
+},
+"25": {
+"id": "25",
+"is_snippet": false,
+"next_id": "end!",
+"next_id_after": "",
+"type": "goto"
+},
+"26": {
+"id": "26",
+"next_id": "27",
+"type": ""
+},
+"27": {
+"id": "27",
+"next_id": "28",
+"type": "title"
 },
 "28": {
 "id": "28",
 "mutation": {
 "expression": Array[Dictionary]([{
-"function": "add_async",
-"type": "function",
+"function": "set_thing_anim",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "variable",
-"value": "make_animate_thing"
-}]), Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
+"i": 18,
 "type": "string",
-"value": "Candle3"
+"value": "Candle1"
 }]), Array[Dictionary]([{
+"i": 29,
 "type": "string",
-"value": "flaring"
+"value": "burning"
+}, {
+"i": 38,
+"type": "parens_close"
 }])])
-}])])
-}])])
-}])])
-}])
+}]),
+"is_blocking": true
 },
 "next_id": "29",
 "type": "mutation"
@@ -399,58 +513,62 @@ lines = {
 "id": "29",
 "mutation": {
 "expression": Array[Dictionary]([{
-"function": "add_async",
-"type": "function",
+"function": "set_thing_anim",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "variable",
-"value": "make_animate_thing"
-}]), Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
+"i": 18,
 "type": "string",
-"value": "Candle4"
+"value": "Candle2"
 }]), Array[Dictionary]([{
+"i": 29,
 "type": "string",
-"value": "flaring"
+"value": "burning"
+}, {
+"i": 38,
+"type": "parens_close"
 }])])
-}])])
-}])])
-}])])
-}])
+}]),
+"is_blocking": true
 },
 "next_id": "30",
 "type": "mutation"
+},
+"3": {
+"condition": {
+"expression": Array[Dictionary]([{
+"i": 3,
+"type": "variable",
+"value": "is_mentoring"
+}])
+},
+"id": "3",
+"next_id": "4",
+"next_id_after": "14",
+"next_sibling_id": "12",
+"type": "condition"
 },
 "30": {
 "id": "30",
 "mutation": {
 "expression": Array[Dictionary]([{
-"function": "add_async",
-"type": "function",
+"function": "set_thing_anim",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "variable",
-"value": "make_animate_thing"
-}]), Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
+"i": 18,
 "type": "string",
-"value": "Candle5"
+"value": "Candle3"
 }]), Array[Dictionary]([{
+"i": 29,
 "type": "string",
-"value": "flaring"
+"value": "burning"
+}, {
+"i": 38,
+"type": "parens_close"
 }])])
-}])])
-}])])
-}])])
-}])
+}]),
+"is_blocking": true
 },
 "next_id": "31",
 "type": "mutation"
@@ -459,43 +577,138 @@ lines = {
 "id": "31",
 "mutation": {
 "expression": Array[Dictionary]([{
-"function": "play_async",
-"type": "function",
+"function": "set_thing_anim",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
+"i": 18,
 "type": "string",
-"value": "burn"
+"value": "Candle4"
+}]), Array[Dictionary]([{
+"i": 29,
+"type": "string",
+"value": "burning"
+}, {
+"i": 38,
+"type": "parens_close"
 }])])
-}])
+}]),
+"is_blocking": true
 },
 "next_id": "32",
 "type": "mutation"
 },
 "32": {
 "id": "32",
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_thing_anim",
+"i": 3,
+"type": &"function",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 18,
+"type": "string",
+"value": "Candle5"
+}]), Array[Dictionary]([{
+"i": 29,
+"type": "string",
+"value": "burning"
+}, {
+"i": 38,
+"type": "parens_close"
+}])])
+}]),
+"is_blocking": true
+},
+"next_id": "33",
+"type": "mutation"
+},
+"33": {
+"id": "33",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_npc_anim",
+"i": 3,
+"type": &"function",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 16,
+"type": "string",
+"value": "Red"
+}]), Array[Dictionary]([{
+"i": 23,
+"type": "string",
+"value": "down"
+}, {
+"i": 29,
+"type": "parens_close"
+}])])
+}]),
+"is_blocking": true
+},
+"next_id": "34",
+"type": "mutation"
 },
 "34": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 2,
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
 "id": "34",
 "next_id": "35",
-"text": "burn",
-"type": "title"
+"text": "Wow!",
+"type": "dialogue"
 },
 "35": {
 "id": "35",
 "mutation": {
 "expression": Array[Dictionary]([{
-"function": "set_thing_anim",
-"type": "function",
+"function": "add_async",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "Candle1"
+"i": 13,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 14,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 15,
+"type": "variable",
+"value": "make_dialogue"
 }]), Array[Dictionary]([{
+"i": 30,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 31,
 "type": "string",
-"value": "burning"
+"value": "talk_red"
+}]), Array[Dictionary]([{
+"i": 43,
+"type": "string",
+"value": "talk"
+}, {
+"i": 49,
+"type": "bracket_close"
 }])])
-}])
+}, {
+"i": 50,
+"type": "bracket_close"
+}])])
+}, {
+"i": 51,
+"type": "bracket_close"
+}])])
+}, {
+"i": 52,
+"type": "parens_close"
+}])])
+}]),
+"is_blocking": true
 },
 "next_id": "36",
 "type": "mutation"
@@ -504,16 +717,412 @@ lines = {
 "id": "36",
 "mutation": {
 "expression": Array[Dictionary]([{
-"function": "set_thing_anim",
-"type": "function",
+"function": "add_async",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
+"i": 13,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 14,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 15,
+"type": "variable",
+"value": "make_move_npc"
+}]), Array[Dictionary]([{
+"i": 30,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 31,
+"type": "string",
+"value": "Red"
+}]), Array[Dictionary]([{
+"i": 38,
+"type": "string",
+"value": "RedMark5"
+}, {
+"i": 48,
+"type": "bracket_close"
+}])])
+}, {
+"i": 49,
+"type": "bracket_close"
+}])])
+}]), Array[Dictionary]([{
+"i": 52,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 53,
+"type": "variable",
+"value": "make_animate_npc"
+}]), Array[Dictionary]([{
+"i": 71,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 72,
+"type": "string",
+"value": "Red"
+}]), Array[Dictionary]([{
+"i": 79,
+"type": "string",
+"value": "extinguish_left"
+}, {
+"i": 96,
+"type": "bracket_close"
+}])])
+}, {
+"i": 97,
+"type": "bracket_close"
+}])])
+}]), Array[Dictionary]([{
+"i": 100,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 101,
+"type": "variable",
+"value": "make_animate_thing"
+}]), Array[Dictionary]([{
+"i": 121,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 122,
+"type": "string",
+"value": "Candle5"
+}]), Array[Dictionary]([{
+"i": 133,
+"type": "string",
+"value": "default"
+}, {
+"i": 142,
+"type": "bracket_close"
+}])])
+}, {
+"i": 143,
+"type": "bracket_close"
+}])])
+}]), Array[Dictionary]([{
+"i": 146,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 147,
+"type": "variable",
+"value": "make_move_npc"
+}]), Array[Dictionary]([{
+"i": 162,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 163,
+"type": "string",
+"value": "Red"
+}]), Array[Dictionary]([{
+"i": 170,
+"type": "string",
+"value": "RedMark4"
+}, {
+"i": 180,
+"type": "bracket_close"
+}])])
+}, {
+"i": 181,
+"type": "bracket_close"
+}])])
+}]), Array[Dictionary]([{
+"i": 184,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 185,
+"type": "variable",
+"value": "make_animate_npc"
+}]), Array[Dictionary]([{
+"i": 203,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 204,
+"type": "string",
+"value": "Red"
+}]), Array[Dictionary]([{
+"i": 211,
+"type": "string",
+"value": "extinguish_right"
+}, {
+"i": 229,
+"type": "bracket_close"
+}])])
+}, {
+"i": 230,
+"type": "bracket_close"
+}])])
+}]), Array[Dictionary]([{
+"i": 233,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 234,
+"type": "variable",
+"value": "make_animate_thing"
+}]), Array[Dictionary]([{
+"i": 254,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 255,
+"type": "string",
+"value": "Candle4"
+}]), Array[Dictionary]([{
+"i": 266,
+"type": "string",
+"value": "default"
+}, {
+"i": 275,
+"type": "bracket_close"
+}])])
+}, {
+"i": 276,
+"type": "bracket_close"
+}])])
+}]), Array[Dictionary]([{
+"i": 279,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 280,
+"type": "variable",
+"value": "make_move_npc"
+}]), Array[Dictionary]([{
+"i": 295,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 296,
+"type": "string",
+"value": "Red"
+}]), Array[Dictionary]([{
+"i": 303,
+"type": "string",
+"value": "RedMark3"
+}, {
+"i": 313,
+"type": "bracket_close"
+}])])
+}, {
+"i": 314,
+"type": "bracket_close"
+}])])
+}]), Array[Dictionary]([{
+"i": 317,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 318,
+"type": "variable",
+"value": "make_animate_npc"
+}]), Array[Dictionary]([{
+"i": 336,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 337,
+"type": "string",
+"value": "Red"
+}]), Array[Dictionary]([{
+"i": 344,
+"type": "string",
+"value": "extinguish_right"
+}, {
+"i": 362,
+"type": "bracket_close"
+}])])
+}, {
+"i": 363,
+"type": "bracket_close"
+}])])
+}]), Array[Dictionary]([{
+"i": 366,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 367,
+"type": "variable",
+"value": "make_animate_thing"
+}]), Array[Dictionary]([{
+"i": 387,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 388,
+"type": "string",
+"value": "Candle3"
+}]), Array[Dictionary]([{
+"i": 399,
+"type": "string",
+"value": "default"
+}, {
+"i": 408,
+"type": "bracket_close"
+}])])
+}, {
+"i": 409,
+"type": "bracket_close"
+}])])
+}]), Array[Dictionary]([{
+"i": 412,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 413,
+"type": "variable",
+"value": "make_move_npc"
+}]), Array[Dictionary]([{
+"i": 428,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 429,
+"type": "string",
+"value": "Red"
+}]), Array[Dictionary]([{
+"i": 436,
+"type": "string",
+"value": "RedMark1"
+}, {
+"i": 446,
+"type": "bracket_close"
+}])])
+}, {
+"i": 447,
+"type": "bracket_close"
+}])])
+}]), Array[Dictionary]([{
+"i": 450,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 451,
+"type": "variable",
+"value": "make_animate_npc"
+}]), Array[Dictionary]([{
+"i": 469,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 470,
+"type": "string",
+"value": "Red"
+}]), Array[Dictionary]([{
+"i": 477,
+"type": "string",
+"value": "extinguish_left"
+}, {
+"i": 494,
+"type": "bracket_close"
+}])])
+}, {
+"i": 495,
+"type": "bracket_close"
+}])])
+}]), Array[Dictionary]([{
+"i": 498,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 499,
+"type": "variable",
+"value": "make_animate_thing"
+}]), Array[Dictionary]([{
+"i": 519,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 520,
+"type": "string",
+"value": "Candle1"
+}]), Array[Dictionary]([{
+"i": 531,
+"type": "string",
+"value": "default"
+}, {
+"i": 540,
+"type": "bracket_close"
+}])])
+}, {
+"i": 541,
+"type": "bracket_close"
+}])])
+}]), Array[Dictionary]([{
+"i": 544,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 545,
+"type": "variable",
+"value": "make_move_npc"
+}]), Array[Dictionary]([{
+"i": 560,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 561,
+"type": "string",
+"value": "Red"
+}]), Array[Dictionary]([{
+"i": 568,
+"type": "string",
+"value": "RedMark2"
+}, {
+"i": 578,
+"type": "bracket_close"
+}])])
+}, {
+"i": 579,
+"type": "bracket_close"
+}])])
+}]), Array[Dictionary]([{
+"i": 582,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 583,
+"type": "variable",
+"value": "make_animate_npc"
+}]), Array[Dictionary]([{
+"i": 601,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 602,
+"type": "string",
+"value": "Red"
+}]), Array[Dictionary]([{
+"i": 609,
+"type": "string",
+"value": "extinguish_right"
+}, {
+"i": 627,
+"type": "bracket_close"
+}])])
+}, {
+"i": 628,
+"type": "bracket_close"
+}])])
+}]), Array[Dictionary]([{
+"i": 631,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 632,
+"type": "variable",
+"value": "make_animate_thing"
+}]), Array[Dictionary]([{
+"i": 652,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 653,
 "type": "string",
 "value": "Candle2"
 }]), Array[Dictionary]([{
+"i": 664,
 "type": "string",
-"value": "burning"
+"value": "default"
+}, {
+"i": 673,
+"type": "bracket_close"
 }])])
-}])
+}, {
+"i": 674,
+"type": "bracket_close"
+}])])
+}, {
+"i": 675,
+"type": "bracket_close"
+}])])
+}, {
+"i": 676,
+"type": "parens_close"
+}])])
+}]),
+"is_blocking": true
 },
 "next_id": "37",
 "type": "mutation"
@@ -522,415 +1131,169 @@ lines = {
 "id": "37",
 "mutation": {
 "expression": Array[Dictionary]([{
-"function": "set_thing_anim",
-"type": "function",
+"function": "play_async",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
+"i": 14,
 "type": "string",
-"value": "Candle3"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "burning"
+"value": "finish"
+}, {
+"i": 22,
+"type": "parens_close"
 }])])
-}])
+}]),
+"is_blocking": true
 },
 "next_id": "38",
 "type": "mutation"
 },
 "38": {
 "id": "38",
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "set_thing_anim",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "Candle4"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "burning"
-}])])
-}])
-},
-"next_id": "39",
-"type": "mutation"
+"is_snippet": false,
+"next_id": "end!",
+"next_id_after": "",
+"type": "goto"
 },
 "39": {
 "id": "39",
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "set_thing_anim",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "Candle5"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "burning"
-}])])
-}])
-},
 "next_id": "40",
-"type": "mutation"
+"type": ""
 },
 "4": {
 "id": "4",
-"is_snippet": false,
-"next_id": "end",
-"type": "goto"
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "turn_npc_to_player",
+"i": 3,
+"type": &"function",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 22,
+"type": "string",
+"value": "Red"
+}, {
+"i": 27,
+"type": "parens_close"
+}])])
+}]),
+"is_blocking": true
+},
+"next_id": "5",
+"type": "mutation"
 },
 "40": {
 "id": "40",
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "set_npc_anim",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "Red"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "down"
-}])])
-}])
-},
 "next_id": "41",
-"type": "mutation"
-},
-"41": {
-"character": "{{green}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "green"
-}]),
-"value_in_text": "{{green}}"
-}]),
-"id": "41",
-"next_id": "42",
-"tags": PackedStringArray(),
-"text": "Wow!",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "Wow!",
-"type": "dialogue"
-},
-"42": {
-"id": "42",
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "add_async",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "variable",
-"value": "make_dialogue"
-}]), Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "talk_red"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "talk"
-}])])
-}])])
-}])])
-}])])
-}])
-},
-"next_id": "43",
-"type": "mutation"
-},
-"43": {
-"id": "43",
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "add_async",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "variable",
-"value": "make_move_npc"
-}]), Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "Red"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "RedMark5"
-}])])
-}])])
-}]), Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "variable",
-"value": "make_animate_npc"
-}]), Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "Red"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "extinguish_left"
-}])])
-}])])
-}]), Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "variable",
-"value": "make_animate_thing"
-}]), Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "Candle5"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "default"
-}])])
-}])])
-}]), Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "variable",
-"value": "make_move_npc"
-}]), Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "Red"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "RedMark4"
-}])])
-}])])
-}]), Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "variable",
-"value": "make_animate_npc"
-}]), Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "Red"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "extinguish_right"
-}])])
-}])])
-}]), Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "variable",
-"value": "make_animate_thing"
-}]), Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "Candle4"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "default"
-}])])
-}])])
-}]), Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "variable",
-"value": "make_move_npc"
-}]), Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "Red"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "RedMark3"
-}])])
-}])])
-}]), Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "variable",
-"value": "make_animate_npc"
-}]), Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "Red"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "extinguish_right"
-}])])
-}])])
-}]), Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "variable",
-"value": "make_animate_thing"
-}]), Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "Candle3"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "default"
-}])])
-}])])
-}]), Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "variable",
-"value": "make_move_npc"
-}]), Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "Red"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "RedMark1"
-}])])
-}])])
-}]), Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "variable",
-"value": "make_animate_npc"
-}]), Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "Red"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "extinguish_left"
-}])])
-}])])
-}]), Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "variable",
-"value": "make_animate_thing"
-}]), Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "Candle1"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "default"
-}])])
-}])])
-}]), Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "variable",
-"value": "make_move_npc"
-}]), Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "Red"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "RedMark2"
-}])])
-}])])
-}]), Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "variable",
-"value": "make_animate_npc"
-}]), Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "Red"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "extinguish_right"
-}])])
-}])])
-}]), Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "variable",
-"value": "make_animate_thing"
-}]), Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "Candle2"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "default"
-}])])
-}])])
-}])])
-}])])
-}])
-},
-"next_id": "44",
-"type": "mutation"
-},
-"44": {
-"id": "44",
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "play_async",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "finish"
-}])])
-}])
-},
-"next_id": "45",
-"type": "mutation"
-},
-"45": {
-"id": "45",
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
-},
-"47": {
-"id": "47",
-"next_id": "48",
-"text": "talk",
 "type": "title"
 },
-"48": {
+"41": {
 "character": "{{red}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 2,
 "type": "variable",
 "value": "red"
 }]),
 "value_in_text": "{{red}}"
 }]),
-"id": "48",
-"next_id": "49",
-"tags": PackedStringArray(),
+"id": "41",
+"next_id": "42",
 "text": "Our classmates seem to have difficulties igniting just a single candle.",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "Our classmates seem to have difficulties igniting just a single candle.",
 "type": "dialogue"
+},
+"42": {
+"character": "{{red}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 2,
+"type": "variable",
+"value": "red"
+}]),
+"value_in_text": "{{red}}"
+}]),
+"id": "42",
+"next_id": "43",
+"text": "Maybe it is because most students do not know what they practice for.",
+"type": "dialogue"
+},
+"43": {
+"character": "{{red}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 2,
+"type": "variable",
+"value": "red"
+}]),
+"value_in_text": "{{red}}"
+}]),
+"id": "43",
+"next_id": "44",
+"tags": PackedStringArray("expression=sorry"),
+"text": "Not that I know why I practice so much.",
+"type": "dialogue"
+},
+"44": {
+"character": "{{red}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 2,
+"type": "variable",
+"value": "red"
+}]),
+"value_in_text": "{{red}}"
+}]),
+"id": "44",
+"next_id": "45",
+"text": "I just always put in my best effort, isn't that the most natural thing to do?",
+"type": "dialogue"
+},
+"45": {
+"id": "45",
+"is_snippet": false,
+"next_id": "end!",
+"next_id_after": "",
+"type": "goto"
+},
+"46": {
+"id": "46",
+"next_id": "47",
+"type": ""
+},
+"47": {
+"id": "47",
+"next_id": "48",
+"type": "title"
+},
+"48": {
+"id": "48",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_npc_anim",
+"i": 3,
+"type": &"function",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 16,
+"type": "string",
+"value": "Red"
+}]), Array[Dictionary]([{
+"i": 23,
+"type": "string",
+"value": "down"
+}, {
+"i": 29,
+"type": "parens_close"
+}])])
+}]),
+"is_blocking": true
+},
+"next_id": "49",
+"type": "mutation"
 },
 "49": {
 "character": "{{red}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 2,
 "type": "variable",
 "value": "red"
 }]),
@@ -938,97 +1301,131 @@ lines = {
 }]),
 "id": "49",
 "next_id": "50",
-"tags": PackedStringArray(),
-"text": "Maybe it is because most students do not know what they practice for.",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "Maybe it is because most students do not know what they practice for.",
+"tags": PackedStringArray("expression=sorry"),
+"text": "Sorry for venting on you again.",
 "type": "dialogue"
 },
-"50": {
-"character": "{{red}}",
+"5": {
+"character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 3,
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"id": "5",
+"next_id": "6",
+"text": "Hi {{red}}! You have to show us one of your demos!",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 17,
 "type": "variable",
 "value": "red"
 }]),
 "value_in_text": "{{red}}"
+}]),
+"type": "dialogue"
+},
+"50": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 2,
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
 }]),
 "id": "50",
 "next_id": "51",
 "tags": PackedStringArray("expression=sorry"),
-"text": "Not that I know why I practice so much.",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "Not that I know why I practice so much.",
+"text": "No problem, thanks for the demo!",
 "type": "dialogue"
 },
 "51": {
-"character": "{{red}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "red"
-}]),
-"value_in_text": "{{red}}"
-}]),
 "id": "51",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_npc_dialogue_node",
+"i": 3,
+"type": &"function",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 25,
+"type": "string",
+"value": "Red"
+}]), Array[Dictionary]([{
+"i": 32,
+"type": "string",
+"value": "revisit"
+}, {
+"i": 41,
+"type": "parens_close"
+}])])
+}]),
+"is_blocking": true
+},
 "next_id": "52",
-"tags": PackedStringArray(),
-"text": "I just always put in my best effort, isn't that the most natural thing to do?",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "I just always put in my best effort, isn't that the most natural thing to do?",
-"type": "dialogue"
+"type": "mutation"
 },
 "52": {
 "id": "52",
 "is_snippet": false,
 "next_id": "end!",
+"next_id_after": "",
 "type": "goto"
+},
+"53": {
+"id": "53",
+"next_id": "54",
+"type": ""
 },
 "54": {
 "id": "54",
 "next_id": "55",
-"text": "finish",
 "type": "title"
 },
 "55": {
-"id": "55",
-"mutation": {
+"condition": {
 "expression": Array[Dictionary]([{
-"function": "set_npc_anim",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "Red"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "down"
-}])])
+"i": 3,
+"type": "variable",
+"value": "is_mentoring"
 }])
 },
+"id": "55",
 "next_id": "56",
-"type": "mutation"
+"next_id_after": "62",
+"next_sibling_id": "60",
+"type": "condition"
 },
 "56": {
-"character": "{{red}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "red"
-}]),
-"value_in_text": "{{red}}"
-}]),
 "id": "56",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "turn_npc_to_player",
+"i": 3,
+"type": &"function",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 22,
+"type": "string",
+"value": "Red"
+}, {
+"i": 27,
+"type": "parens_close"
+}])])
+}]),
+"is_blocking": true
+},
 "next_id": "57",
-"tags": PackedStringArray("expression=sorry"),
-"text": "Sorry for venting on you again.",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "Sorry for venting on you again.",
-"type": "dialogue"
+"type": "mutation"
 },
 "57": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 3,
 "type": "variable",
 "value": "green"
 }]),
@@ -1036,151 +1433,265 @@ lines = {
 }]),
 "id": "57",
 "next_id": "58",
-"tags": PackedStringArray("expression=sorry"),
-"text": "No problem, thanks for the demo!",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "No problem, thanks for the demo!",
+"tags": PackedStringArray("expression=cheerful"),
+"text": "Hi again! Can you show us another demo?",
 "type": "dialogue"
 },
 "58": {
-"id": "58",
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "set_npc_dialogue_node",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "Red"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "revisit"
-}])])
-}])
-},
-"next_id": "59",
-"type": "mutation"
-},
-"59": {
-"id": "59",
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
-},
-"61": {
-"id": "61",
-"next_id": "62",
-"text": "revisit",
-"type": "title"
-},
-"62": {
-"condition": {
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "is_mentoring"
-}])
-},
-"id": "62",
-"next_conditional_id": "67",
-"next_id": "63",
-"next_id_after": "69",
-"type": "condition"
-},
-"63": {
-"id": "63",
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "turn_npc_to_player",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "Red"
-}])])
-}])
-},
-"next_id": "64",
-"parent_id": "62",
-"type": "mutation"
-},
-"64": {
-"character": "{{green}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "green"
-}]),
-"value_in_text": "{{green}}"
-}]),
-"id": "64",
-"next_id": "65",
-"parent_id": "62",
-"tags": PackedStringArray("expression=cheerful"),
-"text": "Hi again! Can you show us another demo?",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "Hi again! Can you show us another demo?",
-"type": "dialogue"
-},
-"65": {
 "character": "{{red}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 3,
 "type": "variable",
 "value": "red"
 }]),
 "value_in_text": "{{red}}"
 }]),
-"id": "65",
-"next_id": "66",
-"parent_id": "62",
+"id": "58",
+"next_id": "59",
 "tags": PackedStringArray("expression=sorry"),
 "text": "Please, let me recover first.",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "Please, let me recover first.",
 "type": "dialogue"
 },
-"66": {
-"id": "66",
+"59": {
+"id": "59",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_npc_anim",
-"type": "function",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
+"i": 16,
 "type": "string",
 "value": "Red"
 }]), Array[Dictionary]([{
+"i": 23,
 "type": "string",
 "value": "down"
+}, {
+"i": 29,
+"type": "parens_close"
 }])])
-}])
+}]),
+"is_blocking": true
 },
-"next_id": "69",
-"parent_id": "62",
+"next_id": "62",
 "type": "mutation"
 },
-"67": {
-"id": "67",
-"next_conditional_id": "69",
-"next_id": "68",
-"next_id_after": "69",
+"6": {
+"character": "{{red}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 3,
+"type": "variable",
+"value": "red"
+}]),
+"value_in_text": "{{red}}"
+}]),
+"id": "6",
+"next_id": "7",
+"text": "Hi. Is this the new student you mentioned?",
+"type": "dialogue"
+},
+"60": {
+"condition": {},
+"id": "60",
+"next_id": "61",
+"next_id_after": "62",
 "type": "condition"
 },
-"68": {
-"id": "68",
+"61": {
+"id": "61",
 "is_snippet": false,
-"next_id": "1",
-"parent_id": "67",
+"next_id": "-6",
+"next_id_after": "",
 "type": "goto"
 },
-"69": {
-"id": "69",
+"62": {
+"id": "62",
 "is_snippet": false,
 "next_id": "end!",
+"next_id_after": "",
 "type": "goto"
+},
+"63": {
+"id": "63",
+"next_id": "64",
+"type": ""
+},
+"64": {
+"id": "64",
+"is_snippet": false,
+"next_id": "end",
+"next_id_after": "",
+"type": "goto"
+},
+"7": {
+"character": "{{blue}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 3,
+"type": "variable",
+"value": "blue"
+}]),
+"value_in_text": "{{blue}}"
+}]),
+"id": "7",
+"next_id": "8",
+"text": "My name is {{blue}}.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 24,
+"type": "variable",
+"value": "blue"
+}]),
+"value_in_text": "{{blue}}"
+}]),
+"type": "dialogue"
+},
+"8": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 3,
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"id": "8",
+"next_id": "9",
+"text": "And this is {{red}}, my friend and amazing {{red_aspect}} mage.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 26,
+"type": "variable",
+"value": "red"
+}]),
+"value_in_text": "{{red}}"
+}, {
+"expression": Array[Dictionary]([{
+"i": 57,
+"type": "variable",
+"value": "red_aspect"
+}]),
+"value_in_text": "{{red_aspect}}"
+}]),
+"type": "dialogue"
 },
 "9": {
 "id": "9",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "add_async",
+"i": 3,
+"type": &"function",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 13,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 14,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 15,
+"type": "variable",
+"value": "make_move_npc"
+}]), Array[Dictionary]([{
+"i": 30,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 31,
+"type": "string",
+"value": "Red"
+}]), Array[Dictionary]([{
+"i": 38,
+"type": "string",
+"value": "RedMark"
+}, {
+"i": 47,
+"type": "bracket_close"
+}])])
+}, {
+"i": 48,
+"type": "bracket_close"
+}])])
+}, {
+"i": 49,
+"type": "bracket_close"
+}])])
+}, {
+"i": 50,
+"type": "parens_close"
+}])])
+}]),
+"is_blocking": true
+},
 "next_id": "10",
-"text": "cue",
-"type": "title"
+"type": "mutation"
 }
 }
-metadata/dialogue_manager_version = "2.31.0"
+raw_text = "import \"res://resources/dialogue/default_talk.dialogue\" as default_talk
+
+~ cue
+if is_mentoring
+	do turn_npc_to_player(\"Red\")
+	{{green}}: Hi {{red}}! You have to show us one of your demos!
+	{{red}}: Hi. Is this the new student you mentioned?
+	{{blue}}: My name is {{blue}}.
+	{{green}}: And this is {{red}}, my friend and amazing {{red_aspect}} mage.
+	do add_async([[make_move_npc, [\"Red\", \"RedMark\"]]])
+	do add_async([[make_move_party, []]])
+	do play_async(\"ignite\")
+else
+	=> default_talk/default
+=> END!
+
+~ ignite
+do set_npc_anim(\"Red\", \"focus\")
+{{red}}: Watch out now.
+do add_async([[make_animate_thing, [\"Candle1\", \"flaring\"]]])
+do add_async([[make_animate_thing, [\"Candle2\", \"flaring\"]]])
+do add_async([[make_animate_thing, [\"Candle3\", \"flaring\"]]])
+do add_async([[make_animate_thing, [\"Candle4\", \"flaring\"]]])
+do add_async([[make_animate_thing, [\"Candle5\", \"flaring\"]]])
+do play_async(\"burn\")
+=> END!
+
+~ burn
+do set_thing_anim(\"Candle1\", \"burning\")
+do set_thing_anim(\"Candle2\", \"burning\")
+do set_thing_anim(\"Candle3\", \"burning\")
+do set_thing_anim(\"Candle4\", \"burning\")
+do set_thing_anim(\"Candle5\", \"burning\")
+do set_npc_anim(\"Red\", \"down\")
+{{green}}: Wow!
+do add_async([[make_dialogue, [\"talk_red\", \"talk\"]]])
+do add_async([[make_move_npc, [\"Red\", \"RedMark5\"]], [make_animate_npc, [\"Red\", \"extinguish_left\"]], [make_animate_thing, [\"Candle5\", \"default\"]], [make_move_npc, [\"Red\", \"RedMark4\"]], [make_animate_npc, [\"Red\", \"extinguish_right\"]], [make_animate_thing, [\"Candle4\", \"default\"]], [make_move_npc, [\"Red\", \"RedMark3\"]], [make_animate_npc, [\"Red\", \"extinguish_right\"]], [make_animate_thing, [\"Candle3\", \"default\"]], [make_move_npc, [\"Red\", \"RedMark1\"]], [make_animate_npc, [\"Red\", \"extinguish_left\"]], [make_animate_thing, [\"Candle1\", \"default\"]], [make_move_npc, [\"Red\", \"RedMark2\"]], [make_animate_npc, [\"Red\", \"extinguish_right\"]], [make_animate_thing, [\"Candle2\", \"default\"]]])
+do play_async(\"finish\")
+=> END!
+
+~ talk
+{{red}}: Our classmates seem to have difficulties igniting just a single candle.
+{{red}}: Maybe it is because most students do not know what they practice for.
+{{red}}: [#expression=sorry] Not that I know why I practice so much.
+{{red}}: I just always put in my best effort, isn't that the most natural thing to do?
+=> END!
+
+~ finish
+do set_npc_anim(\"Red\", \"down\")
+{{red}}: [#expression=sorry] Sorry for venting on you again.
+{{green}}: [#expression=sorry] No problem, thanks for the demo!
+do set_npc_dialogue_node(\"Red\", \"revisit\")
+=> END!
+
+~ revisit
+if is_mentoring
+	do turn_npc_to_player(\"Red\")
+	{{green}}: [#expression=cheerful] Hi again! Can you show us another demo?
+	{{red}}: [#expression=sorry] Please, let me recover first.
+	do set_npc_anim(\"Red\", \"down\")
+else
+	=> default_talk/default
+=> END!
+"
+metadata/dialogue_manager_version = "3.3.2"

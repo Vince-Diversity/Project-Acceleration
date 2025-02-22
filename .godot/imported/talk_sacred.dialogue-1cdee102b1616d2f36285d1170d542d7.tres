@@ -1,111 +1,149 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_jh156"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_3lila"]
 
 [resource]
-script = ExtResource("1_jh156")
+script = ExtResource("1_3lila")
 using_states = PackedStringArray()
 titles = {
-"revisit": "13",
-"talk": "2"
+"revisit": "12",
+"talk": "1"
 }
 character_names = PackedStringArray("{{green}}", "{{sacred}}")
-first_title = "2"
+first_title = "0"
 lines = {
+"0": {
+"id": "0",
+"next_id": "1",
+"type": "title"
+},
 "1": {
 "id": "1",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "turn_npc_to_player",
+"i": 3,
+"type": &"function",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 22,
+"type": "string",
+"value": "Sacred"
+}, {
+"i": 30,
+"type": "parens_close"
+}])])
+}]),
+"is_blocking": true
+},
 "next_id": "2",
-"text": "talk",
+"type": "mutation"
+},
+"11": {
+"id": "11",
+"next_id": "12",
 "type": "title"
 },
 "12": {
-"id": "12",
-"next_id": "13",
-"text": "revisit",
-"type": "title"
-},
-"13": {
 "character": "{{sacred}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 2,
 "type": "variable",
 "value": "sacred"
 }]),
 "value_in_text": "{{sacred}}"
 }]),
-"id": "13",
-"next_id": "14",
-"tags": PackedStringArray(),
+"id": "12",
+"next_id": "13",
 "text": "Am I safe now?",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "Am I safe now?",
 "type": "dialogue"
+},
+"13": {
+"id": "13",
+"is_snippet": false,
+"next_id": "end!",
+"next_id_after": "",
+"type": "goto"
 },
 "14": {
 "id": "14",
+"next_id": "15",
+"type": ""
+},
+"15": {
+"id": "15",
 "is_snippet": false,
-"next_id": "end!",
+"next_id": "end",
+"next_id_after": "",
 "type": "goto"
 },
 "2": {
-"id": "2",
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "turn_npc_to_player",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "Sacred"
-}])])
-}])
-},
-"next_id": "3",
-"type": "mutation"
-},
-"3": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 2,
 "type": "variable",
 "value": "green"
 }]),
 "value_in_text": "{{green}}"
 }]),
-"id": "3",
-"next_id": "4",
-"tags": PackedStringArray(),
+"id": "2",
+"next_id": "3",
 "text": "Hi there. What's your name?",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "Hi there. What's your name?",
 "type": "dialogue"
 },
-"4": {
+"3": {
 "character": "{{sacred}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 2,
 "type": "variable",
 "value": "sacred"
 }]),
 "value_in_text": "{{sacred}}"
 }]),
-"id": "4",
-"next_id": "5",
-"tags": PackedStringArray(),
+"id": "3",
+"next_id": "4",
 "text": "{{sacred}}.",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 14,
 "type": "variable",
 "value": "sacred"
 }]),
 "value_in_text": "{{sacred}}"
 }]),
-"translation_key": "{{sacred}}.",
+"type": "dialogue"
+},
+"4": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 2,
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"id": "4",
+"next_id": "5",
+"tags": PackedStringArray("expression=cheerful"),
+"text": "What a cute name! My name is {{green}}.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 43,
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
 "type": "dialogue"
 },
 "5": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 2,
 "type": "variable",
 "value": "green"
 }]),
@@ -113,69 +151,67 @@ lines = {
 }]),
 "id": "5",
 "next_id": "6",
-"tags": PackedStringArray("expression=cheerful"),
-"text": "What a cute name! My name is {{green}}.",
-"text_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "green"
-}]),
-"value_in_text": "{{green}}"
-}]),
-"translation_key": "What a cute name! My name is {{green}}.",
+"text": "You probably shouldn't be on your own like this. Let me take you somewhere safe.",
 "type": "dialogue"
 },
 "6": {
-"character": "{{green}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "green"
-}]),
-"value_in_text": "{{green}}"
-}]),
-"id": "6",
-"next_id": "7",
-"tags": PackedStringArray(),
-"text": "You probably shouldn't be on your own like this. Let me take you somewhere safe.",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "You probably shouldn't be on your own like this. Let me take you somewhere safe.",
-"type": "dialogue"
-},
-"7": {
 "character": "{{sacred}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 2,
 "type": "variable",
 "value": "sacred"
 }]),
 "value_in_text": "{{sacred}}"
 }]),
-"id": "7",
-"next_id": "8",
-"tags": PackedStringArray(),
+"id": "6",
+"next_id": "7",
 "text": "ok.",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "ok.",
 "type": "dialogue"
 },
-"8": {
-"id": "8",
+"7": {
+"id": "7",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "add_source_as_member",
-"type": "function",
-"value": Array[Array]([])
-}])
+"i": 3,
+"type": &"function",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 24,
+"type": "parens_close"
+}])])
+}]),
+"is_blocking": true
 },
-"next_id": "9",
+"next_id": "8",
 "type": "mutation"
+},
+"8": {
+"id": "8",
+"is_snippet": false,
+"next_id": "end!",
+"next_id_after": "",
+"type": "goto"
 },
 "9": {
 "id": "9",
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
+"next_id": "11",
+"type": ""
 }
 }
-metadata/dialogue_manager_version = "2.29.2"
+raw_text = "~ talk
+do turn_npc_to_player(\"Sacred\")
+{{green}}: Hi there. What's your name?
+{{sacred}}: {{sacred}}.
+{{green}}: [#expression=cheerful] What a cute name! My name is {{green}}.
+{{green}}: You probably shouldn't be on your own like this. Let me take you somewhere safe.
+{{sacred}}: ok.
+do add_source_as_member()
+=> END!
+
+
+~ revisit
+{{sacred}}: Am I safe now?
+=> END!
+"
+metadata/dialogue_manager_version = "3.3.2"

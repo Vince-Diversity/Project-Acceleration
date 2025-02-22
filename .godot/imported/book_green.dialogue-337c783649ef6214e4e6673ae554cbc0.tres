@@ -1,178 +1,243 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_ou1ca"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_llajj"]
 
 [resource]
-script = ExtResource("1_ou1ca")
+script = ExtResource("1_llajj")
 using_states = PackedStringArray()
 titles = {
-"check": "2",
-"open_book": "11",
-"read": "16"
+"check": "1",
+"open_book": "10",
+"read": "15"
 }
 character_names = PackedStringArray("{{green}}")
-first_title = "2"
+first_title = "0"
 lines = {
+"0": {
+"id": "0",
+"next_id": "1",
+"type": "title"
+},
 "1": {
+"condition": {
+"expression": Array[Dictionary]([{
+"i": 3,
+"type": "variable",
+"value": "is_mentoring"
+}])
+},
 "id": "1",
 "next_id": "2",
-"text": "check",
-"type": "title"
+"next_id_after": "6",
+"next_sibling_id": "4",
+"type": "condition"
 },
 "10": {
 "id": "10",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_thing_anim",
+"i": 3,
+"type": &"function",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 18,
+"type": "string",
+"value": "GreenAspect"
+}]), Array[Dictionary]([{
+"i": 33,
+"type": "variable",
+"value": "bookcase_taken_anim"
+}, {
+"i": 52,
+"type": "parens_close"
+}])])
+}]),
+"is_blocking": true
+},
 "next_id": "11",
-"text": "open_book",
-"type": "title"
+"type": "mutation"
 },
 "11": {
 "id": "11",
 "mutation": {
 "expression": Array[Dictionary]([{
-"function": "set_thing_anim",
-"type": "function",
+"function": "animate_player",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "GreenAspect"
-}]), Array[Dictionary]([{
+"i": 18,
 "type": "variable",
-"value": "bookcase_taken_anim"
+"value": "read_anim"
+}]), Array[Dictionary]([{
+"i": 29,
+"type": "string",
+"value": "read"
+}, {
+"i": 35,
+"type": "parens_close"
 }])])
-}])
+}]),
+"is_blocking": true
 },
 "next_id": "12",
 "type": "mutation"
 },
 "12": {
 "id": "12",
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "animate_player",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "variable",
-"value": "read_anim"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "read"
-}])])
-}])
-},
-"next_id": "13",
-"type": "mutation"
+"is_snippet": false,
+"next_id": "end!",
+"next_id_after": "",
+"type": "goto"
 },
 "13": {
 "id": "13",
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
+"next_id": "14",
+"type": ""
+},
+"14": {
+"id": "14",
+"next_id": "15",
+"type": "title"
 },
 "15": {
 "id": "15",
-"next_id": "16",
-"text": "read",
-"type": "title"
-},
-"16": {
-"id": "16",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_player_anim",
-"type": "function",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
+"i": 19,
 "type": "variable",
 "value": "reading_anim"
+}, {
+"i": 31,
+"type": "parens_close"
 }])])
-}])
+}]),
+"is_blocking": true
 },
-"next_id": "17",
+"next_id": "16",
 "type": "mutation"
 },
-"17": {
+"16": {
 "condition": {
 "expression": Array[Dictionary]([{
+"i": 3,
 "type": "variable",
 "value": "is_mentoring"
 }])
 },
-"id": "17",
-"next_conditional_id": "20",
-"next_id": "18",
-"next_id_after": "23",
+"id": "16",
+"next_id": "17",
+"next_id_after": "22",
+"next_sibling_id": "19",
 "type": "condition"
+},
+"17": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 3,
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"id": "17",
+"next_id": "18",
+"text": "\"{{green_aspect}} is a traditional name, originating from when practitioners able to make plants sprout in a matter of seconds.\"",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 15,
+"type": "variable",
+"value": "green_aspect"
+}]),
+"value_in_text": "{{green_aspect}}"
+}]),
+"type": "dialogue"
 },
 "18": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 3,
 "type": "variable",
 "value": "green"
 }]),
 "value_in_text": "{{green}}"
 }]),
 "id": "18",
-"next_id": "19",
-"parent_id": "17",
-"tags": PackedStringArray(),
-"text": "\"{{green_aspect}} is a traditional name, originating from when practitioners able to make plants sprout in a matter of seconds.\"",
+"next_id": "22",
+"text": "\"The better knowledge a {{green_aspect}} magic practitioner has of their working substances and the nature of the material world, the more freely they seem to be able to make things.\"",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 38,
 "type": "variable",
 "value": "green_aspect"
 }]),
 "value_in_text": "{{green_aspect}}"
 }]),
-"translation_key": "\"{{green_aspect}} is a traditional name, originating from when practitioners able to make plants sprout in a matter of seconds.\"",
 "type": "dialogue"
 },
 "19": {
+"condition": {},
+"id": "19",
+"next_id": "20",
+"next_id_after": "22",
+"type": "condition"
+},
+"2": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 3,
 "type": "variable",
 "value": "green"
 }]),
 "value_in_text": "{{green}}"
 }]),
-"id": "19",
-"next_id": "23",
-"parent_id": "17",
-"tags": PackedStringArray(),
-"text": "\"The better knowledge a {{green_aspect}} magic practitioner has of their working substances and the nature of the material world, the more freely they seem to be able to make things.\"",
+"id": "2",
+"next_id": "3",
+"text": "\"{{green_aspect}} Magic\".",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 15,
 "type": "variable",
 "value": "green_aspect"
 }]),
 "value_in_text": "{{green_aspect}}"
 }]),
-"translation_key": "\"The better knowledge a {{green_aspect}} magic practitioner has of their working substances and the nature of the material world, the more freely they seem to be able to make things.\"",
 "type": "dialogue"
 },
-"2": {
-"condition": {
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "is_mentoring"
-}])
-},
-"id": "2",
-"next_conditional_id": "5",
-"next_id": "3",
-"next_id_after": "7",
-"type": "condition"
-},
 "20": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 3,
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
 "id": "20",
-"next_conditional_id": "23",
 "next_id": "21",
-"next_id_after": "23",
-"type": "condition"
+"text": "({{green_aspect}} is a traditional name, originating from when practitioners able to make plants sprout in a matter of seconds.)",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 15,
+"type": "variable",
+"value": "green_aspect"
+}]),
+"value_in_text": "{{green_aspect}}"
+}]),
+"type": "dialogue"
 },
 "21": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 3,
 "type": "variable",
 "value": "green"
 }]),
@@ -180,179 +245,170 @@ lines = {
 }]),
 "id": "21",
 "next_id": "22",
-"parent_id": "20",
-"tags": PackedStringArray(),
-"text": "({{green_aspect}} is a traditional name, originating from when practitioners able to make plants sprout in a matter of seconds.)",
-"text_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "green_aspect"
-}]),
-"value_in_text": "{{green_aspect}}"
-}]),
-"translation_key": "({{green_aspect}} is a traditional name, originating from when practitioners able to make plants sprout in a matter of seconds.)",
-"type": "dialogue"
-},
-"22": {
-"character": "{{green}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "green"
-}]),
-"value_in_text": "{{green}}"
-}]),
-"id": "22",
-"next_id": "23",
-"parent_id": "20",
-"tags": PackedStringArray(),
 "text": "(The better knowledge a {{green_aspect}} magic practitioner has of their working substances and the nature of the material world, the more freely they seem to be able to make things.)",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 38,
 "type": "variable",
 "value": "green_aspect"
 }]),
 "value_in_text": "{{green_aspect}}"
 }]),
-"translation_key": "(The better knowledge a {{green_aspect}} magic practitioner has of their working substances and the nature of the material world, the more freely they seem to be able to make things.)",
 "type": "dialogue"
+},
+"22": {
+"id": "22",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_thing_anim",
+"i": 3,
+"type": &"function",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 18,
+"type": "string",
+"value": "GreenAspect"
+}]), Array[Dictionary]([{
+"i": 33,
+"type": "variable",
+"value": "bookcase_anim"
+}, {
+"i": 46,
+"type": "parens_close"
+}])])
+}]),
+"is_blocking": true
+},
+"next_id": "23",
+"type": "mutation"
 },
 "23": {
 "id": "23",
 "mutation": {
 "expression": Array[Dictionary]([{
-"function": "set_thing_anim",
-"type": "function",
+"function": "set_player_anim",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
+"i": 19,
 "type": "string",
-"value": "GreenAspect"
-}]), Array[Dictionary]([{
-"type": "variable",
-"value": "bookcase_anim"
+"value": "down"
+}, {
+"i": 25,
+"type": "parens_close"
 }])])
-}])
+}]),
+"is_blocking": true
 },
 "next_id": "24",
 "type": "mutation"
 },
 "24": {
 "id": "24",
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "set_player_anim",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "down"
-}])])
-}])
-},
-"next_id": "25",
-"type": "mutation"
+"is_snippet": false,
+"next_id": "end!",
+"next_id_after": "",
+"type": "goto"
 },
 "25": {
 "id": "25",
 "is_snippet": false,
-"next_id": "end!",
+"next_id": "end",
+"next_id_after": "",
 "type": "goto"
 },
 "3": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 3,
 "type": "variable",
 "value": "green"
 }]),
 "value_in_text": "{{green}}"
 }]),
 "id": "3",
-"next_id": "4",
-"parent_id": "2",
-"tags": PackedStringArray(),
-"text": "\"{{green_aspect}} Magic\".",
-"text_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "green_aspect"
-}]),
-"value_in_text": "{{green_aspect}}"
-}]),
-"translation_key": "\"{{green_aspect}} Magic\".",
+"next_id": "6",
+"tags": PackedStringArray("expression=cheerful"),
+"text": "This is my magics major, by the way!",
 "type": "dialogue"
 },
 "4": {
-"character": "{{green}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "green"
-}]),
-"value_in_text": "{{green}}"
-}]),
+"condition": {},
 "id": "4",
-"next_id": "7",
-"parent_id": "2",
-"tags": PackedStringArray("expression=cheerful"),
-"text": "This is my magics major, by the way!",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "This is my magics major, by the way!",
-"type": "dialogue"
-},
-"5": {
-"id": "5",
-"next_conditional_id": "7",
-"next_id": "6",
-"next_id_after": "7",
+"next_id": "5",
+"next_id_after": "6",
 "type": "condition"
 },
-"6": {
+"5": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 3,
 "type": "variable",
 "value": "green"
 }]),
 "value_in_text": "{{green}}"
 }]),
-"id": "6",
-"next_id": "7",
-"parent_id": "5",
-"tags": PackedStringArray(),
+"id": "5",
+"next_id": "6",
 "text": "(\"{{green_aspect}} Magic\".)",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 16,
 "type": "variable",
 "value": "green_aspect"
 }]),
 "value_in_text": "{{green_aspect}}"
 }]),
-"translation_key": "(\"{{green_aspect}} Magic\".)",
 "type": "dialogue"
 },
-"7": {
-"character": "",
-"character_replacements": Array[Dictionary]([]),
-"id": "7",
-"next_id": "11",
-"next_id_after": "11",
-"responses": PackedStringArray("7", "8"),
-"tags": PackedStringArray(),
+"6": {
+"id": "6",
+"next_id": "10",
+"responses": PackedStringArray("6", "7"),
 "text": "Read",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "Read",
+"type": "response"
+},
+"7": {
+"id": "7",
+"next_id": "end!",
+"text": "Leave",
 "type": "response"
 },
 "8": {
-"character": "",
-"character_replacements": Array[Dictionary]([]),
 "id": "8",
-"next_id": "end!",
-"next_id_after": "11",
-"tags": PackedStringArray(),
-"text": "Leave",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "Leave",
-"type": "response"
+"next_id": "9",
+"type": ""
+},
+"9": {
+"id": "9",
+"next_id": "10",
+"type": "title"
 }
 }
-metadata/dialogue_manager_version = "2.31.0"
+raw_text = "~ check
+if is_mentoring
+	{{green}}: \"{{green_aspect}} Magic\".
+	{{green}}: [#expression=cheerful] This is my magics major, by the way!
+else
+	{{green}}: (\"{{green_aspect}} Magic\".)
+- Read => open_book
+- Leave => END!
+
+~ open_book
+do set_thing_anim(\"GreenAspect\", bookcase_taken_anim)
+do animate_player(read_anim, \"read\")
+=> END!
+
+~ read
+do set_player_anim(reading_anim)
+if is_mentoring
+	{{green}}: \"{{green_aspect}} is a traditional name, originating from when practitioners able to make plants sprout in a matter of seconds.\"
+	{{green}}: \"The better knowledge a {{green_aspect}} magic practitioner has of their working substances and the nature of the material world, the more freely they seem to be able to make things.\"
+else
+	{{green}}: ({{green_aspect}} is a traditional name, originating from when practitioners able to make plants sprout in a matter of seconds.)
+	{{green}}: (The better knowledge a {{green_aspect}} magic practitioner has of their working substances and the nature of the material world, the more freely they seem to be able to make things.)
+do set_thing_anim(\"GreenAspect\", bookcase_anim)
+do set_player_anim(\"down\")
+=> END!"
+metadata/dialogue_manager_version = "3.3.2"

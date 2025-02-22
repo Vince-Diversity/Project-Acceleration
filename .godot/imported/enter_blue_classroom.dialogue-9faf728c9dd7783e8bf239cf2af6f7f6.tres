@@ -1,73 +1,104 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_8jxfa"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_ir0sn"]
 
 [resource]
-script = ExtResource("1_8jxfa")
+script = ExtResource("1_ir0sn")
 using_states = PackedStringArray()
 titles = {
-"cue_enter_1": "63",
-"cue_enter_2": "67",
-"cue_enter_3": "71",
-"cue_enter_4": "75",
-"enter": "79",
-"enter_setters": "85",
-"explaining": "16",
-"missing": "2",
-"moving": "9",
-"no": "39",
-"open": "22",
-"query": "57",
-"remove_ouroboros": "93",
-"remove_teacher": "89",
-"stop_talking": "46",
-"talk_setters": "51",
-"yes": "34"
+"cue_enter_1": "62",
+"cue_enter_2": "66",
+"cue_enter_3": "70",
+"cue_enter_4": "74",
+"enter": "78",
+"enter_setters": "84",
+"explaining": "15",
+"missing": "1",
+"moving": "8",
+"no": "38",
+"open": "21",
+"query": "56",
+"remove_ouroboros": "92",
+"remove_teacher": "88",
+"stop_talking": "45",
+"talk_setters": "50",
+"yes": "33"
 }
 character_names = PackedStringArray("{{blue_teacher}}", "{{green}}")
-first_title = "2"
+first_title = "0"
 lines = {
+"0": {
+"id": "0",
+"next_id": "1",
+"type": "title"
+},
 "1": {
 "id": "1",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "create_npc",
+"i": 3,
+"type": &"function",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 14,
+"type": "string",
+"value": "BlueTeacher"
+}, {
+"i": 27,
+"type": "parens_close"
+}])])
+}]),
+"is_blocking": true
+},
 "next_id": "2",
-"text": "missing",
-"type": "title"
+"type": "mutation"
 },
 "10": {
 "id": "10",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "add_async",
-"type": "function",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
-"type": "array",
+"i": 13,
+"type": &"array",
 "value": Array[Array]([Array[Dictionary]([{
-"type": "array",
+"i": 14,
+"type": &"array",
 "value": Array[Array]([Array[Dictionary]([{
+"i": 15,
 "type": "variable",
-"value": "make_move_player"
+"value": "make_dialogue"
 }]), Array[Dictionary]([{
-"type": "array",
+"i": 30,
+"type": &"array",
 "value": Array[Array]([Array[Dictionary]([{
+"i": 31,
 "type": "string",
-"value": "GreenMark1"
-}])])
-}])])
+"value": "enter_blue_classroom"
 }]), Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "variable",
-"value": "make_move_player"
-}]), Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
+"i": 55,
 "type": "string",
-"value": "GreenMark2"
+"value": "explaining"
+}, {
+"i": 67,
+"type": "bracket_close"
 }])])
+}, {
+"i": 68,
+"type": "bracket_close"
 }])])
+}, {
+"i": 69,
+"type": "bracket_close"
 }])])
+}, {
+"i": 70,
+"type": "parens_close"
 }])])
-}])
+}]),
+"is_blocking": true
 },
 "next_id": "11",
 "type": "mutation"
@@ -76,212 +107,246 @@ lines = {
 "id": "11",
 "mutation": {
 "expression": Array[Dictionary]([{
-"function": "add_async",
-"type": "function",
+"function": "play_async",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "variable",
-"value": "make_dialogue"
-}]), Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
+"i": 14,
 "type": "string",
-"value": "enter_blue_classroom"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "explaining"
+"value": "open"
+}, {
+"i": 20,
+"type": "parens_close"
 }])])
-}])])
-}])])
-}])])
-}])
+}]),
+"is_blocking": true
 },
 "next_id": "12",
 "type": "mutation"
 },
 "12": {
 "id": "12",
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "play_async",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "open"
-}])])
-}])
-},
-"next_id": "13",
-"type": "mutation"
+"is_snippet": false,
+"next_id": "end!",
+"next_id_after": "",
+"type": "goto"
 },
 "13": {
 "id": "13",
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
+"next_id": "14",
+"type": ""
 },
-"15": {
-"id": "15",
-"next_id": "16",
-"text": "explaining",
+"14": {
+"id": "14",
+"next_id": "15",
 "type": "title"
 },
-"16": {
+"15": {
 "character": "{{blue_teacher}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 2,
 "type": "variable",
 "value": "blue_teacher"
 }]),
 "value_in_text": "{{blue_teacher}}"
 }]),
-"id": "16",
-"next_id": "17",
-"tags": PackedStringArray(),
+"id": "15",
+"next_id": "16",
 "text": "The classroom of {{blue_aspect}} magic, this is where our new student disappeared.",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 37,
 "type": "variable",
 "value": "blue_aspect"
 }]),
 "value_in_text": "{{blue_aspect}}"
 }]),
-"translation_key": "The classroom of {{blue_aspect}} magic, this is where our new student disappeared.",
 "type": "dialogue"
 },
-"17": {
+"16": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 2,
 "type": "variable",
 "value": "green"
 }]),
 "value_in_text": "{{green}}"
 }]),
-"id": "17",
-"next_id": "18",
+"id": "16",
+"next_id": "17",
 "tags": PackedStringArray("expression=sorry"),
 "text": "I shouldn't have been so distracted...",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "I shouldn't have been so distracted...",
 "type": "dialogue"
 },
-"18": {
+"17": {
 "character": "{{blue_teacher}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 2,
 "type": "variable",
 "value": "blue_teacher"
 }]),
 "value_in_text": "{{blue_teacher}}"
 }]),
-"id": "18",
-"next_id": "19",
-"tags": PackedStringArray(),
+"id": "17",
+"next_id": "18",
 "text": "No no, the mistake is mine.",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "No no, the mistake is mine.",
 "type": "dialogue"
+},
+"18": {
+"id": "18",
+"is_snippet": false,
+"next_id": "end!",
+"next_id_after": "",
+"type": "goto"
 },
 "19": {
 "id": "19",
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
+"next_id": "20",
+"type": ""
 },
 "2": {
 "id": "2",
 "mutation": {
 "expression": Array[Dictionary]([{
-"function": "create_npc",
-"type": "function",
+"function": "set_npc_at_mark",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
+"i": 19,
 "type": "string",
 "value": "BlueTeacher"
+}]), Array[Dictionary]([{
+"i": 34,
+"type": "string",
+"value": "BlueTeacherMark1"
+}, {
+"i": 52,
+"type": "parens_close"
 }])])
-}])
+}]),
+"is_blocking": true
 },
 "next_id": "3",
 "type": "mutation"
 },
+"20": {
+"id": "20",
+"next_id": "21",
+"type": "title"
+},
 "21": {
 "id": "21",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "wait",
+"i": 3,
+"type": &"function",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 8,
+"type": "number",
+"value": 1
+}, {
+"i": 9,
+"type": "parens_close"
+}])])
+}]),
+"is_blocking": true
+},
 "next_id": "22",
-"text": "open",
-"type": "title"
+"type": "mutation"
 },
 "22": {
 "id": "22",
 "mutation": {
 "expression": Array[Dictionary]([{
-"function": "wait",
-"type": "function",
+"function": "turn_npc_to_player",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
-"type": "number",
-"value": 1
+"i": 22,
+"type": "string",
+"value": "BlueTeacher"
+}, {
+"i": 35,
+"type": "parens_close"
 }])])
-}])
+}]),
+"is_blocking": true
 },
 "next_id": "23",
 "type": "mutation"
 },
 "23": {
-"id": "23",
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "turn_npc_to_player",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "BlueTeacher"
-}])])
-}])
-},
-"next_id": "24",
-"type": "mutation"
-},
-"24": {
 "character": "{{blue_teacher}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 2,
 "type": "variable",
 "value": "blue_teacher"
 }]),
 "value_in_text": "{{blue_teacher}}"
 }]),
-"id": "24",
-"next_id": "25",
-"tags": PackedStringArray(),
+"id": "23",
+"next_id": "24",
 "text": "Now listen carefully.",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "Now listen carefully.",
 "type": "dialogue"
 },
-"25": {
-"id": "25",
+"24": {
+"id": "24",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_npc_direction",
-"type": "function",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
+"i": 21,
 "type": "string",
 "value": "BlueTeacher"
 }]), Array[Dictionary]([{
+"i": 36,
 "type": "string",
 "value": "left"
+}, {
+"i": 42,
+"type": "parens_close"
 }])])
-}])
+}]),
+"is_blocking": true
 },
-"next_id": "26",
+"next_id": "25",
 "type": "mutation"
+},
+"25": {
+"character": "{{blue_teacher}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 2,
+"type": "variable",
+"value": "blue_teacher"
+}]),
+"value_in_text": "{{blue_teacher}}"
+}]),
+"id": "25",
+"next_id": "26",
+"text": "In the next room, there will be a set of stairs leading towards the {{absolutely_undetectable_capsule}}.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 88,
+"type": "variable",
+"value": "absolutely_undetectable_capsule"
+}]),
+"value_in_text": "{{absolutely_undetectable_capsule}}"
+}]),
+"type": "dialogue"
 },
 "26": {
 "character": "{{blue_teacher}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 2,
 "type": "variable",
 "value": "blue_teacher"
 }]),
@@ -289,22 +354,14 @@ lines = {
 }]),
 "id": "26",
 "next_id": "27",
-"tags": PackedStringArray(),
-"text": "In the next room, there will be a set of stairs leading towards the {{absolutely_undetectable_capsule}}.",
-"text_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "absolutely_undetectable_capsule"
-}]),
-"value_in_text": "{{absolutely_undetectable_capsule}}"
-}]),
-"translation_key": "In the next room, there will be a set of stairs leading towards the {{absolutely_undetectable_capsule}}.",
+"text": "The room is, by design, void of any light, sound or anything that can be sensed. Not even the walls can be touched.",
 "type": "dialogue"
 },
 "27": {
 "character": "{{blue_teacher}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 2,
 "type": "variable",
 "value": "blue_teacher"
 }]),
@@ -312,150 +369,151 @@ lines = {
 }]),
 "id": "27",
 "next_id": "28",
-"tags": PackedStringArray(),
-"text": "The room is, by design, void of any light, sound or anything that can be sensed. Not even the walls can be touched.",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "The room is, by design, void of any light, sound or anything that can be sensed. Not even the walls can be touched.",
+"text": "When you are there, always remember to [color=yellow]keep going further[/color]. Understood?",
 "type": "dialogue"
 },
 "28": {
-"character": "{{blue_teacher}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "blue_teacher"
-}]),
-"value_in_text": "{{blue_teacher}}"
-}]),
 "id": "28",
-"next_id": "29",
-"tags": PackedStringArray(),
-"text": "When you are there, always remember to [color=yellow]keep going further[/color]. Understood?",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "When you are there, always remember to [color=yellow]keep going further[/color]. Understood?",
-"type": "dialogue"
+"next_id": "33",
+"responses": PackedStringArray("28", "29"),
+"text": "Yes",
+"type": "response"
 },
 "29": {
-"character": "",
-"character_replacements": Array[Dictionary]([]),
 "id": "29",
-"next_id": "34",
-"next_id_after": "31",
-"responses": PackedStringArray("29", "30"),
-"tags": PackedStringArray(),
-"text": "Yes",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "Yes",
+"next_id": "38",
+"text": "No",
 "type": "response"
 },
 "3": {
 "id": "3",
 "mutation": {
 "expression": Array[Dictionary]([{
-"function": "set_npc_at_mark",
-"type": "function",
+"function": "set_npc_direction",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
+"i": 21,
 "type": "string",
 "value": "BlueTeacher"
 }]), Array[Dictionary]([{
+"i": 36,
 "type": "string",
-"value": "BlueTeacherMark1"
+"value": "up"
+}, {
+"i": 40,
+"type": "parens_close"
 }])])
-}])
+}]),
+"is_blocking": true
 },
 "next_id": "4",
 "type": "mutation"
 },
 "30": {
-"character": "",
-"character_replacements": Array[Dictionary]([]),
 "id": "30",
-"next_id": "39",
-"next_id_after": "31",
-"tags": PackedStringArray(),
-"text": "No",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "No",
-"type": "response"
+"is_snippet": false,
+"next_id": "end!",
+"next_id_after": "",
+"type": "goto"
 },
 "31": {
 "id": "31",
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
+"next_id": "32",
+"type": ""
 },
-"33": {
-"id": "33",
-"next_id": "34",
-"text": "yes",
+"32": {
+"id": "32",
+"next_id": "33",
 "type": "title"
 },
-"34": {
+"33": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 2,
 "type": "variable",
 "value": "green"
 }]),
 "value_in_text": "{{green}}"
 }]),
-"id": "34",
-"next_id": "35",
-"tags": PackedStringArray(),
+"id": "33",
+"next_id": "34",
 "text": "Understood.",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "Understood.",
 "type": "dialogue"
+},
+"34": {
+"id": "34",
+"is_snippet": false,
+"next_id": "45",
+"next_id_after": "",
+"type": "goto"
 },
 "35": {
 "id": "35",
 "is_snippet": false,
-"next_id": "46",
+"next_id": "end!",
+"next_id_after": "",
 "type": "goto"
 },
 "36": {
 "id": "36",
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
+"next_id": "37",
+"type": ""
 },
-"38": {
-"id": "38",
-"next_id": "39",
-"text": "no",
+"37": {
+"id": "37",
+"next_id": "38",
 "type": "title"
 },
-"39": {
+"38": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 2,
 "type": "variable",
 "value": "green"
 }]),
 "value_in_text": "{{green}}"
 }]),
-"id": "39",
-"next_id": "40",
+"id": "38",
+"next_id": "39",
 "tags": PackedStringArray("expression=sorry"),
 "text": "I don't understand.",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "I don't understand.",
+"type": "dialogue"
+},
+"39": {
+"character": "{{blue_teacher}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 2,
+"type": "variable",
+"value": "blue_teacher"
+}]),
+"value_in_text": "{{blue_teacher}}"
+}]),
+"id": "39",
+"next_id": "40",
+"text": "Excuse me for not explaining everything properly yet, I would prefer to show you instead.",
 "type": "dialogue"
 },
 "4": {
 "id": "4",
 "mutation": {
 "expression": Array[Dictionary]([{
-"function": "set_npc_direction",
-"type": "function",
+"function": "reset_lighting",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
+"i": 18,
 "type": "string",
-"value": "BlueTeacher"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "up"
+"value": "moving"
+}, {
+"i": 26,
+"type": "parens_close"
 }])])
-}])
+}]),
+"is_blocking": true
 },
 "next_id": "5",
 "type": "mutation"
@@ -464,6 +522,7 @@ lines = {
 "character": "{{blue_teacher}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 2,
 "type": "variable",
 "value": "blue_teacher"
 }]),
@@ -471,105 +530,123 @@ lines = {
 }]),
 "id": "40",
 "next_id": "41",
-"tags": PackedStringArray(),
-"text": "Excuse me for not explaining everything properly yet, I would prefer to show you instead.",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "Excuse me for not explaining everything properly yet, I would prefer to show you instead.",
+"text": "Basically, all you need to remember is to go down the stairs, enter the room on the bottom floor, and in that room keep going further into it.",
 "type": "dialogue"
 },
 "41": {
-"character": "{{blue_teacher}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "blue_teacher"
-}]),
-"value_in_text": "{{blue_teacher}}"
-}]),
 "id": "41",
-"next_id": "42",
-"tags": PackedStringArray(),
-"text": "Basically, all you need to remember is to go down the stairs, enter the room on the bottom floor, and in that room keep going further into it.",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "Basically, all you need to remember is to go down the stairs, enter the room on the bottom floor, and in that room keep going further into it.",
-"type": "dialogue"
+"is_snippet": false,
+"next_id": "45",
+"next_id_after": "",
+"type": "goto"
 },
 "42": {
 "id": "42",
 "is_snippet": false,
-"next_id": "46",
+"next_id": "end!",
+"next_id_after": "",
 "type": "goto"
 },
 "43": {
 "id": "43",
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
+"next_id": "44",
+"type": ""
 },
-"45": {
-"id": "45",
-"next_id": "46",
-"text": "stop_talking",
+"44": {
+"id": "44",
+"next_id": "45",
 "type": "title"
 },
-"46": {
+"45": {
 "character": "{{blue_teacher}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 2,
 "type": "variable",
 "value": "blue_teacher"
 }]),
 "value_in_text": "{{blue_teacher}}"
 }]),
-"id": "46",
-"next_id": "47",
-"tags": PackedStringArray(),
+"id": "45",
+"next_id": "46",
 "text": "When you are ready, speak to me again and I will open the entrance for you.",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "When you are ready, speak to me again and I will open the entrance for you.",
 "type": "dialogue"
+},
+"46": {
+"id": "46",
+"is_snippet": false,
+"next_id": "50",
+"next_id_after": "",
+"type": "goto"
 },
 "47": {
 "id": "47",
-"is_snippet": false,
-"next_id": "51",
-"type": "goto"
+"next_id": "48",
+"type": ""
+},
+"48": {
+"id": "48",
+"next_id": "50",
+"type": "title"
 },
 "49": {
 "id": "49",
-"next_id": "51",
-"text": "talk_setters",
-"type": "title"
+"next_id": "50",
+"type": ""
 },
 "5": {
 "id": "5",
+"is_snippet": false,
+"next_id": "end!",
+"next_id_after": "",
+"type": "goto"
+},
+"50": {
+"id": "50",
 "mutation": {
 "expression": Array[Dictionary]([{
-"function": "reset_lighting",
-"type": "function",
+"function": "set_npc_interaction_node",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
+"i": 28,
 "type": "string",
-"value": "moving"
+"value": "BlueTeacher"
+}]), Array[Dictionary]([{
+"i": 43,
+"type": "string",
+"value": "ReturnCutscene"
+}, {
+"i": 59,
+"type": "parens_close"
 }])])
-}])
+}]),
+"is_blocking": true
 },
-"next_id": "6",
+"next_id": "51",
 "type": "mutation"
 },
 "51": {
 "id": "51",
 "mutation": {
 "expression": Array[Dictionary]([{
-"function": "set_npc_interaction_node",
-"type": "function",
+"function": "set_npc_dialogue_id",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
+"i": 23,
 "type": "string",
 "value": "BlueTeacher"
 }]), Array[Dictionary]([{
+"i": 38,
 "type": "string",
-"value": "ReturnCutscene"
+"value": "enter_blue_classroom"
+}, {
+"i": 60,
+"type": "parens_close"
 }])])
-}])
+}]),
+"is_blocking": true
 },
 "next_id": "52",
 "type": "mutation"
@@ -578,429 +655,706 @@ lines = {
 "id": "52",
 "mutation": {
 "expression": Array[Dictionary]([{
-"function": "set_npc_dialogue_id",
-"type": "function",
+"function": "set_npc_dialogue_node",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
+"i": 25,
 "type": "string",
 "value": "BlueTeacher"
 }]), Array[Dictionary]([{
+"i": 40,
 "type": "string",
-"value": "enter_blue_classroom"
+"value": "query"
+}, {
+"i": 47,
+"type": "parens_close"
 }])])
-}])
+}]),
+"is_blocking": true
 },
 "next_id": "53",
 "type": "mutation"
 },
 "53": {
 "id": "53",
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "set_npc_dialogue_node",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "BlueTeacher"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "query"
-}])])
-}])
-},
-"next_id": "54",
-"type": "mutation"
+"is_snippet": false,
+"next_id": "end!",
+"next_id_after": "",
+"type": "goto"
 },
 "54": {
 "id": "54",
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
+"next_id": "55",
+"type": ""
 },
-"56": {
-"id": "56",
-"next_id": "57",
-"text": "query",
+"55": {
+"id": "55",
+"next_id": "56",
 "type": "title"
 },
-"57": {
+"56": {
 "character": "{{blue_teacher}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 2,
 "type": "variable",
 "value": "blue_teacher"
 }]),
 "value_in_text": "{{blue_teacher}}"
 }]),
-"id": "57",
-"next_id": "58",
-"tags": PackedStringArray(),
+"id": "56",
+"next_id": "57",
 "text": "[color=yellow]Ready to enter?[/color]",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "[color=yellow]Ready to enter?[/color]",
 "type": "dialogue"
 },
-"58": {
-"character": "",
-"character_replacements": Array[Dictionary]([]),
-"id": "58",
-"next_id": "63",
-"next_id_after": "63",
-"responses": PackedStringArray("58", "59", "60"),
-"tags": PackedStringArray(),
+"57": {
+"id": "57",
+"next_id": "62",
+"responses": PackedStringArray("57", "58", "59"),
 "text": "yes",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "yes",
+"type": "response"
+},
+"58": {
+"id": "58",
+"next_id": "38",
+"text": "what should I do?",
 "type": "response"
 },
 "59": {
-"character": "",
-"character_replacements": Array[Dictionary]([]),
 "id": "59",
-"next_id": "39",
-"next_id_after": "63",
-"tags": PackedStringArray(),
-"text": "what should I do?",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "what should I do?",
+"next_id": "end!",
+"text": "no",
 "type": "response"
 },
 "6": {
 "id": "6",
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
+"next_id": "7",
+"type": ""
 },
 "60": {
-"character": "",
-"character_replacements": Array[Dictionary]([]),
 "id": "60",
-"next_id": "end!",
-"next_id_after": "63",
-"tags": PackedStringArray(),
-"text": "no",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "no",
-"type": "response"
+"next_id": "61",
+"type": ""
+},
+"61": {
+"id": "61",
+"next_id": "62",
+"type": "title"
 },
 "62": {
 "id": "62",
-"next_id": "63",
-"text": "cue_enter_1",
-"type": "title"
-},
-"63": {
-"id": "63",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "move_npc",
-"type": "function",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
+"i": 12,
 "type": "string",
 "value": "BlueTeacher"
 }]), Array[Dictionary]([{
+"i": 27,
 "type": "string",
 "value": "BlueTeacherMark1"
 }]), Array[Dictionary]([{
+"i": 47,
 "type": "string",
 "value": "cue_enter_2"
+}, {
+"i": 60,
+"type": "parens_close"
 }])])
-}])
+}]),
+"is_blocking": true
 },
-"next_id": "64",
+"next_id": "63",
 "type": "mutation"
+},
+"63": {
+"id": "63",
+"is_snippet": false,
+"next_id": "end!",
+"next_id_after": "",
+"type": "goto"
 },
 "64": {
 "id": "64",
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
+"next_id": "65",
+"type": ""
+},
+"65": {
+"id": "65",
+"next_id": "66",
+"type": "title"
 },
 "66": {
 "id": "66",
-"next_id": "67",
-"text": "cue_enter_2",
-"type": "title"
-},
-"67": {
-"id": "67",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "animate_npc",
-"type": "function",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
+"i": 15,
 "type": "string",
 "value": "BlueTeacher"
 }]), Array[Dictionary]([{
+"i": 30,
 "type": "string",
 "value": "left"
 }]), Array[Dictionary]([{
+"i": 38,
 "type": "string",
 "value": "cue_enter_3"
+}, {
+"i": 51,
+"type": "parens_close"
 }])])
-}])
+}]),
+"is_blocking": true
 },
-"next_id": "68",
+"next_id": "67",
 "type": "mutation"
+},
+"67": {
+"id": "67",
+"is_snippet": false,
+"next_id": "end!",
+"next_id_after": "",
+"type": "goto"
 },
 "68": {
 "id": "68",
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
+"next_id": "69",
+"type": ""
+},
+"69": {
+"id": "69",
+"next_id": "70",
+"type": "title"
+},
+"7": {
+"id": "7",
+"next_id": "8",
+"type": "title"
 },
 "70": {
 "id": "70",
-"next_id": "71",
-"text": "cue_enter_3",
-"type": "title"
-},
-"71": {
-"id": "71",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "move_npc",
-"type": "function",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
+"i": 12,
 "type": "string",
 "value": "BlueTeacher"
 }]), Array[Dictionary]([{
+"i": 27,
 "type": "string",
 "value": "BlueTeacherMark2"
 }]), Array[Dictionary]([{
+"i": 47,
 "type": "string",
 "value": "cue_enter_4"
+}, {
+"i": 60,
+"type": "parens_close"
 }])])
-}])
+}]),
+"is_blocking": true
 },
-"next_id": "72",
+"next_id": "71",
 "type": "mutation"
+},
+"71": {
+"id": "71",
+"is_snippet": false,
+"next_id": "end!",
+"next_id_after": "",
+"type": "goto"
 },
 "72": {
 "id": "72",
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
+"next_id": "73",
+"type": ""
+},
+"73": {
+"id": "73",
+"next_id": "74",
+"type": "title"
 },
 "74": {
 "id": "74",
-"next_id": "75",
-"text": "cue_enter_4",
-"type": "title"
-},
-"75": {
-"id": "75",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "move_player",
-"type": "function",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
+"i": 15,
 "type": "string",
 "value": "GreenMark1"
 }]), Array[Dictionary]([{
+"i": 29,
 "type": "string",
 "value": "enter"
+}, {
+"i": 36,
+"type": "parens_close"
 }])])
-}])
+}]),
+"is_blocking": true
 },
-"next_id": "76",
+"next_id": "75",
 "type": "mutation"
+},
+"75": {
+"id": "75",
+"is_snippet": false,
+"next_id": "end!",
+"next_id_after": "",
+"type": "goto"
 },
 "76": {
 "id": "76",
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
+"next_id": "77",
+"type": ""
+},
+"77": {
+"id": "77",
+"next_id": "78",
+"type": "title"
 },
 "78": {
 "id": "78",
-"next_id": "79",
-"text": "enter",
-"type": "title"
-},
-"79": {
-"id": "79",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "turn_player_to_npc",
-"type": "function",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
+"i": 22,
 "type": "string",
 "value": "BlueTeacher"
+}, {
+"i": 35,
+"type": "parens_close"
 }])])
-}])
+}]),
+"is_blocking": true
 },
-"next_id": "80",
+"next_id": "79",
 "type": "mutation"
 },
-"8": {
-"id": "8",
-"next_id": "9",
-"text": "moving",
-"type": "title"
-},
-"80": {
+"79": {
 "character": "{{blue_teacher}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 2,
 "type": "variable",
 "value": "blue_teacher"
 }]),
 "value_in_text": "{{blue_teacher}}"
 }]),
-"id": "80",
-"next_id": "81",
-"tags": PackedStringArray(),
+"id": "79",
+"next_id": "80",
 "text": "I will see you shortly on the other side.",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "I will see you shortly on the other side.",
 "type": "dialogue"
 },
-"81": {
-"id": "81",
+"8": {
+"id": "8",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "add_async",
+"i": 3,
+"type": &"function",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 13,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 14,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 15,
+"type": "variable",
+"value": "make_move_npc"
+}]), Array[Dictionary]([{
+"i": 30,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 31,
+"type": "string",
+"value": "BlueTeacher"
+}]), Array[Dictionary]([{
+"i": 46,
+"type": "string",
+"value": "BlueTeacherMark2"
+}, {
+"i": 64,
+"type": "bracket_close"
+}])])
+}, {
+"i": 65,
+"type": "bracket_close"
+}])])
+}]), Array[Dictionary]([{
+"i": 68,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 69,
+"type": "variable",
+"value": "make_move_npc"
+}]), Array[Dictionary]([{
+"i": 84,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 85,
+"type": "string",
+"value": "BlueTeacher"
+}]), Array[Dictionary]([{
+"i": 100,
+"type": "string",
+"value": "BlueTeacherMark3"
+}, {
+"i": 118,
+"type": "bracket_close"
+}])])
+}, {
+"i": 119,
+"type": "bracket_close"
+}])])
+}, {
+"i": 120,
+"type": "bracket_close"
+}])])
+}, {
+"i": 121,
+"type": "parens_close"
+}])])
+}]),
+"is_blocking": true
+},
+"next_id": "9",
+"type": "mutation"
+},
+"80": {
+"id": "80",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_player_direction",
-"type": "function",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
+"i": 24,
 "type": "string",
 "value": "left"
+}, {
+"i": 30,
+"type": "parens_close"
 }])])
-}])
+}]),
+"is_blocking": true
 },
-"next_id": "82",
+"next_id": "81",
 "type": "mutation"
+},
+"81": {
+"id": "81",
+"is_snippet": false,
+"next_id": "84",
+"next_id_after": "",
+"type": "goto"
 },
 "82": {
 "id": "82",
-"is_snippet": false,
-"next_id": "85",
-"type": "goto"
+"next_id": "83",
+"type": ""
+},
+"83": {
+"id": "83",
+"next_id": "84",
+"type": "title"
 },
 "84": {
 "id": "84",
-"next_id": "85",
-"text": "enter_setters",
-"type": "title"
-},
-"85": {
-"id": "85",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "change_rooms",
-"type": "function",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
+"i": 16,
 "type": "string",
 "value": "blue_stairs"
 }]), Array[Dictionary]([{
+"i": 31,
 "type": "string",
 "value": "PassageRight"
+}, {
+"i": 45,
+"type": "parens_close"
 }])])
-}])
+}]),
+"is_blocking": true
 },
-"next_id": "86",
+"next_id": "85",
 "type": "mutation"
+},
+"85": {
+"id": "85",
+"is_snippet": false,
+"next_id": "end!",
+"next_id_after": "",
+"type": "goto"
 },
 "86": {
 "id": "86",
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
+"next_id": "87",
+"type": ""
+},
+"87": {
+"id": "87",
+"next_id": "88",
+"type": "title"
 },
 "88": {
 "id": "88",
-"next_id": "89",
-"text": "remove_teacher",
-"type": "title"
-},
-"89": {
-"id": "89",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "remove_npc",
-"type": "function",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
+"i": 14,
 "type": "string",
 "value": "BlueTeacher"
+}, {
+"i": 27,
+"type": "parens_close"
 }])])
-}])
+}]),
+"is_blocking": true
 },
-"next_id": "90",
+"next_id": "89",
 "type": "mutation"
+},
+"89": {
+"id": "89",
+"is_snippet": false,
+"next_id": "end!",
+"next_id_after": "",
+"type": "goto"
 },
 "9": {
 "id": "9",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "add_async",
-"type": "function",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
-"type": "array",
+"i": 13,
+"type": &"array",
 "value": Array[Array]([Array[Dictionary]([{
-"type": "array",
+"i": 14,
+"type": &"array",
 "value": Array[Array]([Array[Dictionary]([{
+"i": 15,
 "type": "variable",
-"value": "make_move_npc"
+"value": "make_move_player"
 }]), Array[Dictionary]([{
-"type": "array",
+"i": 33,
+"type": &"array",
 "value": Array[Array]([Array[Dictionary]([{
+"i": 34,
 "type": "string",
-"value": "BlueTeacher"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "BlueTeacherMark2"
+"value": "GreenMark1"
+}, {
+"i": 46,
+"type": "bracket_close"
 }])])
+}, {
+"i": 47,
+"type": "bracket_close"
 }])])
 }]), Array[Dictionary]([{
-"type": "array",
+"i": 50,
+"type": &"array",
 "value": Array[Array]([Array[Dictionary]([{
+"i": 51,
 "type": "variable",
-"value": "make_move_npc"
+"value": "make_move_player"
 }]), Array[Dictionary]([{
-"type": "array",
+"i": 69,
+"type": &"array",
 "value": Array[Array]([Array[Dictionary]([{
+"i": 70,
 "type": "string",
-"value": "BlueTeacher"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "BlueTeacherMark3"
+"value": "GreenMark2"
+}, {
+"i": 82,
+"type": "bracket_close"
 }])])
+}, {
+"i": 83,
+"type": "bracket_close"
 }])])
+}, {
+"i": 84,
+"type": "bracket_close"
 }])])
+}, {
+"i": 85,
+"type": "parens_close"
 }])])
-}])
+}]),
+"is_blocking": true
 },
 "next_id": "10",
 "type": "mutation"
 },
 "90": {
 "id": "90",
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
+"next_id": "91",
+"type": ""
+},
+"91": {
+"id": "91",
+"next_id": "92",
+"type": "title"
 },
 "92": {
 "id": "92",
-"next_id": "93",
-"text": "remove_ouroboros",
-"type": "title"
-},
-"93": {
-"id": "93",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "clear_player_items",
-"type": "function",
-"value": Array[Array]([])
-}])
+"i": 3,
+"type": &"function",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 22,
+"type": "parens_close"
+}])])
+}]),
+"is_blocking": true
 },
-"next_id": "94",
+"next_id": "93",
 "type": "mutation"
+},
+"93": {
+"id": "93",
+"is_snippet": false,
+"next_id": "end!",
+"next_id_after": "",
+"type": "goto"
 },
 "94": {
 "id": "94",
+"next_id": "95",
+"type": ""
+},
+"95": {
+"id": "95",
 "is_snippet": false,
-"next_id": "end!",
+"next_id": "end",
+"next_id_after": "",
 "type": "goto"
 }
 }
-metadata/dialogue_manager_version = "2.31.0"
+raw_text = "~ missing
+do create_npc(\"BlueTeacher\")
+do set_npc_at_mark(\"BlueTeacher\", \"BlueTeacherMark1\")
+do set_npc_direction(\"BlueTeacher\", \"up\")
+do reset_lighting(\"moving\")
+=> END!
+
+~ moving
+do add_async([[make_move_npc, [\"BlueTeacher\", \"BlueTeacherMark2\"]], [make_move_npc, [\"BlueTeacher\", \"BlueTeacherMark3\"]]])
+do add_async([[make_move_player, [\"GreenMark1\"]], [make_move_player, [\"GreenMark2\"]]])
+do add_async([[make_dialogue, [\"enter_blue_classroom\", \"explaining\"]]])
+do play_async(\"open\")
+=> END!
+
+~ explaining
+{{blue_teacher}}: The classroom of {{blue_aspect}} magic, this is where our new student disappeared.
+{{green}}: [#expression=sorry] I shouldn't have been so distracted...
+{{blue_teacher}}: No no, the mistake is mine.
+=> END!
+
+~ open
+do wait(1)
+do turn_npc_to_player(\"BlueTeacher\")
+{{blue_teacher}}: Now listen carefully.
+do set_npc_direction(\"BlueTeacher\", \"left\")
+{{blue_teacher}}: In the next room, there will be a set of stairs leading towards the {{absolutely_undetectable_capsule}}.
+{{blue_teacher}}: The room is, by design, void of any light, sound or anything that can be sensed. Not even the walls can be touched.
+{{blue_teacher}}: When you are there, always remember to [color=yellow]keep going further[/color]. Understood?
+- Yes => yes
+- No => no
+=> END!
+
+~ yes
+{{green}}: Understood.
+=> stop_talking
+=> END!
+
+~ no
+{{green}}: [#expression=sorry] I don't understand.
+{{blue_teacher}}: Excuse me for not explaining everything properly yet, I would prefer to show you instead.
+{{blue_teacher}}: Basically, all you need to remember is to go down the stairs, enter the room on the bottom floor, and in that room keep going further into it.
+=> stop_talking
+=> END!
+
+~ stop_talking
+{{blue_teacher}}: When you are ready, speak to me again and I will open the entrance for you.
+=> talk_setters
+
+~ talk_setters
+
+do set_npc_interaction_node(\"BlueTeacher\", \"ReturnCutscene\")
+do set_npc_dialogue_id(\"BlueTeacher\", \"enter_blue_classroom\")
+do set_npc_dialogue_node(\"BlueTeacher\", \"query\")
+=> END!
+
+~ query
+{{blue_teacher}}: [color=yellow]Ready to enter?[/color]
+- yes => cue_enter_1
+- what should I do? => no
+- no => END!
+
+~ cue_enter_1
+do move_npc(\"BlueTeacher\", \"BlueTeacherMark1\", \"cue_enter_2\")
+=> END!
+
+~ cue_enter_2
+do animate_npc(\"BlueTeacher\", \"left\", \"cue_enter_3\")
+=> END!
+
+~ cue_enter_3
+do move_npc(\"BlueTeacher\", \"BlueTeacherMark2\", \"cue_enter_4\")
+=> END!
+
+~ cue_enter_4
+do move_player(\"GreenMark1\", \"enter\")
+=> END!
+
+~ enter
+do turn_player_to_npc(\"BlueTeacher\")
+{{blue_teacher}}: I will see you shortly on the other side.
+do set_player_direction(\"left\")
+=> enter_setters
+
+~ enter_setters
+do change_rooms(\"blue_stairs\", \"PassageRight\")
+=> END!
+
+~ remove_teacher
+do remove_npc(\"BlueTeacher\")
+=> END!
+
+~ remove_ouroboros
+do clear_player_items()
+=> END!
+"
+metadata/dialogue_manager_version = "3.3.2"

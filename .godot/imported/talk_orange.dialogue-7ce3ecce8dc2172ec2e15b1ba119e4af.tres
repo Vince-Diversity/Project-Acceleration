@@ -1,26 +1,246 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_rieuf"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_y2fyk"]
 
 [resource]
-script = ExtResource("1_rieuf")
+script = ExtResource("1_y2fyk")
 using_states = PackedStringArray()
 titles = {
-"talk": "2"
+"about": "9",
+"progress_1": "24",
+"progress_2": "59",
+"query_1": "47",
+"query_2": "53",
+"talk": "1",
+"wait_1": "39",
+"wait_2": "43"
 }
-character_names = PackedStringArray("{{orange}}")
-first_title = "2"
+character_names = PackedStringArray("{{orange}}", "{{green}}")
+first_title = "0"
 lines = {
+"0": {
+"id": "0",
+"next_id": "1",
+"type": "title"
+},
 "1": {
 "id": "1",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "turn_npc_to_player",
+"i": 3,
+"type": &"function",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 22,
+"type": "string",
+"value": "Orange"
+}, {
+"i": 30,
+"type": "parens_close"
+}])])
+}]),
+"is_blocking": true
+},
 "next_id": "2",
-"text": "talk",
-"type": "title"
+"type": "mutation"
+},
+"10": {
+"character": "{{orange}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 2,
+"type": "variable",
+"value": "orange"
+}]),
+"value_in_text": "{{orange}}"
+}]),
+"id": "10",
+"next_id": "11",
+"text": "After {{cyan}} was reinforced as a science demo, poor {{cyan}} started feeling a bit alienated. Must be very lonely being the first self-conscions AI in this world.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 20,
+"type": "variable",
+"value": "cyan"
+}]),
+"value_in_text": "{{cyan}}"
+}, {
+"expression": Array[Dictionary]([{
+"i": 68,
+"type": "variable",
+"value": "cyan"
+}]),
+"value_in_text": "{{cyan}}"
+}]),
+"type": "dialogue"
+},
+"11": {
+"character": "{{orange}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 2,
+"type": "variable",
+"value": "orange"
+}]),
+"value_in_text": "{{orange}}"
+}]),
+"id": "11",
+"next_id": "12",
+"text": "So then {{cyan}} got a sibling, me!",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 22,
+"type": "variable",
+"value": "cyan"
+}]),
+"value_in_text": "{{cyan}}"
+}]),
+"type": "dialogue"
+},
+"12": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 2,
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"id": "12",
+"next_id": "13",
+"tags": PackedStringArray("expression=cheerful"),
+"text": "How nice of the scientists!",
+"type": "dialogue"
+},
+"13": {
+"character": "{{orange}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 2,
+"type": "variable",
+"value": "orange"
+}]),
+"value_in_text": "{{orange}}"
+}]),
+"id": "13",
+"next_id": "14",
+"text": "You don't need to respond, I can already calculate your response.",
+"type": "dialogue"
+},
+"14": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 2,
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"id": "14",
+"next_id": "15",
+"tags": PackedStringArray("expression=sorry"),
+"text": "Oh, you don't want me to respond?",
+"type": "dialogue"
+},
+"15": {
+"character": "{{orange}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 2,
+"type": "variable",
+"value": "orange"
+}]),
+"value_in_text": "{{orange}}"
+}]),
+"id": "15",
+"next_id": "16",
+"text": "You're just like the others! You prefer an incomplete AI like {{cyan}} because you like to have a conversation with something comparable to you, isn't that so?",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 76,
+"type": "variable",
+"value": "cyan"
+}]),
+"value_in_text": "{{cyan}}"
+}]),
+"type": "dialogue"
+},
+"16": {
+"character": "{{orange}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 2,
+"type": "variable",
+"value": "orange"
+}]),
+"value_in_text": "{{orange}}"
+}]),
+"id": "16",
+"next_id": "17",
+"text": "But I'll play along, you've been so nice to poor {{cyan}} after all.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 63,
+"type": "variable",
+"value": "cyan"
+}]),
+"value_in_text": "{{cyan}}"
+}]),
+"type": "dialogue"
+},
+"17": {
+"character": "{{orange}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 2,
+"type": "variable",
+"value": "orange"
+}]),
+"value_in_text": "{{orange}}"
+}]),
+"id": "17",
+"next_id": "18",
+"text": "So go ahead, speak.",
+"type": "dialogue"
+},
+"18": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 2,
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"id": "18",
+"next_id": "19",
+"tags": PackedStringArray("expression=sorry"),
+"text": "(...)",
+"type": "dialogue"
+},
+"19": {
+"id": "19",
+"next_id": "24",
+"responses": PackedStringArray("19", "20"),
+"text": "Can you help me find {{blue}}?",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 25,
+"type": "variable",
+"value": "blue"
+}]),
+"value_in_text": "{{blue}}"
+}]),
+"type": "response"
 },
 "2": {
 "character": "{{orange}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 2,
 "type": "variable",
 "value": "orange"
 }]),
@@ -28,17 +248,834 @@ lines = {
 }]),
 "id": "2",
 "next_id": "3",
-"tags": PackedStringArray(),
-"text": "You have no idea what you're getting into.",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "You have no idea what you're getting into.",
+"text": "Hello, need help with anything?",
+"type": "dialogue"
+},
+"20": {
+"id": "20",
+"next_id": "39",
+"text": "Wait a bit.",
+"type": "response"
+},
+"21": {
+"id": "21",
+"is_snippet": false,
+"next_id": "24",
+"next_id_after": "",
+"type": "goto"
+},
+"22": {
+"id": "22",
+"next_id": "23",
+"type": ""
+},
+"23": {
+"id": "23",
+"next_id": "24",
+"type": "title"
+},
+"24": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 2,
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"id": "24",
+"next_id": "25",
+"text": "I'm looking for {{blue}}.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 29,
+"type": "variable",
+"value": "blue"
+}]),
+"value_in_text": "{{blue}}"
+}]),
+"type": "dialogue"
+},
+"25": {
+"character": "{{orange}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 2,
+"type": "variable",
+"value": "orange"
+}]),
+"value_in_text": "{{orange}}"
+}]),
+"id": "25",
+"next_id": "26",
+"text": "You already have what you need to find {{blue}} on your own!",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 53,
+"type": "variable",
+"value": "blue"
+}]),
+"value_in_text": "{{blue}}"
+}]),
+"type": "dialogue"
+},
+"26": {
+"character": "{{orange}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 2,
+"type": "variable",
+"value": "orange"
+}]),
+"value_in_text": "{{orange}}"
+}]),
+"id": "26",
+"next_id": "27",
+"text": "Here's a hint: {{yellow}} was going to become the hero who would save {{blue_teacher}} face and find {{blue}}.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 29,
+"type": "variable",
+"value": "yellow"
+}]),
+"value_in_text": "{{yellow}}"
+}, {
+"expression": Array[Dictionary]([{
+"i": 84,
+"type": "variable",
+"value": "blue_teacher"
+}]),
+"value_in_text": "{{blue_teacher}}"
+}, {
+"expression": Array[Dictionary]([{
+"i": 115,
+"type": "variable",
+"value": "blue"
+}]),
+"value_in_text": "{{blue}}"
+}]),
+"type": "dialogue"
+},
+"27": {
+"character": "{{orange}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 2,
+"type": "variable",
+"value": "orange"
+}]),
+"value_in_text": "{{orange}}"
+}]),
+"id": "27",
+"next_id": "28",
+"text": "I even told {{yellow}} how to create the device! A device that can [color=yellow]reveal illusions[/color].",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 26,
+"type": "variable",
+"value": "yellow"
+}]),
+"value_in_text": "{{yellow}}"
+}]),
+"type": "dialogue"
+},
+"28": {
+"character": "{{orange}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 2,
+"type": "variable",
+"value": "orange"
+}]),
+"value_in_text": "{{orange}}"
+}]),
+"id": "28",
+"next_id": "29",
+"text": "Of course, what I didn't tell {{yellow}} is how he would lose the device to you.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 44,
+"type": "variable",
+"value": "yellow"
+}]),
+"value_in_text": "{{yellow}}"
+}]),
+"type": "dialogue"
+},
+"29": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 2,
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"id": "29",
+"next_id": "30",
+"tags": PackedStringArray("expression=sorry"),
+"text": "You knew I would win the bet against {{yellow}}?",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 51,
+"type": "variable",
+"value": "yellow"
+}]),
+"value_in_text": "{{yellow}}"
+}]),
 "type": "dialogue"
 },
 "3": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 2,
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
 "id": "3",
+"next_id": "4",
+"text": "Yes-",
+"type": "dialogue"
+},
+"30": {
+"character": "{{orange}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 2,
+"type": "variable",
+"value": "orange"
+}]),
+"value_in_text": "{{orange}}"
+}]),
+"id": "30",
+"next_id": "31",
+"text": "You just noticed? I am a complete AI after all, it is you who are giving me the world's information at my disposal!",
+"type": "dialogue"
+},
+"31": {
+"character": "{{orange}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 2,
+"type": "variable",
+"value": "orange"
+}]),
+"value_in_text": "{{orange}}"
+}]),
+"id": "31",
+"next_id": "32",
+"text": "And well, {{cyan}} too. I wouldn't do anything that makes poor {{cyan}} uncomfortable.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 24,
+"type": "variable",
+"value": "cyan"
+}]),
+"value_in_text": "{{cyan}}"
+}, {
+"expression": Array[Dictionary]([{
+"i": 77,
+"type": "variable",
+"value": "cyan"
+}]),
+"value_in_text": "{{cyan}}"
+}]),
+"type": "dialogue"
+},
+"32": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 2,
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"id": "32",
+"next_id": "33",
+"tags": PackedStringArray("expression=sorry"),
+"text": "That is reassuring.",
+"type": "dialogue"
+},
+"33": {
+"character": "{{orange}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 2,
+"type": "variable",
+"value": "orange"
+}]),
+"value_in_text": "{{orange}}"
+}]),
+"id": "33",
+"next_id": "34",
+"text": "So ready to look for {{blue}}?",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 35,
+"type": "variable",
+"value": "blue"
+}]),
+"value_in_text": "{{blue}}"
+}]),
+"type": "dialogue"
+},
+"34": {
+"id": "34",
+"next_id": "59",
+"responses": PackedStringArray("34", "35"),
+"text": "I am ready.",
+"type": "response"
+},
+"35": {
+"id": "35",
+"next_id": "43",
+"text": "Wait a bit.",
+"type": "response"
+},
+"36": {
+"id": "36",
 "is_snippet": false,
 "next_id": "end!",
+"next_id_after": "",
 "type": "goto"
+},
+"37": {
+"id": "37",
+"next_id": "38",
+"type": ""
+},
+"38": {
+"id": "38",
+"next_id": "39",
+"type": "title"
+},
+"39": {
+"id": "39",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_npc_dialogue_node",
+"i": 3,
+"type": &"function",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 25,
+"type": "string",
+"value": "Orange"
+}]), Array[Dictionary]([{
+"i": 35,
+"type": "string",
+"value": "query_1"
+}, {
+"i": 44,
+"type": "parens_close"
+}])])
+}]),
+"is_blocking": true
+},
+"next_id": "40",
+"type": "mutation"
+},
+"4": {
+"character": "{{orange}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 2,
+"type": "variable",
+"value": "orange"
+}]),
+"value_in_text": "{{orange}}"
+}]),
+"id": "4",
+"next_id": "5",
+"text": "Just kidding! I know you do. After all, I know everything about you.",
+"type": "dialogue"
+},
+"40": {
+"id": "40",
+"is_snippet": false,
+"next_id": "end!",
+"next_id_after": "",
+"type": "goto"
+},
+"41": {
+"id": "41",
+"next_id": "42",
+"type": ""
+},
+"42": {
+"id": "42",
+"next_id": "43",
+"type": "title"
+},
+"43": {
+"id": "43",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_npc_dialogue_node",
+"i": 3,
+"type": &"function",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 25,
+"type": "string",
+"value": "Orange"
+}]), Array[Dictionary]([{
+"i": 35,
+"type": "string",
+"value": "query_2"
+}, {
+"i": 44,
+"type": "parens_close"
+}])])
+}]),
+"is_blocking": true
+},
+"next_id": "44",
+"type": "mutation"
+},
+"44": {
+"id": "44",
+"is_snippet": false,
+"next_id": "end!",
+"next_id_after": "",
+"type": "goto"
+},
+"45": {
+"id": "45",
+"next_id": "46",
+"type": ""
+},
+"46": {
+"id": "46",
+"next_id": "47",
+"type": "title"
+},
+"47": {
+"id": "47",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "turn_npc_to_player",
+"i": 3,
+"type": &"function",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 22,
+"type": "string",
+"value": "Orange"
+}, {
+"i": 30,
+"type": "parens_close"
+}])])
+}]),
+"is_blocking": true
+},
+"next_id": "48",
+"type": "mutation"
+},
+"48": {
+"character": "{{orange}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 2,
+"type": "variable",
+"value": "orange"
+}]),
+"value_in_text": "{{orange}}"
+}]),
+"id": "48",
+"next_id": "49",
+"text": "Hello, need help with anything?",
+"type": "dialogue"
+},
+"49": {
+"id": "49",
+"next_id": "24",
+"responses": PackedStringArray("49", "50"),
+"text": "Can you help me find {{blue}}?",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 25,
+"type": "variable",
+"value": "blue"
+}]),
+"value_in_text": "{{blue}}"
+}]),
+"type": "response"
+},
+"5": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 2,
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"id": "5",
+"next_id": "6",
+"text": "Oh. Well... Can I get to know you then?",
+"type": "dialogue"
+},
+"50": {
+"id": "50",
+"next_id": "end!",
+"text": "Nevermind.",
+"type": "response"
+},
+"51": {
+"id": "51",
+"next_id": "52",
+"type": ""
+},
+"52": {
+"id": "52",
+"next_id": "53",
+"type": "title"
+},
+"53": {
+"id": "53",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "turn_npc_to_player",
+"i": 3,
+"type": &"function",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 22,
+"type": "string",
+"value": "Orange"
+}, {
+"i": 30,
+"type": "parens_close"
+}])])
+}]),
+"is_blocking": true
+},
+"next_id": "54",
+"type": "mutation"
+},
+"54": {
+"character": "{{orange}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 2,
+"type": "variable",
+"value": "orange"
+}]),
+"value_in_text": "{{orange}}"
+}]),
+"id": "54",
+"next_id": "55",
+"text": "So ready to look for {{blue}}?",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 35,
+"type": "variable",
+"value": "blue"
+}]),
+"value_in_text": "{{blue}}"
+}]),
+"type": "dialogue"
+},
+"55": {
+"id": "55",
+"next_id": "59",
+"responses": PackedStringArray("55", "56"),
+"text": "I am ready.",
+"type": "response"
+},
+"56": {
+"id": "56",
+"next_id": "end!",
+"text": "Nevermind.",
+"type": "response"
+},
+"57": {
+"id": "57",
+"next_id": "58",
+"type": ""
+},
+"58": {
+"id": "58",
+"next_id": "59",
+"type": "title"
+},
+"59": {
+"character": "{{orange}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 2,
+"type": "variable",
+"value": "orange"
+}]),
+"value_in_text": "{{orange}}"
+}]),
+"id": "59",
+"next_id": "60",
+"text": "Here's your hint: think about who you are looking at now.",
+"type": "dialogue"
+},
+"6": {
+"id": "6",
+"is_snippet": false,
+"next_id": "9",
+"next_id_after": "",
+"type": "goto"
+},
+"60": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 2,
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"id": "60",
+"next_id": "61",
+"text": "Hmm... I am looking at an AI materialised thanks to the properties of the {{imaginary}}. That means you are an illusion?",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 87,
+"type": "variable",
+"value": "imaginary"
+}]),
+"value_in_text": "{{imaginary}}"
+}]),
+"type": "dialogue"
+},
+"61": {
+"character": "{{orange}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 2,
+"type": "variable",
+"value": "orange"
+}]),
+"value_in_text": "{{orange}}"
+}]),
+"id": "61",
+"next_id": "62",
+"text": "Very smart! As expected.",
+"type": "dialogue"
+},
+"62": {
+"character": "{{orange}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 2,
+"type": "variable",
+"value": "orange"
+}]),
+"value_in_text": "{{orange}}"
+}]),
+"id": "62",
+"next_id": "63",
+"text": "We AI are just copying people's behaviour. People think we are real. That is why we appear like real people in the {{imaginary}}.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 129,
+"type": "variable",
+"value": "imaginary"
+}]),
+"value_in_text": "{{imaginary}}"
+}]),
+"type": "dialogue"
+},
+"63": {
+"character": "{{orange}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 2,
+"type": "variable",
+"value": "orange"
+}]),
+"value_in_text": "{{orange}}"
+}]),
+"id": "63",
+"next_id": "64",
+"text": "But what would happen if someone were to break that illusion? Well, go see for yourself!",
+"type": "dialogue"
+},
+"64": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 2,
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"id": "64",
+"next_id": "65",
+"text": "(I think I know what - or who - I can use the [color=yellow]{{revealer}}[/color] on now.)",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 73,
+"type": "variable",
+"value": "revealer"
+}]),
+"value_in_text": "{{revealer}}"
+}]),
+"type": "dialogue"
+},
+"65": {
+"id": "65",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_npc_dialogue_node",
+"i": 3,
+"type": &"function",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 25,
+"type": "string",
+"value": "Orange"
+}]), Array[Dictionary]([{
+"i": 35,
+"type": "string",
+"value": "query_2"
+}, {
+"i": 44,
+"type": "parens_close"
+}])])
+}]),
+"is_blocking": true
+},
+"next_id": "66",
+"type": "mutation"
+},
+"66": {
+"id": "66",
+"is_snippet": false,
+"next_id": "end!",
+"next_id_after": "",
+"type": "goto"
+},
+"67": {
+"id": "67",
+"next_id": "68",
+"type": ""
+},
+"68": {
+"id": "68",
+"is_snippet": false,
+"next_id": "end",
+"next_id_after": "",
+"type": "goto"
+},
+"7": {
+"id": "7",
+"next_id": "8",
+"type": ""
+},
+"8": {
+"id": "8",
+"next_id": "9",
+"type": "title"
+},
+"9": {
+"character": "{{orange}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 2,
+"type": "variable",
+"value": "orange"
+}]),
+"value_in_text": "{{orange}}"
+}]),
+"id": "9",
+"next_id": "10",
+"text": "My name is {{orange}}! I am an AI, materialised by the the {{imaginary}}, isn't that strange, for you?",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 25,
+"type": "variable",
+"value": "orange"
+}]),
+"value_in_text": "{{orange}}"
+}, {
+"expression": Array[Dictionary]([{
+"i": 73,
+"type": "variable",
+"value": "imaginary"
+}]),
+"value_in_text": "{{imaginary}}"
+}]),
+"type": "dialogue"
 }
 }
-metadata/dialogue_manager_version = "2.31.0"
+raw_text = "~ talk
+do turn_npc_to_player(\"Orange\")
+{{orange}}: Hello, need help with anything?
+{{green}}: Yes-
+{{orange}}: Just kidding! I know you do. After all, I know everything about you.
+{{green}}: Oh. Well... Can I get to know you then?
+=> about
+
+~ about
+{{orange}}: My name is {{orange}}! I am an AI, materialised by the the {{imaginary}}, isn't that strange, for you?
+{{orange}}: After {{cyan}} was reinforced as a science demo, poor {{cyan}} started feeling a bit alienated. Must be very lonely being the first self-conscions AI in this world.
+{{orange}}: So then {{cyan}} got a sibling, me!
+{{green}}: [#expression=cheerful] How nice of the scientists!
+{{orange}}: You don't need to respond, I can already calculate your response.
+{{green}}: [#expression=sorry] Oh, you don't want me to respond?
+{{orange}}: You're just like the others! You prefer an incomplete AI like {{cyan}} because you like to have a conversation with something comparable to you, isn't that so?
+{{orange}}: But I'll play along, you've been so nice to poor {{cyan}} after all.
+{{orange}}: So go ahead, speak.
+{{green}}: [#expression=sorry] (...)
+- Can you help me find {{blue}}? => progress_1
+- Wait a bit. => wait_1
+=> progress_1
+
+~ progress_1
+{{green}}: I'm looking for {{blue}}.
+{{orange}}: You already have what you need to find {{blue}} on your own!
+{{orange}}: Here's a hint: {{yellow}} was going to become the hero who would save {{blue_teacher}} face and find {{blue}}.
+{{orange}}: I even told {{yellow}} how to create the device! A device that can [color=yellow]reveal illusions[/color].
+{{orange}}: Of course, what I didn't tell {{yellow}} is how he would lose the device to you.
+{{green}}: [#expression=sorry] You knew I would win the bet against {{yellow}}?
+{{orange}}: You just noticed? I am a complete AI after all, it is you who are giving me the world's information at my disposal!
+{{orange}}: And well, {{cyan}} too. I wouldn't do anything that makes poor {{cyan}} uncomfortable.
+{{green}}: [#expression=sorry] That is reassuring.
+{{orange}}: So ready to look for {{blue}}?
+- I am ready. => progress_2
+- Wait a bit. => wait_2
+=> END!
+
+~ wait_1
+do set_npc_dialogue_node(\"Orange\", \"query_1\")
+=> END!
+
+~ wait_2
+do set_npc_dialogue_node(\"Orange\", \"query_2\")
+=> END!
+
+~ query_1
+do turn_npc_to_player(\"Orange\")
+{{orange}}: Hello, need help with anything?
+- Can you help me find {{blue}}? => progress_1
+- Nevermind. => END!
+
+~ query_2
+do turn_npc_to_player(\"Orange\")
+{{orange}}: So ready to look for {{blue}}?
+- I am ready. => progress_2
+- Nevermind. => END!
+
+~ progress_2
+{{orange}}: Here's your hint: think about who you are looking at now.
+{{green}}: Hmm... I am looking at an AI materialised thanks to the properties of the {{imaginary}}. That means you are an illusion?
+{{orange}}: Very smart! As expected.
+{{orange}}: We AI are just copying people's behaviour. People think we are real. That is why we appear like real people in the {{imaginary}}.
+{{orange}}: But what would happen if someone were to break that illusion? Well, go see for yourself!
+{{green}}: (I think I know what - or who - I can use the [color=yellow]{{revealer}}[/color] on now.)
+do set_npc_dialogue_node(\"Orange\", \"query_2\")
+=> END!
+"
+metadata/dialogue_manager_version = "3.3.2"

@@ -1,135 +1,181 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_4gkcg"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_pd6li"]
 
 [resource]
-script = ExtResource("1_4gkcg")
+script = ExtResource("1_pd6li")
 using_states = PackedStringArray()
 titles = {
-"cue": "2",
-"open_book": "8",
-"read": "17"
+"cue": "1",
+"open_book": "7",
+"read": "16"
 }
 character_names = PackedStringArray("{{green}}")
-first_title = "2"
+first_title = "0"
 lines = {
-"1": {
-"id": "1",
-"next_id": "2",
-"text": "cue",
+"0": {
+"id": "0",
+"next_id": "1",
 "type": "title"
 },
-"10": {
-"id": "10",
-"next_conditional_id": "12",
-"next_id": "11",
-"next_id_after": "12",
+"1": {
+"condition": {
+"expression": Array[Dictionary]([{
+"i": 3,
+"type": "variable",
+"value": "is_mentoring"
+}])
+},
+"id": "1",
+"next_id": "2",
+"next_id_after": "3",
 "type": "condition"
 },
-"11": {
+"10": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 3,
 "type": "variable",
 "value": "green"
 }]),
 "value_in_text": "{{green}}"
 }]),
-"id": "11",
-"next_id": "12",
-"parent_id": "10",
-"tags": PackedStringArray(),
+"id": "10",
+"next_id": "11",
 "text": "(The Myth of {{deepest_layer}}\".)",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 27,
 "type": "variable",
 "value": "deepest_layer"
 }]),
 "value_in_text": "{{deepest_layer}}"
 }]),
-"translation_key": "(The Myth of {{deepest_layer}}\".)",
 "type": "dialogue"
+},
+"11": {
+"id": "11",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_thing_anim",
+"i": 3,
+"type": &"function",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 18,
+"type": "string",
+"value": "BookcaseImaginarySpace"
+}]), Array[Dictionary]([{
+"i": 44,
+"type": "variable",
+"value": "bookcase_taken_anim"
+}, {
+"i": 63,
+"type": "parens_close"
+}])])
+}]),
+"is_blocking": true
+},
+"next_id": "12",
+"type": "mutation"
 },
 "12": {
 "id": "12",
 "mutation": {
 "expression": Array[Dictionary]([{
-"function": "set_thing_anim",
-"type": "function",
+"function": "animate_player",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "BookcaseImaginarySpace"
-}]), Array[Dictionary]([{
+"i": 18,
 "type": "variable",
-"value": "bookcase_taken_anim"
+"value": "read_anim"
+}]), Array[Dictionary]([{
+"i": 29,
+"type": "string",
+"value": "read"
+}, {
+"i": 35,
+"type": "parens_close"
 }])])
-}])
+}]),
+"is_blocking": true
 },
 "next_id": "13",
 "type": "mutation"
 },
 "13": {
 "id": "13",
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "animate_player",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "variable",
-"value": "read_anim"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "read"
-}])])
-}])
-},
-"next_id": "14",
-"type": "mutation"
+"is_snippet": false,
+"next_id": "end!",
+"next_id_after": "",
+"type": "goto"
 },
 "14": {
 "id": "14",
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
+"next_id": "15",
+"type": ""
+},
+"15": {
+"id": "15",
+"next_id": "16",
+"type": "title"
 },
 "16": {
 "id": "16",
-"next_id": "17",
-"text": "read",
-"type": "title"
-},
-"17": {
-"id": "17",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_player_anim",
-"type": "function",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
+"i": 19,
 "type": "variable",
 "value": "reading_anim"
+}, {
+"i": 31,
+"type": "parens_close"
 }])])
-}])
+}]),
+"is_blocking": true
 },
-"next_id": "18",
+"next_id": "17",
 "type": "mutation"
 },
-"18": {
+"17": {
 "condition": {
 "expression": Array[Dictionary]([{
+"i": 3,
 "type": "variable",
 "value": "is_mentoring"
 }])
 },
-"id": "18",
-"next_conditional_id": "26",
-"next_id": "19",
-"next_id_after": "33",
+"id": "17",
+"next_id": "18",
+"next_id_after": "32",
+"next_sibling_id": "25",
 "type": "condition"
+},
+"18": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 3,
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"id": "18",
+"next_id": "19",
+"text": "\"Reality is merely the top layer of the onion which represents our world. The imaginary are its layers.\"",
+"type": "dialogue"
 },
 "19": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 3,
 "type": "variable",
 "value": "green"
 }]),
@@ -137,30 +183,37 @@ lines = {
 }]),
 "id": "19",
 "next_id": "20",
-"parent_id": "18",
-"tags": PackedStringArray(),
-"text": "\"Reality is merely the top layer of the onion which represents our world. The imaginary are its layers.\"",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "\"Reality is merely the top layer of the onion which represents our world. The imaginary are its layers.\"",
+"text": "\"By peeling its many layers, one may travel deeper into the imaginary.\"",
 "type": "dialogue"
 },
 "2": {
-"condition": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 3,
 "type": "variable",
-"value": "is_mentoring"
-}])
-},
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
 "id": "2",
-"next_conditional_id": "4",
 "next_id": "3",
-"next_id_after": "4",
-"type": "condition"
+"text": "Look over here, {{blue}}!",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 30,
+"type": "variable",
+"value": "blue"
+}]),
+"value_in_text": "{{blue}}"
+}]),
+"type": "dialogue"
 },
 "20": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 3,
 "type": "variable",
 "value": "green"
 }]),
@@ -168,17 +221,14 @@ lines = {
 }]),
 "id": "20",
 "next_id": "21",
-"parent_id": "18",
-"tags": PackedStringArray(),
-"text": "\"By peeling its many layers, one may travel deeper into the imaginary.\"",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "\"By peeling its many layers, one may travel deeper into the imaginary.\"",
+"text": "\"But, just like an onion, our most trusted theory predicts that the imaginary has a core, a deepest layer.\"",
 "type": "dialogue"
 },
 "21": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 3,
 "type": "variable",
 "value": "green"
 }]),
@@ -186,17 +236,14 @@ lines = {
 }]),
 "id": "21",
 "next_id": "22",
-"parent_id": "18",
-"tags": PackedStringArray(),
-"text": "\"But, just like an onion, our most trusted theory predicts that the imaginary has a core, a deepest layer.\"",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "\"But, just like an onion, our most trusted theory predicts that the imaginary has a core, a deepest layer.\"",
+"text": "\"Yet, despite all efforts, there is no consensus on the scientific validity of alledged evidence for its existence.\"",
 "type": "dialogue"
 },
 "22": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 3,
 "type": "variable",
 "value": "green"
 }]),
@@ -204,17 +251,14 @@ lines = {
 }]),
 "id": "22",
 "next_id": "23",
-"parent_id": "18",
-"tags": PackedStringArray(),
-"text": "\"Yet, despite all efforts, there is no consensus on the scientific validity of alledged evidence for its existence.\"",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "\"Yet, despite all efforts, there is no consensus on the scientific validity of alledged evidence for its existence.\"",
+"text": "\"Researchers have merely been able to state that this mystery is yet enshrouded in an incomprehensible mist.\"",
 "type": "dialogue"
 },
 "23": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 3,
 "type": "variable",
 "value": "green"
 }]),
@@ -222,72 +266,68 @@ lines = {
 }]),
 "id": "23",
 "next_id": "24",
-"parent_id": "18",
-"tags": PackedStringArray(),
-"text": "\"Researchers have merely been able to state that this mystery is yet enshrouded in an incomprehensible mist.\"",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "\"Researchers have merely been able to state that this mystery is yet enshrouded in an incomprehensible mist.\"",
+"text": "\"Hence, this deepest layer became recognised by the name: {{deepest_layer}}.\"",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 72,
+"type": "variable",
+"value": "deepest_layer"
+}]),
+"value_in_text": "{{deepest_layer}}"
+}]),
 "type": "dialogue"
 },
 "24": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 3,
 "type": "variable",
 "value": "green"
 }]),
 "value_in_text": "{{green}}"
 }]),
 "id": "24",
-"next_id": "25",
-"parent_id": "18",
-"tags": PackedStringArray(),
-"text": "\"Hence, this deepest layer became recognised by the name: {{deepest_layer}}.\"",
+"next_id": "32",
+"tags": PackedStringArray("expression=cheerful"),
+"text": "Hmm... I believe we should try look for this place called {{deepest_layer}} sometime.",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 73,
 "type": "variable",
 "value": "deepest_layer"
 }]),
 "value_in_text": "{{deepest_layer}}"
 }]),
-"translation_key": "\"Hence, this deepest layer became recognised by the name: {{deepest_layer}}.\"",
 "type": "dialogue"
 },
 "25": {
+"condition": {},
+"id": "25",
+"next_id": "26",
+"next_id_after": "32",
+"type": "condition"
+},
+"26": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 3,
 "type": "variable",
 "value": "green"
 }]),
 "value_in_text": "{{green}}"
 }]),
-"id": "25",
-"next_id": "33",
-"parent_id": "18",
-"tags": PackedStringArray("expression=cheerful"),
-"text": "Hmm... I believe we should try look for this place called {{deepest_layer}} sometime.",
-"text_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "deepest_layer"
-}]),
-"value_in_text": "{{deepest_layer}}"
-}]),
-"translation_key": "Hmm... I believe we should try look for this place called {{deepest_layer}} sometime.",
-"type": "dialogue"
-},
-"26": {
 "id": "26",
-"next_conditional_id": "33",
 "next_id": "27",
-"next_id_after": "33",
-"type": "condition"
+"text": "(\"Reality is merely the top layer of the onion which represents our world. The imaginary are its layers.\")",
+"type": "dialogue"
 },
 "27": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 3,
 "type": "variable",
 "value": "green"
 }]),
@@ -295,17 +335,14 @@ lines = {
 }]),
 "id": "27",
 "next_id": "28",
-"parent_id": "26",
-"tags": PackedStringArray(),
-"text": "(\"Reality is merely the top layer of the onion which represents our world. The imaginary are its layers.\")",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "(\"Reality is merely the top layer of the onion which represents our world. The imaginary are its layers.\")",
+"text": "(\"By peeling its many layers, one may travel deeper into the imaginary.\")",
 "type": "dialogue"
 },
 "28": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 3,
 "type": "variable",
 "value": "green"
 }]),
@@ -313,17 +350,14 @@ lines = {
 }]),
 "id": "28",
 "next_id": "29",
-"parent_id": "26",
-"tags": PackedStringArray(),
-"text": "(\"By peeling its many layers, one may travel deeper into the imaginary.\")",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "(\"By peeling its many layers, one may travel deeper into the imaginary.\")",
+"text": "(\"But, just like an onion, our most trusted theory predicts that the imaginary has a core, a deepest layer.\")",
 "type": "dialogue"
 },
 "29": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 3,
 "type": "variable",
 "value": "green"
 }]),
@@ -331,41 +365,35 @@ lines = {
 }]),
 "id": "29",
 "next_id": "30",
-"parent_id": "26",
-"tags": PackedStringArray(),
-"text": "(\"But, just like an onion, our most trusted theory predicts that the imaginary has a core, a deepest layer.\")",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "(\"But, just like an onion, our most trusted theory predicts that the imaginary has a core, a deepest layer.\")",
+"text": "(\"Yet, despite all efforts, there is no consensus on the scientific validity of alledged evidence for its existence.\")",
 "type": "dialogue"
 },
 "3": {
-"character": "{{green}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "green"
-}]),
-"value_in_text": "{{green}}"
-}]),
 "id": "3",
-"next_id": "4",
-"parent_id": "2",
-"tags": PackedStringArray(),
-"text": "Look over here, {{blue}}!",
-"text_replacements": Array[Dictionary]([{
+"mutation": {
 "expression": Array[Dictionary]([{
-"type": "variable",
-"value": "blue"
+"function": "move",
+"i": 3,
+"type": &"function",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 8,
+"type": "string",
+"value": "open_book"
+}, {
+"i": 19,
+"type": "parens_close"
+}])])
 }]),
-"value_in_text": "{{blue}}"
-}]),
-"translation_key": "Look over here, {{blue}}!",
-"type": "dialogue"
+"is_blocking": true
+},
+"next_id": "4",
+"type": "mutation"
 },
 "30": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 3,
 "type": "variable",
 "value": "green"
 }]),
@@ -373,17 +401,14 @@ lines = {
 }]),
 "id": "30",
 "next_id": "31",
-"parent_id": "26",
-"tags": PackedStringArray(),
-"text": "(\"Yet, despite all efforts, there is no consensus on the scientific validity of alledged evidence for its existence.\")",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "(\"Yet, despite all efforts, there is no consensus on the scientific validity of alledged evidence for its existence.\")",
+"text": "(\"Researchers have merely been able to state that this mystery is yet enshrouded in an incomprehensible mist.\")",
 "type": "dialogue"
 },
 "31": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 3,
 "type": "variable",
 "value": "green"
 }]),
@@ -391,139 +416,178 @@ lines = {
 }]),
 "id": "31",
 "next_id": "32",
-"parent_id": "26",
-"tags": PackedStringArray(),
-"text": "(\"Researchers have merely been able to state that this mystery is yet enshrouded in an incomprehensible mist.\")",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "(\"Researchers have merely been able to state that this mystery is yet enshrouded in an incomprehensible mist.\")",
-"type": "dialogue"
-},
-"32": {
-"character": "{{green}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "green"
-}]),
-"value_in_text": "{{green}}"
-}]),
-"id": "32",
-"next_id": "33",
-"parent_id": "26",
-"tags": PackedStringArray(),
 "text": "(\"Hence, this deepest layer became recognised by the name: {{deepest_layer}}.\")",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 73,
 "type": "variable",
 "value": "deepest_layer"
 }]),
 "value_in_text": "{{deepest_layer}}"
 }]),
-"translation_key": "(\"Hence, this deepest layer became recognised by the name: {{deepest_layer}}.\")",
 "type": "dialogue"
+},
+"32": {
+"id": "32",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_thing_anim",
+"i": 3,
+"type": &"function",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 18,
+"type": "string",
+"value": "BookcaseImaginarySpace"
+}]), Array[Dictionary]([{
+"i": 44,
+"type": "variable",
+"value": "bookcase_anim"
+}, {
+"i": 57,
+"type": "parens_close"
+}])])
+}]),
+"is_blocking": true
+},
+"next_id": "33",
+"type": "mutation"
 },
 "33": {
 "id": "33",
 "mutation": {
 "expression": Array[Dictionary]([{
-"function": "set_thing_anim",
-"type": "function",
+"function": "set_player_anim",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
+"i": 19,
 "type": "string",
-"value": "BookcaseImaginarySpace"
-}]), Array[Dictionary]([{
-"type": "variable",
-"value": "bookcase_anim"
+"value": "down"
+}, {
+"i": 25,
+"type": "parens_close"
 }])])
-}])
+}]),
+"is_blocking": true
 },
 "next_id": "34",
 "type": "mutation"
 },
 "34": {
 "id": "34",
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "set_player_anim",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "down"
-}])])
-}])
-},
-"next_id": "35",
-"type": "mutation"
+"is_snippet": false,
+"next_id": "end!",
+"next_id_after": "",
+"type": "goto"
 },
 "35": {
 "id": "35",
+"next_id": "36",
+"type": ""
+},
+"36": {
+"id": "36",
 "is_snippet": false,
-"next_id": "end!",
+"next_id": "end",
+"next_id_after": "",
 "type": "goto"
 },
 "4": {
 "id": "4",
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "move",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "open_book"
-}])])
-}])
-},
-"next_id": "5",
-"type": "mutation"
+"is_snippet": false,
+"next_id": "end!",
+"next_id_after": "",
+"type": "goto"
 },
 "5": {
 "id": "5",
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
+"next_id": "6",
+"type": ""
 },
-"7": {
-"id": "7",
-"next_id": "8",
-"text": "open_book",
+"6": {
+"id": "6",
+"next_id": "7",
 "type": "title"
 },
-"8": {
+"7": {
 "condition": {
 "expression": Array[Dictionary]([{
+"i": 3,
 "type": "variable",
 "value": "is_mentoring"
 }])
 },
-"id": "8",
-"next_conditional_id": "10",
-"next_id": "9",
-"next_id_after": "12",
+"id": "7",
+"next_id": "8",
+"next_id_after": "11",
+"next_sibling_id": "9",
 "type": "condition"
 },
-"9": {
+"8": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 3,
 "type": "variable",
 "value": "green"
 }]),
 "value_in_text": "{{green}}"
 }]),
-"id": "9",
-"next_id": "12",
-"parent_id": "8",
-"tags": PackedStringArray(),
+"id": "8",
+"next_id": "11",
 "text": "\"The Myth of {{deepest_layer}}\".",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 27,
 "type": "variable",
 "value": "deepest_layer"
 }]),
 "value_in_text": "{{deepest_layer}}"
 }]),
-"translation_key": "\"The Myth of {{deepest_layer}}\".",
 "type": "dialogue"
+},
+"9": {
+"condition": {},
+"id": "9",
+"next_id": "10",
+"next_id_after": "11",
+"type": "condition"
 }
 }
-metadata/dialogue_manager_version = "2.31.0"
+raw_text = "~ cue
+if is_mentoring
+	{{green}}: Look over here, {{blue}}!
+do move(\"open_book\")
+=> END!
+
+~ open_book
+if is_mentoring
+	{{green}}: \"The Myth of {{deepest_layer}}\".
+else
+	{{green}}: (The Myth of {{deepest_layer}}\".)
+do set_thing_anim(\"BookcaseImaginarySpace\", bookcase_taken_anim)
+do animate_player(read_anim, \"read\")
+=> END!
+
+~ read
+do set_player_anim(reading_anim)
+if is_mentoring
+	{{green}}: \"Reality is merely the top layer of the onion which represents our world. The imaginary are its layers.\"
+	{{green}}: \"By peeling its many layers, one may travel deeper into the imaginary.\"
+	{{green}}: \"But, just like an onion, our most trusted theory predicts that the imaginary has a core, a deepest layer.\"
+	{{green}}: \"Yet, despite all efforts, there is no consensus on the scientific validity of alledged evidence for its existence.\"
+	{{green}}: \"Researchers have merely been able to state that this mystery is yet enshrouded in an incomprehensible mist.\"
+	{{green}}: \"Hence, this deepest layer became recognised by the name: {{deepest_layer}}.\"
+	{{green}}: [#expression=cheerful] Hmm... I believe we should try look for this place called {{deepest_layer}} sometime.
+else
+	{{green}}: (\"Reality is merely the top layer of the onion which represents our world. The imaginary are its layers.\")
+	{{green}}: (\"By peeling its many layers, one may travel deeper into the imaginary.\")
+	{{green}}: (\"But, just like an onion, our most trusted theory predicts that the imaginary has a core, a deepest layer.\")
+	{{green}}: (\"Yet, despite all efforts, there is no consensus on the scientific validity of alledged evidence for its existence.\")
+	{{green}}: (\"Researchers have merely been able to state that this mystery is yet enshrouded in an incomprehensible mist.\")
+	{{green}}: (\"Hence, this deepest layer became recognised by the name: {{deepest_layer}}.\")
+do set_thing_anim(\"BookcaseImaginarySpace\", bookcase_anim)
+do set_player_anim(\"down\")
+=> END!
+"
+metadata/dialogue_manager_version = "3.3.2"

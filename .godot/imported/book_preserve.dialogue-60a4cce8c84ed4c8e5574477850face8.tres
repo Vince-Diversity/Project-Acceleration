@@ -1,68 +1,117 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_d0qc4"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_g5lrn"]
 
 [resource]
-script = ExtResource("1_d0qc4")
+script = ExtResource("1_g5lrn")
 using_states = PackedStringArray()
 titles = {
-"cue": "2",
-"open_book": "6",
-"read": "13"
+"cue": "1",
+"open_book": "5",
+"read": "12"
 }
 character_names = PackedStringArray("{{green}}")
-first_title = "2"
+first_title = "0"
 lines = {
+"0": {
+"id": "0",
+"next_id": "1",
+"type": "title"
+},
 "1": {
 "id": "1",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "move",
+"i": 3,
+"type": &"function",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 8,
+"type": "string",
+"value": "open_book"
+}, {
+"i": 19,
+"type": "parens_close"
+}])])
+}]),
+"is_blocking": true
+},
 "next_id": "2",
-"text": "cue",
-"type": "title"
+"type": "mutation"
 },
 "10": {
 "id": "10",
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
+"next_id": "11",
+"type": ""
+},
+"11": {
+"id": "11",
+"next_id": "12",
+"type": "title"
 },
 "12": {
 "id": "12",
-"next_id": "13",
-"text": "read",
-"type": "title"
-},
-"13": {
-"id": "13",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_player_anim",
-"type": "function",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
+"i": 19,
 "type": "variable",
 "value": "reading_anim"
+}, {
+"i": 31,
+"type": "parens_close"
 }])])
-}])
+}]),
+"is_blocking": true
 },
-"next_id": "14",
+"next_id": "13",
 "type": "mutation"
 },
-"14": {
+"13": {
 "condition": {
 "expression": Array[Dictionary]([{
+"i": 3,
 "type": "variable",
 "value": "is_mentoring"
 }])
 },
-"id": "14",
-"next_conditional_id": "19",
-"next_id": "15",
-"next_id_after": "24",
+"id": "13",
+"next_id": "14",
+"next_id_after": "23",
+"next_sibling_id": "18",
 "type": "condition"
+},
+"14": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 3,
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"id": "14",
+"next_id": "15",
+"text": "\"In two words, {{green_aspect}} magic is to 'enhance' and to 'preserve'.\"",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 29,
+"type": "variable",
+"value": "green_aspect"
+}]),
+"value_in_text": "{{green_aspect}}"
+}]),
+"type": "dialogue"
 },
 "15": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 3,
 "type": "variable",
 "value": "green"
 }]),
@@ -70,23 +119,14 @@ lines = {
 }]),
 "id": "15",
 "next_id": "16",
-"parent_id": "14",
-"tags": PackedStringArray(),
-"text": "\"In two words, {{green_aspect}} magic is to 'enhance' and to 'preserve'.\"",
-"text_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "green_aspect"
-}]),
-"value_in_text": "{{green_aspect}}"
-}]),
-"translation_key": "\"In two words, {{green_aspect}} magic is to 'enhance' and to 'preserve'.\"",
+"text": "\"The magic manifests by enhancing existing traits to a subject.\"",
 "type": "dialogue"
 },
 "16": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 3,
 "type": "variable",
 "value": "green"
 }]),
@@ -94,81 +134,74 @@ lines = {
 }]),
 "id": "16",
 "next_id": "17",
-"parent_id": "14",
-"tags": PackedStringArray(),
-"text": "\"The magic manifests by enhancing existing traits to a subject.\"",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "\"The magic manifests by enhancing existing traits to a subject.\"",
+"text": "\"Even when the practitioner ends their spell, the magic remains in the form of a more complete subject.\"",
 "type": "dialogue"
 },
 "17": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 3,
 "type": "variable",
 "value": "green"
 }]),
 "value_in_text": "{{green}}"
 }]),
 "id": "17",
-"next_id": "18",
-"parent_id": "14",
-"tags": PackedStringArray(),
-"text": "\"Even when the practitioner ends their spell, the magic remains in the form of a more complete subject.\"",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "\"Even when the practitioner ends their spell, the magic remains in the form of a more complete subject.\"",
-"type": "dialogue"
-},
-"18": {
-"character": "{{green}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "green"
-}]),
-"value_in_text": "{{green}}"
-}]),
-"id": "18",
-"next_id": "24",
-"parent_id": "14",
-"tags": PackedStringArray(),
+"next_id": "23",
 "text": "\"Changes made with {{green_aspect}} magic are therefore always preserved.\"",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 33,
 "type": "variable",
 "value": "green_aspect"
 }]),
 "value_in_text": "{{green_aspect}}"
 }]),
-"translation_key": "\"Changes made with {{green_aspect}} magic are therefore always preserved.\"",
 "type": "dialogue"
 },
-"19": {
-"id": "19",
-"next_conditional_id": "24",
-"next_id": "20",
-"next_id_after": "24",
+"18": {
+"condition": {},
+"id": "18",
+"next_id": "19",
+"next_id_after": "23",
 "type": "condition"
+},
+"19": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 3,
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"id": "19",
+"next_id": "20",
+"text": "(\"In two words, {{green_aspect}} magic is to 'enhance' and to 'preserve'.\")",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 30,
+"type": "variable",
+"value": "green_aspect"
+}]),
+"value_in_text": "{{green_aspect}}"
+}]),
+"type": "dialogue"
 },
 "2": {
 "id": "2",
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "move",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "open_book"
-}])])
-}])
-},
-"next_id": "3",
-"type": "mutation"
+"is_snippet": false,
+"next_id": "end!",
+"next_id_after": "",
+"type": "goto"
 },
 "20": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 3,
 "type": "variable",
 "value": "green"
 }]),
@@ -176,23 +209,14 @@ lines = {
 }]),
 "id": "20",
 "next_id": "21",
-"parent_id": "19",
-"tags": PackedStringArray(),
-"text": "(\"In two words, {{green_aspect}} magic is to 'enhance' and to 'preserve'.\")",
-"text_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "green_aspect"
-}]),
-"value_in_text": "{{green_aspect}}"
-}]),
-"translation_key": "(\"In two words, {{green_aspect}} magic is to 'enhance' and to 'preserve'.\")",
+"text": "(\"The magic manifests by enhancing existing traits to a subject.\")",
 "type": "dialogue"
 },
 "21": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 3,
 "type": "variable",
 "value": "green"
 }]),
@@ -200,17 +224,14 @@ lines = {
 }]),
 "id": "21",
 "next_id": "22",
-"parent_id": "19",
-"tags": PackedStringArray(),
-"text": "(\"The magic manifests by enhancing existing traits to a subject.\")",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "(\"The magic manifests by enhancing existing traits to a subject.\")",
+"text": "(\"Even when the practitioner ends their spell, the magic remains in the form of a more complete subject.\")",
 "type": "dialogue"
 },
 "22": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 3,
 "type": "variable",
 "value": "green"
 }]),
@@ -218,154 +239,197 @@ lines = {
 }]),
 "id": "22",
 "next_id": "23",
-"parent_id": "19",
-"tags": PackedStringArray(),
-"text": "(\"Even when the practitioner ends their spell, the magic remains in the form of a more complete subject.\")",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "(\"Even when the practitioner ends their spell, the magic remains in the form of a more complete subject.\")",
-"type": "dialogue"
-},
-"23": {
-"character": "{{green}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "green"
-}]),
-"value_in_text": "{{green}}"
-}]),
-"id": "23",
-"next_id": "24",
-"parent_id": "19",
-"tags": PackedStringArray(),
 "text": "(\"Changes made with {{green_aspect}} magic are therefore always preserved.\")",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 34,
 "type": "variable",
 "value": "green_aspect"
 }]),
 "value_in_text": "{{green_aspect}}"
 }]),
-"translation_key": "(\"Changes made with {{green_aspect}} magic are therefore always preserved.\")",
 "type": "dialogue"
+},
+"23": {
+"id": "23",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_thing_anim",
+"i": 3,
+"type": &"function",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 18,
+"type": "string",
+"value": "BookcasePreserve"
+}]), Array[Dictionary]([{
+"i": 38,
+"type": "variable",
+"value": "bookcase_anim"
+}, {
+"i": 51,
+"type": "parens_close"
+}])])
+}]),
+"is_blocking": true
+},
+"next_id": "24",
+"type": "mutation"
 },
 "24": {
 "id": "24",
 "mutation": {
 "expression": Array[Dictionary]([{
-"function": "set_thing_anim",
-"type": "function",
+"function": "set_player_anim",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
+"i": 19,
 "type": "string",
-"value": "BookcasePreserve"
-}]), Array[Dictionary]([{
-"type": "variable",
-"value": "bookcase_anim"
+"value": "down"
+}, {
+"i": 25,
+"type": "parens_close"
 }])])
-}])
+}]),
+"is_blocking": true
 },
 "next_id": "25",
 "type": "mutation"
 },
 "25": {
 "id": "25",
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "set_player_anim",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "down"
-}])])
-}])
-},
-"next_id": "26",
-"type": "mutation"
+"is_snippet": false,
+"next_id": "end!",
+"next_id_after": "",
+"type": "goto"
 },
 "26": {
 "id": "26",
 "is_snippet": false,
-"next_id": "end!",
+"next_id": "end",
+"next_id_after": "",
 "type": "goto"
 },
 "3": {
 "id": "3",
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
+"next_id": "4",
+"type": ""
 },
-"5": {
-"id": "5",
-"next_id": "6",
-"text": "open_book",
+"4": {
+"id": "4",
+"next_id": "5",
 "type": "title"
 },
-"6": {
+"5": {
 "condition": {
 "expression": Array[Dictionary]([{
+"i": 3,
 "type": "variable",
 "value": "is_mentoring"
 }])
 },
-"id": "6",
-"next_conditional_id": "8",
-"next_id": "7",
-"next_id_after": "8",
+"id": "5",
+"next_id": "6",
+"next_id_after": "7",
 "type": "condition"
 },
-"7": {
+"6": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 3,
 "type": "variable",
 "value": "green"
 }]),
 "value_in_text": "{{green}}"
 }]),
-"id": "7",
-"next_id": "8",
-"parent_id": "6",
-"tags": PackedStringArray(),
+"id": "6",
+"next_id": "7",
 "text": "Plants are life too. By understanding them, we can help them grow.",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "Plants are life too. By understanding them, we can help them grow.",
 "type": "dialogue"
+},
+"7": {
+"id": "7",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_thing_anim",
+"i": 3,
+"type": &"function",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 18,
+"type": "string",
+"value": "BookcasePreserve"
+}]), Array[Dictionary]([{
+"i": 38,
+"type": "variable",
+"value": "bookcase_taken_anim"
+}, {
+"i": 57,
+"type": "parens_close"
+}])])
+}]),
+"is_blocking": true
+},
+"next_id": "8",
+"type": "mutation"
 },
 "8": {
 "id": "8",
 "mutation": {
 "expression": Array[Dictionary]([{
-"function": "set_thing_anim",
-"type": "function",
+"function": "animate_player",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "BookcasePreserve"
-}]), Array[Dictionary]([{
+"i": 18,
 "type": "variable",
-"value": "bookcase_taken_anim"
+"value": "read_anim"
+}]), Array[Dictionary]([{
+"i": 29,
+"type": "string",
+"value": "read"
+}, {
+"i": 35,
+"type": "parens_close"
 }])])
-}])
+}]),
+"is_blocking": true
 },
 "next_id": "9",
 "type": "mutation"
 },
 "9": {
 "id": "9",
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "animate_player",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "variable",
-"value": "read_anim"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "read"
-}])])
-}])
-},
-"next_id": "10",
-"type": "mutation"
+"is_snippet": false,
+"next_id": "end!",
+"next_id_after": "",
+"type": "goto"
 }
 }
-metadata/dialogue_manager_version = "2.31.0"
+raw_text = "~ cue
+do move(\"open_book\")
+=> END!
+
+~ open_book
+if is_mentoring
+	{{green}}: Plants are life too. By understanding them, we can help them grow.
+do set_thing_anim(\"BookcasePreserve\", bookcase_taken_anim)
+do animate_player(read_anim, \"read\")
+=> END!
+
+~ read
+do set_player_anim(reading_anim)
+if is_mentoring
+	{{green}}: \"In two words, {{green_aspect}} magic is to 'enhance' and to 'preserve'.\"
+	{{green}}: \"The magic manifests by enhancing existing traits to a subject.\"
+	{{green}}: \"Even when the practitioner ends their spell, the magic remains in the form of a more complete subject.\"
+	{{green}}: \"Changes made with {{green_aspect}} magic are therefore always preserved.\"
+else
+	{{green}}: (\"In two words, {{green_aspect}} magic is to 'enhance' and to 'preserve'.\")
+	{{green}}: (\"The magic manifests by enhancing existing traits to a subject.\")
+	{{green}}: (\"Even when the practitioner ends their spell, the magic remains in the form of a more complete subject.\")
+	{{green}}: (\"Changes made with {{green_aspect}} magic are therefore always preserved.\")
+do set_thing_anim(\"BookcasePreserve\", bookcase_anim)
+do set_player_anim(\"down\")
+=> END!"
+metadata/dialogue_manager_version = "3.3.2"

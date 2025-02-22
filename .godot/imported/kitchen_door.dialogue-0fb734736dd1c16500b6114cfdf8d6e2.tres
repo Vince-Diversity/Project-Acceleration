@@ -1,44 +1,58 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_usg7v"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_f2fx0"]
 
 [resource]
-script = ExtResource("1_usg7v")
+script = ExtResource("1_f2fx0")
 using_states = PackedStringArray()
 titles = {
-"default": "2"
+"default": "1"
 }
 character_names = PackedStringArray("{{green}}")
-first_title = "2"
+first_title = "0"
 lines = {
-"1": {
-"id": "1",
-"next_id": "2",
-"text": "default",
+"0": {
+"id": "0",
+"next_id": "1",
 "type": "title"
 },
-"2": {
+"1": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 2,
 "type": "variable",
 "value": "green"
 }]),
 "value_in_text": "{{green}}"
 }]),
-"id": "2",
-"next_id": "3",
-"tags": PackedStringArray(),
+"id": "1",
+"next_id": "2",
 "text": "(This door leads to the school kitchen. Probably shouldn't go there.)",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "(This door leads to the school kitchen. Probably shouldn't go there.)",
 "type": "dialogue"
+},
+"2": {
+"id": "2",
+"is_snippet": false,
+"next_id": "end!",
+"next_id_after": "",
+"type": "goto"
 },
 "3": {
 "id": "3",
+"next_id": "4",
+"type": ""
+},
+"4": {
+"id": "4",
 "is_snippet": false,
-"next_id": "end!",
+"next_id": "end",
+"next_id_after": "",
 "type": "goto"
 }
 }
-metadata/dialogue_manager_version = "2.31.0"
+raw_text = "~ default
+{{green}}: (This door leads to the school kitchen. Probably shouldn't go there.)
+=> END!
+"
+metadata/dialogue_manager_version = "3.3.2"

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://gr8nakpbrhby"]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/components/search_and_replace.gd" id="1_8oj1f"]
+[ext_resource type="Script" uid="uid://cijsmjkq21cdq" path="res://addons/dialogue_manager/components/search_and_replace.gd" id="1_8oj1f"]
 
 [node name="SearchAndReplace" type="VBoxContainer"]
 visible = false
@@ -17,6 +17,7 @@ layout_mode = 2
 [node name="Input" type="LineEdit" parent="Search"]
 layout_mode = 2
 size_flags_horizontal = 3
+placeholder_text = "Text to search for"
 metadata/_edit_use_custom_anchors = true
 
 [node name="MatchCaseCheckBox" type="CheckBox" parent="Search"]

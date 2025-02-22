@@ -1,63 +1,64 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_ttcke"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_y33k1"]
 
 [resource]
-script = ExtResource("1_ttcke")
+script = ExtResource("1_y33k1")
 using_states = PackedStringArray()
 titles = {
-"default": "2"
+"default": "1"
 }
 character_names = PackedStringArray()
-first_title = "2"
+first_title = "0"
 lines = {
+"0": {
+"id": "0",
+"next_id": "1",
+"type": "title"
+},
 "1": {
 "id": "1",
 "next_id": "2",
-"text": "default",
-"type": "title"
-},
-"2": {
-"character": "",
-"character_replacements": Array[Dictionary]([]),
-"id": "2",
-"next_id": "3",
-"tags": PackedStringArray(),
 "text": "Somehow cat sounds appear and steal {{green}}'s attention. Me-ow Me-ow Me-ow Me-ow Me-ow.",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 40,
 "type": "variable",
 "value": "green"
 }]),
 "value_in_text": "{{green}}"
 }]),
-"translation_key": "Somehow cat sounds appear and steal {{green}}'s attention. Me-ow Me-ow Me-ow Me-ow Me-ow.",
 "type": "dialogue"
 },
-"3": {
-"character": "",
-"character_replacements": Array[Dictionary]([]),
-"id": "3",
-"next_id": "2",
-"next_id_after": "end!",
-"responses": PackedStringArray("3", "4"),
-"tags": PackedStringArray(),
+"2": {
+"id": "2",
+"next_id": "1",
+"responses": PackedStringArray("2", "3"),
 "text": "Stay",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "Stay",
+"type": "response"
+},
+"3": {
+"id": "3",
+"next_id": "end",
+"text": "Leave",
 "type": "response"
 },
 "4": {
-"character": "",
-"character_replacements": Array[Dictionary]([]),
 "id": "4",
+"next_id": "5",
+"type": ""
+},
+"5": {
+"id": "5",
+"is_snippet": false,
 "next_id": "end",
-"next_id_after": "end!",
-"tags": PackedStringArray(),
-"text": "Leave",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "Leave",
-"type": "response"
+"next_id_after": "",
+"type": "goto"
 }
 }
-metadata/dialogue_manager_version = "2.31.0"
+raw_text = "~ default
+Somehow cat sounds appear and steal {{green}}'s attention. Me-ow Me-ow Me-ow Me-ow Me-ow.
+- Stay => default
+- Leave => END
+"
+metadata/dialogue_manager_version = "3.3.2"

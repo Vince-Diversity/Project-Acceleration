@@ -14,6 +14,9 @@ msgstr ""
 msgid "open.open"
 msgstr ""
 
+msgid "open.quick_open"
+msgstr ""
+
 msgid "open.no_recent_files"
 msgstr ""
 
@@ -23,7 +26,13 @@ msgstr ""
 msgid "save_all_files"
 msgstr ""
 
+msgid "find_in_files"
+msgstr ""
+
 msgid "test_dialogue"
+msgstr ""
+
+msgid "test_dialogue_from_line"
 msgstr ""
 
 msgid "search_for_text"
@@ -35,7 +44,7 @@ msgstr ""
 msgid "translations"
 msgstr ""
 
-msgid "settings"
+msgid "sponsor"
 msgstr ""
 
 msgid "show_support"
@@ -125,70 +134,22 @@ msgstr ""
 msgid "buffer.show_in_filesystem"
 msgstr ""
 
-msgid "settings.invalid_test_scene"
-msgstr ""
-
-msgid "settings.revert_to_default_test_scene"
-msgstr ""
-
-msgid "settings.default_balloon_hint"
-msgstr ""
-
-msgid "settings.revert_to_default_balloon"
-msgstr ""
-
-msgid "settings.default_balloon_path"
-msgstr ""
-
-msgid "settings.autoload"
-msgstr ""
-
-msgid "settings.path"
-msgstr ""
-
-msgid "settings.new_template"
-msgstr ""
-
-msgid "settings.missing_keys"
-msgstr ""
-
-msgid "settings.missing_keys_hint"
-msgstr ""
-
-msgid "settings.characters_translations"
-msgstr ""
-
-msgid "settings.wrap_long_lines"
-msgstr ""
-
-msgid "settings.include_failed_responses"
-msgstr ""
-
-msgid "settings.ignore_missing_state_values"
-msgstr ""
-
-msgid "settings.custom_test_scene"
-msgstr ""
-
-msgid "settings.default_csv_locale"
-msgstr ""
-
-msgid "settings.states_shortcuts"
-msgstr ""
-
-msgid "settings.states_message"
-msgstr ""
-
-msgid "settings.states_hint"
-msgstr ""
-
-msgid "settings.recompile_warning"
-msgstr ""
-
-msgid "settings.create_lines_for_responses_with_characters"
-msgstr ""
-
 msgid "n_of_n"
+msgstr ""
+
+msgid "search.find"
+msgstr ""
+
+msgid "search.find_all"
+msgstr ""
+
+msgid "search.placeholder"
+msgstr ""
+
+msgid "search.replace_placeholder"
+msgstr ""
+
+msgid "search.replace_selected"
 msgstr ""
 
 msgid "search.previous"
@@ -246,9 +207,6 @@ msgid "errors.empty_title"
 msgstr ""
 
 msgid "errors.duplicate_title"
-msgstr ""
-
-msgid "errors.nested_title"
 msgstr ""
 
 msgid "errors.invalid_title_string"
@@ -338,6 +296,21 @@ msgstr ""
 msgid "errors.unexpected_assignment"
 msgstr ""
 
+msgid "errors.expected_when_or_else"
+msgstr ""
+
+msgid "errors.only_one_else_allowed"
+msgstr ""
+
+msgid "errors.when_must_belong_to_match"
+msgstr ""
+
+msgid "errors.concurrent_line_without_origin"
+msgstr ""
+
+msgid "errors.goto_not_allowed_on_concurrect_lines"
+msgstr ""
+
 msgid "errors.unknown"
 msgstr ""
 
@@ -392,15 +365,6 @@ msgstr ""
 msgid "runtime.invalid_expression"
 msgstr ""
 
-msgid "runtime.unsupported_array_method"
-msgstr ""
-
-msgid "runtime.unsupported_dictionary_method"
-msgstr ""
-
-msgid "runtime.unsupported_quaternion_method"
-msgstr ""
-
 msgid "runtime.array_index_out_of_bounds"
 msgstr ""
 
@@ -432,4 +396,19 @@ msgid "runtime.unknown_autoload"
 msgstr ""
 
 msgid "runtime.something_went_wrong"
+msgstr ""
+
+msgid "runtime.expected_n_got_n_args"
+msgstr ""
+
+msgid "runtime.unsupported_array_type"
+msgstr ""
+
+msgid "runtime.dialogue_balloon_missing_start_method"
+msgstr ""
+
+msgid "runtime.top_level_states_share_name"
+msgstr ""
+
+msgid "translation_plugin.character_name"
 msgstr ""

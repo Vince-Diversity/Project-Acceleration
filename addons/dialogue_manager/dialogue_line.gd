@@ -2,14 +2,11 @@
 class_name DialogueLine extends RefCounted
 
 
-const _DialogueConstants = preload("./constants.gd")
-
-
 ## The ID of this line
 var id: String
 
 ## The internal type of this dialogue object. One of [code]TYPE_DIALOGUE[/code] or [code]TYPE_MUTATION[/code]
-var type: String = _DialogueConstants.TYPE_DIALOGUE
+var type: String = DMConstants.TYPE_DIALOGUE
 
 ## The next line ID after this line.
 var next_id: String = ""
@@ -39,7 +36,10 @@ var speeds: Dictionary = {}
 var inline_mutations: Array[Array] = []
 
 ## A list of responses attached to this line of dialogue.
-var responses: Array[DialogueResponse] = []
+var responses: Array = []
+
+## A list of lines that are spoken simultaneously with this one.
+var concurrent_lines: Array[DialogueLine] = []
 
 ## A list of any extra game states to check when resolving variables and mutations.
 var extra_game_states: Array = []
@@ -62,30 +62,31 @@ func _init(data: Dictionary = {}) -> void:
 		id = data.id
 		next_id = data.next_id
 		type = data.type
-		extra_game_states = data.extra_game_states
+		extra_game_states = data.get("extra_game_states", [])
 
 		match type:
-			_DialogueConstants.TYPE_DIALOGUE:
+			DMConstants.TYPE_DIALOGUE:
 				character = data.character
-				character_replacements = data.character_replacements
+				character_replacements = data.get("character_replacements", [] as Array[Dictionary])
 				text = data.text
-				text_replacements = data.text_replacements
-				translation_key = data.translation_key
-				pauses = data.pauses
-				speeds = data.speeds
-				inline_mutations = data.inline_mutations
-				time = data.time
-				tags = data.tags
+				text_replacements = data.get("text_replacements", [] as Array[Dictionary])
+				translation_key = data.get("translation_key", data.text)
+				pauses = data.get("pauses", {})
+				speeds = data.get("speeds", {})
+				inline_mutations = data.get("inline_mutations", [] as Array[Array])
+				time = data.get("time", "")
+				tags = data.get("tags", [])
+				concurrent_lines = data.get("concurrent_lines", [] as Array[DialogueLine])
 
-			_DialogueConstants.TYPE_MUTATION:
+			DMConstants.TYPE_MUTATION:
 				mutation = data.mutation
 
 
 func _to_string() -> String:
 	match type:
-		_DialogueConstants.TYPE_DIALOGUE:
+		DMConstants.TYPE_DIALOGUE:
 			return "<DialogueLine character=\"%s\" text=\"%s\">" % [character, text]
-		_DialogueConstants.TYPE_MUTATION:
+		DMConstants.TYPE_MUTATION:
 			return "<DialogueLine mutation>"
 	return ""
 

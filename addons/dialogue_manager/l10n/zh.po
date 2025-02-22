@@ -4,7 +4,7 @@ msgstr ""
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
-"Language-Team: penghao123456、憨憨羊の宇航鸽鸽\n"
+"Language-Team: penghao123456、憨憨羊の宇航鸽鸽、ABShinri\n"
 "Language: zh\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,6 +29,9 @@ msgstr "清空历史记录"
 msgid "save_all_files"
 msgstr "保存所有文件"
 
+msgid "find_in_files"
+msgstr "在文件中查找"
+
 msgid "test_dialogue"
 msgstr "测试对话"
 
@@ -41,9 +44,6 @@ msgstr "插入"
 msgid "translations"
 msgstr "翻译"
 
-msgid "settings"
-msgstr "设置"
-
 msgid "show_support"
 msgstr "支持 Dialogue Manager"
 
@@ -51,10 +51,10 @@ msgid "docs"
 msgstr "文档"
 
 msgid "insert.wave_bbcode"
-msgstr "BBCode [lb]wave[rb]"
+msgstr "波浪效果"
 
 msgid "insert.shake_bbcode"
-msgstr "BBCode [lb]wave[rb]"
+msgstr "抖动效果"
 
 msgid "insert.typing_pause"
 msgstr "输入间隔"
@@ -95,6 +95,9 @@ msgstr "结束对话"
 msgid "generate_line_ids"
 msgstr "生成行 ID"
 
+msgid "save_characters_to_csv"
+msgstr "保存角色到 CSV"
+
 msgid "save_to_csv"
 msgstr "生成 CSV"
 
@@ -131,53 +134,23 @@ msgstr "复制文件路径"
 msgid "buffer.show_in_filesystem"
 msgstr "在 Godot 侧边栏中显示"
 
-msgid "settings.revert_to_default_test_scene"
-msgstr "重置测试场景设定"
-
-msgid "settings.autoload"
-msgstr "Autoload"
-
-msgid "settings.path"
-msgstr "路径"
-
-msgid "settings.new_template"
-msgstr "新建文件时自动插入模板"
-
-msgid "settings.missing_keys"
-msgstr "将翻译键缺失视为错误"
-
-msgid "settings.missing_keys_hint"
-msgstr "如果你使用静态键，这将会帮助你寻找未添加至翻译文件的键。"
-
-msgid "settings.characters_translations"
-msgstr "在翻译文件中导出角色名。"
-
-msgid "settings.wrap_long_lines"
-msgstr "自动折行"
-
-msgid "settings.include_failed_responses"
-msgstr "在判断条件失败时仍显示回复选项"
-
-msgid "settings.ignore_missing_state_values"
-msgstr "忽略全局变量缺失错误（不建议）"
-
-msgid "settings.custom_test_scene"
-msgstr "自定义测试场景（必须继承自BaseDialogueTestScene）"
-
-msgid "settings.default_csv_locale"
-msgstr "默认 CSV 区域格式"
-
-msgid "settings.states_shortcuts"
-msgstr "全局变量映射"
-
-msgid "settings.states_message"
-msgstr "当一个 Autoload 在这里被勾选，他的所有成员会被映射为全局变量。"
-
-msgid "settings.states_hint"
-msgstr "比如，当你开启对于“Foo”的映射时，你可以将“Foo.bar”简写成“bar”。"
-
 msgid "n_of_n"
 msgstr "第{index}个，共{total}个"
+
+msgid "search.find"
+msgstr "查找:"
+
+msgid "search.find_all"
+msgstr "查找全部..."
+
+msgid "search.placeholder"
+msgstr "请输入查找的内容"
+
+msgid "search.replace_placeholder"
+msgstr "请输入替换的内容"
+
+msgid "search.replace_selected"
+msgstr "替换勾选"
 
 msgid "search.previous"
 msgstr "查找上一个"
@@ -232,9 +205,6 @@ msgstr "标题名不能为空。"
 
 msgid "errors.duplicate_title"
 msgstr "标题名不能重复。"
-
-msgid "errors.nested_title"
-msgstr "标题不能嵌套。"
 
 msgid "errors.invalid_title_string"
 msgstr "标题名无效。"
@@ -376,15 +346,6 @@ msgstr "文件中存在{errrors}个错误。请查看调试输出。"
 
 msgid "runtime.invalid_expression"
 msgstr "表达式“{expression}”无效：{error}"
-
-msgid "runtime.unsupported_array_method"
-msgstr "不支持的数组方法{method_name}。"
-
-msgid "runtime.unsupported_dictionary_method"
-msgstr "不支持的字典方法{method_name}。"
-
-msgid "runtime.unsupported_quaternion_method"
-msgstr "不支持的 Quarternion 方法{method_name}。"
 
 msgid "runtime.array_index_out_of_bounds"
 msgstr "数组索引“{index}”越界。（数组名：“{array}”）"

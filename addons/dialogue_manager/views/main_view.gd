@@ -2,11 +2,9 @@
 extends Control
 
 
-const DialogueConstants = preload("../constants.gd")
-const DialogueSettings = preload("../settings.gd")
-
 const OPEN_OPEN = 100
-const OPEN_CLEAR = 101
+const OPEN_QUICK = 101
+const OPEN_CLEAR = 102
 
 const TRANSLATIONS_GENERATE_LINE_IDS = 100
 const TRANSLATIONS_SAVE_CHARACTERS_TO_CSV = 201
@@ -27,30 +25,36 @@ enum TranslationSource {
 }
 
 
-@onready var parse_timer := $ParseTimer
+signal confirmation_closed()
+
+
+@onready var parse_timer: Timer = $ParseTimer
 
 # Dialogs
 @onready var new_dialog: FileDialog = $NewDialog
 @onready var save_dialog: FileDialog = $SaveDialog
 @onready var open_dialog: FileDialog = $OpenDialog
+@onready var quick_open_dialog: ConfirmationDialog = $QuickOpenDialog
+@onready var quick_open_files_list: VBoxContainer = $QuickOpenDialog/QuickOpenFilesList
 @onready var export_dialog: FileDialog = $ExportDialog
 @onready var import_dialog: FileDialog = $ImportDialog
 @onready var errors_dialog: AcceptDialog = $ErrorsDialog
-@onready var settings_dialog: AcceptDialog = $SettingsDialog
-@onready var settings_view := $SettingsDialog/SettingsView
 @onready var build_error_dialog: AcceptDialog = $BuildErrorDialog
 @onready var close_confirmation_dialog: ConfirmationDialog = $CloseConfirmationDialog
 @onready var updated_dialog: AcceptDialog = $UpdatedDialog
+@onready var find_in_files_dialog: AcceptDialog = $FindInFilesDialog
+@onready var find_in_files: Control = $FindInFilesDialog/FindInFiles
 
 # Toolbar
 @onready var new_button: Button = %NewButton
 @onready var open_button: MenuButton = %OpenButton
 @onready var save_all_button: Button = %SaveAllButton
+@onready var find_in_files_button: Button = %FindInFilesButton
 @onready var test_button: Button = %TestButton
+@onready var test_line_button: Button = %TestLineButton
 @onready var search_button: Button = %SearchButton
 @onready var insert_button: MenuButton = %InsertButton
 @onready var translations_button: MenuButton = %TranslationsButton
-@onready var settings_button: Button = %SettingsButton
 @onready var support_button: Button = %SupportButton
 @onready var docs_button: Button = %DocsButton
 @onready var version_label: Label = %VersionLabel
@@ -63,20 +67,18 @@ enum TranslationSource {
 @onready var files_list := %FilesList
 @onready var files_popup_menu: PopupMenu = %FilesPopupMenu
 @onready var title_list := %TitleList
-@onready var code_edit := %CodeEdit
+@onready var code_edit: DMCodeEdit = %CodeEdit
 @onready var errors_panel := %ErrorsPanel
-
-# The Dialogue Manager plugin
-var editor_plugin: EditorPlugin
 
 # The currently open file
 var current_file_path: String = "":
 	set(next_current_file_path):
 		current_file_path = next_current_file_path
 		files_list.current_file_path = current_file_path
-		if current_file_path == "":
+		if current_file_path == "" or not open_buffers.has(current_file_path):
 			save_all_button.disabled = true
 			test_button.disabled = true
+			test_line_button.disabled = true
 			search_button.disabled = true
 			insert_button.disabled = true
 			translations_button.disabled = true
@@ -87,6 +89,7 @@ var current_file_path: String = "":
 			errors_panel.hide()
 		else:
 			test_button.disabled = false
+			test_line_button.disabled = false
 			search_button.disabled = false
 			insert_button.disabled = false
 			translations_button.disabled = false
@@ -98,7 +101,7 @@ var current_file_path: String = "":
 			code_edit.text = open_buffers[current_file_path].text
 			code_edit.errors = []
 			code_edit.clear_undo_history()
-			code_edit.set_cursor(DialogueSettings.get_caret(current_file_path))
+			code_edit.set_cursor(DMSettings.get_caret(current_file_path))
 			code_edit.grab_focus()
 
 			_on_code_edit_text_changed()
@@ -114,28 +117,31 @@ var open_buffers: Dictionary = {}
 # Which thing are we exporting translations for?
 var translation_source: TranslationSource = TranslationSource.Lines
 
+var plugin: EditorPlugin
+
 
 func _ready() -> void:
+	plugin = Engine.get_meta("DialogueManagerPlugin")
+
 	apply_theme()
 
 	# Start with nothing open
 	self.current_file_path = ""
 
 	# Set up the update checker
-	version_label.text = "v%s" % editor_plugin.get_version()
-	update_button.editor_plugin = editor_plugin
+	version_label.text = "v%s" % plugin.get_version()
 	update_button.on_before_refresh = func on_before_refresh():
 		# Save everything
-		DialogueSettings.set_user_value("just_refreshed", {
+		DMSettings.set_user_value("just_refreshed", {
 			current_file_path = current_file_path,
 			open_buffers = open_buffers
 		})
 		return true
 
 	# Did we just load from an addon version refresh?
-	var just_refreshed = DialogueSettings.get_user_value("just_refreshed", null)
+	var just_refreshed = DMSettings.get_user_value("just_refreshed", null)
 	if just_refreshed != null:
-		DialogueSettings.set_user_value("just_refreshed", null)
+		DMSettings.set_user_value("just_refreshed", null)
 		call_deferred("load_from_version_refresh", just_refreshed)
 
 	# Hook up the search toolbar
@@ -146,33 +152,53 @@ func _ready() -> void:
 	translations_button.get_popup().id_pressed.connect(_on_translations_button_menu_id_pressed)
 
 	code_edit.main_view = self
-	code_edit.wrap_mode = TextEdit.LINE_WRAPPING_BOUNDARY if DialogueSettings.get_setting("wrap_lines", false) else TextEdit.LINE_WRAPPING_NONE
-	var editor_settings: EditorSettings = editor_plugin.get_editor_interface().get_editor_settings()
+	code_edit.wrap_mode = TextEdit.LINE_WRAPPING_BOUNDARY if DMSettings.get_setting(DMSettings.WRAP_LONG_LINES, false) else TextEdit.LINE_WRAPPING_NONE
+	var editor_settings: EditorSettings = EditorInterface.get_editor_settings()
 	editor_settings.settings_changed.connect(_on_editor_settings_changed)
 	_on_editor_settings_changed()
 
+	# Reopen any files that were open when Godot was closed
+	if editor_settings.get_setting("text_editor/behavior/files/restore_scripts_on_load"):
+		var reopen_files: Array = DMSettings.get_user_value("reopen_files", [])
+		for reopen_file in reopen_files:
+			open_file(reopen_file)
+
+		self.current_file_path = DMSettings.get_user_value("most_recent_reopen_file", "")
+
 	save_all_button.disabled = true
 
-	close_confirmation_dialog.ok_button_text = DialogueConstants.translate("confirm_close.save")
-	close_confirmation_dialog.add_button(DialogueConstants.translate("confirm_close.discard"), true, "discard")
+	close_confirmation_dialog.ok_button_text = DMConstants.translate(&"confirm_close.save")
+	close_confirmation_dialog.add_button(DMConstants.translate(&"confirm_close.discard"), true, "discard")
 
-	settings_view.editor_plugin = editor_plugin
+	errors_dialog.dialog_text = DMConstants.translate(&"errors_in_script")
 
-	errors_dialog.dialog_text = DialogueConstants.translate("errors_in_script")
+	# Update the buffer if a file was modified externally (retains undo step)
+	Engine.get_meta("DMCache").file_content_changed.connect(_on_cache_file_content_changed)
+
+	EditorInterface.get_file_system_dock().files_moved.connect(_on_files_moved)
+
+
+func _exit_tree() -> void:
+	DMSettings.set_user_value("reopen_files", open_buffers.keys())
+	DMSettings.set_user_value("most_recent_reopen_file", self.current_file_path)
 
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not visible: return
 
 	if event is InputEventKey and event.is_pressed():
-		match event.as_text():
-			"Ctrl+Alt+S", "Command+Alt+S":
-				get_viewport().set_input_as_handled()
-				save_file(current_file_path)
-			"Ctrl+W", "Command+W":
+		var shortcut: String = plugin.get_editor_shortcut(event)
+		match shortcut:
+			"close_file":
 				get_viewport().set_input_as_handled()
 				close_file(current_file_path)
-			"Ctrl+F5", "Command+F5":
+			"save":
+				get_viewport().set_input_as_handled()
+				save_file(current_file_path)
+			"find_in_files":
+				get_viewport().set_input_as_handled()
+				_on_find_in_files_button_pressed()
+			"run_test_scene":
 				get_viewport().set_input_as_handled()
 				_on_test_button_pressed()
 
@@ -195,11 +221,11 @@ func load_from_version_refresh(just_refreshed: Dictionary) -> void:
 		open_buffers = just_refreshed.open_buffers
 
 	if just_refreshed.current_file_path != "":
-		editor_plugin.get_editor_interface().edit_resource(load(just_refreshed.current_file_path))
+		EditorInterface.edit_resource(load(just_refreshed.current_file_path))
 	else:
-		editor_plugin.get_editor_interface().set_main_screen_editor("Dialogue")
+		EditorInterface.set_main_screen_editor("Dialogue")
 
-	updated_dialog.dialog_text = DialogueConstants.translate("update.success").format({ version = update_button.get_version() })
+	updated_dialog.dialog_text = DMConstants.translate(&"update.success").format({ version = update_button.get_version() })
 	updated_dialog.popup_centered()
 
 
@@ -209,26 +235,11 @@ func new_file(path: String, content: String = "") -> void:
 
 	var file: FileAccess = FileAccess.open(path, FileAccess.WRITE)
 	if content == "":
-		if DialogueSettings.get_setting("new_with_template", true):
-			file.store_string("\n".join([
-				"~ this_is_a_node_title",
-				"",
-				"Nathan: [[Hi|Hello|Howdy]], this is some dialogue.",
-				"Nathan: Here are some choices.",
-				"- First one",
-					"\tNathan: You picked the first one.",
-				"- Second one",
-					"\tNathan: You picked the second one.",
-				"- Start again => this_is_a_node_title",
-				"- End the conversation => END",
-				"Nathan: For more information see the online documentation.",
-				"",
-				"=> END"
-			]))
+		file.store_string(DMSettings.get_setting(DMSettings.NEW_FILE_TEMPLATE, ""))
 	else:
 		file.store_string(content)
 
-	editor_plugin.get_editor_interface().get_resource_filesystem().scan()
+	EditorInterface.get_resource_filesystem().scan()
 
 
 # Open a dialogue resource for editing
@@ -237,6 +248,8 @@ func open_resource(resource: DialogueResource) -> void:
 
 
 func open_file(path: String) -> void:
+	if not FileAccess.file_exists(path): return
+
 	if not open_buffers.has(path):
 		var file: FileAccess = FileAccess.open(path, FileAccess.READ)
 		var text = file.get_as_text()
@@ -247,7 +260,7 @@ func open_file(path: String) -> void:
 			pristine_text = text
 		}
 
-	DialogueSettings.add_recent_file(path)
+	DMSettings.add_recent_file(path)
 	build_open_menu()
 
 	files_list.files = open_buffers.keys()
@@ -257,11 +270,7 @@ func open_file(path: String) -> void:
 
 
 func show_file_in_filesystem(path: String) -> void:
-	var file_system_dock: FileSystemDock = Engine.get_meta("DialogueManagerPlugin") \
-		.get_editor_interface() \
-		.get_file_system_dock()
-
-	file_system_dock.navigate_to_path(path)
+	EditorInterface.get_file_system_dock().navigate_to_path(path)
 
 
 # Save any open files
@@ -275,7 +284,7 @@ func save_files() -> void:
 		save_file(path, false)
 
 	if saved_files.size() > 0:
-		Engine.get_meta("DialogueCache").reimport_files(saved_files)
+		Engine.get_meta("DMCache").mark_files_for_reimport(saved_files)
 
 
 # Save a file
@@ -297,49 +306,52 @@ func save_file(path: String, rescan_file_system: bool = true) -> void:
 	file.close()
 
 	if rescan_file_system:
-		Engine.get_meta("DialogueManagerPlugin") \
-			.get_editor_interface() \
-			.get_resource_filesystem()\
-			.scan()
+		EditorInterface.get_resource_filesystem().scan()
 
 
-func close_file(file: String) -> void:
-	if not file in open_buffers.keys(): return
+func close_file(path: String) -> void:
+	if not path in open_buffers.keys(): return
 
-	var buffer = open_buffers[file]
+	var buffer = open_buffers[path]
 
 	if buffer.text == buffer.pristine_text:
-		remove_file_from_open_buffers(file)
+		remove_file_from_open_buffers(path)
+		await get_tree().process_frame
 	else:
-		close_confirmation_dialog.dialog_text = DialogueConstants.translate("confirm_close").format({ path = file.get_file() })
+		close_confirmation_dialog.dialog_text = DMConstants.translate(&"confirm_close").format({ path = path.get_file() })
 		close_confirmation_dialog.popup_centered()
+		await confirmation_closed
 
 
-func remove_file_from_open_buffers(file: String) -> void:
-	if not file in open_buffers.keys(): return
+func remove_file_from_open_buffers(path: String) -> void:
+	if not path in open_buffers.keys(): return
 
-	var current_index = open_buffers.keys().find(file)
+	var current_index = open_buffers.keys().find(current_file_path)
 
-	open_buffers.erase(file)
+	open_buffers.erase(path)
 	if open_buffers.size() == 0:
 		self.current_file_path = ""
 	else:
 		current_index = clamp(current_index, 0, open_buffers.size() - 1)
 		self.current_file_path = open_buffers.keys()[current_index]
+
 	files_list.files = open_buffers.keys()
 
 
 # Apply theme colors and icons to the UI
 func apply_theme() -> void:
-	if is_instance_valid(editor_plugin) and is_instance_valid(code_edit):
-		var scale: float = editor_plugin.get_editor_interface().get_editor_scale()
-		var editor_settings = editor_plugin.get_editor_interface().get_editor_settings()
+	if is_instance_valid(plugin) and is_instance_valid(code_edit):
+		var scale: float = EditorInterface.get_editor_scale()
+		var editor_settings = EditorInterface.get_editor_settings()
 		code_edit.theme_overrides = {
 			scale = scale,
 
 			background_color = editor_settings.get_setting("text_editor/theme/highlighting/background_color"),
 			current_line_color = editor_settings.get_setting("text_editor/theme/highlighting/current_line_color"),
 			error_line_color = editor_settings.get_setting("text_editor/theme/highlighting/mark_color"),
+
+			critical_color = editor_settings.get_setting("text_editor/theme/highlighting/comment_markers/critical_color"),
+			notice_color = editor_settings.get_setting("text_editor/theme/highlighting/comment_markers/notice_color"),
 
 			titles_color = editor_settings.get_setting("text_editor/theme/highlighting/control_flow_keyword_color"),
 			text_color = editor_settings.get_setting("text_editor/theme/highlighting/text_color"),
@@ -356,73 +368,77 @@ func apply_theme() -> void:
 		}
 
 		new_button.icon = get_theme_icon("New", "EditorIcons")
-		new_button.tooltip_text = DialogueConstants.translate("start_a_new_file")
+		new_button.tooltip_text = DMConstants.translate(&"start_a_new_file")
 
 		open_button.icon = get_theme_icon("Load", "EditorIcons")
-		open_button.tooltip_text = DialogueConstants.translate("open_a_file")
+		open_button.tooltip_text = DMConstants.translate(&"open_a_file")
 
 		save_all_button.icon = get_theme_icon("Save", "EditorIcons")
-		save_all_button.tooltip_text = DialogueConstants.translate("start_all_files")
+		save_all_button.tooltip_text = DMConstants.translate(&"start_all_files")
 
-		test_button.icon = get_theme_icon("PlayScene", "EditorIcons")
-		test_button.tooltip_text = DialogueConstants.translate("test_dialogue")
+		find_in_files_button.icon = get_theme_icon("ViewportZoom", "EditorIcons")
+		find_in_files_button.tooltip_text = DMConstants.translate(&"find_in_files")
+
+		test_button.icon = get_theme_icon("DebugNext", "EditorIcons")
+		test_button.tooltip_text = DMConstants.translate(&"test_dialogue")
+
+		test_line_button.icon = get_theme_icon("DebugStep", "EditorIcons")
+		test_line_button.tooltip_text = DMConstants.translate(&"test_dialogue_from_line")
 
 		search_button.icon = get_theme_icon("Search", "EditorIcons")
-		search_button.tooltip_text = DialogueConstants.translate("search_for_text")
+		search_button.tooltip_text = DMConstants.translate(&"search_for_text")
 
 		insert_button.icon = get_theme_icon("RichTextEffect", "EditorIcons")
-		insert_button.text = DialogueConstants.translate("insert")
+		insert_button.text = DMConstants.translate(&"insert")
 
 		translations_button.icon = get_theme_icon("Translation", "EditorIcons")
-		translations_button.text = DialogueConstants.translate("translations")
-
-		settings_button.icon = get_theme_icon("Tools", "EditorIcons")
-		settings_button.tooltip_text = DialogueConstants.translate("settings")
+		translations_button.text = DMConstants.translate(&"translations")
 
 		support_button.icon = get_theme_icon("Heart", "EditorIcons")
-		support_button.tooltip_text = DialogueConstants.translate("show_support")
+		support_button.text = DMConstants.translate(&"sponsor")
+		support_button.tooltip_text = DMConstants.translate(&"show_support")
 
 		docs_button.icon = get_theme_icon("Help", "EditorIcons")
-		docs_button.text = DialogueConstants.translate("docs")
+		docs_button.text = DMConstants.translate(&"docs")
 
 		update_button.apply_theme()
 
 		# Set up the effect menu
 		var popup: PopupMenu = insert_button.get_popup()
 		popup.clear()
-		popup.add_icon_item(get_theme_icon("RichTextEffect", "EditorIcons"), DialogueConstants.translate("insert.wave_bbcode"), 0)
-		popup.add_icon_item(get_theme_icon("RichTextEffect", "EditorIcons"), DialogueConstants.translate("insert.shake_bbcode"), 1)
+		popup.add_icon_item(get_theme_icon("RichTextEffect", "EditorIcons"), DMConstants.translate(&"insert.wave_bbcode"), 0)
+		popup.add_icon_item(get_theme_icon("RichTextEffect", "EditorIcons"), DMConstants.translate(&"insert.shake_bbcode"), 1)
 		popup.add_separator()
-		popup.add_icon_item(get_theme_icon("Time", "EditorIcons"), DialogueConstants.translate("insert.typing_pause"), 3)
-		popup.add_icon_item(get_theme_icon("ViewportSpeed", "EditorIcons"), DialogueConstants.translate("insert.typing_speed_change"), 4)
-		popup.add_icon_item(get_theme_icon("DebugNext", "EditorIcons"), DialogueConstants.translate("insert.auto_advance"), 5)
-		popup.add_separator(DialogueConstants.translate("insert.templates"))
-		popup.add_icon_item(get_theme_icon("RichTextEffect", "EditorIcons"), DialogueConstants.translate("insert.title"), 6)
-		popup.add_icon_item(get_theme_icon("RichTextEffect", "EditorIcons"), DialogueConstants.translate("insert.dialogue"), 7)
-		popup.add_icon_item(get_theme_icon("RichTextEffect", "EditorIcons"), DialogueConstants.translate("insert.response"), 8)
-		popup.add_icon_item(get_theme_icon("RichTextEffect", "EditorIcons"), DialogueConstants.translate("insert.random_lines"), 9)
-		popup.add_icon_item(get_theme_icon("RichTextEffect", "EditorIcons"), DialogueConstants.translate("insert.random_text"), 10)
-		popup.add_separator(DialogueConstants.translate("insert.actions"))
-		popup.add_icon_item(get_theme_icon("RichTextEffect", "EditorIcons"), DialogueConstants.translate("insert.jump"), 11)
-		popup.add_icon_item(get_theme_icon("RichTextEffect", "EditorIcons"), DialogueConstants.translate("insert.end_dialogue"), 12)
+		popup.add_icon_item(get_theme_icon("Time", "EditorIcons"), DMConstants.translate(&"insert.typing_pause"), 3)
+		popup.add_icon_item(get_theme_icon("ViewportSpeed", "EditorIcons"), DMConstants.translate(&"insert.typing_speed_change"), 4)
+		popup.add_icon_item(get_theme_icon("DebugNext", "EditorIcons"), DMConstants.translate(&"insert.auto_advance"), 5)
+		popup.add_separator(DMConstants.translate(&"insert.templates"))
+		popup.add_icon_item(get_theme_icon("RichTextEffect", "EditorIcons"), DMConstants.translate(&"insert.title"), 6)
+		popup.add_icon_item(get_theme_icon("RichTextEffect", "EditorIcons"), DMConstants.translate(&"insert.dialogue"), 7)
+		popup.add_icon_item(get_theme_icon("RichTextEffect", "EditorIcons"), DMConstants.translate(&"insert.response"), 8)
+		popup.add_icon_item(get_theme_icon("RichTextEffect", "EditorIcons"), DMConstants.translate(&"insert.random_lines"), 9)
+		popup.add_icon_item(get_theme_icon("RichTextEffect", "EditorIcons"), DMConstants.translate(&"insert.random_text"), 10)
+		popup.add_separator(DMConstants.translate(&"insert.actions"))
+		popup.add_icon_item(get_theme_icon("RichTextEffect", "EditorIcons"), DMConstants.translate(&"insert.jump"), 11)
+		popup.add_icon_item(get_theme_icon("RichTextEffect", "EditorIcons"), DMConstants.translate(&"insert.end_dialogue"), 12)
 
 		# Set up the translations menu
 		popup = translations_button.get_popup()
 		popup.clear()
-		popup.add_icon_item(get_theme_icon("Translation", "EditorIcons"), DialogueConstants.translate("generate_line_ids"), TRANSLATIONS_GENERATE_LINE_IDS)
+		popup.add_icon_item(get_theme_icon("Translation", "EditorIcons"), DMConstants.translate(&"generate_line_ids"), TRANSLATIONS_GENERATE_LINE_IDS)
 		popup.add_separator()
-		popup.add_icon_item(get_theme_icon("FileList", "EditorIcons"), DialogueConstants.translate("save_characters_to_csv"), TRANSLATIONS_SAVE_CHARACTERS_TO_CSV)
-		popup.add_icon_item(get_theme_icon("FileList", "EditorIcons"), DialogueConstants.translate("save_to_csv"), TRANSLATIONS_SAVE_TO_CSV)
-		popup.add_icon_item(get_theme_icon("AssetLib", "EditorIcons"), DialogueConstants.translate("import_from_csv"), TRANSLATIONS_IMPORT_FROM_CSV)
+		popup.add_icon_item(get_theme_icon("FileList", "EditorIcons"), DMConstants.translate(&"save_characters_to_csv"), TRANSLATIONS_SAVE_CHARACTERS_TO_CSV)
+		popup.add_icon_item(get_theme_icon("FileList", "EditorIcons"), DMConstants.translate(&"save_to_csv"), TRANSLATIONS_SAVE_TO_CSV)
+		popup.add_icon_item(get_theme_icon("AssetLib", "EditorIcons"), DMConstants.translate(&"import_from_csv"), TRANSLATIONS_IMPORT_FROM_CSV)
 
 		# Dialog sizes
 		new_dialog.min_size = Vector2(600, 500) * scale
 		save_dialog.min_size = Vector2(600, 500) * scale
 		open_dialog.min_size = Vector2(600, 500) * scale
+		quick_open_dialog.min_size = Vector2(400, 600) * scale
 		export_dialog.min_size = Vector2(600, 500) * scale
-		export_dialog.min_size = Vector2(600, 500) * scale
-		settings_dialog.min_size = Vector2(1000, 600) * scale
-		settings_dialog.max_size = Vector2(1000, 600) * scale
+		import_dialog.min_size = Vector2(600, 500) * scale
+		find_in_files_dialog.min_size = Vector2(800, 600) * scale
 
 
 ### Helpers
@@ -432,12 +448,13 @@ func apply_theme() -> void:
 func build_open_menu() -> void:
 	var menu = open_button.get_popup()
 	menu.clear()
-	menu.add_icon_item(get_theme_icon("Load", "EditorIcons"), DialogueConstants.translate("open.open"), OPEN_OPEN)
+	menu.add_icon_item(get_theme_icon("Load", "EditorIcons"), DMConstants.translate(&"open.open"), OPEN_OPEN)
+	menu.add_icon_item(get_theme_icon("Load", "EditorIcons"), DMConstants.translate(&"open.quick_open"), OPEN_QUICK)
 	menu.add_separator()
 
-	var recent_files = DialogueSettings.get_recent_files()
+	var recent_files = DMSettings.get_recent_files()
 	if recent_files.size() == 0:
-		menu.add_item(DialogueConstants.translate("open.no_recent_files"))
+		menu.add_item(DMConstants.translate(&"open.no_recent_files"))
 		menu.set_item_disabled(2, true)
 	else:
 		for path in recent_files:
@@ -445,7 +462,7 @@ func build_open_menu() -> void:
 				menu.add_icon_item(get_theme_icon("File", "EditorIcons"), path)
 
 	menu.add_separator()
-	menu.add_item(DialogueConstants.translate("open.clear_recent_files"), OPEN_CLEAR)
+	menu.add_item(DMConstants.translate(&"open.clear_recent_files"), OPEN_CLEAR)
 	if menu.id_pressed.is_connected(_on_open_menu_id_pressed):
 		menu.id_pressed.disconnect(_on_open_menu_id_pressed)
 	menu.id_pressed.connect(_on_open_menu_id_pressed)
@@ -454,25 +471,22 @@ func build_open_menu() -> void:
 # Get the last place a CSV, etc was exported
 func get_last_export_path(extension: String) -> String:
 	var filename = current_file_path.get_file().replace(".dialogue", "." + extension)
-	return DialogueSettings.get_user_value("last_export_path", current_file_path.get_base_dir()) + "/" + filename
+	return DMSettings.get_user_value("last_export_path", current_file_path.get_base_dir()) + "/" + filename
 
 
 # Check the current text for errors
-func parse() -> void:
+func compile() -> void:
 	# Skip if nothing to parse
 	if current_file_path == "": return
 
-	var parser = DialogueManagerParser.new()
-	var errors: Array[Dictionary] = []
-	if parser.parse(code_edit.text, current_file_path) != OK:
-		errors = parser.get_errors()
-	code_edit.errors = errors
-	errors_panel.errors = errors
-	parser.free()
+	var result: DMCompilerResult = DMCompiler.compile_string(code_edit.text, current_file_path)
+	code_edit.errors = result.errors
+	errors_panel.errors = result.errors
+	title_list.titles = code_edit.get_titles()
 
 
 func show_build_error_dialog() -> void:
-	build_error_dialog.dialog_text = DialogueConstants.translate("errors_with_build")
+	build_error_dialog.dialog_text = DMConstants.translate(&"errors_with_build")
 	build_error_dialog.popup_centered()
 
 
@@ -480,8 +494,6 @@ func show_build_error_dialog() -> void:
 func generate_translations_keys() -> void:
 	randomize()
 	seed(Time.get_unix_time_from_system())
-
-	var parser = DialogueManagerParser.new()
 
 	var cursor: Vector2 = code_edit.get_cursor()
 	var lines: PackedStringArray = code_edit.text.split("\n")
@@ -498,7 +510,7 @@ func generate_translations_keys() -> void:
 			var text = ""
 			var l = line.replace(found.strings[0], "").strip_edges().strip_edges()
 			if l.begins_with("- "):
-				text = parser.extract_response_prompt(l)
+				text = DMCompiler.extract_translatable_string(l)
 			elif ":" in l:
 				text = l.split(":")[1]
 			else:
@@ -510,33 +522,42 @@ func generate_translations_keys() -> void:
 		var line = lines[i]
 		var l = line.strip_edges()
 
-		if parser.is_line_empty(l): continue
-		if parser.is_condition_line(l, true): continue
-		if parser.is_title_line(l): continue
-		if parser.is_mutation_line(l): continue
-		if parser.is_goto_line(l): continue
-		if parser.is_import_line(l): continue
+		if not [DMConstants.TYPE_DIALOGUE, DMConstants.TYPE_RESPONSE].has(DMCompiler.get_line_type(l)): continue
 
 		if "[ID:" in line: continue
 
-		var key = "t" + str(randi() % 1000000).sha1_text().substr(0, 10)
-		while key in known_keys:
-			key = "t" + str(randi() % 1000000).sha1_text().substr(0, 10)
-
 		var text = ""
 		if l.begins_with("- "):
-			text = parser.extract_response_prompt(l)
+			text = DMCompiler.extract_translatable_string(l)
 		else:
 			text = l.substr(l.find(":") + 1)
 
-		lines[i] = line.replace(text, text + " [ID:%s]" % key)
+		var key: String = ""
+		if known_keys.values().has(text):
+			key = known_keys.find_key(text)
+		else:
+			var regex: DMCompilerRegEx = DMCompilerRegEx.new()
+			key = regex.ALPHA_NUMERIC.sub(text.strip_edges(), "_", true).substr(0, 30)
+			if key.begins_with("_"):
+				key = key.substr(1)
+			if key.ends_with("_"):
+				key = key.substr(0, key.length() - 1)
+
+			# Make sure key is unique
+			var hashed_key: String = key + "_" + str(randi() % 1000000).sha1_text().substr(0, 6)
+			while hashed_key in known_keys and text != known_keys.get(hashed_key):
+				hashed_key = key + "_" + str(randi() % 1000000).sha1_text().substr(0, 6)
+			key = hashed_key.to_upper()
+
+		line = line.replace("\\n", "!NEWLINE!")
+		text = text.replace("\n", "!NEWLINE!")
+		lines[i] = line.replace(text, text + " [ID:%s]" % [key]).replace("!NEWLINE!", "\\n")
+
 		known_keys[key] = text
 
 	code_edit.text = "\n".join(lines)
 	code_edit.set_cursor(cursor)
 	_on_code_edit_text_changed()
-
-	parser.free()
 
 
 # Add a translation file to the project settings
@@ -549,11 +570,16 @@ func add_path_to_project_translations(path: String) -> void:
 
 # Export dialogue and responses to CSV
 func export_translations_to_csv(path: String) -> void:
+	var default_locale: String = DMSettings.get_setting(DMSettings.DEFAULT_CSV_LOCALE, "en")
+
 	var file: FileAccess
 
 	# If the file exists, open it first and work out which keys are already in it
-	var existing_csv = {}
-	var commas = []
+	var existing_csv: Dictionary = {}
+	var column_count: int = 2
+	var default_locale_column: int = 1
+	var character_column: int = -1
+	var notes_column: int = -1
 	if FileAccess.file_exists(path):
 		file = FileAccess.open(path, FileAccess.READ)
 		var is_first_line = true
@@ -562,40 +588,79 @@ func export_translations_to_csv(path: String) -> void:
 			line = file.get_csv_line()
 			if is_first_line:
 				is_first_line = false
-				for i in range(2, line.size()):
-					commas.append("")
+				column_count = line.size()
+				for i in range(1, line.size()):
+					if line[i] == default_locale:
+						default_locale_column = i
+					elif line[i] == "_character":
+						character_column = i
+					elif line[i] == "_notes":
+						notes_column = i
+
 			# Make sure the line isn't empty before adding it
 			if line.size() > 0 and line[0].strip_edges() != "":
 				existing_csv[line[0]] = line
 
+		# The character column wasn't found in the existing file but the setting is turned on
+		if character_column == -1 and DMSettings.get_setting(DMSettings.INCLUDE_CHARACTER_IN_TRANSLATION_EXPORTS, false):
+			character_column = column_count
+			column_count += 1
+			existing_csv["keys"].append("_character")
+
+		# The notes column wasn't found in the existing file but the setting is turned on
+		if notes_column == -1 and DMSettings.get_setting(DMSettings.INCLUDE_NOTES_IN_TRANSLATION_EXPORTS, false):
+			notes_column = column_count
+			column_count += 1
+			existing_csv["keys"].append("_notes")
+
 	# Start a new file
 	file = FileAccess.open(path, FileAccess.WRITE)
 
-	if not file.file_exists(path):
-		file.store_csv_line(["keys", DialogueSettings.get_setting("default_csv_locale", "en")])
+	if not FileAccess.file_exists(path):
+		var headings: PackedStringArray = ["keys", default_locale] + DMSettings.get_setting(DMSettings.EXTRA_CSV_LOCALES, [])
+		if DMSettings.get_setting(DMSettings.INCLUDE_CHARACTER_IN_TRANSLATION_EXPORTS, false):
+			character_column = headings.size()
+			headings.append("_character")
+		if DMSettings.get_setting(DMSettings.INCLUDE_NOTES_IN_TRANSLATION_EXPORTS, false):
+			notes_column = headings.size()
+			headings.append("_notes")
+		file.store_csv_line(headings)
+		column_count = headings.size()
 
 	# Write our translations to file
 	var known_keys: PackedStringArray = []
 
-	var dialogue: Dictionary = DialogueManagerParser.parse_string(code_edit.text, current_file_path).lines
+	var dialogue = DMCompiler.compile_string(code_edit.text, current_file_path).lines
 
 	# Make a list of stuff that needs to go into the file
 	var lines_to_save = []
 	for key in dialogue.keys():
 		var line: Dictionary = dialogue.get(key)
 
-		if not line.type in [DialogueConstants.TYPE_DIALOGUE, DialogueConstants.TYPE_RESPONSE]: continue
-		if line.translation_key in known_keys: continue
+		if not line.type in [DMConstants.TYPE_DIALOGUE, DMConstants.TYPE_RESPONSE]: continue
 
-		known_keys.append(line.translation_key)
+		var translation_key: String = line.get(&"translation_key", line.text)
 
-		if existing_csv.has(line.translation_key):
-			var existing_line = existing_csv.get(line.translation_key)
-			existing_line[1] = line.text
-			lines_to_save.append(existing_line)
-			existing_csv.erase(line.translation_key)
+		if translation_key in known_keys: continue
+
+		known_keys.append(translation_key)
+
+		var line_to_save: PackedStringArray = []
+		if existing_csv.has(translation_key):
+			line_to_save = existing_csv.get(translation_key)
+			line_to_save.resize(column_count)
+			existing_csv.erase(translation_key)
 		else:
-			lines_to_save.append(PackedStringArray([line.translation_key, line.text] + commas))
+			line_to_save.resize(column_count)
+			line_to_save[0] = translation_key
+
+		line_to_save[default_locale_column] = line.text
+		if character_column > -1:
+			line_to_save[character_column] = "(response)" if line.type == DMConstants.TYPE_RESPONSE else line.character
+		if notes_column > -1:
+			line_to_save[notes_column] = line.notes
+
+		lines_to_save.append(line_to_save)
 
 	# Store lines in the file, starting with anything that already exists that hasn't been touched
 	for line in existing_csv.values():
@@ -605,12 +670,11 @@ func export_translations_to_csv(path: String) -> void:
 
 	file.close()
 
-	editor_plugin.get_editor_interface().get_resource_filesystem().scan()
-	editor_plugin.get_editor_interface().get_file_system_dock().call_deferred("navigate_to_path", path)
+	EditorInterface.get_resource_filesystem().scan()
+	EditorInterface.get_file_system_dock().call_deferred("navigate_to_path", path)
 
 	# Add it to the project l10n settings if it's not already there
-	var locale: String = DialogueSettings.get_setting("default_csv_locale", "en")
-	var language_code: RegExMatch = RegEx.create_from_string("^[a-z]{2,3}").search(locale)
+	var language_code: RegExMatch = RegEx.create_from_string("^[a-z]{2,3}").search(default_locale)
 	var translation_path: String = path.replace(".csv", ".%s.translation" % language_code.get_string())
 	call_deferred("add_path_to_project_translations", translation_path)
 
@@ -639,12 +703,12 @@ func export_character_names_to_csv(path: String) -> void:
 	file = FileAccess.open(path, FileAccess.WRITE)
 
 	if not file.file_exists(path):
-		file.store_csv_line(["keys", DialogueSettings.get_setting("default_csv_locale", "en")])
+		file.store_csv_line(["keys", DMSettings.get_setting(DMSettings.DEFAULT_CSV_LOCALE, "en")])
 
 	# Write our translations to file
 	var known_keys: PackedStringArray = []
 
-	var character_names: PackedStringArray = DialogueManagerParser.parse_string(code_edit.text, current_file_path).character_names
+	var character_names: PackedStringArray = DMCompiler.compile_string(code_edit.text, current_file_path).character_names
 
 	# Make a list of stuff that needs to go into the file
 	var lines_to_save = []
@@ -669,8 +733,8 @@ func export_character_names_to_csv(path: String) -> void:
 
 	file.close()
 
-	editor_plugin.get_editor_interface().get_resource_filesystem().scan()
-	editor_plugin.get_editor_interface().get_file_system_dock().call_deferred("navigate_to_path", path)
+	EditorInterface.get_resource_filesystem().scan()
+	EditorInterface.get_file_system_dock().call_deferred("navigate_to_path", path)
 
 	# Add it to the project l10n settings if it's not already there
 	var translation_path: String = path.replace(".csv", ".en.translation")
@@ -692,17 +756,15 @@ func import_translations_from_csv(path: String) -> void:
 		if csv_line.size() > 1:
 			keys[csv_line[0]] = csv_line[1]
 
-	var parser: DialogueManagerParser = DialogueManagerParser.new()
-
 	# Now look over each line in the dialogue and replace the content for matched keys
 	var lines: PackedStringArray = code_edit.text.split("\n")
 	var start_index: int = 0
 	var end_index: int = 0
 	for i in range(0, lines.size()):
 		var line: String = lines[i]
-		var translation_key: String = parser.extract_translation(line)
+		var translation_key: String = DMCompiler.get_static_line_id(line)
 		if keys.has(translation_key):
-			if parser.is_dialogue_line(line):
+			if DMCompiler.get_line_type(line) == DMConstants.TYPE_DIALOGUE:
 				start_index = 0
 				# See if we need to skip over a character name
 				line = line.replace("\\:", "!ESCAPED_COLON!")
@@ -710,7 +772,7 @@ func import_translations_from_csv(path: String) -> void:
 					start_index = line.find(": ") + 2
 				lines[i] = (line.substr(0, start_index) + keys.get(translation_key) + " [ID:" + translation_key + "]").replace("!ESCAPED_COLON!", ":")
 
-			elif parser.is_response_line(line):
+			elif DMCompiler.get_line_type(line) == DMConstants.TYPE_RESPONSE:
 				start_index = line.find("- ") + 2
 				# See if we need to skip over a character name
 				line = line.replace("\\:", "!ESCAPED_COLON!")
@@ -726,8 +788,6 @@ func import_translations_from_csv(path: String) -> void:
 	code_edit.text = "\n".join(lines)
 	code_edit.set_cursor(cursor)
 
-	parser.free()
-
 
 func show_search_form(is_enabled: bool) -> void:
 	if code_edit.last_selected_text:
@@ -741,8 +801,25 @@ func show_search_form(is_enabled: bool) -> void:
 ### Signals
 
 
+func _on_files_moved(old_file: String, new_file: String) -> void:
+	if open_buffers.has(old_file):
+		open_buffers[new_file] = open_buffers[old_file]
+		open_buffers.erase(old_file)
+		open_buffers[new_file]
+
+
+func _on_cache_file_content_changed(path: String, new_content: String) -> void:
+	if open_buffers.has(path):
+		var buffer = open_buffers[path]
+		if buffer.text == buffer.pristine_text and buffer.text != new_content:
+			buffer.text = new_content
+			code_edit.text = new_content
+			title_list.titles = code_edit.get_titles()
+		buffer.pristine_text = new_content
+
+
 func _on_editor_settings_changed() -> void:
-	var editor_settings: EditorSettings = editor_plugin.get_editor_interface().get_editor_settings()
+	var editor_settings: EditorSettings = EditorInterface.get_editor_settings()
 	code_edit.minimap_draw = editor_settings.get_setting("text_editor/appearance/minimap/show_minimap")
 	code_edit.minimap_width = editor_settings.get_setting("text_editor/appearance/minimap/minimap_width")
 	code_edit.scroll_smooth = editor_settings.get_setting("text_editor/behavior/navigation/smooth_scrolling")
@@ -752,8 +829,12 @@ func _on_open_menu_id_pressed(id: int) -> void:
 	match id:
 		OPEN_OPEN:
 			open_dialog.popup_centered()
+		OPEN_QUICK:
+			quick_open_files_list.files = Engine.get_meta("DMCache").get_files()
+			quick_open_dialog.popup_centered()
+			quick_open_files_list.focus_filter()
 		OPEN_CLEAR:
-			DialogueSettings.clear_recent_files()
+			DMSettings.clear_recent_files()
 			build_open_menu()
 		_:
 			var menu = open_button.get_popup()
@@ -778,19 +859,19 @@ func _on_insert_button_menu_id_pressed(id: int) -> void:
 		5:
 			code_edit.insert_bbcode("[next=auto]")
 		6:
-			code_edit.insert_text("~ title")
+			code_edit.insert_text_at_cursor("~ title")
 		7:
-			code_edit.insert_text("Nathan: This is Some Dialogue")
+			code_edit.insert_text_at_cursor("Nathan: This is Some Dialogue")
 		8:
-			code_edit.insert_text("Nathan: Choose a Response...\n- Option 1\n\tNathan: You chose option 1\n- Option 2\n\tNathan: You chose option 2")
+			code_edit.insert_text_at_cursor("Nathan: Choose a Response...\n- Option 1\n\tNathan: You chose option 1\n- Option 2\n\tNathan: You chose option 2")
 		9:
-			code_edit.insert_text("% Nathan: This is random line 1.\n% Nathan: This is random line 2.\n%1 Nathan: This is weighted random line 3.")
+			code_edit.insert_text_at_cursor("% Nathan: This is random line 1.\n% Nathan: This is random line 2.\n%1 Nathan: This is weighted random line 3.")
 		10:
-			code_edit.insert_text("Nathan: [[Hi|Hello|Howdy]]")
+			code_edit.insert_text_at_cursor("Nathan: [[Hi|Hello|Howdy]]")
 		11:
-			code_edit.insert_text("=> title")
+			code_edit.insert_text_at_cursor("=> title")
 		12:
-			code_edit.insert_text("=> END")
+			code_edit.insert_text_at_cursor("=> END")
 
 
 func _on_translations_button_menu_id_pressed(id: int) -> void:
@@ -816,7 +897,7 @@ func _on_translations_button_menu_id_pressed(id: int) -> void:
 
 
 func _on_export_dialog_file_selected(path: String) -> void:
-	DialogueSettings.set_user_value("last_export_path", path.get_base_dir())
+	DMSettings.set_user_value("last_export_path", path.get_base_dir())
 	match path.get_extension():
 		"csv":
 			match translation_source:
@@ -827,7 +908,7 @@ func _on_export_dialog_file_selected(path: String) -> void:
 
 
 func _on_import_dialog_file_selected(path: String) -> void:
-	DialogueSettings.set_user_value("last_export_path", path.get_base_dir())
+	DMSettings.set_user_value("last_export_path", path.get_base_dir())
 	import_translations_from_csv(path)
 
 
@@ -841,8 +922,15 @@ func _on_main_view_visibility_changed() -> void:
 
 
 func _on_new_button_pressed() -> void:
-	new_dialog.current_file = ""
+	new_dialog.current_file = "dialogue"
 	new_dialog.popup_centered()
+
+
+func _on_new_dialog_confirmed() -> void:
+	if new_dialog.current_file.get_basename() == "":
+		var path = "res://untitled.dialogue"
+		new_file(path)
+		open_file(path)
 
 
 func _on_new_dialog_file_selected(path: String) -> void:
@@ -851,6 +939,8 @@ func _on_new_dialog_file_selected(path: String) -> void:
 
 
 func _on_save_dialog_file_selected(path: String) -> void:
+	if path == "": path = "res://untitled.dialogue"
+
 	new_file(path, code_edit.text)
 	open_file(path)
 
@@ -863,13 +953,26 @@ func _on_open_dialog_file_selected(path: String) -> void:
 	open_file(path)
 
 
+func _on_quick_open_files_list_file_double_clicked(file_path: String) -> void:
+	quick_open_dialog.hide()
+	open_file(file_path)
+
+
+func _on_quick_open_dialog_confirmed() -> void:
+	if quick_open_files_list.current_file_path:
+		open_file(quick_open_files_list.current_file_path)
+
+
 func _on_save_all_button_pressed() -> void:
 	save_files()
 
 
-func _on_code_edit_text_changed() -> void:
-	title_list.titles = code_edit.get_titles()
+func _on_find_in_files_button_pressed() -> void:
+	find_in_files_dialog.popup_centered()
+	find_in_files.prepare()
 
+
+func _on_code_edit_text_changed() -> void:
 	var buffer = open_buffers[current_file_path]
 	buffer.text = code_edit.text
 
@@ -881,11 +984,10 @@ func _on_code_edit_text_changed() -> void:
 
 func _on_code_edit_active_title_change(title: String) -> void:
 	title_list.select_title(title)
-	DialogueSettings.set_user_value("run_title", title)
 
 
 func _on_code_edit_caret_changed() -> void:
-	DialogueSettings.set_caret(current_file_path, code_edit.get_cursor())
+	DMSettings.set_caret(current_file_path, code_edit.get_cursor())
 
 
 func _on_code_edit_error_clicked(line_number: int) -> void:
@@ -899,11 +1001,11 @@ func _on_title_list_title_selected(title: String) -> void:
 
 func _on_parse_timer_timeout() -> void:
 	parse_timer.stop()
-	parse()
+	compile()
 
 
 func _on_errors_panel_error_pressed(line_number: int, column_number: int) -> void:
-	code_edit.set_caret_line(line_number)
+	code_edit.set_caret_line(line_number - 1)
 	code_edit.set_caret_column(column_number)
 	code_edit.grab_focus()
 
@@ -922,34 +1024,39 @@ func _on_search_and_replace_close_requested() -> void:
 	code_edit.grab_focus()
 
 
-func _on_settings_button_pressed() -> void:
-	settings_view.prepare()
-	settings_dialog.popup_centered()
-
-
-func _on_settings_view_script_button_pressed(path: String) -> void:
-	settings_dialog.hide()
-	editor_plugin.get_editor_interface().edit_resource(load(path))
-
-
 func _on_test_button_pressed() -> void:
+	save_file(current_file_path, false)
+	Engine.get_meta("DMCache").reimport_files([current_file_path])
+
+	if errors_panel.errors.size() > 0:
+		errors_dialog.popup_centered()
+		return
+
+	DMSettings.set_user_value("run_title", "")
+	DMSettings.set_user_value("is_running_test_scene", true)
+	DMSettings.set_user_value("run_resource_path", current_file_path)
+	var test_scene_path: String = DMSettings.get_setting(DMSettings.CUSTOM_TEST_SCENE_PATH, "res://addons/dialogue_manager/test_scene.tscn")
+	EditorInterface.play_custom_scene(test_scene_path)
+
+
+func _on_test_line_button_pressed() -> void:
 	save_file(current_file_path)
 
 	if errors_panel.errors.size() > 0:
 		errors_dialog.popup_centered()
 		return
 
-	DialogueSettings.set_user_value("is_running_test_scene", true)
-	DialogueSettings.set_user_value("run_resource_path", current_file_path)
-	var test_scene_path: String = DialogueSettings.get_setting("custom_test_scene_path", "res://addons/dialogue_manager/test_scene.tscn")
-	editor_plugin.get_editor_interface().play_custom_scene(test_scene_path)
-
-
-func _on_settings_dialog_confirmed() -> void:
-	settings_view.apply_settings_changes()
-	parse()
-	code_edit.wrap_mode = TextEdit.LINE_WRAPPING_BOUNDARY if DialogueSettings.get_setting("wrap_lines", false) else TextEdit.LINE_WRAPPING_NONE
-	code_edit.grab_focus()
+	# Find next non-empty line
+	var line_to_run: int = 0
+	for i in range(code_edit.get_cursor().y, code_edit.get_line_count()):
+		if not code_edit.get_line(i).is_empty():
+			line_to_run = i
+			break;
+	DMSettings.set_user_value("run_title", str(line_to_run))
+	DMSettings.set_user_value("is_running_test_scene", true)
+	DMSettings.set_user_value("run_resource_path", current_file_path)
+	var test_scene_path: String = DMSettings.get_setting(DMSettings.CUSTOM_TEST_SCENE_PATH, "res://addons/dialogue_manager/test_scene.tscn")
+	EditorInterface.play_custom_scene(test_scene_path)
 
 
 func _on_support_button_pressed() -> void:
@@ -965,17 +1072,23 @@ func _on_files_list_file_popup_menu_requested(at_position: Vector2) -> void:
 	files_popup_menu.popup()
 
 
+func _on_files_list_file_middle_clicked(path: String):
+	close_file(path)
+
+
 func _on_files_popup_menu_about_to_popup() -> void:
 	files_popup_menu.clear()
 
-	files_popup_menu.add_item(DialogueConstants.translate("buffer.save"), ITEM_SAVE, KEY_MASK_CTRL | KEY_MASK_ALT | KEY_S)
-	files_popup_menu.add_item(DialogueConstants.translate("buffer.save_as"), ITEM_SAVE_AS)
-	files_popup_menu.add_item(DialogueConstants.translate("buffer.close"), ITEM_CLOSE, KEY_MASK_CTRL | KEY_W)
-	files_popup_menu.add_item(DialogueConstants.translate("buffer.close_all"), ITEM_CLOSE_ALL)
-	files_popup_menu.add_item(DialogueConstants.translate("buffer.close_other_files"), ITEM_CLOSE_OTHERS)
+	var shortcuts: Dictionary = plugin.get_editor_shortcuts()
+
+	files_popup_menu.add_item(DMConstants.translate(&"buffer.save"), ITEM_SAVE, OS.find_keycode_from_string(shortcuts.get("save")[0].as_text_keycode()))
+	files_popup_menu.add_item(DMConstants.translate(&"buffer.save_as"), ITEM_SAVE_AS)
+	files_popup_menu.add_item(DMConstants.translate(&"buffer.close"), ITEM_CLOSE, OS.find_keycode_from_string(shortcuts.get("close_file")[0].as_text_keycode()))
+	files_popup_menu.add_item(DMConstants.translate(&"buffer.close_all"), ITEM_CLOSE_ALL)
+	files_popup_menu.add_item(DMConstants.translate(&"buffer.close_other_files"), ITEM_CLOSE_OTHERS)
 	files_popup_menu.add_separator()
-	files_popup_menu.add_item(DialogueConstants.translate("buffer.copy_file_path"), ITEM_COPY_PATH)
-	files_popup_menu.add_item(DialogueConstants.translate("buffer.show_in_filesystem"), ITEM_SHOW_IN_FILESYSTEM)
+	files_popup_menu.add_item(DMConstants.translate(&"buffer.copy_file_path"), ITEM_COPY_PATH)
+	files_popup_menu.add_item(DMConstants.translate(&"buffer.show_in_filesystem"), ITEM_SHOW_IN_FILESYSTEM)
 
 
 func _on_files_popup_menu_id_pressed(id: int) -> void:
@@ -990,9 +1103,10 @@ func _on_files_popup_menu_id_pressed(id: int) -> void:
 			for path in open_buffers.keys():
 				close_file(path)
 		ITEM_CLOSE_OTHERS:
+			var current_current_file_path: String = current_file_path
 			for path in open_buffers.keys():
-				if path != current_file_path:
-					close_file(path)
+				if path != current_current_file_path:
+					await close_file(path)
 
 		ITEM_COPY_PATH:
 			DisplayServer.clipboard_set(current_file_path)
@@ -1011,9 +1125,16 @@ func _on_code_edit_external_file_requested(path: String, title: String) -> void:
 func _on_close_confirmation_dialog_confirmed() -> void:
 	save_file(current_file_path)
 	remove_file_from_open_buffers(current_file_path)
+	confirmation_closed.emit()
 
 
 func _on_close_confirmation_dialog_custom_action(action: StringName) -> void:
 	if action == "discard":
 		remove_file_from_open_buffers(current_file_path)
 	close_confirmation_dialog.hide()
+	confirmation_closed.emit()
+
+
+func _on_find_in_files_result_selected(path: String, cursor: Vector2, length: int) -> void:
+	open_file(path)
+	code_edit.select(cursor.y, cursor.x, cursor.y, cursor.x + length)

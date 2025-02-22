@@ -1,55 +1,69 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_3orur"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_kk7mf"]
 
 [resource]
-script = ExtResource("1_3orur")
+script = ExtResource("1_kk7mf")
 using_states = PackedStringArray()
 titles = {
-"cue": "2",
-"proceed_1": "30",
-"proceed_2": "41",
-"query": "19",
-"setters": "48",
-"talk": "7",
-"yes": "25"
+"cue": "1",
+"proceed_1": "29",
+"proceed_2": "40",
+"query": "18",
+"setters": "47",
+"talk": "6",
+"yes": "24"
 }
 character_names = PackedStringArray("{{green}}", "{{blue_teacher}}", "{{blue}}")
-first_title = "2"
+first_title = "0"
 lines = {
-"1": {
-"id": "1",
-"next_id": "2",
-"text": "cue",
+"0": {
+"id": "0",
+"next_id": "1",
 "type": "title"
 },
+"1": {
+"id": "1",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "move",
+"i": 3,
+"type": &"function",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 8,
+"type": "string",
+"value": "talk"
+}, {
+"i": 14,
+"type": "parens_close"
+}])])
+}]),
+"is_blocking": true
+},
+"next_id": "2",
+"type": "mutation"
+},
 "10": {
-"character": "{{blue}}",
+"character": "{{blue_teacher}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 2,
 "type": "variable",
-"value": "blue"
+"value": "blue_teacher"
 }]),
-"value_in_text": "{{blue}}"
+"value_in_text": "{{blue_teacher}}"
 }]),
 "id": "10",
 "next_id": "11",
-"tags": PackedStringArray(),
-"text": "Hi. I'm {{blue}}.",
-"text_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "blue"
-}]),
-"value_in_text": "{{blue}}"
-}]),
-"translation_key": "Hi. I'm {{blue}}.",
+"tags": PackedStringArray("expression=cheerful"),
+"text": "I have heard of your extraordinary abilities and will greatly look forward to be your main teacher.",
 "type": "dialogue"
 },
 "11": {
 "character": "{{blue_teacher}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 2,
 "type": "variable",
 "value": "blue_teacher"
 }]),
@@ -57,228 +71,253 @@ lines = {
 }]),
 "id": "11",
 "next_id": "12",
-"tags": PackedStringArray("expression=cheerful"),
-"text": "I have heard of your extraordinary abilities and will greatly look forward to be your main teacher.",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "I have heard of your extraordinary abilities and will greatly look forward to be your main teacher.",
-"type": "dialogue"
-},
-"12": {
-"character": "{{blue_teacher}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "blue_teacher"
-}]),
-"value_in_text": "{{blue_teacher}}"
-}]),
-"id": "12",
-"next_id": "13",
-"tags": PackedStringArray(),
 "text": "When you two are ready, [color=yellow]please return here so I can introduce {{blue}} to our study of the {{blue_aspect}}[/color].",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 96,
 "type": "variable",
 "value": "blue"
 }]),
 "value_in_text": "{{blue}}"
 }, {
 "expression": Array[Dictionary]([{
+"i": 125,
 "type": "variable",
 "value": "blue_aspect"
 }]),
 "value_in_text": "{{blue_aspect}}"
 }]),
-"translation_key": "When you two are ready, [color=yellow]please return here so I can introduce {{blue}} to our study of the {{blue_aspect}}[/color].",
 "type": "dialogue"
+},
+"12": {
+"id": "12",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_npc_interaction_node",
+"i": 3,
+"type": &"function",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 28,
+"type": "string",
+"value": "BlueTeacher"
+}]), Array[Dictionary]([{
+"i": 43,
+"type": "string",
+"value": "ReturnCutscene"
+}, {
+"i": 59,
+"type": "parens_close"
+}])])
+}]),
+"is_blocking": true
+},
+"next_id": "13",
+"type": "mutation"
 },
 "13": {
 "id": "13",
 "mutation": {
 "expression": Array[Dictionary]([{
-"function": "set_npc_interaction_node",
-"type": "function",
+"function": "set_npc_dialogue_node",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
+"i": 25,
 "type": "string",
 "value": "BlueTeacher"
 }]), Array[Dictionary]([{
+"i": 40,
 "type": "string",
-"value": "ReturnCutscene"
+"value": "query"
+}, {
+"i": 47,
+"type": "parens_close"
 }])])
-}])
+}]),
+"is_blocking": true
 },
 "next_id": "14",
 "type": "mutation"
 },
 "14": {
 "id": "14",
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "set_npc_dialogue_node",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "BlueTeacher"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "query"
-}])])
-}])
-},
-"next_id": "15",
-"type": "mutation"
+"is_snippet": false,
+"next_id": "end!",
+"next_id_after": "",
+"type": "goto"
 },
 "15": {
 "id": "15",
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
+"next_id": "17",
+"type": ""
 },
-"18": {
-"id": "18",
-"next_id": "19",
-"text": "query",
+"17": {
+"id": "17",
+"next_id": "18",
 "type": "title"
 },
-"19": {
+"18": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 2,
 "type": "variable",
 "value": "green"
 }]),
 "value_in_text": "{{green}}"
 }]),
-"id": "19",
-"next_id": "20",
-"tags": PackedStringArray(),
+"id": "18",
+"next_id": "19",
 "text": "[color=yellow](Should I leave {{blue}} to his new teacher now?)[/color]",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 43,
 "type": "variable",
 "value": "blue"
 }]),
 "value_in_text": "{{blue}}"
 }]),
-"translation_key": "[color=yellow](Should I leave {{blue}} to his new teacher now?)[/color]",
 "type": "dialogue"
+},
+"19": {
+"id": "19",
+"next_id": "24",
+"responses": PackedStringArray("19", "20"),
+"text": "Yes",
+"type": "response"
 },
 "2": {
 "id": "2",
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "move",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "talk"
-}])])
-}])
-},
-"next_id": "3",
-"type": "mutation"
+"is_snippet": false,
+"next_id": "end!",
+"next_id_after": "",
+"type": "goto"
 },
 "20": {
-"character": "",
-"character_replacements": Array[Dictionary]([]),
 "id": "20",
-"next_id": "25",
-"next_id_after": "25",
-"responses": PackedStringArray("20", "21"),
-"tags": PackedStringArray(),
-"text": "Yes",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "Yes",
+"next_id": "end!",
+"text": "No",
 "type": "response"
 },
 "21": {
-"character": "",
-"character_replacements": Array[Dictionary]([]),
 "id": "21",
-"next_id": "end!",
-"next_id_after": "25",
-"tags": PackedStringArray(),
-"text": "No",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "No",
-"type": "response"
+"next_id": "23",
+"type": ""
+},
+"23": {
+"id": "23",
+"next_id": "24",
+"type": "title"
 },
 "24": {
 "id": "24",
-"next_id": "25",
-"text": "yes",
-"type": "title"
-},
-"25": {
-"id": "25",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "move",
-"type": "function",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
+"i": 8,
 "type": "string",
 "value": "proceed_1"
+}, {
+"i": 19,
+"type": "parens_close"
 }])])
-}])
+}]),
+"is_blocking": true
 },
-"next_id": "26",
+"next_id": "25",
 "type": "mutation"
+},
+"25": {
+"id": "25",
+"is_snippet": false,
+"next_id": "end!",
+"next_id_after": "",
+"type": "goto"
 },
 "26": {
 "id": "26",
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
+"next_id": "28",
+"type": ""
+},
+"28": {
+"id": "28",
+"next_id": "29",
+"type": "title"
 },
 "29": {
 "id": "29",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_npc_direction",
+"i": 3,
+"type": &"function",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 21,
+"type": "string",
+"value": "BlueTeacher"
+}]), Array[Dictionary]([{
+"i": 36,
+"type": "string",
+"value": "down"
+}, {
+"i": 42,
+"type": "parens_close"
+}])])
+}]),
+"is_blocking": true
+},
 "next_id": "30",
-"text": "proceed_1",
-"type": "title"
+"type": "mutation"
 },
 "3": {
 "id": "3",
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
+"next_id": "5",
+"type": ""
 },
 "30": {
 "id": "30",
 "mutation": {
 "expression": Array[Dictionary]([{
-"function": "set_npc_direction",
-"type": "function",
+"function": "remove_member",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
+"i": 17,
 "type": "string",
-"value": "BlueTeacher"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "down"
+"value": "Blue"
+}, {
+"i": 23,
+"type": "parens_close"
 }])])
-}])
+}]),
+"is_blocking": true
 },
 "next_id": "31",
 "type": "mutation"
 },
 "31": {
-"id": "31",
-"mutation": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
-"function": "remove_member",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "Blue"
-}])])
-}])
-},
+"i": 2,
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"id": "31",
 "next_id": "32",
-"type": "mutation"
+"text": "(OK, time to go.)",
+"type": "dialogue"
 },
 "32": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 2,
 "type": "variable",
 "value": "green"
 }]),
@@ -286,64 +325,113 @@ lines = {
 }]),
 "id": "32",
 "next_id": "33",
-"tags": PackedStringArray(),
-"text": "(OK, time to go.)",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "(OK, time to go.)",
-"type": "dialogue"
-},
-"33": {
-"character": "{{green}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "green"
-}]),
-"value_in_text": "{{green}}"
-}]),
-"id": "33",
-"next_id": "34",
 "tags": PackedStringArray("expression=cheerful"),
 "text": "Bye {{blue_teacher}}! Bye {{blue}}!",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 18,
 "type": "variable",
 "value": "blue_teacher"
 }]),
 "value_in_text": "{{blue_teacher}}"
 }, {
 "expression": Array[Dictionary]([{
+"i": 40,
 "type": "variable",
 "value": "blue"
 }]),
 "value_in_text": "{{blue}}"
 }]),
-"translation_key": "Bye {{blue_teacher}}! Bye {{blue}}!",
 "type": "dialogue"
+},
+"33": {
+"id": "33",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "add_async",
+"i": 3,
+"type": &"function",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 13,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 14,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 15,
+"type": "variable",
+"value": "make_fade_away"
+}]), Array[Dictionary]([{
+"i": 31,
+"type": &"array",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 32,
+"type": "number",
+"value": 1.5
+}, {
+"i": 35,
+"type": "bracket_close"
+}])])
+}, {
+"i": 36,
+"type": "bracket_close"
+}])])
+}, {
+"i": 37,
+"type": "bracket_close"
+}])])
+}, {
+"i": 38,
+"type": "parens_close"
+}])])
+}]),
+"is_blocking": true
+},
+"next_id": "34",
+"type": "mutation"
 },
 "34": {
 "id": "34",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "add_async",
-"type": "function",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
-"type": "array",
+"i": 13,
+"type": &"array",
 "value": Array[Array]([Array[Dictionary]([{
-"type": "array",
+"i": 14,
+"type": &"array",
 "value": Array[Array]([Array[Dictionary]([{
+"i": 15,
 "type": "variable",
-"value": "make_fade_away"
+"value": "make_move_player"
 }]), Array[Dictionary]([{
-"type": "array",
+"i": 33,
+"type": &"array",
 "value": Array[Array]([Array[Dictionary]([{
-"type": "number",
-"value": 1.5
+"i": 34,
+"type": "string",
+"value": "ReturnMark1"
+}, {
+"i": 47,
+"type": "bracket_close"
 }])])
+}, {
+"i": 48,
+"type": "bracket_close"
 }])])
+}, {
+"i": 49,
+"type": "bracket_close"
 }])])
+}, {
+"i": 50,
+"type": "parens_close"
 }])])
-}])
+}]),
+"is_blocking": true
 },
 "next_id": "35",
 "type": "mutation"
@@ -352,67 +440,78 @@ lines = {
 "id": "35",
 "mutation": {
 "expression": Array[Dictionary]([{
-"function": "add_async",
-"type": "function",
+"function": "play_async",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "variable",
-"value": "make_move_player"
-}]), Array[Dictionary]([{
-"type": "array",
-"value": Array[Array]([Array[Dictionary]([{
+"i": 14,
 "type": "string",
-"value": "ReturnMark1"
+"value": "proceed_2"
+}, {
+"i": 25,
+"type": "parens_close"
 }])])
-}])])
-}])])
-}])])
-}])
+}]),
+"is_blocking": true
 },
 "next_id": "36",
 "type": "mutation"
 },
 "36": {
 "id": "36",
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "play_async",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "proceed_2"
-}])])
-}])
-},
-"next_id": "37",
-"type": "mutation"
+"is_snippet": false,
+"next_id": "end!",
+"next_id_after": "",
+"type": "goto"
 },
 "37": {
 "id": "37",
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
+"next_id": "39",
+"type": ""
+},
+"39": {
+"id": "39",
+"next_id": "40",
+"type": "title"
 },
 "40": {
 "id": "40",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "remove_npc",
+"i": 3,
+"type": &"function",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 14,
+"type": "string",
+"value": "Blue"
+}, {
+"i": 20,
+"type": "parens_close"
+}])])
+}]),
+"is_blocking": true
+},
 "next_id": "41",
-"text": "proceed_2",
-"type": "title"
+"type": "mutation"
 },
 "41": {
 "id": "41",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "remove_npc",
-"type": "function",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
+"i": 14,
 "type": "string",
-"value": "Blue"
+"value": "BlueTeacher"
+}, {
+"i": 27,
+"type": "parens_close"
 }])])
-}])
+}]),
+"is_blocking": true
 },
 "next_id": "42",
 "type": "mutation"
@@ -421,154 +520,256 @@ lines = {
 "id": "42",
 "mutation": {
 "expression": Array[Dictionary]([{
-"function": "remove_npc",
-"type": "function",
+"function": "move_player",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
+"i": 15,
 "type": "string",
-"value": "BlueTeacher"
+"value": "ReturnMark2"
+}]), Array[Dictionary]([{
+"i": 30,
+"type": "string",
+"value": "setters"
+}, {
+"i": 39,
+"type": "parens_close"
 }])])
-}])
+}]),
+"is_blocking": true
 },
 "next_id": "43",
 "type": "mutation"
 },
 "43": {
 "id": "43",
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "move_player",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "ReturnMark2"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "setters"
-}])])
-}])
-},
-"next_id": "44",
-"type": "mutation"
+"is_snippet": false,
+"next_id": "end!",
+"next_id_after": "",
+"type": "goto"
 },
 "44": {
 "id": "44",
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
+"next_id": "46",
+"type": ""
+},
+"46": {
+"id": "46",
+"next_id": "47",
+"type": "title"
 },
 "47": {
 "id": "47",
+"mutation": {
+"expression": Array[Dictionary]([{
+"i": 4,
+"type": "variable",
+"value": "is_mentoring"
+}, {
+"i": 17,
+"type": "assignment",
+"value": "="
+}, {
+"i": 20,
+"type": "variable",
+"value": "false"
+}]),
+"is_blocking": true
+},
 "next_id": "48",
-"text": "setters",
-"type": "title"
+"type": "mutation"
 },
 "48": {
 "id": "48",
 "mutation": {
 "expression": Array[Dictionary]([{
-"type": "variable",
-"value": "is_mentoring"
+"function": "change_rooms",
+"i": 3,
+"type": &"function",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 16,
+"type": "string",
+"value": "green_dorm"
+}]), Array[Dictionary]([{
+"i": 30,
+"type": "string",
+"value": "DormDoor"
 }, {
-"type": "assignment",
-"value": "="
-}, {
-"type": "variable",
-"value": "false"
-}])
+"i": 40,
+"type": "parens_close"
+}])])
+}]),
+"is_blocking": true
 },
 "next_id": "49",
 "type": "mutation"
 },
 "49": {
 "id": "49",
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "change_rooms",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "green_dorm"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "DormDoor"
-}])])
-}])
+"is_snippet": false,
+"next_id": "end!",
+"next_id_after": "",
+"type": "goto"
 },
-"next_id": "50",
-"type": "mutation"
+"5": {
+"id": "5",
+"next_id": "6",
+"type": "title"
 },
 "50": {
 "id": "50",
+"next_id": "51",
+"type": ""
+},
+"51": {
+"id": "51",
 "is_snippet": false,
-"next_id": "end!",
+"next_id": "end",
+"next_id_after": "",
 "type": "goto"
 },
 "6": {
-"id": "6",
-"next_id": "7",
-"text": "talk",
-"type": "title"
-},
-"7": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 2,
 "type": "variable",
 "value": "green"
 }]),
 "value_in_text": "{{green}}"
 }]),
-"id": "7",
-"next_id": "8",
+"id": "6",
+"next_id": "7",
 "tags": PackedStringArray("expression=cheerful"),
 "text": "Good morning {{blue_teacher}}!",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 27,
 "type": "variable",
 "value": "blue_teacher"
 }]),
 "value_in_text": "{{blue_teacher}}"
 }]),
-"translation_key": "Good morning {{blue_teacher}}!",
 "type": "dialogue"
 },
-"8": {
-"id": "8",
+"7": {
+"id": "7",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "turn_npc_to_player",
-"type": "function",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
+"i": 22,
 "type": "string",
 "value": "BlueTeacher"
+}, {
+"i": 35,
+"type": "parens_close"
 }])])
-}])
+}]),
+"is_blocking": true
 },
-"next_id": "9",
+"next_id": "8",
 "type": "mutation"
 },
-"9": {
+"8": {
 "character": "{{blue_teacher}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 2,
 "type": "variable",
 "value": "blue_teacher"
 }]),
 "value_in_text": "{{blue_teacher}}"
 }]),
-"id": "9",
-"next_id": "10",
+"id": "8",
+"next_id": "9",
 "tags": PackedStringArray("expression=cheerful"),
 "text": "Hello {{green}}! And this new face is our new student?",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 27,
 "type": "variable",
 "value": "green"
 }]),
 "value_in_text": "{{green}}"
 }]),
-"translation_key": "Hello {{green}}! And this new face is our new student?",
+"type": "dialogue"
+},
+"9": {
+"character": "{{blue}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 2,
+"type": "variable",
+"value": "blue"
+}]),
+"value_in_text": "{{blue}}"
+}]),
+"id": "9",
+"next_id": "10",
+"text": "Hi. I'm {{blue}}.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 20,
+"type": "variable",
+"value": "blue"
+}]),
+"value_in_text": "{{blue}}"
+}]),
 "type": "dialogue"
 }
 }
-metadata/dialogue_manager_version = "2.31.0"
+raw_text = "~ cue
+do move(\"talk\")
+=> END!
+
+
+~ talk
+{{green}}: [#expression=cheerful] Good morning {{blue_teacher}}!
+do turn_npc_to_player(\"BlueTeacher\")
+{{blue_teacher}}: [#expression=cheerful] Hello {{green}}! And this new face is our new student?
+{{blue}}: Hi. I'm {{blue}}.
+{{blue_teacher}}: [#expression=cheerful] I have heard of your extraordinary abilities and will greatly look forward to be your main teacher.
+{{blue_teacher}}: When you two are ready, [color=yellow]please return here so I can introduce {{blue}} to our study of the {{blue_aspect}}[/color].
+do set_npc_interaction_node(\"BlueTeacher\", \"ReturnCutscene\")
+do set_npc_dialogue_node(\"BlueTeacher\", \"query\")
+=> END!
+
+
+~ query
+{{green}}: [color=yellow](Should I leave {{blue}} to his new teacher now?)[/color]
+- Yes => yes
+- No => END!
+
+
+~ yes
+do move(\"proceed_1\")
+=> END!
+
+
+~ proceed_1
+do set_npc_direction(\"BlueTeacher\", \"down\")
+do remove_member(\"Blue\")
+{{green}}: (OK, time to go.)
+{{green}}: [#expression=cheerful] Bye {{blue_teacher}}! Bye {{blue}}!
+do add_async([[make_fade_away, [1.5]]])
+do add_async([[make_move_player, [\"ReturnMark1\"]]])
+do play_async(\"proceed_2\")
+=> END!
+
+
+~ proceed_2
+do remove_npc(\"Blue\")
+do remove_npc(\"BlueTeacher\")
+do move_player(\"ReturnMark2\", \"setters\")
+=> END!
+
+
+~ setters
+set is_mentoring =  false
+do change_rooms(\"green_dorm\", \"DormDoor\")
+=> END!
+"
+metadata/dialogue_manager_version = "3.3.2"

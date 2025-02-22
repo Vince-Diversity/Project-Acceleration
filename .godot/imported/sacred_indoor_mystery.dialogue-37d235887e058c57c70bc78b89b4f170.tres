@@ -1,28 +1,49 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_3aoxh"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_n7ele"]
 
 [resource]
-script = ExtResource("1_3aoxh")
+script = ExtResource("1_n7ele")
 using_states = PackedStringArray()
 titles = {
-"found": "2",
-"present": "6",
-"realise": "18"
+"found": "1",
+"present": "5",
+"realise": "17"
 }
 character_names = PackedStringArray("{{green}}", "{{plain}}", "{{average}}")
-first_title = "2"
+first_title = "0"
 lines = {
+"0": {
+"id": "0",
+"next_id": "1",
+"type": "title"
+},
 "1": {
 "id": "1",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "move",
+"i": 3,
+"type": &"function",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 8,
+"type": "string",
+"value": "mystery/present"
+}, {
+"i": 25,
+"type": "parens_close"
+}])])
+}]),
+"is_blocking": true
+},
 "next_id": "2",
-"text": "found",
-"type": "title"
+"type": "mutation"
 },
 "10": {
 "character": "{{average}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 2,
 "type": "variable",
 "value": "average"
 }]),
@@ -30,201 +51,223 @@ lines = {
 }]),
 "id": "10",
 "next_id": "11",
-"tags": PackedStringArray(),
-"text": "Yes, this is exactly the thing we were looking for!",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "Yes, this is exactly the thing we were looking for!",
+"text": "Now, let us stand together and cherish the moment.",
 "type": "dialogue"
 },
 "11": {
-"character": "{{average}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "average"
-}]),
-"value_in_text": "{{average}}"
-}]),
 "id": "11",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "remove_member",
+"i": 3,
+"type": &"function",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 17,
+"type": "string",
+"value": "Sacred"
+}, {
+"i": 25,
+"type": "parens_close"
+}])])
+}]),
+"is_blocking": true
+},
 "next_id": "12",
-"tags": PackedStringArray(),
-"text": "Now, let us stand together and cherish the moment.",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "Now, let us stand together and cherish the moment.",
-"type": "dialogue"
+"type": "mutation"
 },
 "12": {
 "id": "12",
 "mutation": {
 "expression": Array[Dictionary]([{
-"function": "remove_member",
-"type": "function",
+"function": "move_npc",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
+"i": 12,
 "type": "string",
 "value": "Sacred"
+}]), Array[Dictionary]([{
+"i": 22,
+"type": "string",
+"value": "SacredMark2"
+}]), Array[Dictionary]([{
+"i": 37,
+"type": "string",
+"value": "mystery/realise"
+}, {
+"i": 54,
+"type": "parens_close"
 }])])
-}])
+}]),
+"is_blocking": true
 },
 "next_id": "13",
 "type": "mutation"
 },
 "13": {
 "id": "13",
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "move_npc",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "Sacred"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "SacredMark2"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "mystery/realise"
-}])])
-}])
-},
-"next_id": "14",
-"type": "mutation"
+"is_snippet": false,
+"next_id": "end!",
+"next_id_after": "",
+"type": "goto"
 },
 "14": {
 "id": "14",
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
+"next_id": "16",
+"type": ""
+},
+"16": {
+"id": "16",
+"next_id": "17",
+"type": "title"
 },
 "17": {
 "id": "17",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_npc_direction",
+"i": 3,
+"type": &"function",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 21,
+"type": "string",
+"value": "Plain"
+}]), Array[Dictionary]([{
+"i": 30,
+"type": "string",
+"value": "down"
+}, {
+"i": 36,
+"type": "parens_close"
+}])])
+}]),
+"is_blocking": true
+},
 "next_id": "18",
-"text": "realise",
-"type": "title"
+"type": "mutation"
 },
 "18": {
 "id": "18",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_npc_direction",
-"type": "function",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
+"i": 21,
 "type": "string",
-"value": "Plain"
+"value": "Average"
 }]), Array[Dictionary]([{
+"i": 32,
 "type": "string",
 "value": "down"
+}, {
+"i": 38,
+"type": "parens_close"
 }])])
-}])
+}]),
+"is_blocking": true
 },
 "next_id": "19",
 "type": "mutation"
 },
 "19": {
-"id": "19",
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "set_npc_direction",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "Average"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "down"
-}])])
-}])
-},
-"next_id": "20",
-"type": "mutation"
-},
-"2": {
-"id": "2",
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "move",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "mystery/present"
-}])])
-}])
-},
-"next_id": "3",
-"type": "mutation"
-},
-"20": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 2,
 "type": "variable",
 "value": "green"
 }]),
 "value_in_text": "{{green}}"
 }]),
-"id": "20",
-"next_id": "21",
+"id": "19",
+"next_id": "20",
 "tags": PackedStringArray("expression=sorry"),
 "text": "Excuse me, but I don't she is a sacred thing. She is just a girl and it is her name that is {{sacred}}.",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 106,
 "type": "variable",
 "value": "sacred"
 }]),
 "value_in_text": "{{sacred}}"
 }]),
-"translation_key": "Excuse me, but I don't she is a sacred thing. She is just a girl and it is her name that is {{sacred}}.",
 "type": "dialogue"
 },
-"21": {
+"2": {
+"id": "2",
+"is_snippet": false,
+"next_id": "end!",
+"next_id_after": "",
+"type": "goto"
+},
+"20": {
 "character": "{{plain}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 2,
 "type": "variable",
 "value": "plain"
 }]),
 "value_in_text": "{{plain}}"
 }]),
-"id": "21",
-"next_id": "22",
-"tags": PackedStringArray(),
+"id": "20",
+"next_id": "21",
 "text": "A girl? I don't see any girl around here, other than yourself.",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "A girl? I don't see any girl around here, other than yourself.",
 "type": "dialogue"
 },
-"22": {
+"21": {
 "character": "{{average}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 2,
 "type": "variable",
 "value": "average"
 }]),
 "value_in_text": "{{average}}"
 }]),
-"id": "22",
-"next_id": "23",
-"tags": PackedStringArray(),
+"id": "21",
+"next_id": "22",
 "text": "Me neither. I just see that you brought us {{sacred}}, and {{sacred}} is a sacred thing!",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 58,
 "type": "variable",
 "value": "sacred"
 }]),
 "value_in_text": "{{sacred}}"
 }, {
 "expression": Array[Dictionary]([{
+"i": 74,
 "type": "variable",
 "value": "sacred"
 }]),
 "value_in_text": "{{sacred}}"
 }]),
-"translation_key": "Me neither. I just see that you brought us {{sacred}}, and {{sacred}} is a sacred thing!",
+"type": "dialogue"
+},
+"22": {
+"character": "{{green}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 2,
+"type": "variable",
+"value": "green"
+}]),
+"value_in_text": "{{green}}"
+}]),
+"id": "22",
+"next_id": "23",
+"tags": PackedStringArray("expression=sorry"),
+"text": "(... How strange.)",
 "type": "dialogue"
 },
 "23": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 2,
 "type": "variable",
 "value": "green"
 }]),
@@ -232,49 +275,63 @@ lines = {
 }]),
 "id": "23",
 "next_id": "24",
-"tags": PackedStringArray("expression=sorry"),
-"text": "(... How strange.)",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "(... How strange.)",
-"type": "dialogue"
-},
-"24": {
-"character": "{{green}}",
-"character_replacements": Array[Dictionary]([{
-"expression": Array[Dictionary]([{
-"type": "variable",
-"value": "green"
-}]),
-"value_in_text": "{{green}}"
-}]),
-"id": "24",
-"next_id": "25",
-"tags": PackedStringArray(),
 "text": "(Maybe I should look through the {{revealer}} again.)",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 46,
 "type": "variable",
 "value": "revealer"
 }]),
 "value_in_text": "{{revealer}}"
 }]),
-"translation_key": "(Maybe I should look through the {{revealer}} again.)",
 "type": "dialogue"
+},
+"24": {
+"id": "24",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "set_npc_dialogue_id",
+"i": 3,
+"type": &"function",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 23,
+"type": "string",
+"value": "Sacred"
+}]), Array[Dictionary]([{
+"i": 33,
+"type": "string",
+"value": "talk_sacred"
+}, {
+"i": 46,
+"type": "parens_close"
+}])])
+}]),
+"is_blocking": true
+},
+"next_id": "25",
+"type": "mutation"
 },
 "25": {
 "id": "25",
 "mutation": {
 "expression": Array[Dictionary]([{
-"function": "set_npc_dialogue_id",
-"type": "function",
+"function": "set_npc_dialogue_node",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
+"i": 25,
 "type": "string",
 "value": "Sacred"
 }]), Array[Dictionary]([{
+"i": 35,
 "type": "string",
-"value": "talk_sacred"
+"value": "revisit"
+}, {
+"i": 44,
+"type": "parens_close"
 }])])
-}])
+}]),
+"is_blocking": true
 },
 "next_id": "26",
 "type": "mutation"
@@ -284,15 +341,22 @@ lines = {
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_npc_dialogue_node",
-"type": "function",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
+"i": 25,
 "type": "string",
-"value": "Sacred"
+"value": "Plain"
 }]), Array[Dictionary]([{
+"i": 34,
 "type": "string",
 "value": "revisit"
+}, {
+"i": 43,
+"type": "parens_close"
 }])])
-}])
+}]),
+"is_blocking": true
 },
 "next_id": "27",
 "type": "mutation"
@@ -302,130 +366,187 @@ lines = {
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_npc_dialogue_node",
-"type": "function",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
+"i": 25,
 "type": "string",
-"value": "Plain"
+"value": "Average"
 }]), Array[Dictionary]([{
+"i": 36,
 "type": "string",
 "value": "revisit"
+}, {
+"i": 45,
+"type": "parens_close"
 }])])
-}])
+}]),
+"is_blocking": true
 },
 "next_id": "28",
 "type": "mutation"
 },
 "28": {
 "id": "28",
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "set_npc_dialogue_node",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "Average"
-}]), Array[Dictionary]([{
-"type": "string",
-"value": "revisit"
-}])])
-}])
-},
-"next_id": "29",
-"type": "mutation"
+"is_snippet": false,
+"next_id": "end!",
+"next_id_after": "",
+"type": "goto"
 },
 "29": {
 "id": "29",
-"is_snippet": false,
-"next_id": "end!",
-"type": "goto"
+"next_id": "30",
+"type": ""
 },
 "3": {
 "id": "3",
+"next_id": "4",
+"type": ""
+},
+"30": {
+"id": "30",
 "is_snippet": false,
-"next_id": "end!",
+"next_id": "end",
+"next_id_after": "",
 "type": "goto"
 },
-"5": {
-"id": "5",
-"next_id": "6",
-"text": "present",
+"4": {
+"id": "4",
+"next_id": "5",
 "type": "title"
 },
-"6": {
+"5": {
 "character": "{{green}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 2,
 "type": "variable",
 "value": "green"
 }]),
 "value_in_text": "{{green}}"
 }]),
-"id": "6",
-"next_id": "7",
-"tags": PackedStringArray(),
+"id": "5",
+"next_id": "6",
 "text": "Hi again. Could I ask if you know about this girl? Her name is {{sacred}}.",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 76,
 "type": "variable",
 "value": "sacred"
 }]),
 "value_in_text": "{{sacred}}"
 }]),
-"translation_key": "Hi again. Could I ask if you know about this girl? Her name is {{sacred}}.",
 "type": "dialogue"
+},
+"6": {
+"id": "6",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "turn_npc_to_player",
+"i": 3,
+"type": &"function",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 22,
+"type": "string",
+"value": "Plain"
+}, {
+"i": 29,
+"type": "parens_close"
+}])])
+}]),
+"is_blocking": true
+},
+"next_id": "7",
+"type": "mutation"
 },
 "7": {
 "id": "7",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "turn_npc_to_player",
-"type": "function",
+"i": 3,
+"type": &"function",
 "value": Array[Array]([Array[Dictionary]([{
+"i": 22,
 "type": "string",
-"value": "Plain"
+"value": "Average"
+}, {
+"i": 31,
+"type": "parens_close"
 }])])
-}])
+}]),
+"is_blocking": true
 },
 "next_id": "8",
 "type": "mutation"
 },
 "8": {
-"id": "8",
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "turn_npc_to_player",
-"type": "function",
-"value": Array[Array]([Array[Dictionary]([{
-"type": "string",
-"value": "Average"
-}])])
-}])
-},
-"next_id": "9",
-"type": "mutation"
-},
-"9": {
 "character": "{{plain}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 2,
 "type": "variable",
 "value": "plain"
 }]),
 "value_in_text": "{{plain}}"
 }]),
-"id": "9",
-"next_id": "10",
-"tags": PackedStringArray(),
+"id": "8",
+"next_id": "9",
 "text": "{{sacred}}? What a wonderful thing!",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
+"i": 13,
 "type": "variable",
 "value": "sacred"
 }]),
 "value_in_text": "{{sacred}}"
 }]),
-"translation_key": "{{sacred}}? What a wonderful thing!",
+"type": "dialogue"
+},
+"9": {
+"character": "{{average}}",
+"character_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 2,
+"type": "variable",
+"value": "average"
+}]),
+"value_in_text": "{{average}}"
+}]),
+"id": "9",
+"next_id": "10",
+"text": "Yes, this is exactly the thing we were looking for!",
 "type": "dialogue"
 }
 }
-metadata/dialogue_manager_version = "2.29.2"
+raw_text = "~ found
+do move(\"mystery/present\")
+=> END!
+
+~ present
+{{green}}: Hi again. Could I ask if you know about this girl? Her name is {{sacred}}.
+do turn_npc_to_player(\"Plain\")
+do turn_npc_to_player(\"Average\")
+{{plain}}: {{sacred}}? What a wonderful thing!
+{{average}}: Yes, this is exactly the thing we were looking for!
+{{average}}: Now, let us stand together and cherish the moment.
+do remove_member(\"Sacred\")
+do move_npc(\"Sacred\", \"SacredMark2\", \"mystery/realise\")
+=> END!
+
+
+~ realise
+do set_npc_direction(\"Plain\", \"down\")
+do set_npc_direction(\"Average\", \"down\")
+{{green}}: [#expression=sorry] Excuse me, but I don't she is a sacred thing. She is just a girl and it is her name that is {{sacred}}.
+{{plain}}: A girl? I don't see any girl around here, other than yourself.
+{{average}}: Me neither. I just see that you brought us {{sacred}}, and {{sacred}} is a sacred thing!
+{{green}}: [#expression=sorry] (... How strange.)
+{{green}}: (Maybe I should look through the {{revealer}} again.)
+do set_npc_dialogue_id(\"Sacred\", \"talk_sacred\")
+do set_npc_dialogue_node(\"Sacred\", \"revisit\")
+do set_npc_dialogue_node(\"Plain\", \"revisit\")
+do set_npc_dialogue_node(\"Average\", \"revisit\")
+=> END!
+"
+metadata/dialogue_manager_version = "3.3.2"

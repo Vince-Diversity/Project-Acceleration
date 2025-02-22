@@ -4,7 +4,7 @@ msgstr ""
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
-"Language-Team: 憨憨羊の宇航鴿鴿\n"
+"Language-Team: 憨憨羊の宇航鴿鴿、ABShinri\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,6 +29,9 @@ msgstr "清空歷史記錄"
 msgid "save_all_files"
 msgstr "儲存所有檔案"
 
+msgid "find_in_files"
+msgstr "在檔案中查找"
+
 msgid "test_dialogue"
 msgstr "測試對話"
 
@@ -41,9 +44,6 @@ msgstr "插入"
 msgid "translations"
 msgstr "翻譯"
 
-msgid "settings"
-msgstr "設定"
-
 msgid "show_support"
 msgstr "支援 Dialogue Manager"
 
@@ -51,10 +51,10 @@ msgid "docs"
 msgstr "文檔"
 
 msgid "insert.wave_bbcode"
-msgstr "BBCode [lb]wave[rb]"
+msgstr "波浪特效"
 
 msgid "insert.shake_bbcode"
-msgstr "BBCode [lb]wave[rb]"
+msgstr "震動特效"
 
 msgid "insert.typing_pause"
 msgstr "輸入間隔"
@@ -95,6 +95,9 @@ msgstr "結束對話"
 msgid "generate_line_ids"
 msgstr "生成行 ID"
 
+msgid "save_characters_to_csv"
+msgstr "保存角色到 CSV"
+
 msgid "save_to_csv"
 msgstr "生成 CSV"
 
@@ -131,53 +134,23 @@ msgstr "複製檔案位置"
 msgid "buffer.show_in_filesystem"
 msgstr "在 Godot 側邊欄中顯示"
 
-msgid "settings.revert_to_default_test_scene"
-msgstr "重置測試場景設定"
-
-msgid "settings.autoload"
-msgstr "Autoload"
-
-msgid "settings.path"
-msgstr "路徑"
-
-msgid "settings.new_template"
-msgstr "新建檔案時自動插入模板"
-
-msgid "settings.missing_keys"
-msgstr "將翻譯鍵缺失視爲錯誤"
-
-msgid "settings.missing_keys_hint"
-msgstr "如果你使用靜態鍵，這將會幫助你尋找未添加至翻譯檔案的鍵。"
-
-msgid "settings.wrap_long_lines"
-msgstr "自動折行"
-
-msgid "settings.characters_translations"
-msgstr "在翻譯檔案中匯出角色名。"
-
-msgid "settings.include_failed_responses"
-msgstr "在判斷條件失敗時仍顯示回復選項"
-
-msgid "settings.ignore_missing_state_values"
-msgstr "忽略全局變量缺失錯誤（不建議）"
-
-msgid "settings.custom_test_scene"
-msgstr "自訂測試場景（必須繼承自BaseDialogueTestScene）"
-
-msgid "settings.default_csv_locale"
-msgstr "預設 CSV 區域格式"
-
-msgid "settings.states_shortcuts"
-msgstr "全局變量映射"
-
-msgid "settings.states_message"
-msgstr "當一個 Autoload 在這裏被勾選，他的所有成員會被映射爲全局變量。"
-
-msgid "settings.states_hint"
-msgstr "比如，當你開啓對於“Foo”的映射時，你可以將“Foo.bar”簡寫成“bar”。"
-
 msgid "n_of_n"
 msgstr "第{index}個，共{total}個"
+
+msgid "search.find"
+msgstr "搜尋:"
+
+msgid "search.find_all"
+msgstr "搜尋全部..."
+
+msgid "search.placeholder"
+msgstr "請輸入搜尋的內容"
+
+msgid "search.replace_placeholder"
+msgstr "請輸入替換的內容"
+
+msgid "search.replace_selected"
+msgstr "替換勾選"
 
 msgid "search.previous"
 msgstr "搜尋上一個"
@@ -232,9 +205,6 @@ msgstr "標題名不能爲空。"
 
 msgid "errors.duplicate_title"
 msgstr "標題名不能重複。"
-
-msgid "errors.nested_title"
-msgstr "標題不能嵌套。"
 
 msgid "errors.invalid_title_string"
 msgstr "標題名無效。"
@@ -376,15 +346,6 @@ msgstr "檔案中存在{errrors}個錯誤。請查看調試輸出。"
 
 msgid "runtime.invalid_expression"
 msgstr "表達式“{expression}”無效：{error}"
-
-msgid "runtime.unsupported_array_method"
-msgstr "不支持的數組方法{method_name}。"
-
-msgid "runtime.unsupported_dictionary_method"
-msgstr "不支持的字典方法{method_name}。"
-
-msgid "runtime.unsupported_quaternion_method"
-msgstr "不支持的 Quarternion 方法{method_name}。"
 
 msgid "runtime.array_index_out_of_bounds"
 msgstr "數組索引“{index}”越界。（數組名：“{array}”）"

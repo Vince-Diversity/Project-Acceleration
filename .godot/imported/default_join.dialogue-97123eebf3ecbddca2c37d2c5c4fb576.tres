@@ -1,39 +1,54 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_fnlk1"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_lq54v"]
 
 [resource]
-script = ExtResource("1_fnlk1")
+script = ExtResource("1_lq54v")
 using_states = PackedStringArray()
 titles = {
-"default": "2"
+"default": "1"
 }
 character_names = PackedStringArray()
-first_title = "2"
+first_title = "0"
 lines = {
-"1": {
-"id": "1",
-"next_id": "2",
-"text": "default",
+"0": {
+"id": "0",
+"next_id": "1",
 "type": "title"
 },
-"2": {
-"id": "2",
+"1": {
+"id": "1",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "add_source_as_member",
-"type": "function",
-"value": Array[Array]([])
-}])
+"i": 3,
+"type": &"function",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 24,
+"type": "parens_close"
+}])])
+}]),
+"is_blocking": true
 },
-"next_id": "3",
+"next_id": "2",
 "type": "mutation"
+},
+"2": {
+"id": "2",
+"is_snippet": false,
+"next_id": "end!",
+"next_id_after": "",
+"type": "goto"
 },
 "3": {
 "id": "3",
 "is_snippet": false,
-"next_id": "end!",
+"next_id": "end",
+"next_id_after": "",
 "type": "goto"
 }
 }
-metadata/dialogue_manager_version = "2.28.0"
+raw_text = "~ default
+do add_source_as_member()
+=> END!"
+metadata/dialogue_manager_version = "3.3.2"
