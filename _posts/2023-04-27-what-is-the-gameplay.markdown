@@ -11,4 +11,4 @@ But what about a visual novel, where there is not much gameplay? These games ins
 
 So what kind of game would it be, without branching storylines, and without puzzles or boring fetch quests? Is it even a game anymore?
 
-The "gameplay" idea of this project is inspired by Yume Nikki. All gameplay is about dreamwalking. It is barely a game. And even less a visual novel. Just an interactive book, but with a twist: you might find some useful items. Roller skates to make move around faster. Wings to explore more freely. Lenses to view the world differently.
+The "gameplay" idea of this project is inspired by Yume Nikki. All gameplay is about dreamwalking. It is barely a game. And even less a visual novel. Just an interactive book, but with a twist: you might find some useful items. Roller skates to move around faster. Wings to explore more freely. Lenses to view the world differently.
