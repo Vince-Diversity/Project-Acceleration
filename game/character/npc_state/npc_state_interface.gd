@@ -76,7 +76,7 @@ func make_preserved_save(sg: SaveGame):
 	npc_dict[sg.position_key] = npc.preserved_position
 	npc_dict[sg.direction_key] = Utils.get_anim_direction(npc.preserved_direction)
 	npc_dict[sg.anim_key] = npc.preserved_animation
-	npc_dict[sg.idling_room_key] = ""
+	npc_dict[sg.idling_room_key] = npc.preserved_idling_room_id
 	npc_dict[sg.was_joined_key] = false
 	npc_dict[sg.z_index_key] = npc.preserved_z_index
 

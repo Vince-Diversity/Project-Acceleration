@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_7ex4c"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_kfw24"]
 
 [resource]
-script = ExtResource("1_7ex4c")
+script = ExtResource("1_kfw24")
 using_states = PackedStringArray()
 titles = {
 "end_browsing": "75",
@@ -658,9 +658,9 @@ lines = {
 }]), Array[Dictionary]([{
 "i": 31,
 "type": "string",
-"value": "Spawn"
+"value": "OuroborosGateway"
 }, {
-"i": 38,
+"i": 49,
 "type": "parens_close"
 }])])
 }]),
@@ -920,7 +920,7 @@ do change_rooms(\"blue_classroom\",  \"Spawn\")
 {{ouroboros}}: Nyoom!
 do change_entrance_event(\"blue_space\", \"\", \"enter_blue_space\", \"add_ouroboros\")
 do set_item_browse_dialogue_node(\"ouroboros\", \"ouroboros\")
-do change_rooms(\"blue_space\",  \"Spawn\")
+do change_rooms(\"blue_space\",  \"OuroborosGateway\")
 => END!
 
 ~ ouroboros_real_space_ability

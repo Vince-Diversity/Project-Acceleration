@@ -63,6 +63,10 @@ var preserved_position: Vector2
 ## [enum Utils.Elevation] numbering of this NPC after the last [CutsceneState] ended.
 var preserved_z_index : int
 
+## [member Room.room_id] tag determining where this NPC resides
+## last [CutsceneState] ended.
+var preserved_idling_room_id: String
+
 ## List of [NPCState] instances labeled by each respective [member NPCState.state_id].
 var state_list: Dictionary
 
@@ -147,3 +151,4 @@ func load_save(sg: SaveGame):
 func exit_cutscene():
 	preserved_position = global_position
 	preserved_z_index = z_index
+	preserved_idling_room_id = idling_room_id
