@@ -32,6 +32,11 @@ func exit():
 	pass
 
 
+## No control is relevant for taking focus during this state.
+func grab_focus():
+	pass
+
+
 ## Saves the game, including any preserved changes in the game session so far.
 func save(game: Game, sg: SaveGame):
 	super(game, sg)

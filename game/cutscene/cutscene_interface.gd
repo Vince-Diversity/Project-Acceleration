@@ -150,19 +150,6 @@ func make_async() -> AsyncAct:
 	return async_act
 
 
-## Changes the current [Room] instance to that of the given
-## [code]room_id[/code], using the spawn point with the given
-## [code]entrance_node[/code] name.
-## Does not handle when [member NPC.is_imaginary] is true,
-## since those require the exit door of the current room to be known.
-##
-## When using [member DialogueCutscene.remove_npc], the NPC needs to be
-## removed in at least one frame before changing rooms, so that
-## the [member Game.cache] is set up properly.
-func change_rooms(room_id: String, entrance_node: String):
-	owner.change_rooms(room_id, entrance_node)
-
-
 ## Checks if an [NPC] with the given [code]npc_node[/code] name is a party member.
 func is_joined(npc_node: String) -> bool:
 	return owner.party.has_member(npc_node)

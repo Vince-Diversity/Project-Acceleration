@@ -38,6 +38,9 @@ class_name DialogueCutscene extends Cutscene
 @onready var _lighting_act_scr: GDScript = preload("res://game/cutscene/act/lighting_act.gd")
 @onready var _idle_frame_act_scr: GDScript = preload("res://game/cutscene/act/idle_frame_act.gd")
 
+## The next [GameState] entered when this cutscene finishes.
+var next_state: String = "roam_state"
+
 
 ## Creates a [DialogueAct] to initialise the act list.
 func start_cutscene():
@@ -502,6 +505,21 @@ func change_entrance_event(
 		dialogue_node)
 
 
+## Changes the current [Room] instance to that of the given
+## [code]room_id[/code], using the spawn point with the given
+## [code]entrance_node[/code] name.
+## Does not handle when [member NPC.is_imaginary] is true,
+## since those require the exit door of the current room to be known.
+##
+## To save changes made during the cutscene before changing rooms,
+## the next state is set to a temporary state [PassageState]
+## before changing rooms. Still, if any [Act] instances remain to be played out
+## during this cutscene, they will be played out before changing state and room.
+func change_rooms(room_id: String, entrance_node: String):
+	owner.passage_state.make_state(room_id, entrance_node)
+	next_state = "passage_state"
+
+
 ## Adds the [NPC] with the given [code]npc_node[/code] name
 ## as a new member to the current [Party].
 func add_member(npc_node: String):
@@ -519,4 +537,4 @@ func add_item(item_id: String):
 ## Finishes this cutscene and changes the current game session state to [RoamState].
 func end_cutscene():
 	super()
-	cutscene_ended.emit("roam_state")
+	cutscene_ended.emit(next_state)
