@@ -7,10 +7,10 @@ script = ExtResource("1_40lm1")
 game_version = "0.3"
 data = {
 "conditions": {
-"is_mentoring": false
+"is_mentoring": true
 },
 "game": {
-"current_room_id": "green_dorm",
+"current_room_id": "main_classroom",
 "entrance_event": {
 "blue_classroom": {
 "dialogue_id": "enter_blue_classroom",
@@ -44,14 +44,14 @@ data = {
 "dialogue_id": "enter_dorm_2f",
 "dialogue_node": "follow_cat",
 "interaction_node": "CatCutscene",
-"is_enabled": true,
+"is_enabled": false,
 "is_oneshot": true
 },
 "green_dorm": {
 "dialogue_id": "enter_green_dorm",
 "dialogue_node": "enter",
 "interaction_node": "CatCutscene",
-"is_enabled": false,
+"is_enabled": true,
 "is_oneshot": true
 },
 "recreation_hallway": {
@@ -62,7 +62,7 @@ data = {
 "is_oneshot": true
 }
 },
-"entrance_node": "DormDoor"
+"entrance_node": "PassageDown"
 },
 "items": {
 "floating_item": "",
@@ -80,31 +80,35 @@ data = {
 },
 "item_list": []
 },
-"party": Array[String]([]),
+"party": Array[String](["Blue"]),
 "rooms": {
-"green_dorm": {
-"npcs": {},
-"party": {},
-"things": {
-"Bed": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"DormDoor": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"UpChairOfficeTable": {
-"current_anim": &"office",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-}
-}
-},
 "main_classroom": {
-"npcs": {},
+"npcs": {
+"Blue": {
+"current_anim": &"right",
+"dialogue_id": "",
+"dialogue_node": "",
+"direction": Vector2(0.762182, 0.647363),
+"filename": "blue",
+"idling_room": "",
+"interaction_node": "",
+"position": Vector2(418.903, 98.7812),
+"was_joined": false,
+"z_index": 0
+},
+"BlueTeacher": {
+"current_anim": &"down",
+"dialogue_id": "talk_blue_teacher",
+"dialogue_node": "query",
+"direction": Vector2(-0.000241365, 1),
+"filename": "blue_teacher",
+"idling_room": "",
+"interaction_node": "ReturnCutscene",
+"position": Vector2(448, 64),
+"was_joined": false,
+"z_index": 0
+}
+},
 "party": {},
 "things": {
 "PassageDown": {
