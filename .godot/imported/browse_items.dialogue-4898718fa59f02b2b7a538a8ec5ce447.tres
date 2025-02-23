@@ -1,22 +1,23 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_ib3ej"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_7ex4c"]
 
 [resource]
-script = ExtResource("1_ib3ej")
+script = ExtResource("1_7ex4c")
 using_states = PackedStringArray()
 titles = {
-"end_browsing": "70",
+"end_browsing": "75",
 "ouroboros": "15",
 "ouroboros_ability": "27",
-"ouroboros_home": "36",
+"ouroboros_home": "42",
+"ouroboros_home_await": "36",
 "ouroboros_home_query": "31",
-"ouroboros_imaginary": "55",
+"ouroboros_imaginary": "60",
 "ouroboros_info": "21",
-"ouroboros_real_space": "43",
-"ouroboros_real_space_ability": "62",
-"ouroboros_real_space_end_browsing": "66",
-"ouroboros_real_space_info": "49",
+"ouroboros_real_space": "48",
+"ouroboros_real_space_ability": "67",
+"ouroboros_real_space_end_browsing": "71",
+"ouroboros_real_space_info": "54",
 "revealer": "1",
 "revealer_info": "7",
 "revealer_instruction": "11"
@@ -96,7 +97,7 @@ lines = {
 },
 "16": {
 "id": "16",
-"next_id": "70",
+"next_id": "75",
 "responses": PackedStringArray("16", "17"),
 "text": "Resume",
 "type": "response"
@@ -110,7 +111,7 @@ lines = {
 "18": {
 "id": "18",
 "is_snippet": false,
-"next_id": "70",
+"next_id": "75",
 "next_id_after": "",
 "type": "goto"
 },
@@ -121,7 +122,7 @@ lines = {
 },
 "2": {
 "id": "2",
-"next_id": "70",
+"next_id": "75",
 "responses": PackedStringArray("2", "3", "4"),
 "text": "Resume",
 "type": "response"
@@ -143,7 +144,7 @@ lines = {
 }]),
 "id": "21",
 "next_id": "22",
-"text": "Nom is listening, always.",
+"text": "Obos is listening, always.",
 "type": "dialogue"
 },
 "22": {
@@ -161,7 +162,7 @@ lines = {
 },
 "24": {
 "id": "24",
-"next_id": "70",
+"next_id": "75",
 "text": "Finish talking",
 "type": "response"
 },
@@ -187,31 +188,31 @@ lines = {
 }]),
 "id": "27",
 "next_id": "28",
-"text": "Nom can travel freely in the {{imaginary}}. Nom can bring the {{observer}} to back to their home world. Nom can bring the {{observer}} back to the {{imaginary}}.",
+"text": "Obos can travel freely in the {{imaginary}}. Obos can bring the {{observer}} to back to their home world. Obos can bring the {{observer}} back to the {{imaginary}}.",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
-"i": 46,
+"i": 47,
 "type": "variable",
 "value": "imaginary"
 }]),
 "value_in_text": "{{imaginary}}"
 }, {
 "expression": Array[Dictionary]([{
-"i": 79,
+"i": 81,
 "type": "variable",
 "value": "observer"
 }]),
 "value_in_text": "{{observer}}"
 }, {
 "expression": Array[Dictionary]([{
-"i": 139,
+"i": 142,
 "type": "variable",
 "value": "observer"
 }]),
 "value_in_text": "{{observer}}"
 }, {
 "expression": Array[Dictionary]([{
-"i": 164,
+"i": 167,
 "type": "variable",
 "value": "imaginary"
 }]),
@@ -307,6 +308,67 @@ lines = {
 "id": "37",
 "mutation": {
 "expression": Array[Dictionary]([{
+"function": "clear_player_items",
+"i": 3,
+"type": &"function",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 22,
+"type": "parens_close"
+}])])
+}]),
+"is_blocking": true
+},
+"next_id": "38",
+"type": "mutation"
+},
+"38": {
+"id": "38",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "await_idle_frame",
+"i": 3,
+"type": &"function",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 20,
+"type": "string",
+"value": "ouroboros_home"
+}, {
+"i": 36,
+"type": "parens_close"
+}])])
+}]),
+"is_blocking": true
+},
+"next_id": "39",
+"type": "mutation"
+},
+"39": {
+"id": "39",
+"is_snippet": false,
+"next_id": "end!",
+"next_id_after": "",
+"type": "goto"
+},
+"4": {
+"id": "4",
+"next_id": "11",
+"text": "Instruction",
+"type": "response"
+},
+"40": {
+"id": "40",
+"next_id": "41",
+"type": ""
+},
+"41": {
+"id": "41",
+"next_id": "42",
+"type": "title"
+},
+"42": {
+"id": "42",
+"mutation": {
+"expression": Array[Dictionary]([{
 "function": "change_entrance_event",
 "i": 3,
 "type": &"function",
@@ -333,11 +395,11 @@ lines = {
 }]),
 "is_blocking": true
 },
-"next_id": "38",
+"next_id": "43",
 "type": "mutation"
 },
-"38": {
-"id": "38",
+"43": {
+"id": "43",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_item_browse_dialogue_node",
@@ -358,11 +420,11 @@ lines = {
 }]),
 "is_blocking": true
 },
-"next_id": "39",
+"next_id": "44",
 "type": "mutation"
 },
-"39": {
-"id": "39",
+"44": {
+"id": "44",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "change_rooms",
@@ -383,35 +445,29 @@ lines = {
 }]),
 "is_blocking": true
 },
-"next_id": "40",
+"next_id": "45",
 "type": "mutation"
 },
-"4": {
-"id": "4",
-"next_id": "11",
-"text": "Instruction",
-"type": "response"
-},
-"40": {
-"id": "40",
+"45": {
+"id": "45",
 "is_snippet": false,
 "next_id": "end!",
 "next_id_after": "",
 "type": "goto"
 },
-"41": {
-"id": "41",
-"next_id": "42",
+"46": {
+"id": "46",
+"next_id": "47",
 "type": ""
 },
-"42": {
-"id": "42",
-"next_id": "43",
+"47": {
+"id": "47",
+"next_id": "48",
 "type": "title"
 },
-"43": {
-"id": "43",
-"next_id": "44",
+"48": {
+"id": "48",
+"next_id": "49",
 "text": "(The {{ouroboros}} reappeared, floating above my head.)",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -423,37 +479,42 @@ lines = {
 }]),
 "type": "dialogue"
 },
-"44": {
-"id": "44",
-"next_id": "66",
-"responses": PackedStringArray("44", "45"),
+"49": {
+"id": "49",
+"next_id": "71",
+"responses": PackedStringArray("49", "50"),
 "text": "Resume",
 "type": "response"
 },
-"45": {
-"id": "45",
-"next_id": "49",
+"5": {
+"id": "5",
+"next_id": "6",
+"type": ""
+},
+"50": {
+"id": "50",
+"next_id": "54",
 "text": "Talk",
 "type": "response"
 },
-"46": {
-"id": "46",
+"51": {
+"id": "51",
 "is_snippet": false,
 "next_id": "end!",
 "next_id_after": "",
 "type": "goto"
 },
-"47": {
-"id": "47",
-"next_id": "48",
+"52": {
+"id": "52",
+"next_id": "53",
 "type": ""
 },
-"48": {
-"id": "48",
-"next_id": "49",
+"53": {
+"id": "53",
+"next_id": "54",
 "type": "title"
 },
-"49": {
+"54": {
 "character": "{{ouroboros}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -463,26 +524,21 @@ lines = {
 }]),
 "value_in_text": "{{ouroboros}}"
 }]),
-"id": "49",
-"next_id": "50",
-"text": "Nom is listening, always.",
+"id": "54",
+"next_id": "55",
+"text": "Obos is listening, always.",
 "type": "dialogue"
 },
-"5": {
-"id": "5",
-"next_id": "6",
-"type": ""
-},
-"50": {
-"id": "50",
-"next_id": "62",
-"responses": PackedStringArray("50", "51", "52"),
+"55": {
+"id": "55",
+"next_id": "67",
+"responses": PackedStringArray("55", "56", "57"),
 "text": "\"What can you do?\"",
 "type": "response"
 },
-"51": {
-"id": "51",
-"next_id": "55",
+"56": {
+"id": "56",
+"next_id": "60",
 "text": "\"Could you take me back to the {{imaginary}}?\"",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -494,23 +550,28 @@ lines = {
 }]),
 "type": "response"
 },
-"52": {
-"id": "52",
-"next_id": "66",
+"57": {
+"id": "57",
+"next_id": "71",
 "text": "Finish talking",
 "type": "response"
 },
-"53": {
-"id": "53",
-"next_id": "54",
+"58": {
+"id": "58",
+"next_id": "59",
 "type": ""
 },
-"54": {
-"id": "54",
-"next_id": "55",
+"59": {
+"id": "59",
+"next_id": "60",
 "type": "title"
 },
-"55": {
+"6": {
+"id": "6",
+"next_id": "7",
+"type": "title"
+},
+"60": {
 "character": "{{ouroboros}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -520,13 +581,13 @@ lines = {
 }]),
 "value_in_text": "{{ouroboros}}"
 }]),
-"id": "55",
-"next_id": "56",
+"id": "60",
+"next_id": "61",
 "text": "Nyoom!",
 "type": "dialogue"
 },
-"56": {
-"id": "56",
+"61": {
+"id": "61",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "change_entrance_event",
@@ -555,11 +616,11 @@ lines = {
 }]),
 "is_blocking": true
 },
-"next_id": "57",
+"next_id": "62",
 "type": "mutation"
 },
-"57": {
-"id": "57",
+"62": {
+"id": "62",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_item_browse_dialogue_node",
@@ -580,11 +641,11 @@ lines = {
 }]),
 "is_blocking": true
 },
-"next_id": "58",
+"next_id": "63",
 "type": "mutation"
 },
-"58": {
-"id": "58",
+"63": {
+"id": "63",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "change_rooms",
@@ -605,32 +666,27 @@ lines = {
 }]),
 "is_blocking": true
 },
-"next_id": "59",
+"next_id": "64",
 "type": "mutation"
 },
-"59": {
-"id": "59",
+"64": {
+"id": "64",
 "is_snippet": false,
 "next_id": "end!",
 "next_id_after": "",
 "type": "goto"
 },
-"6": {
-"id": "6",
-"next_id": "7",
-"type": "title"
-},
-"60": {
-"id": "60",
-"next_id": "61",
+"65": {
+"id": "65",
+"next_id": "66",
 "type": ""
 },
-"61": {
-"id": "61",
-"next_id": "62",
+"66": {
+"id": "66",
+"next_id": "67",
 "type": "title"
 },
-"62": {
+"67": {
 "character": "{{ouroboros}}",
 "character_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
@@ -640,33 +696,33 @@ lines = {
 }]),
 "value_in_text": "{{ouroboros}}"
 }]),
-"id": "62",
-"next_id": "63",
-"text": "Nom can travel freely in the {{imaginary}}. Nom can bring the {{observer}} to back to their home world. Nom can bring the {{observer}} back to the {{imaginary}}.",
+"id": "67",
+"next_id": "68",
+"text": "Obos can travel freely in the {{imaginary}}. Obos can bring the {{observer}} to back to their home world. Obos can bring the {{observer}} back to the {{imaginary}}.",
 "text_replacements": Array[Dictionary]([{
 "expression": Array[Dictionary]([{
-"i": 46,
+"i": 47,
 "type": "variable",
 "value": "imaginary"
 }]),
 "value_in_text": "{{imaginary}}"
 }, {
 "expression": Array[Dictionary]([{
-"i": 79,
+"i": 81,
 "type": "variable",
 "value": "observer"
 }]),
 "value_in_text": "{{observer}}"
 }, {
 "expression": Array[Dictionary]([{
-"i": 139,
+"i": 142,
 "type": "variable",
 "value": "observer"
 }]),
 "value_in_text": "{{observer}}"
 }, {
 "expression": Array[Dictionary]([{
-"i": 164,
+"i": 167,
 "type": "variable",
 "value": "imaginary"
 }]),
@@ -674,56 +730,17 @@ lines = {
 }]),
 "type": "dialogue"
 },
-"63": {
-"id": "63",
-"is_snippet": false,
-"next_id": "49",
-"next_id_after": "",
-"type": "goto"
-},
-"64": {
-"id": "64",
-"next_id": "65",
-"type": ""
-},
-"65": {
-"id": "65",
-"next_id": "66",
-"type": "title"
-},
-"66": {
-"id": "66",
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "clear_player_items",
-"i": 3,
-"type": &"function",
-"value": Array[Array]([Array[Dictionary]([{
-"i": 22,
-"type": "parens_close"
-}])])
-}]),
-"is_blocking": true
-},
-"next_id": "67",
-"type": "mutation"
-},
-"67": {
-"id": "67",
-"is_snippet": false,
-"next_id": "70",
-"next_id_after": "",
-"type": "goto"
-},
 "68": {
 "id": "68",
-"next_id": "69",
-"type": ""
+"is_snippet": false,
+"next_id": "54",
+"next_id_after": "",
+"type": "goto"
 },
 "69": {
 "id": "69",
 "next_id": "70",
-"type": "title"
+"type": ""
 },
 "7": {
 "character": "{{green}}",
@@ -750,6 +767,45 @@ lines = {
 },
 "70": {
 "id": "70",
+"next_id": "71",
+"type": "title"
+},
+"71": {
+"id": "71",
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "clear_player_items",
+"i": 3,
+"type": &"function",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 22,
+"type": "parens_close"
+}])])
+}]),
+"is_blocking": true
+},
+"next_id": "72",
+"type": "mutation"
+},
+"72": {
+"id": "72",
+"is_snippet": false,
+"next_id": "75",
+"next_id_after": "",
+"type": "goto"
+},
+"73": {
+"id": "73",
+"next_id": "74",
+"type": ""
+},
+"74": {
+"id": "74",
+"next_id": "75",
+"type": "title"
+},
+"75": {
+"id": "75",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "set_player_anim",
@@ -766,23 +822,23 @@ lines = {
 }]),
 "is_blocking": true
 },
-"next_id": "71",
+"next_id": "76",
 "type": "mutation"
 },
-"71": {
-"id": "71",
+"76": {
+"id": "76",
 "is_snippet": false,
 "next_id": "end!",
 "next_id_after": "",
 "type": "goto"
 },
-"72": {
-"id": "72",
-"next_id": "73",
+"77": {
+"id": "77",
+"next_id": "78",
 "type": ""
 },
-"73": {
-"id": "73",
+"78": {
+"id": "78",
 "is_snippet": false,
 "next_id": "end",
 "next_id_after": "",
@@ -822,22 +878,27 @@ raw_text = "~ revealer
 => end_browsing
 
 ~ ouroboros_info
-{{ouroboros}}: Nom is listening, always.
+{{ouroboros}}: Obos is listening, always.
 - \"What can you do?\" => ouroboros_ability
 - \"Could you take me home?\" => ouroboros_home_query
 - Finish talking => end_browsing
 
 ~ ouroboros_ability
-{{ouroboros}}: Nom can travel freely in the {{imaginary}}. Nom can bring the {{observer}} to back to their home world. Nom can bring the {{observer}} back to the {{imaginary}}.
+{{ouroboros}}: Obos can travel freely in the {{imaginary}}. Obos can bring the {{observer}} to back to their home world. Obos can bring the {{observer}} back to the {{imaginary}}.
 => ouroboros_info
 
 ~ ouroboros_home_query
 {{ouroboros}}: {{observer}} wants to go back home?
-- Yes => ouroboros_home
+- Yes => ouroboros_home_await
 - Wait nevermind => ouroboros_info
 
-~ ouroboros_home
+~ ouroboros_home_await
 {{ouroboros}}: Nyoom!
+do clear_player_items()
+do await_idle_frame(\"ouroboros_home\")
+=> END!
+
+~ ouroboros_home
 do change_entrance_event(\"blue_classroom\", \"\", \"enter_blue_classroom\", \"remove_ouroboros\")
 do set_item_browse_dialogue_node(\"ouroboros\", \"ouroboros_real_space\")
 do change_rooms(\"blue_classroom\",  \"Spawn\")
@@ -850,7 +911,7 @@ do change_rooms(\"blue_classroom\",  \"Spawn\")
 => END!
 
 ~ ouroboros_real_space_info
-{{ouroboros}}: Nom is listening, always.
+{{ouroboros}}: Obos is listening, always.
 - \"What can you do?\" => ouroboros_real_space_ability
 - \"Could you take me back to the {{imaginary}}?\" => ouroboros_imaginary
 - Finish talking =>  ouroboros_real_space_end_browsing
@@ -863,7 +924,7 @@ do change_rooms(\"blue_space\",  \"Spawn\")
 => END!
 
 ~ ouroboros_real_space_ability
-{{ouroboros}}: Nom can travel freely in the {{imaginary}}. Nom can bring the {{observer}} to back to their home world. Nom can bring the {{observer}} back to the {{imaginary}}.
+{{ouroboros}}: Obos can travel freely in the {{imaginary}}. Obos can bring the {{observer}} to back to their home world. Obos can bring the {{observer}} back to the {{imaginary}}.
 => ouroboros_real_space_info
 
 ~ ouroboros_real_space_end_browsing

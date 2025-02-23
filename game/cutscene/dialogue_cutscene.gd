@@ -254,6 +254,12 @@ func create_npc(npc_node: String, npc_filename = ""):
 	owner.create_npc(npc_node, npc_filename)
 
 
+## Waits one frame then continues with the [code]next_dlg_title[/code].
+## A general workaround to problems where the [member Game.cache] does not get updated properly.
+func await_idle_frame(next_dlg_title: String):
+	_play(make_idle_frame(), next_dlg_title)
+
+
 ## Adds an [NPC] with scene name [code]npc_name[/code] to the current [Room]
 ## and waits until that is done, then continues with the [code]next_dlg_title[/code].
 ## Workaround to [member remove_npc], since sometimes NPCs can not be created.
@@ -261,6 +267,7 @@ func create_npc(npc_node: String, npc_filename = ""):
 func await_create_npc(npc_name: String, next_dlg_title: String):
 	create_npc.call_deferred(npc_name)
 	_play(make_idle_frame(), next_dlg_title)
+
 
 ## Removes an [NPC] with node name [code]npc_node[/code] from the current [Room]
 ## and waits one frame, then continues with the [code]next_dlg_title[/code].
@@ -270,6 +277,7 @@ func await_create_npc(npc_name: String, next_dlg_title: String):
 func await_remove_npc(npc_name: String, next_dlg_title: String):
 	remove_npc(npc_name)
 	_play(make_idle_frame(), next_dlg_title)
+
 
 ## Adds a [CharacterMark] with xy-coordinates relative to the [Player] position
 ## with the given node name [code]mark_node[/code], unless the name already exists.
