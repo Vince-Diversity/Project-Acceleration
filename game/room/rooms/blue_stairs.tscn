@@ -21,6 +21,5 @@ current_tileset = "res://resources/tilesets/library_hall/passage_down.tres"
 
 [node name="PassageRight" parent="Doors" index="1" instance=ExtResource("4_pdm1g")]
 position = Vector2(768, 224)
-next_room_id = "blue_classroom"
-next_room_entrance_node = "PassageLeft"
 current_tileset = "res://resources/tilesets/library_hall/passage_right.tres"
+dialogue_id = "blue_stairs_door"

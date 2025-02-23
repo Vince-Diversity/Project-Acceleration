@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_ir0sn"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_n60om"]
 
 [resource]
-script = ExtResource("1_ir0sn")
+script = ExtResource("1_n60om")
 using_states = PackedStringArray()
 titles = {
 "cue_enter_1": "62",
@@ -11,15 +11,13 @@ titles = {
 "cue_enter_3": "70",
 "cue_enter_4": "74",
 "enter": "78",
-"enter_setters": "84",
+"enter_setters": "85",
 "explaining": "15",
 "missing": "1",
 "moving": "8",
 "no": "38",
 "open": "21",
 "query": "56",
-"remove_ouroboros": "92",
-"remove_teacher": "88",
 "stop_talking": "45",
 "talk_setters": "50",
 "yes": "33"
@@ -1062,23 +1060,48 @@ lines = {
 },
 "81": {
 "id": "81",
-"is_snippet": false,
-"next_id": "84",
-"next_id_after": "",
-"type": "goto"
+"mutation": {
+"expression": Array[Dictionary]([{
+"function": "await_remove_npc",
+"i": 3,
+"type": &"function",
+"value": Array[Array]([Array[Dictionary]([{
+"i": 20,
+"type": "string",
+"value": "BlueTeacher"
+}]), Array[Dictionary]([{
+"i": 35,
+"type": "string",
+"value": "enter_setters"
+}, {
+"i": 50,
+"type": "parens_close"
+}])])
+}]),
+"is_blocking": true
+},
+"next_id": "82",
+"type": "mutation"
 },
 "82": {
 "id": "82",
-"next_id": "83",
-"type": ""
+"is_snippet": false,
+"next_id": "end!",
+"next_id_after": "",
+"type": "goto"
 },
 "83": {
 "id": "83",
 "next_id": "84",
-"type": "title"
+"type": ""
 },
 "84": {
 "id": "84",
+"next_id": "85",
+"type": "title"
+},
+"85": {
+"id": "85",
 "mutation": {
 "expression": Array[Dictionary]([{
 "function": "change_rooms",
@@ -1099,51 +1122,25 @@ lines = {
 }]),
 "is_blocking": true
 },
-"next_id": "85",
+"next_id": "86",
 "type": "mutation"
 },
-"85": {
-"id": "85",
+"86": {
+"id": "86",
 "is_snippet": false,
 "next_id": "end!",
 "next_id_after": "",
 "type": "goto"
 },
-"86": {
-"id": "86",
-"next_id": "87",
-"type": ""
-},
 "87": {
 "id": "87",
 "next_id": "88",
-"type": "title"
+"type": ""
 },
 "88": {
 "id": "88",
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "remove_npc",
-"i": 3,
-"type": &"function",
-"value": Array[Array]([Array[Dictionary]([{
-"i": 14,
-"type": "string",
-"value": "BlueTeacher"
-}, {
-"i": 27,
-"type": "parens_close"
-}])])
-}]),
-"is_blocking": true
-},
-"next_id": "89",
-"type": "mutation"
-},
-"89": {
-"id": "89",
 "is_snippet": false,
-"next_id": "end!",
+"next_id": "end",
 "next_id_after": "",
 "type": "goto"
 },
@@ -1214,52 +1211,6 @@ lines = {
 },
 "next_id": "10",
 "type": "mutation"
-},
-"90": {
-"id": "90",
-"next_id": "91",
-"type": ""
-},
-"91": {
-"id": "91",
-"next_id": "92",
-"type": "title"
-},
-"92": {
-"id": "92",
-"mutation": {
-"expression": Array[Dictionary]([{
-"function": "clear_player_items",
-"i": 3,
-"type": &"function",
-"value": Array[Array]([Array[Dictionary]([{
-"i": 22,
-"type": "parens_close"
-}])])
-}]),
-"is_blocking": true
-},
-"next_id": "93",
-"type": "mutation"
-},
-"93": {
-"id": "93",
-"is_snippet": false,
-"next_id": "end!",
-"next_id_after": "",
-"type": "goto"
-},
-"94": {
-"id": "94",
-"next_id": "95",
-"type": ""
-},
-"95": {
-"id": "95",
-"is_snippet": false,
-"next_id": "end",
-"next_id_after": "",
-"type": "goto"
 }
 }
 raw_text = "~ missing
@@ -1343,18 +1294,11 @@ do move_player(\"GreenMark1\", \"enter\")
 do turn_player_to_npc(\"BlueTeacher\")
 {{blue_teacher}}: I will see you shortly on the other side.
 do set_player_direction(\"left\")
-=> enter_setters
+do await_remove_npc(\"BlueTeacher\", \"enter_setters\")
+=> END!
 
 ~ enter_setters
 do change_rooms(\"blue_stairs\", \"PassageRight\")
-=> END!
-
-~ remove_teacher
-do remove_npc(\"BlueTeacher\")
-=> END!
-
-~ remove_ouroboros
-do clear_player_items()
 => END!
 "
 metadata/dialogue_manager_version = "3.3.2"
