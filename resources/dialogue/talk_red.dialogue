@@ -48,7 +48,7 @@ do play_async("finish")
 ~ finish
 do set_npc_anim("Red", "down")
 {{red}}: [#expression=sorry] Sorry for venting on you again.
-{{green}}: [#expression=sorry] No problem, thanks for the demo!
+{{green}}: [#expression=cheerful] No problem, thanks for the demo!
 do set_npc_dialogue_node("Red", "revisit")
 => END!
 

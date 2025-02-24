@@ -28,7 +28,7 @@ dialogue_id = "talk_cyan_ai"
 dialogue_node = "cue"
 
 [node name="YellowTeacher" parent="YSort/NPCs" index="0" instance=ExtResource("4_lnlq7")]
-position = Vector2(544, 544)
+position = Vector2(564, 563)
 interaction_node = "YellowTeacherIntroCutscene"
 dialogue_id = "talk_yellow_teacher"
 dialogue_node = "cue"

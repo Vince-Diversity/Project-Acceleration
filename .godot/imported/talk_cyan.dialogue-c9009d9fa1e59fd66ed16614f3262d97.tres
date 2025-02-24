@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_23qfk"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_8hfgu"]
 
 [resource]
-script = ExtResource("1_23qfk")
+script = ExtResource("1_8hfgu")
 using_states = PackedStringArray()
 titles = {
 "cue": "1",
@@ -422,7 +422,15 @@ lines = {
 }]),
 "id": "118",
 "next_id": "119",
-"text": "Maybe you could try find my sibling? They should be on the upper side of this space.",
+"text": "Maybe you could try find my sibling {{orange}}? They should be on the upper side of this space.",
+"text_replacements": Array[Dictionary]([{
+"expression": Array[Dictionary]([{
+"i": 48,
+"type": "variable",
+"value": "orange"
+}]),
+"value_in_text": "{{orange}}"
+}]),
 "type": "dialogue"
 },
 "119": {
@@ -2724,7 +2732,7 @@ do set_npc_dialogue_node(\"Cyan\", \"talk_after_ouroboros_obtained\")
 ~ talk_after_ouroboros_obtained
 do turn_npc_to_player(\"Cyan\")
 {{cyan}}: I know {{blue_teacher}} said I could help, but unfortunately I do not really know how...
-{{cyan}}: Maybe you could try find my sibling? They should be on the upper side of this space.
+{{cyan}}: Maybe you could try find my sibling {{orange}}? They should be on the upper side of this space.
 => END!
 "
 metadata/dialogue_manager_version = "3.3.2"

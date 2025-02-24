@@ -116,5 +116,5 @@ do set_npc_dialogue_node("Cyan", "talk_after_ouroboros_obtained")
 ~ talk_after_ouroboros_obtained
 do turn_npc_to_player("Cyan")
 {{cyan}}: I know {{blue_teacher}} said I could help, but unfortunately I do not really know how...
-{{cyan}}: Maybe you could try find my sibling? They should be on the upper side of this space.
+{{cyan}}: Maybe you could try find my sibling {{orange}}? They should be on the upper side of this space.
 => END!

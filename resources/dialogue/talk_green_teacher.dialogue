@@ -9,7 +9,7 @@ else
 
 
 ~ react
-do animate_npc("GreenTeacher", "stop_reading_sittinga", "talk")
+do animate_npc("GreenTeacher", "stop_reading_sitting", "talk")
 => END!
 
 

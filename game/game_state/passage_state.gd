@@ -63,7 +63,6 @@ func grab_focus():
 	pass
 
 
-## Saves the game, including any changes done during this state.
-func save(game: Game, sg: SaveGame):
-	super(game, sg)
-	save_current_game(game.get_tree(), sg)
+## Doesn't save anything during this state.
+func save(_game: Game, _sg: SaveGame):
+	pass

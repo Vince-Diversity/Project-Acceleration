@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_auvx7"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_je5jy"]
 
 [resource]
-script = ExtResource("1_auvx7")
+script = ExtResource("1_je5jy")
 using_states = PackedStringArray()
 titles = {
 "1800858898/default": "-5",
@@ -73,13 +73,13 @@ lines = {
 }]), Array[Dictionary]([{
 "i": 31,
 "type": "string",
-"value": "stop_reading_sittinga"
+"value": "stop_reading_sitting"
 }]), Array[Dictionary]([{
-"i": 56,
+"i": 55,
 "type": "string",
 "value": "talk"
 }, {
-"i": 62,
+"i": 61,
 "type": "parens_close"
 }])])
 }]),
@@ -308,7 +308,7 @@ else
 
 
 ~ react
-do animate_npc(\"GreenTeacher\", \"stop_reading_sittinga\", \"talk\")
+do animate_npc(\"GreenTeacher\", \"stop_reading_sitting\", \"talk\")
 => END!
 
 

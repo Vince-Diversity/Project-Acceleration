@@ -49,6 +49,9 @@ class_name Room extends Node2D
 ## Reference to passage state instance.
 @onready var passage_state: PassageState = preload("res://game/game_state/passage_state.gd").new("passage_state")
 
+## Reference to idle frame state instance
+@onready var idle_frame_state: IdleFrameState = preload("res://game/game_state/idle_frame_state.gd").new("idle_frame_state")
+
 ## Local references.
 @onready var _roam_state: RoamState = preload("res://game/game_state/roam_state.gd").new("roam_state")
 @onready var _cutscene_state: CutsceneState = preload("res://game/game_state/cutscene_state.gd").new("cutscene_state")
@@ -164,6 +167,8 @@ func _ready_states():
 	stm.add_state(_browse_state)
 	stm.add_state(passage_state)
 	passage_state.init_state(self)
+	stm.add_state(idle_frame_state)
+	idle_frame_state.init_state(self)
 
 
 func _ready_cutscenes():
