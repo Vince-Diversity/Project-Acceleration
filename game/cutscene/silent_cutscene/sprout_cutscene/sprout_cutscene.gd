@@ -7,10 +7,9 @@ func start_cutscene():
 	actm.add_act(make_animate(get_thing_anim_sprite(), Names.sprout_anim))
 	actm.add_act(make_animate(get_thing_anim_sprite(), Names.sprouting_anim))
 	actm.add_act(make_animate_player("default"))
-	owner.idle_frame_state.make_state("roam_state")
 
 
 ## Finishes this cutscene and changes the current game session state to [RoamState].
 func end_cutscene():
 	super()
-	cutscene_ended.emit("idle_frame_state")
+	cutscene_ended.emit("roam_state")

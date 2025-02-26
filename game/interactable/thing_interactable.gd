@@ -1,6 +1,8 @@
 class_name ThingInteractable extends Interactable
 ## Makes [Thing] scenes interactable with the player.
 
+@onready var collision_shape = $CollisionShape2D
+
 
 ## Checks if this [Thing] is in an interactable state
 ## and performs further checks if so.

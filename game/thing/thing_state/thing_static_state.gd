@@ -5,6 +5,7 @@ class_name ThingStaticState extends ThingState
 ## Disables the interaction area of the thing with this state,
 ## and ensures that its collision area is enabled.
 func enter():
+	thing.interact_area.collision_shape.set_disabled(true)
 	thing.interact_area.set_monitoring(false)
 	thing.interact_area.set_monitorable(false)
 	thing.collision.set_deferred("disabled", false)
