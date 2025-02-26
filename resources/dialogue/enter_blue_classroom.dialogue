@@ -79,9 +79,10 @@ do move_player("GreenMark1", "enter")
 do turn_player_to_npc("BlueTeacher")
 {{blue_teacher}}: I will see you shortly on the other side.
 do set_player_direction("left")
-do await_remove_npc("BlueTeacher", "enter_setters")
+do remove_npc("BlueTeacher")
+do change_rooms("blue_stairs", "PassageRight")
 => END!
 
-~ enter_setters
-do change_rooms("blue_stairs", "PassageRight")
+~ remove_ouroboros
+do clear_player_items()
 => END!

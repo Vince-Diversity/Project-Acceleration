@@ -19,27 +19,22 @@
 => end_browsing
 
 ~ ouroboros_info
-{{ouroboros}}: Obos is listening, always.
+{{ouroboros}}: [#font=above] Obos is listening, always.
 - "What can you do?" => ouroboros_ability
 - "Could you take me home?" => ouroboros_home_query
 - Finish talking => end_browsing
 
 ~ ouroboros_ability
-{{ouroboros}}: Obos can travel freely in the {{imaginary}}. Obos can bring the {{observer}} to back to their home world. Obos can bring the {{observer}} back to the {{imaginary}}.
+{{ouroboros}}: [#font=above] Obos can travel freely in the {{imaginary}}. Obos can bring the {{observer}} to back to their home world. Obos can bring the {{observer}} back to the {{imaginary}}.
 => ouroboros_info
 
 ~ ouroboros_home_query
-{{ouroboros}}: {{observer}} wants to go back home?
+{{ouroboros}}: [#font=above] {{observer}} wants to go back home?
 - Yes => ouroboros_home_await
 - Wait nevermind => ouroboros_info
 
 ~ ouroboros_home_await
-{{ouroboros}}: Nyoom!
-do clear_player_items()
-do await_idle_frame("ouroboros_home")
-=> END!
-
-~ ouroboros_home
+{{ouroboros}}: [#font=above] Nyoom!
 do change_entrance_event("blue_classroom", "", "enter_blue_classroom", "remove_ouroboros")
 do set_item_browse_dialogue_node("ouroboros", "ouroboros_real_space")
 do change_rooms("blue_classroom",  "Spawn")
@@ -52,20 +47,20 @@ do change_rooms("blue_classroom",  "Spawn")
 => END!
 
 ~ ouroboros_real_space_info
-{{ouroboros}}: Obos is listening, always.
+{{ouroboros}}: [#font=above] Obos is listening, always.
 - "What can you do?" => ouroboros_real_space_ability
 - "Could you take me back to the {{imaginary}}?" => ouroboros_imaginary
 - Finish talking =>  ouroboros_real_space_end_browsing
 
 ~ ouroboros_imaginary
-{{ouroboros}}: Nyoom!
+{{ouroboros}}: [#font=above] Nyoom!
 do change_entrance_event("blue_space", "", "enter_blue_space", "add_ouroboros")
 do set_item_browse_dialogue_node("ouroboros", "ouroboros")
 do change_rooms("blue_space",  "OuroborosGateway")
 => END!
 
 ~ ouroboros_real_space_ability
-{{ouroboros}}: Obos can travel freely in the {{imaginary}}. Obos can bring the {{observer}} to back to their home world. Obos can bring the {{observer}} back to the {{imaginary}}.
+{{ouroboros}}: [#font=above] Obos can travel freely in the {{imaginary}}. Obos can bring the {{observer}} to back to their home world. Obos can bring the {{observer}} back to the {{imaginary}}.
 => ouroboros_real_space_info
 
 ~ ouroboros_real_space_end_browsing

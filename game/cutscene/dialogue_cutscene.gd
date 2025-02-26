@@ -253,32 +253,14 @@ func remove_npc(npc_node: String):
 ## Adds an [NPC] with node name [code]npc_name[/code] to the current [Room].
 ## If the node name is different, i.e. not the Pascal case, of its filename,
 ## the filename needs to be added manually with [code]npc_filename[/code].
-func create_npc(npc_node: String, npc_filename = ""):
+func create_npc(npc_node: String, npc_filename := ""):
 	owner.create_npc(npc_node, npc_filename)
 
 
-## Waits one frame then continues with the [code]next_dlg_title[/code].
-## A general workaround to problems where the [member Game.cache] does not get updated properly.
-func await_idle_frame(next_dlg_title: String):
-	_play(make_idle_frame(), next_dlg_title)
-
-
-## Adds an [NPC] with scene name [code]npc_name[/code] to the current [Room]
-## and waits until that is done, then continues with the [code]next_dlg_title[/code].
-## Workaround to [member remove_npc], since sometimes NPCs can not be created.
-## This happened when trying to make an NPC during an [AreaCutscene].
-func await_create_npc(npc_name: String, next_dlg_title: String):
-	create_npc.call_deferred(npc_name)
-	_play(make_idle_frame(), next_dlg_title)
-
-
-## Removes an [NPC] with node name [code]npc_node[/code] from the current [Room]
-## and waits one frame, then continues with the [code]next_dlg_title[/code].
-## Workaround to [member remove_npc] when calling [member CutsceneInterface.change_rooms]
-## because when changing rooms on the same frame the NPC is created,
-## the [member Game.cache] does not get updated properly.
-func await_remove_npc(npc_name: String, next_dlg_title: String):
-	remove_npc(npc_name)
+## Calls [method create_npc] and waits until that is done, then continues with the [code]next_dlg_title[/code].
+## Complements [method remove_npc] in cases where the NPC needs to be changed during the same cutscene.
+func await_create_npc(npc_name: String, next_dlg_title: String, npc_filename := ""):
+	create_npc.call_deferred(npc_name, npc_filename)
 	_play(make_idle_frame(), next_dlg_title)
 
 

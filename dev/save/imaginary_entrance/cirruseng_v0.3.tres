@@ -10,13 +10,13 @@ data = {
 "is_mentoring": false
 },
 "game": {
-"current_room_id": "blue_space",
+"current_room_id": "blue_stairs",
 "entrance_event": {
 "blue_classroom": {
 "dialogue_id": "enter_blue_classroom",
-"dialogue_node": "remove_teacher",
+"dialogue_node": "missing",
 "interaction_node": "BlueTeacherCutscene",
-"is_enabled": true,
+"is_enabled": false,
 "is_oneshot": true
 },
 "blue_space": {
@@ -62,10 +62,10 @@ data = {
 "is_oneshot": true
 }
 },
-"entrance_node": "Spawn"
+"entrance_node": "PassageRight"
 },
 "items": {
-"floating_item": "ouroboros",
+"floating_item": "",
 "item_effect": {
 "ouroboros": {
 "browse_dialogue_node": "ouroboros",
@@ -78,7 +78,7 @@ data = {
 "items_state_id": "items_exhibit_state"
 }
 },
-"item_list": ["revealer", "ouroboros"]
+"item_list": ["revealer"]
 },
 "party": Array[String]([]),
 "rooms": {
@@ -97,47 +97,6 @@ data = {
 "current_state": "thing_interactable_state"
 },
 "PassageLeft": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"Spawn": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-}
-}
-},
-"blue_space": {
-"npcs": {
-"Cyan": {
-"current_anim": &"up",
-"dialogue_id": "talk_cyan",
-"dialogue_node": "talk_after_ouroboros_obtained",
-"direction": Vector2(0.5686, -0.822614),
-"filename": "cyan",
-"idling_room": "",
-"interaction_node": "CyanCutscene",
-"position": Vector2(448, 279),
-"was_joined": false,
-"z_index": 0
-},
-"Orange": {
-"current_anim": &"down",
-"dialogue_id": "talk_orange",
-"dialogue_node": "talk",
-"direction": Vector2(0, 1),
-"filename": "orange",
-"idling_room": "blue_space",
-"interaction_node": "",
-"position": Vector2(2565, -1241),
-"was_joined": false,
-"z_index": 0
-}
-},
-"party": {},
-"things": {
-"OuroborosGateway": {
 "current_anim": &"default",
 "current_frame": 0,
 "current_state": "thing_interactable_state"

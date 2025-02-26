@@ -19,7 +19,7 @@ layer_2/tile_data = PackedInt32Array(2031609, 3, 0, 2097145, 3, 1, 2031610, 3, 0
 position = Vector2(-1279, 1732)
 
 [node name="OuroborosGateway" parent="Doors" index="1" instance=ExtResource("3_mvyma")]
-position = Vector2(2568, -1160)
+position = Vector2(577, 287)
 
 [node name="Cyan" parent="YSort/NPCs" index="0" instance=ExtResource("4_h2i1f")]
 position = Vector2(448, 279)
