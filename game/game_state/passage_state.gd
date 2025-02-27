@@ -63,6 +63,8 @@ func grab_focus():
 	pass
 
 
-## Doesn't save anything during this state.
-func save(_game: Game, _sg: SaveGame):
-	pass
+## Save the same way as in [RoamState], 
+## including any preserved changes in the game session so far.
+func save(game: Game, sg: SaveGame):
+	super(game, sg)
+	save_current_game(game.get_tree(), sg)

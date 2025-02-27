@@ -132,7 +132,11 @@ do reset_npc_speed("Yellow")
 do remove_npc("Yellow")
 do set_npc_anim("Amber", "up")
 {{amber}}: Sigh...
-do move_npc("Amber", "AmberMark3", "finish")
+do move_npc("Amber", "AmberMark3", "mentor_reposition")
+=> END!
+
+~ mentor_reposition
+do move_player("MentorMark4", "finish")
 => END!
 
 ~ finish
