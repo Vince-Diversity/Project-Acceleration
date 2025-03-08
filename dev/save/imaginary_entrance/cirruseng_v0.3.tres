@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="SaveGame" load_steps=2 format=3 uid="uid://cygqogy62jdw8"]
+[gd_resource type="Resource" script_class="SaveGame" load_steps=2 format=3]
 
-[ext_resource type="Script" uid="uid://yrx16fo7cbqi" path="res://loader/save_game.gd" id="1_40lm1"]
+[ext_resource type="Script" path="res://loader/save_game.gd" id="1_40lm1"]
 
 [resource]
 script = ExtResource("1_40lm1")
@@ -10,13 +10,13 @@ data = {
 "is_mentoring": false
 },
 "game": {
-"current_room_id": "blue_stairs",
+"current_room_id": "blue_space",
 "entrance_event": {
 "blue_classroom": {
 "dialogue_id": "enter_blue_classroom",
-"dialogue_node": "missing",
+"dialogue_node": "remove_teacher",
 "interaction_node": "BlueTeacherCutscene",
-"is_enabled": false,
+"is_enabled": true,
 "is_oneshot": true
 },
 "blue_space": {
@@ -62,7 +62,7 @@ data = {
 "is_oneshot": true
 }
 },
-"entrance_node": "PassageRight"
+"entrance_node": "Spawn"
 },
 "items": {
 "floating_item": "",
@@ -82,26 +82,79 @@ data = {
 },
 "party": Array[String]([]),
 "rooms": {
+"absolutely_undetectable_room": {
+"npcs": {
+&"Ouroboros": {
+"current_anim": &"circling",
+"dialogue_id": "",
+"dialogue_node": "",
+"direction": Vector2(1, 0),
+"filename": "ouroboros",
+"idling_room": "absolutely_undetectable_room",
+"interaction_node": "",
+"position": Vector2(-34.5, 8192),
+"was_joined": false,
+"z_index": 0
+}
+},
+"party": {},
+"things": {
+&"Door": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+}
+}
+},
 "blue_classroom": {
 "npcs": {},
 "party": {},
 "things": {
-"BookcaseUncertainty": {
+&"BookcaseUncertainty": {
 "current_anim": &"default",
 "current_frame": 0,
 "current_state": "thing_interactable_state"
 },
-"PassageDown": {
+&"PassageDown": {
 "current_anim": &"default",
 "current_frame": 0,
 "current_state": "thing_interactable_state"
 },
-"PassageLeft": {
+&"PassageLeft": {
 "current_anim": &"default",
 "current_frame": 0,
 "current_state": "thing_interactable_state"
 },
-"Spawn": {
+&"Spawn": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+}
+}
+},
+"blue_space": {
+"npcs": {
+&"Cyan": {
+"current_anim": &"default",
+"dialogue_id": "talk_cyan",
+"dialogue_node": "cue",
+"direction": Vector2(0, 1),
+"filename": "cyan",
+"idling_room": "",
+"interaction_node": "CyanCutscene",
+"position": Vector2(448, 279),
+"was_joined": false,
+"z_index": 0
+}
+},
+"party": {},
+"things": {
+&"OuroborosGateway": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+&"Spawn": {
 "current_anim": &"default",
 "current_frame": 0,
 "current_state": "thing_interactable_state"
@@ -112,12 +165,12 @@ data = {
 "npcs": {},
 "party": {},
 "things": {
-"PassageDown": {
+&"PassageDown": {
 "current_anim": &"default",
 "current_frame": 0,
 "current_state": "thing_interactable_state"
 },
-"PassageRight": {
+&"PassageRight": {
 "current_anim": &"default",
 "current_frame": 0,
 "current_state": "thing_interactable_state"

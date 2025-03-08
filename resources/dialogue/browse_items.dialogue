@@ -54,7 +54,7 @@ do change_rooms("blue_classroom",  "Spawn")
 
 ~ ouroboros_imaginary
 {{ouroboros}}: [#font=above] Nyoom!
-do change_entrance_event("blue_space", "", "enter_blue_space", "add_ouroboros")
+# No need to add Ouroboros when entering Blue Space here, because Ouroboros is loaded from cache
 do set_item_browse_dialogue_node("ouroboros", "ouroboros")
 do change_rooms("blue_space",  "OuroborosGateway")
 => END!
