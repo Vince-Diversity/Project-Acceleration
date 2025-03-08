@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://24f110c1bjqp"]
 
 [ext_resource type="PackedScene" uid="uid://bcvfpw0neifvb" path="res://game/ui/bubble/bubble.tscn" id="1_vjd68"]
-[ext_resource type="Script" path="res://game/ui/bubble/item_bubble.gd" id="2_bkc7l"]
+[ext_resource type="Script" uid="uid://d1e3sv2040qu8" path="res://game/ui/bubble/item_bubble.gd" id="2_bkc7l"]
 [ext_resource type="SpriteFrames" uid="uid://uprp1h6dxq0c" path="res://resources/vfx/item_background.tres" id="2_tj1gk"]
 [ext_resource type="Texture2D" uid="uid://x7jluc8g8cu0" path="res://assets/vfx/item_indicator.png" id="4_alvii"]
 
@@ -80,8 +80,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_celc1"]
 _data = {
-"RESET": SubResource("Animation_6v5k1"),
-"scroll_indicator": SubResource("Animation_iujax")
+&"RESET": SubResource("Animation_6v5k1"),
+&"scroll_indicator": SubResource("Animation_iujax")
 }
 
 [node name="ItemBubble" instance=ExtResource("1_vjd68")]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://nfl8ij5d7dfw"]
 
-[ext_resource type="Script" path="res://game/thing/thing.gd" id="1"]
-[ext_resource type="Script" path="res://game/interactable/thing_interactable.gd" id="3_tqfyv"]
+[ext_resource type="Script" uid="uid://dbol7ptp21ubp" path="res://game/thing/thing.gd" id="1"]
+[ext_resource type="Script" uid="uid://cxda8n4jenus" path="res://game/interactable/thing_interactable.gd" id="3_tqfyv"]
 
 [sub_resource type="CircleShape2D" id="1"]
 radius = 20.0

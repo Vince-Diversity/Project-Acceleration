@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://3r765s140n15"]
 
 [ext_resource type="PackedScene" uid="uid://bqlmbt878hrxk" path="res://game/cutscene/dialogue_cutscene.tscn" id="1_20a25"]
-[ext_resource type="Script" path="res://game/cutscene/dialogue_cutscene/dorm_door_cutscene/dorm_door_cutscene.gd" id="2_t6tbk"]
+[ext_resource type="Script" uid="uid://cba1ccfxwukvv" path="res://game/cutscene/dialogue_cutscene/dorm_door_cutscene/dorm_door_cutscene.gd" id="2_t6tbk"]
 
 [node name="DormDoorCutscene" instance=ExtResource("1_20a25")]
 script = ExtResource("2_t6tbk")

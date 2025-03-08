@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c1dqban1i65o7"]
 
 [ext_resource type="PackedScene" uid="uid://brcoy56hf7tyi" path="res://game/cutscene/silent_cutscene.tscn" id="1_6c6ax"]
-[ext_resource type="Script" path="res://game/cutscene/silent_cutscene/rest_cutscene/player_rest_cutscene.gd" id="2_gj33w"]
+[ext_resource type="Script" uid="uid://dw48c8xp0t77j" path="res://game/cutscene/silent_cutscene/rest_cutscene/player_rest_cutscene.gd" id="2_gj33w"]
 
 [node name="PlayerRestCutscene" instance=ExtResource("1_6c6ax")]
 script = ExtResource("2_gj33w")

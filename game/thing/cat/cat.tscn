@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bbv4g4ekf8c24"]
 
-[ext_resource type="SpriteFrames" path="res://resources/things/cat.tres" id="1"]
+[ext_resource type="SpriteFrames" uid="uid://bucwsxp2wbbch" path="res://resources/things/cat.tres" id="1"]
 [ext_resource type="PackedScene" uid="uid://nfl8ij5d7dfw" path="res://game/thing/thing.tscn" id="2"]
 
 [node name="Cat" instance=ExtResource("2")]

@@ -1,9 +1,10 @@
 [gd_resource type="Resource" script_class="EntranceEvent" load_steps=2 format=3 uid="uid://b0vq2baocddd0"]
 
-[ext_resource type="Script" path="res://resources/events/entrance_event.gd" id="1_46bpv"]
+[ext_resource type="Script" uid="uid://df27x0k4872x0" path="res://resources/events/entrance_event.gd" id="1_46bpv"]
 
 [resource]
 script = ExtResource("1_46bpv")
+is_enabled = true
 interaction_node = "CatCutscene"
 dialogue_id = "enter_green_dorm"
 dialogue_node = "enter"

@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://c1go3780g6ead"]
 
-[ext_resource type="Script" path="res://game/room/room.gd" id="1"]
+[ext_resource type="Script" uid="uid://cuyg6ifd76w8h" path="res://game/room/room.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://db8dgl6yj1t18" path="res://game/character/party.tscn" id="3"]
-[ext_resource type="Script" path="res://game/room/room_cutscenes.gd" id="5_lnlsj"]
+[ext_resource type="Script" uid="uid://ipp3gsqriku1" path="res://game/room/room_cutscenes.gd" id="5_lnlsj"]
 
 [node name="Room" type="Node2D"]
 script = ExtResource("1")

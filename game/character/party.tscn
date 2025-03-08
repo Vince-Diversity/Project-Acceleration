@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://db8dgl6yj1t18"]
 
-[ext_resource type="Script" path="res://game/character/party.gd" id="1"]
+[ext_resource type="Script" uid="uid://c2716hvox04ik" path="res://game/character/party.gd" id="1"]
 
 [node name="Party" type="Node2D" groups=["Preserved"]]
 y_sort_enabled = true

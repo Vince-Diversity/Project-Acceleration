@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dlamanp2k1irs"]
 
 [ext_resource type="PackedScene" uid="uid://bqlmbt878hrxk" path="res://game/cutscene/dialogue_cutscene.tscn" id="1_wge50"]
-[ext_resource type="Script" path="res://game/cutscene/dialogue_cutscene/area_cutscene/area_cutscene.gd" id="2_0515t"]
+[ext_resource type="Script" uid="uid://c0l1d5n8fdkxy" path="res://game/cutscene/dialogue_cutscene/area_cutscene/area_cutscene.gd" id="2_0515t"]
 
 [node name="AreaCutscene" instance=ExtResource("1_wge50")]
 script = ExtResource("2_0515t")

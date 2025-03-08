@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://4514c46hbp0d"]
 
 [ext_resource type="PackedScene" uid="uid://bk16wp1xkfq2e" path="res://game/character/character.tscn" id="1_sq2pm"]
-[ext_resource type="Script" path="res://game/character/npc.gd" id="2_n6ygt"]
+[ext_resource type="Script" uid="uid://dgd7pylp3ffq2" path="res://game/character/npc.gd" id="2_n6ygt"]
 [ext_resource type="SpriteFrames" uid="uid://can6wjqv1eybt" path="res://resources/characters/blue.tres" id="3_71hso"]
-[ext_resource type="Script" path="res://game/interactable/npc_interactable.gd" id="5_b0ehn"]
+[ext_resource type="Script" uid="uid://cjoj5kcl78fvf" path="res://game/interactable/npc_interactable.gd" id="5_b0ehn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v3p7s"]
 radius = 5.0

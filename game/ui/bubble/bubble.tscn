@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bcvfpw0neifvb"]
 
-[ext_resource type="Script" path="res://game/ui/bubble/bubble.gd" id="2_xbek5"]
+[ext_resource type="Script" uid="uid://bdyecr7k67dbu" path="res://game/ui/bubble/bubble.gd" id="2_xbek5"]
 
 [node name="Bubble" type="Node2D"]
 script = ExtResource("2_xbek5")

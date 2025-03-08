@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dqktwnq312s04"]
 
 [ext_resource type="PackedScene" uid="uid://nfl8ij5d7dfw" path="res://game/thing/thing.tscn" id="1_vpjhx"]
-[ext_resource type="Script" path="res://game/thing/door/door.gd" id="2_utemx"]
+[ext_resource type="Script" uid="uid://5swg5pjc7wla" path="res://game/thing/door/door.gd" id="2_utemx"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jseix"]
 animations = [{

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://rkmsosdxor8r"]
 
 [ext_resource type="PackedScene" uid="uid://bcvfpw0neifvb" path="res://game/ui/bubble/bubble.tscn" id="1_s3m2n"]
-[ext_resource type="Script" path="res://game/ui/bubble/interacting_bubble.gd" id="3_qyecf"]
+[ext_resource type="Script" uid="uid://dnudbqnbtyg3n" path="res://game/ui/bubble/interacting_bubble.gd" id="3_qyecf"]
 [ext_resource type="SpriteFrames" uid="uid://ch6acn4paaoeu" path="res://resources/vfx/interactable_background.tres" id="4_ppgpt"]
 
 [node name="InteractingBubble" instance=ExtResource("1_s3m2n")]

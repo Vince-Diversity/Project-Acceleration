@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cdoalx0mjlinl"]
 
 [ext_resource type="PackedScene" uid="uid://dlamanp2k1irs" path="res://game/cutscene/dialogue_cutscene/area_cutscene/area_cutscene.tscn" id="1_urfpg"]
-[ext_resource type="Script" path="res://game/cutscene/dialogue_cutscene/area_cutscene/area_entered_cutscene.gd" id="2_1axqa"]
+[ext_resource type="Script" uid="uid://byda7e8fyp2ob" path="res://game/cutscene/dialogue_cutscene/area_cutscene/area_entered_cutscene.gd" id="2_1axqa"]
 
 [node name="AreaEnteredCutscene" instance=ExtResource("1_urfpg")]
 script = ExtResource("2_1axqa")

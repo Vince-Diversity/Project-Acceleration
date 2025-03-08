@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://kmbb38hp7tsk"]
 
 [ext_resource type="PackedScene" uid="uid://bk16wp1xkfq2e" path="res://game/character/character.tscn" id="1_8dn0h"]
-[ext_resource type="Script" path="res://game/character/player/player.gd" id="2_nbpss"]
+[ext_resource type="Script" uid="uid://bay2a8m3xg4uv" path="res://game/character/player/player.gd" id="2_nbpss"]
 [ext_resource type="SpriteFrames" uid="uid://drrwv183eagft" path="res://resources/characters/green.tres" id="3_ricuv"]
-[ext_resource type="Script" path="res://game/character/player/bubbles.gd" id="4_r0uk3"]
+[ext_resource type="Script" uid="uid://cukrr48qm650d" path="res://game/character/player/bubbles.gd" id="4_r0uk3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_act1d"]
 radius = 8.0

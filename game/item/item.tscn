@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dx5vipp61bwlj"]
 
-[ext_resource type="Script" path="res://game/item/item.gd" id="1_wne11"]
-[ext_resource type="Script" path="res://game/interactable/item_interactable.gd" id="2_syc7w"]
+[ext_resource type="Script" uid="uid://hmhk3f0p7bxx" path="res://game/item/item.gd" id="1_wne11"]
+[ext_resource type="Script" uid="uid://c0as1bppfpkwk" path="res://game/interactable/item_interactable.gd" id="2_syc7w"]
 
 [node name="Item" type="StaticBody2D"]
 collision_layer = 4
