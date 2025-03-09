@@ -66,7 +66,7 @@ offset_bottom = 648.0
 theme_override_constants/margin_left = 76
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 76
-theme_override_constants/margin_bottom = 20
+theme_override_constants/margin_bottom = 10
 
 [node name="Spacer" type="VBoxContainer" parent="Overhead"]
 layout_mode = 2
@@ -126,9 +126,6 @@ scroll_active = false
 unique_name_in_owner = true
 layout_mode = 2
 text = "Dialogue"
-skip_action = "ui_cancel"
-seconds_per_step = 0.02
-pause_at_characters = "."
 
 [node name="Responses" type="VBoxContainer" parent="Overhead/Spacer/TextBackground/TextMargin/VBox"]
 unique_name_in_owner = true
@@ -157,16 +154,16 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 953.0
-offset_top = 130.0
+offset_top = -84.0
 offset_right = 993.0
-offset_bottom = 170.0
+offset_bottom = -44.0
 grow_horizontal = 0
 grow_vertical = 0
 texture = ExtResource("4_d5rb1")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Overhead/Spacer/TextBackground/Indicator"]
 libraries = {
-"": SubResource("AnimationLibrary_5eq0v")
+&"": SubResource("AnimationLibrary_5eq0v")
 }
 autoplay = "indicate"
 

@@ -21,6 +21,9 @@ const npcs_key = "npcs"
 
 const condition_key = "conditions"
 const mentoring_condition_key = "is_mentoring"
+const world_selection_condition_key = "enable_world_selection"
+const sacred_space_condition_key = "been_to_sacred_space"
+const sea_space_condition_key = "been_to_sea_space"
 
 const state_key = "current_state"
 const filename_key = "filename"

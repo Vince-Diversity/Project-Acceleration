@@ -1,0 +1,85 @@
+~ ouroboros_info
+if enable_world_selection
+	{{ouroboros}}: [#font=above] Obos is listening, always.
+	- "What can you do?" => ouroboros_ability
+	- "Could you take me home?" => ouroboros_home_query
+	- "Could you take me to a different place?" => ouroboros_world_selection_1
+	- Finish talking => END!
+else
+	{{ouroboros}}: [#font=above] Obos is listening, always.
+	- "What can you do?" => ouroboros_ability
+	- "Could you take me home?" => ouroboros_home_query
+	- Finish talking => END!
+
+~ ouroboros_ability
+{{ouroboros}}: [#font=above] Obos can travel freely in the {{imaginary}}. Obos can bring the {{observer}} to back to their home world. Obos can bring the {{observer}} back to the {{imaginary}}.
+=> ouroboros_info
+
+~ ouroboros_home_query
+{{ouroboros}}: [#font=above] {{observer}} wants to go back home?
+- Yes => ouroboros_home
+- Wait nevermind => ouroboros_info
+
+~ ouroboros_real_space_info
+{{ouroboros}}: [#font=above] Obos is listening, always.
+- "What can you do?" => ouroboros_real_space_ability
+- "Could you take me back to the {{imaginary}}?" => ouroboros_world_selection_1
+- Finish talking =>  ouroboros_real_space_end_browsing
+
+~ ouroboros_world_selection_1
+if enable_world_selection
+	{{ouroboros}}: [#font=above] Which place?
+	- {{blue_space}} => ouroboros_imaginary
+	- {{sacred_space}} [if been_to_sacred_space == true] => ouroboros_sacred
+	- Somewhere else => ouroboros_world_selection_2
+	- Wait nevermind => ouroboros_info
+else
+	=> ouroboros_imaginary
+=> END!
+
+~ ouroboros_world_selection_2
+{{ouroboros}}: [#font=above] Which place?
+- {{sea_space}} [if been_to_sea_space == true] => ouroboros_sea
+- Somewhere else => ouroboros_world_selection_1
+- Wait nevermind => ouroboros_info
+=> END!
+
+~ ouroboros_home
+{{ouroboros}}: [#font=above] Nyoom!
+do change_entrance_event("blue_classroom", "", "enter_blue_classroom", "remove_ouroboros")
+do set_item_browse_dialogue_node("ouroboros", "ouroboros_real_space")
+do change_rooms("blue_classroom",  "Spawn")
+=> END!
+
+~ ouroboros_imaginary
+{{ouroboros}}: [#font=above] Nyoom!
+# No need to add Ouroboros here, because Ouroboros is loaded from cache
+do set_item_browse_dialogue_node("ouroboros", "ouroboros")
+do change_rooms("blue_space",  "OuroborosGateway")
+=> END!
+
+~ ouroboros_sacred
+{{ouroboros}}: [#font=above] Nyoom!
+# No need to add Ouroboros here, because Ouroboros is loaded from cache
+do set_item_browse_dialogue_node("ouroboros", "ouroboros")
+do change_rooms("sacred_outdoor",  "CyanSpawn")
+=> END!
+
+~ ouroboros_sea
+b
+=> END!
+
+~ ouroboros_real_space_ability
+{{ouroboros}}: [#font=above] Obos can travel freely in the {{imaginary}}. Obos can bring the {{observer}} to back to their home world. Obos can bring the {{observer}} back to the {{imaginary}}.
+=> ouroboros_real_space_info
+
+~ ouroboros_real_space_end_browsing
+do clear_player_items()
+=> END!
+
+~ enter_sacred_space
+{{ouroboros}}: [#font=above] Nom, the {{observer}} enters a new place.
+{{ouroboros}}: [#font=above] Obos will call this place {{sacred_space}}. [color=yellow] Obos will remember this place.[/color]
+set enable_world_selection = true
+set been_to_sacred_space = true
+=> END!
