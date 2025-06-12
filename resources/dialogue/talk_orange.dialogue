@@ -65,3 +65,7 @@ do turn_npc_to_player("Orange")
 {{green}}: (I think I know what - or who - I can use the [color=yellow]{{revealer}}[/color] on now.)
 do set_npc_dialogue_node("Orange", "query_2")
 => END!
+
+~ reveal
+do change_rooms("sacred_outdoor", "OrangeSpawn")
+=> END!

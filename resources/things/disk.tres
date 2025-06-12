@@ -1,0 +1,18 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://dby2uq4fa0hly"]
+
+[ext_resource type="Texture2D" uid="uid://clv1jw4xjgd4a" path="res://assets/things/sacred_space.png" id="1_43ao1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hae2a"]
+atlas = ExtResource("1_43ao1")
+region = Rect2(0, 0, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hae2a")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
