@@ -244,10 +244,16 @@ func remove_member(member_node: String):
 		owner.party.remove_member(owner.party.get_node(member_node))
 
 
-## Removes the [NPC] with node name [code]npc_node[/code] from the current [Room].
+## Removes the [NPC] with [code]member_node[/code] from the current [Room].
 func remove_npc(npc_node: String):
 	if owner.npcs.has_node(npc_node):
 		owner.remove_npc(npc_node)
+
+
+## Removes the [NPC] with [code]member_node[/code] from the current [Room]
+## if it [member NPC.is_imaginary].
+func remove_imaginary_npcs():
+	owner.remove_imaginary_npcs()
 
 
 ## Adds an [NPC] with node name [code]npc_name[/code] to the current [Room].

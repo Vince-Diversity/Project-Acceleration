@@ -5,7 +5,7 @@ do turn_npc_to_player("Sacred")
 {{green}}: [#expression=cheerful] What a cute name! My name is {{green}}.
 {{green}}: You probably shouldn't be on your own like this. Let me take you somewhere safe.
 {{sacred}}: ok.
-do add_source_as_member()
+do add_member("Sacred")
 => END!
 
 

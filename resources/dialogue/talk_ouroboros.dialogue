@@ -32,7 +32,7 @@ if enable_world_selection
 	- {{blue_space}} => ouroboros_imaginary
 	- {{sacred_space}} [if been_to_sacred_space == true] => ouroboros_sacred
 	- Somewhere else => ouroboros_world_selection_2
-	- Wait nevermind => ouroboros_info
+	- Wait nevermind => ouroboros_real_space_info
 else
 	=> ouroboros_imaginary
 => END!
@@ -41,13 +41,14 @@ else
 {{ouroboros}}: [#font=above] Which place?
 - {{sea_space}} [if been_to_sea_space == true] => ouroboros_sea
 - Somewhere else => ouroboros_world_selection_1
-- Wait nevermind => ouroboros_info
+- Wait nevermind => ouroboros_real_space_info
 => END!
 
 ~ ouroboros_home
 {{ouroboros}}: [#font=above] Nyoom!
 do change_entrance_event("blue_classroom", "", "enter_blue_classroom", "remove_ouroboros")
 do set_item_browse_dialogue_node("ouroboros", "ouroboros_real_space")
+do remove_imaginary_npcs()
 do change_rooms("blue_classroom",  "Spawn")
 => END!
 

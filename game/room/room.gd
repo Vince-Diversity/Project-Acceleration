@@ -256,9 +256,21 @@ func add_cutscene(cutscene: Cutscene, cutscene_node: String):
 
 func _remove_members_at_gateway(door: Door):
 	for member in party.get_members_ordered():
-		if member.is_imaginary and door.is_gateway:
-			party.remove_member(member)
-			member.is_waiting_at_gateway = true
+		if door.is_gateway:
+			remove_if_imaginary(member)
+
+
+## Makes all party members stay behind if they are [NPC.is_imaginary].
+func remove_imaginary_npcs():
+	for member in party.get_members_ordered():
+		remove_if_imaginary(member)
+
+
+## If the given [NPC] node [code]party_member[/code] [member NPC.imaginary], it stays behind.
+func remove_if_imaginary(party_member):
+		if party_member.is_imaginary:
+			party_member.is_waiting_at_gateway = true
+			party.remove_member(party_member)
 
 
 ## Adds the [NPC] with the given filename [code]npc_filename[/code] to the [SceneTree]
