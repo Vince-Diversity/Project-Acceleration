@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bhwbsf4x5yvu1"]
+[gd_scene load_steps=7 format=4 uid="uid://bhwbsf4x5yvu1"]
 
 [ext_resource type="PackedScene" uid="uid://c1go3780g6ead" path="res://game/room/room.tscn" id="1_ybmy1"]
+[ext_resource type="TileSet" uid="uid://de7f3bgcrw16e" path="res://resources/tilesets/outdoor/outdoor_tiles.tres" id="2_bovem"]
 [ext_resource type="PackedScene" uid="uid://dsfvepwkk4y7l" path="res://game/thing/door/passage_down.tscn" id="3_6puuh"]
 [ext_resource type="PackedScene" uid="uid://c1vykudqbyi8r" path="res://game/character/npcs/average.tscn" id="4_kboo5"]
 [ext_resource type="PackedScene" uid="uid://bto0x53jpw8v2" path="res://game/character/npcs/plain.tscn" id="5_iemo3"]
@@ -9,7 +10,23 @@
 [node name="SacredIndoor" instance=ExtResource("1_ybmy1")]
 
 [node name="TileMap" parent="." index="0"]
-layer_0/tile_data = PackedInt32Array(3, 196611, 4, 65540, 3, 0, 65539, 196611, 5, 4, 3, 0, 2, 131075, 4, 65538, 131075, 5, 65541, 3, 0, 5, 3, 0, 131077, 3, 0, 131076, 3, 0, 131075, 196611, 6, 131074, 131075, 6, 327689, 3, 0, 262153, 3, 0, 131081, 3, 0, 65545, 3, 0, 9, 3, 0, -65527, 3, 0, 327688, 3, 0, 262152, 3, 0, 196616, 3, 0, 131080, 3, 0, 65544, 3, 0, 8, 3, 0, -65528, 3, 0, 327687, 3, 0, 262151, 3, 0, 196615, 3, 0, 131079, 3, 0, 65543, 3, 0, 7, 3, 0, -65529, 3, 0, 327686, 3, 0, 262150, 3, 0, 196614, 3, 0, 131078, 3, 0, 65542, 3, 0, 6, 3, 0, 327685, 3, 0, 262149, 3, 0, 196613, 3, 0, 327684, 3, 0, 262148, 3, 0, 196612, 3, 0, 327683, 3, 0, 262147, 3, 0, 196611, 196611, 7, 327682, 3, 0, 262146, 3, 0, 196610, 131075, 7, 327681, 3, 0, 262145, 3, 0, 196609, 65539, 7, 131073, 65539, 6, 65537, 65539, 5, 327680, 3, 0, 393215, 3, 0, 393214, 3, 0, 131070, 3, 0, 65534, 3, 0, -2, 3, 0, -65538, 3, 0, -65537, 3, 0, -131072, 3, 0, -131071, 3, 0, -131070, 3, 0, -131069, 3, 0, -131068, 3, 0, -131067, 3, 0, -131066, 3, 0, -131065, 3, 0, -131064, 3, 0, -131063, 3, 0, -131074, 3, 0, -131073, 3, 0, -196608, 3, 0, -196607, 3, 0, -196606, 3, 0, -196605, 3, 0, -196604, 3, 0, -196603, 3, 0, -196602, 3, 0, -196601, 3, 0, -196600, 3, 0, -196599, 3, 0, -196598, 3, 0, -131062, 3, 0, -65526, 3, 0, 10, 3, 0, 65546, 3, 0, 131082, 3, 0, 196618, 3, 0, 262154, 3, 0, 327690, 3, 0, -131075, 3, 0, -65539, 3, 0, 65533, 3, 0, -3, 3, 0, 131069, 3, 0, 262141, 3, 0, 327677, 3, 0, 393213, 3, 0, 196605, 3, 0, 458749, 3, 0, 458750, 3, 0, 393217, 3, 0, 393218, 3, 0, 393219, 3, 0, 393220, 3, 0, 393221, 3, 0, 393222, 3, 0, 393223, 3, 0, 393224, 3, 0, 393225, 3, 0, 393226, 3, 0, 393216, 3, 0, 458751, 3, 0, 524285, 3, 0, 524286, 3, 0, 524287, 3, 0, 458752, 3, 0, 458753, 3, 0, 458754, 3, 0, 458755, 3, 0, 458756, 3, 0, 458757, 3, 0, 458758, 3, 0, 458759, 3, 0, 458760, 3, 0, 458761, 3, 0, 458762, 3, 0, 524284, 3, 0, 458748, 3, 0, 393212, 3, 0, 327676, 3, 0, 262140, 3, 0, 196604, 3, 0, 131068, 3, 0, 65532, 3, 0, -4, 3, 0, -65540, 3, 0, -131076, 3, 0, 458763, 3, 0, 393227, 3, 0, 327691, 3, 0, 262155, 3, 0, 196619, 3, 0, 131083, 3, 0, 65547, 3, 0, 11, 3, 0, -65525, 3, 0, -131061, 3, 0, -196597, 3, 0, 524283, 3, 0, 458747, 3, 0, 393211, 3, 0, 327675, 3, 0, 262139, 3, 0, 196603, 3, 0, 131067, 3, 0, 65531, 3, 0, -5, 3, 0, -65541, 3, 0, -131077, 3, 0, 458764, 3, 0, 393228, 3, 0, 327692, 3, 0, 262156, 3, 0, 196620, 3, 0, 131084, 3, 0, 65548, 3, 0, 12, 3, 0, -65524, 3, 0, -131060, 3, 0, -196596, 3, 0, 131071, 3, 0, 196607, 3, 0, 327679, 3, 0, 262144, 3, 0, 65536, 3, 5, 131072, 3, 6, 196608, 3, 7, 1, 65539, 4, -1, 3, 0, -65535, 3, 0, 65535, 3, 0, 0, 3, 4, -65536, 3, 0, 196606, 3, 0, 262142, 3, 0, 327678, 3, 0, -196595, 3, 0, -131059, 3, 0, -65523, 3, 0, 13, 3, 0, 65549, 3, 0, 131085, 3, 0, 196621, 3, 0, 262157, 3, 0, 327693, 3, 0, 393229, 3, 0, 458765, 3, 0, 262143, 3, 0, 196617, 3, 0, -65534, 3, 0, -65533, 3, 0, -65532, 3, 0, -65531, 3, 0, -65530, 3, 0)
+tile_set = ExtResource("2_bovem")
+layer_0/name = "Ground3"
+layer_1/name = "Passage3"
+layer_2/name = "Mask3"
+
+[node name="Ground" type="TileMapLayer" parent="TileMap" index="3"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAAAAAEAAQAAAAkAAAAAAAIAAQAAAAoAAAAAAAMAAQAAAAsAAAAAAAQAAQAAAAwAAAAAAAUAAQAAAA0AAAAAAAYAAQAAAA4AAAAAAAcAAQAAAA8AAAABAAEAAQABAAkAAAABAAIAAQABAAoAAAABAAMAAQABAAsAAAABAAQAAQABAAwAAAABAAUAAQABAA0AAAABAAYAAQABAA4AAAABAAcAAQABAA8AAAACAAEAAQACAAkAAAACAAIAAQACAAoAAAACAAMAAQACAAsAAAACAAQAAQACAAwAAAACAAUAAQACAA0AAAACAAYAAQACAA4AAAACAAcAAQACAA8AAAADAAEAAQADAAkAAAADAAIAAQADAAoAAAADAAMAAQADAAsAAAADAAQAAQADAAwAAAADAAUAAQADAA0AAAADAAYAAQADAA4AAAADAAcAAQADAA8AAAAEAAEAAQAEAAkAAAAEAAIAAQAEAAoAAAAEAAMAAQAEAAsAAAAEAAQAAQAEAAwAAAAEAAUAAQAEAA0AAAAEAAYAAQAEAA4AAAAEAAcAAQAEAA8AAAAFAAEAAQAFAAkAAAAFAAIAAQAFAAoAAAAFAAMAAQAFAAsAAAAFAAQAAQAFAAwAAAAFAAUAAQAFAA0AAAAFAAYAAQAFAA4AAAAFAAcAAQAFAA8AAAAGAAEAAQAGAAkAAAAGAAIAAQAGAAoAAAAGAAMAAQAGAAsAAAAGAAQAAQAGAAwAAAAGAAUAAQAGAA0AAAAGAAYAAQAGAA4AAAAGAAcAAQAGAA8AAAAHAAEAAQAHAAkAAAAHAAIAAQAHAAoAAAAHAAMAAQAHAAsAAAAHAAQAAQAHAAwAAAAHAAUAAQAHAA0AAAAHAAYAAQAHAA4AAAAHAAcAAQAHAA8AAAA=")
+tile_set = ExtResource("2_bovem")
+
+[node name="Passage" type="TileMapLayer" parent="TileMap" index="4"]
+use_parent_material = true
+tile_set = ExtResource("2_bovem")
+
+[node name="Mask" type="TileMapLayer" parent="TileMap" index="5"]
+use_parent_material = true
+tile_set = ExtResource("2_bovem")
 
 [node name="LeftPassageDown" parent="Doors" index="0" instance=ExtResource("3_6puuh")]
 position = Vector2(224, 480)
