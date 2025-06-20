@@ -6,13 +6,8 @@
 
 [node name="Room" type="Node2D"]
 script = ExtResource("1")
-bgm_file = "res://assets/sound/bgm/default_bgm.ogg"
 
-[node name="TileMap" type="TileMap" parent="."]
-format = 2
-layer_0/name = "Ground"
-layer_1/name = "Passage"
-layer_2/name = "Mask"
+[node name="TileMap" type="Node2D" parent="."]
 
 [node name="Doors" type="Node2D" parent="."]
 
