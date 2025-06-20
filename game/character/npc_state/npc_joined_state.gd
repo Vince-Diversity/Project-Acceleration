@@ -13,8 +13,7 @@ func enter():
 
 
 ## Enables the [member Character.collision] of the NPC with this state.
-## Also enables player interaction and sets [member NPC.is_following]
-## to false for good measure.
+## Also enables player interaction and disables following the player.
 func exit():
 	super()
 	npc.collision.set_disabled(false)
@@ -41,6 +40,6 @@ func _set_following_direction():
 
 
 ## Overrides the superclass with nothing so that no loading occurs,
-## since NPCs are instantiated from their default scene when loaded into the [Party].
+## because NPCs are instantiated from their default scene when loaded into the [Party].
 func load_save(_sg: SaveGame):
 	pass

@@ -41,7 +41,8 @@ class_name NPC extends Character
 ## Defaull [NPCState] when this NPC is added to the [SceneTree].
 @export_enum(
 	"npc_still_state",
-	"npc_joined_state") var spawn_state: String = "npc_still_state"
+	"npc_joined_state",
+	"npc_waiting_state") var spawn_state: String = "npc_still_state"
 
 ## The filename of this node, without the extension.
 ## If this string is empty, the NPC node name (converted to snake case) will be used,
@@ -53,6 +54,9 @@ class_name NPC extends Character
 
 @onready var _joined_state: NPCJoinedState = \
 	preload("res://game/character/npc_state/npc_joined_state.gd").new("npc_joined_state", self)
+
+@onready var _waiting_state: NPCWaitingState = \
+	preload("res://game/character/npc_state/npc_waiting_state.gd").new("npc_waiting_state", self)
 
 ## Reference to the interaction area of this NPC.
 @onready var interact_area: Interactable = $InteractArea
@@ -91,6 +95,7 @@ func _ready():
 	if filename.is_empty(): filename = Utils.get_npc_id(name)
 	state_list[_still_state.state_id] = _still_state
 	state_list[_joined_state.state_id] = _joined_state
+	state_list[_waiting_state.state_id] = _waiting_state
 	current_state = state_list[spawn_state]
 	current_state.enter()
 
