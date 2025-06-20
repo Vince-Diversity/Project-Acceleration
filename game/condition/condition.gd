@@ -30,3 +30,10 @@ func load_save(sg: SaveGame):
 	enable_world_selection = sg.data[sg.condition_key][sg.world_selection_condition_key]
 	been_to_sacred_space = sg.data[sg.condition_key][sg.sacred_space_condition_key]
 	been_to_sea_space = sg.data[sg.condition_key][sg.sea_space_condition_key]
+
+
+func new_game_init_condition(sg: SaveGame):
+	sg.data[sg.condition_key][sg.mentoring_condition_key] = true
+	sg.data[sg.condition_key][sg.world_selection_condition_key] = false
+	sg.data[sg.condition_key][sg.sacred_space_condition_key] = false
+	sg.data[sg.condition_key][sg.sea_space_condition_key] = false

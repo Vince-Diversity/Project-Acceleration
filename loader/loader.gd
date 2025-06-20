@@ -80,7 +80,7 @@ func new_game():
 		var sg = SaveGame.new()
 		sg.game_version = ProjectSettings.get_setting("application/config/version")
 		sg.data[sg.party_key] = new_game_party_list
-		sg.data[sg.condition_key][sg.mentoring_condition_key] = true
+		Condition.new_game_init_condition(sg)
 		_change_to_game(sg)
 		game.add_room(new_game_room_id, new_game_entrance_node)
 

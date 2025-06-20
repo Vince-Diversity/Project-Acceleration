@@ -9,6 +9,8 @@ func enter():
 	npc.collision.set_disabled(true)
 	npc.interact_area.set_monitoring(false)
 	npc.interact_area.set_monitorable(false)
+	npc.following_area.set_monitoring(true)
+	npc.following_area.set_monitorable(true)
 	npc.set_deferred("is_following", true)
 
 
@@ -19,6 +21,8 @@ func exit():
 	npc.collision.set_disabled(false)
 	npc.interact_area.set_monitoring(true)
 	npc.interact_area.set_monitorable(true)
+	npc.following_area.set_monitoring(false)
+	npc.following_area.set_monitorable(false)
 	npc.is_following = false
 
 
