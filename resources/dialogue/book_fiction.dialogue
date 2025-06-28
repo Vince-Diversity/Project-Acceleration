@@ -1,7 +1,8 @@
 ~ check
 ("The Manifestation of our Collective Fiction".)
-- Read => open_book
-- Leave => END!
+#- Read => open_book
+#- Leave => END!
+=> END!
 
 ~ open_book
 do set_thing_anim("BookcaseFiction", bookcase_taken_anim)

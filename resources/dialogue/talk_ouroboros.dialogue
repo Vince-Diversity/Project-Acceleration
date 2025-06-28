@@ -79,6 +79,16 @@ do clear_player_items()
 => END!
 
 ~ enter_sacred_space
+if not is_ouroboros_joined
+	do create_npc("Ouroboros", "ouroboros")
+	do turn_player_to_npc("Ouroboros")
+	{{ouroboros}}: [#font=above] [#font=above] Nom, {{green}} is the {{observer}}. Nom will help the {{observer}}, when the {{observer}} is wandering in imaginations, always.
+	do remove_npc("Ouroboros")
+	do set_above_player_float("ouroboros")
+	do animate_player("admire_above", "ouroboros_got_2")
+	{{green}}: [#expression=cheerful] My guide is back!
+	do add_item("ouroboros")
+	{{ouroboros}} can be checked on the same way as other items, with the [color=yellow]X key and then left/right keys.[/color]
 {{ouroboros}}: [#font=above] Nom, the {{observer}} enters a new place.
 {{ouroboros}}: [#font=above] Obos will call this place {{sacred_space}}. [color=yellow] Obos will remember this place.[/color]
 set enable_world_selection = true

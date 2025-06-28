@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfsg7htbnnkam"]
+
+[ext_resource type="PackedScene" uid="uid://bqlmbt878hrxk" path="res://game/cutscene/dialogue_cutscene.tscn" id="1_6qkm3"]
+[ext_resource type="Script" uid="uid://c6wkbc7u0ghvu" path="res://game/cutscene/dialogue_cutscene/ouroboros_cutscene/ouroboros_cutscene.gd" id="2_mu6la"]
+
+[node name="OuroborosCutscene" instance=ExtResource("1_6qkm3")]
+script = ExtResource("2_mu6la")

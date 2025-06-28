@@ -39,10 +39,16 @@ do turn_player_to_npc("BlueTeacher")
 {{blue_teacher}}: The {{imaginary}} is vast and deep. I would greatly appreciate help from a trustworthy student like you.
 {{green}}: It is my please to be of help, and  my duty as a mentor to find {{blue}}!
 {{blue_teacher}}: [#expression=cheerful] Excellent.
-{{blue_teacher}}: Now, a word of precaution. There is yet no evidence that what happens in the {{imaginary}} can harm our actual selves. But I am not fond of the idea to have students find such evidence first-hand.
-{{blue_teacher}}: But the situation becomes different when a student is missing, highly suspected to have gone deeper into the {{imaginary}} through their own ability.
-{{blue_teacher}}: So for your safety, {{green}}...
-do move_npc("BlueTeacher", "BlueTeacherMark3", "talk_4")
+if is_ouroboros_joined
+	{{blue_teacher}}: I see that {{ouroboros}} has already introduced themselves to you. Very clever beings.
+	{{blue_teacher}}: Now, I will leave it to you, {{green}}. And if you need any further assistance, please ask {{cyan}} or their sibling for help.
+	{{green}}: Understood, {{blue_teacher}}.
+	do move_npc("BlueTeacher", "BlueTeacherMark4", "setters")
+else
+	{{blue_teacher}}: Now, a word of precaution. There is yet no evidence that what happens in the {{imaginary}} can harm our actual selves. But I am not fond of the idea to have students find such evidence first-hand.
+	{{blue_teacher}}: But the situation becomes different when a student is missing, highly suspected to have gone deeper into the {{imaginary}} through their own ability.
+	{{blue_teacher}}: So for your safety, {{green}}...
+	do move_npc("BlueTeacher", "BlueTeacherMark3", "talk_4")
 => END!
 
 ~ talk_4

@@ -1,7 +1,6 @@
 import "res://resources/dialogue/sacred_indoor_mystery.dialogue" as mystery
 
 ~ talk
-do check_sacred_joined()
 if is_sacred_joined
 	=> mystery/found
 else
@@ -19,5 +18,5 @@ do set_npc_direction("Plain", "down")
 
 
 ~ revisit
-{{plain}}: Don't look so worried! Just life in the moment.
+{{plain}}: Don't look so worried!
 => END!

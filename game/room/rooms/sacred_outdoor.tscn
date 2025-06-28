@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=4 uid="uid://d1yb216cls6en"]
+[gd_scene load_steps=9 format=4 uid="uid://d1yb216cls6en"]
 
 [ext_resource type="PackedScene" uid="uid://c1go3780g6ead" path="res://game/room/room.tscn" id="1_fro8s"]
 [ext_resource type="TileSet" uid="uid://de7f3bgcrw16e" path="res://resources/tilesets/outdoor/outdoor_tiles.tres" id="2_cn2o5"]
 [ext_resource type="PackedScene" uid="uid://caxl0vhd0epgm" path="res://game/thing/door/spawn.tscn" id="3_ej8ax"]
-[ext_resource type="PackedScene" uid="uid://paluwp5ftjo0" path="res://game/thing/door/passage_up.tscn" id="4_4mhnh"]
 [ext_resource type="PackedScene" uid="uid://uebd3825apbg" path="res://game/thing/disk/disk.tscn" id="4_5o6x8"]
 [ext_resource type="PackedScene" uid="uid://cyx3iouistsep" path="res://game/character/npcs/sacred.tscn" id="5_4hvmj"]
+[ext_resource type="PackedScene" uid="uid://b42fyr2j3e7l2" path="res://game/thing/door/sacred_passage_up.tscn" id="5_k2t01"]
+[ext_resource type="PackedScene" uid="uid://dfsg7htbnnkam" path="res://game/cutscene/dialogue_cutscene/ouroboros_cutscene/ouroboros_cutscene.tscn" id="7_k2t01"]
+[ext_resource type="PackedScene" uid="uid://dtkkkrcbtqu58" path="res://game/cutscene/character_mark.tscn" id="8_bw1sp"]
 
 [node name="SacredOutdoor" instance=ExtResource("1_fro8s")]
 
@@ -35,15 +37,15 @@ position = Vector2(315, 579)
 [node name="OrangeSpawn" parent="Doors" index="1" instance=ExtResource("3_ej8ax")]
 position = Vector2(62, 195)
 
-[node name="LeftDoorUp" parent="Doors" index="2" instance=ExtResource("4_4mhnh")]
-position = Vector2(624, 320)
+[node name="LeftDoorUp" parent="Doors" index="2" instance=ExtResource("5_k2t01")]
+position = Vector2(624, 288)
 next_room_id = "sacred_indoor"
-next_room_entrance_node = "LeftPassageUp"
+next_room_entrance_node = "LeftPassageDown"
 
-[node name="RightDoorUp" parent="Doors" index="3" instance=ExtResource("4_4mhnh")]
-position = Vector2(656, 320)
+[node name="RightDoorUp" parent="Doors" index="3" instance=ExtResource("5_k2t01")]
+position = Vector2(656, 288)
 next_room_id = "sacred_indoor"
-next_room_entrance_node = "RightPassageUp"
+next_room_entrance_node = "RightPassageDown"
 
 [node name="OrangeDisk" parent="YSort/Things" index="0" instance=ExtResource("4_5o6x8")]
 position = Vector2(63, 168)
@@ -55,3 +57,9 @@ position = Vector2(315, 550)
 position = Vector2(2115, -510)
 dialogue_id = "talk_sacred"
 dialogue_node = "talk"
+
+[node name="OuroborosCutscene" parent="RoomCutscenes" index="0" instance=ExtResource("7_k2t01")]
+position = Vector2(288, 544)
+
+[node name="OuroborosMark1" parent="RoomCutscenes/OuroborosCutscene" index="2" instance=ExtResource("8_bw1sp")]
+target_direction_id = 3

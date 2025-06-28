@@ -134,6 +134,11 @@ func check_stored_items():
 		browsing_started.emit()
 
 
+## True if the player has the item with the given [code]item_id[/code].
+func has_item(given_item_id):
+	return items.item_id_list.has(given_item_id)
+
+
 ## Adds a thought bubble from the [member Items.item_id_list]
 ## if the player has any obtained items.
 func make_item_bubble():

@@ -1,25 +1,25 @@
-[gd_resource type="Resource" script_class="SaveGame" load_steps=2 format=3 uid="uid://cihkqm0njc3os"]
+[gd_resource type="Resource" script_class="SaveGame" load_steps=2 format=3]
 
-[ext_resource type="Script" uid="uid://yrx16fo7cbqi" path="res://loader/save_game.gd" id="1_40lm1"]
+[ext_resource type="Script" path="res://loader/save_game.gd" id="1_oc726"]
 
 [resource]
-script = ExtResource("1_40lm1")
+script = ExtResource("1_oc726")
 game_version = "0.3"
 data = {
 "conditions": {
 "been_to_sacred_space": false,
 "been_to_sea_space": false,
 "enable_world_selection": false,
-"is_mentoring": false
+"is_mentoring": true
 },
 "game": {
-"current_room_id": "blue_space",
+"current_room_id": "library_3f",
 "entrance_event": {
 "blue_classroom": {
 "dialogue_id": "enter_blue_classroom",
-"dialogue_node": "remove_teacher",
+"dialogue_node": "missing",
 "interaction_node": "BlueTeacherCutscene",
-"is_enabled": true,
+"is_enabled": false,
 "is_oneshot": true
 },
 "blue_space": {
@@ -54,21 +54,28 @@ data = {
 "dialogue_id": "enter_green_dorm",
 "dialogue_node": "enter",
 "interaction_node": "CatCutscene",
-"is_enabled": false,
+"is_enabled": true,
 "is_oneshot": true
 },
 "recreation_hallway": {
 "dialogue_id": "enter_recreation_hallway",
-"dialogue_node": "searching_blue",
-"interaction_node": "BlueTeacherCutscene",
+"dialogue_node": "follow_cat",
+"interaction_node": "CatCutscene",
 "is_enabled": false,
+"is_oneshot": true
+},
+"sacred_space": {
+"dialogue_id": "talk_ouroboros",
+"dialogue_node": "enter_sacred_space",
+"interaction_node": "OuroborosCutscene",
+"is_enabled": true,
 "is_oneshot": true
 }
 },
-"entrance_node": "Spawn"
+"entrance_node": "PassageDown"
 },
 "items": {
-"floating_item": "ouroboros",
+"floating_item": "",
 "item_effect": {
 "ouroboros": {
 "browse_dialogue_node": "ouroboros",
@@ -81,103 +88,25 @@ data = {
 "items_state_id": "items_exhibit_state"
 }
 },
-"item_list": ["revealer", "ouroboros"]
+"item_list": []
 },
-"party": Array[String]([]),
+"party": Array[String](["Blue"]),
 "rooms": {
-"absolutely_undetectable_room": {
+"knowledge_hallway": {
 "npcs": {
-&"Ouroboros": {
-"current_anim": &"circling",
+&"Blue": {
+"current_anim": &"up",
 "dialogue_id": "",
 "dialogue_node": "",
-"direction": Vector2(1, 0),
-"filename": "ouroboros",
-"idling_room": "absolutely_undetectable_room",
-"interaction_node": "",
-"position": Vector2(-34.5, 8192),
-"was_joined": false,
-"z_index": 0
-}
-},
-"party": {},
-"things": {
-&"Door": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-}
-}
-},
-"blue_classroom": {
-"npcs": {},
-"party": {},
-"things": {
-&"BookcaseUncertainty": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-&"PassageDown": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-&"PassageLeft": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-&"Spawn": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-}
-}
-},
-"blue_space": {
-"npcs": {
-&"Cyan": {
-"current_anim": &"up",
-"dialogue_id": "talk_cyan",
-"dialogue_node": "talk_after_ouroboros_obtained",
-"direction": Vector2(0.5686, -0.822614),
-"filename": "cyan",
+"direction": Vector2(-0.0837693, -0.996485),
+"filename": "blue",
 "idling_room": "",
-"interaction_node": "CyanCutscene",
-"position": Vector2(448, 279),
-"was_joined": false,
-"z_index": 0
-},
-&"Orange": {
-"current_anim": &"left",
-"dialogue_id": "talk_orange",
-"dialogue_node": "query_2",
-"direction": Vector2(-0.976108, 0.217284),
-"filename": "orange",
-"idling_room": "blue_space",
-"interaction_node": "Default2",
-"position": Vector2(2565, -1241),
+"interaction_node": "",
+"position": Vector2(653.624, 291.863),
 "was_joined": false,
 "z_index": 0
 }
 },
-"party": {},
-"things": {
-&"OuroborosGateway": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-&"Spawn": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-}
-}
-},
-"blue_stairs": {
-"npcs": {},
 "party": {},
 "things": {
 &"PassageDown": {
@@ -189,187 +118,205 @@ data = {
 "current_anim": &"default",
 "current_frame": 0,
 "current_state": "thing_interactable_state"
+},
+&"PassageUp": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
 }
 }
 },
-"dining_hall": {
+"library_1f": {
 "npcs": {
-"Amber": {
-"current_anim": &"sit_left",
-"dialogue_id": "talk_amber",
-"dialogue_node": "talk_after_cat_event",
+&"Blue": {
+"current_anim": &"left",
+"dialogue_id": "",
+"dialogue_node": "",
+"direction": Vector2(-0.849715, -0.527242),
+"filename": "blue",
+"idling_room": "",
+"interaction_node": "",
+"position": Vector2(249.952, 16.7615),
+"was_joined": false,
+"z_index": 0
+}
+},
+"party": {},
+"things": {
+&"BlueAspect": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+&"GreenAspect": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+&"PassageDown": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+&"PassageUp": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+&"PassageUp2": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+&"RedAspect": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+&"YellowAspect": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+}
+}
+},
+"library_2f": {
+"npcs": {
+&"Blue": {
+"current_anim": &"up",
+"dialogue_id": "",
+"dialogue_node": "",
+"direction": Vector2(0.427069, -0.904219),
+"filename": "blue",
+"idling_room": "",
+"interaction_node": "",
+"position": Vector2(224.695, 223.27),
+"was_joined": false,
+"z_index": 0
+}
+},
+"party": {},
+"things": {
+&"BookcaseAO": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+&"BookcaseAT": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+&"BookcaseBM": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+&"BookcaseBP": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+&"BookcaseCF": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+&"BookcaseDA": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+&"BookcaseEB": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+&"BookcaseFiction": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+&"BookcaseHM": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+&"BookcaseMH": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+&"BookcaseMM": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+&"BookcaseSD": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+&"BookcaseTM": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+&"BookcaseWP": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+&"PassageDown": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+&"PassageDown2": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+&"PassageUp": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+&"PassageUp2": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+}
+}
+},
+"library_3f": {
+"npcs": {
+&"Blue": {
+"current_anim": &"up",
+"dialogue_id": "",
+"dialogue_node": "",
 "direction": Vector2(0, -1),
-"filename": "amber",
+"filename": "blue",
 "idling_room": "",
-"interaction_node": "Default4",
-"position": Vector2(204.947, 269.301),
-"was_joined": false,
-"z_index": 0
-},
-"Cat": {
-"current_anim": &"right",
-"dialogue_id": "talk_cat",
-"dialogue_node": "talk",
-"direction": Vector2(1, 0),
-"filename": "cat",
-"idling_room": "dining_hall",
-"interaction_node": "Default3",
-"position": Vector2(172, 251),
-"was_joined": false,
-"z_index": 1
-},
-"Lime": {
-"current_anim": &"right",
-"dialogue_id": "talk_lime",
-"dialogue_node": "talk_after_cat_event",
-"direction": Vector2(1, 0),
-"filename": "lime",
-"idling_room": "",
-"interaction_node": "Default7",
-"position": Vector2(135, 275),
-"was_joined": false,
-"z_index": 0
-},
-"Maroon": {
-"current_anim": &"right",
-"dialogue_id": "talk_maroon",
-"dialogue_node": "talk_after_cat_event",
-"direction": Vector2(1, 0),
-"filename": "maroon",
-"idling_room": "",
-"interaction_node": "Default8",
-"position": Vector2(137, 245),
+"interaction_node": "",
+"position": Vector2(256, 496.5),
 "was_joined": false,
 "z_index": 0
 }
 },
 "party": {},
 "things": {
-"KitchenDoor": {
+&"BookcaseImaginarySpace": {
 "current_anim": &"default",
 "current_frame": 0,
 "current_state": "thing_interactable_state"
 },
-"PassageUp": {
+&"PassageDown": {
 "current_anim": &"default",
 "current_frame": 0,
 "current_state": "thing_interactable_state"
 },
-"SideChairBoardGameTable": {
-"current_anim": &"ruined_board_game",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-}
-}
-},
-"dorm_1f": {
-"npcs": {},
-"party": {},
-"things": {
-"DormDoor1": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"DormDoor2": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"DormDoor3": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"DormDoor4": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"PassageDown": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"PassageUp1": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"PassageUp2": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-}
-}
-},
-"dorm_2f": {
-"npcs": {},
-"party": {},
-"things": {
-"DormDoor1": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"DormDoor2": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"DormDoor3": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"DormDoor4": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"PassageDown1": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"PassageDown2": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"PassageUp": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-}
-}
-},
-"green_dorm": {
-"npcs": {},
-"party": {},
-"things": {
-"Bed": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"DormDoor": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"UpChairOfficeTable": {
-"current_anim": &"office",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-}
-}
-},
-"main_classroom": {
-"npcs": {},
-"party": {},
-"things": {
-"PassageDown": {
+&"PassageDown2": {
 "current_anim": &"default",
 "current_frame": 0,
 "current_state": "thing_interactable_state"
@@ -378,107 +325,37 @@ data = {
 },
 "main_entrance": {
 "npcs": {
-"Blue": {
-"current_anim": &"up",
+&"Blue": {
+"current_anim": &"left",
 "dialogue_id": "",
 "dialogue_node": "",
-"direction": Vector2(0, -1),
+"direction": Vector2(-0.954437, -0.298411),
 "filename": "blue",
 "idling_room": "",
 "interaction_node": "",
-"position": Vector2(0, -285.5),
+"position": Vector2(-146.924, -122.854),
 "was_joined": false,
 "z_index": 0
 }
 },
 "party": {},
 "things": {
-"PassageDown": {
+&"PassageDown": {
 "current_anim": &"default",
 "current_frame": 0,
 "current_state": "thing_interactable_state"
 },
-"PassageLeft": {
+&"PassageLeft": {
 "current_anim": &"default",
 "current_frame": 0,
 "current_state": "thing_interactable_state"
 },
-"PassageRight": {
+&"PassageRight": {
 "current_anim": &"default",
 "current_frame": 0,
 "current_state": "thing_interactable_state"
 },
-"PassageUp": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-}
-}
-},
-"main_hall": {
-"npcs": {
-"Blue": {
-"current_anim": &"up",
-"dialogue_id": "",
-"dialogue_node": "",
-"direction": Vector2(0, -1),
-"filename": "blue",
-"idling_room": "",
-"interaction_node": "",
-"position": Vector2(0, -989),
-"was_joined": false,
-"z_index": 0
-}
-},
-"party": {},
-"things": {
-"DoorBlue": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"DoorGreen": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"DoorRed": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"DoorUp": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"DoorYellow": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"PassageDown": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-}
-}
-},
-"recreation_hallway": {
-"npcs": {},
-"party": {},
-"things": {
-"PassageDown": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"PassageLeft": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-"PassageUp": {
+&"PassageUp": {
 "current_anim": &"default",
 "current_frame": 0,
 "current_state": "thing_interactable_state"
