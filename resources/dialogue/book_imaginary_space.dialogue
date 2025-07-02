@@ -20,21 +20,20 @@ do animate_player(read_anim, "read")
 ~ read
 do set_player_anim(reading_anim)
 if is_mentoring
-	{{green}}: Here it is. A paragraph on "{{deepest_layer}}: the Cloud Meadows".
-	{{green}}: {{pioneer}}'s records: Extremely thin layer. Most thin ever measured.
-	{{green}}: Landscale is fogged by thin clouds. No ground. No weightlessness.
-	{{green}}: Clouds overlapping makes ground solid. Like a meadow of clouds. A "{{deepest_layer}}".
-	{{green}}: The horizon is too foggy. Failed to reach the horizon through levitation.
-	{{green}}: Loops back to the beginning like an endless cycle.
-	{{green}}: The border goes beyond magiscience.
-	{{green}}: [#expression=cheerful] Hmm... I believe we should try look for this place called {{deepest_layer}} sometime.
+	{{green}}: "{{deepest_layer}}: The Cloud Meadows."
+	{{green}}: "{{pioneer}}'s records: Extremely thin layer. Most thin ever measured."
+	{{green}}: "Landscale is fogged by thin clouds. No ground. No weightlessness. Clouds overlapping makes ground solid."
+	{{green}}: "The horizon is too foggy. Failed to reach the horizon through levitation. Loops back to the beginning like an endless cycle."
+	{{green}}: "Assumption (daring!): The border goes beyond magiscience?"
+	{{green}}: "Nickname: Cirruseng."
+	{{green}}: [#expression=cheerful] We should try look for this place called {{deepest_layer}} sometime.
 else
+	{{green}}: ("{{deepest_layer}}: The Cloud Meadows.")
 	{{green}}: ("{{pioneer}}'s records: Extremely thin layer. Most thin ever measured.")
-	{{green}}: ("Landscale is fogged by thin clouds. No ground. No weightlessness.")
-	{{green}}: ("Clouds overlapping makes ground solid. Like a meadow of clouds. A "{{deepest_layer}}".")
-	{{green}}: ("The horizon is too foggy. Failed to reach the horizon through levitation.")
-	{{green}}: ("Loops back to the beginning like an endless cycle.")
-	{{green}}: ("The border goes beyond magiscience.")
+	{{green}}: ("Landscale is fogged by thin clouds. No ground. No weightlessness. Clouds overlapping makes ground solid.")
+	{{green}}: ("The horizon is too foggy. Failed to reach the horizon through levitation. Loops back to the beginning like an endless cycle.")
+	{{green}}: ("Assumption (daring!): The border goes beyond magiscience?")
+	{{green}}: ("Nickname: Cirruseng.")
 do set_thing_anim("BookcaseImaginarySpace", bookcase_anim)
 do set_player_anim("down")
 => END!

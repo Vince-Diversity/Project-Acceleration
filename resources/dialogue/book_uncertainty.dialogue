@@ -10,7 +10,7 @@ do animate_player(read_anim, "read")
 ~ read
 do set_player_anim(reading_anim)
 if is_mentoring
-	{{green}}: "The {{blue_aspect}} magic has given access to the imaginary space, quite literally breaking down our sense of reality."
+	{{green}}: "The {{blue_aspect}} magic has given access to the imaginary space, breaking down our understanding of reality."
 	{{green}}: "While the mechanisms are yet to be explained, it has become possible to repeatably enter the imaginary space."
 	{{green}}: "A strikingly simple way is to enter a so-called {{absolutely_undetectable_capsule}}."
 else

@@ -85,7 +85,7 @@ if not is_ouroboros_joined
 	{{ouroboros}}: [#font=above] [#font=above] Nom, {{green}} is the {{observer}}. Nom will help the {{observer}}, when the {{observer}} is wandering in imaginations, always.
 	do remove_npc("Ouroboros")
 	do set_above_player_float("ouroboros")
-	do animate_player("admire_above", "ouroboros_got_2")
+	do set_player_anim("admire_above")
 	{{green}}: [#expression=cheerful] My guide is back!
 	do add_item("ouroboros")
 	{{ouroboros}} can be checked on the same way as other items, with the [color=yellow]X key and then left/right keys.[/color]

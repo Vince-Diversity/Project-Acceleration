@@ -7,13 +7,13 @@ script = ExtResource("1_oc726")
 game_version = "0.3"
 data = {
 "conditions": {
-"been_to_sacred_space": true,
+"been_to_sacred_space": false,
 "been_to_sea_space": false,
-"enable_world_selection": true,
+"enable_world_selection": false,
 "is_mentoring": false
 },
 "game": {
-"current_room_id": "sacred_outdoor",
+"current_room_id": "blue_space",
 "entrance_event": {
 "blue_classroom": {
 "dialogue_id": "enter_blue_classroom",
@@ -68,11 +68,11 @@ data = {
 "dialogue_id": "talk_ouroboros",
 "dialogue_node": "enter_sacred_space",
 "interaction_node": "OuroborosCutscene",
-"is_enabled": false,
+"is_enabled": true,
 "is_oneshot": true
 }
 },
-"entrance_node": "OrangeSpawn"
+"entrance_node": "Spawn"
 },
 "items": {
 "floating_item": "ouroboros",
@@ -486,55 +486,6 @@ data = {
 "current_state": "thing_interactable_state"
 },
 &"PassageUp": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-}
-}
-},
-"sacred_outdoor": {
-"npcs": {
-&"Sacred": {
-"current_anim": &"default",
-"dialogue_id": "talk_sacred",
-"dialogue_node": "talk",
-"direction": Vector2(0, 1),
-"filename": "sacred",
-"idling_room": "",
-"interaction_node": "",
-"position": Vector2(2115, -510),
-"was_joined": false,
-"z_index": 0
-}
-},
-"party": {},
-"things": {
-&"CyanDisk": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-&"CyanSpawn": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-&"LeftDoorUp": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-&"OrangeDisk": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-&"OrangeSpawn": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-&"RightDoorUp": {
 "current_anim": &"default",
 "current_frame": 0,
 "current_state": "thing_interactable_state"

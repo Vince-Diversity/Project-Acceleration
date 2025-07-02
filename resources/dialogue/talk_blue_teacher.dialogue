@@ -7,7 +7,7 @@ do move("talk")
 {{green}}: [#expression=cheerful] Good morning {{blue_teacher}}!
 do turn_npc_to_player("BlueTeacher")
 {{blue_teacher}}: [#expression=cheerful] Hello {{green}}! And this new face is our new student?
-{{blue}}: Hi. I'm {{blue}}.
+{{blue}}: ...
 {{blue_teacher}}: [#expression=cheerful] I have heard of your extraordinary abilities and will greatly look forward to be your main teacher.
 {{blue_teacher}}: When you two are ready, [color=yellow]please return here so I can introduce {{blue}} to our study of the {{blue_aspect}}[/color].
 do set_npc_interaction_node("BlueTeacher", "ReturnCutscene")
