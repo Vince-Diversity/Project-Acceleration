@@ -1,8 +1,9 @@
-[gd_resource type="TileSet" load_steps=8 format=3 uid="uid://de7f3bgcrw16e"]
+[gd_resource type="TileSet" load_steps=10 format=3 uid="uid://de7f3bgcrw16e"]
 
 [ext_resource type="Texture2D" uid="uid://c0xybs271xsfy" path="res://assets/tiles/outdoor/outdoor_tiles.png" id="1_hobao"]
 [ext_resource type="Texture2D" uid="uid://bd82cf80plmfp" path="res://assets/tiles/outdoor/sacred_building.png" id="2_8ffvi"]
 [ext_resource type="Texture2D" uid="uid://dc8a4hjsnl3fb" path="res://assets/tiles/outdoor/sacred_building_interior.png" id="2_flt11"]
+[ext_resource type="Texture2D" uid="uid://b1mjnitl87e3p" path="res://assets/tiles/park.png" id="4_x1w5d"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_lkpwn"]
 tile_data = PackedInt32Array(262144, 2, 4, 327680, 2, 5, 393216, 2, 6, 458752, 2, 7, 1, 65538, 0, 65537, 65538, 1, 131073, 65538, 2, 196609, 65538, 3, 262145, 65538, 4, 327681, 65538, 5, 393217, 65538, 6, 458753, 65538, 7, 2, 131074, 0, 65538, 131074, 1, 131074, 131074, 2, 196610, 131074, 3, 262146, 131074, 4, 327682, 131074, 5, 393218, 131074, 6, 458754, 131074, 7, 262147, 196610, 4, 327683, 196610, 5, 393219, 196610, 6, 458755, 196610, 7)
@@ -412,6 +413,17 @@ texture_region_size = Vector2i(64, 64)
 1:0/0 = 0
 1:1/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_be2rj"]
+texture = ExtResource("4_x1w5d")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -6.78531, -10.6626, -8.72397, 9.69329, 3.87732, 24.2332, -1.93866, 32, 1.61555, 32, 32, 13.8937, 28.1106, -10.6626, 29.0799, -19.3866, 21.9715, -32, 14.2168)
+0:2/0 = 0
+1:2/0 = 0
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-0.564476, 32, 18.0632, 32, 16.9342, 9.59605, 32, 9.59605, 32, -10.725, 9.59606, -32, -14.1118, -32, -32, -14.6763, -32, 11.2895, -19.1921, 12.4184, -20.8855, 32)
+0:1/0 = 0
+
 [resource]
 tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 4
@@ -423,4 +435,5 @@ terrain_set_0/terrain_1/color = Color(0.501961, 0, 0.25098, 1)
 sources/0 = SubResource("TileSetAtlasSource_x1ax1")
 sources/2 = SubResource("TileSetAtlasSource_0uurw")
 sources/1 = SubResource("TileSetAtlasSource_x1w5d")
+sources/3 = SubResource("TileSetAtlasSource_be2rj")
 pattern_0 = SubResource("TileMapPattern_lkpwn")
