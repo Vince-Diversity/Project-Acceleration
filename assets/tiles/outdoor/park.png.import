@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1mjnitl87e3p"
-path="res://.godot/imported/park.png-1451d8dc2ea80720f511fcccae07bebb.ctex"
+uid="uid://dwnkgik4sxch4"
+path="res://.godot/imported/park.png-3c8c81f46b59dcf638526b266de3fba4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tiles/park.png"
-dest_files=["res://.godot/imported/park.png-1451d8dc2ea80720f511fcccae07bebb.ctex"]
+source_file="res://assets/tiles/outdoor/park.png"
+dest_files=["res://.godot/imported/park.png-3c8c81f46b59dcf638526b266de3fba4.ctex"]
 
 [params]
 

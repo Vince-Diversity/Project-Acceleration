@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c0xybs271xsfy" path="res://assets/tiles/outdoor/outdoor_tiles.png" id="1_hobao"]
 [ext_resource type="Texture2D" uid="uid://bd82cf80plmfp" path="res://assets/tiles/outdoor/sacred_building.png" id="2_8ffvi"]
 [ext_resource type="Texture2D" uid="uid://dc8a4hjsnl3fb" path="res://assets/tiles/outdoor/sacred_building_interior.png" id="2_flt11"]
-[ext_resource type="Texture2D" uid="uid://b1mjnitl87e3p" path="res://assets/tiles/park.png" id="4_x1w5d"]
+[ext_resource type="Texture2D" uid="uid://dwnkgik4sxch4" path="res://assets/tiles/outdoor/park.png" id="4_x1w5d"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_lkpwn"]
 tile_data = PackedInt32Array(262144, 2, 4, 327680, 2, 5, 393216, 2, 6, 458752, 2, 7, 1, 65538, 0, 65537, 65538, 1, 131073, 65538, 2, 196609, 65538, 3, 262145, 65538, 4, 327681, 65538, 5, 393217, 65538, 6, 458753, 65538, 7, 2, 131074, 0, 65538, 131074, 1, 131074, 131074, 2, 196610, 131074, 3, 262146, 131074, 4, 327682, 131074, 5, 393218, 131074, 6, 458754, 131074, 7, 262147, 196610, 4, 327683, 196610, 5, 393219, 196610, 6, 458755, 196610, 7)
@@ -152,6 +152,11 @@ texture_region_size = Vector2i(64, 64)
 6:3/0/terrain_set = 0
 5:3/0 = 0
 5:3/0/terrain_set = 0
+5:3/0/terrain = 1
+5:3/0/terrains_peering_bit/bottom_right_corner = 1
+5:3/0/terrains_peering_bit/bottom_left_corner = 1
+5:3/0/terrains_peering_bit/top_left_corner = 1
+5:3/0/terrains_peering_bit/top_right_corner = 1
 7:0/0 = 0
 7:0/0/terrain_set = 0
 7:0/0/terrain = 1
@@ -423,6 +428,10 @@ texture_region_size = Vector2i(64, 64)
 1:1/0 = 0
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-0.564476, 32, 18.0632, 32, 16.9342, 9.59605, 32, 9.59605, 32, -10.725, 9.59606, -32, -14.1118, -32, -32, -14.6763, -32, 11.2895, -19.1921, 12.4184, -20.8855, 32)
 0:1/0 = 0
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(32, 1.70716, 18.6215, -7.93007, 2.88724, -7.53672, -1.63636, 0.133738, -0.849652, 10.1643, 7.21416, 17.6381, 19.9982, 18.8182, 14.4913, 24.9388, 32, 26.7089)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, 1.7867, -21.7867, 4.93507, -6.0449, -1.55844, -2.10944, 6.31248, -11.5545, 9.26408, 0.842163, 15.9544, 2.39273, 28.3117, -6.46206, 32, -19.0555, 26.344, -32, 25.1633)
 
 [resource]
 tile_size = Vector2i(64, 64)
