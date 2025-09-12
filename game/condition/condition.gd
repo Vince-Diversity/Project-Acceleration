@@ -5,10 +5,6 @@ extends Node
 ## this is toggled on.
 var is_mentoring := true
 
-## When Ouroboros tells the player that you can choose what world to warp to,
-## this is enabled.
-var enable_world_selection := false
-
 ## When the player has entered one of the following worlds for the first time,
 ## the world variable is enabled.
 ## Unfortunately need to update [method make_save] and [method load_save]
@@ -19,7 +15,6 @@ var been_to_sea_space := false
 ## Saves all current conditions to the given [code]sg[/code].
 func make_save(sg: SaveGame):
 	sg.data[sg.condition_key][sg.mentoring_condition_key] = is_mentoring
-	sg.data[sg.condition_key][sg.world_selection_condition_key] = enable_world_selection
 	sg.data[sg.condition_key][sg.sacred_space_condition_key] = been_to_sacred_space
 	sg.data[sg.condition_key][sg.sea_space_condition_key] = been_to_sea_space
 
@@ -27,13 +22,11 @@ func make_save(sg: SaveGame):
 ## Loads conditions from the given [code]sg[/code].
 func load_save(sg: SaveGame):
 	is_mentoring = sg.data[sg.condition_key][sg.mentoring_condition_key]
-	enable_world_selection = sg.data[sg.condition_key][sg.world_selection_condition_key]
 	been_to_sacred_space = sg.data[sg.condition_key][sg.sacred_space_condition_key]
 	been_to_sea_space = sg.data[sg.condition_key][sg.sea_space_condition_key]
 
 
 func new_game_init_condition(sg: SaveGame):
 	sg.data[sg.condition_key][sg.mentoring_condition_key] = true
-	sg.data[sg.condition_key][sg.world_selection_condition_key] = false
 	sg.data[sg.condition_key][sg.sacred_space_condition_key] = false
 	sg.data[sg.condition_key][sg.sea_space_condition_key] = false

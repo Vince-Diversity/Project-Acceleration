@@ -1,15 +1,8 @@
 ~ ouroboros_info
-if enable_world_selection
-	{{ouroboros}}: [#font=above] Obos is listening, always.
-	- "What can you do?" => ouroboros_ability
-	- "Could you take me home?" => ouroboros_home_query
-	- "Could you take me to a different place?" => ouroboros_world_selection_1
-	- Finish talking => END!
-else
-	{{ouroboros}}: [#font=above] Obos is listening, always.
-	- "What can you do?" => ouroboros_ability
-	- "Could you take me home?" => ouroboros_home_query
-	- Finish talking => END!
+{{ouroboros}}: [#font=above] Obos is listening, always.
+- "What can you do?" => ouroboros_ability
+- "Could you take me home?" => ouroboros_home_query
+- Finish talking => END!
 
 ~ ouroboros_ability
 {{ouroboros}}: [#font=above] Obos can travel freely in the {{imaginary}}. Obos can bring the {{observer}} to back to their home world. Obos can bring the {{observer}} back to the {{imaginary}}.
@@ -23,26 +16,8 @@ else
 ~ ouroboros_real_space_info
 {{ouroboros}}: [#font=above] Obos is listening, always.
 - "What can you do?" => ouroboros_real_space_ability
-- "Could you take me back to the {{imaginary}}?" => ouroboros_world_selection_1
+- "Could you take me back to the {{imaginary}}?" => ouroboros_imaginary
 - Finish talking =>  ouroboros_real_space_end_browsing
-
-~ ouroboros_world_selection_1
-if enable_world_selection
-	{{ouroboros}}: [#font=above] Which place?
-	- {{blue_space}} => ouroboros_imaginary
-	- {{sacred_space}} [if been_to_sacred_space == true] => ouroboros_sacred
-	- Somewhere else => ouroboros_world_selection_2
-	- Wait nevermind => ouroboros_real_space_info
-else
-	=> ouroboros_imaginary
-=> END!
-
-~ ouroboros_world_selection_2
-{{ouroboros}}: [#font=above] Which place?
-- {{sea_space}} [if been_to_sea_space == true] => ouroboros_sea
-- Somewhere else => ouroboros_world_selection_1
-- Wait nevermind => ouroboros_real_space_info
-=> END!
 
 ~ ouroboros_home
 {{ouroboros}}: [#font=above] Nyoom!
@@ -91,6 +66,5 @@ if not is_ouroboros_joined
 	{{ouroboros}} can be checked on the same way as other items, with the [color=yellow]X key and then left/right keys.[/color]
 {{ouroboros}}: [#font=above] Nom, the {{observer}} enters a new place.
 {{ouroboros}}: [#font=above] Obos will call this place {{sacred_space}}. [color=yellow] Obos will remember this place.[/color]
-set enable_world_selection = true
 set been_to_sacred_space = true
 => END!
