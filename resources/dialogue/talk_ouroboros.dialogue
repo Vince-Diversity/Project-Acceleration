@@ -64,7 +64,4 @@ if not is_ouroboros_joined
 	{{green}}: [#expression=cheerful] My guide is back!
 	do add_item("ouroboros")
 	{{ouroboros}} can be checked on the same way as other items, with the [color=yellow]X key and then left/right keys.[/color]
-{{ouroboros}}: [#font=above] Nom, the {{observer}} enters a new place.
-{{ouroboros}}: [#font=above] Obos will call this place {{sacred_space}}. [color=yellow] Obos will remember this place.[/color]
-set been_to_sacred_space = true
 => END!

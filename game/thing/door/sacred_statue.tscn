@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0ivfex0i6i6s"]
+
+[ext_resource type="PackedScene" uid="uid://dqktwnq312s04" path="res://game/thing/door/door.tscn" id="1_6g1pi"]
+[ext_resource type="SpriteFrames" uid="uid://chwyycuahuayu" path="res://resources/things/sacred_statue.tres" id="2_qw4nv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6k2u6"]
+radius = 20.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3lr80"]
+radius = 16.0
+height = 46.0
+
+[node name="SacredStatue" instance=ExtResource("1_6g1pi")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = ExtResource("2_qw4nv")
+
+[node name="CollisionShape2D" parent="InteractArea" index="0"]
+shape = SubResource("CircleShape2D_6k2u6")
+
+[node name="SpawnPoint" parent="." index="2"]
+position = Vector2(0, 42)
+
+[node name="CollisionShape2D" parent="." index="3"]
+position = Vector2(0, 5)
+shape = SubResource("CapsuleShape2D_3lr80")

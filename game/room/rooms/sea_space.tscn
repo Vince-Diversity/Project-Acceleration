@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c1go3780g6ead" path="res://game/room/room.tscn" id="1_5syy6"]
 [ext_resource type="TileSet" uid="uid://2c3l3d1m0cwu" path="res://resources/tilesets/sea_space/sea_space.tres" id="2_kyoid"]
-[ext_resource type="PackedScene" uid="uid://cxm37b2xjuh0p" path="res://game/thing/statue/statue.tscn" id="3_08afl"]
+[ext_resource type="PackedScene" uid="uid://b0ivfex0i6i6s" path="res://game/thing/door/sacred_statue.tscn" id="3_08afl"]
 
 [node name="SeaSpace" instance=ExtResource("1_5syy6")]
 
@@ -14,8 +14,8 @@ tile_set = ExtResource("2_kyoid")
 tile_map_data = PackedByteArray("AAAEAAQAAAAAAAMAAAAGAAMAAAABAAMAAAAIAAIAAAAAAAQAAAAHAAIAAAABAAQAAAA=")
 tile_set = ExtResource("2_kyoid")
 
+[node name="SacredStatue" parent="Doors" index="0" instance=ExtResource("3_08afl")]
+position = Vector2(464, 336)
+
 [node name="Things" parent="YSort" index="0"]
 position = Vector2(-16, -16)
-
-[node name="Statue" parent="YSort/Things" index="0" instance=ExtResource("3_08afl")]
-position = Vector2(459, 310)

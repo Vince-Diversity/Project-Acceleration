@@ -12,3 +12,8 @@ do add_member("Sacred")
 ~ revisit
 {{sacred}}: Am I safe now?
 => END!
+
+
+~ reveal
+do change_rooms("sea_space", "SacredStatue")
+=> END!
