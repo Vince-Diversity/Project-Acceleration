@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://ds7qjnbsyk3af"]
+
+[ext_resource type="PackedScene" uid="uid://dqktwnq312s04" path="res://game/thing/door/door.tscn" id="1_qajev"]
+[ext_resource type="SpriteFrames" uid="uid://dby2uq4fa0hly" path="res://resources/things/disk.tres" id="2_55xhq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qajev"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qajev"]
+
+[node name="Disk" instance=ExtResource("1_qajev")]
+spawn_state_id = "thing_static_state"
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = ExtResource("2_55xhq")
+
+[node name="CollisionShape2D" parent="InteractArea" index="0"]
+position = Vector2(-2, 11)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_qajev")
+
+[node name="SpawnPoint" parent="." index="2"]
+position = Vector2(0, 32)
+
+[node name="CollisionShape2D" parent="." index="3"]
+position = Vector2(0, 10)
+shape = SubResource("RectangleShape2D_qajev")

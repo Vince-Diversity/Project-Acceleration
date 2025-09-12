@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=4 uid="uid://d1yb216cls6en"]
+[gd_scene load_steps=8 format=4 uid="uid://d1yb216cls6en"]
 
 [ext_resource type="PackedScene" uid="uid://c1go3780g6ead" path="res://game/room/room.tscn" id="1_fro8s"]
 [ext_resource type="TileSet" uid="uid://de7f3bgcrw16e" path="res://resources/tilesets/outdoor/outdoor_tiles.tres" id="2_cn2o5"]
-[ext_resource type="PackedScene" uid="uid://caxl0vhd0epgm" path="res://game/thing/door/spawn.tscn" id="3_ej8ax"]
-[ext_resource type="PackedScene" uid="uid://uebd3825apbg" path="res://game/thing/disk/disk.tscn" id="4_5o6x8"]
+[ext_resource type="PackedScene" uid="uid://ds7qjnbsyk3af" path="res://game/thing/door/disk.tscn" id="4_k2t01"]
 [ext_resource type="PackedScene" uid="uid://cyx3iouistsep" path="res://game/character/npcs/sacred.tscn" id="5_4hvmj"]
 [ext_resource type="PackedScene" uid="uid://b42fyr2j3e7l2" path="res://game/thing/door/sacred_passage_up.tscn" id="5_k2t01"]
 [ext_resource type="PackedScene" uid="uid://dfsg7htbnnkam" path="res://game/cutscene/dialogue_cutscene/ouroboros_cutscene/ouroboros_cutscene.tscn" id="7_k2t01"]
@@ -37,27 +36,21 @@ use_parent_material = true
 tile_map_data = PackedByteArray("AAAIAAEAAgAAAAQAAAAJAAEAAgABAAQAAAAKAAEAAgACAAQAAAALAAEAAgADAAQAAAAJAAAAAgABAAMAAAAKAAAAAgACAAMAAAAJAP//AgABAAIAAAAKAP//AgACAAIAAAAJAP7/AgABAAEAAAAKAP7/AgACAAEAAAAJAP3/AgABAAAAAAAKAP3/AgACAAAAAAA=")
 tile_set = ExtResource("2_cn2o5")
 
-[node name="CyanSpawn" parent="Doors" index="0" instance=ExtResource("3_ej8ax")]
-position = Vector2(315, 579)
-
-[node name="OrangeSpawn" parent="Doors" index="1" instance=ExtResource("3_ej8ax")]
-position = Vector2(62, 195)
-
-[node name="LeftDoorUp" parent="Doors" index="2" instance=ExtResource("5_k2t01")]
+[node name="LeftDoorUp" parent="Doors" index="0" instance=ExtResource("5_k2t01")]
 position = Vector2(624, 288)
 next_room_id = "sacred_indoor"
 next_room_entrance_node = "LeftPassageDown"
 
-[node name="RightDoorUp" parent="Doors" index="3" instance=ExtResource("5_k2t01")]
+[node name="RightDoorUp" parent="Doors" index="1" instance=ExtResource("5_k2t01")]
 position = Vector2(656, 288)
 next_room_id = "sacred_indoor"
 next_room_entrance_node = "RightPassageDown"
 
-[node name="OrangeDisk" parent="YSort/Things" index="0" instance=ExtResource("4_5o6x8")]
-position = Vector2(63, 168)
+[node name="CyanSpawn" parent="Doors" index="2" instance=ExtResource("4_k2t01")]
+position = Vector2(320, 544)
 
-[node name="CyanDisk" parent="YSort/Things" index="1" instance=ExtResource("4_5o6x8")]
-position = Vector2(315, 550)
+[node name="OrangeSpawn" parent="Doors" index="3" instance=ExtResource("4_k2t01")]
+position = Vector2(64, 160)
 
 [node name="Sacred" parent="YSort/NPCs" index="0" instance=ExtResource("5_4hvmj")]
 position = Vector2(2112, -544)
