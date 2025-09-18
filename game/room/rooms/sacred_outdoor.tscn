@@ -48,9 +48,11 @@ next_room_entrance_node = "RightPassageDown"
 
 [node name="CyanSpawn" parent="Doors" index="2" instance=ExtResource("4_k2t01")]
 position = Vector2(320, 544)
+spawn_state_id = "thing_interactable_state"
 
 [node name="OrangeSpawn" parent="Doors" index="3" instance=ExtResource("4_k2t01")]
 position = Vector2(64, 160)
+spawn_state_id = "thing_interactable_state"
 
 [node name="Sacred" parent="YSort/NPCs" index="0" instance=ExtResource("5_4hvmj")]
 position = Vector2(2112, -544)

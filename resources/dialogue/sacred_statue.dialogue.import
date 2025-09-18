@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://cgk48ei8134f2"
+path="res://.godot/imported/sacred_statue.dialogue-80b9843b02c3de6ef48fcf3134dc4429.tres"
+
+[deps]
+
+source_file="res://resources/dialogue/sacred_statue.dialogue"
+dest_files=["res://.godot/imported/sacred_statue.dialogue-80b9843b02c3de6ef48fcf3134dc4429.tres"]
+
+[params]
+
+defaults=true

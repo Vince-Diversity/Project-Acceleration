@@ -8,6 +8,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qajev"]
 
 [node name="Disk" instance=ExtResource("1_qajev")]
+dialogue_id = "floppy_disk_sacred"
 spawn_state_id = "thing_static_state"
 
 [node name="AnimatedSprite2D" parent="." index="0"]

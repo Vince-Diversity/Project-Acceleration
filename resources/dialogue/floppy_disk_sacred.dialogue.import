@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://4id62srecjh7"
+path="res://.godot/imported/floppy_disk_sacred.dialogue-662abd78528b9cb9d08eec62d1b28fdf.tres"
+
+[deps]
+
+source_file="res://resources/dialogue/floppy_disk_sacred.dialogue"
+dest_files=["res://.godot/imported/floppy_disk_sacred.dialogue-662abd78528b9cb9d08eec62d1b28fdf.tres"]
+
+[params]
+
+defaults=true
