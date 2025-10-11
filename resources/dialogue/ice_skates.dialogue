@@ -1,0 +1,12 @@
+~ find_skates
+{{green}}: (Maybe I can recreate these frozen equipment.)
+do animate_player(Names.focus_anim, "create")
+=> END!
+
+~ create
+do wait(1)
+do set_player_exhibit_anim("ice_skates")
+[color=yellow]Obtained the {{skates}}![/color]
+do add_item("ice_skates")
+do set_player_anim("down")
+=> END!

@@ -1,0 +1,21 @@
+[gd_resource type="SpriteFrames" script_class="ItemSprite" load_steps=4 format=3 uid="uid://56ulsan6sb8j"]
+
+[ext_resource type="Texture2D" uid="uid://cvewuytouj2xy" path="res://assets/items/ice_skates.png" id="1_bo013"]
+[ext_resource type="Script" uid="uid://bpamnm037pgwg" path="res://resources/items/item_sprite.gd" id="1_cdy6a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eop2e"]
+atlas = ExtResource("1_bo013")
+region = Rect2(0, 0, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eop2e")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+script = ExtResource("1_cdy6a")
+metadata/_custom_type_script = "uid://bpamnm037pgwg"

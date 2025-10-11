@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bb4srbll4gmsg"
-path="res://.godot/imported/skates.png-3888327efab65d33f5764c7920a90ae8.ctex"
+uid="uid://cvewuytouj2xy"
+path="res://.godot/imported/ice_skates.png-69ece63702076a8b0c331a1462a7f4ff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/items/skates.png"
-dest_files=["res://.godot/imported/skates.png-3888327efab65d33f5764c7920a90ae8.ctex"]
+source_file="res://assets/items/ice_skates.png"
+dest_files=["res://.godot/imported/ice_skates.png-69ece63702076a8b0c331a1462a7f4ff.ctex"]
 
 [params]
 
