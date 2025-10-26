@@ -17,5 +17,3 @@ func load_save(sg: SaveGame):
 
 func new_game_init_condition(sg: SaveGame):
 	sg.data[sg.condition_key][sg.mentoring_condition_key] = true
-	sg.data[sg.condition_key][sg.sacred_space_condition_key] = false
-	sg.data[sg.condition_key][sg.sea_space_condition_key] = false
