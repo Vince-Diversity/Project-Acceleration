@@ -3,7 +3,7 @@ class_name ItemSprite extends SpriteFrames
 ##
 ## The ID of this item is given by the filename of this resource, without the extension.
 ## Only the titles of the [DialogueResource] instances are needed, the
-## filenames of the paths to the resources are the same for every item.
+## filenames of the paths to the resources are the same for every item. (Look for file about browsing items.)
 ## For browsing, the filename is given by [member BrowseState.browsing_cutscene_name].
 ## For interacting with the item, the filename is given by the [code]interaction_node[/code]
 ## member of every node that is interactable, see [Interactable].

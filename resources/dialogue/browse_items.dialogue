@@ -34,6 +34,10 @@ import "res://resources/dialogue/talk_ouroboros.dialogue" as ouroboros
 =>< ouroboros/ouroboros_real_space_info
 => end_browsing
 
+~ ice_skates
+{{skates}}
+- Resume => end_browsing
+
 ~ end_browsing
 do set_player_anim("default")
 => END!
