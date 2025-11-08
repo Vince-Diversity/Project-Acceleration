@@ -40,7 +40,6 @@ const bgm_toggle_key = "bgm_toggle"
 
 const item_list_key = "item_list"
 const floating_key = "floating_item"
-const item_effect_key = "item_effect"
 
 
 ## Current version of the game.

@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="SaveGame" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="SaveGame" load_steps=2 format=3 uid="uid://3m1e4x37vqph"]
 
-[ext_resource type="Script" path="res://loader/save_game.gd" id="1_oc726"]
+[ext_resource type="Script" uid="uid://yrx16fo7cbqi" path="res://loader/save_game.gd" id="1_oc726"]
 
 [resource]
 script = ExtResource("1_oc726")
@@ -73,18 +73,6 @@ data = {
 },
 "items": {
 "floating_item": "ouroboros",
-"item_effect": {
-"ouroboros": {
-"browse_dialogue_node": "ouroboros",
-"interaction_dialogue_node": "",
-"items_state_id": "items_above_state"
-},
-"revealer": {
-"browse_dialogue_node": "revealer",
-"interaction_dialogue_node": "reveal",
-"items_state_id": "items_exhibit_state"
-}
-},
 "item_list": ["revealer", "ouroboros"]
 },
 "party": Array[String]([]),

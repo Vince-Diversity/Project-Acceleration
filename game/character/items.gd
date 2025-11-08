@@ -126,8 +126,6 @@ func is_animating_item() -> bool:
 
 
 func _make_save_helper(sg: SaveGame, items_dict: Dictionary):
-	## save changes to what happens when an item is browsed or selected
-	sg.data[sg.items_key][sg.item_effect_key] = item_effect_list
 	## if there are any floating items, save their appearance
 	if is_instance_valid(floating_item):
 		items_dict[sg.floating_key] = floating_item.item_id
@@ -166,9 +164,6 @@ func load_save_from_parent(sg: SaveGame):
 			## load what items the character has obtained
 			item_id_list = items_dict[sg.item_list_key]
 		preserved_item_id_list = item_id_list.duplicate()
-		## load any changes to what happens when an item is browsed or selected
-		if items_dict.has(sg.item_effect_key):
-			item_effect_list = items_dict[sg.item_effect_key]
 		## load any floating items
 		if items_dict.has(sg.floating_key):
 			_add_floating_item(items_dict[sg.floating_key])
@@ -179,4 +174,3 @@ func exit_cutscene():
 	## Clear items first before changing to default state.
 	clear_holding_items()
 	change_states("items_absent_state")
-	preserved_item_id_list = item_id_list.duplicate()
