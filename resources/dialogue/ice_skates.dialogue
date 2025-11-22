@@ -1,5 +1,5 @@
 ~ find_skates
-{{green}}: (Maybe I can recreate these frozen equipment.)
+{{green}}: (Maybe I can recreate this frozen equipment.)
 do animate_player(Names.focus_anim, "create")
 => END!
 

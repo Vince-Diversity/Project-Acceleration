@@ -46,7 +46,7 @@ const red_aspect := "Fire"
 const blue_aspect := "Immaterial"
 
 const revealer = "Revealing Eyepiece"
-const skates = "Icey Skates"
+const skates = "Icy Skates"
 const inventory = "pocket"
 
 const observer = "Observer"
