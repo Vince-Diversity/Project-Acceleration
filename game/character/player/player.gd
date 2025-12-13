@@ -20,6 +20,12 @@ class_name Player extends Character
 ## Reference to the bubbles child node.
 @onready var bubbles: Bubbles = $Bubbles
 
+@onready var _ordinary_state: PlayerOrdinaryState = \
+	preload("res://game/character/player_state/player_ordinary_state.gd").new("player_ordinary_state", self)
+
+@onready var _skating_state: PlayerSkatingState = \
+	preload("res://game/character/player_state/player_skating_state.gd").new("player_skating_state", self)
+
 ## The [Interactable] scene root that is closest to the player.
 ## Is automatically updated at every frame.
 ## Also updates the [member Bubbles.current_state] accordingly.
@@ -27,6 +33,15 @@ var nearest_interactable: Node2D:
 	set(interactable):
 		nearest_interactable = interactable
 		_set_nearest_interactable(interactable)
+
+## Defaull [NPCState] when this NPC is added to the [SceneTree].
+var spawn_state: String = "player_ordinary_state"
+
+## List of [PlayerState] instances labeled by each respective [member PlayerState.state_id].
+var state_list: Dictionary
+
+## Current activated NPC state instance.
+var current_state: PlayerState
 
 ## Emitted when the player interacts with the given [Interactable] scene root.
 signal player_interacted(interactable_scene: Node2D)
@@ -39,6 +54,10 @@ signal browsing_ended
 
 
 func _ready():
+	state_list[_ordinary_state.state_id] = _ordinary_state
+	state_list[_skating_state.state_id] = _skating_state
+	current_state = state_list[spawn_state]
+	current_state.enter()
 	_update_angle()
 	player_interacted.connect(_on_player_interacted)
 

@@ -41,10 +41,6 @@ do set_item_browse_dialogue_node("ouroboros", "ouroboros")
 do change_rooms("sacred_outdoor",  "CyanSpawn")
 => END!
 
-~ ouroboros_sea
-b
-=> END!
-
 ~ ouroboros_real_space_ability
 {{ouroboros}}: [#font=above] Obos can travel freely in the {{imaginary}}. Obos can bring the {{observer}} to back to their home world. Obos can bring the {{observer}} back to the {{imaginary}}.
 => ouroboros_real_space_info

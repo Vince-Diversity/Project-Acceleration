@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="SaveGame" load_steps=2 format=3 uid="uid://3m1e4x37vqph"]
+[gd_resource type="Resource" script_class="SaveGame" load_steps=2 format=3]
 
-[ext_resource type="Script" uid="uid://yrx16fo7cbqi" path="res://loader/save_game.gd" id="1_oc726"]
+[ext_resource type="Script" path="res://loader/save_game.gd" id="1_oc726"]
 
 [resource]
 script = ExtResource("1_oc726")
@@ -10,13 +10,13 @@ data = {
 "is_mentoring": false
 },
 "game": {
-"current_room_id": "sacred_indoor",
+"current_room_id": "blue_space",
 "entrance_event": {
 "blue_classroom": {
 "dialogue_id": "enter_blue_classroom",
-"dialogue_node": "remove_ouroboros",
+"dialogue_node": "remove_teacher",
 "interaction_node": "BlueTeacherCutscene",
-"is_enabled": false,
+"is_enabled": true,
 "is_oneshot": true
 },
 "blue_space": {
@@ -65,15 +65,15 @@ data = {
 "dialogue_id": "talk_ouroboros",
 "dialogue_node": "enter_sacred_space",
 "interaction_node": "OuroborosCutscene",
-"is_enabled": false,
+"is_enabled": true,
 "is_oneshot": true
 }
 },
-"entrance_node": "RightPassageDown"
+"entrance_node": "Spawn"
 },
 "items": {
-"floating_item": "ouroboros",
-"item_list": ["revealer", "ouroboros"]
+"floating_item": "",
+"item_list": ["revealer"]
 },
 "party": Array[String]([]),
 "rooms": {
@@ -130,26 +130,14 @@ data = {
 "blue_space": {
 "npcs": {
 &"Cyan": {
-"current_anim": &"up",
+"current_anim": &"default",
 "dialogue_id": "talk_cyan",
-"dialogue_node": "talk_after_ouroboros_obtained",
-"direction": Vector2(0, -1),
+"dialogue_node": "cue",
+"direction": Vector2(0, 1),
 "filename": "cyan",
 "idling_room": "",
 "interaction_node": "OuroborosCutscene",
 "position": Vector2(448, 279),
-"was_joined": false,
-"z_index": 0
-},
-&"Orange": {
-"current_anim": &"down",
-"dialogue_id": "talk_orange",
-"dialogue_node": "query_2",
-"direction": Vector2(0, 1),
-"filename": "orange",
-"idling_room": "blue_space",
-"interaction_node": "Default2",
-"position": Vector2(2565, -1241),
 "was_joined": false,
 "z_index": 0
 }
@@ -193,8 +181,8 @@ data = {
 "direction": Vector2(0, -1),
 "filename": "amber",
 "idling_room": "",
-"interaction_node": "Default4",
-"position": Vector2(204.947, 269.301),
+"interaction_node": "",
+"position": Vector2(204.94696, 269.30103),
 "was_joined": false,
 "z_index": 0
 },
@@ -202,7 +190,7 @@ data = {
 "current_anim": &"right",
 "dialogue_id": "talk_cat",
 "dialogue_node": "talk",
-"direction": Vector2(0.942792, 0.333382),
+"direction": Vector2(0.9427918, 0.333382),
 "filename": "cat",
 "idling_room": "dining_hall",
 "interaction_node": "Default2",
@@ -217,7 +205,7 @@ data = {
 "direction": Vector2(1, 0),
 "filename": "lime",
 "idling_room": "",
-"interaction_node": "Default6",
+"interaction_node": "",
 "position": Vector2(135, 275),
 "was_joined": false,
 "z_index": 0
@@ -417,7 +405,7 @@ data = {
 "filename": "blue",
 "idling_room": "",
 "interaction_node": "",
-"position": Vector2(0, -969),
+"position": Vector2(0, -989),
 "was_joined": false,
 "z_index": 0
 }
@@ -471,98 +459,6 @@ data = {
 "current_state": "thing_interactable_state"
 },
 &"PassageUp": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-}
-}
-},
-"sacred_indoor": {
-"npcs": {
-&"Average": {
-"current_anim": &"down",
-"dialogue_id": "talk_average",
-"dialogue_node": "revisit",
-"direction": Vector2(0, 1),
-"filename": "average",
-"idling_room": "",
-"interaction_node": "SacredIndoorCutscene",
-"position": Vector2(320, 224),
-"was_joined": false,
-"z_index": 0
-},
-&"Plain": {
-"current_anim": &"down",
-"dialogue_id": "talk_plain",
-"dialogue_node": "revisit",
-"direction": Vector2(0, 1),
-"filename": "plain",
-"idling_room": "",
-"interaction_node": "SacredIndoorCutscene",
-"position": Vector2(192, 224),
-"was_joined": false,
-"z_index": 0
-},
-&"Sacred": {
-"current_anim": &"down",
-"dialogue_id": "talk_sacred",
-"dialogue_node": "revisit",
-"direction": Vector2(0, 1),
-"filename": "sacred",
-"idling_room": "sacred_indoor",
-"interaction_node": "",
-"position": Vector2(256.344, 224.984),
-"was_joined": false,
-"z_index": 0
-}
-},
-"party": {},
-"things": {
-&"LeftPassageDown": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-&"RightPassageDown": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-}
-}
-},
-"sacred_outdoor": {
-"npcs": {
-&"Sacred": {
-"current_anim": &"left",
-"dialogue_id": "talk_sacred",
-"dialogue_node": "talk",
-"direction": Vector2(-0.713111, -0.701051),
-"filename": "sacred",
-"idling_room": "",
-"interaction_node": "Default3",
-"position": Vector2(670.516, 347.512),
-"was_joined": false,
-"z_index": 0
-}
-},
-"party": {},
-"things": {
-&"CyanSpawn": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-&"LeftDoorUp": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-&"OrangeSpawn": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state"
-},
-&"RightDoorUp": {
 "current_anim": &"default",
 "current_frame": 0,
 "current_state": "thing_interactable_state"
