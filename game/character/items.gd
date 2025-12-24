@@ -42,6 +42,9 @@ var item_effect_list: Dictionary
 ## Item IDs list after the last [CutsceneState] ended.
 var preserved_item_id_list: Array = []
 
+## Dictionary mapping item IDs to the effects of that item after the last [CutsceneState] ended.
+var preserved_item_effect_list: Dictionary
+
 ## An item currently shown by the character with this node.
 ## Does not necessarily have to be an item obtained by that character.
 var exhibit_item: Item
@@ -139,6 +142,8 @@ func make_save(sg: SaveGame):
 	sg.data[sg.items_key] = items_dict
 	## save what items the character has obtained
 	items_dict[sg.item_list_key] = item_id_list
+	## save item effects
+	items_dict[sg.item_effect_key] = item_effect_list
 	_make_save_helper(sg, items_dict)
 
 
@@ -152,6 +157,8 @@ func make_preserved_save(sg: SaveGame):
 	sg.data[sg.items_key] = items_dict
 	## save what items the character had obtained at a previous point in the game session
 	items_dict[sg.item_list_key] = preserved_item_id_list
+	## save item effects at a previous point in the game session
+	items_dict[sg.item_effect_key] = preserved_item_effect_list
 	_make_save_helper(sg, items_dict)
 
 
@@ -163,7 +170,11 @@ func load_save_from_parent(sg: SaveGame):
 		if items_dict.has(sg.item_list_key):
 			## load what items the character has obtained
 			item_id_list = items_dict[sg.item_list_key]
+		if items_dict.has(sg.item_effect_key):
+			## load changes to item effects
+			item_effect_list = items_dict[sg.item_effect_key]
 		preserved_item_id_list = item_id_list.duplicate()
+		preserved_item_effect_list = item_effect_list.duplicate()
 		## load any floating items
 		if items_dict.has(sg.floating_key):
 			_add_floating_item(items_dict[sg.floating_key])
@@ -174,3 +185,5 @@ func exit_cutscene():
 	## Clear items first before changing to default state.
 	clear_holding_items()
 	change_states("items_absent_state")
+	preserved_item_id_list = item_id_list
+	preserved_item_effect_list = item_effect_list
