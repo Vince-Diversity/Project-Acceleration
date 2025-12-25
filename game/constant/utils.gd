@@ -4,7 +4,7 @@ class_name Utils extends Object
 ## Character direction enumeration.
 enum AnimID {DOWN, LEFT, UP, RIGHT}
 
-## Menu direction enimeration
+## Menu direction enumeration.
 enum Direction {LEFT, RIGHT}
 
 ## Z-indices of [Room] child scenes enumeration.

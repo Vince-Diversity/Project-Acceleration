@@ -28,8 +28,8 @@ class_name Room extends Node2D
 ## Path to the playing background music.
 @export_file var bgm_file: String
 
-## Reference to the parent node of graphics that may overlap.
-@onready var ysort: Node2D = $YSort
+## Reference to the visual effect child node.
+@onready var vfx: Node2D = $VFX
 
 ## Reference to the party child node.
 @onready var party: Party = $YSort/Party
@@ -419,5 +419,4 @@ func _on_begin_area_cutscene(
 
 ## Adds the given [code]vfx_scene[/code] instance to the [SceneTree].
 func _on_vfx_created(vfx_scene: Node2D):
-	ysort.add_child(vfx_scene)
-	move_child(vfx_scene, ysort.get_children().size())
+	vfx.add_child(vfx_scene)
