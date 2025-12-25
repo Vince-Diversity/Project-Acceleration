@@ -22,7 +22,7 @@ script = ExtResource("2_nbpss")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = ExtResource("3_ricuv")
-animation = &"skate_up"
+animation = &"admire_above"
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("CircleShape2D_act1d")

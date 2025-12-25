@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6o4d78jf5720"
-path="res://.godot/imported/green_skate_down.png-5231b6176684bb5e741d166275bde2c4.ctex"
+uid="uid://dkjf3ju8ip67u"
+path="res://.godot/imported/green_skater_pocket.png-7629ede6512e71792a2d0e0e5e15f57b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/green/green_skate_down.png"
-dest_files=["res://.godot/imported/green_skate_down.png-5231b6176684bb5e741d166275bde2c4.ctex"]
+source_file="res://assets/characters/green/green_skater_pocket.png"
+dest_files=["res://.godot/imported/green_skater_pocket.png-7629ede6512e71792a2d0e0e5e15f57b.ctex"]
 
 [params]
 

@@ -402,6 +402,11 @@ func set_npc_dialogue_node(npc_node: String, dialogue_node: String):
 		owner.npcs.get_node(npc_node).dialogue_node = dialogue_node
 
 
+## Sets the player state to the given [code]player_state_id[/code].
+func set_player_state(player_state_id: String):
+	owner.party.player.change_states(player_state_id)
+
+
 ## Sets the speed of the [NPC] that has the given [code]npc_node[/code] name
 ## to double that of default.
 func double_npc_speed(npc_node: String):

@@ -1,1 +1,0 @@
-class_name PlayerOrdinaryState extends PlayerState

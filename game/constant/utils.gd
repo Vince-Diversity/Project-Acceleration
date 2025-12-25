@@ -24,6 +24,7 @@ const npc_dir = "res://game/character/npcs/"
 const entrance_event_dir = "res://resources/events/entrance_events/"
 const item_dir = "res://game/item/items/"
 const item_sprite_dir = "res://resources/items/item_sprites"
+const character_sprite_dir = "res://resources/characters/"
 
 ## Maps a direction [Vector2] to an [enum AnimID] numbering.
 const anim_direction = {
@@ -102,14 +103,19 @@ static func has_res(res_dir_path: String, res_condition: Callable) -> bool:
 
 
 ## Gets the path to the background music [code].ogg[/code] asset
-## with the given [code[bgm_name[/code] filename.
+## with the given [code]bgm_name[/code] filename.
 static func get_bgm_path(bgm_name: String) -> String:
 	return bgm_dir.path_join(bgm_name + ".ogg")
 
 
-## Gets the path to the [NPC] with the given [code]npc_id[/code],
+## Gets the path to the [NPC] with the given [code]npc_id[/code].
 static func get_npc_path(npc_id: String) -> String:
 	return npc_dir.path_join(npc_id + ".tscn")
+
+
+## Gets the path to the [SpriteFrames] with the given [code]character_id[/code].
+static func get_character_sprite_path(character_id: String) -> String:
+	return character_sprite_dir.path_join(character_id + ".tres")
 
 
 ## Gets the path to the [EntranceEvent] which is used for the [Room]

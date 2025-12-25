@@ -10,7 +10,7 @@ data = {
 "is_mentoring": false
 },
 "game": {
-"current_room_id": "sacred_outdoor",
+"current_room_id": "sacred_indoor",
 "entrance_event": {
 "blue_classroom": {
 "dialogue_id": "enter_blue_classroom",
@@ -69,7 +69,7 @@ data = {
 "is_oneshot": true
 }
 },
-"entrance_node": "OrangeSpawn"
+"entrance_node": "LeftPassageDown"
 },
 "items": {
 "floating_item": "ouroboros",
@@ -494,17 +494,70 @@ data = {
 }
 }
 },
+"sacred_indoor": {
+"npcs": {
+&"Average": {
+"current_anim": &"down",
+"dialogue_id": "talk_average",
+"dialogue_node": "revisit",
+"direction": Vector2(0, 1),
+"filename": "average",
+"idling_room": "",
+"interaction_node": "SacredIndoorCutscene",
+"position": Vector2(320, 224),
+"was_joined": false,
+"z_index": 0
+},
+&"Plain": {
+"current_anim": &"down",
+"dialogue_id": "talk_plain",
+"dialogue_node": "revisit",
+"direction": Vector2(0, 1),
+"filename": "plain",
+"idling_room": "",
+"interaction_node": "SacredIndoorCutscene",
+"position": Vector2(192, 224),
+"was_joined": false,
+"z_index": 0
+},
+&"Sacred": {
+"current_anim": &"down",
+"dialogue_id": "talk_sacred",
+"dialogue_node": "revisit",
+"direction": Vector2(0, 1),
+"filename": "sacred",
+"idling_room": "sacred_indoor",
+"interaction_node": "",
+"position": Vector2(256.23477, 224.70088),
+"was_joined": false,
+"z_index": 0
+}
+},
+"party": {},
+"things": {
+&"LeftPassageDown": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+},
+&"RightPassageDown": {
+"current_anim": &"default",
+"current_frame": 0,
+"current_state": "thing_interactable_state"
+}
+}
+},
 "sacred_outdoor": {
 "npcs": {
 &"Sacred": {
-"current_anim": &"default",
+"current_anim": &"up",
 "dialogue_id": "talk_sacred",
 "dialogue_node": "talk",
-"direction": Vector2(0, 1),
+"direction": Vector2(-0.5897296, -0.80760074),
 "filename": "sacred",
 "idling_room": "",
-"interaction_node": "",
-"position": Vector2(2112, -544),
+"interaction_node": "Default1",
+"position": Vector2(645.9899, 351.49704),
 "was_joined": false,
 "z_index": 0
 }

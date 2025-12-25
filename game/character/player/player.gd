@@ -21,10 +21,10 @@ class_name Player extends Character
 @onready var bubbles: Bubbles = $Bubbles
 
 @onready var _ordinary_state: PlayerOrdinaryState = \
-	preload("res://game/character/player_state/player_ordinary_state.gd").new("player_ordinary_state", self)
+	preload("res://game/character/player/player_state/player_ordinary_state.gd").new("player_ordinary_state", self)
 
 @onready var _skating_state: PlayerSkatingState = \
-	preload("res://game/character/player_state/player_skating_state.gd").new("player_skating_state", self)
+	preload("res://game/character/player/player_state/player_skating_state.gd").new("player_skating_state", self)
 
 ## The [Interactable] scene root that is closest to the player.
 ## Is automatically updated at every frame.
@@ -83,6 +83,13 @@ func make_player(
 	bubbles.interact_bubbles_selected.connect(interact_bubbles_selected_target)
 	bubbles.make_bubbles(self)
 	items.make_items(self)
+
+
+## Changes the [member current_state] to the given [code]player_state_id[/code].
+func change_states(player_state_id: String):
+	current_state.exit()
+	current_state = state_list[player_state_id]
+	current_state.enter()
 
 
 ## Updated at every frame to enable player movement.
