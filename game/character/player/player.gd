@@ -11,11 +11,18 @@ class_name Player extends Character
 ## [Bubbles] child node. When the player has obtained an item in their [Items] list,
 ## thought bubbles are also used to select items.
 
+# The player character speed during ordinary state.
 @export var ordinary_speed: float
 
+# The player character speed during skating state.
 @export var skating_speed: float
 
+# The periodic distrance travelled to spawn new ice during skating state.
+@export var skating_ice_wavelength: float
+
 @onready var _direction_node: Marker2D = $Direction
+
+@onready var _skating_ice_mark: Marker2D = $SkatingIceMark
 
 ## Reference to the interaction area of the player.
 @onready var interact_area: Area2D = $Direction/InteractArea
@@ -28,6 +35,9 @@ class_name Player extends Character
 
 @onready var _skating_state: PlayerSkatingState = \
 	preload("res://game/character/player/player_state/player_skating_state.gd").new("player_skating_state", self)
+
+@onready var _skating_ice_scn: PackedScene = \
+	preload("res://game/vfx/skates/skating_ice.tscn")
 
 ## The [Interactable] scene root that is closest to the player.
 ## Is automatically updated at every frame.
@@ -55,6 +65,9 @@ signal browsing_started
 ## Emitted when the player stops browsing through obtained items.
 signal browsing_ended
 
+## Emitted when the player creates a visual effect.
+signal vfx_created(vfx_scene: Node2D)
+
 
 func _ready():
 	state_list[_ordinary_state.state_id] = _ordinary_state
@@ -70,12 +83,14 @@ func init_player(
 		given_party: Party,
 		player_interacted_target: Callable,
 		browsing_started_target: Callable,
-		browsing_ended_target: Callable):
+		browsing_ended_target: Callable,
+		vfx_created_target: Callable):
 	party = given_party
 	player_interacted.connect(player_interacted_target)
 	browsing_started.connect(browsing_started_target)
 	browsing_ended.connect(browsing_ended_target)
 	browsing_ended.connect(_on_browsing_ended)
+	vfx_created.connect(vfx_created_target)
 
 
 ## Further initialises the player after it is added to the [SceneTree].
@@ -181,6 +196,13 @@ func make_item_bubble():
 ## Closes any item thought bubbles.
 func close_item_bubble():
 	bubbles.item_bubble.close()
+
+
+## Add one skating ice visual effect instance below the player.
+func add_skating_ice():
+	var skating_ice = _skating_ice_scn.instantiate()
+	skating_ice.global_position = _skating_ice_mark.global_position
+	vfx_created.emit(skating_ice)
 
 
 ## Called when the player interacts with the given [Interactable] scene root, if that exists.
