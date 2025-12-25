@@ -8,11 +8,9 @@ class_name Character extends CharacterBody2D
 ## A character also has markers for special animations such as when showing an item,
 ## see [Items].
 
-## Default walking speed
-const default_speed: float = 150
 
 ## How fast this character moves.
-@export var speed: float = default_speed
+@export var speed: float = 150
 
 ## Reference to the character's sprite.
 @onready var anim_sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -34,12 +32,12 @@ var party: Party
 
 
 ## Called at every frame to determine character movement.
-func roam():
+func roam(_delta: float):
 	pass
 
 
 ## Moves this character and plays the walking animation.
-func move():
+func move_ordinary():
 	velocity = speed * inputted_direction
 	move_and_slide()
 	_animate_walk()

@@ -11,8 +11,8 @@ func init_state(
 
 
 ## Updates positions of player and other party members at every frame.
-func update(_delta: float):
-	_party.roam()
+func update(delta: float):
+	_party.roam(delta)
 
 
 ## Allows the player to interact with the environment

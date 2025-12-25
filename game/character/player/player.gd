@@ -11,6 +11,9 @@ class_name Player extends Character
 ## [Bubbles] child node. When the player has obtained an item in their [Items] list,
 ## thought bubbles are also used to select items.
 
+@export var ordinary_speed: float
+
+@export var skating_speed: float
 
 @onready var _direction_node: Marker2D = $Direction
 
@@ -96,18 +99,19 @@ func change_states(player_state_id: String):
 ## Reads the currently inputted direction and moves the player accordingly,
 ## or plays their idle animation if no movement is inputted.
 ## Also updates the [member nearest_interactable].
-func roam():
+func roam(delta: float):
 	_update_input_direction()
 	if inputted_direction == Vector2.ZERO:
 		animate_idle()
 	else:
-		move()
+		move(delta)
 	_check_nearest_interactable()
 
 
-## Moves the player and updates the angle of the player's interaction area.
-func move():
-	super()
+## Moves the player depending on the player state 
+## and updates the angle of the player's interaction area.
+func move(delta: float):
+	current_state.move(delta)
 	_update_angle()
 
 

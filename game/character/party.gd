@@ -52,9 +52,9 @@ func has_member(npc_node: String) -> bool:
 
 
 ## Updated at every frame to make all party members move around.
-func roam():
+func roam(delta: float):
 	for member in get_party_ordered():
-		member.roam()
+		member.roam(delta)
 
 
 ## Saves this party to the given [code]sg[/code].

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://blqonrlt33epx"]
+
+[ext_resource type="SpriteFrames" uid="uid://bkt0di82ilhft" path="res://resources/vfx/skating_ice.tres" id="1_ko057"]
+
+[node name="SkatingIce" type="AnimatedSprite2D"]
+sprite_frames = ExtResource("1_ko057")

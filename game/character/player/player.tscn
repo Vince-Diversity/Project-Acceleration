@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bk16wp1xkfq2e" path="res://game/character/character.tscn" id="1_8dn0h"]
 [ext_resource type="Script" uid="uid://bay2a8m3xg4uv" path="res://game/character/player/player.gd" id="2_nbpss"]
-[ext_resource type="SpriteFrames" uid="uid://drrwv183eagft" path="res://resources/characters/green.tres" id="3_ricuv"]
+[ext_resource type="SpriteFrames" uid="uid://bw3d835u2hv4x" path="res://resources/characters/green_skating.tres" id="3_uq84f"]
 [ext_resource type="Script" uid="uid://cukrr48qm650d" path="res://game/character/player/bubbles.gd" id="4_r0uk3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_act1d"]
@@ -19,15 +19,20 @@ collision_layer = 1
 collision_mask = 38
 motion_mode = 1
 script = ExtResource("2_nbpss")
+ordinary_speed = 150.0
+skating_speed = 300.0
 
-[node name="AnimatedSprite2D" parent="." index="0"]
-sprite_frames = ExtResource("3_ricuv")
-animation = &"admire_above"
+[node name="SkatingIceMark" type="Marker2D" parent="." index="0"]
+position = Vector2(0, 12)
 
-[node name="CollisionShape2D" parent="." index="1"]
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = ExtResource("3_uq84f")
+animation = &"down"
+
+[node name="CollisionShape2D" parent="." index="2"]
 shape = SubResource("CircleShape2D_act1d")
 
-[node name="Direction" type="Marker2D" parent="." index="2"]
+[node name="Direction" type="Marker2D" parent="." index="3"]
 
 [node name="InteractArea" type="Area2D" parent="Direction" index="0"]
 collision_mask = 12
@@ -36,17 +41,17 @@ collision_mask = 12
 position = Vector2(16, 0)
 shape = SubResource("CapsuleShape2D_c5j42")
 
-[node name="Camera2D" type="Camera2D" parent="." index="3"]
+[node name="Camera2D" type="Camera2D" parent="." index="4"]
 zoom = Vector2(2, 2)
 
-[node name="FollowingArea" parent="." index="4"]
+[node name="FollowingArea" parent="." index="5"]
 collision_layer = 1
 collision_mask = 2
 
 [node name="CollisionShape2D" parent="FollowingArea" index="0"]
 shape = SubResource("CircleShape2D_rkx78")
 
-[node name="Items" parent="." index="5" groups=["Preserved"]]
+[node name="Items" parent="." index="6" groups=["Preserved"]]
 
 [node name="ExhibitMark" parent="Items" index="0"]
 position = Vector2(-10, -17)
@@ -54,7 +59,7 @@ position = Vector2(-10, -17)
 [node name="FloatingMark" parent="Items" index="1"]
 position = Vector2(0, -20)
 
-[node name="Bubbles" type="Node2D" parent="." index="6"]
+[node name="Bubbles" type="Node2D" parent="." index="7"]
 script = ExtResource("4_r0uk3")
 
 [node name="InteractingBubbleMark" type="Marker2D" parent="Bubbles" index="0"]

@@ -22,3 +22,8 @@ func enter():
 ## Called when this state is removed as the current state.
 func exit():
 	pass
+
+
+## Called when the player inputs movement.
+func move(_delta: float):
+	pass

@@ -47,11 +47,11 @@ do set_player_anim("down")
 => END!
 
 ~ ice_skates_info
-{{green}}: (An ice skating set. I made these from ice shards found somewhere in the {{imaginary}}. But somehow, these skates feel real.)
+{{green}}: (An ice skating set. I made these from shards of ice in the {{imaginary}}. But somehow, these skates feel real.)
 => ice_skates
 
 ~ ice_skates_instruction
-{{green}}: (These skates produce new ice as I go. Thanks to this, should be able to cross water.)
+{{green}}: (These skates produce new ice as I go. Thanks to that, should be able to cross water.)
 => ice_skates
 
 ~ end_browsing

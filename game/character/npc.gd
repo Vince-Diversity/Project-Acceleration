@@ -119,8 +119,13 @@ func change_states(npc_state_id: String):
 
 
 ## Updates this NPC's movement at every frame.
-func roam():
+func roam(_delta: float):
 	current_state.roam()
+
+
+## Moves this npc and plays the walking animation.
+func move():
+	move_ordinary()
 
 
 ## Checks if the NPC has reached the next character's [member Character.following_area]

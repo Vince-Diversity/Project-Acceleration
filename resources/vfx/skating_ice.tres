@@ -1,0 +1,18 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://bkt0di82ilhft"]
+
+[ext_resource type="Texture2D" uid="uid://bqxhn4n2dim7a" path="res://assets/vfx/skating_ice.png" id="1_3tm3u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74ix8"]
+atlas = ExtResource("1_3tm3u")
+region = Rect2(0, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_74ix8")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
