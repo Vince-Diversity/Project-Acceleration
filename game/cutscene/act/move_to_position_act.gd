@@ -30,7 +30,7 @@ func update(delta: float):
 			var direction = mark_list[char_i].global_position - character.global_position
 			if direction.length() > delta * character.speed:
 				character.set_direction(direction)
-				character.move()
+				character.move(delta)
 			else:
 				character.set_direction(mark_list[char_i].get_target_direction())
 				character.update_direction()

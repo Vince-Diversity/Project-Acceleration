@@ -31,7 +31,7 @@ func check_interaction(_interactable_scene: Node2D):
 
 
 ## Called at every frame to move of the NPC with this state.
-func roam():
+func roam(_delta: float):
 	pass
 
 

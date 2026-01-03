@@ -119,12 +119,12 @@ func change_states(npc_state_id: String):
 
 
 ## Updates this NPC's movement at every frame.
-func roam(_delta: float):
-	current_state.roam()
+func roam(delta: float):
+	current_state.roam(delta)
 
 
 ## Moves this npc and plays the walking animation.
-func move():
+func move(_delta: float):
 	move_ordinary()
 
 
