@@ -42,6 +42,8 @@ const item_list_key = "item_list"
 const floating_key = "floating_item"
 const item_effect_key = "item_effect"
 
+const player_key = "player"
+const player_state_key = "player_state"
 
 ## Current version of the game.
 @export var game_version := ""

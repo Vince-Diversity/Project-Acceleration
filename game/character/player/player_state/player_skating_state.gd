@@ -40,4 +40,4 @@ func animate_idle():
 	player.animate_idle()
 	player.add_skating_ice()
 	# Reset movement counter
-	moved_distance = player.skating_ice_wavelength
+	moved_distance = 0

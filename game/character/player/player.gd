@@ -50,7 +50,7 @@ var nearest_interactable: Node2D:
 		nearest_interactable = interactable
 		_set_nearest_interactable(interactable)
 
-## Defaull [NPCState] when this NPC is added to the [SceneTree].
+## Default [PlayerState] when the player is added to the [SceneTree].
 var spawn_state: String = "player_ordinary_state"
 
 ## List of [PlayerState] instances labeled by each respective [member PlayerState.state_id].
@@ -58,6 +58,9 @@ var state_list: Dictionary
 
 ## Current activated NPC state instance.
 var current_state: PlayerState
+
+## Previous [member PlayerState.state_id] when the last [CutsceneState] ended.
+var preserved_state_id: String
 
 ## Emitted when the player interacts with the given [Interactable] scene root.
 signal player_interacted(interactable_scene: Node2D)
@@ -216,3 +219,28 @@ func _on_player_interacted(_interactable_scene: Node2D):
 ## Called when a [BrowseState] finishes.
 func _on_browsing_ended():
 	bubbles.reset_bubbles()
+
+
+## Saves changes to player to the given [code]sg[/code].
+func make_save(sg: SaveGame):
+	var player_dict = {}
+	sg.data[sg.player_key] = player_dict
+	player_dict[sg.player_state_key] = current_state.state_id
+
+
+## Saves changes to player at a previous point in the game session to the given [code]sg[/code].
+func make_preserved_save(sg: SaveGame):
+	var player_dict = {}
+	sg.data[sg.player_key] = player_dict
+	player_dict[sg.player_state_key] = preserved_state_id
+
+
+## Loads changes to player from the given [code]sg[/code].
+## Since this is a nested node, a parent node needs to call this when that parent is loaded.
+func load_save_from_parent(sg: SaveGame):
+	change_states(sg.data[sg.player_key][sg.player_state_key])
+
+
+## Called when a [CutsceneState] ends.
+func exit_cutscene():
+	preserved_state_id = current_state.state_id
