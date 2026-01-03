@@ -32,3 +32,12 @@ func move(delta: float):
 		# add a new ice instance to the scene tree
 		player.add_skating_ice()
 		moved_distance = 0
+
+
+## Plays the default idle animation.
+## Spawns skating ice so that the player is always standing on ice.
+func animate_idle():
+	player.animate_idle()
+	player.add_skating_ice()
+	# Reset movement counter
+	moved_distance = player.skating_ice_wavelength

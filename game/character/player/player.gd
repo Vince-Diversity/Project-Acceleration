@@ -20,6 +20,9 @@ class_name Player extends Character
 # The periodic distrance travelled to spawn new ice during skating state.
 @export var skating_ice_wavelength: float
 
+# The duration of spawned ice during skating state.
+@export var skating_ice_lifetime: float
+
 @onready var _direction_node: Marker2D = $Direction
 
 @onready var _skating_ice_mark: Marker2D = $SkatingIceMark
@@ -117,9 +120,9 @@ func change_states(player_state_id: String):
 func roam(delta: float):
 	_update_input_direction()
 	if inputted_direction == Vector2.ZERO:
-		animate_idle()
+		current_state.animate_idle()
 	else:
-		move(delta)
+		current_state.move(delta)
 	_check_nearest_interactable()
 
 
@@ -201,7 +204,7 @@ func close_item_bubble():
 ## Add one skating ice visual effect instance below the player.
 func add_skating_ice():
 	var skating_ice = _skating_ice_scn.instantiate()
-	skating_ice.global_position = _skating_ice_mark.global_position
+	skating_ice.init_vfx(_skating_ice_mark.global_position, skating_ice_lifetime)
 	vfx_created.emit(skating_ice)
 
 

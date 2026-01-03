@@ -6,6 +6,3 @@
 [node name="SkatingIce" type="AnimatedSprite2D"]
 sprite_frames = ExtResource("1_antmo")
 script = ExtResource("2_5168y")
-
-[node name="Lifetime" type="Timer" parent="."]
-autostart = true

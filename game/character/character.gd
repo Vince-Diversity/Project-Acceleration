@@ -36,11 +36,6 @@ func roam(_delta: float):
 	pass
 
 
-## Called when character is moving.
-func move(_delta: float):
-	pass
-
-
 ## Moves this character and plays the walking animation.
 func move_ordinary():
 	velocity = speed * inputted_direction

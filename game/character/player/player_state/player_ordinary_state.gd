@@ -15,3 +15,8 @@ func enter():
 ## Moves the player and plays the walking animation.
 func move(_delta: float):
 	player.move_ordinary()
+
+
+## Plays the default idle animation.
+func animate_idle():
+	player.animate_idle()

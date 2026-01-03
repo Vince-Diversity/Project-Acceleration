@@ -27,3 +27,7 @@ func exit():
 ## Called when the player inputs movement.
 func move(_delta: float):
 	pass
+
+## Called when there is no player input.
+func animate_idle():
+	pass
