@@ -178,12 +178,11 @@ func _pause():
 ## signal [code]dialogue_ended_target[/code]
 ## and the current activated [code]dialogue_cutscene[/code].
 ## Items have special titles given by [ItemSprite.interaction_dialogue_node].
-## If the dialogue resource filename or title is not found,
-## the title of an item is used instead.
-## (Since there is only one item so far, there is only one item to pick,
-## hence the [code]@experimental[/code] tag).
-## Otherwise, a default dialogue resource is used instead.
-## @experimental
+## If the dialogue resource filename is not found,
+## a default dialogue resource is used instead.
+## The default dialogue depends on what title is used.
+## If the title is "reveal", the default message for using the revealer is used.
+## Otherwise, the general default message used.
 func _on_textbox_started(
 		dialogue_id: String,
 		dialogue_node: String,
@@ -196,10 +195,7 @@ func _on_textbox_started(
 		dlg_path = Utils.get_dlg_path("default")
 	var dlg_res = load(dlg_path)
 	if dlg_res.lines.size() <= 0 or not dlg_res.titles.has(dialogue_node):
-		if Utils.has_res(
-				Utils.item_sprite_dir,
-				func(item_sprite):
-					return item_sprite.interaction_dialogue_node == dialogue_node):
+		if dialogue_node == "reveal":
 			dlg_path = Utils.get_dlg_path("default_reveal")
 			dialogue_node = "default"
 		else:

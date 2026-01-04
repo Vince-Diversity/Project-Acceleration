@@ -6,6 +6,8 @@ class_name Profile extends TextureRect
 ## The character ID is also the [DialogueLine] replacement variable of a character.
 ## For example, the player character ID is [code]green[/code].
 
+
+## Draw the current character's profile with the given expression ID [code]expression[/code].
 func express(expression: String):
 	var character_id = get_character_id(owner.dialogue_line)
 	var profile_path = get_profile_path(character_id, expression)

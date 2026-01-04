@@ -91,17 +91,6 @@ static func get_res_arr(res_dir_path: String) -> Array:
 	return name_arr
 
 
-## Calls a [code]boolean[/code] value function [code]res_condition[/code]
-## on all resources at the given directory path [code]res_dir_path[/code].
-## The given function takes one [Resource] argument.
-## Useful for checking for existence of certain properties within a set of custom resources.
-static func has_res(res_dir_path: String, res_condition: Callable) -> bool:
-	for res_file in get_res_arr(res_dir_path):
-		if res_condition.call(load(res_dir_path.path_join(res_file))):
-			return true
-	return false
-
-
 ## Gets the path to the background music [code].ogg[/code] asset
 ## with the given [code]bgm_name[/code] filename.
 static func get_bgm_path(bgm_name: String) -> String:

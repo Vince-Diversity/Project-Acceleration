@@ -5,19 +5,19 @@
 [ext_resource type="Script" uid="uid://dam0wesese5ew" path="res://game/ui/textbox/profile.gd" id="3_75bxf"]
 [ext_resource type="Texture2D" uid="uid://mll80h0bjcn8" path="res://assets/vfx/textbox_indicator.png" id="4_d5rb1"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5d24i"]
-content_margin_left = 40.0
-content_margin_top = 5.0
-content_margin_right = 5.0
-content_margin_bottom = 5.0
-bg_color = Color(1, 1, 1, 0.25098)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oj3c8"]
 content_margin_left = 40.0
 content_margin_top = 5.0
 content_margin_right = 5.0
 content_margin_bottom = 5.0
 draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5d24i"]
+content_margin_left = 40.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(1, 1, 1, 0.25098)
 
 [sub_resource type="Animation" id="Animation_t7nqa"]
 length = 0.001
@@ -135,8 +135,8 @@ theme_override_constants/separation = 2
 [node name="ResponseTemplate" type="RichTextLabel" parent="Overhead/Spacer/TextBackground/TextMargin/VBox"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_styles/focus = SubResource("StyleBoxFlat_5d24i")
 theme_override_styles/normal = SubResource("StyleBoxFlat_oj3c8")
+theme_override_styles/focus = SubResource("StyleBoxFlat_5d24i")
 bbcode_enabled = true
 text = "Response"
 fit_content = true
