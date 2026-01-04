@@ -4,7 +4,12 @@ class_name Profile extends TextureRect
 ## Profile image assets have the format "<character ID>_<expression ID>.png"
 ## if the profile image has an expression with that ID, otherwise it is just "<character ID>.png".
 ## The character ID is also the [DialogueLine] replacement variable of a character.
-## For example, the player character ID is [code]green[/code].
+## If the character is the player [code]green[/code] the profile depends on the character's state.
+## The directory containing the profile image assets for certain player states
+## is found using [member Utils.player_profile_dir_map].
+
+## The current [PlayerState].
+var player_state: PlayerState
 
 
 ## Draw the current character's profile with the given expression ID [code]expression[/code].
@@ -21,12 +26,17 @@ func express(expression: String):
 ## Gets path to the profile [code].png[/code] asset of the character
 ## with the given character ID [code]name[/code] and expression ID [code]expression[/code].
 func get_profile_path(character_name: String, expression: String) -> String:
+	var profile_dir_name
+	if character_name == "green":
+		profile_dir_name = player_state.profile_dir_name
+	else:
+		profile_dir_name = character_name
 	var profile_id
 	if expression.is_empty():
 		profile_id = character_name
 	else:
 		profile_id = "%s_%s" % [character_name, expression]
-	return Utils.profile_dir.path_join(character_name).path_join(profile_id + ".png")
+	return Utils.profile_dir.path_join(profile_dir_name).path_join(profile_id + ".png")
 
 
 ## Gets the character ID from the given [code]dlg_line[/code].

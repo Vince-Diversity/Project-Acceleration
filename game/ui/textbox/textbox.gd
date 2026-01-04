@@ -114,11 +114,15 @@ func _unhandled_input(_event: InputEvent) -> void:
 
 
 ## Start some dialogue
-func start(dialogue_resource: DialogueResource, title: String, extra_game_states: Array = []) -> void:
+func start(
+		dialogue_resource: DialogueResource,
+		title: String,
+		player_state: PlayerState,
+		extra_game_states: Array = []) -> void:
 	temporary_game_states = extra_game_states
-	temporary_game_states.push_front(profile)
 	is_waiting_for_input = false
 	resource = dialogue_resource
+	profile.player_state = player_state
 
 	self.dialogue_line = await resource.get_next_dialogue_line(title, temporary_game_states)
 

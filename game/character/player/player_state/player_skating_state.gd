@@ -1,7 +1,12 @@
 class_name PlayerSkatingState extends PlayerState
+## Player state when using ice skates.
 
 var moved_distance: float
 
+
+## Initialises this class.
+func init_state():
+	profile_dir_name = "green_skating"
 
 ## Changes player sprite and speed to skating.
 ## Set movement counter so that the next movement frame adds skating ice.

@@ -15,17 +15,6 @@ enum Elevation {
 	UI, ## In front of any characters or things in the environment.
 }
 
-const dlg_dir = "res://resources/dialogue/"
-const room_dir = "res://game/room/rooms/"
-const profile_dir = "res://assets/profiles/"
-const font_dir = "res://assets/fonts/"
-const bgm_dir = "res://assets/sound/bgm/"
-const npc_dir = "res://game/character/npcs/"
-const entrance_event_dir = "res://resources/events/entrance_events/"
-const item_dir = "res://game/item/items/"
-const item_sprite_dir = "res://resources/items/item_sprites"
-const character_sprite_dir = "res://resources/characters/"
-
 ## Maps a direction [Vector2] to an [enum AnimID] numbering.
 const anim_direction = {
 	Vector2.DOWN: AnimID.DOWN,
@@ -42,6 +31,18 @@ const anim_name = {
 	AnimID.UP: "up",
 	AnimID.RIGHT: "right",
 }
+
+## List of directory paths used in code.
+const dlg_dir = "res://resources/dialogue/"
+const room_dir = "res://game/room/rooms/"
+const profile_dir = "res://assets/profiles/"
+const font_dir = "res://assets/fonts/"
+const bgm_dir = "res://assets/sound/bgm/"
+const npc_dir = "res://game/character/npcs/"
+const entrance_event_dir = "res://resources/events/entrance_events/"
+const item_dir = "res://game/item/items/"
+const item_sprite_dir = "res://resources/items/item_sprites"
+const character_sprite_dir = "res://resources/characters/"
 
 
 ## Reverse accessing of [constant anim_direction].

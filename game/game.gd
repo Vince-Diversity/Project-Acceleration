@@ -203,7 +203,12 @@ func _on_textbox_started(
 			dialogue_node = "default"
 		dlg_res = load(dlg_path)
 	DialogueManager.dialogue_ended.connect(dialogue_ended_target, CONNECT_ONE_SHOT)
-	text_box.start(dlg_res, dialogue_node, [dialogue_cutscene])
+	text_box.start(
+		dlg_res,
+		dialogue_node,
+		current_room.party.player.current_state,
+		[dialogue_cutscene]
+	)
 
 
 ## Called when a [CutsceneState] ends.

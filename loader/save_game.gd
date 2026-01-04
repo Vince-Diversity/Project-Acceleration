@@ -56,6 +56,7 @@ const player_state_key = "player_state"
 	items_key: {},
 	party_key: [],
 	rooms_key: {},
+	player_key: {},
 }
 
 

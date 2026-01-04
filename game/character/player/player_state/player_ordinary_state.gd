@@ -1,4 +1,10 @@
 class_name PlayerOrdinaryState extends PlayerState
+## Default player state.
+
+
+## Initialises this class.
+func init_state():
+	profile_dir_name = "green"
 
 
 ## Changes player sprite and speed to the ordinary way.

@@ -76,7 +76,9 @@ signal vfx_created(vfx_scene: Node2D)
 
 
 func _ready():
+	_ordinary_state.init_state()
 	state_list[_ordinary_state.state_id] = _ordinary_state
+	_skating_state.init_state()
 	state_list[_skating_state.state_id] = _skating_state
 	current_state = state_list[spawn_state]
 	current_state.enter()
