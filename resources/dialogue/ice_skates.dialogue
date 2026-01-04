@@ -8,5 +8,6 @@ do wait(1)
 do set_player_exhibit_anim("ice_skates")
 [color=yellow]Obtained the {{skates}}![/color]
 do add_item("ice_skates")
+do set_thing_state("IceSkates", "thing_static_state")
 do set_player_anim("down")
 => END!

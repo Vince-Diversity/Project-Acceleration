@@ -26,4 +26,3 @@ position = Vector2(-16, -16)
 position = Vector2(480, 496)
 dialogue_id = "ice_skates"
 dialogue_node = "find_skates"
-is_oneshot = true

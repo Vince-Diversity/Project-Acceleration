@@ -402,6 +402,13 @@ func set_npc_dialogue_node(npc_node: String, dialogue_node: String):
 		owner.npcs.get_node(npc_node).dialogue_node = dialogue_node
 
 
+## Sets the [ThingState] of the [Thing] with the given [code]thing_node[/code] name
+## to the given [code]thing_state_id[/code].
+func set_thing_state(thing_node: String, thing_state_id: String):
+	if owner.things.has_node(thing_node):
+		owner.things.get_node(thing_node).change_states(thing_state_id)
+
+
 ## Sets the player state to the given [code]player_state_id[/code].
 func set_player_state(player_state_id: String):
 	owner.party.player.change_states(player_state_id)

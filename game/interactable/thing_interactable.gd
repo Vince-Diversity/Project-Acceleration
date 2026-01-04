@@ -11,5 +11,4 @@ func check_interaction(interactable_scene: Node2D):
 
 
 func _on_end_interaction():
-	if owner.is_oneshot:
-		owner.change_states("thing_static_state")
+	pass

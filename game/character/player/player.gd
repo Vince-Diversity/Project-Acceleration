@@ -131,8 +131,8 @@ func roam(delta: float):
 
 ## Moves the player depending on the player state 
 ## and updates the angle of the player's interaction area.
-func move(delta: float):
-	current_state.move(delta)
+func move_ordinary():
+	super()
 	_update_angle()
 
 

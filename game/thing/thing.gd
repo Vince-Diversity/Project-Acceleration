@@ -16,9 +16,6 @@ class_name Thing extends StaticBody2D
 ## Title of the desired dialogue, see [method DialogueResource.get_next_dialogue_line].
 @export var dialogue_node: String
 
-## After interacted with once, toggles if this thing can be interacted with again.
-@export var is_oneshot: bool = false
-
 ## Player animation when resting on this thing, if an interaction
 ## leading to a [RestCutscene] exists.
 @export var rest_animation: String = "default"
