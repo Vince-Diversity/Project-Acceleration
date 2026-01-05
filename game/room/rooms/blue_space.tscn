@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c1go3780g6ead" path="res://game/room/room.tscn" id="1_wjrk0"]
 [ext_resource type="TileSet" uid="uid://6rpdgv5ktydk" path="res://resources/tilesets/blue_space/blue_space.tres" id="2_hwmq3"]
 [ext_resource type="PackedScene" uid="uid://caxl0vhd0epgm" path="res://game/thing/door/spawn.tscn" id="3_mvyma"]
-[ext_resource type="PackedScene" uid="uid://bwvglald8j4h8" path="res://game/character/npcs/cyan.tscn" id="4_h2i1f"]
+[ext_resource type="PackedScene" uid="uid://bwvglald8j4h8" path="res://game/character/npc/npcs/cyan.tscn" id="4_h2i1f"]
 [ext_resource type="PackedScene" uid="uid://dfsg7htbnnkam" path="res://game/cutscene/dialogue_cutscene/ouroboros_cutscene/ouroboros_cutscene.tscn" id="5_4jaby"]
 [ext_resource type="PackedScene" uid="uid://dtkkkrcbtqu58" path="res://game/cutscene/character_mark.tscn" id="6_fahoj"]
 

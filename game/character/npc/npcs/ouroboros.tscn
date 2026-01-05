@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dw8b8p0xvgfc1"]
 
-[ext_resource type="PackedScene" uid="uid://4514c46hbp0d" path="res://game/character/npc.tscn" id="1_6jmhn"]
+[ext_resource type="PackedScene" uid="uid://4514c46hbp0d" path="res://game/character/npc/npc.tscn" id="1_6jmhn"]
 [ext_resource type="SpriteFrames" uid="uid://c4e00goyiyrsj" path="res://resources/characters/ouroboros.tres" id="2_c7hya"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e7jxb"]

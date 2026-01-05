@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bto0x53jpw8v2"]
 
-[ext_resource type="PackedScene" uid="uid://4514c46hbp0d" path="res://game/character/npc.tscn" id="1_lxdgu"]
+[ext_resource type="PackedScene" uid="uid://4514c46hbp0d" path="res://game/character/npc/npc.tscn" id="1_lxdgu"]
 [ext_resource type="SpriteFrames" uid="uid://cn2nw0b67d0w0" path="res://resources/characters/plain.tres" id="2_vbkk1"]
 
 [node name="Plain" instance=ExtResource("1_lxdgu")]

@@ -22,7 +22,7 @@ script = ExtResource("2_nbpss")
 ordinary_speed = 150.0
 skating_speed = 300.0
 skating_ice_wavelength = 25.0
-skating_ice_lifetime = 1.0
+skating_ice_lifetime = 0.4
 
 [node name="SkatingIceMark" type="Marker2D" parent="." index="0"]
 position = Vector2(0, 12)

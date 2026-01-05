@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://wt1m1uwjn41"]
 
-[ext_resource type="PackedScene" uid="uid://4514c46hbp0d" path="res://game/character/npc.tscn" id="1_2aics"]
+[ext_resource type="PackedScene" uid="uid://4514c46hbp0d" path="res://game/character/npc/npc.tscn" id="1_2aics"]
 [ext_resource type="SpriteFrames" uid="uid://c4yjelbi7walk" path="res://resources/characters/yellow_teacher.tres" id="2_w442m"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rrv5r"]

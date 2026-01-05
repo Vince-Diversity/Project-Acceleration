@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c1vykudqbyi8r"]
 
-[ext_resource type="PackedScene" uid="uid://4514c46hbp0d" path="res://game/character/npc.tscn" id="1_yemqm"]
+[ext_resource type="PackedScene" uid="uid://4514c46hbp0d" path="res://game/character/npc/npc.tscn" id="1_yemqm"]
 [ext_resource type="SpriteFrames" uid="uid://nkhbhv8w7qom" path="res://resources/characters/average.tres" id="2_7j5p3"]
 
 [node name="Average" instance=ExtResource("1_yemqm")]

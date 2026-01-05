@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dt35hq2ybk80i"]
 
-[ext_resource type="PackedScene" uid="uid://4514c46hbp0d" path="res://game/character/npc.tscn" id="1_racpr"]
+[ext_resource type="PackedScene" uid="uid://4514c46hbp0d" path="res://game/character/npc/npc.tscn" id="1_racpr"]
 [ext_resource type="SpriteFrames" uid="uid://cv6exjt8bycl7" path="res://resources/characters/cat.tres" id="2_t1548"]
 
 [node name="Cat" instance=ExtResource("1_racpr")]

@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://c1go3780g6ead" path="res://game/room/room.tscn" id="1_ybmy1"]
 [ext_resource type="TileSet" uid="uid://de7f3bgcrw16e" path="res://resources/tilesets/outdoor/outdoor_tiles.tres" id="2_bovem"]
 [ext_resource type="PackedScene" uid="uid://dsfvepwkk4y7l" path="res://game/thing/door/passage_down.tscn" id="3_6puuh"]
-[ext_resource type="PackedScene" uid="uid://c1vykudqbyi8r" path="res://game/character/npcs/average.tscn" id="4_kboo5"]
-[ext_resource type="PackedScene" uid="uid://bto0x53jpw8v2" path="res://game/character/npcs/plain.tscn" id="5_iemo3"]
+[ext_resource type="PackedScene" uid="uid://c1vykudqbyi8r" path="res://game/character/npc/npcs/average.tscn" id="4_kboo5"]
+[ext_resource type="PackedScene" uid="uid://bto0x53jpw8v2" path="res://game/character/npc/npcs/plain.tscn" id="5_iemo3"]
 [ext_resource type="PackedScene" uid="uid://bjl2k08srsmom" path="res://game/cutscene/dialogue_cutscene/sacred_indoor_cutscene/sacred_indoor_cutscene.tscn" id="6_1kiil"]
 
 [node name="SacredIndoor" instance=ExtResource("1_ybmy1")]

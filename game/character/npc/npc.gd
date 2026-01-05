@@ -50,13 +50,13 @@ class_name NPC extends Character
 @export var filename: String = ""
 
 @onready var _still_state: NPCStillState = \
-	preload("res://game/character/npc_state/npc_still_state.gd").new("npc_still_state", self)
+	preload("res://game/character/npc/npc_state/npc_still_state.gd").new("npc_still_state", self)
 
 @onready var _joined_state: NPCJoinedState = \
-	preload("res://game/character/npc_state/npc_joined_state.gd").new("npc_joined_state", self)
+	preload("res://game/character/npc/npc_state/npc_joined_state.gd").new("npc_joined_state", self)
 
 @onready var _waiting_state: NPCWaitingState = \
-	preload("res://game/character/npc_state/npc_waiting_state.gd").new("npc_waiting_state", self)
+	preload("res://game/character/npc/npc_state/npc_waiting_state.gd").new("npc_waiting_state", self)
 
 ## Reference to the interaction area of this NPC.
 @onready var interact_area: Interactable = $InteractArea

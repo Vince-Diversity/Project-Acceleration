@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b8llbyadkffk7"]
 
-[ext_resource type="PackedScene" uid="uid://4514c46hbp0d" path="res://game/character/npc.tscn" id="1_wc42u"]
+[ext_resource type="PackedScene" uid="uid://4514c46hbp0d" path="res://game/character/npc/npc.tscn" id="1_wc42u"]
 [ext_resource type="SpriteFrames" uid="uid://fvwww2y0mjlm" path="res://resources/characters/yellow.tres" id="2_8hd7a"]
 
 [node name="Yellow" instance=ExtResource("1_wc42u")]

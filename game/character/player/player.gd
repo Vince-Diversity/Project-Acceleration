@@ -25,8 +25,6 @@ class_name Player extends Character
 
 @onready var _direction_node: Marker2D = $Direction
 
-@onready var _skating_ice_mark: Marker2D = $SkatingIceMark
-
 ## Reference to the interaction area of the player.
 @onready var interact_area: Area2D = $Direction/InteractArea
 
@@ -38,9 +36,6 @@ class_name Player extends Character
 
 @onready var _skating_state: PlayerSkatingState = \
 	preload("res://game/character/player/player_state/player_skating_state.gd").new("player_skating_state", self)
-
-@onready var _skating_ice_scn: PackedScene = \
-	preload("res://game/vfx/skates/skating_ice.tscn")
 
 ## The [Interactable] scene root that is closest to the player.
 ## Is automatically updated at every frame.
@@ -73,6 +68,9 @@ signal browsing_ended
 
 ## Emitted when the player creates a visual effect.
 signal vfx_created(vfx_scene: Node2D)
+
+## Emitted when the player despawns a visual effect.
+signal vfx_despawned(vfx_scene: Node2D)
 
 
 func _ready():
@@ -204,13 +202,6 @@ func make_item_bubble():
 ## Closes any item thought bubbles.
 func close_item_bubble():
 	bubbles.item_bubble.close()
-
-
-## Add one skating ice visual effect instance below the player.
-func add_skating_ice():
-	var skating_ice = _skating_ice_scn.instantiate()
-	skating_ice.init_vfx(_skating_ice_mark.global_position, skating_ice_lifetime)
-	vfx_created.emit(skating_ice)
 
 
 ## Called when the player interacts with the given [Interactable] scene root, if that exists.

@@ -16,6 +16,7 @@ var player: Player
 ## Profile images directory name assigned by certain player states.
 var profile_dir_name: String
 
+
 ## Initialises this class, assigning the ID [member state_id]
 ## and player.
 func _init(given_state_id: String, given_player: Player):

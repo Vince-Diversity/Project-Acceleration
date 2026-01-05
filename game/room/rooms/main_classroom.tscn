@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c1go3780g6ead" path="res://game/room/room.tscn" id="1_puydi"]
 [ext_resource type="TileSet" uid="uid://fbrwk1wtxhe8" path="res://resources/tilesets/library_hall/library_hall.tres" id="2_fnk0d"]
-[ext_resource type="PackedScene" uid="uid://hx7u5ddkv1ay" path="res://game/character/npcs/blue_teacher.tscn" id="4_ftpyf"]
+[ext_resource type="PackedScene" uid="uid://hx7u5ddkv1ay" path="res://game/character/npc/npcs/blue_teacher.tscn" id="4_ftpyf"]
 [ext_resource type="PackedScene" uid="uid://dsfvepwkk4y7l" path="res://game/thing/door/passage_down.tscn" id="4_ht3iu"]
 [ext_resource type="PackedScene" uid="uid://bqlmbt878hrxk" path="res://game/cutscene/dialogue_cutscene.tscn" id="5_kfbhs"]
 [ext_resource type="PackedScene" uid="uid://dtkkkrcbtqu58" path="res://game/cutscene/character_mark.tscn" id="6_7yf1x"]

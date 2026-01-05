@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://dp8rmccxdjv43" path="res://resources/tilesets/red_hall/red_hall.tres" id="2_yqko7"]
 [ext_resource type="PackedScene" uid="uid://dd1fh5wb2qodd" path="res://game/thing/candle/candle.tscn" id="4_hawyn"]
 [ext_resource type="PackedScene" uid="uid://dsfvepwkk4y7l" path="res://game/thing/door/passage_down.tscn" id="4_hocku"]
-[ext_resource type="PackedScene" uid="uid://b7qeno5dve8jr" path="res://game/character/npcs/red.tscn" id="5_l3xwx"]
+[ext_resource type="PackedScene" uid="uid://b7qeno5dve8jr" path="res://game/character/npc/npcs/red.tscn" id="5_l3xwx"]
 [ext_resource type="PackedScene" uid="uid://bucnxlf0ifc8b" path="res://game/cutscene/dialogue_cutscene/red_cutscene/red_cutscene.tscn" id="6_lex8r"]
 
 [node name="RedClassroom" instance=ExtResource("1_duafj")]

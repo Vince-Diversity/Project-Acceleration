@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b7qeno5dve8jr"]
 
-[ext_resource type="PackedScene" uid="uid://4514c46hbp0d" path="res://game/character/npc.tscn" id="1_mtrnp"]
+[ext_resource type="PackedScene" uid="uid://4514c46hbp0d" path="res://game/character/npc/npc.tscn" id="1_mtrnp"]
 [ext_resource type="SpriteFrames" uid="uid://c3y11ekrf8h4m" path="res://resources/characters/red.tres" id="2_1ompt"]
 
 [node name="Red" instance=ExtResource("1_mtrnp")]

@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dsfvepwkk4y7l" path="res://game/thing/door/passage_down.tscn" id="4_pvbm1"]
 [ext_resource type="PackedScene" uid="uid://c1dqban1i65o7" path="res://game/cutscene/silent_cutscene/rest_cutscene/player_rest_cutscene.tscn" id="5_erosg"]
 [ext_resource type="PackedScene" uid="uid://1sj2uxtvkjet" path="res://game/thing/bed/bed.tscn" id="5_jpcpe"]
-[ext_resource type="PackedScene" uid="uid://dt35hq2ybk80i" path="res://game/character/npcs/cat.tscn" id="6_6s7sj"]
+[ext_resource type="PackedScene" uid="uid://dt35hq2ybk80i" path="res://game/character/npc/npcs/cat.tscn" id="6_6s7sj"]
 [ext_resource type="PackedScene" uid="uid://bqlmbt878hrxk" path="res://game/cutscene/dialogue_cutscene.tscn" id="8_0u1s5"]
 [ext_resource type="PackedScene" uid="uid://dtkkkrcbtqu58" path="res://game/cutscene/character_mark.tscn" id="9_5q03f"]
 

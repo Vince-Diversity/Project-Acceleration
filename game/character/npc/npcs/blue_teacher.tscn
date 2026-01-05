@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://hx7u5ddkv1ay"]
 
-[ext_resource type="PackedScene" uid="uid://4514c46hbp0d" path="res://game/character/npc.tscn" id="1_jcf5k"]
+[ext_resource type="PackedScene" uid="uid://4514c46hbp0d" path="res://game/character/npc/npc.tscn" id="1_jcf5k"]
 [ext_resource type="SpriteFrames" uid="uid://c7o8hihxuawh3" path="res://resources/characters/blue_teacher.tres" id="2_1ikvw"]
 
 [node name="BlueTeacher" instance=ExtResource("1_jcf5k")]

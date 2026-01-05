@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c1go3780g6ead" path="res://game/room/room.tscn" id="1_fro8s"]
 [ext_resource type="TileSet" uid="uid://de7f3bgcrw16e" path="res://resources/tilesets/outdoor/outdoor_tiles.tres" id="2_cn2o5"]
 [ext_resource type="PackedScene" uid="uid://ds7qjnbsyk3af" path="res://game/thing/door/disk.tscn" id="4_k2t01"]
-[ext_resource type="PackedScene" uid="uid://cyx3iouistsep" path="res://game/character/npcs/sacred.tscn" id="5_4hvmj"]
+[ext_resource type="PackedScene" uid="uid://cyx3iouistsep" path="res://game/character/npc/npcs/sacred.tscn" id="5_4hvmj"]
 [ext_resource type="PackedScene" uid="uid://b42fyr2j3e7l2" path="res://game/thing/door/sacred_passage_up.tscn" id="5_k2t01"]
 [ext_resource type="PackedScene" uid="uid://dfsg7htbnnkam" path="res://game/cutscene/dialogue_cutscene/ouroboros_cutscene/ouroboros_cutscene.tscn" id="7_k2t01"]
 [ext_resource type="PackedScene" uid="uid://dtkkkrcbtqu58" path="res://game/cutscene/character_mark.tscn" id="8_bw1sp"]

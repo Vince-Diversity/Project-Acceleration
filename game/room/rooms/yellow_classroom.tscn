@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://ktwgybjaovp" path="res://resources/tilesets/yellow_hall/yellow_hall.tres" id="2_k8q32"]
 [ext_resource type="PackedScene" uid="uid://dsfvepwkk4y7l" path="res://game/thing/door/passage_down.tscn" id="3_t61n0"]
 [ext_resource type="PackedScene" uid="uid://bfxedj2ub0nei" path="res://game/thing/computer/computer.tscn" id="4_fe07v"]
-[ext_resource type="PackedScene" uid="uid://wt1m1uwjn41" path="res://game/character/npcs/yellow_teacher.tscn" id="4_lnlq7"]
+[ext_resource type="PackedScene" uid="uid://wt1m1uwjn41" path="res://game/character/npc/npcs/yellow_teacher.tscn" id="4_lnlq7"]
 [ext_resource type="PackedScene" uid="uid://ca2ugu27spl0c" path="res://game/cutscene/dialogue_cutscene/yellow_teacher_cutscene/yellow_teacher_cutscene.tscn" id="5_3l17c"]
 [ext_resource type="PackedScene" uid="uid://bqlmbt878hrxk" path="res://game/cutscene/dialogue_cutscene.tscn" id="7_7odu3"]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bk16wp1xkfq2e"]
 
 [ext_resource type="Script" uid="uid://cs58k1typ0lhv" path="res://game/character/character.gd" id="1"]
-[ext_resource type="Script" uid="uid://8febkes2rup5" path="res://game/character/items.gd" id="2_vxkua"]
+[ext_resource type="Script" uid="uid://8febkes2rup5" path="res://game/character/player/items.gd" id="2_vxkua"]
 [ext_resource type="SpriteFrames" uid="uid://cg28xmmgcp04u" path="res://resources/vfx/exhibit_background.tres" id="3_0ggke"]
 
 [sub_resource type="CapsuleShape2D" id="1"]
