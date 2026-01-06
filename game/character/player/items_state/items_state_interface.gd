@@ -21,8 +21,8 @@ func make_state(given_character: Character):
 
 ## Called when the character of this state
 ## starts running an animation when selecting an item
-## with the given [code]item_id[/code].
-func animate_item_selected(_item_id: String):
+## optionally with the given [code]item_id[/code].
+func animate_item_selected(_item_id: String = ""):
 	pass
 
 

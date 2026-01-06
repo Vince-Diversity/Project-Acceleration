@@ -6,10 +6,21 @@ class_name Player extends Character
 ## areas in that it only extends in front of the player and turns with the player.
 ## [br]
 ## [br]
-## Also, the player character makes thought bubbles to signify when the player can
+## Apart from the [Interactable], the player has a following [Area2D] node
+## that other characters use to detect the player. The player also has
+## ground monitors that detects what kind of ground is below the player.
+## [br]
+## [br]
+## The player has a [PlayerState] that changes what the player can do.
+## For example, when the player is in [PlayerSkatingState], the player
+## is able to cross water.
+## [br]
+## [br]
+## The player character makes thought bubbles to signify when the player can
 ## make something in the game happen. These thought bubbles are managed by the
 ## [Bubbles] child node. When the player has obtained an item in their [Items] list,
 ## thought bubbles are also used to select items.
+
 
 # The player character speed during ordinary state.
 @export var ordinary_speed: float
@@ -28,6 +39,9 @@ class_name Player extends Character
 ## Reference to the interaction area of the player.
 @onready var interact_area: Area2D = $Direction/InteractArea
 
+## Reference to the node containing [Area2D] instances that check the ground.
+@onready var ground_checkers: Node2D = $GroundCheckers
+
 ## Reference to the bubbles child node.
 @onready var bubbles: Bubbles = $Bubbles
 
@@ -38,7 +52,6 @@ class_name Player extends Character
 	preload("res://game/character/player/player_state/player_skating_state.gd").new("player_skating_state", self)
 
 ## The [Interactable] scene root that is closest to the player.
-## Is automatically updated at every frame.
 ## Also updates the [member Bubbles.current_state] accordingly.
 var nearest_interactable: Node2D:
 	set(interactable):
@@ -120,13 +133,20 @@ func change_states(player_state_id: String):
 ## Reads the currently inputted direction and moves the player accordingly,
 ## or plays their idle animation if no movement is inputted.
 ## Also updates the [member nearest_interactable].
+## and the [member ground_checkers.current_physics_layer].
 func roam(delta: float):
 	_update_input_direction()
+	ground_checkers.update_ground_checker()
 	if inputted_direction == Vector2.ZERO:
 		current_state.animate_idle()
 	else:
-		current_state.move(delta)
+		move(delta)
 	_check_nearest_interactable()
+
+
+## Moves the player.
+func move(delta: float):
+	current_state.move(delta)
 
 
 ## Moves the player depending on the player state 
@@ -151,7 +171,9 @@ func _update_input_direction():
 
 
 func _check_nearest_interactable():
-	var areas: Array[Area2D] = interact_area.get_overlapping_areas()
+	# Area2D.get_overlapping_areas is not updated after physics but
+	# it can be used here because this check is visualized to the player.
+	var areas: Array = interact_area.get_overlapping_areas()
 	if areas.is_empty():
 		nearest_interactable = null
 	else:

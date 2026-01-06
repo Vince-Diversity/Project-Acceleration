@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmdh6il54gjbr"]
+
+[ext_resource type="PackedScene" uid="uid://bkfbxladoh1f5" path="res://game/character/player/ground_checker/ground_checker.tscn" id="1_yk0ow"]
+
+[node name="WaterChecker" instance=ExtResource("1_yk0ow")]
+collision_mask = 32
+physics_layer = 1

@@ -57,6 +57,7 @@ class_name Room extends Node2D
 @onready var _cutscene_state: CutsceneState = preload("res://game/game_state/cutscene_state.gd").new("cutscene_state")
 @onready var _browse_state: BrowseState = preload("res://game/game_state/browse_state.gd").new("browse_state")
 @onready var _dialogue_cutscene_scn: PackedScene = preload("res://game/cutscene/dialogue_cutscene.tscn")
+@onready var _browsing_cutscene_scn: PackedScene = preload("res://game/cutscene/dialogue_cutscene/browsing_cutscene/browsing_cutscene.tscn")
 
 ## The filename (without the extension) is used as ID for this class.
 var room_id: String
@@ -374,11 +375,12 @@ func _on_browsing_ended():
 ## The target of this cutscene is the [Item]
 ## instance that corresponds to that item.
 func _on_idle_bubbles_selected():
-	add_cutscene(_dialogue_cutscene_scn.instantiate(), _browse_state.browsing_cutscene_name)
+	var browsing_cutscene = _browsing_cutscene_scn.instantiate();
+	add_cutscene(browsing_cutscene, browsing_cutscene.name)
 	var item_id: String = party.player.bubbles.item_bubble.current_item_id
 	var item_dict: Dictionary = party.player.items.item_effect_list[item_id]
 	start_cutscene(
-		_browse_state.browsing_cutscene_name,
+		browsing_cutscene.name,
 		"browse_items",
 		item_dict[party.player.items.browse_dialogue_node_key],
 		null)

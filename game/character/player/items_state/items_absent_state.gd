@@ -3,7 +3,7 @@ class_name ItemsAbsentState extends ItemsState
 
 
 ## Items should not be selectable during this state.
-func animate_item_selected(_item_id: String):
+func animate_item_selected(_item_id: String = ""):
 	pass
 
 
@@ -12,8 +12,7 @@ func clear_holding():
 	pass
 
 
-## Clear any items that could be present
-## without the player holding it.
+## Clear any items that could be present without the player holding it.
 func clear_any():
 	character.items._clear_floating_item()
 

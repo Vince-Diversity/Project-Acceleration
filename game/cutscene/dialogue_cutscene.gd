@@ -332,7 +332,7 @@ func set_npc_exhibit_anim(npc_node: String, item_id: String):
 		owner.npcs.get_node(npc_node).items.change_states("items_exhibit_state")
 		owner.npcs.get_node(npc_node).items.animate_item_selected(item_id)
 
-## Sets an [ItemSprite] floating above the player.
+## Sets an [ItemSprite] floating above the player and the player to admire it.
 func set_above_player_float(item_id: String):
 	owner.party.player.items.change_states("items_above_state")
 	owner.party.player.items.animate_item_selected(item_id)
@@ -444,6 +444,14 @@ func set_item_browse_dialogue_node(item_id: String, dialogue_node: String):
 	if owner.party.player.items.item_id_list.has(item_id):
 		owner.party.player.items.item_effect_list[item_id][
 			owner.party.player.items.browse_dialogue_node_key] = dialogue_node
+
+
+## Sets the [member ItemsState.state_id] of the item
+## with the given [code]item_id[/code] to the given [code]items_state_id[/code].
+func set_item_items_state(item_id: String, items_state_id: String):
+	if owner.party.player.items.item_id_list.has(item_id):
+		owner.party.player.items.item_effect_list[item_id][
+			owner.party.player.items.items_state_id_key] = items_state_id
 
 
 ## Turns the [NPC] with the given [code]npc_node[/code] name

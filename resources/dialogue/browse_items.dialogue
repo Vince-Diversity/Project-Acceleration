@@ -1,7 +1,8 @@
 import "res://resources/dialogue/talk_ouroboros.dialogue" as ouroboros
+import "res://resources/dialogue/check_ground.dialogue" as physics_layer
 
 ~ revealer
-{{revealer}}
+({{revealer}}.)
 - Resume => end_browsing
 - Info => revealer_info
 - Instruction => revealer_instruction
@@ -35,7 +36,7 @@ import "res://resources/dialogue/talk_ouroboros.dialogue" as ouroboros
 => end_browsing
 
 ~ ice_skates
-{{skates}}
+({{skates}}.)
 - Resume => end_browsing
 - Equip => ice_skates_equip
 - Info => ice_skates_info
@@ -45,26 +46,32 @@ import "res://resources/dialogue/talk_ouroboros.dialogue" as ouroboros
 do set_player_state("player_skating_state")
 do set_player_anim("down")
 do set_item_browse_dialogue_node("ice_skates", "ice_skates_equipped")
-=> END!
+do set_item_items_state("ice_skates", "items_below_state")
+=> end_browsing
 
 ~ ice_skates_equipped
-{{skates}}
+({{skates}}.)
 - Resume => end_browsing
 - Unequip => ice_skates_unequip
+=> end_browsing
 
 ~ ice_skates_unequip
-do set_player_state("player_ordinary_state")
-do set_player_anim("down")
-do set_item_browse_dialogue_node("ice_skates", "ice_skates")
-=> END!
+if is_player_on_water
+	=>< physics_layer/water
+else
+	do set_player_state("player_ordinary_state")
+	do set_player_anim("down")
+	do set_item_browse_dialogue_node("ice_skates", "ice_skates")
+	do set_item_items_state("ice_skates", "items_exhibit_state")
+=> end_browsing
 
 ~ ice_skates_info
 {{green}}: (An ice skating set. I made these from shards of ice in the {{imaginary}}. But somehow, these skates feel real.)
-=> END!
+=> end_browsing
 
 ~ ice_skates_instruction
 {{green}}: (These skates produce new ice as I go. Thanks to that, should be able to cross water.)
-=> END!
+=> end_browsing
 
 ~ end_browsing
 do set_player_anim("default")

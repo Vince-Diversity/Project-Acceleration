@@ -21,7 +21,7 @@ func _clear_exhibit():
 
 
 ## Displays the item with the given [code]item_id[/code] when it is selected.
-func animate_item_selected(item_id: String):
+func animate_item_selected(item_id: String = ""):
 	character.set_animation(_exhibit_animation)
 	## reset any currently displayed item
 	_clear_exhibit()

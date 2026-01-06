@@ -1,8 +1,6 @@
 class_name BrowseState extends GameState
 ## Enables the player to look through currently obtained items.
 
-const browsing_cutscene_name = "BrowsingCutscene"
-
 var _party: Party
 var _previous_player_anim_name: String
 

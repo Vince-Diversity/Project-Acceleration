@@ -20,6 +20,8 @@ class_name Items extends Node2D
 	preload("res://game/character/player/items_state/items_exhibit_state.gd").new("items_exhibit_state")
 @onready var _above_state =\
 	preload("res://game/character/player/items_state/items_above_state.gd").new("items_above_state")
+@onready var _below_state =\
+	preload("res://game/character/player/items_state/items_below_state.gd").new("items_below_state")
 @warning_ignore("unused_private_class_variable")
 @onready var _exhibit_mark = $ExhibitMark
 @warning_ignore("unused_private_class_variable")
@@ -64,6 +66,7 @@ func _ready():
 	state_list[_absent_state.state_id] = _absent_state
 	state_list[_exhibit_state.state_id] = _exhibit_state
 	state_list[_above_state.state_id] = _above_state
+	state_list[_below_state.state_id] = _below_state
 	current_state = state_list[_absent_state.state_id]
 
 
@@ -96,6 +99,7 @@ func make_items(character: Character):
 	_absent_state.make_state(character)
 	_exhibit_state.make_state(character)
 	_above_state.make_state(character)
+	_below_state.make_state(character)
 
 
 ## Changes the [member current_state] to the given [code]items_state_id[/code].

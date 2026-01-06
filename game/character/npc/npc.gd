@@ -123,6 +123,11 @@ func roam(delta: float):
 	current_state.roam(delta)
 
 
+## Moves the NPC.
+func move(_delta: float):
+	move_ordinary()
+
+
 ## Checks if the NPC has reached the next character's [member Character.following_area]
 ## and stops this NPC's following movement if so.
 func _on_FollowingArea_area_entered(area: Area2D):

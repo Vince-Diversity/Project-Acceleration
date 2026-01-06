@@ -26,7 +26,7 @@ var new_game_entrance_node: String = "PassageDown"
 
 ## The first party during development.
 ## @experimental
-var new_game_party_list: Array[String] = ["Blue"]
+var new_game_party_list: Array = ["Blue"]
 
 @onready var _main_menu_scn: PackedScene = preload("res://loader/main_menu/main_menu.tscn")
 @onready var _game_scn: PackedScene = preload("res://game/game.tscn")

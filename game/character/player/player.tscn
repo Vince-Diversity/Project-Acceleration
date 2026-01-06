@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://kmbb38hp7tsk"]
+[gd_scene load_steps=10 format=3 uid="uid://kmbb38hp7tsk"]
 
 [ext_resource type="PackedScene" uid="uid://bk16wp1xkfq2e" path="res://game/character/character.tscn" id="1_8dn0h"]
 [ext_resource type="Script" uid="uid://bay2a8m3xg4uv" path="res://game/character/player/player.gd" id="2_nbpss"]
 [ext_resource type="SpriteFrames" uid="uid://bw3d835u2hv4x" path="res://resources/characters/green_skating.tres" id="3_uq84f"]
+[ext_resource type="Script" uid="uid://dubdh6i4gqoi6" path="res://game/character/player/ground_checkers.gd" id="4_8ttio"]
 [ext_resource type="Script" uid="uid://cukrr48qm650d" path="res://game/character/player/bubbles.gd" id="4_r0uk3"]
+[ext_resource type="PackedScene" uid="uid://dmdh6il54gjbr" path="res://game/character/player/ground_checker/water_checker.tscn" id="5_b2fya"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_act1d"]
 radius = 8.0
@@ -29,7 +31,7 @@ position = Vector2(0, 12)
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 sprite_frames = ExtResource("3_uq84f")
-animation = &"down"
+animation = &"exhibit"
 
 [node name="CollisionShape2D" parent="." index="2"]
 shape = SubResource("CircleShape2D_act1d")
@@ -53,15 +55,21 @@ collision_mask = 2
 [node name="CollisionShape2D" parent="FollowingArea" index="0"]
 shape = SubResource("CircleShape2D_rkx78")
 
-[node name="Items" parent="." index="6" groups=["Preserved"]]
+[node name="GroundCheckers" type="Node2D" parent="." index="6"]
+position = Vector2(0, 12)
+script = ExtResource("4_8ttio")
+
+[node name="WaterChecker" parent="GroundCheckers" index="0" instance=ExtResource("5_b2fya")]
+
+[node name="Items" parent="." index="7" groups=["Preserved"]]
 
 [node name="ExhibitMark" parent="Items" index="0"]
-position = Vector2(-10, -17)
+position = Vector2(-10, -12)
 
 [node name="FloatingMark" parent="Items" index="1"]
 position = Vector2(0, -20)
 
-[node name="Bubbles" type="Node2D" parent="." index="7"]
+[node name="Bubbles" type="Node2D" parent="." index="8"]
 script = ExtResource("4_r0uk3")
 
 [node name="InteractingBubbleMark" type="Marker2D" parent="Bubbles" index="0"]

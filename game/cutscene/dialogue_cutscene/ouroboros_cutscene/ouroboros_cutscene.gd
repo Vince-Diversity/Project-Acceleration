@@ -3,7 +3,4 @@ class_name OuroborosCutscene extends DialogueCutscene
 
 ## Checks if Sacred is in the current party.
 var is_ouroboros_joined: bool:
-	get:
-		if owner.party.player.has_item("ouroboros"):
-			return true
-		else: return false
+	get: return owner.party.player.has_item("ouroboros")

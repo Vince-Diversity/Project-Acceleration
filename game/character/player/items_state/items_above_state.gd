@@ -4,18 +4,15 @@ class_name ItemsAboveState extends ItemsState
 ## is played when the item is selected.
 
 
-var _item_above_animation = "admire_above"
-
-
 ## Has the item with the given [code]item_id[\code] float above the player.
-func animate_item_selected(item_id: String):
-	character.set_animation(_item_above_animation)
+func animate_item_selected(item_id: String = ""):
+	character.set_animation("admire_above")
 	## reset any currently floating items
 	character.items._clear_floating_item()
 	character.items._add_floating_item(item_id)
 
 
-## Keep any floating items.
+## The player should not be holding any items in this state.
 func clear_holding():
 	pass
 
@@ -25,6 +22,6 @@ func clear_any():
 	character.items._clear_floating_item()
 
 
-## The floating item and player reaction are being animated
+## The floating item and player reaction are being animated.
 func is_animating() -> bool:
 	return true

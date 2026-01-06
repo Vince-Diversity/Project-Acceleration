@@ -29,10 +29,10 @@ func exit():
 ## Updates the direction of the NPC with this state to move
 ## towards the player or the next [Party] member,
 ## or plays their idle animation if the NPC is already next to them.
-func roam(_delta: float):
+func roam(delta: float):
 	_set_following_direction()
 	if npc.is_following:
-		npc.move_ordinary()
+		npc.move(delta)
 	else:
 		npc.animate_idle()
 

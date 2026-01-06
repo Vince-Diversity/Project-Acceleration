@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://d10aj5pfxtg1b"]
+
+[ext_resource type="PackedScene" uid="uid://bqlmbt878hrxk" path="res://game/cutscene/dialogue_cutscene.tscn" id="1_rw6f3"]
+[ext_resource type="Script" uid="uid://dn3pq4pnskkx4" path="res://game/cutscene/dialogue_cutscene/browsing_cutscene/browsing_cutscene.gd" id="2_84bkw"]
+
+[node name="BrowsingCutscene" instance=ExtResource("1_rw6f3")]
+script = ExtResource("2_84bkw")

@@ -1,8 +1,9 @@
 class_name AreaCutscene extends DialogueCutscene
-# Base class for custom dialogue cutscenes that activates when entering or leaving certain subareas within the same world.
-# The idea is that the cutscene only plays the first time that area is entered or left.
-# However, for now at least, re-entering the [Room] instance with this cutscene makes it possible to replay this cutscene.
-# This is because cutscenes are not saved in the cache or in a save file.
+## Base class for custom dialogue cutscenes that activates when entering or leaving certain subareas within the same world.
+##
+## The idea is that the cutscene only plays the first time that area is entered or left.
+## However, for now at least, re-entering the [Room] instance with this cutscene makes it possible to replay this cutscene.
+## This is because cutscenes are not saved in the cache or in a save file.
 
 ## Filename of the [DialogueResource] containing the desired dialogue.
 @export var dialogue_id: String

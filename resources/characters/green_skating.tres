@@ -1,6 +1,7 @@
-[gd_resource type="SpriteFrames" load_steps=45 format=3 uid="uid://bw3d835u2hv4x"]
+[gd_resource type="SpriteFrames" load_steps=48 format=3 uid="uid://bw3d835u2hv4x"]
 
 [ext_resource type="Texture2D" uid="uid://ce0uotpd2u2lh" path="res://assets/characters/green/green_skater_admire_above.png" id="1_0orf5"]
+[ext_resource type="Texture2D" uid="uid://bw0me5mksusoc" path="res://assets/characters/green/green_skater_admire_below.png" id="2_862ik"]
 [ext_resource type="Texture2D" uid="uid://b6o4d78jf5720" path="res://assets/characters/green/green_skater_down.png" id="2_pkpyt"]
 [ext_resource type="Texture2D" uid="uid://gx0oackd0b1k" path="res://assets/characters/green/green_skater_exhibit.png" id="3_0orf5"]
 [ext_resource type="Texture2D" uid="uid://dwngx03ih6leb" path="res://assets/characters/green/green_focus.png" id="4_dcjhl"]
@@ -20,6 +21,14 @@ region = Rect2(0, 0, 63, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0l8lu"]
 atlas = ExtResource("1_0orf5")
+region = Rect2(63, 0, 63, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwyfr"]
+atlas = ExtResource("2_862ik")
+region = Rect2(0, 0, 63, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t24ca"]
+atlas = ExtResource("2_862ik")
 region = Rect2(63, 0, 63, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gswaj"]
@@ -149,6 +158,17 @@ animations = [{
 }],
 "loop": false,
 "name": &"admire_above",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwyfr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t24ca")
+}],
+"loop": false,
+"name": &"admire_below",
 "speed": 5.0
 }, {
 "frames": [{

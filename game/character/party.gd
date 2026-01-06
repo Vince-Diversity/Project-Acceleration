@@ -21,7 +21,7 @@ var player: Player
 
 ## List of the party members' node names, excluding the player,
 ## after the last [CutsceneState] ended.
-var preserved_party_list: Array[String]
+var preserved_party_list: Array
 
 
 ## Removes the given party [code]member[/code] node name,
@@ -159,8 +159,8 @@ func get_next_member(member: NPC) -> Character:
 
 
 ## Gets a list of party member node names in the order which they follow one another.
-func get_party_list() -> Array[String]:
-	var party_list: Array[String] = []
+func get_party_list() -> Array:
+	var party_list: Array = []
 	for member in get_members_ordered():
 		party_list.append(member.name)
 	return party_list
