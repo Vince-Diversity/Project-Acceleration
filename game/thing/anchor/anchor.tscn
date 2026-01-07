@@ -1,0 +1,71 @@
+[gd_scene load_steps=9 format=3 uid="uid://b7kbn07ds4eh8"]
+
+[ext_resource type="PackedScene" uid="uid://nfl8ij5d7dfw" path="res://game/thing/thing.tscn" id="1_6x41p"]
+[ext_resource type="SpriteFrames" uid="uid://d1bmvn1mbtaah" path="res://resources/things/anchor.tres" id="2_emb7m"]
+[ext_resource type="Script" uid="uid://6vvtohh3jggf" path="res://game/thing/anchor/anchor.gd" id="2_grou5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_grou5"]
+radius = 18.33
+height = 61.63
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lfiu7"]
+radius = 25.0
+height = 50.0
+
+[sub_resource type="Animation" id="Animation_emb7m"]
+resource_name = "drift"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 6, -0.33333334, 0, 0, 0, 0, -0.33333334, 0, 0, 0),
+"times": PackedFloat32Array(0, 2, 4)
+}
+
+[sub_resource type="Animation" id="Animation_grou5"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lfiu7"]
+_data = {
+&"RESET": SubResource("Animation_grou5"),
+&"drift": SubResource("Animation_emb7m")
+}
+
+[node name="Anchor" instance=ExtResource("1_6x41p")]
+script = ExtResource("2_grou5")
+dialogue_id = "talk_ant"
+dialogue_node = "ant_1"
+spawn_state_id = "thing_static_state"
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = ExtResource("2_emb7m")
+animation = &"ant"
+
+[node name="CollisionShape2D" parent="InteractArea" index="0"]
+shape = SubResource("CapsuleShape2D_grou5")
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2(0, 9)
+shape = SubResource("CapsuleShape2D_lfiu7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+libraries = {
+&"": SubResource("AnimationLibrary_lfiu7")
+}

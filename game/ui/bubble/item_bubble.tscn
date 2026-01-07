@@ -92,7 +92,7 @@ sprite_frames = ExtResource("2_tj1gk")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
 libraries = {
-"": SubResource("AnimationLibrary_celc1")
+&"": SubResource("AnimationLibrary_celc1")
 }
 
 [node name="SelectIndicator" type="Sprite2D" parent="." index="2"]

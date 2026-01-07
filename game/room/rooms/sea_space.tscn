@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=4 uid="uid://bahja515aroja"]
+[gd_scene load_steps=6 format=4 uid="uid://bahja515aroja"]
 
 [ext_resource type="PackedScene" uid="uid://c1go3780g6ead" path="res://game/room/room.tscn" id="1_5syy6"]
 [ext_resource type="TileSet" uid="uid://2c3l3d1m0cwu" path="res://resources/tilesets/sea_space/sea_space.tres" id="2_kyoid"]
 [ext_resource type="PackedScene" uid="uid://b0ivfex0i6i6s" path="res://game/thing/door/sacred_statue.tscn" id="3_08afl"]
 [ext_resource type="PackedScene" uid="uid://ijf27dc2kvyh" path="res://game/thing/ice/ice_skates.tscn" id="4_np470"]
+[ext_resource type="PackedScene" uid="uid://b7kbn07ds4eh8" path="res://game/thing/anchor/anchor.tscn" id="5_trw88"]
 
 [node name="SeaSpace" instance=ExtResource("1_5syy6")]
 
@@ -26,3 +27,9 @@ position = Vector2(-16, -16)
 position = Vector2(480, 496)
 dialogue_id = "ice_skates"
 dialogue_node = "find_skates"
+
+[node name="Anchor" parent="YSort/Things" index="1" instance=ExtResource("5_trw88")]
+position = Vector2(762, 362)
+dialogue_id = "talk_ant"
+dialogue_node = "ant_1"
+spawn_state_id = "thing_interactable_state"

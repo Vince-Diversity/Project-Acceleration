@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://q5po6rgcxgow"
+path="res://.godot/imported/talk_ant.dialogue-750d7779eb89fb3f12f38a756632b880.tres"
+
+[deps]
+
+source_file="res://resources/dialogue/talk_ant.dialogue"
+dest_files=["res://.godot/imported/talk_ant.dialogue-750d7779eb89fb3f12f38a756632b880.tres"]
+
+[params]
+
+defaults=true

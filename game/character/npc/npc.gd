@@ -13,9 +13,8 @@ class_name NPC extends Character
 ## [br]
 ## [br]
 ## Some NPCs can not enter the certain spawn points, called gateways,
-## where [Door.is_gateway] is set to true. These NPCs are called "imaginary"
+## where [member Door.is_gateway] is set to true. These NPCs are called "imaginary"
 ## and have the [member is_imaginary] property set to true.
-## Hence, for an imaginary NPC, the game world is divided into categories.
 ## When the player attempts to enter a gateway with an imaginary NPC as party member,
 ## the NPC either waits at the gateway or returns to its spawn point.
 ## To enable this behaviour, the [member is_waiting_at_gateway] is set to true.

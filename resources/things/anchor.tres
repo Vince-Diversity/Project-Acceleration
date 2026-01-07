@@ -1,0 +1,30 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://d1bmvn1mbtaah"]
+
+[ext_resource type="Texture2D" uid="uid://1j4l7se3cbwa" path="res://assets/things/sea_space.png" id="1_jg7tg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jg7tg"]
+atlas = ExtResource("1_jg7tg")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_41j5s"]
+atlas = ExtResource("1_jg7tg")
+region = Rect2(128, 0, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jg7tg")
+}],
+"loop": false,
+"name": &"ant",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_41j5s")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
