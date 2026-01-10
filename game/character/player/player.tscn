@@ -60,6 +60,7 @@ position = Vector2(0, 12)
 script = ExtResource("4_8ttio")
 
 [node name="WaterChecker" parent="GroundCheckers" index="0" instance=ExtResource("5_b2fya")]
+physics_layer = 2
 
 [node name="Items" parent="." index="7" groups=["Preserved"]]
 

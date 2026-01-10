@@ -16,7 +16,7 @@ enum Elevation {
 }
 
 ## Tilemap collision physics layer enumeration.
-enum PhysicsLayer {NONE, WATER}
+enum PhysicsLayer {NONE, WALL, WATER}
 
 ## Maps a direction [Vector2] to an [enum AnimID] numbering.
 const anim_direction = {
@@ -86,7 +86,7 @@ static func get_room_path(room_id: String) -> String:
 
 
 ## Gets an array of all resources in a given directory path [code]res_dir_path[/code].
-static func get_res_arr(res_dir_path: String) -> Array[String]:
+static func get_res_arr(res_dir_path: String) -> Array:
 	var res_dir = DirAccess.open(res_dir_path)
 	var name_arr = Array(res_dir.get_files())
 	for name in name_arr:
