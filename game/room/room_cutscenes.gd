@@ -14,7 +14,6 @@ var current_dialogue_node: String
 ## to be considered as the target of the current cutscene.
 var current_source_node: Node2D
 
-
 ## Lists cutscene node names related to item usage, labeled by the current item ID.
 ## The list is gradually updated in the current [Room] instance when items are used.
 var item_interact_cutscenes: Dictionary

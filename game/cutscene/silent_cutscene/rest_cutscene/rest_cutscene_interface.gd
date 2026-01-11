@@ -13,6 +13,7 @@ class_name RestCutscene extends SilentCutscene
 
 ## Creates acts and configures the involved characters and things to allow for the cutscene to play out.
 func start_cutscene():
+	next_state = "rest_state"
 	if get_thing().elevate_characters:
 		owner.party.set_z_index(Utils.Elevation.FRONT)
 	set_thing_state(
@@ -26,12 +27,6 @@ func _make_rest_state():
 	owner.rest_state.make_state(
 		stand_up_node_name,
 		get_thing())
-
-
-## Finishes this cutscene and changes the current game session state to [RestState].
-func end_cutscene():
-	super()
-	cutscene_ended.emit("rest_state")
 
 
 ## Gets the resting animation name which a character has when resting.

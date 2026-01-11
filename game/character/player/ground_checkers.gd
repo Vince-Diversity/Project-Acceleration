@@ -4,6 +4,9 @@ class_name GroundCheckers extends Node2D
 ## The player can cross physics layers depending on their [PlayerState].
 ## This class is used to check if the player is allowed to change states
 ## on certain physics layers. If not allowed, a dialogue plays.
+##
+## The ground checker global position is also implicitly used to give the position of the
+## surface that the player is standing on.
 
 
 ## What physics layer the player is currently on,

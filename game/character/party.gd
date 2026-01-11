@@ -162,5 +162,5 @@ func get_next_member(member: NPC) -> Character:
 func get_party_list() -> Array:
 	var party_list: Array = []
 	for member in get_members_ordered():
-		party_list.append(member.name)
+		party_list.append(String(member.name))
 	return party_list

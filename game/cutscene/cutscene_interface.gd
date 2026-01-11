@@ -22,6 +22,9 @@ class_name Cutscene extends Node2D
 @onready var _async_act_scr: GDScript = preload("res://game/cutscene/act/async_act.gd")
 @onready var _set_act_scr: GDScript = preload("res://game/cutscene/act/set_act.gd")
 
+## The next [GameState] entered when this cutscene finishes.
+var next_state: String = "roam_state"
+
 ## Reference to the cutscenes node of the current [Room].
 var cutscenes: RoomCutscenes
 
@@ -46,6 +49,7 @@ func init_cutscene(given_cutscenes: RoomCutscenes, given_screen: Screen):
 
 
 ## Starts the cutscene, creating the [ActManager] and associated [Act] instances if needed.
+## Optionally, assigns the [member next_state] for when this cutscene ends.
 func start_cutscene():
 	pass
 
@@ -150,6 +154,21 @@ func make_async() -> AsyncAct:
 	return async_act
 
 
+## Changes the current [Room] instance to that of the given
+## [code]room_id[/code], using the spawn point with the given
+## [code]entrance_node[/code] name.
+## Does not handle when [member NPC.is_imaginary] is true,
+## since those require the exit door of the current room to be known.
+##
+## To save changes made during the cutscene before changing rooms,
+## the next state is set to a temporary state [PassageState]
+## before changing rooms. Still, if any [Act] instances remain to be played out
+## during this cutscene, they will be played out before changing state and room.
+func change_rooms(room_id: String, entrance_node: String):
+	owner.passage_state.make_state(room_id, entrance_node)
+	next_state = "passage_state"
+
+
 ## Checks if an [NPC] with the given [code]npc_node[/code] name is a party member.
 func is_joined(npc_node: String) -> bool:
 	return owner.party.has_member(npc_node)
@@ -163,6 +182,7 @@ func begin_cutscene():
 ## Called when [member actm] reaches the end of its act list.
 func end_cutscene():
 	owner.end_interaction.emit()
+	cutscene_ended.emit(next_state)
 
 
 ## Called at every frame update.
