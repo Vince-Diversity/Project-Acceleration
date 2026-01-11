@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c0pcphu1wy728" path="res://game/thing/ice_shards/ice_skates.tscn" id="4_mdkr6"]
 [ext_resource type="PackedScene" uid="uid://b7kbn07ds4eh8" path="res://game/thing/anchor/anchor.tscn" id="5_trw88"]
 [ext_resource type="PackedScene" uid="uid://c2ojhrolrg4q" path="res://resources/things/ice/ice_ant.tscn" id="6_trw88"]
-[ext_resource type="PackedScene" uid="uid://6ik0w8xgsrqp" path="res://game/cutscene/silent_cutscene/reveal_surface_cutscene/reveal_surface_cutscene.tscn" id="7_rl23f"]
+[ext_resource type="PackedScene" uid="uid://6ik0w8xgsrqp" path="res://game/room/reveal_surface.tscn" id="7_rl23f"]
 
 [node name="SeaSpace" instance=ExtResource("1_5syy6")]
 
@@ -62,7 +62,7 @@ spawn_state_id = "thing_interactable_state"
 [node name="IceAnt" parent="YSort/Things" index="8" instance=ExtResource("6_trw88")]
 position = Vector2(5056, 5248)
 
-[node name="Reveal" parent="RoomCutscenes" index="0" node_paths=PackedStringArray("tile_map_layer") instance=ExtResource("7_rl23f")]
-tile_map_layer = NodePath("../../TileMap/Surface")
+[node name="Reveal" parent="." index="5" node_paths=PackedStringArray("tile_map_layer") instance=ExtResource("7_rl23f")]
+tile_map_layer = NodePath("../TileMap/Surface")
 next_room_id = "main_entrance"
 next_room_entrance_node = "PassageDown"

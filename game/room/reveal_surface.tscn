@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://6ik0w8xgsrqp"]
 
 [ext_resource type="PackedScene" uid="uid://brcoy56hf7tyi" path="res://game/cutscene/silent_cutscene.tscn" id="1_baskj"]
-[ext_resource type="Script" uid="uid://cmwwen1fcul8c" path="res://game/cutscene/silent_cutscene/reveal_surface_cutscene/reveal_surface_cutscene.gd" id="2_y4k0i"]
+[ext_resource type="Script" uid="uid://cmwwen1fcul8c" path="res://game/room/reveal_surface.gd" id="2_y4k0i"]
 
 [node name="Reveal" instance=ExtResource("1_baskj")]
 script = ExtResource("2_y4k0i")

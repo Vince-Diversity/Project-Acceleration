@@ -1,5 +1,8 @@
-class_name RevealSurface extends SilentCutscene
-## Cutscene for when the player uses the revealer item on below surface.
+class_name RevealSurface extends Node2D
+## Node for when the player uses the revealer on the surface below the player.
+##
+## Surfaces that can be revealed on cells where
+## it has a tile data with name "imaginary" that is set to true.
 
 ## [Room] tile map layer that is considered the surface that the player is standing on.
 @export var tile_map_layer: TileMapLayer
@@ -16,7 +19,7 @@ const _imaginary_tile_map_cell_name = "imaginary"
 ## Check the tile below the player.
 ## If it has the custom data "imaginary" set to true,
 ## returns true. Otherwise false.
-func reveal() -> bool:
+func is_current_surface_imaginary() -> bool:
 	var surface_pos = owner.party.player.ground_checkers.global_position
 	var surface_cell = tile_map_layer.local_to_map(surface_pos)
 	var surface_cell_data = tile_map_layer.get_cell_tile_data(surface_cell)
