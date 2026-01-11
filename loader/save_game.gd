@@ -21,6 +21,7 @@ const npcs_key = "npcs"
 
 const condition_key = "conditions"
 const mentoring_condition_key = "is_mentoring"
+const surface_condition_key = "is_checking_surface"
 
 const state_key = "current_state"
 const filename_key = "filename"

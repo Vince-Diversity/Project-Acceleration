@@ -7,6 +7,7 @@ script = ExtResource("1_oc726")
 game_version = "0.3"
 data = {
 "conditions": {
+"is_checking_surface": true,
 "is_mentoring": false
 },
 "game": {

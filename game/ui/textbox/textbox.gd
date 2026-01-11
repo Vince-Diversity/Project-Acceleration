@@ -57,12 +57,12 @@ var dialogue_line: DialogueLine:
 		_responses_menu.modulate.a = 0
 		if dialogue_line.responses.size() > 0:
 			for response in dialogue_line.responses:
+				if not response.is_allowed:
+					## Skip this response
+					continue
 				# Duplicate the template so we can grab the fonts, sizing, etc
 				var item: RichTextLabel = _response_template.duplicate(0)
 				item.name = "Response%d" % _responses_menu.get_child_count()
-				if not response.is_allowed:
-					item.name = String(item.name) + "Disallowed"
-					item.modulate.a = 0.4
 				item.text = response.text
 				item.show()
 				_responses_menu.add_child(item)

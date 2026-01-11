@@ -6,6 +6,7 @@ import "res://resources/dialogue/check_ground.dialogue" as physics_layer
 - Resume => end_browsing
 - Info => revealer_info
 - Instruction => revealer_instruction
+- Check surface [if is_checking_surface] => revealer_surface
 
 ~ revealer_info
 {{green}}: (A pair of glasses that I received from {{yellow}}. It has a golden frame, but it's fake gold. One of the lens holders has an improvised lens system attached. The other is covered.)
@@ -14,6 +15,10 @@ import "res://resources/dialogue/check_ground.dialogue" as physics_layer
 ~ revealer_instruction
 {{green}}: (If I am near a thing or person, close enough to interact with them, and then bring this item out again, I might be able to make something happen.)
 => revealer
+
+~ revealer_surface
+do reveal_surface()
+=> end_browsing
 
 ~ ouroboros
 (The {{ouroboros}} is floating above my head.)
@@ -70,7 +75,7 @@ else
 => end_browsing
 
 ~ ice_skates_instruction
-{{green}}: (These skates produce new ice as I go. Thanks to that, should be able to cross water.)
+{{green}}: (These skates produce ice when I move. Thanks to that, should be able to cross water.)
 => end_browsing
 
 ~ end_browsing

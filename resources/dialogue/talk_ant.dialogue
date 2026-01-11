@@ -1,3 +1,30 @@
 ~ ant_1
 {{ant}}: Always drifting.
-=> END
+=> END!
+
+ ~ ant_2
+{{ant}}:  Always drifting.
+=> END!
+
+ ~ ant_4
+{{ant}}:  Always drifting.
+=> END!
+
+ ~ ant_5
+{{ant}}:  Always drifting.
+=> END!
+
+ ~ ant_6
+{{ant}}:  Always drifting.
+=> END!
+
+ ~ ant_7
+{{ant}}:  Always drifting.
+=> END!
+
+~ ant_final
+{{ant}}: This world has no foundation. Please spread this knowledge to my siblings.
+{{green}}: I can help you. How many siblings do you have?
+{{ant}}: I have seven.
+{{green}}: Okay, I'll let you know when I've informed them.
+=> END!
