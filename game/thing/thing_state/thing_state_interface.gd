@@ -39,6 +39,9 @@ func make_save(sg: SaveGame):
 	thing_dict[sg.state_key] = thing.current_state.state_id
 	thing_dict[sg.anim_key] = thing.anim_sprite.animation
 	thing_dict[sg.frame_key] = thing.anim_sprite.frame
+	thing_dict[sg.interaction_key] = thing.interaction_node
+	thing_dict[sg.dialogue_id_key] = thing.dialogue_id
+	thing_dict[sg.dialogue_node_key] = thing.dialogue_node
 
 
 ## Saves this thing at a previous point in the game session to the given [code]sg[/code].
@@ -50,3 +53,6 @@ func make_preserved_save(sg: SaveGame):
 	thing_dict[sg.state_key] = thing.preserved_state_id
 	thing_dict[sg.anim_key] = thing.preserved_anim_name
 	thing_dict[sg.frame_key] = 0
+	thing_dict[sg.interaction_key] = thing.interaction_node
+	thing_dict[sg.dialogue_id_key] = thing.dialogue_id
+	thing_dict[sg.dialogue_node_key] = thing.dialogue_node

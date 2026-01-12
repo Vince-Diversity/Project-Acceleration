@@ -87,6 +87,9 @@ func load_save(sg: SaveGame):
 		anim_sprite.set_animation(thing_dict[sg.anim_key])
 		anim_sprite.set_frame(thing_dict[sg.frame_key])
 		anim_sprite.play()
+		interaction_node = thing_dict[sg.interaction_key]
+		dialogue_id = thing_dict[sg.dialogue_id_key]
+		dialogue_node = thing_dict[sg.dialogue_node_key]
 
 
 ## Used to implement any RNG behaviour of this thing.

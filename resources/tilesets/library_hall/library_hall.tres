@@ -244,6 +244,7 @@ texture_region_size = Vector2i(64, 64)
 3:0/0 = 0
 4:0/0 = 0
 3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-24.272377, -14.111847, 27.094746, -14.111847, 27.094746, 17.498688, -25.401325, 16.934212)
 4:1/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6v10l"]

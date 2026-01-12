@@ -4,8 +4,8 @@
 [ext_resource type="SpriteFrames" uid="uid://dbfdktg8gg4b7" path="res://resources/things/ice/ice_ant.tres" id="2_qli8y"]
 
 [node name="IceAnt" instance=ExtResource("1_yc3pb")]
+interaction_node = "AntDriftingCutscene"
 dialogue_id = "talk_ant"
-dialogue_node = "ant_final"
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = ExtResource("2_qli8y")

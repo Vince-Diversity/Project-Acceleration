@@ -109,7 +109,7 @@ do set_player_exhibit_anim("revealer")
 [color=yellow]Obtained the {{revealer}}![/color]
 do add_item("revealer")
 do set_player_anim("left")
-The {{revealer}} has been stored in the {{inventory}}. [color=yellow]Check on obtained items with the X  key.[/color]
+The {{revealer}} has been stored in the {{inventory}}. [color=yellow]Check on obtained items with the X key.[/color]
 {{yellow}}: [#expression=crying] I don't understand, an even number would be impossible in that situation!
 {{amber}}: Impossible? No...
 do move_npc("Amber", "AmberMark2", "fury")
@@ -118,8 +118,7 @@ do move_npc("Amber", "AmberMark2", "fury")
 ~ fury
 do set_npc_anim("Yellow", "down")
 do set_npc_anim("Amber", "up_angry")
-{{amber}}: [#expression=angry] So not only have you been manipulating us with false dice all this time,
-{{amber}}: [#expression=angry] but you also attempted to trick {{green}} with a fake bet? You rat!
+{{amber}}: [#expression=angry] So you've been manipulating us this whole time? You rat!
 {{yellow}}: [#expression=scared] {{amber}}, you hair, s-s-static electricity!
 {{amber}}: [#expression=angry] Is that so? How about we perform some experiments on our lab rat?
 {{yellow}}: [#expression=scared] Eep!

@@ -1,34 +1,38 @@
-~ ant_1
+~ ant_searching
 {{ant}}: Always drifting.
 => END!
 
- ~ ant_2
-{{ant}}:  Always drifting.
+ ~ ant_inform
+{{green}}: Hi. I am here to inform you about your sibling's findings. Here's what they said:
+{{green}}: "This world has no foundation. The ice is too thin to sustain us."
+{{ant}}: No foundation?
+{{ant}}: No foundation.
+do set_dialogue_node("ant_enlightened")
 => END!
 
-~ ant_3
-{{ant}}:  Always drifting.
+~ ant_enlightened
+{{ant}}: No foundation.
 => END!
 
- ~ ant_4
-{{ant}}:  Always drifting.
-=> END!
-
- ~ ant_5
-{{ant}}:  Always drifting.
-=> END!
-
- ~ ant_6
-{{ant}}:  Always drifting.
-=> END!
-
- ~ ant_7
-{{ant}}:  Always drifting.
-=> END!
-
-~ ant_final
-{{ant}}: This world has no foundation. Please spread this knowledge to my siblings.
+~ ant_ice_request
+{{ant}}: This world has no foundation. The ice is too thin to sustain our weight. Please spread this knowledge to my siblings.
 {{green}}: I can help you. How many siblings do you have?
 {{ant}}: I have seven.
-{{green}}: Okay, I'll let you know when I've informed them.
+{{green}}: Okay!
+do set_anchors_dialogue_node("ant_inform")
+do set_dialogue_node("ant_ice_complete")
+=> END!
+
+~ ant_ice_complete
+{{green}}: (Have I informed all ant siblings now?)
+- Yes => yes
+- No => END!
+
+~ yes
+{{ant}}: Thank you, light sibling. Please be mindful.
+{{green}}: May I ask, do you see a piece of land around us right now?
+{{ant}}: No land.
+{{green}}: (Maybe I should examine the ground as well.)
+[color=yellow]The {{revealer}} can now be used to check the surface below you.[/color]
+set is_checking_surface =  true
 => END!

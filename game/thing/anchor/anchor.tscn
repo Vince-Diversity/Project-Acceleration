@@ -12,6 +12,20 @@ height = 61.63
 radius = 25.0
 height = 50.0
 
+[sub_resource type="Animation" id="Animation_grou5"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
 [sub_resource type="Animation" id="Animation_emb7m"]
 resource_name = "drift"
 length = 4.0
@@ -28,20 +42,6 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 2, 4)
 }
 
-[sub_resource type="Animation" id="Animation_grou5"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:position:y")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lfiu7"]
 _data = {
 &"RESET": SubResource("Animation_grou5"),
@@ -50,8 +50,9 @@ _data = {
 
 [node name="Anchor" instance=ExtResource("1_6x41p")]
 script = ExtResource("2_grou5")
+interaction_node = "AntDriftingCutscene"
 dialogue_id = "talk_ant"
-dialogue_node = "ant_1"
+dialogue_node = "ant_searching"
 spawn_state_id = "thing_static_state"
 
 [node name="AnimatedSprite2D" parent="." index="0"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://bahja515aroja"]
+[gd_scene load_steps=9 format=4 uid="uid://bahja515aroja"]
 
 [ext_resource type="PackedScene" uid="uid://c1go3780g6ead" path="res://game/room/room.tscn" id="1_5syy6"]
 [ext_resource type="TileSet" uid="uid://2c3l3d1m0cwu" path="res://resources/tilesets/sea_space/sea_space.tres" id="2_kyoid"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c0pcphu1wy728" path="res://game/thing/ice_shards/ice_skates.tscn" id="4_mdkr6"]
 [ext_resource type="PackedScene" uid="uid://b7kbn07ds4eh8" path="res://game/thing/anchor/anchor.tscn" id="5_trw88"]
 [ext_resource type="PackedScene" uid="uid://c2ojhrolrg4q" path="res://resources/things/ice/ice_ant.tscn" id="6_trw88"]
+[ext_resource type="PackedScene" uid="uid://wdif71tmy8g3" path="res://game/cutscene/dialogue_cutscene/ant_drifting_cutscene/ant_drifting_cutscene.tscn" id="7_jn8f8"]
 [ext_resource type="PackedScene" uid="uid://6ik0w8xgsrqp" path="res://game/room/reveal_surface.tscn" id="7_rl23f"]
 
 [node name="SeaSpace" instance=ExtResource("1_5syy6")]
@@ -31,36 +32,33 @@ spawn_state_id = "thing_interactable_state"
 
 [node name="Anchor2" parent="YSort/Things" index="2" instance=ExtResource("5_trw88")]
 position = Vector2(1398, 1389)
-dialogue_node = "ant_2"
 spawn_state_id = "thing_interactable_state"
 
 [node name="Anchor3" parent="YSort/Things" index="3" instance=ExtResource("5_trw88")]
 position = Vector2(1997, 1779)
-dialogue_node = "ant_3"
 spawn_state_id = "thing_interactable_state"
 
 [node name="Anchor4" parent="YSort/Things" index="4" instance=ExtResource("5_trw88")]
 position = Vector2(2586, 1811)
-dialogue_node = "ant_4"
 spawn_state_id = "thing_interactable_state"
 
 [node name="Anchor5" parent="YSort/Things" index="5" instance=ExtResource("5_trw88")]
 position = Vector2(2930, 2118)
-dialogue_node = "ant_5"
 spawn_state_id = "thing_interactable_state"
 
 [node name="Anchor6" parent="YSort/Things" index="6" instance=ExtResource("5_trw88")]
 position = Vector2(3517, 2824)
-dialogue_node = "ant_6"
 spawn_state_id = "thing_interactable_state"
 
 [node name="Anchor7" parent="YSort/Things" index="7" instance=ExtResource("5_trw88")]
 position = Vector2(4755, 3780)
-dialogue_node = "ant_7"
 spawn_state_id = "thing_interactable_state"
 
 [node name="IceAnt" parent="YSort/Things" index="8" instance=ExtResource("6_trw88")]
 position = Vector2(5056, 5248)
+dialogue_node = "ant_ice_request"
+
+[node name="AntDriftingCutscene" parent="RoomCutscenes" index="0" instance=ExtResource("7_jn8f8")]
 
 [node name="Reveal" parent="." index="5" node_paths=PackedStringArray("tile_map_layer") instance=ExtResource("7_rl23f")]
 tile_map_layer = NodePath("../TileMap/Surface")

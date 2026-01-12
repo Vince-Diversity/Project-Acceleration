@@ -21,6 +21,6 @@ func reveal_surface():
 		var reveal_node = owner.get_node(reveal_node_name)
 		if reveal_node.is_current_surface_imaginary():
 			change_rooms(reveal_node.next_room_id, reveal_node.next_room_entrance_node)
-		else:
-			# play default dialogue
-			actm.add_act(make_dialogue("default_reveal", "default"))
+			return
+	# play default dialogue
+	actm.add_act(make_dialogue("default_reveal", "default"))

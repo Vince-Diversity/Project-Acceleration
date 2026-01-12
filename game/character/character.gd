@@ -9,8 +9,8 @@ class_name Character extends CharacterBody2D
 ## see [Items].
 
 
-## How fast this character moves.
-@export var speed: float = 150
+## How fast this character moves by default.
+@export var default_speed: float = 150
 
 ## Reference to the character's sprite.
 @onready var anim_sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -24,11 +24,18 @@ class_name Character extends CharacterBody2D
 ## Reference to the character's items node.
 @onready var items: Items = $Items
 
+## How fast this character moves at the current frame.
+var speed: float
+
 ## The current direction that was inputted or otherwise assigned to this character.
 var inputted_direction := Vector2(0, 1)
 
 ## Reference to a party which this character may be part of.
 var party: Party
+
+
+func _ready():
+	speed = default_speed
 
 
 ## Called at every frame to determine character movement.

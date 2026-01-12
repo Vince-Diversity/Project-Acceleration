@@ -11,13 +11,13 @@ data = {
 "is_mentoring": false
 },
 "game": {
-"current_room_id": "sacred_indoor",
+"current_room_id": "recreation_hallway",
 "entrance_event": {
 "blue_classroom": {
 "dialogue_id": "enter_blue_classroom",
-"dialogue_node": "remove_teacher",
+"dialogue_node": "missing",
 "interaction_node": "BlueTeacherCutscene",
-"is_enabled": true,
+"is_enabled": false,
 "is_oneshot": true
 },
 "blue_space": {
@@ -31,7 +31,7 @@ data = {
 "dialogue_id": "enter_dining_hall",
 "dialogue_node": "cat",
 "interaction_node": "CatCutscene",
-"is_enabled": false,
+"is_enabled": true,
 "is_oneshot": true
 },
 "dorm_1f": {
@@ -57,8 +57,8 @@ data = {
 },
 "recreation_hallway": {
 "dialogue_id": "enter_recreation_hallway",
-"dialogue_node": "searching_blue",
-"interaction_node": "BlueTeacherCutscene",
+"dialogue_node": "follow_cat",
+"interaction_node": "CatCutscene",
 "is_enabled": false,
 "is_oneshot": true
 },
@@ -66,14 +66,14 @@ data = {
 "dialogue_id": "talk_ouroboros",
 "dialogue_node": "enter_sacred_space",
 "interaction_node": "OuroborosCutscene",
-"is_enabled": false,
+"is_enabled": true,
 "is_oneshot": true
 }
 },
-"entrance_node": "RightPassageDown"
+"entrance_node": "PassageUp"
 },
 "items": {
-"floating_item": "ouroboros",
+"floating_item": "",
 "item_effect": {
 "ice_skates": {
 "browse_dialogue_node": "ice_skates",
@@ -91,226 +91,13 @@ data = {
 "items_state_id": "items_exhibit_state"
 }
 },
-"item_list": ["revealer", "ouroboros"]
+"item_list": []
 },
 "party": [],
 "player": {
 "player_state": "player_ordinary_state"
 },
 "rooms": {
-"absolutely_undetectable_room": {
-"npcs": {
-&"Ouroboros": {
-"current_anim": &"circling",
-"dialogue_id": "",
-"dialogue_node": "",
-"direction": Vector2(1, 0),
-"filename": "ouroboros",
-"idling_room": "absolutely_undetectable_room",
-"interaction_node": "",
-"position": Vector2(-34.5, 8192),
-"was_joined": false,
-"z_index": 0
-}
-},
-"party": {},
-"things": {
-&"Door": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "default_door",
-"dialogue_node": "default",
-"interaction_node": ""
-}
-}
-},
-"blue_classroom": {
-"npcs": {},
-"party": {},
-"things": {
-&"BookcaseUncertainty": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "book_uncertainty",
-"dialogue_node": "cue",
-"interaction_node": "Uncertainty"
-},
-&"PassageDown": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "default_door",
-"dialogue_node": "default",
-"interaction_node": ""
-},
-&"PassageLeft": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "blue_passage",
-"dialogue_node": "default",
-"interaction_node": ""
-},
-&"Spawn": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "default_door",
-"dialogue_node": "default",
-"interaction_node": ""
-}
-}
-},
-"blue_space": {
-"npcs": {
-&"Cyan": {
-"current_anim": &"up",
-"dialogue_id": "talk_cyan",
-"dialogue_node": "talk_after_ouroboros_obtained",
-"direction": Vector2(0.5686002, -0.8226141),
-"filename": "cyan",
-"idling_room": "",
-"interaction_node": "OuroborosCutscene",
-"position": Vector2(448, 279),
-"was_joined": false,
-"z_index": 0
-},
-&"Orange": {
-"current_anim": &"down",
-"dialogue_id": "talk_orange",
-"dialogue_node": "talk",
-"direction": Vector2(0, 1),
-"filename": "orange",
-"idling_room": "blue_space",
-"interaction_node": "",
-"position": Vector2(2565, -1241),
-"was_joined": false,
-"z_index": 0
-}
-},
-"party": {},
-"things": {
-&"OuroborosGateway": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "default_door",
-"dialogue_node": "default",
-"interaction_node": ""
-},
-&"Spawn": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "default_door",
-"dialogue_node": "default",
-"interaction_node": ""
-}
-}
-},
-"blue_stairs": {
-"npcs": {},
-"party": {},
-"things": {
-&"PassageDown": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "default_door",
-"dialogue_node": "default",
-"interaction_node": ""
-},
-&"PassageRight": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "blue_stairs_door",
-"dialogue_node": "default",
-"interaction_node": "Default0"
-}
-}
-},
-"dining_hall": {
-"npcs": {
-&"Amber": {
-"current_anim": &"sit_left",
-"dialogue_id": "talk_amber",
-"dialogue_node": "talk_after_cat_event",
-"direction": Vector2(0, -1),
-"filename": "amber",
-"idling_room": "",
-"interaction_node": "",
-"position": Vector2(204.94696, 269.30103),
-"was_joined": false,
-"z_index": 0
-},
-&"Cat": {
-"current_anim": &"right",
-"dialogue_id": "talk_cat",
-"dialogue_node": "talk",
-"direction": Vector2(0.9427918, 0.333382),
-"filename": "cat",
-"idling_room": "dining_hall",
-"interaction_node": "Default2",
-"position": Vector2(174, 239),
-"was_joined": false,
-"z_index": 1
-},
-&"Lime": {
-"current_anim": &"right",
-"dialogue_id": "talk_lime",
-"dialogue_node": "talk_after_cat_event",
-"direction": Vector2(1, 0),
-"filename": "lime",
-"idling_room": "",
-"interaction_node": "",
-"position": Vector2(135, 275),
-"was_joined": false,
-"z_index": 0
-},
-&"Maroon": {
-"current_anim": &"right",
-"dialogue_id": "talk_maroon",
-"dialogue_node": "talk_after_cat_event",
-"direction": Vector2(1, 0),
-"filename": "maroon",
-"idling_room": "",
-"interaction_node": "",
-"position": Vector2(137, 245),
-"was_joined": false,
-"z_index": 0
-}
-},
-"party": {},
-"things": {
-&"KitchenDoor": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "kitchen_door",
-"dialogue_node": "default",
-"interaction_node": ""
-},
-&"PassageUp": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "default_door",
-"dialogue_node": "default",
-"interaction_node": ""
-},
-&"SideChairBoardGameTable": {
-"current_anim": &"ruined_board_game",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "",
-"dialogue_node": "",
-"interaction_node": "PartyRestCutscene"
-}
-}
-},
 "dorm_1f": {
 "npcs": {},
 "party": {},
@@ -618,116 +405,6 @@ data = {
 "interaction_node": ""
 },
 &"PassageUp": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "default_door",
-"dialogue_node": "default",
-"interaction_node": ""
-}
-}
-},
-"sacred_indoor": {
-"npcs": {
-&"Average": {
-"current_anim": &"down",
-"dialogue_id": "talk_average",
-"dialogue_node": "revisit",
-"direction": Vector2(0, 1),
-"filename": "average",
-"idling_room": "",
-"interaction_node": "SacredIndoorCutscene",
-"position": Vector2(320, 224),
-"was_joined": false,
-"z_index": 0
-},
-&"Plain": {
-"current_anim": &"down",
-"dialogue_id": "talk_plain",
-"dialogue_node": "revisit",
-"direction": Vector2(0, 1),
-"filename": "plain",
-"idling_room": "",
-"interaction_node": "SacredIndoorCutscene",
-"position": Vector2(192, 224),
-"was_joined": false,
-"z_index": 0
-},
-&"Sacred": {
-"current_anim": &"down",
-"dialogue_id": "talk_sacred",
-"dialogue_node": "revisit",
-"direction": Vector2(0, 1),
-"filename": "sacred",
-"idling_room": "sacred_indoor",
-"interaction_node": "Default1",
-"position": Vector2(256.4097, 225.19934),
-"was_joined": false,
-"z_index": 0
-}
-},
-"party": {},
-"things": {
-&"LeftPassageDown": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "default_door",
-"dialogue_node": "default",
-"interaction_node": ""
-},
-&"RightPassageDown": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "default_door",
-"dialogue_node": "default",
-"interaction_node": ""
-}
-}
-},
-"sacred_outdoor": {
-"npcs": {
-&"Sacred": {
-"current_anim": &"up",
-"dialogue_id": "talk_sacred",
-"dialogue_node": "talk",
-"direction": Vector2(-0.65046865, -0.7595331),
-"filename": "sacred",
-"idling_room": "",
-"interaction_node": "Default2",
-"position": Vector2(670.11896, 348.50818),
-"was_joined": false,
-"z_index": 0
-}
-},
-"party": {},
-"things": {
-&"CyanSpawn": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "floppy_disk_sacred",
-"dialogue_node": "default",
-"interaction_node": ""
-},
-&"LeftDoorUp": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "default_door",
-"dialogue_node": "default",
-"interaction_node": ""
-},
-&"OrangeSpawn": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "floppy_disk_sacred",
-"dialogue_node": "default",
-"interaction_node": ""
-},
-&"RightDoorUp": {
 "current_anim": &"default",
 "current_frame": 0,
 "current_state": "thing_interactable_state",

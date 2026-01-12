@@ -91,6 +91,7 @@ var is_waiting_at_gateway: bool = false
 
 
 func _ready():
+	super()
 	if filename.is_empty(): filename = Utils.get_npc_id(name)
 	state_list[_still_state.state_id] = _still_state
 	state_list[_joined_state.state_id] = _joined_state
