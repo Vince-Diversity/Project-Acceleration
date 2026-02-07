@@ -1,0 +1,88 @@
+[gd_resource type="SpriteFrames" load_steps=13 format=3 uid="uid://6j3wi5gwadg8"]
+
+[ext_resource type="Texture2D" uid="uid://dtn3po2ut47qm" path="res://assets/vfx/teardrop.png" id="1_quthr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8481t"]
+atlas = ExtResource("1_quthr")
+region = Rect2(0, 0, 65, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qovs2"]
+atlas = ExtResource("1_quthr")
+region = Rect2(65, 0, 65, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0w2e"]
+atlas = ExtResource("1_quthr")
+region = Rect2(130, 0, 65, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p58uv"]
+atlas = ExtResource("1_quthr")
+region = Rect2(195, 0, 65, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbil8"]
+atlas = ExtResource("1_quthr")
+region = Rect2(260, 0, 65, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1gvp"]
+atlas = ExtResource("1_quthr")
+region = Rect2(325, 0, 65, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v10xf"]
+atlas = ExtResource("1_quthr")
+region = Rect2(390, 0, 65, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jetem"]
+atlas = ExtResource("1_quthr")
+region = Rect2(455, 0, 65, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_16bho"]
+atlas = ExtResource("1_quthr")
+region = Rect2(520, 0, 65, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xl1vg"]
+atlas = ExtResource("1_quthr")
+region = Rect2(585, 0, 65, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qdg4"]
+atlas = ExtResource("1_quthr")
+region = Rect2(650, 0, 65, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8481t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qovs2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0w2e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p58uv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbil8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1gvp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v10xf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jetem")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_16bho")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xl1vg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0qdg4")
+}],
+"loop": false,
+"name": &"default",
+"speed": 20.0
+}]
