@@ -1,6 +1,7 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://db67bqre3wm7u"]
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://db67bqre3wm7u"]
 
 [ext_resource type="Texture2D" uid="uid://dxwgutl1rmrx6" path="res://assets/tiles/tilesets/void_hall.png" id="1_3rahx"]
+[ext_resource type="PackedScene" uid="uid://wyijdcoiwu7h" path="res://game/effect/teardrop/teardrops.tscn" id="2_jiqka"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x1ax1"]
 texture = ExtResource("1_3rahx")
@@ -194,6 +195,10 @@ texture_region_size = Vector2i(64, 64)
 1:5/0 = 0
 0:5/0 = 0
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_eukkn"]
+resource_name = "teardrops"
+scenes/1/scene = ExtResource("2_jiqka")
+
 [resource]
 tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 4
@@ -205,3 +210,4 @@ terrain_set_0/terrain_1/color = Color(0.501961, 0, 0.25098, 1)
 custom_data_layer_0/name = "droppable"
 custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_x1ax1")
+sources/1 = SubResource("TileSetScenesCollectionSource_eukkn")

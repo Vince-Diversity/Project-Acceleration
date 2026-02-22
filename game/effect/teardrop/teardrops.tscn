@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://wyijdcoiwu7h"]
+
+[ext_resource type="Script" uid="uid://csk2sygdtuah3" path="res://game/effect/teardrop/teardrops.gd" id="1_o22cx"]
+
+[node name="Teardrops" type="Node2D"]
+script = ExtResource("1_o22cx")
+max_delay = 5.0

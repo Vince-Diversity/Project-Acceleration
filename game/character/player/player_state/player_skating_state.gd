@@ -8,7 +8,7 @@ class_name PlayerSkatingState extends PlayerState
 ## When moving, ice visuals despawn after a set duration.
 
 var _skating_ice_scn: PackedScene = \
-	preload("res://game/vfx/skates/skating_ice.tscn")
+	preload("res://game/effect/skates/skating_ice.tscn")
 
 ## Distance counter.
 var moved_distance: float
@@ -40,7 +40,7 @@ func enter():
 ## For good measure, resets movement counter.
 func exit():
 	# despawns visual effects
-	player.vfx_despawned.emit(idle_skating_ice)
+	player.effect_despawned.emit(idle_skating_ice)
 	# disables movement on water
 	player.set_collision_mask_value(6, true)
 	## resets movement counter
@@ -55,12 +55,12 @@ func move(delta: float):
 	player.move_ordinary()
 	moved_distance += delta * player.speed
 	# despawns skating ice from idle state.
-	player.vfx_despawned.emit(idle_skating_ice)
+	player.effect_despawned.emit(idle_skating_ice)
 	if moved_distance > player.skating_ice_wavelength:
 		# adds a new ice instance to the scene tree
 		var temporary_skating_ice = _skating_ice_scn.instantiate()
 		temporary_skating_ice.init_vfx(player.get_node("SkatingIceMark").global_position, true, player.skating_ice_lifetime)
-		player.vfx_created.emit(temporary_skating_ice)
+		player.effect_created.emit(temporary_skating_ice)
 		moved_distance = 0
 
 
@@ -72,7 +72,7 @@ func animate_idle():
 		# create a persisting ice visual
 		idle_skating_ice = _skating_ice_scn.instantiate()
 		idle_skating_ice.init_vfx(player.get_node("SkatingIceMark").global_position, false)
-		player.vfx_despawned.connect(idle_skating_ice._on_player_vfx_despawned)
-		player.vfx_created.emit(idle_skating_ice)
+		player.effect_despawned.connect(idle_skating_ice._on_player_effect_despawned)
+		player.effect_created.emit(idle_skating_ice)
 	# prepare movement counter for next movement
 	moved_distance = player.skating_ice_wavelength

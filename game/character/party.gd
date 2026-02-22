@@ -122,7 +122,7 @@ func _create_player():
 		owner._on_player_interacted,
 		owner._on_browsing_started,
 		owner._on_browsing_ended,
-		owner._on_vfx_created)
+		owner._on_effect_created)
 	add_child(player)
 	player.make_player(
 		owner._on_idle_bubbles_selected,

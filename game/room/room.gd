@@ -29,7 +29,7 @@ class_name Room extends Node2D
 @export_file var bgm_file: String
 
 ## Reference to the visual effect child node.
-@onready var vfx: Node2D = $VFX
+@onready var effects: Node2D = $Effects
 
 ## Reference to the party child node.
 @onready var party: Party = $YSort/Party
@@ -419,6 +419,6 @@ func _on_begin_area_cutscene(
 		null)
 
 
-## Adds the given [code]vfx_scene[/code] instance to the [SceneTree].
-func _on_vfx_created(vfx_scene: Node2D):
-	vfx.add_child(vfx_scene)
+## Adds the given [code]effect_scene[/code] instance to the [SceneTree].
+func _on_effect_created(effect_scene: Node2D):
+	effects.add_child(effect_scene)

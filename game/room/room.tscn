@@ -9,7 +9,7 @@ script = ExtResource("1")
 
 [node name="TileMap" type="Node2D" parent="."]
 
-[node name="VFX" type="Node2D" parent="."]
+[node name="Effects" type="Node2D" parent="."]
 
 [node name="Doors" type="Node2D" parent="."]
 

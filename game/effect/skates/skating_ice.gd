@@ -34,6 +34,6 @@ func despawn():
 	queue_free()
 
 
-func _on_player_vfx_despawned(vfx_visual: Node2D):
+func _on_player_effect_despawned(vfx_visual: Node2D):
 	if vfx_visual == self:
 		despawn()

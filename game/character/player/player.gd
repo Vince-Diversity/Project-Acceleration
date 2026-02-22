@@ -79,11 +79,11 @@ signal browsing_started
 ## Emitted when the player stops browsing through obtained items.
 signal browsing_ended
 
-## Emitted when the player creates a visual effect.
-signal vfx_created(vfx_scene: Node2D)
+## Emitted when the player creates an effect.
+signal effect_created(effect_scene: Node2D)
 
-## Emitted when the player despawns a visual effect.
-signal vfx_despawned(vfx_scene: Node2D)
+## Emitted when the player despawns an effect.
+signal effect_despawned(effect_scene: Node2D)
 
 
 func _ready():
@@ -103,13 +103,13 @@ func init_player(
 		player_interacted_target: Callable,
 		browsing_started_target: Callable,
 		browsing_ended_target: Callable,
-		vfx_created_target: Callable):
+		effect_created_target: Callable):
 	party = given_party
 	player_interacted.connect(player_interacted_target)
 	browsing_started.connect(browsing_started_target)
 	browsing_ended.connect(browsing_ended_target)
 	browsing_ended.connect(_on_browsing_ended)
-	vfx_created.connect(vfx_created_target)
+	effect_created.connect(effect_created_target)
 
 
 ## Further initialises the player after it is added to the [SceneTree].
