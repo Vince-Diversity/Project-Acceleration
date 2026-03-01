@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=4 uid="uid://bncy8ylbcho4p"]
+[gd_scene load_steps=5 format=4 uid="uid://bncy8ylbcho4p"]
 
 [ext_resource type="PackedScene" uid="uid://c1go3780g6ead" path="res://game/room/room.tscn" id="1_bv7kt"]
 [ext_resource type="TileSet" uid="uid://db67bqre3wm7u" path="res://resources/tilesets/void_hall/void_hall.tres" id="2_5gfqi"]
 [ext_resource type="PackedScene" uid="uid://caxl0vhd0epgm" path="res://game/thing/door/spawn.tscn" id="3_1nmd5"]
+[ext_resource type="PackedScene" uid="uid://qpdpoy0g4us0" path="res://game/thing/ice_shards/ice_green.tscn" id="4_ltb5d"]
 
 [node name="TeardropSpace" instance=ExtResource("1_bv7kt")]
 
@@ -15,3 +16,6 @@ tile_map_data = PackedByteArray("AADJ/9z/AQAAAAAAAQDJ/+r/AQAAAAAAAQDJ//H/AQAAAAA
 tile_set = ExtResource("2_5gfqi")
 
 [node name="Center" parent="Doors" index="0" instance=ExtResource("3_1nmd5")]
+
+[node name="ice_green" parent="YSort/Things" index="0" instance=ExtResource("4_ltb5d")]
+position = Vector2(0, 4)

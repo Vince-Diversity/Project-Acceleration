@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="EntranceEvent" load_steps=2 format=3 uid="uid://ddn2g08cw6qv0"]
+
+[ext_resource type="Script" uid="uid://df27x0k4872x0" path="res://resources/events/entrance_event.gd" id="1_s0wo5"]
+
+[resource]
+script = ExtResource("1_s0wo5")
+is_oneshot = false
+metadata/_custom_type_script = "uid://df27x0k4872x0"

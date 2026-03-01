@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://qpdpoy0g4us0"]
+[gd_scene load_steps=6 format=3 uid="uid://qpdpoy0g4us0"]
 
 [ext_resource type="PackedScene" uid="uid://ijf27dc2kvyh" path="res://game/thing/ice_shards/ice_shards.tscn" id="1_70drd"]
 [ext_resource type="SpriteFrames" uid="uid://d1x8rchb2efnd" path="res://resources/things/ice/ice_green.tres" id="2_mgyia"]
+[ext_resource type="PackedScene" uid="uid://dtkkkrcbtqu58" path="res://game/cutscene/character_mark.tscn" id="3_c1s4i"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c1s4i"]
 radius = 16.0
@@ -11,6 +12,7 @@ radius = 16.0
 height = 40.0
 
 [node name="ice_green" instance=ExtResource("1_70drd")]
+spawn_state_id = "thing_static_state"
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = ExtResource("2_mgyia")
@@ -22,3 +24,5 @@ shape = SubResource("CircleShape2D_c1s4i")
 [node name="CollisionShape2D" parent="." index="2"]
 position = Vector2(0, 8)
 shape = SubResource("CapsuleShape2D_6rqxo")
+
+[node name="MentorStandUpMark" parent="." index="3" instance=ExtResource("3_c1s4i")]

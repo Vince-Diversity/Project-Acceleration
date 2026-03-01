@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://bog3o8ehqg5cq"
+path="res://.godot/imported/enter_teardrop_space.dialogue-d4ddcfde848dbf4de36874ab7a6ccd2f.tres"
+
+[deps]
+
+source_file="res://resources/dialogue/enter_teardrop_space.dialogue"
+dest_files=["res://.godot/imported/enter_teardrop_space.dialogue-d4ddcfde848dbf4de36874ab7a6ccd2f.tres"]
+
+[params]
+
+defaults=true
