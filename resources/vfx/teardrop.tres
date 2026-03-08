@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=13 format=3 uid="uid://6j3wi5gwadg8"]
+[gd_resource type="SpriteFrames" format=3 uid="uid://6j3wi5gwadg8"]
 
 [ext_resource type="Texture2D" uid="uid://dtn3po2ut47qm" path="res://assets/vfx/teardrop.png" id="1_quthr"]
 

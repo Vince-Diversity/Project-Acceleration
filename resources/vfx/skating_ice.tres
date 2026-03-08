@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://bkt0di82ilhft"]
+[gd_resource type="SpriteFrames" format=3 uid="uid://bkt0di82ilhft"]
 
 [ext_resource type="Texture2D" uid="uid://bqxhn4n2dim7a" path="res://assets/vfx/skating_ice.png" id="1_3tm3u"]
 

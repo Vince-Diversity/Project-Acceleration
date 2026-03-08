@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://db67bqre3wm7u"]
+[gd_resource type="TileSet" format=3 uid="uid://db67bqre3wm7u"]
 
 [ext_resource type="Texture2D" uid="uid://dxwgutl1rmrx6" path="res://assets/tiles/tilesets/void_hall.png" id="1_3rahx"]
 [ext_resource type="PackedScene" uid="uid://wyijdcoiwu7h" path="res://game/effect/teardrop/teardrops.tscn" id="2_jiqka"]

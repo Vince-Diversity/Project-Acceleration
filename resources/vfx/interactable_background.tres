@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://ch6acn4paaoeu"]
+[gd_resource type="SpriteFrames" format=3 uid="uid://ch6acn4paaoeu"]
 
 [ext_resource type="Texture2D" uid="uid://d1fgi35lwsr1w" path="res://assets/vfx/interactable_bubble.png" id="1_wg2wq"]
 

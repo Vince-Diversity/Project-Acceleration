@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=10 format=3 uid="uid://de7f3bgcrw16e"]
+[gd_resource type="TileSet" format=3 uid="uid://de7f3bgcrw16e"]
 
 [ext_resource type="Texture2D" uid="uid://c0xybs271xsfy" path="res://assets/tiles/outdoor/outdoor_tiles.png" id="1_hobao"]
 [ext_resource type="Texture2D" uid="uid://bd82cf80plmfp" path="res://assets/tiles/outdoor/sacred_building.png" id="2_8ffvi"]

@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://dby2uq4fa0hly"]
+[gd_resource type="SpriteFrames" format=3 uid="uid://dby2uq4fa0hly"]
 
 [ext_resource type="Texture2D" uid="uid://clv1jw4xjgd4a" path="res://assets/things/sacred_space.png" id="1_43ao1"]
 
