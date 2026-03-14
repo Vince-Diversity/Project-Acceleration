@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="SaveGame" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="SaveGame" format=3 uid="uid://b00dj2tf1gogt"]
 
-[ext_resource type="Script" path="res://loader/save_game.gd" id="1_oc726"]
+[ext_resource type="Script" uid="uid://yrx16fo7cbqi" path="res://loader/save_game.gd" id="1_oc726"]
 
 [resource]
 script = ExtResource("1_oc726")
@@ -68,6 +68,13 @@ data = {
 "interaction_node": "OuroborosCutscene",
 "is_enabled": false,
 "is_oneshot": true
+},
+"teardrop_space": {
+"dialogue_id": "",
+"dialogue_node": "",
+"interaction_node": "IceStuckCutscene",
+"is_enabled": true,
+"is_oneshot": false
 }
 },
 "entrance_node": "SacredStatue"

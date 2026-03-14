@@ -2,8 +2,9 @@ class_name CustomDialogueLabel extends RichTextLabel
 ## Writes out text for dialogue.
 ##
 ## Edited version of the dialogue label from Dialogue addon v2.14.1
-## with some quickfixes from v2.16.1,
-## see [url]https://github.com/nathanhoad/godot_dialogue_manager/releases/tag/v2.14.1[/url].
+## with some quickfixes from v2.16.1.
+## Edited at 3.10.01 to remove pausing at certain characters.
+## See [url]https://github.com/nathanhoad/godot_dialogue_manager/releases/tag/v2.14.1[/url].
 
 signal spoke(letter: String, letter_index: int, speed: float)
 signal paused_typing(duration: float)
@@ -94,17 +95,19 @@ func type_next(delta: float, seconds_needed: float) -> void:
 		last_mutation_index = visible_characters
 		mutate_inline_mutations(visible_characters)
 	
-	var additional_waiting_seconds: float = get_pause(visible_characters)
+#	var additional_waiting_seconds: float = get_pause(visible_characters)
 	
 	# Pause on characters like "."
-	if visible_characters > 0 and get_parsed_text()[visible_characters - 1] in pause_at_characters.split():
-		additional_waiting_seconds += seconds_per_step * 15
+#	if visible_characters > 0 and get_parsed_text()[visible_characters - 1] in pause_at_characters.split():
+#		additional_waiting_seconds += seconds_per_step * 15
 	
 	# Pause at literal [wait] directives
-	if last_wait_index != visible_characters and additional_waiting_seconds > 0:
-		last_wait_index = visible_characters
-		waiting_seconds += additional_waiting_seconds
-		paused_typing.emit(get_pause(visible_characters))
+	if false:
+#	if last_wait_index != visible_characters and additional_waiting_seconds > 0:
+		pass
+#		last_wait_index = visible_characters
+#		waiting_seconds += additional_waiting_seconds
+#		paused_typing.emit(get_pause(visible_characters))
 	else:
 		visible_characters += 1
 		seconds_needed += seconds_per_step * (1.0 / get_speed(visible_characters))
@@ -117,8 +120,8 @@ func type_next(delta: float, seconds_needed: float) -> void:
 
 
 # Get the pause for the current typing position if there is one
-func get_pause(at_index: int) -> float:
-	return dialogue_line.pauses.get(at_index, 0)
+#func get_pause(at_index: int) -> float:
+#	return dialogue_line.pauses.get(at_index, 0)
 
 
 # Get the speed for the current typing position
