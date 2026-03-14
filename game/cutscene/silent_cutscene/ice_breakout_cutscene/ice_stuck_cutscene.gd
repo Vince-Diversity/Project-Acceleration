@@ -14,7 +14,5 @@ func start_cutscene():
 	next_state = "rest_state"
 	owner.add_cutscene(_ice_breakout_cutscene_scn.instantiate(), ice_breakout_node_name)
 	owner.rest_state.make_state(
-		ice_breakout_node_name)
-	owner.rest_state.make_state(
 		ice_breakout_node_name,
 		ice_shards_node)

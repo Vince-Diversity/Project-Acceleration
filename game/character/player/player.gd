@@ -51,6 +51,9 @@ class_name Player extends Character
 @onready var _skating_state: PlayerSkatingState = \
 	preload("res://game/character/player/player_state/player_skating_state.gd").new("player_skating_state", self)
 
+@onready var _skating_leaping_state: PlayerSkatingLeapingState = \
+	preload("res://game/character/player/player_state/player_skating_leaping_state.gd").new("player_skating_leaping_state", self)
+
 ## The [Interactable] scene root that is closest to the player.
 ## Also updates the [member Bubbles.current_state] accordingly.
 var nearest_interactable: Node2D:
@@ -91,6 +94,8 @@ func _ready():
 	state_list[_ordinary_state.state_id] = _ordinary_state
 	_skating_state.init_state()
 	state_list[_skating_state.state_id] = _skating_state
+	_skating_leaping_state.init_state()
+	state_list[_skating_leaping_state.state_id] = _skating_leaping_state
 	current_state = state_list[spawn_state]
 	current_state.enter()
 	_update_angle()
@@ -154,6 +159,13 @@ func move(delta: float):
 func move_ordinary():
 	super()
 	_update_angle()
+
+
+## Moves the player while playing a leaping animation.
+func leap():
+	velocity = speed * inputted_direction
+	move_and_slide()
+	_animate_leap()
 
 
 ## Updates the player's direction and the angle of the player's interaction area.
@@ -259,3 +271,7 @@ func load_save_from_parent(sg: SaveGame):
 ## Called when a [CutsceneState] ends.
 func exit_cutscene():
 	preserved_state_id = current_state.state_id
+
+
+func _animate_leap():
+	anim_sprite.play("leaping")

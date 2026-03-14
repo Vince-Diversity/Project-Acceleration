@@ -1,6 +1,7 @@
 [remap]
 
-importer="dialogue_manager_compiler_14"
+importer="dialogue_manager"
+importer_version=15
 type="Resource"
 uid="uid://bog3o8ehqg5cq"
 path="res://.godot/imported/enter_teardrop_space.dialogue-d4ddcfde848dbf4de36874ab7a6ccd2f.tres"
