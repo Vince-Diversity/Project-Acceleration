@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://cvjyjjje5g2bm"]
+[gd_resource type="SpriteFrames" format=3 uid="uid://cvjyjjje5g2bm"]
 
 [ext_resource type="Texture2D" uid="uid://dokimk6qybiit" path="res://assets/characters/green_teacher/green_teacher_reading_sitting.png" id="2_8x7qt"]
 [ext_resource type="Texture2D" uid="uid://ctpkqbonwtqsb" path="res://assets/characters/green_teacher/green_teacher_stop_reading_sitting.png" id="3_epej3"]

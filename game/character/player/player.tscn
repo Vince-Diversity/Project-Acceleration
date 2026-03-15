@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://kmbb38hp7tsk"]
+[gd_scene format=3 uid="uid://kmbb38hp7tsk"]
 
 [ext_resource type="PackedScene" uid="uid://bk16wp1xkfq2e" path="res://game/character/character.tscn" id="1_8dn0h"]
 [ext_resource type="Script" uid="uid://bay2a8m3xg4uv" path="res://game/character/player/player.gd" id="2_nbpss"]
@@ -16,17 +16,18 @@ radius = 8.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_rkx78"]
 radius = 20.0
 
-[node name="Player" groups=["Preserved"] instance=ExtResource("1_8dn0h")]
+[node name="Player" unique_id=494745821 groups=["Preserved"] instance=ExtResource("1_8dn0h")]
 collision_layer = 1
 collision_mask = 38
 motion_mode = 1
 script = ExtResource("2_nbpss")
 ordinary_speed = 150.0
 skating_speed = 300.0
+skating_leaping_speed = 150.0
 skating_ice_wavelength = 25.0
 skating_ice_lifetime = 0.4
 
-[node name="SkatingIceMark" type="Marker2D" parent="." index="0"]
+[node name="SkatingIceMark" type="Marker2D" parent="." index="0" unique_id=113897518]
 position = Vector2(0, 12)
 
 [node name="AnimatedSprite2D" parent="." index="1"]
@@ -36,16 +37,16 @@ animation = &"exhibit"
 [node name="CollisionShape2D" parent="." index="2"]
 shape = SubResource("CircleShape2D_act1d")
 
-[node name="Direction" type="Marker2D" parent="." index="3"]
+[node name="Direction" type="Marker2D" parent="." index="3" unique_id=748708481]
 
-[node name="InteractArea" type="Area2D" parent="Direction" index="0"]
+[node name="InteractArea" type="Area2D" parent="Direction" index="0" unique_id=1662578392]
 collision_mask = 12
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/InteractArea" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/InteractArea" index="0" unique_id=565724978]
 position = Vector2(16, 0)
 shape = SubResource("CapsuleShape2D_c5j42")
 
-[node name="Camera2D" type="Camera2D" parent="." index="4"]
+[node name="Camera2D" type="Camera2D" parent="." index="4" unique_id=1253971745]
 zoom = Vector2(2, 2)
 
 [node name="FollowingArea" parent="." index="5"]
@@ -55,11 +56,11 @@ collision_mask = 2
 [node name="CollisionShape2D" parent="FollowingArea" index="0"]
 shape = SubResource("CircleShape2D_rkx78")
 
-[node name="GroundCheckers" type="Node2D" parent="." index="6"]
+[node name="GroundCheckers" type="Node2D" parent="." index="6" unique_id=426030874]
 position = Vector2(0, 12)
 script = ExtResource("4_8ttio")
 
-[node name="WaterChecker" parent="GroundCheckers" index="0" instance=ExtResource("5_b2fya")]
+[node name="WaterChecker" parent="GroundCheckers" index="0" unique_id=1871183258 instance=ExtResource("5_b2fya")]
 physics_layer = 2
 
 [node name="Items" parent="." index="7" groups=["Preserved"]]
@@ -70,11 +71,11 @@ position = Vector2(-10, -12)
 [node name="FloatingMark" parent="Items" index="1"]
 position = Vector2(0, -20)
 
-[node name="Bubbles" type="Node2D" parent="." index="8"]
+[node name="Bubbles" type="Node2D" parent="." index="8" unique_id=69261600]
 script = ExtResource("4_r0uk3")
 
-[node name="InteractingBubbleMark" type="Marker2D" parent="Bubbles" index="0"]
+[node name="InteractingBubbleMark" type="Marker2D" parent="Bubbles" index="0" unique_id=744550544]
 position = Vector2(16, -32)
 
-[node name="ItemBubbleMark" type="Marker2D" parent="Bubbles" index="1"]
+[node name="ItemBubbleMark" type="Marker2D" parent="Bubbles" index="1" unique_id=520628636]
 position = Vector2(-16, -32)

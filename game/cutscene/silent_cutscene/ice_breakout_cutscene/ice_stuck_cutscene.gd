@@ -12,7 +12,14 @@ extends SilentCutscene
 
 func start_cutscene():
 	next_state = "rest_state"
-	owner.add_cutscene(_ice_breakout_cutscene_scn.instantiate(), ice_breakout_node_name)
+	var ice_breakout_cutscene = _ice_breakout_cutscene_scn.instantiate()
+	owner.add_cutscene(ice_breakout_cutscene, ice_breakout_node_name)
+	ice_breakout_cutscene.ice_shards_node = ice_shards_node
+	set_thing_state(
+		ice_shards_node.name,
+		"thing_permeable_state")
+	owner.party.player.anim_sprite.set_animation("leap")
+	owner.party.player.anim_sprite.set_frame(0)
 	owner.rest_state.make_state(
 		ice_breakout_node_name,
 		ice_shards_node)

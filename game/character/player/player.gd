@@ -28,6 +28,9 @@ class_name Player extends Character
 # The player character speed during skating state.
 @export var skating_speed: float
 
+# The player character speed when leaping while in skating state.
+@export var skating_leaping_speed: float
+
 # The periodic distrance travelled to spawn new ice during skating state.
 @export var skating_ice_wavelength: float
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://1sj2uxtvkjet"]
+[gd_scene format=3 uid="uid://1sj2uxtvkjet"]
 
 [ext_resource type="PackedScene" uid="uid://nfl8ij5d7dfw" path="res://game/thing/thing.tscn" id="1_kcgl6"]
 [ext_resource type="SpriteFrames" uid="uid://lobqr8g66bw0" path="res://resources/things/bed.tres" id="2_7pjow"]
@@ -10,7 +10,7 @@ size = Vector2(20, 48)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ov52b"]
 size = Vector2(32, 48)
 
-[node name="Bed" instance=ExtResource("1_kcgl6")]
+[node name="Bed" unique_id=1411150229 instance=ExtResource("1_kcgl6")]
 rest_animation = "nap_down"
 elevate_characters = true
 
@@ -25,8 +25,8 @@ shape = SubResource("RectangleShape2D_rdp5x")
 position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_ov52b")
 
-[node name="MentorRestMark" parent="." index="3" instance=ExtResource("3_vdh1x")]
+[node name="MentorRestMark" parent="." index="3" unique_id=1710595406 instance=ExtResource("3_vdh1x")]
 position = Vector2(0, -16)
 
-[node name="MentorStandUpMark" parent="." index="4" instance=ExtResource("3_vdh1x")]
+[node name="MentorStandUpMark" parent="." index="4" unique_id=1246490616 instance=ExtResource("3_vdh1x")]
 position = Vector2(32, -16)
