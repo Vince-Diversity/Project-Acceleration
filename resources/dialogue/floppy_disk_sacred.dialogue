@@ -1,3 +1,7 @@
-~ default
-{{green}}: (This is what I saw when revealing the AI. The remains of that memory is still here somehow.)
+~ remnant_cyan
+{{green}}: (This is what I saw when I revealed {{cyan}} or {{orange}}. The remains of that memory is still here somehow.)
+=> END!
+
+~ remnant_orange
+{{green}}: (This is what I saw when I revealed {{cyan}} or {{orange}}. The remains of that memory is still here somehow.)
 => END!

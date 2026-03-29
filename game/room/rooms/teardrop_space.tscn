@@ -20,6 +20,8 @@ tile_set = ExtResource("2_5gfqi")
 
 [node name="ice_green" parent="YSort/Things" index="0" unique_id=1094024535 instance=ExtResource("4_ltb5d")]
 position = Vector2(0, 4)
+dialogue_id = "ice_shards_teardrop_space"
+dialogue_node = "default"
 
 [node name="IceStuckCutscene" parent="RoomCutscenes" index="0" unique_id=588663280 node_paths=PackedStringArray("ice_shards_node") instance=ExtResource("5_6lbsf")]
 ice_shards_node = NodePath("../../YSort/Things/ice_green")

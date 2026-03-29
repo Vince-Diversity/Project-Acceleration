@@ -1,6 +1,7 @@
 [remap]
 
-importer="dialogue_manager_compiler_14"
+importer="dialogue_manager"
+importer_version=15
 type="Resource"
 uid="uid://4id62srecjh7"
 path="res://.godot/imported/floppy_disk_sacred.dialogue-662abd78528b9cb9d08eec62d1b28fdf.tres"

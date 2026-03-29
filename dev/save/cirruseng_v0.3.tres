@@ -715,7 +715,7 @@ data = {
 "current_frame": 0,
 "current_state": "thing_interactable_state",
 "dialogue_id": "floppy_disk_sacred",
-"dialogue_node": "default",
+"dialogue_node": "remnant_cyan",
 "interaction_node": ""
 },
 &"LeftDoorUp": {
@@ -731,7 +731,7 @@ data = {
 "current_frame": 0,
 "current_state": "thing_interactable_state",
 "dialogue_id": "floppy_disk_sacred",
-"dialogue_node": "default",
+"dialogue_node": "remnant_orange",
 "interaction_node": ""
 },
 &"RightDoorUp": {
