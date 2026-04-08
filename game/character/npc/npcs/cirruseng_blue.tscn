@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dpjl5urw14q1k"]
+
+[ext_resource type="PackedScene" uid="uid://4514c46hbp0d" path="res://game/character/npc/npc.tscn" id="1_cymj0"]
+[ext_resource type="SpriteFrames" uid="uid://bft3g5xj52ds7" path="res://resources/characters/cirruseng_blue.tres" id="2_ye6ql"]
+
+[node name="CirrusengBlue" unique_id=117683245 instance=ExtResource("1_cymj0")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = ExtResource("2_ye6ql")

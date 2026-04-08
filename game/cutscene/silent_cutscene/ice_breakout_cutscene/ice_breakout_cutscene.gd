@@ -27,4 +27,4 @@ func end_cutscene():
 	set_thing_state(
 		ice_shards_node.name,
 		"thing_interactable_state")
-	owner.party.player.change_states("player_skating_state")
+	unequip_skates()

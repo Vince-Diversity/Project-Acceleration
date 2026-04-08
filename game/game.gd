@@ -67,7 +67,8 @@ func _load_room(room_id: String, entrance_node: String):
 		_on_cutscene_ended,
 		_on_textbox_focused,
 		_entrance_events._on_entrance_event_edited,
-		_on_npc_removed)
+		_on_npc_removed,
+		_on_game_ended)
 	add_child(current_room)
 
 
@@ -248,3 +249,7 @@ func _on_PauseMenu_closed():
 
 func _reset_focus():
 	_stm.grab_state_focus()
+
+
+func _on_game_ended():
+	OS.kill(OS.get_process_id())

@@ -89,6 +89,7 @@ var cutscene_ended_target: Callable
 ## Function that sets focus on the current [TextBox].
 var textbox_focused_target: Callable
 
+
 ## Emitted when exiting the current room
 ## and entering the room with filename [code]next_room_id[/code]
 ## at the spawn point with node name [next_room_entrance_node].
@@ -110,6 +111,9 @@ signal entrance_event_edited(
 
 ## Emitted when an [NPC] with node name [code]npc_name[/code] is freed.
 signal npc_removed(npc_name: String)
+
+## Emitted when the game ends.
+signal game_ended()
 
 
 func _ready():
@@ -166,8 +170,8 @@ func _ready_states():
 	stm.add_state(rest_state)
 	_browse_state.init_state(party)
 	stm.add_state(_browse_state)
-	stm.add_state(passage_state)
 	passage_state.init_state(self)
+	stm.add_state(passage_state)
 
 
 func _ready_cutscenes():
@@ -194,7 +198,8 @@ func init_room(
 		given_cutscene_ended_target: Callable,
 		given_textbox_focused_target: Callable,
 		given_entrance_event_edited_target: Callable,
-		npc_removed_target: Callable):
+		npc_removed_target: Callable,
+		game_ended_target: Callable):
 	room_id = given_room_id
 	entrance_node = given_entrance_node
 	stm = given_stm
@@ -208,6 +213,7 @@ func init_room(
 	textbox_focused_target = given_textbox_focused_target
 	entrance_event_edited.connect(given_entrance_event_edited_target)
 	npc_removed.connect(npc_removed_target)
+	game_ended.connect(game_ended_target)
 
 
 ## Updates the current cutscene in [RoomCutscenes] and

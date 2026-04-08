@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://4514c46hbp0d"]
+[gd_scene format=3 uid="uid://4514c46hbp0d"]
 
 [ext_resource type="PackedScene" uid="uid://bk16wp1xkfq2e" path="res://game/character/character.tscn" id="1_sq2pm"]
 [ext_resource type="Script" uid="uid://dgd7pylp3ffq2" path="res://game/character/npc/npc.gd" id="2_n6ygt"]
@@ -14,7 +14,7 @@ radius = 20.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nojnn"]
 
-[node name="NPC" groups=["Preserved"] instance=ExtResource("1_sq2pm")]
+[node name="NPC" unique_id=117683245 groups=["Preserved"] instance=ExtResource("1_sq2pm")]
 collision_layer = 2
 script = ExtResource("2_n6ygt")
 interaction_node = ""
@@ -40,11 +40,11 @@ collision_mask = 3
 [node name="CollisionShape2D" parent="FollowingArea" index="0"]
 shape = SubResource("CircleShape2D_6orky")
 
-[node name="InteractArea" type="Area2D" parent="." index="3"]
+[node name="InteractArea" type="Area2D" parent="." index="3" unique_id=189344073]
 collision_layer = 8
 script = ExtResource("5_b0ehn")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea" index="0" unique_id=1618792492]
 position = Vector2(0, 5)
 rotation = 1.5708
 shape = SubResource("CircleShape2D_nojnn")

@@ -123,6 +123,42 @@ func set_thing_state(thing_node: String, thing_state_id: String):
 		owner.things.get_node(thing_node).change_states(thing_state_id)
 
 
+## Sets the [Player] animation with the given [member AnimatedSprite2D.animation] [code]anim_name[/code].
+func set_player_anim(anim_name: String):
+	owner.party.player.set_animation(anim_name)
+
+
+## Changes the [PlayerState]
+## to the given [code]state_id[/code].
+func set_player_state(state_id: String):
+	owner.party.player.change_states(state_id)
+
+
+## Sets the title of the [DialogueNode] that will play
+## when the item with the given [code]item_id[/code] is selected
+## to that given by [code]dialogue_node[/code].
+func set_item_browse_dialogue_node(item_id: String, dialogue_node: String):
+	if owner.party.player.items.item_id_list.has(item_id):
+		owner.party.player.items.item_effect_list[item_id][
+			owner.party.player.items.browse_dialogue_node_key] = dialogue_node
+
+
+## Sets the [member ItemsState.state_id] of the item
+## with the given [code]item_id[/code] to the given [code]items_state_id[/code].
+func set_item_items_state(item_id: String, items_state_id: String):
+	if owner.party.player.items.item_id_list.has(item_id):
+		owner.party.player.items.item_effect_list[item_id][
+			owner.party.player.items.items_state_id_key] = items_state_id
+
+
+## Helper function for unequipping ice skates.
+func unequip_skates():
+	set_player_state("player_ordinary_state")
+	set_player_anim("down")
+	set_item_browse_dialogue_node("ice_skates", "ice_skates")
+	set_item_items_state("ice_skates", "items_exhibit_state")
+
+
 ## Adds a new outer entry to the [member async_act_matrix],
 ## that will run in parallel with other outer entries.
 ## The given [code]content[/code] has the following format:

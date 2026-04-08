@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bsn25gxm03r0l"
+path="res://.godot/imported/talk_meditating_blue.dialogue-a939ff77c4d414c45fa49aa176ea111a.tres"
+
+[deps]
+
+source_file="res://resources/dialogue/talk_meditating_blue.dialogue"
+dest_files=["res://.godot/imported/talk_meditating_blue.dialogue-a939ff77c4d414c45fa49aa176ea111a.tres"]
+
+[params]
+
+defaults=true

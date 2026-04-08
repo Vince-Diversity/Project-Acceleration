@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://caxl0vhd0epgm" path="res://game/thing/door/spawn.tscn" id="3_1nmd5"]
 [ext_resource type="PackedScene" uid="uid://qpdpoy0g4us0" path="res://game/thing/ice_shards/ice_green.tscn" id="4_ltb5d"]
 [ext_resource type="PackedScene" uid="uid://t40883qtqpl0" path="res://game/cutscene/silent_cutscene/ice_breakout_cutscene/ice_stuck_cutscene.tscn" id="5_6lbsf"]
+[ext_resource type="PackedScene" uid="uid://dxr4o4esb5d2q" path="res://game/character/npc/npcs/meditating_blue.tscn" id="5_n5rb6"]
+[ext_resource type="PackedScene" uid="uid://bqlmbt878hrxk" path="res://game/cutscene/dialogue_cutscene.tscn" id="7_n5rb6"]
 
 [node name="TeardropSpace" unique_id=38880311 instance=ExtResource("1_bv7kt")]
 
@@ -23,5 +25,19 @@ position = Vector2(0, 4)
 dialogue_id = "ice_shards_teardrop_space"
 dialogue_node = "default"
 
+[node name="MeditatingBlue" parent="YSort/NPCs" index="0" unique_id=556817959 instance=ExtResource("5_n5rb6")]
+position = Vector2(1, -153)
+interaction_node = "DialogueCutscene"
+dialogue_id = "talk_meditating_blue"
+dialogue_node = "move"
+
 [node name="IceStuckCutscene" parent="RoomCutscenes" index="0" unique_id=588663280 node_paths=PackedStringArray("ice_shards_node") instance=ExtResource("5_6lbsf")]
 ice_shards_node = NodePath("../../YSort/Things/ice_green")
+
+[node name="DialogueCutscene" parent="RoomCutscenes" index="1" unique_id=2143273574 instance=ExtResource("7_n5rb6")]
+position = Vector2(0, -149)
+
+[node name="MentorMark" parent="RoomCutscenes/DialogueCutscene" index="0"]
+target_direction_id = 2
+
+[editable path="RoomCutscenes/DialogueCutscene"]

@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://dl6i7f23cus1i"]
+[gd_resource type="SpriteFrames" format=3 uid="uid://dl6i7f23cus1i"]
 
 [ext_resource type="Texture2D" uid="uid://bifngdvg11bcs" path="res://assets/tiles/tilesets/library_hall.png" id="1_o2qtr"]
 

@@ -4,6 +4,8 @@ extends Node
 
 const green := "Misa"
 const blue := "Ari"
+const teardrop_blue := "Meditating Ari"
+const cirruseng_blue := "Ari"
 const red := "Clara"
 const yellow := "Richy"
 const amber := "Miranda"
@@ -52,3 +54,4 @@ const inventory = "pocket"
 
 const observer = "Observer"
 const connection = "Connection"
+const reflection = "Reflection"

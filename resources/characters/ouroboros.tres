@@ -1,7 +1,8 @@
-[gd_resource type="SpriteFrames" load_steps=31 format=3 uid="uid://c4e00goyiyrsj"]
+[gd_resource type="SpriteFrames" format=3 uid="uid://c4e00goyiyrsj"]
 
 [ext_resource type="Texture2D" uid="uid://bmdecqqm6l1r0" path="res://assets/characters/ouroboros/ouroboros_circling.png" id="1_oh01h"]
 [ext_resource type="Texture2D" uid="uid://qfrq0p7lpp4h" path="res://assets/characters/ouroboros/ouroboros_down.png" id="2_884td"]
+[ext_resource type="Texture2D" uid="uid://btrbgxlixob6o" path="res://assets/characters/ouroboros/ouroboros_complete.png" id="2_guql7"]
 [ext_resource type="Texture2D" uid="uid://d20pddrc1xw4g" path="res://assets/characters/ouroboros/ouroboros_left.png" id="3_1llc8"]
 [ext_resource type="Texture2D" uid="uid://7difpeapjjq1" path="res://assets/characters/ouroboros/ouroboros_right.png" id="4_1o5nq"]
 [ext_resource type="Texture2D" uid="uid://bujwrriubrdlp" path="res://assets/characters/ouroboros/ouroboros_up.png" id="5_y256l"]
@@ -37,6 +38,10 @@ region = Rect2(378, 0, 63, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_n30f7"]
 atlas = ExtResource("1_oh01h")
 region = Rect2(441, 0, 63, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjvdq"]
+atlas = ExtResource("2_guql7")
+region = Rect2(0, 0, 63, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c3oe1"]
 atlas = ExtResource("1_oh01h")
@@ -133,8 +138,16 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_n30f7")
 }],
-"loop": false,
+"loop": true,
 "name": &"circling",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjvdq")
+}],
+"loop": false,
+"name": &"complete",
 "speed": 5.0
 }, {
 "frames": [{

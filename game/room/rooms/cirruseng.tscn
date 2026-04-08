@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://blqb1mgntshe"]
+
+[ext_resource type="PackedScene" uid="uid://c1go3780g6ead" path="res://game/room/room.tscn" id="1_ul3hx"]
+[ext_resource type="PackedScene" uid="uid://bmtg2p5crpfak" path="res://game/effect/clouds/Clouds.tscn" id="2_ckj24"]
+[ext_resource type="PackedScene" uid="uid://caxl0vhd0epgm" path="res://game/thing/door/spawn.tscn" id="3_g5enq"]
+[ext_resource type="PackedScene" uid="uid://dpjl5urw14q1k" path="res://game/character/npc/npcs/cirruseng_blue.tscn" id="4_0lu05"]
+[ext_resource type="PackedScene" uid="uid://btvw7i5rbfitb" path="res://game/cutscene/dialogue_cutscene/area_cutscene/area_exited_cutscene.tscn" id="5_vs78o"]
+[ext_resource type="Material" uid="uid://c6hm8dketebd8" path="res://resources/vfx/wavy_shader.tres" id="6_pfw4m"]
+
+[sub_resource type="Shader" id="1"]
+code = "shader_type canvas_item;
+
+uniform vec2 tiled_factor = vec2(5.0, 5.0);
+uniform float aspect_ratio = 1;
+uniform vec2 offset_scale = vec2(5.0, 5.0);
+
+void fragment() {
+	vec2 tiled_uvs = UV * tiled_factor;
+	tiled_uvs.y *= aspect_ratio;
+	
+	vec2 waves_uv_offset;
+	float a = 0.05;
+	waves_uv_offset.x = a*cos(-TIME + (tiled_uvs.x + tiled_uvs.y)*offset_scale.x);
+	waves_uv_offset.y = a*sin(TIME + (tiled_uvs.x + tiled_uvs.y)*offset_scale.y);
+	
+	COLOR = texture(TEXTURE, tiled_uvs * waves_uv_offset);
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pfw4m"]
+shader = SubResource("1")
+shader_parameter/tiled_factor = Vector2(1, 1)
+shader_parameter/aspect_ratio = 1.0
+shader_parameter/offset_scale = Vector2(5, 5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pfw4m"]
+radius = 1024.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6wn46"]
+radius = 4096.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kboel"]
+radius = 8192.0
+
+[node name="Cirruseng" unique_id=1298588651 instance=ExtResource("1_ul3hx")]
+
+[node name="Clouds" parent="Effects" index="0" unique_id=1087269103 instance=ExtResource("2_ckj24")]
+material = SubResource("ShaderMaterial_pfw4m")
+position = Vector2(438.00024, 48)
+scale = Vector2(136.03125, 147.2366)
+
+[node name="Spawn" parent="Doors" index="0" unique_id=388817905 instance=ExtResource("3_g5enq")]
+position = Vector2(0, 87)
+
+[node name="Blue" parent="YSort/NPCs" index="0" unique_id=117683245 instance=ExtResource("4_0lu05")]
+position = Vector2(1, 146)
+dialogue_id = "talk_blue"
+dialogue_node = "talk"
+
+[node name="AreaExitedCutscene4" parent="RoomCutscenes" index="0" unique_id=317988845 instance=ExtResource("5_vs78o")]
+material = ExtResource("6_pfw4m")
+dialogue_id = "cirruseng"
+dialogue_node = "area_1"
+
+[node name="CollisionShape2D" parent="RoomCutscenes/AreaExitedCutscene4/EventArea" index="0"]
+shape = SubResource("CircleShape2D_pfw4m")
+
+[node name="AreaExitedCutscene5" parent="RoomCutscenes" index="1" unique_id=1503340051 instance=ExtResource("5_vs78o")]
+material = ExtResource("6_pfw4m")
+dialogue_id = "cirruseng"
+dialogue_node = "area_2"
+
+[node name="CollisionShape2D" parent="RoomCutscenes/AreaExitedCutscene5/EventArea" index="0"]
+shape = SubResource("CircleShape2D_6wn46")
+
+[node name="AreaExitedCutscene6" parent="RoomCutscenes" index="2" unique_id=850588235 instance=ExtResource("5_vs78o")]
+material = ExtResource("6_pfw4m")
+dialogue_id = "cirruseng"
+dialogue_node = "area_3"
+
+[node name="CollisionShape2D" parent="RoomCutscenes/AreaExitedCutscene6/EventArea" index="0"]
+shape = SubResource("CircleShape2D_kboel")
+
+[editable path="RoomCutscenes/AreaExitedCutscene4"]
+[editable path="RoomCutscenes/AreaExitedCutscene5"]
+[editable path="RoomCutscenes/AreaExitedCutscene6"]

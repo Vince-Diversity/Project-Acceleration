@@ -64,10 +64,7 @@ do set_item_items_state("ice_skates", "items_below_state")
 if is_player_on_water
 	=>< physics_layer/water
 else
-	do set_player_state("player_ordinary_state")
-	do set_player_anim("down")
-	do set_item_browse_dialogue_node("ice_skates", "ice_skates")
-	do set_item_items_state("ice_skates", "items_exhibit_state")
+	do unequip_skates()
 => end_browsing
 
 ~ ice_skates_info

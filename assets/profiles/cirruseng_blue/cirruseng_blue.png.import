@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1vlpiwhhiu5h"
-path="res://.godot/imported/blue.png-e8b76f590f4c4646151533ed371d0f6b.ctex"
+uid="uid://b2vuyhww7j27"
+path="res://.godot/imported/cirruseng_blue.png-80260ca49474c7a9197806b4a3ad3248.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/profiles/teardrop_blue/blue.png"
-dest_files=["res://.godot/imported/blue.png-e8b76f590f4c4646151533ed371d0f6b.ctex"]
+source_file="res://assets/profiles/cirruseng_blue/cirruseng_blue.png"
+dest_files=["res://.godot/imported/cirruseng_blue.png-80260ca49474c7a9197806b4a3ad3248.ctex"]
 
 [params]
 

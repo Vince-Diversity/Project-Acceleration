@@ -87,6 +87,7 @@ func _add_floating_item(item_id: String):
 		floating_item = load(item_path).instantiate()
 		floating_item.init_item(item_id)
 		_floating_mark.add_child(floating_item)
+		floating_item.anim_sprite.play("circling")
 
 
 func _clear_floating_item():
@@ -110,6 +111,11 @@ func change_states(items_state_id: String):
 ## Adds the given [code]item_id[/code] to the [member item_id_list].
 func add_item(item_id: String):
 	item_id_list.append(item_id)
+
+
+## Removes the given [code]item_id[/code].
+func remove_item(item_id: String):
+	item_id_list.erase(item_id)
 
 
 ## Shows animations when the item with the given [code]item_id[/code] is selected.
