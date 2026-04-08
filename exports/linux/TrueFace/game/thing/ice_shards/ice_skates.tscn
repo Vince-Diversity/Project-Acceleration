@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0pcphu1wy728"]
+
+[ext_resource type="PackedScene" uid="uid://ijf27dc2kvyh" path="res://game/thing/ice_shards/ice_shards.tscn" id="1_m2i7f"]
+[ext_resource type="SpriteFrames" uid="uid://t6g48aux4ulf" path="res://resources/things/ice/ice_skates.tres" id="2_fjixf"]
+
+[node name="IceSkates" instance=ExtResource("1_m2i7f")]
+dialogue_id = "ice_skates"
+dialogue_node = "find_skates"
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = ExtResource("2_fjixf")

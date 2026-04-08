@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://ciuakejt8iow3"
+path="res://.godot/imported/talk_ouroboros.dialogue-ceaaf35a56bb4cef030f83b54f30e44c.tres"
+
+[deps]
+
+source_file="res://resources/dialogue/talk_ouroboros.dialogue"
+dest_files=["res://.godot/imported/talk_ouroboros.dialogue-ceaaf35a56bb4cef030f83b54f30e44c.tres"]
+
+[params]
+
+defaults=true

@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://ce20vjatn4ixb"
+path="res://.godot/imported/check_ground.dialogue-994ed661af9e268d88f36945d14b5380.tres"
+
+[deps]
+
+source_file="res://resources/dialogue/check_ground.dialogue"
+dest_files=["res://.godot/imported/check_ground.dialogue-994ed661af9e268d88f36945d14b5380.tres"]
+
+[params]
+
+defaults=true

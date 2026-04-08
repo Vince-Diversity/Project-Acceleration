@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://ermong0eq2gs"]
+
+[ext_resource type="Texture2D" uid="uid://d2anpsoqcb3jh" path="res://assets/items/ice_skates_item.png" id="1_2cbau"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2cbau")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]

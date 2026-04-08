@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cflmj0agsxsjw"]
+
+[ext_resource type="PackedScene" uid="uid://dx5vipp61bwlj" path="res://game/item/item.tscn" id="1_i4gxg"]
+[ext_resource type="SpriteFrames" uid="uid://ermong0eq2gs" path="res://resources/items/created_item/ice_skates_item.tres" id="2_k7u7m"]
+
+[node name="IceSkates" instance=ExtResource("1_i4gxg")]
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = ExtResource("2_k7u7m")

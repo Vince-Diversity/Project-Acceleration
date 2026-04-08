@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkfbxladoh1f5"]
+
+[ext_resource type="Script" uid="uid://bgowsafe0iu3o" path="res://game/character/player/ground_checker/ground_checker.tres.gd" id="1_5bpiw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ssk6d"]
+radius = 8.0
+
+[node name="GroundChecker" type="Area2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_5bpiw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ssk6d")

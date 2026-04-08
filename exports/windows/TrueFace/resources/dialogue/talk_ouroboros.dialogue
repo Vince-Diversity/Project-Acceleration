@@ -1,0 +1,63 @@
+~ ouroboros_info
+{{ouroboros}}: [#font=above] Obos is listening, always.
+- "What can you do?" => ouroboros_ability
+- "Could you take me home?" => ouroboros_home_query
+- Finish talking => END!
+
+~ ouroboros_ability
+{{ouroboros}}: [#font=above] Obos can travel freely in the {{imaginary}}. Obos can bring the {{observer}} to back to their home world. Obos can bring the {{observer}} back to the {{imaginary}}.
+=> ouroboros_info
+
+~ ouroboros_home_query
+{{ouroboros}}: [#font=above] {{observer}} wants to go back home?
+- Yes => ouroboros_home
+- Wait nevermind => ouroboros_info
+
+~ ouroboros_real_space_info
+{{ouroboros}}: [#font=above] Obos is listening, always.
+- "What can you do?" => ouroboros_real_space_ability
+- "Could you take me back to the {{imaginary}}?" => ouroboros_imaginary
+- Finish talking =>  ouroboros_real_space_end_browsing
+
+~ ouroboros_home
+{{ouroboros}}: [#font=above] Nyoom!
+do change_entrance_event("blue_classroom", "", "enter_blue_classroom", "remove_ouroboros")
+do set_item_browse_dialogue_node("ouroboros", "ouroboros_real_space")
+do remove_imaginary_npcs()
+do change_rooms("blue_classroom",  "Spawn")
+=> END!
+
+~ ouroboros_imaginary
+{{ouroboros}}: [#font=above] Nyoom!
+# No need to add Ouroboros here, because Ouroboros is loaded from cache
+do set_item_browse_dialogue_node("ouroboros", "ouroboros")
+do change_rooms("blue_space",  "OuroborosGateway")
+=> END!
+
+~ ouroboros_sacred
+{{ouroboros}}: [#font=above] Nyoom!
+# No need to add Ouroboros here, because Ouroboros is loaded from cache
+do set_item_browse_dialogue_node("ouroboros", "ouroboros")
+do change_rooms("sacred_outdoor",  "CyanSpawn")
+=> END!
+
+~ ouroboros_real_space_ability
+{{ouroboros}}: [#font=above] Obos can travel freely in the {{imaginary}}. Obos can bring the {{observer}} to back to their home world. Obos can bring the {{observer}} back to the {{imaginary}}.
+=> ouroboros_real_space_info
+
+~ ouroboros_real_space_end_browsing
+do clear_player_items()
+=> END!
+
+~ enter_sacred_space
+if not is_ouroboros_joined
+	do create_npc("Ouroboros", "ouroboros")
+	do turn_player_to_npc("Ouroboros")
+	{{ouroboros}}: [#font=above] [#font=above] Nom, {{green}} is the {{observer}}. Nom will help the {{observer}}, when the {{observer}} is wandering in imaginations, always.
+	do remove_npc("Ouroboros")
+	do set_above_player_float("ouroboros")
+	do set_player_anim("admire_above")
+	{{green}}: [#expression=cheerful] My guide is back!
+	do add_item("ouroboros")
+	{{ouroboros}} can be checked on the same way as other items, with the [color=yellow]X key and then left/right keys.[/color]
+=> END!

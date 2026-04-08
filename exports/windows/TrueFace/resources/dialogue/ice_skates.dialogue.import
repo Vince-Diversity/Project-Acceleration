@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://bx53okroo8mul"
+path="res://.godot/imported/ice_skates.dialogue-b7efb9a3768cbe6f8fb65e3b9dad1972.tres"
+
+[deps]
+
+source_file="res://resources/dialogue/ice_skates.dialogue"
+dest_files=["res://.godot/imported/ice_skates.dialogue-b7efb9a3768cbe6f8fb65e3b9dad1972.tres"]
+
+[params]
+
+defaults=true

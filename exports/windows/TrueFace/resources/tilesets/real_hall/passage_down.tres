@@ -1,0 +1,18 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://dk5ohjy0ep2xc"]
+
+[ext_resource type="Texture2D" uid="uid://dq8xphy0ajl6" path="res://assets/tiles/tilesets/real_hall.png" id="1_ixhor"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vnsj"]
+atlas = ExtResource("1_ixhor")
+region = Rect2(256, 256, 128, 128)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1vnsj")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]

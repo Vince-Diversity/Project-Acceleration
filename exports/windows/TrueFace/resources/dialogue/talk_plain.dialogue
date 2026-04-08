@@ -1,0 +1,22 @@
+import "res://resources/dialogue/sacred_indoor_mystery.dialogue" as mystery
+
+~ talk
+if is_sacred_joined
+	=> mystery/found
+else
+	=> request
+=> END!
+
+
+~ request
+do turn_npc_to_player("Plain")
+{{plain}}: Have you seen anything sacred around here?
+{{green}}: No. Actually I'm not sure what you mean.
+{{plain}}: You will know when you see it. Bring it here, please!
+do set_npc_direction("Plain", "down")
+=> END!
+
+
+~ revisit
+{{plain}}: Don't look so worried!
+=> END!

@@ -1,0 +1,18 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://hpq1gu4v27j7"]
+
+[ext_resource type="Texture2D" uid="uid://cmo0sug7yc43m" path="res://assets/things/door.png" id="1_a3ecn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cpd0j"]
+atlas = ExtResource("1_a3ecn")
+region = Rect2(64, 0, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cpd0j")
+}],
+"loop": false,
+"name": &"default",
+"speed": 1.0
+}]

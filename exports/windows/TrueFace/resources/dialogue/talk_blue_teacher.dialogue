@@ -1,0 +1,50 @@
+~ cue
+do move("talk")
+=> END!
+
+
+~ talk
+{{green}}: [#expression=cheerful] Good morning {{blue_teacher}}!
+do turn_npc_to_player("BlueTeacher")
+{{blue_teacher}}: [#expression=cheerful] Hello {{green}}! And this new face is our new student?
+{{blue}}: ...
+{{blue_teacher}}: [#expression=cheerful] I have heard of your extraordinary abilities and will greatly look forward to be your main teacher.
+{{blue_teacher}}: When you two are ready, [color=yellow]please return here so I can introduce {{blue}} to our study of the {{blue_aspect}}[/color].
+do set_npc_interaction_node("BlueTeacher", "ReturnCutscene")
+do set_npc_dialogue_node("BlueTeacher", "query")
+=> END!
+
+
+~ query
+{{green}}: [color=yellow](Should I leave {{blue}} to his new teacher now?)[/color]
+- Yes => yes
+- No => END!
+
+
+~ yes
+do move("proceed_1")
+=> END!
+
+
+~ proceed_1
+do set_npc_direction("BlueTeacher", "down")
+do remove_member("Blue")
+{{green}}: (OK, time to go.)
+{{green}}: [#expression=cheerful] Bye {{blue_teacher}}! Bye {{blue}}!
+do add_async([[make_fade_away, [1.5]]])
+do add_async([[make_move_player, ["ReturnMark1"]]])
+do play_async("proceed_2")
+=> END!
+
+
+~ proceed_2
+do remove_npc("Blue")
+do remove_npc("BlueTeacher")
+do move_player("ReturnMark2", "setters")
+=> END!
+
+
+~ setters
+set is_mentoring =  false
+do change_rooms("green_dorm", "DormDoor")
+=> END!

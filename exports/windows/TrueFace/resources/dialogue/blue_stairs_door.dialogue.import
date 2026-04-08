@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://bliooy17np5ut"
+path="res://.godot/imported/blue_stairs_door.dialogue-5005533f66892e1217438d02f926b867.tres"
+
+[deps]
+
+source_file="res://resources/dialogue/blue_stairs_door.dialogue"
+dest_files=["res://.godot/imported/blue_stairs_door.dialogue-5005533f66892e1217438d02f926b867.tres"]
+
+[params]
+
+defaults=true

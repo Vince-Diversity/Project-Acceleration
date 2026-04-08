@@ -1,0 +1,33 @@
+~ move
+do move("talk")
+=> END!
+
+~ talk
+{{teardrop_blue}}: Do not rip. Do not tear. Inside is where it should go...
+{{green}}: [#expression=sorry] No, don't think like that. This isn't meditation {{blue}}.
+{{ouroboros}}: [#font=above] Nom, {{observer}} does not see the real {{blue}}.
+{{green}}: [#expression=scared] So this is an illusion too?
+{{green}}: [#expression=sorry] Does that mean this is how we imagine {{blue}} to be like?
+{{ouroboros}}: [#font=above] Nom, the {{observer}} has not seen the real {{blue}}. Only {{reflection}}.
+{{green}}: [#expression=sorry] (...)
+do set_npc_dialogue_node("MeditatingBlue", "final")
+=> final
+
+~ final
+{{teardrop_blue}}: Do not rip. Do not tear. Inside is where it should go...
+{{ouroboros}}: [#font=above] When the {{observer}} reveals a {{reflection}}, [color=yellow] the {{observer}}'s {{real}} space will collapse. [/color]
+{{green}}: [#expression=sorry] (I understand now.)
+=> END!
+
+~ reveal
+(Once I use the {{revealer}}, there is no turning back. Should I do it now?)
+- (Yes.) => revealed
+- (Hold on a bit longer.) => END!
+
+~ revealed
+do fade_away(1, "collapse")
+=> END!
+
+~ collapse
+do change_rooms("cirruseng", "Spawn")
+=> END!
