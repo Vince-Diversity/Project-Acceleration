@@ -13,6 +13,9 @@ class_name AreaCutscene extends DialogueCutscene
 
 @onready var event_area = $EventArea
 
+## Workaround flag to avoid errors when pausing and unpausing
+var is_entering_main_menu: bool
+
 ## Emitted to start a cutscene
 signal area_cutscene_started(
 	interaction_node: String,
@@ -24,8 +27,14 @@ signal area_cutscene_started(
 func init_cutscene(given_cutscenes: RoomCutscenes, given_screen: Screen):
 	super(given_cutscenes, given_screen)
 	area_cutscene_started.connect(cutscenes.owner._on_begin_area_cutscene, CONNECT_ONE_SHOT)
+	owner.main_menu_entered.connect(_on_main_menu_entered)
+	is_entering_main_menu = false
 
 
 ## Checks that the entered body is the player.
 func is_body_valid(body: PhysicsBody2D) -> bool:
 	return body == cutscenes.owner.party.player
+
+
+func _on_main_menu_entered():
+	is_entering_main_menu = true

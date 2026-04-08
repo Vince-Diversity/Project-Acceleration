@@ -53,6 +53,13 @@ func init_pause_menu(
 	bgm_player = given_bgm
 
 
+## Intended for when the player can no longer progress the game.
+func set_point_of_no_return():
+	_resume.disabled = true
+	_save.disabled = true
+	_settings.disabled = true
+
+
 func _on_resume_pressed():
 	_unpause()
 

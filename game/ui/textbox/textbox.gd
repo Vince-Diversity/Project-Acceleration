@@ -14,7 +14,6 @@ class_name TextBox extends CanvasLayer
 @onready var _dialogue_label := %DialogueLabel
 @onready var _responses_menu: VBoxContainer = %Responses
 @onready var _response_template: RichTextLabel = %ResponseTemplate
-@onready var _indicator:  TextureRect = %Indicator
 
 ## The dialogue resource
 var resource: DialogueResource
@@ -26,7 +25,6 @@ var temporary_game_states: Array = []
 var is_waiting_for_input: bool = false:
 	set(value):
 		is_waiting_for_input = value
-		_indicator.set_visible(value)
 
 ## See if we are running a long mutation and should hide the balloon
 var will_hide_balloon: bool = false

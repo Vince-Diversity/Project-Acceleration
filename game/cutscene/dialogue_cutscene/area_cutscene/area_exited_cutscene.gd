@@ -7,5 +7,5 @@ func init_cutscene(given_cutscenes: RoomCutscenes, given_screen: Screen):
 
 
 func _on_area_cutscene_body_exited(body: PhysicsBody2D):
-	if is_body_valid(body):
+	if is_body_valid(body) and not is_entering_main_menu:
 		area_cutscene_started.emit(name, dialogue_id, dialogue_node)

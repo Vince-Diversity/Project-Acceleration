@@ -112,6 +112,9 @@ signal entrance_event_edited(
 ## Emitted when an [NPC] with node name [code]npc_name[/code] is freed.
 signal npc_removed(npc_name: String)
 
+## Emitted when entering the main menu.
+signal main_menu_entered()
+
 ## Emitted when the game ends.
 signal game_ended()
 

@@ -240,6 +240,7 @@ func _on_PauseMenu_save_pressed():
 
 
 func _on_PauseMenu_main_menu_pressed():
+	current_room.main_menu_entered.emit()
 	loader.enter_main_menu()
 
 
@@ -252,4 +253,5 @@ func _reset_focus():
 
 
 func _on_game_ended():
-	OS.kill(OS.get_process_id())
+	_pause()
+	menu.set_point_of_no_return()

@@ -1,17 +1,17 @@
-[gd_resource type="Resource" script_class="SaveGame" format=3]
+[gd_resource type="Resource" script_class="SaveGame" format=3 uid="uid://kf5dt4uk33gu"]
 
-[ext_resource type="Script" path="res://loader/save_game.gd" id="1_oc726"]
+[ext_resource type="Script" uid="uid://yrx16fo7cbqi" path="res://loader/save_game.gd" id="1_8afi1"]
 
 [resource]
-script = ExtResource("1_oc726")
+script = ExtResource("1_8afi1")
 game_version = "0.3"
 data = {
 "conditions": {
-"is_checking_surface": true,
+"is_checking_surface": false,
 "is_mentoring": false
 },
 "game": {
-"current_room_id": "cirruseng",
+"current_room_id": "sea_space",
 "entrance_event": {
 "blue_classroom": {
 "dialogue_id": "enter_blue_classroom",
@@ -84,7 +84,7 @@ data = {
 "is_oneshot": false
 }
 },
-"entrance_node": "Spawn"
+"entrance_node": "SacredStatue"
 },
 "items": {
 "floating_item": "ouroboros",
@@ -105,7 +105,7 @@ data = {
 "items_state_id": "items_exhibit_state"
 }
 },
-"item_list": ["revealer", "ice_skates"]
+"item_list": ["revealer", "ouroboros", "ice_skates"]
 },
 "party": [],
 "player": {
@@ -241,33 +241,6 @@ data = {
 "current_frame": 0,
 "current_state": "thing_interactable_state",
 "dialogue_id": "blue_stairs_door",
-"dialogue_node": "default",
-"interaction_node": ""
-}
-}
-},
-"cirruseng": {
-"npcs": {
-&"Blue": {
-"current_anim": &"default",
-"dialogue_id": "talk_blue",
-"dialogue_node": "talk",
-"direction": Vector2(0, 1),
-"filename": "blue",
-"idling_room": "",
-"interaction_node": "",
-"position": Vector2(1, 146),
-"was_joined": false,
-"z_index": 0
-}
-},
-"party": {},
-"things": {
-&"Spawn": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "default_door",
 "dialogue_node": "default",
 "interaction_node": ""
 }
@@ -1185,41 +1158,6 @@ data = {
 "dialogue_id": "sacred_statue",
 "dialogue_node": "default",
 "interaction_node": "Default1"
-}
-}
-},
-"teardrop_space": {
-"npcs": {
-&"MeditatingBlue": {
-"current_anim": &"default",
-"dialogue_id": "talk_meditating_blue",
-"dialogue_node": "move",
-"direction": Vector2(0, 1),
-"filename": "meditating_blue",
-"idling_room": "",
-"interaction_node": "DialogueCutscene",
-"position": Vector2(1, -153),
-"was_joined": false,
-"z_index": 0
-}
-},
-"party": {},
-"things": {
-&"Center": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "default_door",
-"dialogue_node": "default",
-"interaction_node": ""
-},
-&"ice_green": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "ice_shards_teardrop_space",
-"dialogue_node": "default",
-"interaction_node": ""
 }
 }
 }
