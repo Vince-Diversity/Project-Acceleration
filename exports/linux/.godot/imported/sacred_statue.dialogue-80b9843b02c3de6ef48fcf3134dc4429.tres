@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="DialogueResource" format=3]
+
+[ext_resource type="Script" uid="uid://dbs4435dsf3ry" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_36gvv"]
+
+[resource]
+script = ExtResource("1_36gvv")
+using_states = PackedStringArray()
+titles = {
+"default": "1"
+}
+character_names = PackedStringArray("{{green}}")
+first_title = "0"
+lines = {
+"0": {
+&"id": "0",
+&"next_id": "1",
+&"type": "title"
+},
+"1": {
+&"character": "{{green}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"id": "1",
+&"next_id": "2",
+&"tags": PackedStringArray("expression=sorry"),
+&"text": "(This statue resembles {{sacred}}.)",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 37,
+&"type": &"variable",
+&"value": "sacred"
+}]),
+&"value_in_text": "{{sacred}}"
+}]),
+&"type": "dialogue"
+},
+"2": {
+&"id": "2",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
+},
+"3": {
+&"id": "3",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
+}
+}
+raw_text = "~ default
+{{green}}: [#expression=sorry] (This statue resembles {{sacred}}.)
+=> END!"
+metadata/dialogue_manager_version = "3.4.0"

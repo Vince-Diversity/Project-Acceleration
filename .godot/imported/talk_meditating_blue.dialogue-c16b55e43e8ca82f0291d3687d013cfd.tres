@@ -1,0 +1,332 @@
+[gd_resource type="Resource" script_class="DialogueResource" format=3]
+
+[ext_resource type="Script" uid="uid://dbs4435dsf3ry" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_h6xbe"]
+
+[resource]
+script = ExtResource("1_h6xbe")
+using_states = PackedStringArray()
+titles = {
+"talk": "1"
+}
+character_names = PackedStringArray("{{green}}", "{{teardrop_blue}}", "{{ouroboros}}")
+first_title = "0"
+lines = {
+"0": {
+&"id": "0",
+&"next_id": "1",
+&"type": "title"
+},
+"1": {
+&"character": "{{green}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"id": "1",
+&"next_id": "2",
+&"text": "{{blue}}? Is that you?",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 13,
+&"type": &"variable",
+&"value": "blue"
+}]),
+&"value_in_text": "{{blue}}"
+}]),
+&"type": "dialogue"
+},
+"10": {
+&"character": "{{green}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"id": "10",
+&"next_id": "11",
+&"tags": PackedStringArray("expression=scared"),
+&"text": "Then... everything I know is...",
+&"type": "dialogue"
+},
+"11": {
+&"character": "{{green}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"id": "11",
+&"next_id": "12",
+&"tags": PackedStringArray("expression=sorry"),
+&"text": "I understand now. That's why Magiscience never made any sense.",
+&"type": "dialogue"
+},
+"12": {
+&"character": "{{ouroboros}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "ouroboros"
+}]),
+&"value_in_text": "{{ouroboros}}"
+}]),
+&"id": "12",
+&"next_id": "13",
+&"text": "Nom,",
+&"type": "dialogue"
+},
+"13": {
+&"id": "13",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
+},
+"14": {
+&"id": "14",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
+},
+"2": {
+&"character": "{{teardrop_blue}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "teardrop_blue"
+}]),
+&"value_in_text": "{{teardrop_blue}}"
+}]),
+&"id": "2",
+&"next_id": "3",
+&"text": "Do not rip. Do not tear. Inside is where it should go...",
+&"type": "dialogue"
+},
+"3": {
+&"character": "{{green}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"id": "3",
+&"next_id": "4",
+&"tags": PackedStringArray("expression=sorry"),
+&"text": "No, don't think like that. This isn't meditation.",
+&"type": "dialogue"
+},
+"4": {
+&"character": "{{ouroboros}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "ouroboros"
+}]),
+&"value_in_text": "{{ouroboros}}"
+}]),
+&"id": "4",
+&"next_id": "5",
+&"tags": PackedStringArray("font=above"),
+&"text": "Nom, {{observer}} does not see the real {{blue}}.",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 23,
+&"type": &"variable",
+&"value": "observer"
+}]),
+&"value_in_text": "{{observer}}"
+}, {
+&"expression": Array[Dictionary]([{
+&"i": 58,
+&"type": &"variable",
+&"value": "blue"
+}]),
+&"value_in_text": "{{blue}}"
+}]),
+&"type": "dialogue"
+},
+"5": {
+&"character": "{{green}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"id": "5",
+&"next_id": "6",
+&"tags": PackedStringArray("expression=scared"),
+&"text": "So this is an illusion too?",
+&"type": "dialogue"
+},
+"6": {
+&"character": "{{green}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"id": "6",
+&"next_id": "7",
+&"tags": PackedStringArray("expression=sorry"),
+&"text": "Does that mean this is how we imagine {{blue}} to be like on the inside, but it's not really how {{blue}} really feels?",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 52,
+&"type": &"variable",
+&"value": "blue"
+}]),
+&"value_in_text": "{{blue}}"
+}, {
+&"expression": Array[Dictionary]([{
+&"i": 111,
+&"type": &"variable",
+&"value": "blue"
+}]),
+&"value_in_text": "{{blue}}"
+}]),
+&"type": "dialogue"
+},
+"7": {
+&"character": "{{ouroboros}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "ouroboros"
+}]),
+&"value_in_text": "{{ouroboros}}"
+}]),
+&"id": "7",
+&"next_id": "8",
+&"text": "Nom, the {{observer}} has not seen the real {{blue}}. Only a {{reflection}}.",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 26,
+&"type": &"variable",
+&"value": "observer"
+}]),
+&"value_in_text": "{{observer}}"
+}, {
+&"expression": Array[Dictionary]([{
+&"i": 61,
+&"type": &"variable",
+&"value": "blue"
+}]),
+&"value_in_text": "{{blue}}"
+}, {
+&"expression": Array[Dictionary]([{
+&"i": 78,
+&"type": &"variable",
+&"value": "reflection"
+}]),
+&"value_in_text": "{{reflection}}"
+}]),
+&"type": "dialogue"
+},
+"8": {
+&"character": "{{green}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"id": "8",
+&"next_id": "9",
+&"tags": PackedStringArray("expression=scared"),
+&"text": "Then, the {{blue}} who I mentored all this time was an illusion too.",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 24,
+&"type": &"variable",
+&"value": "blue"
+}]),
+&"value_in_text": "{{blue}}"
+}]),
+&"type": "dialogue"
+},
+"9": {
+&"character": "{{ouroboros}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "ouroboros"
+}]),
+&"value_in_text": "{{ouroboros}}"
+}]),
+&"id": "9",
+&"next_id": "10",
+&"text": "When the {{observer}} reveals a {{reflection}}, [color=yellow] the {{observer}}'s {{real}} space will collapse. [/color]",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 26,
+&"type": &"variable",
+&"value": "observer"
+}]),
+&"value_in_text": "{{observer}}"
+}, {
+&"expression": Array[Dictionary]([{
+&"i": 49,
+&"type": &"variable",
+&"value": "reflection"
+}]),
+&"value_in_text": "{{reflection}}"
+}, {
+&"expression": Array[Dictionary]([{
+&"i": 84,
+&"type": &"variable",
+&"value": "observer"
+}]),
+&"value_in_text": "{{observer}}"
+}, {
+&"expression": Array[Dictionary]([{
+&"i": 99,
+&"type": &"variable",
+&"value": "real"
+}]),
+&"value_in_text": "{{real}}"
+}]),
+&"type": "dialogue"
+}
+}
+raw_text = "~ talk
+{{green}}: {{blue}}? Is that you?
+{{teardrop_blue}}: Do not rip. Do not tear. Inside is where it should go...
+{{green}}: [#expression=sorry] No, don't think like that. This isn't meditation.
+{{ouroboros}}: [#font=above] Nom, {{observer}} does not see the real {{blue}}.
+{{green}}: [#expression=scared] So this is an illusion too?
+{{green}}: [#expression=sorry] Does that mean this is how we imagine {{blue}} to be like on the inside, but it's not really how {{blue}} really feels?
+{{ouroboros}}: Nom, the {{observer}} has not seen the real {{blue}}. Only a {{reflection}}.
+{{green}}: [#expression=scared] Then, the {{blue}} who I mentored all this time was an illusion too.
+{{ouroboros}}: When the {{observer}} reveals a {{reflection}}, [color=yellow] the {{observer}}'s {{real}} space will collapse. [/color]
+{{green}}: [#expression=scared] Then... everything I know is...
+{{green}}: [#expression=sorry] I understand now. That's why Magiscience never made any sense.
+{{ouroboros}}: Nom, 
+=> END!"
+metadata/dialogue_manager_version = "3.10.1"

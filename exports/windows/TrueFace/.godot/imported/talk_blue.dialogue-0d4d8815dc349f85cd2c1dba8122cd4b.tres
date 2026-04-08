@@ -1,0 +1,236 @@
+[gd_resource type="Resource" script_class="DialogueResource" format=3]
+
+[ext_resource type="Script" uid="uid://dbs4435dsf3ry" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_y3out"]
+
+[resource]
+script = ExtResource("1_y3out")
+using_states = PackedStringArray()
+titles = {
+"talk": "1"
+}
+character_names = PackedStringArray("{{cirruseng_blue}}", "{{green}}")
+first_title = "0"
+lines = {
+"0": {
+&"id": "0",
+&"next_id": "1",
+&"type": "title"
+},
+"1": {
+&"id": "1",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "turn_npc_to_player",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 22,
+&"type": &"string",
+&"value": "Blue"
+}, {
+&"i": 28,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "2",
+&"type": "mutation"
+},
+"10": {
+&"character": "{{green}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"id": "10",
+&"next_id": "11",
+&"text": "(I need to get to the edge of this space. Never backing down now.)",
+&"type": "dialogue"
+},
+"11": {
+&"id": "11",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
+},
+"12": {
+&"id": "12",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
+},
+"2": {
+&"character": "{{cirruseng_blue}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "cirruseng_blue"
+}]),
+&"value_in_text": "{{cirruseng_blue}}"
+}]),
+&"id": "2",
+&"next_id": "3",
+&"text": "{{green}}, why are you trying to find me?",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 22,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"type": "dialogue"
+},
+"3": {
+&"character": "{{green}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"id": "3",
+&"next_id": "4",
+&"text": "Because I am your mentor. Come now {{blue}}, everyone is waiting for you!",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 48,
+&"type": &"variable",
+&"value": "blue"
+}]),
+&"value_in_text": "{{blue}}"
+}]),
+&"type": "dialogue"
+},
+"4": {
+&"character": "{{cirruseng_blue}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "cirruseng_blue"
+}]),
+&"value_in_text": "{{cirruseng_blue}}"
+}]),
+&"id": "4",
+&"next_id": "5",
+&"text": "But you are all fake people.",
+&"type": "dialogue"
+},
+"5": {
+&"character": "{{green}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"id": "5",
+&"next_id": "6",
+&"tags": PackedStringArray("expression=sorry"),
+&"text": "{{blue}}, I am so sorry. I understand how terrible you have it.",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 14,
+&"type": &"variable",
+&"value": "blue"
+}]),
+&"value_in_text": "{{blue}}"
+}]),
+&"type": "dialogue"
+},
+"6": {
+&"character": "{{cirruseng_blue}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "cirruseng_blue"
+}]),
+&"value_in_text": "{{cirruseng_blue}}"
+}]),
+&"id": "6",
+&"next_id": "7",
+&"text": "That's it? Just sorry? How can you ever change anything?",
+&"type": "dialogue"
+},
+"7": {
+&"character": "{{green}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"id": "7",
+&"next_id": "8",
+&"tags": PackedStringArray("expression=sorry"),
+&"text": "(There is only one thing I can try.)",
+&"type": "dialogue"
+},
+"8": {
+&"character": "{{green}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"id": "8",
+&"next_id": "9",
+&"text": "{{blue}}, I can also imagine. As long as you are in my imagination, you are with us.",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 13,
+&"type": &"variable",
+&"value": "blue"
+}]),
+&"value_in_text": "{{blue}}"
+}]),
+&"type": "dialogue"
+},
+"9": {
+&"character": "{{cirruseng_blue}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "cirruseng_blue"
+}]),
+&"value_in_text": "{{cirruseng_blue}}"
+}]),
+&"id": "9",
+&"next_id": "10",
+&"text": "...",
+&"type": "dialogue"
+}
+}
+raw_text = "~ talk
+do turn_npc_to_player(\"Blue\")
+{{cirruseng_blue}}: {{green}}, why are you trying to find me?
+{{green}}: Because I am your mentor. Come now {{blue}}, everyone is waiting for you!
+{{cirruseng_blue}}: But you are all fake people.
+{{green}}: [#expression=sorry] {{blue}}, I am so sorry. I understand how terrible you have it.
+{{cirruseng_blue}}: That's it? Just sorry? How can you ever change anything?
+{{green}}: [#expression=sorry] (There is only one thing I can try.)
+{{green}}: {{blue}}, I can also imagine. As long as you are in my imagination, you are with us.
+{{cirruseng_blue}}: ...
+{{green}}: (I need to get to the edge of this space. Never backing down now.)
+=> END!"
+metadata/dialogue_manager_version = "3.10.1"

@@ -1,0 +1,637 @@
+[gd_resource type="Resource" script_class="DialogueResource" format=3]
+
+[ext_resource type="Script" uid="uid://dbs4435dsf3ry" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_eqeia"]
+
+[resource]
+script = ExtResource("1_eqeia")
+using_states = PackedStringArray()
+titles = {
+"check": "7",
+"cue": "1",
+"open_book": "15",
+"read": "20"
+}
+character_names = PackedStringArray("{{green}}")
+first_title = "0"
+lines = {
+"0": {
+&"id": "0",
+&"next_id": "1",
+&"type": "title"
+},
+"1": {
+&"condition": {
+&"expression": Array[Dictionary]([{
+&"i": 3,
+&"type": &"variable",
+&"value": "is_mentoring"
+}])
+},
+&"id": "1",
+&"next_id": "2",
+&"next_id_after": "3",
+&"type": "condition"
+},
+"10": {
+&"character": "{{green}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 3,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"id": "10",
+&"next_id": "11",
+&"text": "(Records of {{imaginary}}.)",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 26,
+&"type": &"variable",
+&"value": "imaginary"
+}]),
+&"value_in_text": "{{imaginary}}"
+}]),
+&"type": "dialogue"
+},
+"11": {
+&"id": "11",
+&"next_id": "15",
+&"responses": PackedStringArray("11", "12"),
+&"text": "Read",
+&"type": "response"
+},
+"12": {
+&"id": "12",
+&"next_id": "end!",
+&"text": "Leave",
+&"type": "response"
+},
+"13": {
+&"id": "13",
+&"next_id": "14",
+&"type": ""
+},
+"14": {
+&"id": "14",
+&"next_id": "15",
+&"type": "title"
+},
+"15": {
+&"id": "15",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "set_thing_anim",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 18,
+&"type": &"string",
+&"value": "BookcaseImaginarySpace"
+}]), Array[Dictionary]([{
+&"i": 44,
+&"type": &"variable",
+&"value": "bookcase_taken_anim"
+}, {
+&"i": 63,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "16",
+&"type": "mutation"
+},
+"16": {
+&"id": "16",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "animate_player",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 18,
+&"type": &"variable",
+&"value": "read_anim"
+}]), Array[Dictionary]([{
+&"i": 29,
+&"type": &"string",
+&"value": "read"
+}, {
+&"i": 35,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "17",
+&"type": "mutation"
+},
+"17": {
+&"id": "17",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
+},
+"18": {
+&"id": "18",
+&"next_id": "19",
+&"type": ""
+},
+"19": {
+&"id": "19",
+&"next_id": "20",
+&"type": "title"
+},
+"2": {
+&"character": "{{green}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 3,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"id": "2",
+&"next_id": "3",
+&"text": "Look over here, {{blue}}!",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 30,
+&"type": &"variable",
+&"value": "blue"
+}]),
+&"value_in_text": "{{blue}}"
+}]),
+&"type": "dialogue"
+},
+"20": {
+&"id": "20",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "set_player_anim",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 19,
+&"type": &"variable",
+&"value": "reading_anim"
+}, {
+&"i": 31,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "21",
+&"type": "mutation"
+},
+"21": {
+&"condition": {
+&"expression": Array[Dictionary]([{
+&"i": 3,
+&"type": &"variable",
+&"value": "is_mentoring"
+}])
+},
+&"id": "21",
+&"next_id": "22",
+&"next_id_after": "36",
+&"next_sibling_id": "29",
+&"type": "condition"
+},
+"22": {
+&"character": "{{green}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 3,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"id": "22",
+&"next_id": "23",
+&"text": "\"{{deepest_layer}}: The Cloud Meadows.\"",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 15,
+&"type": &"variable",
+&"value": "deepest_layer"
+}]),
+&"value_in_text": "{{deepest_layer}}"
+}]),
+&"type": "dialogue"
+},
+"23": {
+&"character": "{{green}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 3,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"id": "23",
+&"next_id": "24",
+&"text": "\"{{pioneer}}'s records: Extremely thin layer. Most thin ever measured.\"",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 15,
+&"type": &"variable",
+&"value": "pioneer"
+}]),
+&"value_in_text": "{{pioneer}}"
+}]),
+&"type": "dialogue"
+},
+"24": {
+&"character": "{{green}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 3,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"id": "24",
+&"next_id": "25",
+&"text": "\"Landscale is fogged by thin clouds. No ground. No weightlessness. Clouds overlapping makes ground solid.\"",
+&"type": "dialogue"
+},
+"25": {
+&"character": "{{green}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 3,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"id": "25",
+&"next_id": "26",
+&"text": "\"The horizon is too foggy. Failed to reach the horizon through levitation. Loops back to the beginning like an endless cycle.\"",
+&"type": "dialogue"
+},
+"26": {
+&"character": "{{green}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 3,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"id": "26",
+&"next_id": "27",
+&"text": "\"Assumption (daring!): The border goes beyond magiscience?\"",
+&"type": "dialogue"
+},
+"27": {
+&"character": "{{green}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 3,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"id": "27",
+&"next_id": "28",
+&"text": "\"Nickname: Cirruseng.\"",
+&"type": "dialogue"
+},
+"28": {
+&"character": "{{green}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 3,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"id": "28",
+&"next_id": "36",
+&"tags": PackedStringArray("expression=cheerful"),
+&"text": "We should try look for this place called {{deepest_layer}} sometime.",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 56,
+&"type": &"variable",
+&"value": "deepest_layer"
+}]),
+&"value_in_text": "{{deepest_layer}}"
+}]),
+&"type": "dialogue"
+},
+"29": {
+&"condition": {},
+&"id": "29",
+&"next_id": "30",
+&"next_id_after": "36",
+&"type": "condition"
+},
+"3": {
+&"id": "3",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "move",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 8,
+&"type": &"string",
+&"value": "check"
+}, {
+&"i": 15,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "4",
+&"type": "mutation"
+},
+"30": {
+&"character": "{{green}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 3,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"id": "30",
+&"next_id": "31",
+&"text": "(\"{{deepest_layer}}: The Cloud Meadows.\")",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 16,
+&"type": &"variable",
+&"value": "deepest_layer"
+}]),
+&"value_in_text": "{{deepest_layer}}"
+}]),
+&"type": "dialogue"
+},
+"31": {
+&"character": "{{green}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 3,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"id": "31",
+&"next_id": "32",
+&"text": "(\"{{pioneer}}'s records: Extremely thin layer. Most thin ever measured.\")",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 16,
+&"type": &"variable",
+&"value": "pioneer"
+}]),
+&"value_in_text": "{{pioneer}}"
+}]),
+&"type": "dialogue"
+},
+"32": {
+&"character": "{{green}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 3,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"id": "32",
+&"next_id": "33",
+&"text": "(\"Landscale is fogged by thin clouds. No ground. No weightlessness. Clouds overlapping makes ground solid.\")",
+&"type": "dialogue"
+},
+"33": {
+&"character": "{{green}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 3,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"id": "33",
+&"next_id": "34",
+&"text": "(\"The horizon is too foggy. Failed to reach the horizon through levitation. Loops back to the beginning like an endless cycle.\")",
+&"type": "dialogue"
+},
+"34": {
+&"character": "{{green}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 3,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"id": "34",
+&"next_id": "35",
+&"text": "(\"Assumption (daring!): The border goes beyond magiscience?\")",
+&"type": "dialogue"
+},
+"35": {
+&"character": "{{green}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 3,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"id": "35",
+&"next_id": "36",
+&"text": "(\"Nickname: Cirruseng.\")",
+&"type": "dialogue"
+},
+"36": {
+&"id": "36",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "set_thing_anim",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 18,
+&"type": &"string",
+&"value": "BookcaseImaginarySpace"
+}]), Array[Dictionary]([{
+&"i": 44,
+&"type": &"variable",
+&"value": "bookcase_anim"
+}, {
+&"i": 57,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "37",
+&"type": "mutation"
+},
+"37": {
+&"id": "37",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "set_player_anim",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 19,
+&"type": &"string",
+&"value": "down"
+}, {
+&"i": 25,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "38",
+&"type": "mutation"
+},
+"38": {
+&"id": "38",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
+},
+"39": {
+&"id": "39",
+&"next_id": "40",
+&"type": ""
+},
+"4": {
+&"id": "4",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
+},
+"40": {
+&"id": "40",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
+},
+"5": {
+&"id": "5",
+&"next_id": "6",
+&"type": ""
+},
+"6": {
+&"id": "6",
+&"next_id": "7",
+&"type": "title"
+},
+"7": {
+&"condition": {
+&"expression": Array[Dictionary]([{
+&"i": 3,
+&"type": &"variable",
+&"value": "is_mentoring"
+}])
+},
+&"id": "7",
+&"next_id": "8",
+&"next_id_after": "11",
+&"next_sibling_id": "9",
+&"type": "condition"
+},
+"8": {
+&"character": "{{green}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 3,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"id": "8",
+&"next_id": "11",
+&"text": "\"Records of {{imaginary}}\".",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 26,
+&"type": &"variable",
+&"value": "imaginary"
+}]),
+&"value_in_text": "{{imaginary}}"
+}]),
+&"type": "dialogue"
+},
+"9": {
+&"condition": {},
+&"id": "9",
+&"next_id": "10",
+&"next_id_after": "11",
+&"type": "condition"
+}
+}
+raw_text = "~ cue
+if is_mentoring
+	{{green}}: Look over here, {{blue}}!
+do move(\"check\")
+=> END!
+
+~ check
+if is_mentoring
+	{{green}}: \"Records of {{imaginary}}\".
+else
+	{{green}}: (Records of {{imaginary}}.)
+- Read => open_book
+- Leave => END!
+
+~ open_book
+do set_thing_anim(\"BookcaseImaginarySpace\", bookcase_taken_anim)
+do animate_player(read_anim, \"read\")
+=> END!
+
+~ read
+do set_player_anim(reading_anim)
+if is_mentoring
+	{{green}}: \"{{deepest_layer}}: The Cloud Meadows.\"
+	{{green}}: \"{{pioneer}}'s records: Extremely thin layer. Most thin ever measured.\"
+	{{green}}: \"Landscale is fogged by thin clouds. No ground. No weightlessness. Clouds overlapping makes ground solid.\"
+	{{green}}: \"The horizon is too foggy. Failed to reach the horizon through levitation. Loops back to the beginning like an endless cycle.\"
+	{{green}}: \"Assumption (daring!): The border goes beyond magiscience?\"
+	{{green}}: \"Nickname: Cirruseng.\"
+	{{green}}: [#expression=cheerful] We should try look for this place called {{deepest_layer}} sometime.
+else
+	{{green}}: (\"{{deepest_layer}}: The Cloud Meadows.\")
+	{{green}}: (\"{{pioneer}}'s records: Extremely thin layer. Most thin ever measured.\")
+	{{green}}: (\"Landscale is fogged by thin clouds. No ground. No weightlessness. Clouds overlapping makes ground solid.\")
+	{{green}}: (\"The horizon is too foggy. Failed to reach the horizon through levitation. Loops back to the beginning like an endless cycle.\")
+	{{green}}: (\"Assumption (daring!): The border goes beyond magiscience?\")
+	{{green}}: (\"Nickname: Cirruseng.\")
+do set_thing_anim(\"BookcaseImaginarySpace\", bookcase_anim)
+do set_player_anim(\"down\")
+=> END!
+"
+metadata/dialogue_manager_version = "3.4.0"

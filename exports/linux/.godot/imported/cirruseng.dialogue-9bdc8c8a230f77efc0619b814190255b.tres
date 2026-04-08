@@ -1,0 +1,360 @@
+[gd_resource type="Resource" script_class="DialogueResource" format=3]
+
+[ext_resource type="Script" uid="uid://dbs4435dsf3ry" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_uo8ly"]
+
+[resource]
+script = ExtResource("1_uo8ly")
+using_states = PackedStringArray()
+titles = {
+"area_1": "1",
+"area_1_end": "6",
+"area_2": "10",
+"area_2_end": "15",
+"area_3": "19",
+"area_3_end": "24"
+}
+character_names = PackedStringArray()
+first_title = "0"
+lines = {
+"0": {
+&"id": "0",
+&"next_id": "1",
+&"type": "title"
+},
+"1": {
+&"id": "1",
+&"next_id": "2",
+&"text": "(1)",
+&"type": "dialogue"
+},
+"10": {
+&"id": "10",
+&"next_id": "11",
+&"text": "(2)",
+&"type": "dialogue"
+},
+"11": {
+&"id": "11",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "darken_down",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 15,
+&"type": &"number",
+&"value": 0.5
+}]), Array[Dictionary]([{
+&"i": 20,
+&"type": &"string",
+&"value": "area_2_end"
+}, {
+&"i": 32,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "12",
+&"type": "mutation"
+},
+"12": {
+&"id": "12",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
+},
+"13": {
+&"id": "13",
+&"next_id": "14",
+&"type": ""
+},
+"14": {
+&"id": "14",
+&"next_id": "15",
+&"type": "title"
+},
+"15": {
+&"id": "15",
+&"next_id": "16",
+&"text": "(I'm not feeling well. But it's the only way I can help {{blue}}!)",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 60,
+&"type": &"variable",
+&"value": "blue"
+}]),
+&"value_in_text": "{{blue}}"
+}]),
+&"type": "dialogue"
+},
+"16": {
+&"id": "16",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
+},
+"17": {
+&"id": "17",
+&"next_id": "18",
+&"type": ""
+},
+"18": {
+&"id": "18",
+&"next_id": "19",
+&"type": "title"
+},
+"19": {
+&"id": "19",
+&"next_id": "20",
+&"text": "(3)",
+&"type": "dialogue"
+},
+"2": {
+&"id": "2",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "darken_down",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 15,
+&"type": &"number",
+&"value": 0.3
+}]), Array[Dictionary]([{
+&"i": 20,
+&"type": &"string",
+&"value": "area_1_end"
+}, {
+&"i": 32,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "3",
+&"type": "mutation"
+},
+"20": {
+&"id": "20",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "darken_down",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 15,
+&"type": &"number",
+&"value": 1.0
+}]), Array[Dictionary]([{
+&"i": 20,
+&"type": &"string",
+&"value": "area_3_end"
+}, {
+&"i": 32,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "21",
+&"type": "mutation"
+},
+"21": {
+&"id": "21",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
+},
+"22": {
+&"id": "22",
+&"next_id": "23",
+&"type": ""
+},
+"23": {
+&"id": "23",
+&"next_id": "24",
+&"type": "title"
+},
+"24": {
+&"id": "24",
+&"next_id": "25",
+&"text": "(I am now the {{observer}} of this world. I see {{blue}} with the other classmates.)",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 18,
+&"type": &"variable",
+&"value": "observer"
+}]),
+&"value_in_text": "{{observer}}"
+}, {
+&"expression": Array[Dictionary]([{
+&"i": 52,
+&"type": &"variable",
+&"value": "blue"
+}]),
+&"value_in_text": "{{blue}}"
+}]),
+&"type": "dialogue"
+},
+"25": {
+&"id": "25",
+&"next_id": "26",
+&"text": "(I see myself, but that person is my {{reflection}}? Because I am here, just observing.)",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 41,
+&"type": &"variable",
+&"value": "reflection"
+}]),
+&"value_in_text": "{{reflection}}"
+}]),
+&"type": "dialogue"
+},
+"26": {
+&"id": "26",
+&"next_id": "27",
+&"text": "(Sometimes, I wonder if {{blue}} knows that the \"me\" they see isn't real.)",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 28,
+&"type": &"variable",
+&"value": "blue"
+}]),
+&"value_in_text": "{{blue}}"
+}]),
+&"type": "dialogue"
+},
+"27": {
+&"id": "27",
+&"next_id": "28",
+&"text": "(Sometimes, I wonder if {{blue}} knows that the real me is watching here from {{deepest_layer}}.)",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 28,
+&"type": &"variable",
+&"value": "blue"
+}]),
+&"value_in_text": "{{blue}}"
+}, {
+&"expression": Array[Dictionary]([{
+&"i": 82,
+&"type": &"variable",
+&"value": "deepest_layer"
+}]),
+&"value_in_text": "{{deepest_layer}}"
+}]),
+&"type": "dialogue"
+},
+"28": {
+&"id": "28",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "end",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 7,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "29",
+&"type": "mutation"
+},
+"29": {
+&"id": "29",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
+},
+"3": {
+&"id": "3",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
+},
+"30": {
+&"id": "30",
+&"next_id": "31",
+&"type": ""
+},
+"31": {
+&"id": "31",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
+},
+"4": {
+&"id": "4",
+&"next_id": "5",
+&"type": ""
+},
+"5": {
+&"id": "5",
+&"next_id": "6",
+&"type": "title"
+},
+"6": {
+&"id": "6",
+&"next_id": "7",
+&"text": "(The clouds are fading. I must keep going.)",
+&"type": "dialogue"
+},
+"7": {
+&"id": "7",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
+},
+"8": {
+&"id": "8",
+&"next_id": "9",
+&"type": ""
+},
+"9": {
+&"id": "9",
+&"next_id": "10",
+&"type": "title"
+}
+}
+raw_text = "~ area_1
+(1)
+do darken_down(0.3, \"area_1_end\")
+=> END
+
+~ area_1_end
+(The clouds are fading. I must keep going.)
+=> END!
+
+~ area_2
+(2)
+do darken_down(0.5, \"area_2_end\")
+=> END
+
+~ area_2_end
+(I'm not feeling well. But it's the only way I can help {{blue}}!)
+=> END!
+
+~ area_3
+(3)
+do darken_down(1.0, \"area_3_end\")
+=> END
+
+~ area_3_end
+(I am now the {{observer}} of this world. I see {{blue}} with the other classmates.)
+(I see myself, but that person is my {{reflection}}? Because I am here, just observing.)
+(Sometimes, I wonder if {{blue}} knows that the \"me\" they see isn't real.)
+(Sometimes, I wonder if {{blue}} knows that the real me is watching here from {{deepest_layer}}.)
+do end()
+=> END!
+"
+metadata/dialogue_manager_version = "3.10.1"

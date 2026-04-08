@@ -1,0 +1,800 @@
+[gd_resource type="Resource" script_class="DialogueResource" format=3]
+
+[ext_resource type="Script" uid="uid://dbs4435dsf3ry" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_mgnqu"]
+
+[resource]
+script = ExtResource("1_mgnqu")
+using_states = PackedStringArray()
+titles = {
+"end_browsing": "78",
+"ice_skates": "43",
+"ice_skates_equip": "50",
+"ice_skates_equipped": "57",
+"ice_skates_info": "70",
+"ice_skates_instruction": "74",
+"ice_skates_unequip": "63",
+"ouroboros": "23",
+"ouroboros/enter_sacred_space": "ciuakejt8iow3@52",
+"ouroboros/ouroboros_ability": "ciuakejt8iow3@7",
+"ouroboros/ouroboros_home": "ciuakejt8iow3@22",
+"ouroboros/ouroboros_home_query": "ciuakejt8iow3@11",
+"ouroboros/ouroboros_imaginary": "ciuakejt8iow3@30",
+"ouroboros/ouroboros_info": "ciuakejt8iow3@1",
+"ouroboros/ouroboros_real_space_ability": "ciuakejt8iow3@44",
+"ouroboros/ouroboros_real_space_end_browsing": "ciuakejt8iow3@48",
+"ouroboros/ouroboros_real_space_info": "ciuakejt8iow3@16",
+"ouroboros/ouroboros_sacred": "ciuakejt8iow3@37",
+"ouroboros_real_space": "29",
+"ouroboros_real_space_then_end_browsing": "39",
+"ouroboros_then_end_browsing": "35",
+"physics_layer/water": "ce20vjatn4ixb@1",
+"revealer": "4",
+"revealer_info": "11",
+"revealer_instruction": "15",
+"revealer_surface": "19"
+}
+character_names = PackedStringArray("{{green}}")
+first_title = "3"
+lines = {
+"10": {
+&"id": "10",
+&"next_id": "11",
+&"type": "title"
+},
+"11": {
+&"character": "{{green}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"id": "11",
+&"next_id": "12",
+&"text": "(A pair of glasses that I received from {{yellow}}. It has a golden frame, but it's fake gold. One of the lens holders has an improvised lens system attached. The other is covered.)",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 53,
+&"type": &"variable",
+&"value": "yellow"
+}]),
+&"value_in_text": "{{yellow}}"
+}]),
+&"type": "dialogue"
+},
+"12": {
+&"id": "12",
+&"is_snippet": false,
+&"next_id": "4",
+&"next_id_after": "",
+&"type": "goto"
+},
+"13": {
+&"id": "13",
+&"next_id": "14",
+&"type": ""
+},
+"14": {
+&"id": "14",
+&"next_id": "15",
+&"type": "title"
+},
+"15": {
+&"character": "{{green}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"id": "15",
+&"next_id": "16",
+&"text": "(If I am near a thing or person, close enough to interact with them, and then bring this item out again, I might be able to make something happen.)",
+&"type": "dialogue"
+},
+"16": {
+&"id": "16",
+&"is_snippet": false,
+&"next_id": "4",
+&"next_id_after": "",
+&"type": "goto"
+},
+"17": {
+&"id": "17",
+&"next_id": "18",
+&"type": ""
+},
+"18": {
+&"id": "18",
+&"next_id": "19",
+&"type": "title"
+},
+"19": {
+&"id": "19",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "reveal_surface",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 18,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "20",
+&"type": "mutation"
+},
+"2": {
+&"id": "2",
+&"next_id": "3",
+&"type": ""
+},
+"20": {
+&"id": "20",
+&"is_snippet": false,
+&"next_id": "78",
+&"next_id_after": "",
+&"type": "goto"
+},
+"21": {
+&"id": "21",
+&"next_id": "22",
+&"type": ""
+},
+"22": {
+&"id": "22",
+&"next_id": "23",
+&"type": "title"
+},
+"23": {
+&"id": "23",
+&"next_id": "24",
+&"text": "(The {{ouroboros}} is floating above my head.)",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 9,
+&"type": &"variable",
+&"value": "ouroboros"
+}]),
+&"value_in_text": "{{ouroboros}}"
+}]),
+&"type": "dialogue"
+},
+"24": {
+&"id": "24",
+&"next_id": "78",
+&"responses": PackedStringArray("24", "25"),
+&"text": "Resume",
+&"type": "response"
+},
+"25": {
+&"id": "25",
+&"next_id": "35",
+&"text": "Talk",
+&"type": "response"
+},
+"26": {
+&"id": "26",
+&"is_snippet": false,
+&"next_id": "78",
+&"next_id_after": "",
+&"type": "goto"
+},
+"27": {
+&"id": "27",
+&"next_id": "28",
+&"type": ""
+},
+"28": {
+&"id": "28",
+&"next_id": "29",
+&"type": "title"
+},
+"29": {
+&"id": "29",
+&"next_id": "30",
+&"text": "(The {{ouroboros}} reappeared, floating above my head.)",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 9,
+&"type": &"variable",
+&"value": "ouroboros"
+}]),
+&"value_in_text": "{{ouroboros}}"
+}]),
+&"type": "dialogue"
+},
+"3": {
+&"id": "3",
+&"next_id": "4",
+&"type": "title"
+},
+"30": {
+&"id": "30",
+&"next_id": "ciuakejt8iow3@48",
+&"responses": PackedStringArray("30", "31"),
+&"text": "Resume",
+&"type": "response"
+},
+"31": {
+&"id": "31",
+&"next_id": "39",
+&"text": "Talk",
+&"type": "response"
+},
+"32": {
+&"id": "32",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
+},
+"33": {
+&"id": "33",
+&"next_id": "34",
+&"type": ""
+},
+"34": {
+&"id": "34",
+&"next_id": "35",
+&"type": "title"
+},
+"35": {
+&"id": "35",
+&"is_snippet": true,
+&"next_id": "ciuakejt8iow3@1",
+&"next_id_after": "36",
+&"type": "goto"
+},
+"36": {
+&"id": "36",
+&"is_snippet": false,
+&"next_id": "78",
+&"next_id_after": "",
+&"type": "goto"
+},
+"37": {
+&"id": "37",
+&"next_id": "38",
+&"type": ""
+},
+"38": {
+&"id": "38",
+&"next_id": "39",
+&"type": "title"
+},
+"39": {
+&"id": "39",
+&"is_snippet": true,
+&"next_id": "ciuakejt8iow3@16",
+&"next_id_after": "40",
+&"type": "goto"
+},
+"4": {
+&"id": "4",
+&"next_id": "5",
+&"text": "({{revealer}}.)",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 5,
+&"type": &"variable",
+&"value": "revealer"
+}]),
+&"value_in_text": "{{revealer}}"
+}]),
+&"type": "dialogue"
+},
+"40": {
+&"id": "40",
+&"is_snippet": false,
+&"next_id": "78",
+&"next_id_after": "",
+&"type": "goto"
+},
+"41": {
+&"id": "41",
+&"next_id": "42",
+&"type": ""
+},
+"42": {
+&"id": "42",
+&"next_id": "43",
+&"type": "title"
+},
+"43": {
+&"id": "43",
+&"next_id": "44",
+&"text": "({{skates}}.)",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 5,
+&"type": &"variable",
+&"value": "skates"
+}]),
+&"value_in_text": "{{skates}}"
+}]),
+&"type": "dialogue"
+},
+"44": {
+&"id": "44",
+&"next_id": "78",
+&"responses": PackedStringArray("44", "45", "46", "47"),
+&"text": "Resume",
+&"type": "response"
+},
+"45": {
+&"id": "45",
+&"next_id": "50",
+&"text": "Equip",
+&"type": "response"
+},
+"46": {
+&"id": "46",
+&"next_id": "70",
+&"text": "Info",
+&"type": "response"
+},
+"47": {
+&"id": "47",
+&"next_id": "74",
+&"text": "Instruction",
+&"type": "response"
+},
+"48": {
+&"id": "48",
+&"next_id": "49",
+&"type": ""
+},
+"49": {
+&"id": "49",
+&"next_id": "50",
+&"type": "title"
+},
+"5": {
+&"id": "5",
+&"next_id": "78",
+&"responses": PackedStringArray("5", "6", "7", "8"),
+&"text": "Resume",
+&"type": "response"
+},
+"50": {
+&"id": "50",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "set_player_state",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 20,
+&"type": &"string",
+&"value": "player_skating_state"
+}, {
+&"i": 42,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "51",
+&"type": "mutation"
+},
+"51": {
+&"id": "51",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "set_player_anim",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 19,
+&"type": &"string",
+&"value": "down"
+}, {
+&"i": 25,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "52",
+&"type": "mutation"
+},
+"52": {
+&"id": "52",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "set_item_browse_dialogue_node",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 33,
+&"type": &"string",
+&"value": "ice_skates"
+}]), Array[Dictionary]([{
+&"i": 47,
+&"type": &"string",
+&"value": "ice_skates_equipped"
+}, {
+&"i": 68,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "53",
+&"type": "mutation"
+},
+"53": {
+&"id": "53",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "set_item_items_state",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 24,
+&"type": &"string",
+&"value": "ice_skates"
+}]), Array[Dictionary]([{
+&"i": 38,
+&"type": &"string",
+&"value": "items_below_state"
+}, {
+&"i": 57,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "54",
+&"type": "mutation"
+},
+"54": {
+&"id": "54",
+&"is_snippet": false,
+&"next_id": "78",
+&"next_id_after": "",
+&"type": "goto"
+},
+"55": {
+&"id": "55",
+&"next_id": "56",
+&"type": ""
+},
+"56": {
+&"id": "56",
+&"next_id": "57",
+&"type": "title"
+},
+"57": {
+&"id": "57",
+&"next_id": "58",
+&"text": "({{skates}}.)",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 5,
+&"type": &"variable",
+&"value": "skates"
+}]),
+&"value_in_text": "{{skates}}"
+}]),
+&"type": "dialogue"
+},
+"58": {
+&"id": "58",
+&"next_id": "78",
+&"responses": PackedStringArray("58", "59"),
+&"text": "Resume",
+&"type": "response"
+},
+"59": {
+&"id": "59",
+&"next_id": "63",
+&"text": "Unequip",
+&"type": "response"
+},
+"6": {
+&"id": "6",
+&"next_id": "11",
+&"text": "Info",
+&"type": "response"
+},
+"60": {
+&"id": "60",
+&"is_snippet": false,
+&"next_id": "78",
+&"next_id_after": "",
+&"type": "goto"
+},
+"61": {
+&"id": "61",
+&"next_id": "62",
+&"type": ""
+},
+"62": {
+&"id": "62",
+&"next_id": "63",
+&"type": "title"
+},
+"63": {
+&"condition": {
+&"expression": Array[Dictionary]([{
+&"i": 3,
+&"type": &"variable",
+&"value": "is_player_on_water"
+}])
+},
+&"id": "63",
+&"next_id": "64",
+&"next_id_after": "67",
+&"next_sibling_id": "65",
+&"type": "condition"
+},
+"64": {
+&"id": "64",
+&"is_snippet": true,
+&"next_id": "ce20vjatn4ixb@1",
+&"next_id_after": "67",
+&"type": "goto"
+},
+"65": {
+&"condition": {},
+&"id": "65",
+&"next_id": "66",
+&"next_id_after": "67",
+&"type": "condition"
+},
+"66": {
+&"id": "66",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "unequip_skates",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 18,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "67",
+&"type": "mutation"
+},
+"67": {
+&"id": "67",
+&"is_snippet": false,
+&"next_id": "78",
+&"next_id_after": "",
+&"type": "goto"
+},
+"68": {
+&"id": "68",
+&"next_id": "69",
+&"type": ""
+},
+"69": {
+&"id": "69",
+&"next_id": "70",
+&"type": "title"
+},
+"7": {
+&"id": "7",
+&"next_id": "15",
+&"text": "Instruction",
+&"type": "response"
+},
+"70": {
+&"character": "{{green}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"id": "70",
+&"next_id": "71",
+&"text": "(An ice skating set. I made these from shards of ice in the {{imaginary}}. But somehow, these skates feel real.)",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 73,
+&"type": &"variable",
+&"value": "imaginary"
+}]),
+&"value_in_text": "{{imaginary}}"
+}]),
+&"type": "dialogue"
+},
+"71": {
+&"id": "71",
+&"is_snippet": false,
+&"next_id": "78",
+&"next_id_after": "",
+&"type": "goto"
+},
+"72": {
+&"id": "72",
+&"next_id": "73",
+&"type": ""
+},
+"73": {
+&"id": "73",
+&"next_id": "74",
+&"type": "title"
+},
+"74": {
+&"character": "{{green}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"id": "74",
+&"next_id": "75",
+&"text": "(These skates produce ice when I move. Thanks to that, should be able to cross water.)",
+&"type": "dialogue"
+},
+"75": {
+&"id": "75",
+&"is_snippet": false,
+&"next_id": "78",
+&"next_id_after": "",
+&"type": "goto"
+},
+"76": {
+&"id": "76",
+&"next_id": "77",
+&"type": ""
+},
+"77": {
+&"id": "77",
+&"next_id": "78",
+&"type": "title"
+},
+"78": {
+&"id": "78",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "set_player_anim",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 19,
+&"type": &"string",
+&"value": "default"
+}, {
+&"i": 28,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "79",
+&"type": "mutation"
+},
+"79": {
+&"id": "79",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
+},
+"8": {
+&"condition": {
+&"expression": Array[Dictionary]([{
+&"i": 18,
+&"type": &"variable",
+&"value": "is_checking_surface"
+}])
+},
+&"condition_as_text": "is_checking_surface",
+&"id": "8",
+&"next_id": "19",
+&"text": "Check surface",
+&"type": "response"
+},
+"80": {
+&"id": "80",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
+},
+"9": {
+&"id": "9",
+&"next_id": "10",
+&"type": ""
+}
+}
+raw_text = "import \"res://resources/dialogue/talk_ouroboros.dialogue\" as ouroboros
+import \"res://resources/dialogue/check_ground.dialogue\" as physics_layer
+
+~ revealer
+({{revealer}}.)
+- Resume => end_browsing
+- Info => revealer_info
+- Instruction => revealer_instruction
+- Check surface [if is_checking_surface] => revealer_surface
+
+~ revealer_info
+{{green}}: (A pair of glasses that I received from {{yellow}}. It has a golden frame, but it's fake gold. One of the lens holders has an improvised lens system attached. The other is covered.)
+=> revealer
+
+~ revealer_instruction
+{{green}}: (If I am near a thing or person, close enough to interact with them, and then bring this item out again, I might be able to make something happen.)
+=> revealer
+
+~ revealer_surface
+do reveal_surface()
+=> end_browsing
+
+~ ouroboros
+(The {{ouroboros}} is floating above my head.)
+- Resume => end_browsing
+- Talk => ouroboros_then_end_browsing
+=> end_browsing
+
+~ ouroboros_real_space
+(The {{ouroboros}} reappeared, floating above my head.)
+- Resume => ouroboros/ouroboros_real_space_end_browsing
+- Talk => ouroboros_real_space_then_end_browsing
+=> END!
+
+~ ouroboros_then_end_browsing
+=>< ouroboros/ouroboros_info
+=> end_browsing
+
+~ ouroboros_real_space_then_end_browsing
+=>< ouroboros/ouroboros_real_space_info
+=> end_browsing
+
+~ ice_skates
+({{skates}}.)
+- Resume => end_browsing
+- Equip => ice_skates_equip
+- Info => ice_skates_info
+- Instruction => ice_skates_instruction
+
+~ ice_skates_equip
+do set_player_state(\"player_skating_state\")
+do set_player_anim(\"down\")
+do set_item_browse_dialogue_node(\"ice_skates\", \"ice_skates_equipped\")
+do set_item_items_state(\"ice_skates\", \"items_below_state\")
+=> end_browsing
+
+~ ice_skates_equipped
+({{skates}}.)
+- Resume => end_browsing
+- Unequip => ice_skates_unequip
+=> end_browsing
+
+~ ice_skates_unequip
+if is_player_on_water
+	=>< physics_layer/water
+else
+	do unequip_skates()
+=> end_browsing
+
+~ ice_skates_info
+{{green}}: (An ice skating set. I made these from shards of ice in the {{imaginary}}. But somehow, these skates feel real.)
+=> end_browsing
+
+~ ice_skates_instruction
+{{green}}: (These skates produce ice when I move. Thanks to that, should be able to cross water.)
+=> end_browsing
+
+~ end_browsing
+do set_player_anim(\"default\")
+=> END!"
+metadata/dialogue_manager_version = "3.10.1"

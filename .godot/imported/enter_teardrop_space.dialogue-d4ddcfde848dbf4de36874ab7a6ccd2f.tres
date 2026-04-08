@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="DialogueResource" format=3]
+
+[ext_resource type="Script" uid="uid://dbs4435dsf3ry" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_p0i62"]
+
+[resource]
+script = ExtResource("1_p0i62")
+using_states = PackedStringArray()
+titles = {
+"default": "1"
+}
+character_names = PackedStringArray()
+first_title = "0"
+lines = {
+"0": {
+&"id": "0",
+&"next_id": "1",
+&"type": "title"
+},
+"1": {
+&"id": "1",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
+}
+}
+raw_text = "~ default"
+metadata/dialogue_manager_version = "3.10.1"

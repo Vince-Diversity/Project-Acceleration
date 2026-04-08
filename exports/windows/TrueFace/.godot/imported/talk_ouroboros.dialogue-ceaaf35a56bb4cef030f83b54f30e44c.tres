@@ -1,0 +1,945 @@
+[gd_resource type="Resource" script_class="DialogueResource" format=3]
+
+[ext_resource type="Script" uid="uid://dbs4435dsf3ry" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_s5bke"]
+
+[resource]
+script = ExtResource("1_s5bke")
+using_states = PackedStringArray()
+titles = {
+"enter_sacred_space": "52",
+"ouroboros_ability": "7",
+"ouroboros_home": "22",
+"ouroboros_home_query": "11",
+"ouroboros_imaginary": "30",
+"ouroboros_info": "1",
+"ouroboros_real_space_ability": "44",
+"ouroboros_real_space_end_browsing": "48",
+"ouroboros_real_space_info": "16",
+"ouroboros_sacred": "37"
+}
+character_names = PackedStringArray("{{ouroboros}}", "{{green}}")
+first_title = "0"
+lines = {
+"0": {
+&"id": "0",
+&"next_id": "1",
+&"type": "title"
+},
+"1": {
+&"character": "{{ouroboros}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "ouroboros"
+}]),
+&"value_in_text": "{{ouroboros}}"
+}]),
+&"id": "1",
+&"next_id": "2",
+&"tags": PackedStringArray("font=above"),
+&"text": "Obos is listening, always.",
+&"type": "dialogue"
+},
+"10": {
+&"id": "10",
+&"next_id": "11",
+&"type": "title"
+},
+"11": {
+&"character": "{{ouroboros}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "ouroboros"
+}]),
+&"value_in_text": "{{ouroboros}}"
+}]),
+&"id": "11",
+&"next_id": "12",
+&"tags": PackedStringArray("font=above"),
+&"text": "{{observer}} wants to go back home?",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 18,
+&"type": &"variable",
+&"value": "observer"
+}]),
+&"value_in_text": "{{observer}}"
+}]),
+&"type": "dialogue"
+},
+"12": {
+&"id": "12",
+&"next_id": "22",
+&"responses": PackedStringArray("12", "13"),
+&"text": "Yes",
+&"type": "response"
+},
+"13": {
+&"id": "13",
+&"next_id": "1",
+&"text": "Wait nevermind",
+&"type": "response"
+},
+"14": {
+&"id": "14",
+&"next_id": "15",
+&"type": ""
+},
+"15": {
+&"id": "15",
+&"next_id": "16",
+&"type": "title"
+},
+"16": {
+&"character": "{{ouroboros}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "ouroboros"
+}]),
+&"value_in_text": "{{ouroboros}}"
+}]),
+&"id": "16",
+&"next_id": "17",
+&"tags": PackedStringArray("font=above"),
+&"text": "Obos is listening, always.",
+&"type": "dialogue"
+},
+"17": {
+&"id": "17",
+&"next_id": "44",
+&"responses": PackedStringArray("17", "18", "19"),
+&"text": "\"What can you do?\"",
+&"type": "response"
+},
+"18": {
+&"id": "18",
+&"next_id": "30",
+&"text": "\"Could you take me back to the {{imaginary}}?\"",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 35,
+&"type": &"variable",
+&"value": "imaginary"
+}]),
+&"value_in_text": "{{imaginary}}"
+}]),
+&"type": "response"
+},
+"19": {
+&"id": "19",
+&"next_id": "48",
+&"text": "Finish talking",
+&"type": "response"
+},
+"2": {
+&"id": "2",
+&"next_id": "7",
+&"responses": PackedStringArray("2", "3", "4"),
+&"text": "\"What can you do?\"",
+&"type": "response"
+},
+"20": {
+&"id": "20",
+&"next_id": "21",
+&"type": ""
+},
+"21": {
+&"id": "21",
+&"next_id": "22",
+&"type": "title"
+},
+"22": {
+&"character": "{{ouroboros}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "ouroboros"
+}]),
+&"value_in_text": "{{ouroboros}}"
+}]),
+&"id": "22",
+&"next_id": "23",
+&"tags": PackedStringArray("font=above"),
+&"text": "Nyoom!",
+&"type": "dialogue"
+},
+"23": {
+&"id": "23",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "change_entrance_event",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 25,
+&"type": &"string",
+&"value": "blue_classroom"
+}]), Array[Dictionary]([{
+&"i": 43,
+&"type": &"string",
+&"value": ""
+}]), Array[Dictionary]([{
+&"i": 47,
+&"type": &"string",
+&"value": "enter_blue_classroom"
+}]), Array[Dictionary]([{
+&"i": 71,
+&"type": &"string",
+&"value": "remove_ouroboros"
+}, {
+&"i": 89,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "24",
+&"type": "mutation"
+},
+"24": {
+&"id": "24",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "set_item_browse_dialogue_node",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 33,
+&"type": &"string",
+&"value": "ouroboros"
+}]), Array[Dictionary]([{
+&"i": 46,
+&"type": &"string",
+&"value": "ouroboros_real_space"
+}, {
+&"i": 68,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "25",
+&"type": "mutation"
+},
+"25": {
+&"id": "25",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "remove_imaginary_npcs",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 25,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "26",
+&"type": "mutation"
+},
+"26": {
+&"id": "26",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "change_rooms",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 16,
+&"type": &"string",
+&"value": "blue_classroom"
+}]), Array[Dictionary]([{
+&"i": 35,
+&"type": &"string",
+&"value": "Spawn"
+}, {
+&"i": 42,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "27",
+&"type": "mutation"
+},
+"27": {
+&"id": "27",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
+},
+"28": {
+&"id": "28",
+&"next_id": "29",
+&"type": ""
+},
+"29": {
+&"id": "29",
+&"next_id": "30",
+&"type": "title"
+},
+"3": {
+&"id": "3",
+&"next_id": "11",
+&"text": "\"Could you take me home?\"",
+&"type": "response"
+},
+"30": {
+&"character": "{{ouroboros}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "ouroboros"
+}]),
+&"value_in_text": "{{ouroboros}}"
+}]),
+&"id": "30",
+&"next_id": "32",
+&"tags": PackedStringArray("font=above"),
+&"text": "Nyoom!",
+&"type": "dialogue"
+},
+"31": {
+&"id": "31",
+&"next_id": "32",
+&"type": ""
+},
+"32": {
+&"id": "32",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "set_item_browse_dialogue_node",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 33,
+&"type": &"string",
+&"value": "ouroboros"
+}]), Array[Dictionary]([{
+&"i": 46,
+&"type": &"string",
+&"value": "ouroboros"
+}, {
+&"i": 57,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "33",
+&"type": "mutation"
+},
+"33": {
+&"id": "33",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "change_rooms",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 16,
+&"type": &"string",
+&"value": "blue_space"
+}]), Array[Dictionary]([{
+&"i": 31,
+&"type": &"string",
+&"value": "OuroborosGateway"
+}, {
+&"i": 49,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "34",
+&"type": "mutation"
+},
+"34": {
+&"id": "34",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
+},
+"35": {
+&"id": "35",
+&"next_id": "36",
+&"type": ""
+},
+"36": {
+&"id": "36",
+&"next_id": "37",
+&"type": "title"
+},
+"37": {
+&"character": "{{ouroboros}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "ouroboros"
+}]),
+&"value_in_text": "{{ouroboros}}"
+}]),
+&"id": "37",
+&"next_id": "39",
+&"tags": PackedStringArray("font=above"),
+&"text": "Nyoom!",
+&"type": "dialogue"
+},
+"38": {
+&"id": "38",
+&"next_id": "39",
+&"type": ""
+},
+"39": {
+&"id": "39",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "set_item_browse_dialogue_node",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 33,
+&"type": &"string",
+&"value": "ouroboros"
+}]), Array[Dictionary]([{
+&"i": 46,
+&"type": &"string",
+&"value": "ouroboros"
+}, {
+&"i": 57,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "40",
+&"type": "mutation"
+},
+"4": {
+&"id": "4",
+&"next_id": "end!",
+&"text": "Finish talking",
+&"type": "response"
+},
+"40": {
+&"id": "40",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "change_rooms",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 16,
+&"type": &"string",
+&"value": "sacred_outdoor"
+}]), Array[Dictionary]([{
+&"i": 35,
+&"type": &"string",
+&"value": "CyanSpawn"
+}, {
+&"i": 46,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "41",
+&"type": "mutation"
+},
+"41": {
+&"id": "41",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
+},
+"42": {
+&"id": "42",
+&"next_id": "43",
+&"type": ""
+},
+"43": {
+&"id": "43",
+&"next_id": "44",
+&"type": "title"
+},
+"44": {
+&"character": "{{ouroboros}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "ouroboros"
+}]),
+&"value_in_text": "{{ouroboros}}"
+}]),
+&"id": "44",
+&"next_id": "45",
+&"tags": PackedStringArray("font=above"),
+&"text": "Obos can travel freely in the {{imaginary}}. Obos can bring the {{observer}} to back to their home world. Obos can bring the {{observer}} back to the {{imaginary}}.",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 48,
+&"type": &"variable",
+&"value": "imaginary"
+}]),
+&"value_in_text": "{{imaginary}}"
+}, {
+&"expression": Array[Dictionary]([{
+&"i": 82,
+&"type": &"variable",
+&"value": "observer"
+}]),
+&"value_in_text": "{{observer}}"
+}, {
+&"expression": Array[Dictionary]([{
+&"i": 143,
+&"type": &"variable",
+&"value": "observer"
+}]),
+&"value_in_text": "{{observer}}"
+}, {
+&"expression": Array[Dictionary]([{
+&"i": 168,
+&"type": &"variable",
+&"value": "imaginary"
+}]),
+&"value_in_text": "{{imaginary}}"
+}]),
+&"type": "dialogue"
+},
+"45": {
+&"id": "45",
+&"is_snippet": false,
+&"next_id": "16",
+&"next_id_after": "",
+&"type": "goto"
+},
+"46": {
+&"id": "46",
+&"next_id": "47",
+&"type": ""
+},
+"47": {
+&"id": "47",
+&"next_id": "48",
+&"type": "title"
+},
+"48": {
+&"id": "48",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "clear_player_items",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 22,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "49",
+&"type": "mutation"
+},
+"49": {
+&"id": "49",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
+},
+"5": {
+&"id": "5",
+&"next_id": "6",
+&"type": ""
+},
+"50": {
+&"id": "50",
+&"next_id": "51",
+&"type": ""
+},
+"51": {
+&"id": "51",
+&"next_id": "52",
+&"type": "title"
+},
+"52": {
+&"condition": {
+&"expression": Array[Dictionary]([{
+&"i": 3,
+&"type": &"not"
+}, {
+&"i": 7,
+&"type": &"variable",
+&"value": "is_ouroboros_joined"
+}])
+},
+&"id": "52",
+&"next_id": "53",
+&"next_id_after": "62",
+&"type": "condition"
+},
+"53": {
+&"id": "53",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "create_npc",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 14,
+&"type": &"string",
+&"value": "Ouroboros"
+}]), Array[Dictionary]([{
+&"i": 27,
+&"type": &"string",
+&"value": "ouroboros"
+}, {
+&"i": 38,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "54",
+&"type": "mutation"
+},
+"54": {
+&"id": "54",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "turn_player_to_npc",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 22,
+&"type": &"string",
+&"value": "Ouroboros"
+}, {
+&"i": 33,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "55",
+&"type": "mutation"
+},
+"55": {
+&"character": "{{ouroboros}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 3,
+&"type": &"variable",
+&"value": "ouroboros"
+}]),
+&"value_in_text": "{{ouroboros}}"
+}]),
+&"id": "55",
+&"next_id": "56",
+&"tags": PackedStringArray("font=above"),
+&"text": "Nom, {{green}} is the {{observer}}. Nom will help the {{observer}}, when the {{observer}} is wandering in imaginations, always.",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 25,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}, {
+&"expression": Array[Dictionary]([{
+&"i": 42,
+&"type": &"variable",
+&"value": "observer"
+}]),
+&"value_in_text": "{{observer}}"
+}, {
+&"expression": Array[Dictionary]([{
+&"i": 74,
+&"type": &"variable",
+&"value": "observer"
+}]),
+&"value_in_text": "{{observer}}"
+}, {
+&"expression": Array[Dictionary]([{
+&"i": 97,
+&"type": &"variable",
+&"value": "observer"
+}]),
+&"value_in_text": "{{observer}}"
+}]),
+&"type": "dialogue"
+},
+"56": {
+&"id": "56",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "remove_npc",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 14,
+&"type": &"string",
+&"value": "Ouroboros"
+}, {
+&"i": 25,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "57",
+&"type": "mutation"
+},
+"57": {
+&"id": "57",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "set_above_player_float",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 26,
+&"type": &"string",
+&"value": "ouroboros"
+}, {
+&"i": 37,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "58",
+&"type": "mutation"
+},
+"58": {
+&"id": "58",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "set_player_anim",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 19,
+&"type": &"string",
+&"value": "admire_above"
+}, {
+&"i": 33,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "59",
+&"type": "mutation"
+},
+"59": {
+&"character": "{{green}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 3,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"id": "59",
+&"next_id": "60",
+&"tags": PackedStringArray("expression=cheerful"),
+&"text": "My guide is back!",
+&"type": "dialogue"
+},
+"6": {
+&"id": "6",
+&"next_id": "7",
+&"type": "title"
+},
+"60": {
+&"id": "60",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "add_item",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 12,
+&"type": &"string",
+&"value": "ouroboros"
+}, {
+&"i": 23,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "61",
+&"type": "mutation"
+},
+"61": {
+&"id": "61",
+&"next_id": "62",
+&"text": "{{ouroboros}} can be checked on the same way as other items, with the [color=yellow]X key and then left/right keys.[/color]",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 5,
+&"type": &"variable",
+&"value": "ouroboros"
+}]),
+&"value_in_text": "{{ouroboros}}"
+}]),
+&"type": "dialogue"
+},
+"62": {
+&"id": "62",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
+},
+"63": {
+&"id": "63",
+&"next_id": "64",
+&"type": ""
+},
+"64": {
+&"id": "64",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
+},
+"7": {
+&"character": "{{ouroboros}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "ouroboros"
+}]),
+&"value_in_text": "{{ouroboros}}"
+}]),
+&"id": "7",
+&"next_id": "8",
+&"tags": PackedStringArray("font=above"),
+&"text": "Obos can travel freely in the {{imaginary}}. Obos can bring the {{observer}} to back to their home world. Obos can bring the {{observer}} back to the {{imaginary}}.",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 48,
+&"type": &"variable",
+&"value": "imaginary"
+}]),
+&"value_in_text": "{{imaginary}}"
+}, {
+&"expression": Array[Dictionary]([{
+&"i": 82,
+&"type": &"variable",
+&"value": "observer"
+}]),
+&"value_in_text": "{{observer}}"
+}, {
+&"expression": Array[Dictionary]([{
+&"i": 143,
+&"type": &"variable",
+&"value": "observer"
+}]),
+&"value_in_text": "{{observer}}"
+}, {
+&"expression": Array[Dictionary]([{
+&"i": 168,
+&"type": &"variable",
+&"value": "imaginary"
+}]),
+&"value_in_text": "{{imaginary}}"
+}]),
+&"type": "dialogue"
+},
+"8": {
+&"id": "8",
+&"is_snippet": false,
+&"next_id": "1",
+&"next_id_after": "",
+&"type": "goto"
+},
+"9": {
+&"id": "9",
+&"next_id": "10",
+&"type": ""
+}
+}
+raw_text = "~ ouroboros_info
+{{ouroboros}}: [#font=above] Obos is listening, always.
+- \"What can you do?\" => ouroboros_ability
+- \"Could you take me home?\" => ouroboros_home_query
+- Finish talking => END!
+
+~ ouroboros_ability
+{{ouroboros}}: [#font=above] Obos can travel freely in the {{imaginary}}. Obos can bring the {{observer}} to back to their home world. Obos can bring the {{observer}} back to the {{imaginary}}.
+=> ouroboros_info
+
+~ ouroboros_home_query
+{{ouroboros}}: [#font=above] {{observer}} wants to go back home?
+- Yes => ouroboros_home
+- Wait nevermind => ouroboros_info
+
+~ ouroboros_real_space_info
+{{ouroboros}}: [#font=above] Obos is listening, always.
+- \"What can you do?\" => ouroboros_real_space_ability
+- \"Could you take me back to the {{imaginary}}?\" => ouroboros_imaginary
+- Finish talking =>  ouroboros_real_space_end_browsing
+
+~ ouroboros_home
+{{ouroboros}}: [#font=above] Nyoom!
+do change_entrance_event(\"blue_classroom\", \"\", \"enter_blue_classroom\", \"remove_ouroboros\")
+do set_item_browse_dialogue_node(\"ouroboros\", \"ouroboros_real_space\")
+do remove_imaginary_npcs()
+do change_rooms(\"blue_classroom\",  \"Spawn\")
+=> END!
+
+~ ouroboros_imaginary
+{{ouroboros}}: [#font=above] Nyoom!
+# No need to add Ouroboros here, because Ouroboros is loaded from cache
+do set_item_browse_dialogue_node(\"ouroboros\", \"ouroboros\")
+do change_rooms(\"blue_space\",  \"OuroborosGateway\")
+=> END!
+
+~ ouroboros_sacred
+{{ouroboros}}: [#font=above] Nyoom!
+# No need to add Ouroboros here, because Ouroboros is loaded from cache
+do set_item_browse_dialogue_node(\"ouroboros\", \"ouroboros\")
+do change_rooms(\"sacred_outdoor\",  \"CyanSpawn\")
+=> END!
+
+~ ouroboros_real_space_ability
+{{ouroboros}}: [#font=above] Obos can travel freely in the {{imaginary}}. Obos can bring the {{observer}} to back to their home world. Obos can bring the {{observer}} back to the {{imaginary}}.
+=> ouroboros_real_space_info
+
+~ ouroboros_real_space_end_browsing
+do clear_player_items()
+=> END!
+
+~ enter_sacred_space
+if not is_ouroboros_joined
+	do create_npc(\"Ouroboros\", \"ouroboros\")
+	do turn_player_to_npc(\"Ouroboros\")
+	{{ouroboros}}: [#font=above] [#font=above] Nom, {{green}} is the {{observer}}. Nom will help the {{observer}}, when the {{observer}} is wandering in imaginations, always.
+	do remove_npc(\"Ouroboros\")
+	do set_above_player_float(\"ouroboros\")
+	do set_player_anim(\"admire_above\")
+	{{green}}: [#expression=cheerful] My guide is back!
+	do add_item(\"ouroboros\")
+	{{ouroboros}} can be checked on the same way as other items, with the [color=yellow]X key and then left/right keys.[/color]
+=> END!
+"
+metadata/dialogue_manager_version = "3.10.1"

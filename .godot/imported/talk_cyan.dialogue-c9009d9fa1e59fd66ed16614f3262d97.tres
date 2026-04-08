@@ -1,0 +1,2636 @@
+[gd_resource type="Resource" script_class="DialogueResource" format=3]
+
+[ext_resource type="Script" uid="uid://dbs4435dsf3ry" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_0d8r4"]
+
+[resource]
+script = ExtResource("1_0d8r4")
+using_states = PackedStringArray()
+titles = {
+"cue": "1",
+"ouroboros_got_1": "84",
+"ouroboros_got_2": "90",
+"reveal": "116",
+"setters": "101",
+"talk_1": "5",
+"talk_2": "13",
+"talk_3": "28",
+"talk_4": "46",
+"talk_5": "59",
+"talk_6": "65",
+"talk_7": "73",
+"talk_after_ouroboros_obtained": "110"
+}
+character_names = PackedStringArray("{{cyan}}", "{{green}}", "{{blue_teacher}}", "{{ouroboros}}")
+first_title = "0"
+lines = {
+"0": {
+&"id": "0",
+&"next_id": "1",
+&"type": "title"
+},
+"1": {
+&"id": "1",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "move",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 8,
+&"type": &"string",
+&"value": "talk_1"
+}, {
+&"i": 16,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "2",
+&"type": "mutation"
+},
+"10": {
+&"id": "10",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
+},
+"100": {
+&"id": "100",
+&"next_id": "101",
+&"type": "title"
+},
+"101": {
+&"id": "101",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "remove_npc",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 14,
+&"type": &"string",
+&"value": "BlueTeacher"
+}, {
+&"i": 27,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "102",
+&"type": "mutation"
+},
+"102": {
+&"id": "102",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "create_npc",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 14,
+&"type": &"string",
+&"value": "Orange"
+}, {
+&"i": 22,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "103",
+&"type": "mutation"
+},
+"103": {
+&"id": "103",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "set_npc_at_mark",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 19,
+&"type": &"string",
+&"value": "Orange"
+}]), Array[Dictionary]([{
+&"i": 29,
+&"type": &"string",
+&"value": "OrangeMark1"
+}, {
+&"i": 42,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "104",
+&"type": "mutation"
+},
+"104": {
+&"id": "104",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "set_npc_dialogue_id",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 23,
+&"type": &"string",
+&"value": "Orange"
+}]), Array[Dictionary]([{
+&"i": 33,
+&"type": &"string",
+&"value": "talk_orange"
+}, {
+&"i": 46,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "105",
+&"type": "mutation"
+},
+"105": {
+&"id": "105",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "set_npc_dialogue_node",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 25,
+&"type": &"string",
+&"value": "Orange"
+}]), Array[Dictionary]([{
+&"i": 35,
+&"type": &"string",
+&"value": "talk"
+}, {
+&"i": 41,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "106",
+&"type": "mutation"
+},
+"106": {
+&"id": "106",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "set_npc_dialogue_node",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 25,
+&"type": &"string",
+&"value": "Cyan"
+}]), Array[Dictionary]([{
+&"i": 33,
+&"type": &"string",
+&"value": "talk_after_ouroboros_obtained"
+}, {
+&"i": 64,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "107",
+&"type": "mutation"
+},
+"107": {
+&"id": "107",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
+},
+"108": {
+&"id": "108",
+&"next_id": "109",
+&"type": ""
+},
+"109": {
+&"id": "109",
+&"next_id": "110",
+&"type": "title"
+},
+"11": {
+&"id": "11",
+&"next_id": "12",
+&"type": ""
+},
+"110": {
+&"id": "110",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "turn_npc_to_player",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 22,
+&"type": &"string",
+&"value": "Cyan"
+}, {
+&"i": 28,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "111",
+&"type": "mutation"
+},
+"111": {
+&"character": "{{cyan}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "cyan"
+}]),
+&"value_in_text": "{{cyan}}"
+}]),
+&"id": "111",
+&"next_id": "112",
+&"text": "I know {{blue_teacher}} said I could help, but unfortunately I do not really know how...",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 19,
+&"type": &"variable",
+&"value": "blue_teacher"
+}]),
+&"value_in_text": "{{blue_teacher}}"
+}]),
+&"type": "dialogue"
+},
+"112": {
+&"character": "{{cyan}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "cyan"
+}]),
+&"value_in_text": "{{cyan}}"
+}]),
+&"id": "112",
+&"next_id": "113",
+&"text": "Maybe you could try find my sibling {{orange}}? They should be on the upper side of this space.",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 48,
+&"type": &"variable",
+&"value": "orange"
+}]),
+&"value_in_text": "{{orange}}"
+}]),
+&"type": "dialogue"
+},
+"113": {
+&"id": "113",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
+},
+"114": {
+&"id": "114",
+&"next_id": "115",
+&"type": ""
+},
+"115": {
+&"id": "115",
+&"next_id": "116",
+&"type": "title"
+},
+"116": {
+&"id": "116",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "change_rooms",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 16,
+&"type": &"string",
+&"value": "sacred_outdoor"
+}]), Array[Dictionary]([{
+&"i": 34,
+&"type": &"string",
+&"value": "CyanSpawn"
+}, {
+&"i": 45,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "117",
+&"type": "mutation"
+},
+"117": {
+&"id": "117",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
+},
+"118": {
+&"id": "118",
+&"next_id": "119",
+&"type": ""
+},
+"119": {
+&"id": "119",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
+},
+"12": {
+&"id": "12",
+&"next_id": "13",
+&"type": "title"
+},
+"13": {
+&"id": "13",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "turn_npc_to_player",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 22,
+&"type": &"string",
+&"value": "Cyan"
+}, {
+&"i": 28,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "14",
+&"type": "mutation"
+},
+"14": {
+&"character": "{{cyan}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "cyan"
+}]),
+&"value_in_text": "{{cyan}}"
+}]),
+&"id": "14",
+&"next_id": "15",
+&"text": "Anyways, welcome to {{imaginary}}.",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 32,
+&"type": &"variable",
+&"value": "imaginary"
+}]),
+&"value_in_text": "{{imaginary}}"
+}]),
+&"type": "dialogue"
+},
+"15": {
+&"character": "{{cyan}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "cyan"
+}]),
+&"value_in_text": "{{cyan}}"
+}]),
+&"id": "15",
+&"next_id": "16",
+&"text": "While it is still a subject of study, the {{imaginary}} appears to be a separate world, a place below the familliar {{real}}.",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 54,
+&"type": &"variable",
+&"value": "imaginary"
+}]),
+&"value_in_text": "{{imaginary}}"
+}, {
+&"expression": Array[Dictionary]([{
+&"i": 128,
+&"type": &"variable",
+&"value": "real"
+}]),
+&"value_in_text": "{{real}}"
+}]),
+&"type": "dialogue"
+},
+"16": {
+&"character": "{{cyan}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "cyan"
+}]),
+&"value_in_text": "{{cyan}}"
+}]),
+&"id": "16",
+&"next_id": "17",
+&"text": "What that means is... the person you see here now, me, doesn't really exist.",
+&"type": "dialogue"
+},
+"17": {
+&"character": "{{green}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"id": "17",
+&"next_id": "18",
+&"text": "That's so interesting! But what about from your perspective?",
+&"type": "dialogue"
+},
+"18": {
+&"character": "{{cyan}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "cyan"
+}]),
+&"value_in_text": "{{cyan}}"
+}]),
+&"id": "18",
+&"next_id": "19",
+&"text": "From mine? Oh, I don't know...",
+&"type": "dialogue"
+},
+"19": {
+&"character": "{{cyan}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "cyan"
+}]),
+&"value_in_text": "{{cyan}}"
+}]),
+&"id": "19",
+&"next_id": "20",
+&"text": "Sorry, I haven't heard this question before so I'm unsure how to respond.",
+&"type": "dialogue"
+},
+"2": {
+&"id": "2",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
+},
+"20": {
+&"character": "{{cyan}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "cyan"
+}]),
+&"value_in_text": "{{cyan}}"
+}]),
+&"id": "20",
+&"next_id": "21",
+&"text": "Well that's complicated. My body here feels real, because it only exists in this world. But I also exist in the {{real}}, that is how I can contact students, after all.",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 124,
+&"type": &"variable",
+&"value": "real"
+}]),
+&"value_in_text": "{{real}}"
+}]),
+&"type": "dialogue"
+},
+"21": {
+&"character": "{{green}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"id": "21",
+&"next_id": "22",
+&"tags": PackedStringArray("expression=cheerful"),
+&"text": "That is so interesting!",
+&"type": "dialogue"
+},
+"22": {
+&"id": "22",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "create_npc",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 14,
+&"type": &"string",
+&"value": "BlueTeacher"
+}, {
+&"i": 27,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "23",
+&"type": "mutation"
+},
+"23": {
+&"id": "23",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "set_npc_at_mark",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 19,
+&"type": &"string",
+&"value": "BlueTeacher"
+}]), Array[Dictionary]([{
+&"i": 34,
+&"type": &"string",
+&"value": "BlueTeacherMark1"
+}, {
+&"i": 52,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "24",
+&"type": "mutation"
+},
+"24": {
+&"id": "24",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "move_npc",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 12,
+&"type": &"string",
+&"value": "BlueTeacher"
+}]), Array[Dictionary]([{
+&"i": 27,
+&"type": &"string",
+&"value": "BlueTeacherMark2"
+}]), Array[Dictionary]([{
+&"i": 47,
+&"type": &"string",
+&"value": "talk_3"
+}, {
+&"i": 55,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "25",
+&"type": "mutation"
+},
+"25": {
+&"id": "25",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
+},
+"26": {
+&"id": "26",
+&"next_id": "27",
+&"type": ""
+},
+"27": {
+&"id": "27",
+&"next_id": "28",
+&"type": "title"
+},
+"28": {
+&"id": "28",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "turn_npc_to_npc",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 19,
+&"type": &"string",
+&"value": "Cyan"
+}]), Array[Dictionary]([{
+&"i": 27,
+&"type": &"string",
+&"value": "BlueTeacher"
+}, {
+&"i": 40,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "29",
+&"type": "mutation"
+},
+"29": {
+&"id": "29",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "turn_player_to_npc",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 22,
+&"type": &"string",
+&"value": "BlueTeacher"
+}, {
+&"i": 35,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "30",
+&"type": "mutation"
+},
+"3": {
+&"id": "3",
+&"next_id": "4",
+&"type": ""
+},
+"30": {
+&"character": "{{blue_teacher}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "blue_teacher"
+}]),
+&"value_in_text": "{{blue_teacher}}"
+}]),
+&"id": "30",
+&"next_id": "31",
+&"text": "{{cyan}}, any new on the problem at hand?",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 20,
+&"type": &"variable",
+&"value": "cyan"
+}]),
+&"value_in_text": "{{cyan}}"
+}]),
+&"type": "dialogue"
+},
+"31": {
+&"character": "{{cyan}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "cyan"
+}]),
+&"value_in_text": "{{cyan}}"
+}]),
+&"id": "31",
+&"next_id": "32",
+&"text": "No, {{blue_teacher}}. No new signs of the missing student.",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 16,
+&"type": &"variable",
+&"value": "blue_teacher"
+}]),
+&"value_in_text": "{{blue_teacher}}"
+}]),
+&"type": "dialogue"
+},
+"32": {
+&"character": "{{blue_teacher}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "blue_teacher"
+}]),
+&"value_in_text": "{{blue_teacher}}"
+}]),
+&"id": "32",
+&"next_id": "33",
+&"tags": PackedStringArray("expression=sorry"),
+&"text": "I regret to ask this of you, {{green}}, but I would like your aid in searching for {{blue}}.",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 50,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}, {
+&"expression": Array[Dictionary]([{
+&"i": 104,
+&"type": &"variable",
+&"value": "blue"
+}]),
+&"value_in_text": "{{blue}}"
+}]),
+&"type": "dialogue"
+},
+"33": {
+&"character": "{{blue_teacher}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "blue_teacher"
+}]),
+&"value_in_text": "{{blue_teacher}}"
+}]),
+&"id": "33",
+&"next_id": "34",
+&"text": "The {{imaginary}} is vast and deep. I would greatly appreciate help from a trustworthy student like you.",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 24,
+&"type": &"variable",
+&"value": "imaginary"
+}]),
+&"value_in_text": "{{imaginary}}"
+}]),
+&"type": "dialogue"
+},
+"34": {
+&"character": "{{green}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"id": "34",
+&"next_id": "35",
+&"text": "It is my please to be of help, and  my duty as a mentor to find {{blue}}!",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 77,
+&"type": &"variable",
+&"value": "blue"
+}]),
+&"value_in_text": "{{blue}}"
+}]),
+&"type": "dialogue"
+},
+"35": {
+&"character": "{{blue_teacher}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "blue_teacher"
+}]),
+&"value_in_text": "{{blue_teacher}}"
+}]),
+&"id": "35",
+&"next_id": "36",
+&"tags": PackedStringArray("expression=cheerful"),
+&"text": "Excellent.",
+&"type": "dialogue"
+},
+"36": {
+&"condition": {
+&"expression": Array[Dictionary]([{
+&"i": 3,
+&"type": &"variable",
+&"value": "is_ouroboros_joined"
+}])
+},
+&"id": "36",
+&"next_id": "37",
+&"next_id_after": "43",
+&"next_sibling_id": "41",
+&"type": "condition"
+},
+"37": {
+&"character": "{{blue_teacher}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 3,
+&"type": &"variable",
+&"value": "blue_teacher"
+}]),
+&"value_in_text": "{{blue_teacher}}"
+}]),
+&"id": "37",
+&"next_id": "38",
+&"text": "I see that {{ouroboros}} has already introduced themselves to you. Very clever beings.",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 32,
+&"type": &"variable",
+&"value": "ouroboros"
+}]),
+&"value_in_text": "{{ouroboros}}"
+}]),
+&"type": "dialogue"
+},
+"38": {
+&"character": "{{blue_teacher}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 3,
+&"type": &"variable",
+&"value": "blue_teacher"
+}]),
+&"value_in_text": "{{blue_teacher}}"
+}]),
+&"id": "38",
+&"next_id": "39",
+&"text": "Now, I will leave it to you, {{green}}. And if you need any further assistance, please ask {{cyan}} or their sibling for help.",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 50,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}, {
+&"expression": Array[Dictionary]([{
+&"i": 112,
+&"type": &"variable",
+&"value": "cyan"
+}]),
+&"value_in_text": "{{cyan}}"
+}]),
+&"type": "dialogue"
+},
+"39": {
+&"character": "{{green}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 3,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"id": "39",
+&"next_id": "40",
+&"text": "Understood, {{blue_teacher}}.",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 26,
+&"type": &"variable",
+&"value": "blue_teacher"
+}]),
+&"value_in_text": "{{blue_teacher}}"
+}]),
+&"type": "dialogue"
+},
+"4": {
+&"id": "4",
+&"next_id": "5",
+&"type": "title"
+},
+"40": {
+&"id": "40",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "move_npc",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 12,
+&"type": &"string",
+&"value": "BlueTeacher"
+}]), Array[Dictionary]([{
+&"i": 27,
+&"type": &"string",
+&"value": "BlueTeacherMark4"
+}]), Array[Dictionary]([{
+&"i": 47,
+&"type": &"string",
+&"value": "setters"
+}, {
+&"i": 56,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "43",
+&"type": "mutation"
+},
+"41": {
+&"condition": {},
+&"id": "41",
+&"next_id": "42",
+&"next_id_after": "43",
+&"type": "condition"
+},
+"42": {
+&"id": "42",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "move_npc",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 12,
+&"type": &"string",
+&"value": "BlueTeacher"
+}]), Array[Dictionary]([{
+&"i": 27,
+&"type": &"string",
+&"value": "BlueTeacherMark3"
+}]), Array[Dictionary]([{
+&"i": 47,
+&"type": &"string",
+&"value": "talk_4"
+}, {
+&"i": 55,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "43",
+&"type": "mutation"
+},
+"43": {
+&"id": "43",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
+},
+"44": {
+&"id": "44",
+&"next_id": "45",
+&"type": ""
+},
+"45": {
+&"id": "45",
+&"next_id": "46",
+&"type": "title"
+},
+"46": {
+&"id": "46",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "create_npc",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 14,
+&"type": &"string",
+&"value": "Ouroboros"
+}]), Array[Dictionary]([{
+&"i": 27,
+&"type": &"string",
+&"value": "ouroboros"
+}, {
+&"i": 38,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "47",
+&"type": "mutation"
+},
+"47": {
+&"id": "47",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "create_npc",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 14,
+&"type": &"string",
+&"value": "Ouroboros2"
+}]), Array[Dictionary]([{
+&"i": 28,
+&"type": &"string",
+&"value": "ouroboros"
+}, {
+&"i": 39,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "48",
+&"type": "mutation"
+},
+"48": {
+&"id": "48",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "create_npc",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 14,
+&"type": &"string",
+&"value": "Ouroboros3"
+}]), Array[Dictionary]([{
+&"i": 28,
+&"type": &"string",
+&"value": "ouroboros"
+}, {
+&"i": 39,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "49",
+&"type": "mutation"
+},
+"49": {
+&"id": "49",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "set_npc_at_mark",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 19,
+&"type": &"string",
+&"value": "Ouroboros"
+}]), Array[Dictionary]([{
+&"i": 32,
+&"type": &"string",
+&"value": "Ouroboros1Mark1"
+}, {
+&"i": 49,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "50",
+&"type": "mutation"
+},
+"5": {
+&"id": "5",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "turn_npc_to_player",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 22,
+&"type": &"string",
+&"value": "Cyan"
+}, {
+&"i": 28,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "6",
+&"type": "mutation"
+},
+"50": {
+&"id": "50",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "set_npc_at_mark",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 19,
+&"type": &"string",
+&"value": "Ouroboros2"
+}]), Array[Dictionary]([{
+&"i": 33,
+&"type": &"string",
+&"value": "Ouroboros2Mark1"
+}, {
+&"i": 50,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "51",
+&"type": "mutation"
+},
+"51": {
+&"id": "51",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "set_npc_at_mark",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 19,
+&"type": &"string",
+&"value": "Ouroboros3"
+}]), Array[Dictionary]([{
+&"i": 33,
+&"type": &"string",
+&"value": "Ouroboros3Mark1"
+}, {
+&"i": 50,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "52",
+&"type": "mutation"
+},
+"52": {
+&"id": "52",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "add_async",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 13,
+&"type": &"array",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 14,
+&"type": &"array",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 15,
+&"type": &"variable",
+&"value": "make_move_npc"
+}]), Array[Dictionary]([{
+&"i": 30,
+&"type": &"array",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 31,
+&"type": &"string",
+&"value": "Ouroboros"
+}]), Array[Dictionary]([{
+&"i": 44,
+&"type": &"string",
+&"value": "Ouroboros1Mark2"
+}, {
+&"i": 61,
+&"type": &"bracket_close"
+}])])
+}, {
+&"i": 62,
+&"type": &"bracket_close"
+}])])
+}]), Array[Dictionary]([{
+&"i": 65,
+&"type": &"array",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 66,
+&"type": &"variable",
+&"value": "make_set"
+}]), Array[Dictionary]([{
+&"i": 76,
+&"type": &"array",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 77,
+&"type": &"variable",
+&"value": "set_npc_anim"
+}]), Array[Dictionary]([{
+&"i": 91,
+&"type": &"array",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 92,
+&"type": &"string",
+&"value": "Ouroboros"
+}]), Array[Dictionary]([{
+&"i": 105,
+&"type": &"string",
+&"value": "left"
+}]), Array[Dictionary]([{
+&"i": 113,
+&"type": &"variable",
+&"value": "true"
+}, {
+&"i": 117,
+&"type": &"bracket_close"
+}])])
+}, {
+&"i": 118,
+&"type": &"bracket_close"
+}])])
+}, {
+&"i": 119,
+&"type": &"bracket_close"
+}])])
+}, {
+&"i": 120,
+&"type": &"bracket_close"
+}])])
+}, {
+&"i": 121,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "53",
+&"type": "mutation"
+},
+"53": {
+&"id": "53",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "add_async",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 13,
+&"type": &"array",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 14,
+&"type": &"array",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 15,
+&"type": &"variable",
+&"value": "make_move_npc"
+}]), Array[Dictionary]([{
+&"i": 30,
+&"type": &"array",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 31,
+&"type": &"string",
+&"value": "Ouroboros2"
+}]), Array[Dictionary]([{
+&"i": 45,
+&"type": &"string",
+&"value": "Ouroboros2Mark2"
+}, {
+&"i": 62,
+&"type": &"bracket_close"
+}])])
+}, {
+&"i": 63,
+&"type": &"bracket_close"
+}])])
+}]), Array[Dictionary]([{
+&"i": 66,
+&"type": &"array",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 67,
+&"type": &"variable",
+&"value": "make_set"
+}]), Array[Dictionary]([{
+&"i": 77,
+&"type": &"array",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 78,
+&"type": &"variable",
+&"value": "set_npc_anim"
+}]), Array[Dictionary]([{
+&"i": 92,
+&"type": &"array",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 93,
+&"type": &"string",
+&"value": "Ouroboros2"
+}]), Array[Dictionary]([{
+&"i": 107,
+&"type": &"string",
+&"value": "circling"
+}]), Array[Dictionary]([{
+&"i": 119,
+&"type": &"variable",
+&"value": "true"
+}, {
+&"i": 123,
+&"type": &"bracket_close"
+}])])
+}, {
+&"i": 124,
+&"type": &"bracket_close"
+}])])
+}, {
+&"i": 125,
+&"type": &"bracket_close"
+}])])
+}, {
+&"i": 126,
+&"type": &"bracket_close"
+}])])
+}, {
+&"i": 127,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "54",
+&"type": "mutation"
+},
+"54": {
+&"id": "54",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "add_async",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 13,
+&"type": &"array",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 14,
+&"type": &"array",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 15,
+&"type": &"variable",
+&"value": "make_move_npc"
+}]), Array[Dictionary]([{
+&"i": 30,
+&"type": &"array",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 31,
+&"type": &"string",
+&"value": "Ouroboros3"
+}]), Array[Dictionary]([{
+&"i": 45,
+&"type": &"string",
+&"value": "Ouroboros3Mark2"
+}, {
+&"i": 62,
+&"type": &"bracket_close"
+}])])
+}, {
+&"i": 63,
+&"type": &"bracket_close"
+}])])
+}]), Array[Dictionary]([{
+&"i": 66,
+&"type": &"array",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 67,
+&"type": &"variable",
+&"value": "make_set"
+}]), Array[Dictionary]([{
+&"i": 77,
+&"type": &"array",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 78,
+&"type": &"variable",
+&"value": "set_npc_anim"
+}]), Array[Dictionary]([{
+&"i": 92,
+&"type": &"array",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 93,
+&"type": &"string",
+&"value": "Ouroboros3"
+}]), Array[Dictionary]([{
+&"i": 107,
+&"type": &"string",
+&"value": "down"
+}]), Array[Dictionary]([{
+&"i": 115,
+&"type": &"variable",
+&"value": "true"
+}, {
+&"i": 119,
+&"type": &"bracket_close"
+}])])
+}, {
+&"i": 120,
+&"type": &"bracket_close"
+}])])
+}, {
+&"i": 121,
+&"type": &"bracket_close"
+}])])
+}, {
+&"i": 122,
+&"type": &"bracket_close"
+}])])
+}, {
+&"i": 123,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "55",
+&"type": "mutation"
+},
+"55": {
+&"id": "55",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "play_async",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 14,
+&"type": &"string",
+&"value": "talk_5"
+}, {
+&"i": 22,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "56",
+&"type": "mutation"
+},
+"56": {
+&"id": "56",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
+},
+"57": {
+&"id": "57",
+&"next_id": "58",
+&"type": ""
+},
+"58": {
+&"id": "58",
+&"next_id": "59",
+&"type": "title"
+},
+"59": {
+&"character": "{{blue_teacher}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "blue_teacher"
+}]),
+&"value_in_text": "{{blue_teacher}}"
+}]),
+&"id": "59",
+&"next_id": "60",
+&"text": "These are magical creatures called {{ouroboros}}.",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 55,
+&"type": &"variable",
+&"value": "ouroboros"
+}]),
+&"value_in_text": "{{ouroboros}}"
+}]),
+&"type": "dialogue"
+},
+"6": {
+&"character": "{{cyan}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "cyan"
+}]),
+&"value_in_text": "{{cyan}}"
+}]),
+&"id": "6",
+&"next_id": "7",
+&"text": "{{green}}, I'm sorry for having to trouble you like this.",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 12,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"type": "dialogue"
+},
+"60": {
+&"character": "{{blue_teacher}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "blue_teacher"
+}]),
+&"value_in_text": "{{blue_teacher}}"
+}]),
+&"id": "60",
+&"next_id": "61",
+&"text": "Peculiar creatures they are. But what we do know is their loyalty to visitors.",
+&"type": "dialogue"
+},
+"61": {
+&"id": "61",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "move_player",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 15,
+&"type": &"string",
+&"value": "MentorMark2"
+}]), Array[Dictionary]([{
+&"i": 30,
+&"type": &"string",
+&"value": "talk_6"
+}, {
+&"i": 38,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "62",
+&"type": "mutation"
+},
+"62": {
+&"id": "62",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
+},
+"63": {
+&"id": "63",
+&"next_id": "64",
+&"type": ""
+},
+"64": {
+&"id": "64",
+&"next_id": "65",
+&"type": "title"
+},
+"65": {
+&"character": "{{green}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"id": "65",
+&"next_id": "66",
+&"tags": PackedStringArray("expression=cheerful"),
+&"text": "They're so lively!",
+&"type": "dialogue"
+},
+"66": {
+&"id": "66",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "add_async",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 13,
+&"type": &"array",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 14,
+&"type": &"array",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 15,
+&"type": &"variable",
+&"value": "make_move_npc"
+}]), Array[Dictionary]([{
+&"i": 30,
+&"type": &"array",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 31,
+&"type": &"string",
+&"value": "Ouroboros"
+}]), Array[Dictionary]([{
+&"i": 44,
+&"type": &"string",
+&"value": "Ouroboros1Mark3"
+}, {
+&"i": 61,
+&"type": &"bracket_close"
+}])])
+}, {
+&"i": 62,
+&"type": &"bracket_close"
+}])])
+}]), Array[Dictionary]([{
+&"i": 65,
+&"type": &"array",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 66,
+&"type": &"variable",
+&"value": "make_animate_npc"
+}]), Array[Dictionary]([{
+&"i": 84,
+&"type": &"array",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 85,
+&"type": &"string",
+&"value": "Ouroboros"
+}]), Array[Dictionary]([{
+&"i": 98,
+&"type": &"string",
+&"value": "down"
+}, {
+&"i": 104,
+&"type": &"bracket_close"
+}])])
+}, {
+&"i": 105,
+&"type": &"bracket_close"
+}])])
+}]), Array[Dictionary]([{
+&"i": 108,
+&"type": &"array",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 109,
+&"type": &"variable",
+&"value": "make_move_npc"
+}]), Array[Dictionary]([{
+&"i": 124,
+&"type": &"array",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 125,
+&"type": &"string",
+&"value": "Ouroboros"
+}]), Array[Dictionary]([{
+&"i": 138,
+&"type": &"string",
+&"value": "Ouroboros1Mark4"
+}, {
+&"i": 155,
+&"type": &"bracket_close"
+}])])
+}, {
+&"i": 156,
+&"type": &"bracket_close"
+}])])
+}, {
+&"i": 157,
+&"type": &"bracket_close"
+}])])
+}, {
+&"i": 158,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "67",
+&"type": "mutation"
+},
+"67": {
+&"id": "67",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "add_async",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 13,
+&"type": &"array",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 14,
+&"type": &"array",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 15,
+&"type": &"variable",
+&"value": "make_move_npc"
+}]), Array[Dictionary]([{
+&"i": 30,
+&"type": &"array",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 31,
+&"type": &"string",
+&"value": "Ouroboros2"
+}]), Array[Dictionary]([{
+&"i": 45,
+&"type": &"string",
+&"value": "Ouroboros2Mark3"
+}, {
+&"i": 62,
+&"type": &"bracket_close"
+}])])
+}, {
+&"i": 63,
+&"type": &"bracket_close"
+}])])
+}]), Array[Dictionary]([{
+&"i": 66,
+&"type": &"array",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 67,
+&"type": &"variable",
+&"value": "make_animate_npc"
+}]), Array[Dictionary]([{
+&"i": 85,
+&"type": &"array",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 86,
+&"type": &"string",
+&"value": "Ouroboros2"
+}]), Array[Dictionary]([{
+&"i": 100,
+&"type": &"string",
+&"value": "down"
+}, {
+&"i": 106,
+&"type": &"bracket_close"
+}])])
+}, {
+&"i": 107,
+&"type": &"bracket_close"
+}])])
+}]), Array[Dictionary]([{
+&"i": 110,
+&"type": &"array",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 111,
+&"type": &"variable",
+&"value": "make_move_npc"
+}]), Array[Dictionary]([{
+&"i": 126,
+&"type": &"array",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 127,
+&"type": &"string",
+&"value": "Ouroboros2"
+}]), Array[Dictionary]([{
+&"i": 141,
+&"type": &"string",
+&"value": "Ouroboros2Mark4"
+}, {
+&"i": 158,
+&"type": &"bracket_close"
+}])])
+}, {
+&"i": 159,
+&"type": &"bracket_close"
+}])])
+}, {
+&"i": 160,
+&"type": &"bracket_close"
+}])])
+}, {
+&"i": 161,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "68",
+&"type": "mutation"
+},
+"68": {
+&"id": "68",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "add_async",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 13,
+&"type": &"array",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 14,
+&"type": &"array",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 15,
+&"type": &"variable",
+&"value": "make_move_npc"
+}]), Array[Dictionary]([{
+&"i": 30,
+&"type": &"array",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 31,
+&"type": &"string",
+&"value": "Ouroboros3"
+}]), Array[Dictionary]([{
+&"i": 45,
+&"type": &"string",
+&"value": "Ouroboros3Mark3"
+}, {
+&"i": 62,
+&"type": &"bracket_close"
+}])])
+}, {
+&"i": 63,
+&"type": &"bracket_close"
+}])])
+}]), Array[Dictionary]([{
+&"i": 66,
+&"type": &"array",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 67,
+&"type": &"variable",
+&"value": "make_animate_npc"
+}]), Array[Dictionary]([{
+&"i": 85,
+&"type": &"array",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 86,
+&"type": &"string",
+&"value": "Ouroboros3"
+}]), Array[Dictionary]([{
+&"i": 100,
+&"type": &"string",
+&"value": "right"
+}, {
+&"i": 107,
+&"type": &"bracket_close"
+}])])
+}, {
+&"i": 108,
+&"type": &"bracket_close"
+}])])
+}]), Array[Dictionary]([{
+&"i": 111,
+&"type": &"array",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 112,
+&"type": &"variable",
+&"value": "make_move_npc"
+}]), Array[Dictionary]([{
+&"i": 127,
+&"type": &"array",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 128,
+&"type": &"string",
+&"value": "Ouroboros3"
+}]), Array[Dictionary]([{
+&"i": 142,
+&"type": &"string",
+&"value": "Ouroboros3Mark4"
+}, {
+&"i": 159,
+&"type": &"bracket_close"
+}])])
+}, {
+&"i": 160,
+&"type": &"bracket_close"
+}])])
+}, {
+&"i": 161,
+&"type": &"bracket_close"
+}])])
+}, {
+&"i": 162,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "69",
+&"type": "mutation"
+},
+"69": {
+&"id": "69",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "play_async",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 14,
+&"type": &"string",
+&"value": "talk_7"
+}, {
+&"i": 22,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "70",
+&"type": "mutation"
+},
+"7": {
+&"character": "{{green}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"id": "7",
+&"next_id": "8",
+&"tags": PackedStringArray("expression=cheerful"),
+&"text": "No it's fine! Are you maybe {{cyan}}?",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 42,
+&"type": &"variable",
+&"value": "cyan"
+}]),
+&"value_in_text": "{{cyan}}"
+}]),
+&"type": "dialogue"
+},
+"70": {
+&"id": "70",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
+},
+"71": {
+&"id": "71",
+&"next_id": "72",
+&"type": ""
+},
+"72": {
+&"id": "72",
+&"next_id": "73",
+&"type": "title"
+},
+"73": {
+&"id": "73",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "remove_npc",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 14,
+&"type": &"string",
+&"value": "Ouroboros2"
+}, {
+&"i": 26,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "74",
+&"type": "mutation"
+},
+"74": {
+&"id": "74",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "remove_npc",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 14,
+&"type": &"string",
+&"value": "Ouroboros3"
+}, {
+&"i": 26,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "75",
+&"type": "mutation"
+},
+"75": {
+&"id": "75",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "turn_player_to_npc",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 22,
+&"type": &"string",
+&"value": "Ouroboros"
+}, {
+&"i": 33,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "76",
+&"type": "mutation"
+},
+"76": {
+&"id": "76",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "turn_npc_to_player",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 22,
+&"type": &"string",
+&"value": "BlueTeacher"
+}, {
+&"i": 35,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "77",
+&"type": "mutation"
+},
+"77": {
+&"character": "{{green}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"id": "77",
+&"next_id": "78",
+&"tags": PackedStringArray("expression=cheerful"),
+&"text": "Hi! My name is {{green}}. What is your name?",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 29,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"type": "dialogue"
+},
+"78": {
+&"character": "{{ouroboros}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "ouroboros"
+}]),
+&"value_in_text": "{{ouroboros}}"
+}]),
+&"id": "78",
+&"next_id": "79",
+&"tags": PackedStringArray("font=above"),
+&"text": "{{ouroboros}}.",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 18,
+&"type": &"variable",
+&"value": "ouroboros"
+}]),
+&"value_in_text": "{{ouroboros}}"
+}]),
+&"type": "dialogue"
+},
+"79": {
+&"character": "{{ouroboros}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "ouroboros"
+}]),
+&"value_in_text": "{{ouroboros}}"
+}]),
+&"id": "79",
+&"next_id": "80",
+&"tags": PackedStringArray("font=above"),
+&"text": "Nom, {{green}} is the {{observer}}. Nom will help the {{observer}}, when the {{observer}} is wandering in imaginations, always.",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 23,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}, {
+&"expression": Array[Dictionary]([{
+&"i": 40,
+&"type": &"variable",
+&"value": "observer"
+}]),
+&"value_in_text": "{{observer}}"
+}, {
+&"expression": Array[Dictionary]([{
+&"i": 72,
+&"type": &"variable",
+&"value": "observer"
+}]),
+&"value_in_text": "{{observer}}"
+}, {
+&"expression": Array[Dictionary]([{
+&"i": 95,
+&"type": &"variable",
+&"value": "observer"
+}]),
+&"value_in_text": "{{observer}}"
+}]),
+&"type": "dialogue"
+},
+"8": {
+&"character": "{{cyan}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "cyan"
+}]),
+&"value_in_text": "{{cyan}}"
+}]),
+&"id": "8",
+&"next_id": "9",
+&"text": "Oh no! I forgot that you haven't been here before!",
+&"type": "dialogue"
+},
+"80": {
+&"id": "80",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "move_npc",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 12,
+&"type": &"string",
+&"value": "Ouroboros"
+}]), Array[Dictionary]([{
+&"i": 25,
+&"type": &"string",
+&"value": "Ouroboros1Mark5"
+}]), Array[Dictionary]([{
+&"i": 44,
+&"type": &"string",
+&"value": "ouroboros_got_1"
+}, {
+&"i": 61,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "81",
+&"type": "mutation"
+},
+"81": {
+&"id": "81",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
+},
+"82": {
+&"id": "82",
+&"next_id": "83",
+&"type": ""
+},
+"83": {
+&"id": "83",
+&"next_id": "84",
+&"type": "title"
+},
+"84": {
+&"id": "84",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "remove_npc",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 14,
+&"type": &"string",
+&"value": "Ouroboros"
+}, {
+&"i": 25,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "85",
+&"type": "mutation"
+},
+"85": {
+&"id": "85",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "set_above_player_float",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 26,
+&"type": &"string",
+&"value": "ouroboros"
+}, {
+&"i": 37,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "86",
+&"type": "mutation"
+},
+"86": {
+&"id": "86",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "animate_player",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 18,
+&"type": &"string",
+&"value": "admire_above"
+}]), Array[Dictionary]([{
+&"i": 34,
+&"type": &"string",
+&"value": "ouroboros_got_2"
+}, {
+&"i": 51,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "87",
+&"type": "mutation"
+},
+"87": {
+&"id": "87",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
+},
+"88": {
+&"id": "88",
+&"next_id": "89",
+&"type": ""
+},
+"89": {
+&"id": "89",
+&"next_id": "90",
+&"type": "title"
+},
+"9": {
+&"id": "9",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "animate_npc",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 15,
+&"type": &"string",
+&"value": "Cyan"
+}]), Array[Dictionary]([{
+&"i": 23,
+&"type": &"string",
+&"value": "left"
+}]), Array[Dictionary]([{
+&"i": 31,
+&"type": &"string",
+&"value": "talk_2"
+}, {
+&"i": 39,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "10",
+&"type": "mutation"
+},
+"90": {
+&"id": "90",
+&"next_id": "91",
+&"text": "[color=yellow]{{ouroboros}} will now follow {{green}} in the {{imaginary}}![/color]",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 18,
+&"type": &"variable",
+&"value": "ouroboros"
+}]),
+&"value_in_text": "{{ouroboros}}"
+}, {
+&"expression": Array[Dictionary]([{
+&"i": 48,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}, {
+&"expression": Array[Dictionary]([{
+&"i": 65,
+&"type": &"variable",
+&"value": "imaginary"
+}]),
+&"value_in_text": "{{imaginary}}"
+}]),
+&"type": "dialogue"
+},
+"91": {
+&"id": "91",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "add_item",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 12,
+&"type": &"string",
+&"value": "ouroboros"
+}, {
+&"i": 23,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "92",
+&"type": "mutation"
+},
+"92": {
+&"id": "92",
+&"next_id": "93",
+&"text": "{{ouroboros}} can be checked on the same way as other items, with the [color=yellow]X key and then left/right keys.[/color]",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 4,
+&"type": &"variable",
+&"value": "ouroboros"
+}]),
+&"value_in_text": "{{ouroboros}}"
+}]),
+&"type": "dialogue"
+},
+"93": {
+&"character": "{{blue_teacher}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "blue_teacher"
+}]),
+&"value_in_text": "{{blue_teacher}}"
+}]),
+&"id": "93",
+&"next_id": "94",
+&"text": "The {{observer}}? I need to look into what that means.",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 24,
+&"type": &"variable",
+&"value": "observer"
+}]),
+&"value_in_text": "{{observer}}"
+}]),
+&"type": "dialogue"
+},
+"94": {
+&"character": "{{green}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"id": "94",
+&"next_id": "95",
+&"tags": PackedStringArray("expression=cheerful"),
+&"text": "Heehee, this one is making me dizzy!",
+&"type": "dialogue"
+},
+"95": {
+&"character": "{{blue_teacher}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "blue_teacher"
+}]),
+&"value_in_text": "{{blue_teacher}}"
+}]),
+&"id": "95",
+&"next_id": "96",
+&"text": "Now, I will leave it to you, {{green}}. And if you need any further assistance, please ask {{cyan}} or their sibling for help.",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 49,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}, {
+&"expression": Array[Dictionary]([{
+&"i": 111,
+&"type": &"variable",
+&"value": "cyan"
+}]),
+&"value_in_text": "{{cyan}}"
+}]),
+&"type": "dialogue"
+},
+"96": {
+&"character": "{{green}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"id": "96",
+&"next_id": "97",
+&"text": "Understood, {{blue_teacher}}.",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 25,
+&"type": &"variable",
+&"value": "blue_teacher"
+}]),
+&"value_in_text": "{{blue_teacher}}"
+}]),
+&"type": "dialogue"
+},
+"97": {
+&"id": "97",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "move_npc",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 12,
+&"type": &"string",
+&"value": "BlueTeacher"
+}]), Array[Dictionary]([{
+&"i": 27,
+&"type": &"string",
+&"value": "BlueTeacherMark4"
+}]), Array[Dictionary]([{
+&"i": 47,
+&"type": &"string",
+&"value": "setters"
+}, {
+&"i": 56,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "98",
+&"type": "mutation"
+},
+"98": {
+&"id": "98",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
+},
+"99": {
+&"id": "99",
+&"next_id": "100",
+&"type": ""
+}
+}
+raw_text = "~ cue
+do move(\"talk_1\")
+=> END!
+
+~ talk_1
+do turn_npc_to_player(\"Cyan\")
+{{cyan}}: {{green}}, I'm sorry for having to trouble you like this.
+{{green}}: [#expression=cheerful] No it's fine! Are you maybe {{cyan}}?
+{{cyan}}: Oh no! I forgot that you haven't been here before!
+do animate_npc(\"Cyan\", \"left\", \"talk_2\")
+=> END!
+
+~ talk_2
+do turn_npc_to_player(\"Cyan\")
+{{cyan}}: Anyways, welcome to {{imaginary}}.
+{{cyan}}: While it is still a subject of study, the {{imaginary}} appears to be a separate world, a place below the familliar {{real}}.
+{{cyan}}: What that means is... the person you see here now, me, doesn't really exist.
+{{green}}: That's so interesting! But what about from your perspective?
+{{cyan}}: From mine? Oh, I don't know...
+{{cyan}}: Sorry, I haven't heard this question before so I'm unsure how to respond.
+{{cyan}}: Well that's complicated. My body here feels real, because it only exists in this world. But I also exist in the {{real}}, that is how I can contact students, after all.
+{{green}}: [#expression=cheerful] That is so interesting!
+do create_npc(\"BlueTeacher\")
+do set_npc_at_mark(\"BlueTeacher\", \"BlueTeacherMark1\")
+do move_npc(\"BlueTeacher\", \"BlueTeacherMark2\", \"talk_3\")
+=> END!
+
+~ talk_3
+do turn_npc_to_npc(\"Cyan\", \"BlueTeacher\")
+do turn_player_to_npc(\"BlueTeacher\")
+{{blue_teacher}}: {{cyan}}, any new on the problem at hand?
+{{cyan}}: No, {{blue_teacher}}. No new signs of the missing student.
+{{blue_teacher}}: [#expression=sorry] I regret to ask this of you, {{green}}, but I would like your aid in searching for {{blue}}.
+{{blue_teacher}}: The {{imaginary}} is vast and deep. I would greatly appreciate help from a trustworthy student like you.
+{{green}}: It is my please to be of help, and  my duty as a mentor to find {{blue}}!
+{{blue_teacher}}: [#expression=cheerful] Excellent.
+if is_ouroboros_joined
+	{{blue_teacher}}: I see that {{ouroboros}} has already introduced themselves to you. Very clever beings.
+	{{blue_teacher}}: Now, I will leave it to you, {{green}}. And if you need any further assistance, please ask {{cyan}} or their sibling for help.
+	{{green}}: Understood, {{blue_teacher}}.
+	do move_npc(\"BlueTeacher\", \"BlueTeacherMark4\", \"setters\")
+else
+	do move_npc(\"BlueTeacher\", \"BlueTeacherMark3\", \"talk_4\")
+=> END!
+
+~ talk_4
+do create_npc(\"Ouroboros\", \"ouroboros\")
+do create_npc(\"Ouroboros2\", \"ouroboros\")
+do create_npc(\"Ouroboros3\", \"ouroboros\")
+do set_npc_at_mark(\"Ouroboros\", \"Ouroboros1Mark1\")
+do set_npc_at_mark(\"Ouroboros2\", \"Ouroboros2Mark1\")
+do set_npc_at_mark(\"Ouroboros3\", \"Ouroboros3Mark1\")
+do add_async([[make_move_npc, [\"Ouroboros\", \"Ouroboros1Mark2\"]], [make_set, [set_npc_anim, [\"Ouroboros\", \"left\", true]]]])
+do add_async([[make_move_npc, [\"Ouroboros2\", \"Ouroboros2Mark2\"]], [make_set, [set_npc_anim, [\"Ouroboros2\", \"circling\", true]]]])
+do add_async([[make_move_npc, [\"Ouroboros3\", \"Ouroboros3Mark2\"]], [make_set, [set_npc_anim, [\"Ouroboros3\", \"down\", true]]]])
+do play_async(\"talk_5\")
+=> END!
+
+~ talk_5
+{{blue_teacher}}: These are magical creatures called {{ouroboros}}.
+{{blue_teacher}}: Peculiar creatures they are. But what we do know is their loyalty to visitors.
+do move_player(\"MentorMark2\", \"talk_6\")
+=> END!
+
+~ talk_6
+{{green}}: [#expression=cheerful] They're so lively!
+do add_async([[make_move_npc, [\"Ouroboros\", \"Ouroboros1Mark3\"]], [make_animate_npc, [\"Ouroboros\", \"down\"]], [make_move_npc, [\"Ouroboros\", \"Ouroboros1Mark4\"]]])
+do add_async([[make_move_npc, [\"Ouroboros2\", \"Ouroboros2Mark3\"]], [make_animate_npc, [\"Ouroboros2\", \"down\"]], [make_move_npc, [\"Ouroboros2\", \"Ouroboros2Mark4\"]]])
+do add_async([[make_move_npc, [\"Ouroboros3\", \"Ouroboros3Mark3\"]], [make_animate_npc, [\"Ouroboros3\", \"right\"]], [make_move_npc, [\"Ouroboros3\", \"Ouroboros3Mark4\"]]])
+do play_async(\"talk_7\")
+=> END!
+
+~ talk_7
+do remove_npc(\"Ouroboros2\")
+do remove_npc(\"Ouroboros3\")
+do turn_player_to_npc(\"Ouroboros\")
+do turn_npc_to_player(\"BlueTeacher\")
+{{green}}: [#expression=cheerful] Hi! My name is {{green}}. What is your name?
+{{ouroboros}}: [#font=above] {{ouroboros}}.
+{{ouroboros}}: [#font=above] Nom, {{green}} is the {{observer}}. Nom will help the {{observer}}, when the {{observer}} is wandering in imaginations, always.
+do move_npc(\"Ouroboros\", \"Ouroboros1Mark5\", \"ouroboros_got_1\")
+=> END!
+
+~ ouroboros_got_1
+do remove_npc(\"Ouroboros\")
+do set_above_player_float(\"ouroboros\")
+do animate_player(\"admire_above\", \"ouroboros_got_2\")
+=> END!
+
+~ ouroboros_got_2
+[color=yellow]{{ouroboros}} will now follow {{green}} in the {{imaginary}}![/color]
+do add_item(\"ouroboros\")
+{{ouroboros}} can be checked on the same way as other items, with the [color=yellow]X key and then left/right keys.[/color]
+{{blue_teacher}}: The {{observer}}? I need to look into what that means.
+{{green}}: [#expression=cheerful] Heehee, this one is making me dizzy!
+{{blue_teacher}}: Now, I will leave it to you, {{green}}. And if you need any further assistance, please ask {{cyan}} or their sibling for help.
+{{green}}: Understood, {{blue_teacher}}.
+do move_npc(\"BlueTeacher\", \"BlueTeacherMark4\", \"setters\")
+=> END!
+
+~ setters
+do remove_npc(\"BlueTeacher\")
+do create_npc(\"Orange\")
+do set_npc_at_mark(\"Orange\", \"OrangeMark1\")
+do set_npc_dialogue_id(\"Orange\", \"talk_orange\")
+do set_npc_dialogue_node(\"Orange\", \"talk\")
+do set_npc_dialogue_node(\"Cyan\", \"talk_after_ouroboros_obtained\")
+=> END!
+
+~ talk_after_ouroboros_obtained
+do turn_npc_to_player(\"Cyan\")
+{{cyan}}: I know {{blue_teacher}} said I could help, but unfortunately I do not really know how...
+{{cyan}}: Maybe you could try find my sibling {{orange}}? They should be on the upper side of this space.
+=> END!
+
+~ reveal
+do change_rooms(\"sacred_outdoor\", \"CyanSpawn\")
+=> END!
+"
+metadata/dialogue_manager_version = "3.4.0"

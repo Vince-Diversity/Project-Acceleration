@@ -1,0 +1,513 @@
+[gd_resource type="Resource" script_class="DialogueResource" format=3]
+
+[ext_resource type="Script" uid="uid://dbs4435dsf3ry" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_unrfx"]
+
+[resource]
+script = ExtResource("1_unrfx")
+using_states = PackedStringArray()
+titles = {
+"collapse": "31",
+"final": "16",
+"move": "1",
+"reveal": "22",
+"revealed": "27",
+"talk": "5"
+}
+character_names = PackedStringArray("{{teardrop_blue}}", "{{green}}", "{{ouroboros}}")
+first_title = "0"
+lines = {
+"0": {
+&"id": "0",
+&"next_id": "1",
+&"type": "title"
+},
+"1": {
+&"id": "1",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "move",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 8,
+&"type": &"string",
+&"value": "talk"
+}, {
+&"i": 14,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "2",
+&"type": "mutation"
+},
+"10": {
+&"character": "{{ouroboros}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "ouroboros"
+}]),
+&"value_in_text": "{{ouroboros}}"
+}]),
+&"id": "10",
+&"next_id": "11",
+&"tags": PackedStringArray("font=above"),
+&"text": "Nom, the {{observer}} has not seen the real {{blue}}. Only {{reflection}}.",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 27,
+&"type": &"variable",
+&"value": "observer"
+}]),
+&"value_in_text": "{{observer}}"
+}, {
+&"expression": Array[Dictionary]([{
+&"i": 62,
+&"type": &"variable",
+&"value": "blue"
+}]),
+&"value_in_text": "{{blue}}"
+}, {
+&"expression": Array[Dictionary]([{
+&"i": 77,
+&"type": &"variable",
+&"value": "reflection"
+}]),
+&"value_in_text": "{{reflection}}"
+}]),
+&"type": "dialogue"
+},
+"11": {
+&"character": "{{green}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"id": "11",
+&"next_id": "12",
+&"tags": PackedStringArray("expression=sorry"),
+&"text": "(...)",
+&"type": "dialogue"
+},
+"12": {
+&"id": "12",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "set_npc_dialogue_node",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 25,
+&"type": &"string",
+&"value": "MeditatingBlue"
+}]), Array[Dictionary]([{
+&"i": 43,
+&"type": &"string",
+&"value": "final"
+}, {
+&"i": 50,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "13",
+&"type": "mutation"
+},
+"13": {
+&"id": "13",
+&"is_snippet": false,
+&"next_id": "16",
+&"next_id_after": "",
+&"type": "goto"
+},
+"14": {
+&"id": "14",
+&"next_id": "15",
+&"type": ""
+},
+"15": {
+&"id": "15",
+&"next_id": "16",
+&"type": "title"
+},
+"16": {
+&"character": "{{teardrop_blue}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "teardrop_blue"
+}]),
+&"value_in_text": "{{teardrop_blue}}"
+}]),
+&"id": "16",
+&"next_id": "17",
+&"text": "Do not rip. Do not tear. Inside is where it should go...",
+&"type": "dialogue"
+},
+"17": {
+&"character": "{{ouroboros}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "ouroboros"
+}]),
+&"value_in_text": "{{ouroboros}}"
+}]),
+&"id": "17",
+&"next_id": "18",
+&"tags": PackedStringArray("font=above"),
+&"text": "When the {{observer}} reveals a {{reflection}}, [color=yellow] the {{observer}}'s {{real}} space will collapse. [/color]",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 27,
+&"type": &"variable",
+&"value": "observer"
+}]),
+&"value_in_text": "{{observer}}"
+}, {
+&"expression": Array[Dictionary]([{
+&"i": 50,
+&"type": &"variable",
+&"value": "reflection"
+}]),
+&"value_in_text": "{{reflection}}"
+}, {
+&"expression": Array[Dictionary]([{
+&"i": 85,
+&"type": &"variable",
+&"value": "observer"
+}]),
+&"value_in_text": "{{observer}}"
+}, {
+&"expression": Array[Dictionary]([{
+&"i": 100,
+&"type": &"variable",
+&"value": "real"
+}]),
+&"value_in_text": "{{real}}"
+}]),
+&"type": "dialogue"
+},
+"18": {
+&"character": "{{green}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"id": "18",
+&"next_id": "19",
+&"tags": PackedStringArray("expression=sorry"),
+&"text": "(I understand now.)",
+&"type": "dialogue"
+},
+"19": {
+&"id": "19",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
+},
+"2": {
+&"id": "2",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
+},
+"20": {
+&"id": "20",
+&"next_id": "21",
+&"type": ""
+},
+"21": {
+&"id": "21",
+&"next_id": "22",
+&"type": "title"
+},
+"22": {
+&"id": "22",
+&"next_id": "23",
+&"text": "(Once I use the {{revealer}}, there is no turning back. Should I do it now?)",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 20,
+&"type": &"variable",
+&"value": "revealer"
+}]),
+&"value_in_text": "{{revealer}}"
+}]),
+&"type": "dialogue"
+},
+"23": {
+&"id": "23",
+&"next_id": "27",
+&"responses": PackedStringArray("23", "24"),
+&"text": "(Yes.)",
+&"type": "response"
+},
+"24": {
+&"id": "24",
+&"next_id": "end!",
+&"text": "(Hold on a bit longer.)",
+&"type": "response"
+},
+"25": {
+&"id": "25",
+&"next_id": "26",
+&"type": ""
+},
+"26": {
+&"id": "26",
+&"next_id": "27",
+&"type": "title"
+},
+"27": {
+&"id": "27",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "fade_away",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 13,
+&"type": &"number",
+&"value": 1
+}]), Array[Dictionary]([{
+&"i": 16,
+&"type": &"string",
+&"value": "collapse"
+}, {
+&"i": 26,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "28",
+&"type": "mutation"
+},
+"28": {
+&"id": "28",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
+},
+"29": {
+&"id": "29",
+&"next_id": "30",
+&"type": ""
+},
+"3": {
+&"id": "3",
+&"next_id": "4",
+&"type": ""
+},
+"30": {
+&"id": "30",
+&"next_id": "31",
+&"type": "title"
+},
+"31": {
+&"id": "31",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "change_rooms",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 16,
+&"type": &"string",
+&"value": "cirruseng"
+}]), Array[Dictionary]([{
+&"i": 29,
+&"type": &"string",
+&"value": "Spawn"
+}, {
+&"i": 36,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "32",
+&"type": "mutation"
+},
+"32": {
+&"id": "32",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
+},
+"33": {
+&"id": "33",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
+},
+"4": {
+&"id": "4",
+&"next_id": "5",
+&"type": "title"
+},
+"5": {
+&"character": "{{teardrop_blue}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "teardrop_blue"
+}]),
+&"value_in_text": "{{teardrop_blue}}"
+}]),
+&"id": "5",
+&"next_id": "6",
+&"text": "Do not rip. Do not tear. Inside is where it should go...",
+&"type": "dialogue"
+},
+"6": {
+&"character": "{{green}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"id": "6",
+&"next_id": "7",
+&"tags": PackedStringArray("expression=sorry"),
+&"text": "No, don't think like that. This isn't meditation {{blue}}.",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 63,
+&"type": &"variable",
+&"value": "blue"
+}]),
+&"value_in_text": "{{blue}}"
+}]),
+&"type": "dialogue"
+},
+"7": {
+&"character": "{{ouroboros}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "ouroboros"
+}]),
+&"value_in_text": "{{ouroboros}}"
+}]),
+&"id": "7",
+&"next_id": "8",
+&"tags": PackedStringArray("font=above"),
+&"text": "Nom, {{observer}} does not see the real {{blue}}.",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 23,
+&"type": &"variable",
+&"value": "observer"
+}]),
+&"value_in_text": "{{observer}}"
+}, {
+&"expression": Array[Dictionary]([{
+&"i": 58,
+&"type": &"variable",
+&"value": "blue"
+}]),
+&"value_in_text": "{{blue}}"
+}]),
+&"type": "dialogue"
+},
+"8": {
+&"character": "{{green}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"id": "8",
+&"next_id": "9",
+&"tags": PackedStringArray("expression=scared"),
+&"text": "So this is an illusion too?",
+&"type": "dialogue"
+},
+"9": {
+&"character": "{{green}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"id": "9",
+&"next_id": "10",
+&"tags": PackedStringArray("expression=sorry"),
+&"text": "Does that mean this is how we imagine {{blue}} to be like?",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 52,
+&"type": &"variable",
+&"value": "blue"
+}]),
+&"value_in_text": "{{blue}}"
+}]),
+&"type": "dialogue"
+}
+}
+raw_text = "~ move
+do move(\"talk\")
+=> END!
+
+~ talk
+{{teardrop_blue}}: Do not rip. Do not tear. Inside is where it should go...
+{{green}}: [#expression=sorry] No, don't think like that. This isn't meditation {{blue}}.
+{{ouroboros}}: [#font=above] Nom, {{observer}} does not see the real {{blue}}.
+{{green}}: [#expression=scared] So this is an illusion too?
+{{green}}: [#expression=sorry] Does that mean this is how we imagine {{blue}} to be like?
+{{ouroboros}}: [#font=above] Nom, the {{observer}} has not seen the real {{blue}}. Only {{reflection}}.
+{{green}}: [#expression=sorry] (...)
+do set_npc_dialogue_node(\"MeditatingBlue\", \"final\")
+=> final
+
+~ final
+{{teardrop_blue}}: Do not rip. Do not tear. Inside is where it should go...
+{{ouroboros}}: [#font=above] When the {{observer}} reveals a {{reflection}}, [color=yellow] the {{observer}}'s {{real}} space will collapse. [/color]
+{{green}}: [#expression=sorry] (I understand now.)
+=> END!
+
+~ reveal
+(Once I use the {{revealer}}, there is no turning back. Should I do it now?)
+- (Yes.) => revealed
+- (Hold on a bit longer.) => END!
+
+~ revealed
+do fade_away(1, \"collapse\")
+=> END!
+
+~ collapse
+do change_rooms(\"cirruseng\", \"Spawn\")
+=> END!"
+metadata/dialogue_manager_version = "3.10.1"

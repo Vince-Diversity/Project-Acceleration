@@ -1,0 +1,119 @@
+[gd_resource type="Resource" script_class="DialogueResource" format=3]
+
+[ext_resource type="Script" uid="uid://dbs4435dsf3ry" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_plbxx"]
+
+[resource]
+script = ExtResource("1_plbxx")
+using_states = PackedStringArray()
+titles = {
+"remnant_cyan": "1",
+"remnant_orange": "5"
+}
+character_names = PackedStringArray("{{green}}")
+first_title = "0"
+lines = {
+"0": {
+&"id": "0",
+&"next_id": "1",
+&"type": "title"
+},
+"1": {
+&"character": "{{green}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"id": "1",
+&"next_id": "2",
+&"text": "(This is what I saw when I revealed {{cyan}} or {{orange}}. The remains of that memory is still here somehow.)",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 49,
+&"type": &"variable",
+&"value": "cyan"
+}]),
+&"value_in_text": "{{cyan}}"
+}, {
+&"expression": Array[Dictionary]([{
+&"i": 61,
+&"type": &"variable",
+&"value": "orange"
+}]),
+&"value_in_text": "{{orange}}"
+}]),
+&"type": "dialogue"
+},
+"2": {
+&"id": "2",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
+},
+"3": {
+&"id": "3",
+&"next_id": "4",
+&"type": ""
+},
+"4": {
+&"id": "4",
+&"next_id": "5",
+&"type": "title"
+},
+"5": {
+&"character": "{{green}}",
+&"character_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 2,
+&"type": &"variable",
+&"value": "green"
+}]),
+&"value_in_text": "{{green}}"
+}]),
+&"id": "5",
+&"next_id": "6",
+&"text": "(This is what I saw when I revealed {{cyan}} or {{orange}}. The remains of that memory is still here somehow.)",
+&"text_replacements": Array[Dictionary]([{
+&"expression": Array[Dictionary]([{
+&"i": 49,
+&"type": &"variable",
+&"value": "cyan"
+}]),
+&"value_in_text": "{{cyan}}"
+}, {
+&"expression": Array[Dictionary]([{
+&"i": 61,
+&"type": &"variable",
+&"value": "orange"
+}]),
+&"value_in_text": "{{orange}}"
+}]),
+&"type": "dialogue"
+},
+"6": {
+&"id": "6",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
+},
+"7": {
+&"id": "7",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
+}
+}
+raw_text = "~ remnant_cyan
+{{green}}: (This is what I saw when I revealed {{cyan}} or {{orange}}. The remains of that memory is still here somehow.)
+=> END!
+
+~ remnant_orange
+{{green}}: (This is what I saw when I revealed {{cyan}} or {{orange}}. The remains of that memory is still here somehow.)
+=> END!"
+metadata/dialogue_manager_version = "3.10.1"
