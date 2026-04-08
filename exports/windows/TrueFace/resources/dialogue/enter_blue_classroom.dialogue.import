@@ -1,6 +1,7 @@
 [remap]
 
-importer="dialogue_manager_compiler_14"
+importer="dialogue_manager"
+importer_version=15
 type="Resource"
 uid="uid://dtrm3d7nwxngc"
 path="res://.godot/imported/enter_blue_classroom.dialogue-9faf728c9dd7783e8bf239cf2af6f7f6.tres"
