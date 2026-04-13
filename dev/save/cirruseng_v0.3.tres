@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="SaveGame" format=3]
+[gd_resource type="Resource" script_class="SaveGame" format=3 uid="uid://b00dj2tf1gogt"]
 
-[ext_resource type="Script" path="res://loader/save_game.gd" id="1_oc726"]
+[ext_resource type="Script" uid="uid://yrx16fo7cbqi" path="res://loader/save_game.gd" id="1_oc726"]
 
 [resource]
 script = ExtResource("1_oc726")
@@ -11,7 +11,7 @@ data = {
 "is_mentoring": false
 },
 "game": {
-"current_room_id": "cirruseng",
+"current_room_id": "sea_space",
 "entrance_event": {
 "blue_classroom": {
 "dialogue_id": "enter_blue_classroom",
@@ -84,7 +84,7 @@ data = {
 "is_oneshot": false
 }
 },
-"entrance_node": "Spawn"
+"entrance_node": "SacredStatue"
 },
 "items": {
 "floating_item": "ouroboros",
@@ -105,7 +105,7 @@ data = {
 "items_state_id": "items_exhibit_state"
 }
 },
-"item_list": ["revealer", "ice_skates"]
+"item_list": ["revealer", "ouroboros", "ice_skates"]
 },
 "party": [],
 "player": {
@@ -180,10 +180,10 @@ data = {
 "blue_space": {
 "npcs": {
 &"Cyan": {
-"current_anim": &"right",
+"current_anim": &"up",
 "dialogue_id": "talk_cyan",
 "dialogue_node": "talk_after_ouroboros_obtained",
-"direction": Vector2(0.9971763, -0.07509584),
+"direction": Vector2(0.5686002, -0.8226141),
 "filename": "cyan",
 "idling_room": "",
 "interaction_node": "OuroborosCutscene",
@@ -192,13 +192,13 @@ data = {
 "z_index": 0
 },
 &"Orange": {
-"current_anim": &"left",
+"current_anim": &"down",
 "dialogue_id": "talk_orange",
-"dialogue_node": "query_2",
-"direction": Vector2(-0.99918586, -0.04034346),
+"dialogue_node": "talk",
+"direction": Vector2(0, 1),
 "filename": "orange",
 "idling_room": "blue_space",
-"interaction_node": "Default2",
+"interaction_node": "",
 "position": Vector2(2565, -1241),
 "was_joined": false,
 "z_index": 0
@@ -242,34 +242,7 @@ data = {
 "current_state": "thing_interactable_state",
 "dialogue_id": "blue_stairs_door",
 "dialogue_node": "default",
-"interaction_node": ""
-}
-}
-},
-"cirruseng": {
-"npcs": {
-&"Blue": {
-"current_anim": &"default",
-"dialogue_id": "talk_blue",
-"dialogue_node": "talk",
-"direction": Vector2(0, 1),
-"filename": "blue",
-"idling_room": "",
-"interaction_node": "",
-"position": Vector2(1, 146),
-"was_joined": false,
-"z_index": 0
-}
-},
-"party": {},
-"things": {
-&"Spawn": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "default_door",
-"dialogue_node": "default",
-"interaction_node": ""
+"interaction_node": "Default0"
 }
 }
 },
@@ -282,7 +255,7 @@ data = {
 "direction": Vector2(0, -1),
 "filename": "amber",
 "idling_room": "",
-"interaction_node": "Default4",
+"interaction_node": "",
 "position": Vector2(204.94696, 269.30103),
 "was_joined": false,
 "z_index": 0
@@ -506,330 +479,6 @@ data = {
 }
 }
 },
-"knowledge_hallway": {
-"npcs": {
-&"Blue": {
-"current_anim": &"right",
-"dialogue_id": "",
-"dialogue_node": "",
-"direction": Vector2(0.9758345, 0.21851097),
-"filename": "blue",
-"idling_room": "",
-"interaction_node": "",
-"position": Vector2(785.57074, 432.1039),
-"was_joined": false,
-"z_index": 0
-}
-},
-"party": {},
-"things": {
-&"PassageDown": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "default_door",
-"dialogue_node": "default",
-"interaction_node": ""
-},
-&"PassageRight": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "default_door",
-"dialogue_node": "default",
-"interaction_node": ""
-},
-&"PassageUp": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "default_door",
-"dialogue_node": "default",
-"interaction_node": ""
-}
-}
-},
-"library_1f": {
-"npcs": {
-&"Blue": {
-"current_anim": &"down",
-"dialogue_id": "",
-"dialogue_node": "",
-"direction": Vector2(0.30326378, 0.95290667),
-"filename": "blue",
-"idling_room": "",
-"interaction_node": "",
-"position": Vector2(560.77374, 454.29745),
-"was_joined": false,
-"z_index": 0
-}
-},
-"party": {},
-"things": {
-&"BlueAspect": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "book_blue",
-"dialogue_node": "check",
-"interaction_node": ""
-},
-&"GreenAspect": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "book_green",
-"dialogue_node": "check",
-"interaction_node": ""
-},
-&"PassageDown": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "default_door",
-"dialogue_node": "default",
-"interaction_node": ""
-},
-&"PassageUp": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "default_door",
-"dialogue_node": "default",
-"interaction_node": ""
-},
-&"PassageUp2": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "default_door",
-"dialogue_node": "default",
-"interaction_node": ""
-},
-&"RedAspect": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "book_red",
-"dialogue_node": "check",
-"interaction_node": ""
-},
-&"YellowAspect": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "book_yellow",
-"dialogue_node": "check",
-"interaction_node": ""
-}
-}
-},
-"library_2f": {
-"npcs": {
-&"Blue": {
-"current_anim": &"down",
-"dialogue_id": "",
-"dialogue_node": "",
-"direction": Vector2(0.21076967, 0.9775357),
-"filename": "blue",
-"idling_room": "",
-"interaction_node": "",
-"position": Vector2(174.04005, 518.0015),
-"was_joined": false,
-"z_index": 0
-}
-},
-"party": {},
-"things": {
-&"BookcaseAO": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "book_generic",
-"dialogue_node": "AO",
-"interaction_node": ""
-},
-&"BookcaseAT": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "book_generic",
-"dialogue_node": "AT",
-"interaction_node": ""
-},
-&"BookcaseBM": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "book_generic",
-"dialogue_node": "BM",
-"interaction_node": ""
-},
-&"BookcaseBP": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "book_generic",
-"dialogue_node": "BP",
-"interaction_node": ""
-},
-&"BookcaseCF": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "book_generic",
-"dialogue_node": "CF",
-"interaction_node": ""
-},
-&"BookcaseDA": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "book_generic",
-"dialogue_node": "DA",
-"interaction_node": ""
-},
-&"BookcaseEB": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "book_generic",
-"dialogue_node": "EB",
-"interaction_node": ""
-},
-&"BookcaseFiction": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "book_fiction",
-"dialogue_node": "check",
-"interaction_node": ""
-},
-&"BookcaseHM": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "book_generic",
-"dialogue_node": "HM",
-"interaction_node": ""
-},
-&"BookcaseMH": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "book_generic",
-"dialogue_node": "MH",
-"interaction_node": ""
-},
-&"BookcaseMM": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "book_generic",
-"dialogue_node": "MM",
-"interaction_node": ""
-},
-&"BookcaseSD": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "book_generic",
-"dialogue_node": "SD",
-"interaction_node": ""
-},
-&"BookcaseTM": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "book_generic",
-"dialogue_node": "TM",
-"interaction_node": ""
-},
-&"BookcaseWP": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "book_generic",
-"dialogue_node": "WP",
-"interaction_node": ""
-},
-&"PassageDown": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "default_door",
-"dialogue_node": "default",
-"interaction_node": ""
-},
-&"PassageDown2": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "default_door",
-"dialogue_node": "default",
-"interaction_node": ""
-},
-&"PassageUp": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "default_door",
-"dialogue_node": "default",
-"interaction_node": ""
-},
-&"PassageUp2": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "default_door",
-"dialogue_node": "default",
-"interaction_node": ""
-}
-}
-},
-"library_3f": {
-"npcs": {
-&"Blue": {
-"current_anim": &"down",
-"dialogue_id": "",
-"dialogue_node": "",
-"direction": Vector2(-0.0009332545, 0.99999964),
-"filename": "blue",
-"idling_room": "",
-"interaction_node": "",
-"position": Vector2(255.73643, 516.1817),
-"was_joined": false,
-"z_index": 0
-}
-},
-"party": {},
-"things": {
-&"BookcaseImaginarySpace": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "book_imaginary_space",
-"dialogue_node": "cue",
-"interaction_node": "ImaginarySpace"
-},
-&"PassageDown": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "default_door",
-"dialogue_node": "default",
-"interaction_node": ""
-},
-&"PassageDown2": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "default_door",
-"dialogue_node": "default",
-"interaction_node": ""
-}
-}
-},
 "main_classroom": {
 "npcs": {},
 "party": {},
@@ -850,11 +499,11 @@ data = {
 "current_anim": &"up",
 "dialogue_id": "",
 "dialogue_node": "",
-"direction": Vector2(0.08360503, -0.9964989),
+"direction": Vector2(0, -1),
 "filename": "blue",
 "idling_room": "",
 "interaction_node": "",
-"position": Vector2(-3.6234436, -284.13712),
+"position": Vector2(0, -285.5),
 "was_joined": false,
 "z_index": 0
 }
@@ -905,7 +554,7 @@ data = {
 "filename": "blue",
 "idling_room": "",
 "interaction_node": "",
-"position": Vector2(0, -981.5),
+"position": Vector2(0, -986.5),
 "was_joined": false,
 "z_index": 0
 }
@@ -1025,8 +674,8 @@ data = {
 "direction": Vector2(0, 1),
 "filename": "sacred",
 "idling_room": "sacred_indoor",
-"interaction_node": "Default2",
-"position": Vector2(256.18982, 224.54672),
+"interaction_node": "Default1",
+"position": Vector2(256.4097, 225.19934),
 "was_joined": false,
 "z_index": 0
 }
@@ -1054,14 +703,14 @@ data = {
 "sacred_outdoor": {
 "npcs": {
 &"Sacred": {
-"current_anim": &"left",
+"current_anim": &"up",
 "dialogue_id": "talk_sacred",
 "dialogue_node": "talk",
-"direction": Vector2(-0.88125384, -0.47264332),
+"direction": Vector2(-0.65046865, -0.7595331),
 "filename": "sacred",
 "idling_room": "",
-"interaction_node": "Default1",
-"position": Vector2(675.73505, 333.87802),
+"interaction_node": "Default2",
+"position": Vector2(670.11896, 348.50818),
 "was_joined": false,
 "z_index": 0
 }
@@ -1073,7 +722,7 @@ data = {
 "current_frame": 0,
 "current_state": "thing_interactable_state",
 "dialogue_id": "floppy_disk_sacred",
-"dialogue_node": "remnant_orange",
+"dialogue_node": "remnant_cyan",
 "interaction_node": ""
 },
 &"LeftDoorUp": {
@@ -1089,8 +738,8 @@ data = {
 "current_frame": 0,
 "current_state": "thing_interactable_state",
 "dialogue_id": "floppy_disk_sacred",
-"dialogue_node": "remnant_cyan",
-"interaction_node": "Default1"
+"dialogue_node": "remnant_orange",
+"interaction_node": ""
 },
 &"RightDoorUp": {
 "current_anim": &"default",
@@ -1111,7 +760,7 @@ data = {
 "current_frame": 0,
 "current_state": "thing_interactable_state",
 "dialogue_id": "talk_ant",
-"dialogue_node": "ant_searching",
+"dialogue_node": "ant_inform",
 "interaction_node": "AntDriftingCutscene"
 },
 &"Anchor2": {
@@ -1119,7 +768,7 @@ data = {
 "current_frame": 0,
 "current_state": "thing_interactable_state",
 "dialogue_id": "talk_ant",
-"dialogue_node": "ant_searching",
+"dialogue_node": "ant_inform",
 "interaction_node": "AntDriftingCutscene"
 },
 &"Anchor3": {
@@ -1127,7 +776,7 @@ data = {
 "current_frame": 0,
 "current_state": "thing_interactable_state",
 "dialogue_id": "talk_ant",
-"dialogue_node": "ant_searching",
+"dialogue_node": "ant_inform",
 "interaction_node": "AntDriftingCutscene"
 },
 &"Anchor4": {
@@ -1135,7 +784,7 @@ data = {
 "current_frame": 0,
 "current_state": "thing_interactable_state",
 "dialogue_id": "talk_ant",
-"dialogue_node": "ant_searching",
+"dialogue_node": "ant_inform",
 "interaction_node": "AntDriftingCutscene"
 },
 &"Anchor5": {
@@ -1143,7 +792,7 @@ data = {
 "current_frame": 0,
 "current_state": "thing_interactable_state",
 "dialogue_id": "talk_ant",
-"dialogue_node": "ant_searching",
+"dialogue_node": "ant_inform",
 "interaction_node": "AntDriftingCutscene"
 },
 &"Anchor6": {
@@ -1151,7 +800,7 @@ data = {
 "current_frame": 0,
 "current_state": "thing_interactable_state",
 "dialogue_id": "talk_ant",
-"dialogue_node": "ant_searching",
+"dialogue_node": "ant_inform",
 "interaction_node": "AntDriftingCutscene"
 },
 &"Anchor7": {
@@ -1159,7 +808,7 @@ data = {
 "current_frame": 0,
 "current_state": "thing_interactable_state",
 "dialogue_id": "talk_ant",
-"dialogue_node": "ant_searching",
+"dialogue_node": "ant_inform",
 "interaction_node": "AntDriftingCutscene"
 },
 &"IceAnt": {
@@ -1167,7 +816,7 @@ data = {
 "current_frame": 0,
 "current_state": "thing_interactable_state",
 "dialogue_id": "talk_ant",
-"dialogue_node": "ant_ice_request",
+"dialogue_node": "ant_ice_complete",
 "interaction_node": "AntDriftingCutscene"
 },
 &"IceSkates": {
@@ -1185,41 +834,6 @@ data = {
 "dialogue_id": "sacred_statue",
 "dialogue_node": "default",
 "interaction_node": "Default1"
-}
-}
-},
-"teardrop_space": {
-"npcs": {
-&"MeditatingBlue": {
-"current_anim": &"default",
-"dialogue_id": "talk_meditating_blue",
-"dialogue_node": "move",
-"direction": Vector2(0, 1),
-"filename": "meditating_blue",
-"idling_room": "",
-"interaction_node": "DialogueCutscene",
-"position": Vector2(1, -153),
-"was_joined": false,
-"z_index": 0
-}
-},
-"party": {},
-"things": {
-&"Center": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "default_door",
-"dialogue_node": "default",
-"interaction_node": ""
-},
-&"ice_green": {
-"current_anim": &"default",
-"current_frame": 0,
-"current_state": "thing_interactable_state",
-"dialogue_id": "ice_shards_teardrop_space",
-"dialogue_node": "default",
-"interaction_node": ""
 }
 }
 }

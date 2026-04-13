@@ -1,6 +1,7 @@
 [remap]
 
-importer="dialogue_manager_compiler_14"
+importer="dialogue_manager"
+importer_version=15
 type="Resource"
 uid="uid://d18bdgl50phxm"
 path="res://.godot/imported/talk_orange.dialogue-7ce3ecce8dc2172ec2e15b1ba119e4af.tres"

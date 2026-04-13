@@ -1,6 +1,7 @@
 [remap]
 
-importer="dialogue_manager_compiler_14"
+importer="dialogue_manager"
+importer_version=15
 type="Resource"
 uid="uid://0w843acd241"
 path="res://.godot/imported/staff_stairs.dialogue-64eebe906d13264166342dcccfe24389.tres"

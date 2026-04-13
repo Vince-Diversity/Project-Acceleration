@@ -1,6 +1,7 @@
 [remap]
 
-importer="dialogue_manager_compiler_14"
+importer="dialogue_manager"
+importer_version=15
 type="Resource"
 uid="uid://bliooy17np5ut"
 path="res://.godot/imported/blue_stairs_door.dialogue-5005533f66892e1217438d02f926b867.tres"

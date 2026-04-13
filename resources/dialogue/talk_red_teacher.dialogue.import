@@ -1,6 +1,7 @@
 [remap]
 
-importer="dialogue_manager_compiler_14"
+importer="dialogue_manager"
+importer_version=15
 type="Resource"
 uid="uid://gr8x5prgqe4d"
 path="res://.godot/imported/talk_red_teacher.dialogue-4b762163adc91400ff86c80f770121bc.tres"

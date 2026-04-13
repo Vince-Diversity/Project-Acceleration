@@ -1,6 +1,7 @@
 [remap]
 
-importer="dialogue_manager_compiler_14"
+importer="dialogue_manager"
+importer_version=15
 type="Resource"
 uid="uid://ce20vjatn4ixb"
 path="res://.godot/imported/check_ground.dialogue-994ed661af9e268d88f36945d14b5380.tres"

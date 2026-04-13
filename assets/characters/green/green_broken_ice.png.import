@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbcto5k6rljn7"
-path="res://.godot/imported/cyan_ai.png-096c99e2e31376deea9e8ad4efde25b5.ctex"
+uid="uid://bu8uq6wkdngru"
+path="res://.godot/imported/green_broken_ice.png-264ccbc59d22886279d82126f4053698.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/profiles/cyan_ai/cyan_ai.png"
-dest_files=["res://.godot/imported/cyan_ai.png-096c99e2e31376deea9e8ad4efde25b5.ctex"]
+source_file="res://assets/characters/green/green_broken_ice.png"
+dest_files=["res://.godot/imported/green_broken_ice.png-264ccbc59d22886279d82126f4053698.ctex"]
 
 [params]
 

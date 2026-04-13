@@ -5,7 +5,7 @@ class_name Loader extends Node
 
 
 ## Path to directory with save data.
-var save_dir: String = game_save_dir
+var save_dir: String = dev_mode_save_dir
 
 ## Directory with the save file.
 const game_save_dir := "user://save/"

@@ -1,6 +1,7 @@
 [remap]
 
-importer="dialogue_manager_compiler_14"
+importer="dialogue_manager"
+importer_version=15
 type="Resource"
 uid="uid://fd54pqu51yvm"
 path="res://.godot/imported/enter_recreation_hallway.dialogue-04708e8e39a874c1aefcc404ef628b3a.tres"

@@ -1,6 +1,7 @@
 [remap]
 
-importer="dialogue_manager_compiler_14"
+importer="dialogue_manager"
+importer_version=15
 type="Resource"
 uid="uid://dax5xopo61020"
 path="res://.godot/imported/book_uncertainty.dialogue-cf6be0b809f898ee1985b9f88ef96f99.tres"
