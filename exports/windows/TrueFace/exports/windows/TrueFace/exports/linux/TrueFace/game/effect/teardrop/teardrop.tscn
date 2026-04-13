@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://brsn5kjum7i22"]
+
+[ext_resource type="SpriteFrames" uid="uid://6j3wi5gwadg8" path="res://resources/vfx/teardrop.tres" id="1_l62lu"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+sprite_frames = ExtResource("1_l62lu")

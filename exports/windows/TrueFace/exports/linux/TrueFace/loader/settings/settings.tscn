@@ -31,9 +31,9 @@ layout_mode = 2
 
 [node name="BGMButton" type="Button" parent="Margin/MenuContainer/BGM" unique_id=81666914]
 layout_mode = 2
-disabled = true
 text = "No settings"
 
 [node name="CheckButton" parent="Margin/MenuContainer/BGM" unique_id=558366530 instance=ExtResource("2_d7jjc")]
 layout_mode = 2
+disabled = true
 button_pressed = true

@@ -1,0 +1,30 @@
+~ area_1
+(1)
+do darken_down(0.3, "area_1_end")
+=> END
+
+~ area_1_end
+(The clouds are fading. I must keep going.)
+=> END!
+
+~ area_2
+(2)
+do darken_down(0.5, "area_2_end")
+=> END
+
+~ area_2_end
+(I'm not feeling well. But it's the only way I can help {{blue}}!)
+=> END!
+
+~ area_3
+(3)
+do darken_down(1.0, "area_3_end")
+=> END
+
+~ area_3_end
+(I am now the {{observer}} of this world. I see {{blue}} with the other classmates.)
+(I see myself, but that person is my {{reflection}}? Because I am here, just observing.)
+(Sometimes, I wonder if {{blue}} knows that the "me" they see isn't real.)
+(Sometimes, I wonder if {{blue}} knows that the real me is watching here from {{deepest_layer}}.)
+do end()
+=> END!

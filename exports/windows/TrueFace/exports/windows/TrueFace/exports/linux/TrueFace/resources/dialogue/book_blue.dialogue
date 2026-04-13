@@ -1,0 +1,24 @@
+~ check
+if is_mentoring
+	{{green}}: "{{blue_aspect}} Magic".
+else
+	{{green}}: ("{{blue_aspect}} Magic".)
+- Read => open_book
+- Leave => END!
+
+~ open_book
+do set_thing_anim("BlueAspect", bookcase_taken_anim)
+do animate_player(read_anim, "read")
+=> END!
+
+~ read
+do set_player_anim(reading_anim)
+if is_mentoring
+	{{green}}: "All other magical elements affect reality in some way. But the {{blue_aspect}} magic appears to go beyond that reality."
+	{{green}}: "Practitioners are able to vanish, becoming invicible and undetectable."
+else
+	{{green}}: (All other magical elements affect reality in some way. But the {{blue_aspect}} magic appears to go beyond that reality.)
+	{{green}}: (Practitioners are able to vanish, becoming invicible and undetectable.)
+do set_thing_anim("BlueAspect", bookcase_anim)
+do set_player_anim("down")
+=> END!

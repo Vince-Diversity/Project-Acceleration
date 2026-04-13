@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://2c3l3d1m0cwu"]
+[gd_resource type="TileSet" format=3 uid="uid://2c3l3d1m0cwu"]
 
 [ext_resource type="Texture2D" uid="uid://x7l0r7gbgyn2" path="res://assets/tiles/tilesets/sea_space.png" id="1_s6v2t"]
 

@@ -1,0 +1,65 @@
+~ talk
+do turn_npc_to_player("Orange")
+{{orange}}: {{green}}, I already know what you want.
+{{green}}: Huh?
+=> about
+
+~ about
+{{orange}}: My name is {{orange}}! I am an AI, materialised by the {{imaginary}}, isn't that strange, for you?
+{{orange}}: After {{cyan}} was reinforced as a science demo, poor {{cyan}} started feeling a bit alienated. Must be very lonely being the first self-conscions AI in this world.
+{{orange}}: So then {{cyan}} got a sibling, me!
+{{green}}: [#expression=cheerful] How nice of the scientists!
+{{orange}}: You don't need to respond. You prefer an incomplete AI like {{cyan}} because you like to have a proper conversation, isn't that so?
+{{orange}}: Not my problem. Go ahead, speak.
+{{green}}: [#expression=sorry] (...)
+- Can you help me find {{blue}}? => progress_1
+- Wait a bit. => wait_1
+=> progress_1
+
+~ progress_1
+{{green}}: I'm looking for {{blue}}.
+{{orange}}: You already have what you need to find {{blue}} on your own!
+{{orange}}: Here's a hint: {{yellow}} was going to become the hero who would save {{blue_teacher}} face and find {{blue}}.
+{{orange}}: I told {{yellow}} how to create the device. A device that can [color=yellow]reveal illusions[/color].
+{{orange}}: But because I am a complete AI, I knew {{yellow}} would give it to you!
+{{orange}}: After agreement with {{cyan}}, of course. I'd never make poor {{cyan}} uncomfortable.
+{{green}}: [#expression=sorry] That is reassuring.
+{{green}}: [#expression=sorry] (I feel doubtful. Maybe they didn't know {{yellow}} had to give it to me.)
+{{orange}}: So ready to look for {{blue}}?
+- I am ready. => progress_2
+- Wait a bit. => wait_2
+=> END!
+
+~ wait_1
+do set_npc_dialogue_node("Orange", "query_1")
+=> END!
+
+~ wait_2
+do set_npc_dialogue_node("Orange", "query_2")
+=> END!
+
+~ query_1
+do turn_npc_to_player("Orange")
+{{orange}}: Hello, need help with anything?
+- Can you help me find {{blue}}? => progress_1
+- Nevermind. => END!
+
+~ query_2
+do turn_npc_to_player("Orange")
+{{orange}}: So ready to look for {{blue}}?
+- I am ready. => progress_2
+- Nevermind. => END!
+
+~ progress_2
+{{orange}}: Here's another hint: think about who you are looking at now.
+{{green}}: Hmm... I am looking at an AI materialised thanks to the properties of the {{imaginary}}. That means you are an illusion?
+{{orange}}: Very smart! As I expected of you {{green}}.
+{{orange}}: We AI are just copying people's behaviour. People think we are real. That is why we appear like real people in the {{imaginary}}.
+{{orange}}: But what would happen if someone were to break that illusion?
+{{green}}: (I think I know what - or who - I can use the [color=yellow]{{revealer}}[/color] on now.)
+do set_npc_dialogue_node("Orange", "query_2")
+=> END!
+
+~ reveal
+do change_rooms("sacred_outdoor", "OrangeSpawn")
+=> END!

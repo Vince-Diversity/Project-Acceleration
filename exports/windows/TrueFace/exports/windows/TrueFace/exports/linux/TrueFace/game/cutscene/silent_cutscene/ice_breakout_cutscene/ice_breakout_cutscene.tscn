@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://boc0k6tnxxp6u"]
+
+[ext_resource type="PackedScene" uid="uid://brcoy56hf7tyi" path="res://game/cutscene/silent_cutscene.tscn" id="1_bdkob"]
+[ext_resource type="Script" uid="uid://bglrtuw3xu4ew" path="res://game/cutscene/silent_cutscene/ice_breakout_cutscene/ice_breakout_cutscene.gd" id="2_nrcmc"]
+
+[node name="IceBreakoutCutscene" unique_id=1464099528 instance=ExtResource("1_bdkob")]
+script = ExtResource("2_nrcmc")

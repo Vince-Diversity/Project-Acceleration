@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=3 uid="uid://bq7xmnc16evkb"]
+
+[ext_resource type="PackedScene" uid="uid://xmpy30huxt0r" path="res://game/thing/table/table.tscn" id="1_8lw88"]
+[ext_resource type="SpriteFrames" uid="uid://fydx3poviwwo" path="res://resources/things/table/dining_table.tres" id="2_41mju"]
+[ext_resource type="PackedScene" uid="uid://dtkkkrcbtqu58" path="res://game/cutscene/character_mark.tscn" id="4_df3e6"]
+[ext_resource type="SpriteFrames" uid="uid://blegvkqeyblkv" path="res://resources/things/chair/dining_chair.tres" id="4_tomgs"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gsgfg"]
+radius = 8.00002
+height = 36.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f2vjr"]
+size = Vector2(31, 83)
+
+[node name="SideChairBoardGameTable" instance=ExtResource("1_8lw88")]
+rest_animation = "sit_down"
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = ExtResource("2_41mju")
+animation = &"board_game"
+
+[node name="CollisionShape2D" parent="InteractArea" index="0"]
+position = Vector2(0, -53)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_gsgfg")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="CollisionShape2D" parent="." index="2"]
+shape = SubResource("RectangleShape2D_f2vjr")
+
+[node name="TopLeft" type="AnimatedSprite2D" parent="Chairs" index="0"]
+position = Vector2(-27, -20)
+sprite_frames = ExtResource("4_tomgs")
+animation = &"left"
+flip_h = true
+
+[node name="BottomLeft" type="AnimatedSprite2D" parent="Chairs" index="1"]
+position = Vector2(-29, 10)
+sprite_frames = ExtResource("4_tomgs")
+animation = &"left"
+flip_h = true
+
+[node name="TopRight" type="AnimatedSprite2D" parent="Chairs" index="2"]
+position = Vector2(28, -19)
+sprite_frames = ExtResource("4_tomgs")
+animation = &"left"
+
+[node name="BottomRight" type="AnimatedSprite2D" parent="Chairs" index="3"]
+position = Vector2(32, 11)
+sprite_frames = ExtResource("4_tomgs")
+animation = &"left"
+
+[node name="Top1" type="AnimatedSprite2D" parent="Chairs" index="4"]
+position = Vector2(-16, -57)
+sprite_frames = ExtResource("4_tomgs")
+
+[node name="Top2" type="AnimatedSprite2D" parent="Chairs" index="5"]
+position = Vector2(14, -57)
+sprite_frames = ExtResource("4_tomgs")
+
+[node name="MentorRestMark" parent="." index="4" instance=ExtResource("4_df3e6")]
+position = Vector2(15, -54)
+
+[node name="StudentRestMark" parent="." index="5" instance=ExtResource("4_df3e6")]
+position = Vector2(-15, -54)
+
+[node name="MentorStandUpMark" parent="." index="6" instance=ExtResource("4_df3e6")]
+position = Vector2(45, -54)

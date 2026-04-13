@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://d4gc2tdmt5l1a"]
+
+[ext_resource type="PackedScene" uid="uid://xmpy30huxt0r" path="res://game/thing/table/table.tscn" id="1_tinxf"]
+[ext_resource type="SpriteFrames" uid="uid://mu0hfrorvh46" path="res://resources/things/chair/default_chair.tres" id="2_y472r"]
+[ext_resource type="PackedScene" uid="uid://dtkkkrcbtqu58" path="res://game/cutscene/character_mark.tscn" id="3_7wcum"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yytk3"]
+radius = 8.0
+
+[node name="UpChairOfficeTable" instance=ExtResource("1_tinxf")]
+rest_animation = "sit_up"
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+animation = &"office"
+
+[node name="CollisionShape2D" parent="InteractArea" index="0"]
+position = Vector2(0, 17)
+shape = SubResource("CircleShape2D_yytk3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Chairs" index="0"]
+position = Vector2(0, 20)
+sprite_frames = ExtResource("2_y472r")
+animation = &"up"
+
+[node name="MentorRestMark" parent="." index="4" instance=ExtResource("3_7wcum")]
+position = Vector2(0, 17)
+target_direction_id = 2
+
+[node name="MentorStandUpMark" parent="." index="5" instance=ExtResource("3_7wcum")]
+position = Vector2(-26, 17)
+target_direction_id = 1

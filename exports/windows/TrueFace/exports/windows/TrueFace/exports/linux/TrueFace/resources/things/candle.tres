@@ -1,0 +1,63 @@
+[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://bwn37qdkcu33m"]
+
+[ext_resource type="Texture2D" uid="uid://dl2gq3piwt51i" path="res://assets/things/candle.png" id="1_co87t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kfrlj"]
+atlas = ExtResource("1_co87t")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gruhi"]
+atlas = ExtResource("1_co87t")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvyfs"]
+atlas = ExtResource("1_co87t")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1sqom"]
+atlas = ExtResource("1_co87t")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nddpb"]
+atlas = ExtResource("1_co87t")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgxrg"]
+atlas = ExtResource("1_co87t")
+region = Rect2(512, 0, 128, 128)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kfrlj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gruhi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yvyfs")
+}],
+"loop": true,
+"name": &"burning",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1sqom")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nddpb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rgxrg")
+}],
+"loop": false,
+"name": &"flaring",
+"speed": 5.0
+}]

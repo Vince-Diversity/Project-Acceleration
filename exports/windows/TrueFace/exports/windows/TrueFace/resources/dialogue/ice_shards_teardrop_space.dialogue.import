@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://ctca4mn1nyyep"
+path="res://.godot/imported/ice_shards_teardrop_space.dialogue-1a102a1954882da69aab1a711fe8b88b.tres"
+
+[deps]
+
+source_file="res://resources/dialogue/ice_shards_teardrop_space.dialogue"
+dest_files=["res://.godot/imported/ice_shards_teardrop_space.dialogue-1a102a1954882da69aab1a711fe8b88b.tres"]
+
+[params]
+
+defaults=true

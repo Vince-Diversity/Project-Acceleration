@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccl6rjjgbo55i"]
+
+[ext_resource type="PackedScene" uid="uid://dqktwnq312s04" path="res://game/thing/door/door.tscn" id="1_bmqqg"]
+[ext_resource type="SpriteFrames" uid="uid://dkiew61a5uh47" path="res://resources/tilesets/hall_template/passage_down.tres" id="2_00l7w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_87f0b"]
+size = Vector2(32, 32)
+
+[node name="DormDoor" instance=ExtResource("1_bmqqg")]
+interaction_node = "DormDoorCutscene"
+dialogue_id = "dorn_door"
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = ExtResource("2_00l7w")
+
+[node name="CollisionShape2D" parent="InteractArea" index="0"]
+position = Vector2(0, 16)
+shape = SubResource("RectangleShape2D_87f0b")

@@ -1,0 +1,11 @@
+~ default
+{{green}}: (Dorm {{door_number}}.)
+=> END!
+
+
+~ green_dorm_door
+if is_joined("Blue")
+	{{green}}: (Dorm {{door_number}}. That's my dorm!)
+else
+	do change_rooms("green_dorm", "DormDoor")
+=> END!
