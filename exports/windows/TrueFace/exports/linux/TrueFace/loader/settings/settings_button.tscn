@@ -1,5 +1,0 @@
-[gd_scene format=3 uid="uid://b8t183k7x8rgj"]
-
-[node name="Settings" type="Button"]
-text = "Settings
-"

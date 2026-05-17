@@ -15,7 +15,7 @@ do set_npc_dialogue_node("MeditatingBlue", "final")
 
 ~ final
 {{teardrop_blue}}: Do not rip. Do not tear. Inside is where it should go...
-{{ouroboros}}: [#font=above] When the {{observer}} reveals a {{reflection}}, [color=yellow] the {{observer}}'s {{real}} space will collapse. [/color]
+{{ouroboros}}: [#font=above] When the {{observer}} reveals a {{reflection}}, [color=yellow] the {{observer}}'s home world will collapse. [/color]
 {{green}}: [#expression=sorry] (I understand now.)
 => END!
 

@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://bmtg2p5crpfak"]
-
-[ext_resource type="Material" uid="uid://c6hm8dketebd8" path="res://resources/vfx/wavy_shader.tres" id="1_12kpj"]
-[ext_resource type="Texture2D" uid="uid://cry1hwagav20c" path="res://assets/vfx/clouds.png" id="2_omkc0"]
-
-[node name="Clouds" type="Sprite2D" unique_id=1087269103]
-material = ExtResource("1_12kpj")
-texture = ExtResource("2_omkc0")

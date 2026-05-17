@@ -1,8 +1,0 @@
-~ entered
-do reset_lighting("ouroboros_still")
-=> END!
-
-~ ouroboros_still
-do set_floating_item_anim("complete")
-do remove_player_item("ouroboros")
-=> END!
